@@ -7,14 +7,11 @@ The GDC DNA-Seq analysis pipeline identifies somatic variants within whole exome
 The first pipeline starts with a reference alignment step followed by co-cleaning to increase the alignment quality. Four different variant calling pipelines are then implemented separately to identify somatic mutations. Somatic-caller-identified variants are then annotated. An aggregation pipeline incorporates variants from all cases in one project into a MAF file for each pipeline.
 
 
-DNA-Seq analysis is implemented across six main procedures:
+DNA-Seq analysis is implemented across three main procedures:
 
 - Genome Alignment
-- Alignment Co-Cleaning
 - Somatic Variant Calling
 - Variant Annotation
-- Mutation Aggregation
-- Aggregated Mutation Masking
 
 ## Data Processing Steps
 
@@ -115,15 +112,19 @@ VALIDATION_STRINGENCY=STRICT
 
 ### Co-cleaning Workflow
 
+
+
 The alignment quality is further improved by the [Co-cleaning workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_cocleaning_workflow). Co-cleaning is performed as a separate pipeline as it uses multiple BAM files (i.e. the tumor BAM and normal tissue BAM) associated with the same patient. Both steps of this process are implemented using [GATK](https://software.broadinstitute.org/gatk/).  
 
 #### Indel Local Realignment
+
+__Note: Indel Local Realignment was not performed on alignments that were made available through the GDC Portal in Data Release 13 and later (27 September, 2018)__
 
 Local realignment of insertions and deletions is performed using [IndelRealigner](https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_indels_IndelRealigner.php). This step locates regions that contain misalignments across BAM files, which can often be caused by insertion-deletion (indel) mutations with respect to the reference genome. Misalignment of indel mutations, which can often be erroneously scored as substitutions, reduces the accuracy of downstream variant calling steps.
 
 #### Base Quality Score Recalibration
 
-A base quality score recalibration (BQSR) step is then performed using  [BaseRecalibrator](https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_bqsr_BaseRecalibrator.php). This step adjusts base quality scores based on detectable and systematic errors. This step also increases the accuracy of downstream variant calling algorithms. Note that the original quality scores are kept in the OQ field of co-cleaned BAM files. These scores should be used if conversion of BAM files to FASTQ format is desired.
+A base quality score recalibration (BQSR) step is performed using  [BaseRecalibrator](https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_bqsr_BaseRecalibrator.php). This step adjusts base quality scores based on detectable and systematic errors. This step also increases the accuracy of downstream variant calling algorithms. Note that the original quality scores are kept in the OQ field of co-cleaned BAM files. These scores should be used if conversion of BAM files to FASTQ format is desired.
 
 
 | I/O | Entity | Format |
@@ -177,7 +178,7 @@ java -jar GenomeAnalysisTK.jar \
 
 
 ### Somatic Variant Calling Workflow
-Aligned and co-cleaned BAM files are processed through the [Somatic Mutation Calling Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_mutation_calling_workflow) as tumor-normal pairs. Variant calling is performed using four separate pipelines:
+Aligned BAM files are processed through the [Somatic Mutation Calling Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=somatic_mutation_calling_workflow) as tumor-normal pairs. Variant calling is performed using four separate pipelines:
 
 - [MuSE](http://bioinformatics.mdanderson.org/main/MuSE) [[2]](http://www.biorxiv.org/content/early/2016/05/25/055467.abstract)
 - [MuTect2](https://gatkforums.broadinstitute.org/gatk/discussion/9183/how-to-call-somatic-snvs-and-indels-using-mutect2) [[3]](http://www.nature.com/nbt/journal/v31/n3/abs/nbt.2514.html)  

@@ -6,7 +6,7 @@ The GDC mRNA quantification analysis pipeline measures gene level expression in 
 ## Data Processing Steps
 
 ### RNA-Seq Alignment Workflow
-The mRNA Analysis pipeline begins with the [Alignment Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_workflow), which is performed using a two-pass method with [STAR](http://labshare.cshl.edu/shares/gingeraslab/www-data/dobin/STAR/STAR.posix/doc/STARmanual.pdf). STAR aligns each [read group](/Data_Dictionary/viewer/#?view=table-definition-view&id=read_group) separately and then merges the resulting alignments into one. Following the methods used by the International Cancer Genome Consortium [ICGC](https://icgc.org/) ([github](https://github.com/akahles/icgc_rnaseq_align)), the two-pass method includes a splice junction detection step, which is used to generate the final alignment. This workflow outputs a genomic BAM file, which contains both aligned and unaligned reads. Quality assessment is performed pre-alignment with [FASTQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) and post-alignment with [Picard Tools](http://broadinstitute.github.io/picard/).
+The mRNA Analysis pipeline begins with the [Alignment Workflow](/Data_Dictionary/viewer/#?view=table-definition-view&id=alignment_workflow), which is performed using a two-pass method with [STAR](http://labshare.cshl.edu/shares/gingeraslab/www-data/dobin/STAR/STAR.posix/doc/STARmanual.pdf). STAR aligns all [read groups](/Data_Dictionary/viewer/#?view=table-definition-view&id=read_group) of the same mate chemistry (single or paired-end) together and then merges the resulting alignments into one. Following the methods used by the International Cancer Genome Consortium [ICGC](https://icgc.org/) ([github](https://github.com/akahles/icgc_rnaseq_align)), the two-pass method includes a splice junction detection step, which is used to generate the final alignment. This workflow outputs a genomic BAM file, which contains both aligned and unaligned reads. Quality assessment is performed pre-alignment with [FASTQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) and post-alignment with [Picard Tools](http://broadinstitute.github.io/picard/).
 
 Files that were processed after Data Release 14 have associated transcriptomic and chimeric alignments in addition to the genomic alignment detailed above. This only applies to aliquots with at least one set of paired-end reads. The chimeric BAM file contains reads that were mapped to different chromosomes or strands (fusion alignments). The genomic alignment files contain chimeric and unaligned reads to facilitate the retrieval of all original reads. The transcriptomic alignment reports aligned reads with transcript coordinates rather than genomic coordinates. The transcriptomic alignment is also sorted differently to facilitate downstream analyses. BAM index file pairing is not supported by this method of sorting, which does not allow for BAM slicing on these alignments. The splice-junction file for these alignments are also available.
 
@@ -120,7 +120,7 @@ STAR
 --outSAMattrRGline <formatted RG line provided by wrapper>
 ```
 ```DR15Plus
-# STAR-2.6.0c
+# STAR-2.7.0f
 
 STAR \
 --readFilesIn <fastq_files> \
@@ -134,6 +134,7 @@ STAR \
 --chimJunctionOverhangMin 15 \
 --chimMainSegmentMultNmax 1 \
 --chimOutType Junctions SeparateSAMold WithinBAM SoftClip \
+--chimOutJunctionFormat 1 \
 --chimSegmentMin 15 \
 --genomeDir <genome_dir> \
 --genomeLoad NoSharedMemory \
@@ -198,6 +199,8 @@ htseq-count \
 -m intersection-nonempty \
 <input_bam> \
 <gtf_file> > <counts_file>
+
+Note that the bam is re-sorted by read name with samtools before HTSeq is run. The RNA-Seq BAMs that are downloadable from the GDC portal are coordinate sorted. So if those are being processed, we suggesting using the "-r pos" argument in place of "-r name".
 ```
 
 ## mRNA Expression HT-Seq Normalization
