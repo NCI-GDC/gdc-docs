@@ -498,6 +498,7 @@ a.header-text-link {
 }
 
 @media (max-width: 992px) {
+  
   .navbar-default {
     height: auto;
   }
@@ -999,6 +1000,7 @@ footer a:visited {
 /* Previous/Next Nav */
 
 .history-nav-control-container .btn {
+  position: relative;
   border: none;
 }
 
