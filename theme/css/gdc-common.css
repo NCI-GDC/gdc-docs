@@ -491,14 +491,9 @@ a.header-text-link {
 @media (min-width: 992px) {
   .bs-sidebar.affix,
   .bs-sidebar.affix-bottom {
-    width: 300px;
+    width: 23%;
+    max-width: 300px;
     margin-left: 11px;
-  }
-  .flex-container-md {
-    display: flex;
-  }
-  .toc-container {
-    flex: 0 0 340px;
   }
 }
 
@@ -1003,21 +998,8 @@ footer a:visited {
 
 /* Previous/Next Nav */
 
-.history-nav-control-container {
-  display: flex;
-  margin-top: 4rem;
-  width: 100%;
-  justify-content: space-between;
-}
-
-.history-nav-control-container .history-nav-control-btn-wrapper {
-  display: block;
-  flex-basis: 50%;
-}
-
 .history-nav-control-container .btn {
   border: none;
-  white-space: normal;
 }
 
 .history-nav-control-container .btn:focus,
@@ -1028,14 +1010,12 @@ footer a:visited {
 .history-nav-control-container .indicate-left {
   right: -8px;
   padding-left: 0px;
-  text-align: left;
   transform: translateZ(0);
 }
 
 .history-nav-control-container .indicate-right {
   left: -8px;
   padding-right: 0px;
-  text-align: right;
   transform: translateZ(0);
 }
 
