@@ -43,6 +43,12 @@ Up to three sets of the same set type can be compared and exported based on comp
 * __Overlap Table:__ Displays the number of overlapping items with set operations rather than a visual diagram. Subsets can be selected by checking boxes in the "Select" column, which will highlight the corresponding section of the Venn Diagram. As rows are selected, the "Union of selected sets" row is populated. Each row has an option to save the subset as a new set,  export the set as a TSV, or view files in the repository. The links that correspond to the number of items in each row will open the cohort in the Exploration page.  
 
 
+## Analysis Tab: Gene Expression
+Display the gene expression heatmap for sets of cases and genes of your choice.  Validate gene expression data between case set and gene set data.  Filter genes by expression level, and select genes that are highly variable.
+
+[Clinical Cohort](images/Heatmap_gene_expression.png)]
+
+
 ## Analysis Tab: Cohort Comparison
 
 The "Cohort Comparison" analysis displays a series of graphs and tables that demonstrate the similarities and differences between two case sets. The following features are displayed for each two sets:
