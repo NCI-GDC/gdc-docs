@@ -39,6 +39,7 @@ pages:
   - Getting Started: Data_Portal/Users_Guide/Getting_Started.md
   - Projects: Data_Portal/Users_Guide/Projects.md
   - Exploration: Data_Portal/Users_Guide/Exploration.md
+  - Analysis: Data_Portal/Users_Guide/Custom_Set_Analysis.md
   - Repository: Data_Portal/Users_Guide/Repository.md
   - Genes and Mutations: Data_Portal/Users_Guide/Genes_and_Mutations.md
   - Custom Set Analysis: Data_Portal/Users_Guide/Custom_Set_Analysis.md
