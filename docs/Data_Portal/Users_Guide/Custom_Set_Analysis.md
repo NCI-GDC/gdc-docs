@@ -46,8 +46,7 @@ Up to three sets of the same set type can be compared and exported based on comp
 ## Analysis Tab: Gene Expression
 Display the gene expression heatmap for sets of cases and genes of your choice.  Validate gene expression data between case set and gene set data.  Filter genes by expression level, and select genes that are highly variable.
 
-[Clinical Cohort](images/Heatmap_gene_expression.png)]
-
+[![Gene Expression HeatMap](images/Heatmap_gene_expression.png)](images/Heatmap_gene_expression.png "Click to see the full image.")
 
 ## Analysis Tab: Cohort Comparison
 
