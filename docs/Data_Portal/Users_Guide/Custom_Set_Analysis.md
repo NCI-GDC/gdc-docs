@@ -44,9 +44,33 @@ Up to three sets of the same set type can be compared and exported based on comp
 
 
 ## Analysis Tab: Gene Expression
-Display the gene expression heatmap for sets of cases and genes of your choice.  Validate gene expression data between case set and gene set data.  Filter genes by expression level, and select genes that are highly variable.
+The gene expression heat map can be displayed for custom sets of cases and genes.  Visualize gene expression data between case set and gene set data.
 
 [![Gene Expression HeatMap](images/Heatmap_gene_expression.png)](images/Heatmap_gene_expression.png "Click to see the full image.")
+
+### Running a Gene Expression Analysis
+
+First a case and gene set must be selected. See the XXXX section for instructions on how to create these sets.  Next, these cases are checked to verify the presence of RNA-Seq data relating to them in the GDC by choosing "Check Data". This returns the number of cases with and without gene expression data.  Choosing the "Run" button will run the gene expression analysis.  
+
+XXXX Screenshot Here XXXXX
+
+### Visualizing a Gene Expression Analysis
+
+The gene expression analysis plot is visualized on a grid with each case represented with a column and each gene represented with a row.  The two trees visualize the cases and genes that have the most similar expression profiles.  
+
+XXX Screenshot of plot here XXX
+
+Each node on the tree can be chosen to zoom in on the related cases or genes. The Zoom can be reset by choosing the __Reset Zoom Level__ button at the top of the figure.
+
+XXX Screenshot of the node highlighted XXX
+
+At the top of the gene expression analysis figure, there are a few buttons that have the following functionalities.
+
+* __Reset Zoom Level:___ XXXXXXXXXXX
+* __Edit Heatmap Colors:___ XXXXXXXXXXX
+* __Edit Categories:___ XXXXXXXXXXX
+* __Download:___ XXXXXXXXXXX
+* __Legend:___ XXXXXXXXXXX
 
 ## Analysis Tab: Cohort Comparison
 
