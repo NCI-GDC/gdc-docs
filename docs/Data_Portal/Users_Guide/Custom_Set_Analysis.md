@@ -52,7 +52,7 @@ The gene expression heat map can be displayed for custom sets of cases and genes
 
 First a case and gene set must be selected. See the XXXX section for instructions on how to create these sets.  Next, these cases are checked to verify the presence of RNA-Seq data relating to them in the GDC by choosing "Check Data". This returns the number of cases with and without gene expression data.  Choosing the "Run" button will run the gene expression analysis.  
 
-XXXX Screenshot Here XXXXX
+[![Gene Expression Validation](images/Gene_Expression_Check_available_fail.png)](images/Gene_Expression_Check_available_fail.png "Click to see the full image.")
 
 ### Visualizing a Gene Expression Analysis
 
