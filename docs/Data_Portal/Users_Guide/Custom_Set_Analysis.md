@@ -58,7 +58,7 @@ First a case and gene set must be selected. See the XXXX section for instruction
 
 The gene expression analysis plot is visualized on a grid with each case represented with a column and each gene represented with a row.  The two trees visualize the cases and genes that have the most similar expression profiles.  
 
-[![Gene Expression Case and Gene](images/Gene_Cases_Expressions_Tool_v2.png)](images/Gene_Cases_Expressions_Tool_v2.png "Click to see the full image.")
+[![Gene Expression Validation](images/Gene_Expression_Check_available_fail.png)](images/Gene_Expression_Check_available_fail.png "Click to see the full image.")
 
 Each node on the tree can be chosen to zoom in on the related cases or genes. The Zoom can be reset by choosing the __Reset Zoom Level__ button at the top of the figure.
 
