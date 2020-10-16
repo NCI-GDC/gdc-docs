@@ -66,13 +66,13 @@ Each node on the tree can be chosen to zoom in on the related cases or genes. Th
 
 At the top of the gene expression analysis figure, there are a few buttons that have the following functionalities.
 
-* __Reset Zoom Level:___ Reset Zoom setting of HeatMap.
+* __Reset Zoom Level:___ Reset Zoom setting of HeatMap to default.
 * __Edit Heatmap Colors:___ Changes the color setting displayed in the output of the HeatMap.
 * __Edit Categories:___ Adds or removes the following categories displayed: Age at Diagnosis, Gender, Vital Status,
                         Ethnicity, Race.
 * __Download:___ Allows for downloads of the HeatMap in PDF, PNG or TSV formats.
 * __Legend:___ Provides a color visualization of the following categories: Age of Diagnosis, Ethnicity, Gender, Race,
-Vital Status. 
+Vital Status.
 
 ## Analysis Tab: Cohort Comparison
 
