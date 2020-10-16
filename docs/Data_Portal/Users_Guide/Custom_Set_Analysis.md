@@ -58,19 +58,21 @@ First a case and gene set must be selected. See the XXXX section for instruction
 
 The gene expression analysis plot is visualized on a grid with each case represented with a column and each gene represented with a row.  The two trees visualize the cases and genes that have the most similar expression profiles.  
 
-[![Gene Expression Validation](images/Gene_Expression_Check_available_fail.png)](images/Gene_Expression_Check_available_fail.png "Click to see the full image.")
+[![Gene Expression Validation](images/Gene_Cases_Expression_Tool_v2.png)](images/Gene_Cases_Expression_Tool_v2.png "Click to see the full image.")
 
 Each node on the tree can be chosen to zoom in on the related cases or genes. The Zoom can be reset by choosing the __Reset Zoom Level__ button at the top of the figure.
 
-XXX Screenshot of the node highlighted XXX
+[![Gene Expression Reset Zoom](images/Expression_Reset_Zoom.png)](images/Expression_Reset_Zoom.png "Click to see the full image.")
 
 At the top of the gene expression analysis figure, there are a few buttons that have the following functionalities.
 
-* __Reset Zoom Level:___ XXXXXXXXXXX
-* __Edit Heatmap Colors:___ XXXXXXXXXXX
-* __Edit Categories:___ XXXXXXXXXXX
-* __Download:___ XXXXXXXXXXX
-* __Legend:___ XXXXXXXXXXX
+* __Reset Zoom Level:___ Reset Zoom setting of HeatMap.
+* __Edit Heatmap Colors:___ Changes the color setting displayed in the output of the HeatMap.
+* __Edit Categories:___ Adds or removes the following categories displayed: Age at Diagnosis, Gender, Vital Status,
+                        Ethnicity, Race.
+* __Download:___ Allows for downloads of the HeatMap in PDF, PNG or TSV formats.
+* __Legend:___ Provides a color visualization of the following categories: Age of Diagnosis, Ethnicity, Gender, Race,
+Vital Status. 
 
 ## Analysis Tab: Cohort Comparison
 
