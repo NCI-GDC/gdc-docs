@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v.2.3.0](Data_Dictionary_Release_Notes.md#v230) | January 5, 2021 |
 | [v.2.2.0](Data_Dictionary_Release_Notes.md#v220) | July 2, 2020 |
 | [v.2.1.0](Data_Dictionary_Release_Notes.md#v210) | March 10, 2020 |
 | [v.2.0.0](Data_Dictionary_Release_Notes.md#v200) | January 30, 2020 |
@@ -18,6 +19,128 @@
 | [v1.10.0](Data_Dictionary_Release_Notes.md#release-with-api-v1100) | August 22, 2017 |
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
+
+## v2.3.0
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: January 5, 2021
+
+### New Features and Changes
+* Altered `submitted_unaligned_reads` Entity
+	* Changes made to `experimental_strategy`
+		* New permissible value: `HiChIP`
+		* New permissible value: `m6A RNA Methylation`
+		* New permissible value: `scATAC-Seq`
+	* Changes made to `read_pair_number`
+		* New permissible value: `R3`
+* Altered `submitted_aligned_reads` Entity
+	* Changes made to `experimental_strategy`
+		* New permissible value: `HiChIP`
+		* New permissible value: `m6A RNA Methylation`
+		* New permissible value: `scATAC-Seq`
+* Altered `follow_up` Entity
+	* Changes made to `comorbidity`
+		* New permissible value: `Abnormal Glucose Level`
+		* New permissible value: `Chronic Fatigue Syndrome`
+		* New permissible value: `Clonal Hematopoiesis`
+		* New permissible value: `Fibromyalgia`
+		* New permissible value: `Gastritis`
+	* Changes made to `risk_factor`
+		* New permissible value: `Abnormal Glucose Level`
+		* New permissible value: `Chronic Kidney Disease`
+		* New permissible value: `Escherichia coli`
+		* New permissible value: `Gastritis`
+		* New permissible value: `Skin Rash`
+* New Entity: `masked_methylation_array`
+* Altered `read_group` Entity
+	* New property: `chipseq_antibody`
+	* New property: `fragmentation_enzyme`
+	* Removed property: `RIN`
+	* Changes made to `library_strategy`
+		* New permissible value: `HiChIP`
+		* New permissible value: `m6A RNA Methylation`
+		* New permissible value: `scATAC-Seq`
+* Altered `sample` Entity
+	* New property: `sample_ordinal`
+	* Changes made to `composition`
+		* New permissible value: `Mixed Adherent Suspension`
+* Altered `analyte` Entity
+	* New property: `experimental_protocol_type`
+	* New property: `rna_integrity_number`
+* Altered `pathology_detail` Entity
+	* New property: `additional_pathology_findings`
+	* New property: `necrosis_percent`
+	* New property: `necrosis_present`
+	* New property: `rhabdoid_percent`
+	* New property: `rhabdoid_present`
+	* New property: `sarcomatoid_percent`
+	* New property: `sarcomatoid_present`
+	* Changes made to `dysplasia_degree`
+		* New permissible value: `Mild`
+		* New permissible value: `Moderate`
+		* New permissible value: `Severe`
+	* Changes made to `dysplasia_type`
+		* New permissible value: `Epithelial`
+		* New permissible value: `Keratinizing`
+		* New permissible value: `Nonkeratinizing`
+	* Changes made to `lymph_node_involvement`
+* Altered `diagnosis` Entity
+	* New property: `ann_arbor_b_symptoms_described`
+	* Changes made to `ajcc_clinical_stage`
+		* New permissible value: `Stage IA3`
+	* Changes made to `ajcc_pathologic_m`
+		* New permissible value: `M1d`
+	* Changes made to `metastasis_at_diagnosis_site`
+		* New permissible value: `Gastrointestinal Tract`
+		* New permissible value: `Heart`
+		* New permissible value: `Neck`
+		* New permissible value: `Retroperitoneum`
+		* New permissible value: `Urethra`
+		* New permissible value: `Uterine Adnexa`
+		* New permissible value: `Vertebral Canal`
+		* New permissible value: `Vulva, NOS`
+	* Changes made to `morphology`
+		* New permissible value: `8249/6`
+		* New permissible value: `8800/6`
+	* Changes made to `supratentorial_localization`
+		* New permissible value: `Frontal lobe`
+		* New permissible value: `Occipital lobe`
+		* New permissible value: `Parietal lobe`
+		* New permissible value: `Temporal lobe`
+* Altered `treatment` Entity
+	* Changes made to `treatment_dose_units`
+		* New permissible value: `mg`
+	* Changes made to `treatment_type`
+		* New permissible value: `Radiation, Hypofractionated`
+		* New permissible value: `Radiation, Mixed Photon Beam`
+		* New permissible value: `Radiation, Photon Beam`
+	* Changes made to `therapeutic_agents`
+		* Updated enum list.
+* Altered `case` Entity
+	* Updated `disease_type` and `primary_site` enum values.
+* Altered `rna_expression_workflow` Entity
+	* Changes made to `workflow_type`
+		* New permissible value: `STAR - Smart-Seq2 Raw Counts`
+		* New permissible value: `STAR - Smart-Seq2 Filtered Counts`
+* Altered `molecular_test` Entity
+	* New link: `slides`
+	* Changes made to `antigen`
+		* New permissible value: `Ki67`
+	* Changes made to `gene_symbol`
+		* New permissible value: `CHGA`
+		* New permissible value: `SYP`
+	* Changes made to `molecular_consequence`
+		* New permissible value: `Exon Variant`
+	* Changes made to `second_gene_symbol`
+		* New permissible value: `CHGA`
+		* New permissible value: `SYP`
+* Altered `aligned_reads` Entity
+	* Changes made to `experimental_strategy`
+		* New permissible value: `HiChIP`
+		* New permissible value: `scATAC-Seq`
+
+### Bugs Fixed Since Last Release
+* None
 
 ## v2.2.0
 
