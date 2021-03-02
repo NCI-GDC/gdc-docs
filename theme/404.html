@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% if page_description %}<meta name="description" content="{{ page_description }}">{% endif %}
         {% if site_author %}<meta name="author" content="{{ site_author }}">{% endif %}
-        {% if canonical_url %}<link rel="canonical" href="{{ canonical_url }}">{% endif %}
+        {% if page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}">{% endif %}
         {% if favicon %}<link rel="shortcut icon" href="{{ favicon }}">
         {% else %}<link rel="shortcut icon" href="/img/favicon.ico">{% endif %}
 
