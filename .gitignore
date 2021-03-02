@@ -1,3 +1,6 @@
-site/
+site*/
 .DS_Store
-venv/
+venv*/
+mirror/
+js.txt
+.vscode/
