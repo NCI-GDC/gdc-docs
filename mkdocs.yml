@@ -12,8 +12,6 @@ extra:
   project_org: GDC
   project_root_dir: /
   version: 1.0
-extra_css:
-- css/encyclopedia.css
 markdown_extensions:
 - tables
 - BSCodeTabExtension:
