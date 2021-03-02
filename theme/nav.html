@@ -4,7 +4,7 @@
         <!-- Collapsed navigation -->
         <div>
             <!-- Main title -->
-            <a class="navbar-brand" href="{{ config.extra.project_root_dir }}{{ homepage_url }}">
+            <a class="navbar-brand" href="{{ config.extra.project_root_dir }}{{ nav.homepage_url }}">
                 <img src="/img/nih-header-logo-color.png"
                   alt="NIH National Cancer Institute GDC Documentation" />
                 <span class="hidden">NIH National Cancer Institute GDC Documentation</span>
@@ -119,15 +119,15 @@
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
-                {% if repo_url %}
+                {% if config.repo_url %}
                 <li>
-                    <a href="{{ repo_url }}">
-                        {% if repo_name == 'GitHub' %}
+                    <a href="{{ config.repo_url }}">
+                        {% if config.repo_name == 'GitHub' %}
                             <i class="fa fa-github"></i>
-                        {% elif repo_name == 'Bitbucket' %}
+                        {% elif config.repo_name == 'Bitbucket' %}
                             <i class="fa fa-bitbucket"></i>
                         {% endif %}
-                        {{ repo_name }}
+                        {{ config.repo_name }}
                     </a>
                 </li>
                 {% endif %}
