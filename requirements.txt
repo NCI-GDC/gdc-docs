@@ -4,8 +4,12 @@
 #
 #    pip-compile setup.py
 #
+backports-abc==0.5
+    # via tornado
 bscodetabs==1.0
     # via gdc-docs (setup.py)
+certifi==2020.12.5
+    # via tornado
 click==7.1.2
     # via mkdocs
 jinja2==2.11.3
@@ -21,14 +25,12 @@ markupsafe==1.1.1
     # via
     #   gdc-docs (setup.py)
     #   jinja2
-mkdocs-bootstrap==0.2.0
-    # via gdc-docs (setup.py)
-mkdocs-bootswatch==0.5.0
-    # via gdc-docs (setup.py)
 mkdocs==0.17.5
     # via gdc-docs (setup.py)
 pyyaml==5.3.1
     # via mkdocs
+singledispatch==3.6.1
+    # via tornado
 six==1.15.0
     # via livereload
 tornado==4.5.3
