@@ -9,7 +9,7 @@ $(function () {
     var $searchContainer = $('.hp-search');
     var $searchContentBody = $('.hp-search__body');
   
-    $inputBox.focus();
+    $inputBox.trigger("focus");
   
     function _debounce(func, wait, immediate) {
       var _timeout;
