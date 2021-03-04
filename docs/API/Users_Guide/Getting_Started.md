@@ -132,6 +132,18 @@ curl -O -J -H "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/data/a1c1b23b-c
 100 31.4M  100 31.4M    0     0   290k      0  0:01:50  0:01:50 --:--:--  172k
 curl: Saved to filename 'ACOLD_p_TCGA_Batch17_SNP_N_GenomeWideSNP_6_A03_466078.tangent.copynumber.data.txt'
 ```
+``` python
+import requests
+import json
+
+data_endpt = 'https://api.gdc.cancer.gov/data/'
+data_uuid = 'a1c1b23b-cc41-4e85-b1b7-62a42873c5af'
+headers = {
+           'X-Auth-Token': '$token'
+          }
+response = requests.get(data_endpt + data_uuid, headers=headers)
+print json.dumps(response.json(), indent=2)
+```
 
 For more information about authentication tokens, including token expiration and rotation, see [Data Security](../../Data/Data_Security/Data_Security.md#authentication-tokens).
 
