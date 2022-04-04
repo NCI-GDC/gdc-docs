@@ -1,0 +1,34 @@
+##title##
+The ID of each sample will have a specific identifier that depends on the specific project. However, the
+codes used in each are the same throughout OCG projects.
+
+
+#Nomenclature#
+![TARGET_image_1](images/target_barcode_img1.png)
+![TARGET_image_2](images/TARGET_IMG_2.png)
+
+#HCMI Nomenclature Structure#
+![TARGET_image_3](images/TARGET_IMG_3.png)
+
+#TARGET Nomenclature Structure#
+![TARGET_image_4](images/TARGET_IMG_4.png)
+
+#TumorCode#
+![TARGET_image_5](images/TARGET_IMG_5.png)
+
+#Tissue Code#
+![TARGET_image_6](images/TARGET_IMG_6.png)
+
+The tissue codes in the table above denote the source of tissue collected for study. A patient may under go multiple
+tissue collections and/or resected tissue can be separated into smaller portions of material for research, and those
+smaller sections may even be preserved using different methods (i.e. some flash frozen vs some with FFPE). Cell lines and
+xenografts may also be grown up at different times. Therefore, a letter identifier is added to the tissue code number to
+track separate aliquots/tissue sections from the same patient. For example:
+
+            1. A – first aliquot, growth or section of tissue reviewed to meet clinical quality criteria
+            2. B – second aliquot, growth or section of tissue reviewed to meet clinical quality criteria
+
+Note: When characterizing multiple tissues from the same case, the sample codes must distinguish between these two types of
+tissue by using a separate portion designation (i.e. the tissue codes used could be “01A” and “01B”, etc.)
+
+#Nucleic Acid Codes#
