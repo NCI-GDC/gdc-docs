@@ -32,3 +32,24 @@ Note: When characterizing multiple tissues from the same case, the sample codes 
 tissue by using a separate portion designation (i.e. the tissue codes used could be “01A” and “01B”, etc.)
 
 #Nucleic Acid Codes#
+• 01D = DNA, unamplified, from the first isolation of a tissue (fresh/frozen)
+• 01E = DNA, unamplified, from the first isolation of a tissue embedded in FFPE
+• 01W = DNA, whole genome amplified by Qiagen (one independent reaction)
+• 01X=DNA,wholegenomeamplifiedbyQiagen(asecond,separateindependentreaction) • 01Y = DNA, whole genome amplified by Qiagen (pool of “W” and “X” aliquots)
+• 01R = RNA, from the first isolation of a tissue (fresh/frozen)
+• 01S = RNA, from the first isolation of a tissue embedded in FFPE
+
+Note: If additional isolations are needed from the same tissue aliquot, the # would change to 02D, etc.
+#BLGSP: Additional tissue code sample identifiers (when a single tissue yields multiple sample subtypes)#
+# Pre-Extraction Manipulation of Tissue Samples (including Cell Sorting):#
+Some analyses of patient tissues require certain tissue manipulation prior to nucleic acid extraction. For
+example, some OCG tissue samples have undergone a specialized form of handling using flow cytometry called
+Fluorescence-activated Cell Sorting (FACS) to separate a heterogeneous mixture of biological cells into two or more
+subpopulations, one cell at a time, based upon the specific light scattering and fluorescent characteristics of
+each cell type. Therefore, multiple cell types may be available for certain cases. Sorted samples can originate from
+and/or result in tumor or normal tissues and will contain an extension of the tissue code following the letter “tissue portion”
+identifier (i.e. BLGSP-XX-(USI)-03A.1- 01(D, R, etc.)). From the extension, it is not possible to determine specific
+modifications or cell markers used to sort a subpopulation; users must use the metadata files to ascertain specific details
+regarding the pre-extraction, post-pathology review handling of tissue. Tissue extension codes use sequential numbers
+to denote only that a given sample is unique; the numbers themselves do not provide any additional information on specifics
+of the sample.
