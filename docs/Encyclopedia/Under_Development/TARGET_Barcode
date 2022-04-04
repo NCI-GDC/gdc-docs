@@ -104,3 +104,10 @@ either from 2 separate aliquots/tissue sections (either in the same lab or anoth
 
 
 Here are some examples:
+![TARGET_image_9](images/TARGET_IMG_9.png)
+Note that the .1, .2, etc. does not indicate any additional information except that there are multiple cell lines from this patient. In the above example“.1”does not indicate that
+this cell line was established from a tumor obtained pre-therapy, nor “.2” post-therapy.  The number just indicates that they are separate isolates from a single case. In
+addition, any case with only a single cell line or xenograft will not include the extension. The extension will only be used in the few cases where multiple samples are available.
+
+In the example above,“OCG-30-(USI)-50.2B-01(D,R,etc.)” was generated either in another laboratory
+or from a different tissue aliquot than “OCG-30-(USI)-50.2A-01(D, R, etc.)”.
