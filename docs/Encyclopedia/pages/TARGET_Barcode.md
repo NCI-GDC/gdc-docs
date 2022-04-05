@@ -13,10 +13,10 @@ codes used in each are the same throughout OCG projects.
 #TARGET Nomenclature Structure#
 ![TARGET_image_4](images/TARGET_IMG_4.png)
 
-#TumorCode#
+# TumorCode
 ![TARGET_image_5](images/TARGET_IMG_5.png)
 
-#Tissue Code#
+# Tissue Code#
 ![TARGET_image_6](images/TARGET_IMG_6.png)
 
 The tissue codes in the table above denote the source of tissue collected for study. A patient may under go multiple
