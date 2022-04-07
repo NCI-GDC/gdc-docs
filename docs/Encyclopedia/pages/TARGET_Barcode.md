@@ -15,10 +15,70 @@ codes used in each are the same throughout OCG projects.
 ![TARGET_image_4](images/TARGET_IMG_4.png)
 
 ## TumorCode ##
-![TARGET_image_5](images/TARGET_IMG_5_new.png)
+| Tumor Code | Descripton |
+| ------ | --------------- |
+| 00 | Non-cancerous tissue |
+| 01 | Diffuse large b-cell lymphoma (DLBCL) |
+| 02 | Lung cancer (all types) |
+| 03 | Cervical cancer (all types) |
+| 04 | Anal cancer (all types) |
+| 10 | Acute lymphoblastic leukemia (ALL) |
+| 15 | Acute leukemia of ambiguous lineage (ALAL) |
+| 20 | Acute myeloid leukemia (AML) |
+| 21 | Induction failure AML (AML-IF) |
+| 30 | Neuroblastoma (NBL) |
+| 40 | Osteosarcoma (OS) |
+| 41 | Ewing sarcoma |
+| 50 | Wilms tumor (WT) |
+| 51 | Clear cell sarcoma of the kidney (CCSK) |
+| 52 | Rhabdoid tumor (kidney) (RT) |
+| 60 | CNS, ependymoma |
+| 61 | CNS, glioblastoma (GBM) |
+| 62 | CNS, rhabdoid tumor |
+| 63 | CNS, low grade glioma (LGG) |
+| 64 | CNS, medulloblastoma |
+| 65 | CNS, other |
+| 70 | NHL, anaplastic large cell lymphoma |
+| 71 | NHL, Burkitt lymphoma (BL) |
+| 80 | Rhabdomyosarcoma |
+| 81 | Soft tissue sarcoma, non-rhabdomyosarcoma |
+
 
 ## Tissue Code ##
-![TARGET_image_6](images/TARGET_IMG_6.png)
+
+| Tissue code | Description | Code |
+| ----- | ------------ | -- |
+| Primary tumor | Primary solid tumor | 01 |
+| Recurrent tumor | Recurrent solid tumor | 02 |
+| Primary blood cancer | Primary blood derived cancer – peripheral blood | 03 |
+| Recurrent blood cancer | Recurrent blood derived cancer – bone marrow | 04 |
+| Additional - new primary | Additional - new primary | 05 |
+| Metastatic | Metastatic | 06 |
+| Additional metastatic | Additional metastatic | 07 |
+| Post neo-adjuvant therapy | Tissue disease-specific post-adjuvant therapy | 08 |
+| Primary blood cancer BM | Primary blood derived cancer – bone marrow | 09 |
+| Blood derived normal | Blood derived normal | 10 |
+| Solid tissue normal | Solid tissue normal | 11 |
+| Buccal cell normal | Buccal cell normal (including saliva) | 12 |
+| EBV normal | Epstein-Barr virus (EBV) immortalized normal | 13 |
+| BM normal | Bone marrow normal | 14 |
+| Fibroblast normal | Fibroblasts from bone marrow normal | 15 |
+| Mononuclear cell normal | Mononuclear cells from bone marrow normal | 16 |
+| Lymphoid normal | Lymphatic tissue normal (including centroblasts) | 17 |
+| Tumor adjacent normal – post neo-adjuvant therapy | Solid tissue “normal” near tumor, post-adjuvant therapy | 18 |
+| Cell line control | Cell line control (control analyte) | 20 |
+| Premalignant tissue | Neoplasms of uncertain and unknown behavior | 31 |
+| Recurrent blood cancer | Recurrent blood derived cancer – peripheral blood | 40 |
+| Post treatment blood cancer bone marrow | Blood derived cancer- bone marrow, post-treatment | 41 |
+| Post treatment blood cancer blood | Blood derived cancer- peripheral blood, post-treatment | 42 |
+| Cancer cell line | Cell line from patient tumor | 50 |
+| Xenograft, primary | Xenograft from patient not grown as intermediate on plastic tissue culture dish | 60 |
+| Xenograft, cell-line derived | Xenograft grown in mice from established cell lines | 61 |
+| Next generation cancer model | Cancer models developed with next generation methods | 85 |
+| Expanded next generation cancer model | Cancer models developed with next generation methods and expanded for distribution | 86 |
+| Next generation cancer model expanded under non-conforming conditions | Next generation cancer models expanded differently than how they were developed | 87 |
+| Granulocytes | Granulocytes after a Ficoll separation | 99 |
+
 
 The tissue codes in the table above denote the source of tissue collected for study. A patient may under go multiple
 tissue collections and/or resected tissue can be separated into smaller portions of material for research, and those
@@ -64,8 +124,39 @@ Additionally, small “c” before the antigen marker indicates the location is 
 
 ## HCMI ICD-10 Codes ##
 An abbreviated ICD-10 code is used to denote the anatomic site of the diagnostic tumor origin.
-![TARGET_image_7](images/TARGET_IMG_10_v3.png)
-![TARGET_image_8](images/TARGET_IMG_8_v4.png)
+
+| ICD-10   | Anatomic Site |
+| ----- | -----|
+| C00-C14 | Head and neck |
+| C15     | Esophageal |
+| C16     | Stomach |
+| C17     | Small intestine |
+| C17     | Duodenal gastrinoma |
+| C18     | Colon; Cecum    |
+| C19     | Rectosigmoid junction |
+| C20     | Rectum  |
+| C22     | Liver or intrahepatic bile duct |
+| C23     | Gallbladder |
+| C24     | Ampulla of Vater or extrahepatic bile duct |
+| C25     | Pancreas |
+| C30     | Olfactory neuroblastoma  |
+| C30-C32 | Head and neck |
+| C34     | Bronchus and lung |
+| C40-C41 | Ewing Sarcoma or osteosarcoma |
+| C41     | Chordoma |
+| C43     | Skin/Melanoma |
+| C45     | Mesothelioma |
+| C49     | Rhabdomyosarcoma |
+| C50     | Breast |
+| C54     | Endometrium |
+| C56     | Ovary |
+| C57     | Other female reproductive organs |
+| C61     | Prostate |
+| C64     | Wilms Tumor |
+| C67     | Bladder |
+| C71     | Brain and glioblastoma |
+| C73     | Thyroid |
+| C74     | Neuroblastoma |
 
 ## HCMI: Multiple Model Codes ##
 Some cases may have multiple models derived from independent tumors (primary, recurrent, metastatic, etc.).
