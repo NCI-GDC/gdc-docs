@@ -19,7 +19,7 @@ Contents of a MAGE-TAB file:
 * __Manifest File:__ Lists file names and md5sums of the files that should be included in the MAGE-TAB archive
 * __Readme File:__ Provides basic details about the MAGE-TAB archive and the associated study
 
-![MAGETAB](images/MAGETAB_img.svg)(images/MAGETAB_img.svg)
+![MAGETAB](images/MAGETAB_img.svg)
 
 
 
