@@ -21,9 +21,8 @@ Contents of a MAGE-TAB file:
 
 ## References ##
 1. [GDC Legacy Archive](https://portal.gdc.cancer.gov/legacy-archive/)
-2. [TCGA Encyclopedia - MAGE-TAB](https://wiki.nci.nih.gov/display/TCGA/MAGE-TAB)
+2. [BMC Bioinformatics - MAGE-TAB](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-7-489)
 
-## External Links ##
-* N/A
+
 
 Categories: Data Format
