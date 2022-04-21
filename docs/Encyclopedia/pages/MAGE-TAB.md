@@ -19,6 +19,11 @@ Contents of a MAGE-TAB file:
 * __Manifest File:__ Lists file names and md5sums of the files that should be included in the MAGE-TAB archive
 * __Readme File:__ Provides basic details about the MAGE-TAB archive and the associated study
 
+![MAGETAB](images/MAGETAB_img.svg)(images/MAGETAB_img.svg)
+
+
+
+
 ## References ##
 1. [GDC Legacy Archive](https://portal.gdc.cancer.gov/legacy-archive/)
 2. [BMC Bioinformatics - MAGE-TAB](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-7-489)
