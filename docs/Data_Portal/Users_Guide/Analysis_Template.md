@@ -1,11 +1,11 @@
-# Feature
+# Analysis Tool
 
-Brief introduction to the larger feature goes here.
+Brief introduction to the full analysis tool goes here.
 
 [![Exploration Page](images/GDC-Exploration-Page_v6.png)](images/GDC-Exploration-Page_v6.png "Click to see the full image.")
 
-## One Analysis Tool
-Here you can put a brief description of an analysis tool you would like to introduce.
+## One Feature of the Tool
+Here you can put a brief description of an analysis tool feature you would like to introduce.
 
 ### Some Component of the Analysis Tool
 
