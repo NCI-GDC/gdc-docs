@@ -9,7 +9,7 @@ Here you can put a brief description of an analysis tool you would like to intro
 
 ### Some Component of the Analysis Tool
 
-Brief description and purpose of the specific component.
+Brief description and purpose of the specific component. Image files can be put in the "/images" folder and can be referenced from there. This should either work for most pages, or can be easily created.
 
 [![Exploration Case Filters](images/Exploration-Cases-Filter_v2.png)](images/Exploration-Cases-Filter_v2.png "Click to see the full image.")
 
