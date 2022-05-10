@@ -13,7 +13,7 @@ Brief description and purpose of the specific component.
 
 [![Exploration Case Filters](images/Exploration-Cases-Filter_v2.png)](images/Exploration-Cases-Filter_v2.png "Click to see the full image.")
 
-Below is how a list of buttons/tabs/parameters should be presented. It owuld generally be described in this text here.
+Below is how a list of buttons/tabs/parameters should be presented. It would generally be described in this text here.
 
 * __Item1:__ Information about the first item.
 * __Item2:__ Information about the second item.
