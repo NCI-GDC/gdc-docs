@@ -20,3 +20,10 @@ Below is how a list of buttons/tabs/parameters should be presented. It would gen
     * __Enum1:__ If some item has components that need explaining, indent them.
     * __Enum2:__ If some item has components that need explaining, indent them.
 * __Item3:__ Information about the third item.
+
+### Making Changes to gdc-docs
+
+1. Go to https://github.com/NCI-GDC/gdc-docs (__NOT__ https://github.com/NCIP/gdc-docs)
+1. Make changes to a branch and make a PR to the __develop__ branch.
+1. Send a link to the PR to support@nci-gdc.datacommons.io with information on when you think a deployment would be needed.
+1. The GDC User Services team may recommend changes or reformatting, or approve.  
