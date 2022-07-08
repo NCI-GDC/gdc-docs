@@ -59,9 +59,10 @@ __Example 2:__ A 98 year old patient is diagnosed with cancer and dies three yea
 
 ## Array Submission
 
-Certain fields in the GDC, such as diagnosis.sites_of_involvement, are of type "array".  This allows multiple values to be submitted on one property. These values need to be uploaded in a `|`-delimited format. See the example below.  
+Certain fields in the GDC, such as diagnosis.sites_of_involvement, are of type "array".  This allows multiple values to be submitted on one property. These values need to be uploaded in a `|`-delimited format for TSV formatted uploads and a JSON-type array for JSON formatted uploads. See the example below.  
 
-__Example:__ `"sites_of_involvement" : "Kidney, Upper Pole|Kidney, Middle"`
+*  __Example (TSV):__ `Kidney, Upper Pole|Kidney, Middle` (would appear under sites_of_involvement header)
+*  __Example (JSON):__ `"sites_of_involvement" : ["Kidney, Upper Pole", "Kidney, Middle"]`
 
 ## Submitting Complex Data Model Relationships
 
@@ -169,3 +170,8 @@ For the GDC to release a project there is a minimum number of clinical propertie
 ## miRNA Submission
 
 The GDC requires that miRNA reads be adapter-trimmed before being uploaded to the GDC because miRNA datasets can have different trimming schemas. Uploading untrimmed miRNA reads will result in unusably low miRNA quantifications.  
+
+## Slide Image Submission
+
+To submit slide images to GDC, it is a requirement that images should not contain any label/captions as well as no macro views for compliance with patient information confidentiality.
+
