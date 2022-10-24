@@ -1,5 +1,6 @@
 # TARGET CGI/DCC publication page
-The files on this folder are as follw:
+
+The files on this folder are as follows:
 
 * ```TARGET_X.html```: This group are the *Supplemental Files* section at the end of publications. After corrections, it will be appended to the end of corresponding publications.
 
