@@ -1,4 +1,4 @@
-id	file_name	md5sum	file_size	case.submitter_id	aliquot.submitter_id	project_id
+id	filename	md5	size	case.submitter_id	aliquot.submitter_id	project_id
 a95fbbf0-5677-4932-b886-d38aa9b53269	ResultCount_MERGING_1_NIC1254A49.hg19_rCRSchrm.fa.realign.mdups.recal.MERGED.ID.vcf	29a5fa2f71f1adaacea5a6c5efd879ae	10645786840	TCGA-AF-2689	TCGA-AF-2689-01A-01D-2294-05	TCGA-READ
 f5e64f6e-88f2-4db3-90d2-798128145af6	ResultCount_MERGING_1_NIC1254A49.hg19_rCRSchrm.fa.realign.mdups.recal.cpg.filtered.sort.CG.6plus2.fixed.bed	88afde26a8bb51d2ca5c9508c84465c4	1082417966	TCGA-AF-2689	TCGA-AF-2689-01A-01D-2294-05	TCGA-READ
 516e7b0d-7129-484f-bb0f-e736d5e065da	ResultCount_MERGING_1_NIC1254A51.hg19_rCRSchrm.fa.realign.mdups.recal.cpg.filtered.sort.CG.6plus2.fixed.bed	9b6a642b12543acbb1c9a1d7e67249c8	1092351519	TCGA-AG-3593	TCGA-AG-3593-01A-01D-2294-05	TCGA-READ

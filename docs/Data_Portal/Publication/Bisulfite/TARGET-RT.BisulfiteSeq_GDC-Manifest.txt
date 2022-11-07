@@ -1,4 +1,4 @@
-id	file_name	md5sum	file_size	case.submitter_id	aliquot.submitter_id	project_id
+id	filename	md5	size	case.submitter_id	aliquot.submitter_id	project_id
 5855a809-f604-48cb-99b8-06c5b288447e	A48366_2_lanes_dupsFlagged.bam	95590c6e7f84d385260198e17b3ce4ec	97452189529	TARGET-52-PARTKH	TARGET-52-PARTKH-01A-01D	TARGET-RT
 4ff3a1d7-bd8e-4219-90b3-23535dc999a3	A31805_4_lanes_dupsFlagged.bam	760d124c6b15bf690253f421871e5a4f	126570830246	TARGET-52-PASZYE	TARGET-52-PASZYE-01A-01D	TARGET-RT
 0c75e342-88c3-45ac-b5dc-6c1aa6f02ba3	A31800_4_lanes_dupsFlagged.bam	5c7343df2f2752c1678797639191fe34	125013104958	TARGET-52-PASABD	TARGET-52-PASABD-01A-01D	TARGET-RT

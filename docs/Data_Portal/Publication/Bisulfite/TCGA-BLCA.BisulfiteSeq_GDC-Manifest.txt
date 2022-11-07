@@ -1,4 +1,4 @@
-id	file_name	md5sum	file_size	case.submitter_id	aliquot.submitter_id	project_id
+id	filename	md5	size	case.submitter_id	aliquot.submitter_id	project_id
 07838127-512f-441d-beb8-76d46d899035	ResultCount_MERGING_1_NIC1254A91.hg19_rCRSchrm.fa.realign.mdups.recal.cpg.filtered.sort.CG.6plus2.fixed.bed	eeee2c7477f30052fa55ebef76b82855	1078709948	TCGA-BT-A20V	TCGA-BT-A20V-01A-11D-A23D-05	TCGA-BLCA
 fc9f39e3-2790-4042-aedc-e85eb4f509f0	ResultCount_MERGING_1_NIC1254A91.hg19_rCRSchrm.fa.realign.mdups.recal.bam	14806ceedefc7ea23dd5bfcf450b4c31	72637406233	TCGA-BT-A20V	TCGA-BT-A20V-01A-11D-A23D-05	TCGA-BLCA
 74698e59-1f5b-4c48-b1bf-3bd4a755f1f3	ResultCount_MERGING_1_NIC1254A89.hg19_rCRSchrm.fa.realign.mdups.recal.cpg.filtered.sort.CG.6plus2.fixed.bed	0c160de150d58d18e619fdaf6a7fdef9	1088295177	TCGA-BL-A13J	TCGA-BL-A13J-01A-11D-A23D-05	TCGA-BLCA

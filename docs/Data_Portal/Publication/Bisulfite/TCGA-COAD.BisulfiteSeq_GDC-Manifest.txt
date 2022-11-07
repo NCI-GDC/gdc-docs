@@ -1,4 +1,4 @@
-id	file_name	md5sum	file_size	case.submitter_id	aliquot.submitter_id	project_id
+id	filename	md5	size	case.submitter_id	aliquot.submitter_id	project_id
 9dd0116e-6561-4930-b816-eba930a2ebc8	TCGA-AA-3518-11A-01D.mdups.bam	3d432134036940f8fbde1090a46d41cf	63683946060	TCGA-AA-3518	TCGA-AA-3518-11A-01D-1518-05	TCGA-COAD
 dcd007e1-dc5b-40e3-92fa-b775776e7133	ResultCount_MERGING_1_NIC1254A45.hg19_rCRSchrm.fa.realign.mdups.recal.bam	6751d637cb60679770176b6d22f9711a	127818073700	TCGA-AA-A00R	TCGA-AA-A00R-01A-01D-A22T-05	TCGA-COAD
 78fa84d0-cbf7-4ae0-a07d-b3b0a00f8511	TCGA-AA-3518-11A-01D-1518-05_d85e9d86-091c-4629-876e-d1eba7b78e83_Colon_normal.realign.mdups.recal.MERGED.ID.vcf	fa1412ce3bb8195fed91ce700dea6b05	10430311728	TCGA-AA-3518	TCGA-AA-3518-11A-01D-1518-05	TCGA-COAD

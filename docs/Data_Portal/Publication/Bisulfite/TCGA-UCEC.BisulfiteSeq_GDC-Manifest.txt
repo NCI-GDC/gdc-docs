@@ -1,4 +1,4 @@
-id	file_name	md5sum	file_size	case.submitter_id	aliquot.submitter_id	project_id
+id	filename	md5	size	case.submitter_id	aliquot.submitter_id	project_id
 a982fee0-5e18-4b87-9317-b637b8d8a361	TCGA-AX-A1CI-11A-11D-A17H-05_ac5058ed-1d03-4555-8f5b-a1a88eae9cc4_Endo_normal.realign.mdups.recal.MERGED.ID.vcf	b9e39959a94fb05f53c221bea3718a97	10535545436	TCGA-AX-A1CI	TCGA-AX-A1CI-11A-11D-A17H-05	TCGA-UCEC
 4fe49a70-01a0-48de-aebe-de088b2f69bc	ResultCount_MERGING_1_NIC1254A109.hg19_rCRSchrm.fa.realign.mdups.recal.bam	5bb4da8f46362cb0c2ecab179c14061f	67197267340	TCGA-B5-A0K6	TCGA-B5-A0K6-01A-11D-A23D-05	TCGA-UCEC
 1364f3ac-d173-446f-86a3-f6dae337cdec	TCGA-AX-A1CI-01A-11D-A17H-05_e31eb5a4-d191-4bc2-bb4d-cbd3f23bc7db_Endo_tumor.realign.mdups.recal.cpg.filtered.sort.CG.6plus2.fixed.bed	cb574793577c01ac419b18a882a11e38	1100968638	TCGA-AX-A1CI	TCGA-AX-A1CI-01A-11D-A17H-05	TCGA-UCEC

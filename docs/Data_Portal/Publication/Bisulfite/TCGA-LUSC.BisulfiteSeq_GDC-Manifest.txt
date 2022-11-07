@@ -1,4 +1,4 @@
-id	file_name	md5sum	file_size	case.submitter_id	aliquot.submitter_id	project_id
+id	filename	md5	size	case.submitter_id	aliquot.submitter_id	project_id
 855866c7-7c63-404c-82f8-156d8f2afe30	ResultCount_MERGING_1_NIC1254A13.hg19_rCRSchrm.fa.realign.mdups.recal.bam	6659025c17c5d731c20ad73656b4145a	122917323775	TCGA-34-2600	TCGA-34-2600-01A-01D-1871-05	TCGA-LUSC
 0fcb8589-ae99-4d03-af0d-c453002a5507	ResultCount_MERGING_1_NIC1254A67.hg19_rCRSchrm.fa.realign.mdups.recal.MERGED.ID.vcf	f8be8758ad45b31cff2869dda91cfa31	10425555818	TCGA-21-1078	TCGA-21-1078-01A-01D-2365-05	TCGA-LUSC
 1ea12756-22ee-45a6-8a8f-0f11ac54994a	TCGA-60-2722-01A-01D-1871-05_720f6804-059c-4516-a77d-74e8a01c739b_Lung_tumor.bam	94ae5d6adb5fa953875f36e82707ce99	83720956987	TCGA-60-2722	TCGA-60-2722-01A-01D-1871-05	TCGA-LUSC

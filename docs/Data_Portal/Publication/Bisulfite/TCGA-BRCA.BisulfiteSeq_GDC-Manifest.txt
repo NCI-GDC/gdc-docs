@@ -1,4 +1,4 @@
-id	file_name	md5sum	file_size	case.submitter_id	aliquot.submitter_id	project_id
+id	filename	md5	size	case.submitter_id	aliquot.submitter_id	project_id
 854d4afc-27a9-4c98-981d-0760f9ca358a	ResultCount_MERGING_1_NIC1254A17.hg19_rCRSchrm.fa.realign.mdups.recal.MERGED.ID.vcf	ffc556d495fa867a194d99991f67d784	10921162189	TCGA-A2-A0YG	TCGA-A2-A0YG-01A-21D-A19F-05	TCGA-BRCA
 82df07e0-31a9-4510-bdc7-b32817be5747	TCGA-A7-A0CE-01A-11D-A148-05_4ff7626b-4c2f-40fd-9df1-10c1a488402a_Breast_tumor.realign.mdups.recal.cpg.filtered.sort.CG.6plus2.fixed.bed	109eab0bc17161dde9558ac13d3258a1	1101837251	TCGA-A7-A0CE	TCGA-A7-A0CE-01A-11D-A148-05	TCGA-BRCA
 732a4c26-809b-4e3a-a5b8-357b9491353a	TCGA-A7-A0CE-11A-21D-A148-05_805f2c82-49d5-4994-a2a5-98dd1b832f0b_Breast_normal.realign.mdups.recal.cpg.filtered.sort.CG.6plus2.fixed.bed	f76858ab92c3a9ad8530677e038687fe	1097698651	TCGA-A7-A0CE	TCGA-A7-A0CE-11A-21D-A148-05	TCGA-BRCA
