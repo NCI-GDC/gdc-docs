@@ -1,5 +1,4 @@
 id	filename	md5	size
-59e8bfd5-4e9c-43d7-9795-3659286fbb01	TARGET-CCSK_clinicalData_PUBLIC_20220207.tar.gz	ee0c13c9d87ed3faf1884e0f1bdeeb38	35941
 1ddaea58-deec-4bbc-8274-43bbe4d3cef8	TARGET-CCSK_copyNumberArray_Level3Data_PUBLIC_20220207.tar.gz	abe1469d9483526711670dd800d7e3e2	36701
 d824ff51-1849-4779-8b0a-31f2b65612b2	TARGET-CCSK_copyNumberArray_Metadata_PUBLIC_20220207.tar.gz	de61d37b4ffc51afcea64a6bf54c1403	32175
 5fefc513-8e4d-4aa2-ad98-07ea96221bb0	TARGET-CCSK_geneExpressionArray_Level1Data_PUBLIC_20220207.tar.gz	0b1aa4a2057f69781cd9429d8ef1b7c7	61026999
