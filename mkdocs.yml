@@ -51,13 +51,16 @@ pages:
   - fa-file-text Download PDF /Data_Portal/PDF/Data_Portal_UG.pdf: Data_Portal/PDF/index.md
 - Data Portal v2:
   - Getting Started: Data_Portal_v2/Users_Guide/Getting_Started.md
-  - Projects: Data_Portal_v2/Users_Guide/Projects.md
-  - Exploration: Data_Portal_v2/Users_Guide/Exploration.md
-  - Analysis: Data_Portal_v2/Users_Guide/Custom_Set_Analysis.md
+  - Cohort Builder: Data_Portal_v2/Users_Guide/Projects.md
+  - Analysis Center: Data_Portal_v2/Users_Guide/Exploration.md
+  - Projects: Data_Portal_v2/Users_Guide/Custom_Set_Analysis.md
   - Repository: Data_Portal_v2/Users_Guide/Repository.md
-  - Advanced Search: Data_Portal_v2/Users_Guide/Advanced_Search.md
-  - Cart and File Download: Data_Portal_v2/Users_Guide/Cart.md
-  - Legacy Archive: Data_Portal_v2/Users_Guide/Legacy_Archive.md
+  - 'Analysis Tool: Mutation Frequency': Data_Portal_v2/Users_Guide/Advanced_Search.md
+  - 'Analysis Tool: Set Analysis': Data_Portal_v2/Users_Guide/Cart.md
+  - 'Analysis Tool: Clinical Data Analysis': Data_Portal_v2/Users_Guide/Legacy_Archive.md
+  - 'Analysis Tool: OncoGrid': Data_Portal_v2/Users_Guide/Legacy_Archive.md
+  - 'Analysis Tool: Cohort Comparison': Data_Portal_v2/Users_Guide/Legacy_Archive.md
+  - 'Analysis Tool: ProteinPaint': Data_Portal_v2/Users_Guide/Legacy_Archive.md
   - Release Notes: Data_Portal_v2/Release_Notes/Data_Portal_Release_Notes.md
   - fa-file-text Download PDF /Data_Portal_v2/PDF/Data_Portalv2_UG.pdf: Data_Portal/PDF/index.md
 - Data Submission:
