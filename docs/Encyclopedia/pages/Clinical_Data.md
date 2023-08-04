@@ -24,7 +24,7 @@ In the GDC, clinical data is searchable in the API, Data Portal, or Legacy Archi
 
 ## External Links ##
 
-* [CDE Browser](https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html)
+* [CDE Browser](https://cadsr.cancer.gov/onedata/Home.jsp)
 * [Center for Biomedical Informatics & Information Technology](https://cbiit.nci.nih.gov/)
 
 Categories: Data Category
