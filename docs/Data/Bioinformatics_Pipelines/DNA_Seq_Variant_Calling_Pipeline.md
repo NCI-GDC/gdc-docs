@@ -119,7 +119,7 @@ The alignment quality is further improved by the [Co-cleaning workflow](/Data_Di
 
 #### Indel Local Realignment
 
-Local realignment of insertions and deletions is performed using [IndelRealigner](https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_indels_IndelRealigner.php). This step locates regions that contain misalignments across BAM files, which can often be caused by insertion-deletion (indel) mutations with respect to the reference genome. Misalignment of indel mutations, which can often be erroneously scored as substitutions, reduces the accuracy of downstream variant calling steps.
+Local realignment of insertions and deletions is performed using [IndelRealigner](https://github.com/broadinstitute/gatk-docs/blob/master/gatk3-tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_indels_IndelRealigner.json). This step locates regions that contain misalignments across BAM files, which can often be caused by insertion-deletion (indel) mutations with respect to the reference genome. Misalignment of indel mutations, which can often be erroneously scored as substitutions, reduces the accuracy of downstream variant calling steps.
 
 #### Base Quality Score Recalibration
 
@@ -487,7 +487,7 @@ GetSampleName \
 ## 5. Run MuTect2 using only tumor sample on chromosome level (25 commands with different intervals)
 
 java -Djava.io.tmpdir=/tmp/job_tmp_3 -d64 -jar -Xmx3G -XX:+UseSerialGC \
-/bin/gatk-4.0.4.0/gatk-package-4.0.4.0-local.jar \
+/bin/gatk-4.2.4.0/gatk-package-4.2.4.0-local.jar \
 Mutect2 \
 -R GRCh38.d1.vd1.fa \
 -L chr4:1-190214555 \ # Specify chromosome
@@ -600,15 +600,6 @@ AscatNGS, originally developed by [Raine *et al* (2016)]( https://doi.org/10.100
 * __Minor Copy number:__  The smaller strand copy number of the two strands of the DNA (copy number segment files only).
 * __Max. Copy number:__ The highest copy number for overlapped segment (copy number variant only).
 * __Min. Copy number:__ The lowest copy number for overlapped segment (copy number variant only).
-
-
-### Harmonization for GENIE variants
-
-Variants reported from the AACR Project GENIE are available from the GDC Data Portal in MAF format.  These variants were produced using an abridged pipeline in which the Genomic Data Commons received the variants directly instead of calling them from aligned reads.  For an outline of the harmonization process, see the steps below:
-
-1. Variants are submitted directly to the GDC as a "Genomic Profile."
-1. GENIE variants are lifted over to GRCh38 coordinates.
-1. Variants are annotated using VEP and made available via the GDC Data Portal.
 
 ## Microsatellite Instability Detection
 
