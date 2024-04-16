@@ -44,8 +44,8 @@
 
 ### New Features and Changes
 * The Annotations Browser and annotation summary page have been implemented. <!--PEAR-1838/1181/1182/1160--> 
-* The case summary page has been enhanced with a table listing all the files associated with the case. Additionally, a link to the table is now available in the header of the summary page, and information has been added to the File Counts summary tables  to lead users to the new files table. The clinical and biospecimen supplements tables have also been removed from the case summary page. <!--PEAR-1822/1849/1833/PEAR-1832-->
-* Files in the Repository can now be filtered by Tissue Type, Tumor Descriptor, Specimen Type, and Preservation method. <!--PEAR-1514-->
+* The case summary page has been enhanced with a table listing all the files associated with the case. Additionally, a link to the table is now available in the header of the summary page, and information has been added to the File Counts summary tables to lead users to the new files table. The clinical and biospecimen supplements tables have also been removed from the case summary page. <!--PEAR-1822/1849/1833/PEAR-1832-->
+* Files in the Repository can now be filtered by Tissue Type, Tumor Descriptor, Specimen Type, and Preservation Method. <!--PEAR-1514-->
 * Metadata and Sample Sheet downloads have been added to the Repository. <!--PEAR-1863-->
 * The performance of the Clinical Data Analysis tool has been improved, especially when large cohorts are used with QQ plots. <!--PEAR-1536-->
 * Quick Search now returns results for the latest versions of files when searching for older versions of those files. <!--PEAR-1804--> 
@@ -54,7 +54,7 @@
 * Buttons for launching demos have been removed from the selection view of Cohort Comparison and Set Operations. <!--SV-2328/2327-->
 * The UX/UI for the Cohort Builder has been improved. <!--PEAR-1547-->
 * Set names for sets of the same type are now enforced to be unique when editing names in Manage Sets. <!--PEAR-1359-->
-* Number ranges cards in the Cohort Builder no longer display the custom range option when there is no data. <!--PEAR-661-->
+* Number range cards in the Cohort Builder no longer display the custom range option when there is no data. <!--PEAR-661-->
 * The Cohort Buider image on the home page has been updated to reflect the latest design. <!--PEAR-1593-->
 * The tooltip on the Mutation Frequency card in the Analysis Center has been updated. <!--PEAR-1877-->
 
