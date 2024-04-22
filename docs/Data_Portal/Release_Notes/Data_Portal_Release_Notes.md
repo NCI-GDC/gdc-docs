@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v2.1.0](Data_Portal_Release_Notes.md#release-210) | April 30, 2024 |
 | [v2.0.0](Data_Portal_Release_Notes.md#release-200) | February 8, 2024 |
 | [v1.30.4](Data_Portal_Release_Notes.md#release-1304) | May 11, 2023 |
 | [v1.30.0](Data_Portal_Release_Notes.md#release-1300) | July 8, 2022 |
@@ -36,6 +37,88 @@
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
 ---
+## Release 2.1.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  April 30, 2024
+
+### New Features and Changes
+* The Annotations Browser and annotation summary page have been implemented. <!--PEAR-1838/1181/1182/1160--> 
+* The case summary page has been enhanced with a table listing all the files associated with the case. Additionally, a link to the table is now available in the header of the summary page, and information has been added to the File Counts summary tables to lead users to the new files table. The clinical and biospecimen supplements tables have also been removed from the case summary page. <!--PEAR-1822/1849/1833/PEAR-1832-->
+* Files in the Repository can now be filtered by Tissue Type, Tumor Descriptor, Specimen Type, and Preservation Method. <!--PEAR-1514-->
+* Metadata and Sample Sheet downloads have been added to the Repository. <!--PEAR-1863-->
+* The performance of the Clinical Data Analysis tool has been improved, especially when large cohorts are used with QQ plots. <!--PEAR-1536-->
+* Quick Search now returns results for the latest versions of files when searching for older versions of those files. <!--PEAR-1804--> 
+* Responsiveness improvements have been made to the Analysis Center and the Cohort Bar. <!--PEAR-1836-->
+* The X button on the Unexpected Error dialog box has been removed. <!--SV-2367-->
+* Buttons for launching demos have been removed from the selection view of Cohort Comparison and Set Operations. <!--SV-2328/2327-->
+* The UX/UI for the Cohort Builder has been improved. <!--PEAR-1547-->
+* Set names for sets of the same type are now enforced to be unique when editing names in Manage Sets. <!--PEAR-1359-->
+* Number range cards in the Cohort Builder no longer display the custom range option when there is no data. <!--PEAR-661-->
+* The Cohort Buider image on the home page has been updated to reflect the latest design. <!--PEAR-1593-->
+* The tooltip on the Mutation Frequency card in the Analysis Center has been updated. <!--PEAR-1877-->
+
+### Bugs Fixed Since Last Release
+* __Section 508 Accessibility__:
+    * Small aria-label inconsistencies have been addressed. <!--PEAR-1715-->
+    * Keyboard focus is now returned to the triggering element when modals are closed. <!--PEAR-1658-->
+    * Screen readers will now read out the contents of toast messages. <!--PEAR-1765-->
+    * Toggles in the Clinical Data Analysis tool now have the correct number of labels. <!--PEAR-1764-->
+    * Table header checkboxes are now correctly labelled. <!--PEAR-1754-->
+    * Modal icons now have appropriate null alt text. <!--PEAR-1753-->
+    * Assistive technologies no longer behave incorrectly with some controls due to incorrect, missing, or redundant labels, attributes, or roles. <!--PEAR-1672-->
+    * Aria labels have been added to Cancer Gene Census annotation icon in Mutation Frequency. <!--PEAR-740-->
+    * The Survival icon is now appropriately hidden from the accessibility tree for the benefit of screen readers. <!--PEAR-739-->
+* __Cohorts__:
+    * Using "Save As" to replace a cohort with itself will no longer result in an error notification despite the replacement being successful. <!--SV-2363-->
+    * Saving a cohort that was previously saved now displays the correct message. <!--PEAR-1651-->
+    * Cohorts will now display data in Mutation Frequency, Cohort Builder, and the summary charts even when removing gene/mutation filters from a cohort temporarily results in 0 cases. <!--SV-2414-->
+    * Cohorts now contain the correct cases when created from the cases table by using the "Existing Cohort With Selected Cases" and "Existing Cohort Without Selected Cases" options with a cohort containing gene or mutation filters. <!--PEAR-1043-->
+    * When saving a cohort, the confirmation notification will no longer be automatically dismissed before the saving dialog has closed. <!--SV-2366-->
+* __Cohort Builder__:
+    * Cohort Builder cards for number ranges now display an informative message rather than a spinner when there is no data for the facet. <!--PEAR-1646-->
+    * Removing a custom Cohort Builder card no longer incorrectly removes the associated filters from the current cohort. <!--PEAR-1612-->    
+    * Filters related to numeric values in the Cohort Builder now correctly displays the numbers entered. <!--SV-2383-->
+* __Case Summary Page__:
+    * The Biospecimen tree in the case summary page is no longer hidden when the bioId provided in the URL does not exist. <!--PEAR-1202-->
+    * The error that sometimes occurs when viewing the __Follow-Ups/Molecular Tests__ tab in the case summary page has been resolved. <!--SV-2431-->
+* __Mutation Frequency__:
+    * The survival plot in __Mutation Frequency__ no longer flickers when the cohort has 0 cases. <!--SV-2331/PEAR-1701-->
+    * Attempting to download a TSV of all the mutations in the GDC no longer results in an error due to the length of time needed to generate the TSV. <!--SV-2388-->
+* Tokens are no longer refreshed when the __User Profile__ is viewed. <!--PEAR-1818-->
+* __Quick Search__ now correctly displays results even if the same search input is applied twice quickly. <!--SV-2410-->
+* In __Set Operations__, saving gene and mutation sets will now be successful if the saving dialog is manually dismissed after the Save button is clicked. <!--SV-2368-->
+* Users will no longer be able to download more than 5 GB of files in total at a time via the browser from the cart. <!--SV-2342-->
+* Table buttons in __Clinical Data Analysis__ no longer overlay the survival plot on smaller screens when many survival plots are displayed at the same time. <!--PEAR-1600-->
+* The correct file size total will now be displayed in the __Repository__ when filtering is applied within the tool and the active cohort contains Available Data filters. <!--SV-2376-->
+* Downloading the **Clinical/Biospecimen TSV or JSON** before the cohort has fully loaded will no longer result in an error. <!--SV-2402-->
+
+### Known Issues and Workarounds
+
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives. Additionally, equivalent alternatives to the Box plots, QQ plots, Venn diagrams, and the body plot on the home page are not available.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * Some text can be difficult to read on a small screen at a 200% zoom level.
+* __Cohorts__:
+    * Cohorts are under active development and their behavior may change in the first several months after the release of GDC Portal 2.0. As this process may result in the loss of saved cohorts on the portal, we highly recommend [exporting cohorts](/Data_Portal/Users_Guide/getting_started.md#main-toolbar) locally.
+    * Cohorts created based on CNV losses or gains may not have the correct composition when filtered by additional mutated genes. As a workaround, first filter by the mutated genes before creating cohorts based on CNV losses and gains.
+    * Cohorts filtered by mutated genes and SSMs not in those genes may unexpectedly result in 0 cases. <!--SV-2331/PEAR-1616-->
+    * Cohorts containing FM-AD cases may not update correctly when users with dbGaP access to FM-AD (phs001179) log in or out. As a workaround, logging in before creating cohorts with FM-AD cases is recommended. <!--SV-2389-->
+* __Survival Plot__:
+    * The survival plot in Cohort Comparison does not display text indicating that there is insufficient survival data to plot. <!--SV-2357-->
+    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* __Cart__:
+    * Spinners on the Download Cart and Download Associated Data buttons may be displayed longer than expected. This is a visual issue and does not affect the use of these buttons. <!--SV-2343-->
+    * Using multiple browser tabs with the portal when adding or removing files from the cart may result in the cart not being updated as expected. <!--SV-2412-->
+* Gene/mutation sets created from the tables in the __Mutation Frequency__ tool may contain 0 genes/mutations if the cohort has Available Data filters or Biospecimen filters. <!--SV-2314-->
+* The TSV of the __cases table__ may not contain the expected tabs. <!--DEV-2324-->
+* When the __Cohort Comparison__ tool is loading, the loading spinner may be displayed above the other areas of the Analysis Center. <!--SV-2360-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+
 ## Release 2.0.0
 
 * __GDC Product__: GDC Data Portal
