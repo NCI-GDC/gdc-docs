@@ -2,10 +2,10 @@ copyright: '&copy; 2015-2016'
 extra:
   dictionary_app_root: /apps/dictionary
   dictionary_viewer_page_id: Viewer
-  gdcmvs_app_root: /apps/gdcmvs
-  gdcmvs_viewer_page_id: Search
   encyclopedia_entries_page_title: EncyclopediaEntries
   encyclopedia_page_title: Encyclopedia
+  gdcmvs_app_root: /apps/gdcmvs
+  gdcmvs_viewer_page_id: Search
   nav_exclude:
   - EncyclopediaEntries
   project_description: GDC Docs
@@ -39,24 +39,24 @@ pages:
   - Release Notes: API/Release_Notes/API_Release_Notes.md
   - fa-file-text Download PDF /API/PDF/API_UG.pdf: API/PDF/index.md
 - Data Portal:
-  - Getting Started: 'Data_Portal/Users_Guide/getting_started.md'
-  - Quick Start: 'Data_Portal/Users_Guide/quick_start.md'
-  - Tutorial Videos: 'Data_Portal/Users_Guide/Video_Tutorials.md'
-  - Cohort Builder: 'Data_Portal/Users_Guide/cohort_builder.md'
-  - Analysis Center: 'Data_Portal/Users_Guide/analysis_center.md'
-  - Repository: 'Data_Portal/Users_Guide/Repository.md'
-  - Projects: 'Data_Portal/Users_Guide/Projects.md'
-  - BAM Slicing: 'Data_Portal/Users_Guide/BAMslicing.md'
-  - Clinical Data Analysis: 'Data_Portal/Users_Guide/clinical_data_analysis.md'
-  - Cohort Comparison: 'Data_Portal/Users_Guide/cohort_comparison.md'
-  - Gene Expression Clustering: 'Data_Portal/Users_Guide/gene_expression_clustering.md'
-  - Mutation Frequency: 'Data_Portal/Users_Guide/mutation_frequency.md'
-  - OncoMatrix: 'Data_Portal/Users_Guide/oncomatrix.md'
-  - ProteinPaint: 'Data_Portal/Users_Guide/proteinpaint_lollipop.md'
-  - Sequence Reads: 'Data_Portal/Users_Guide/proteinpaint_bam.md'
-  - Set Operations: 'Data_Portal/Users_Guide/set_operations.md'
-  - For Developers: 'Data_Portal/Users_Guide/Developers_Guide.md'
-  - Release Notes: 'Data_Portal/Release_Notes/Data_Portal_Release_Notes.md'
+  - Getting Started: Data_Portal/Users_Guide/getting_started.md
+  - Quick Start: Data_Portal/Users_Guide/quick_start.md
+  - Tutorial Videos: Data_Portal/Users_Guide/Video_Tutorials.md
+  - Cohort Builder: Data_Portal/Users_Guide/cohort_builder.md
+  - Analysis Center: Data_Portal/Users_Guide/analysis_center.md
+  - Repository: Data_Portal/Users_Guide/Repository.md
+  - Projects: Data_Portal/Users_Guide/Projects.md
+  - BAM Slicing: Data_Portal/Users_Guide/BAMslicing.md
+  - Clinical Data Analysis: Data_Portal/Users_Guide/clinical_data_analysis.md
+  - Cohort Comparison: Data_Portal/Users_Guide/cohort_comparison.md
+  - Gene Expression Clustering: Data_Portal/Users_Guide/gene_expression_clustering.md
+  - Mutation Frequency: Data_Portal/Users_Guide/mutation_frequency.md
+  - OncoMatrix: Data_Portal/Users_Guide/oncomatrix.md
+  - ProteinPaint: Data_Portal/Users_Guide/proteinpaint_lollipop.md
+  - Sequence Reads: Data_Portal/Users_Guide/proteinpaint_bam.md
+  - Set Operations: Data_Portal/Users_Guide/set_operations.md
+  - For Developers: Data_Portal/Users_Guide/Developers_Guide.md
+  - Release Notes: Data_Portal/Release_Notes/Data_Portal_Release_Notes.md
   - fa-file-text Download PDF /Data_Portal/PDF/Data_Portal_UG.pdf: Data_Portal/PDF/index.md
 - Data Portal v1.0:
   - Getting Started: Data_Portal_V1/Users_Guide/Getting_Started.md
@@ -109,13 +109,15 @@ pages:
 - Encyclopedia: Encyclopedia/index.md
 - EncyclopediaEntries:
   - Affymetrix SNP 6.0: Encyclopedia/pages/Affymetrix_SNP_6.0.md
+  - Aggregated Somatic Mutation: Encyclopedia/pages/Aggregated_Somatic_Mutation.md
+  - Aligned Reads: Encyclopedia/pages/Aligned_Reads.md
+  - Aliquot: Encyclopedia/pages/Aliquot.md
+  - Analyte: Encyclopedia/pages/Analyte.md
   - Annotations: Encyclopedia/pages/Annotations.md
   - Annotations TCGA: Encyclopedia/pages/Annotations_TCGA.md
-  - Aggregated Somatic Mutation: Encyclopedia/pages/Aggregated_Somatic_Mutation.md
-  - Aliquot: Encyclopedia/pages/Aliquot.md
   - Biospecimen Data: Encyclopedia/pages/Biospecimen_Data.md
-  - Case: Encyclopedia/pages/Case.md
   - Cancer Genomics Hub: Encyclopedia/pages/Cancer_Genomics_Hub.md
+  - Case: Encyclopedia/pages/Case.md
   - Center for Cancer Genomics: Encyclopedia/pages/Center_for_Cancer_Genomics.md
   - Clinical Data: Encyclopedia/pages/Clinical_Data.md
   - Clinical Supplement: Encyclopedia/pages/Clinical_Supplement.md
@@ -124,26 +126,29 @@ pages:
   - Data Submitter: Encyclopedia/pages/Data_Submitter.md
   - dbGaP: Encyclopedia/pages/dbGaP.md
   - Entity: Encyclopedia/pages/Entity.md
+  - FPKM-UQ: Encyclopedia/pages/FPKM-UQ.md
+  - FPKM: Encyclopedia/pages/FPKM.md
   - GDC API: Encyclopedia/pages/GDC_API.md
   - GDC Data Portal: Encyclopedia/pages/GDC_Data_Portal.md
   - GDC Data Submission Portal: Encyclopedia/pages/GDC_Data_Submission_Portal.md
   - GDC Data Transfer Tool: Encyclopedia/pages/GDC_Data_Transfer_Tool.md
   - GDC Documentation Site: Encyclopedia/pages/GDC_Documentation_Site.md
   - GDC Web Site: Encyclopedia/pages/GDC_Web_Site.md
-  - Genomic Data Analysis Network (GDAN): Encyclopedia/pages/Genomic_Data_Analysis_Network.md
+  - Genomic Data Analysis Network: Encyclopedia/pages/Genomic_Data_Analysis_Network.md
   - Genomic Data Commons: Encyclopedia/pages/Genomic_Data_Commons.md
   - Harmonized Data: Encyclopedia/pages/Harmonized_Data.md
   - Latest Data: Encyclopedia/pages/Latest_Data.md
   - Manifest File: Encyclopedia/pages/Manifest_File.md
   - MD5 Checksum: Encyclopedia/pages/MD5_Checksum.md
   - Mutation Annotation Format: Encyclopedia/pages/Mutation_Annotation_Format.md
+  - Mutation Annotation Format TCGAv2: Encyclopedia/pages/Mutation_Annotation_Format_TCGAv2.md
   - Redaction: Encyclopedia/pages/Redaction.md
   - Release Number: Encyclopedia/pages/Release_Number.md
   - REST API: Encyclopedia/pages/REST_API.md
   - RNA-Seq: Encyclopedia/pages/RNA-Seq.md
-  - Sequence Trace File: Encyclopedia/pages/Sequence_Trace_File.md
   - SNP Array-Based Data: Encyclopedia/pages/SNP_Array-Based_Data.md
   - TCGA Barcode: Encyclopedia/pages/TCGA_Barcode.md
+  - TCGA VCF 1.1v2: Encyclopedia/pages/TCGA_VCF_1.1v2.md
   - TCIA: Encyclopedia/pages/TCIA.md
   - UUID: Encyclopedia/pages/UUID.md
   - Variant Call Format: Encyclopedia/pages/Variant_Call_Format.md
