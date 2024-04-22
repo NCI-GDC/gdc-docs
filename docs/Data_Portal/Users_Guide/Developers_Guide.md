@@ -1,57 +1,49 @@
-# GDC Portal 2.0 Application Developer Guide
+# GDC Analysis Tool Software Development Toolkit (SDK)
 
-## Introduction
+This guide will detail the process of developing applications for the GDC Data Portal 2.0. It describes the structure of the GDC Data Portal, how to use the GDC Data Portal API, and how to develop applications for the GDC Data Portal.
 
-This guide will detail the process of developing applications for the GDC Portal Version 2.0. It describes the structure of the GDC Portal, how to use the GDC Portal API, and how to develop applications for the GDC Portal.
+The GDC Data Portal is a repository and computational platform for cancer researchers who need to understand cancer, its clinical progression, and response to therapy. The GDC Data Portal supports the development of applications that allow for analysis, visualization, and refinement of cohorts. 
 
-The GDC Portal is designed to support the development of applications that allow for analysis, visualization,
-and refinement of cohorts. The GDC Portal is built on top of the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/),
-which provides access to the GDC data. The GDC Portal provides a framework for developing applications that
-can be used to analyze and visualize data from the GDC. The GDC Portal is built on top of the [React](https://reactjs.org/) framework and uses the [Redux](https://redux.js.org/) library for state management. The GDC Portal uses
-NextJS to provide server-side rendering of React components. Mantine.dev is the base component library used
-and styling is done with [TailwindCSS](https://tailwindcss.com/).
+The GDC Data Portal is built on top of the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/), which provides access to the GDC data. The GDC Data Portal provides an Analysis Tool Framework (ATF) for developing applications that can be used to analyze, visualize and download data from the GDC.
 
-The GDC Portal contains an Analysis Center where applications are displayed for users to use with their cohorts.
-The GDC Portal also provides a framework for developing applications that can be used to analyze and visualize data from the GDC.
+The GDC Data Portal is built on top of the [React](https://reactjs.org/) framework and uses the [Redux](https://redux.js.org/) library for state management. The GDC Portal uses [NextJS](https://nextjs.org/) to provide server-side rendering of React components. [Mantine.dev](https://mantine.dev/) is the component library,  and styling uses [TailwindCSS](https://tailwindcss.com/).
 
 ## Overview of an Application
 
-Applications are High Order Components (HOC) that are rendered in the Analysis Center. The portal major functions
-like Project, Downloads, and Protein Paint are all applications. Each application handles a specific task and can be used to
-refine and analyze cohorts. Applications have access to all the current cohort information and can use that information
-to query the GDC API for additional information.
+Applications are React higher-order components (HOC) that are rendered in the [Analysis Center](https://portal.gdc.cancer.gov/analysis_page?app=). The GDC Data Portal major functions such as Projects and Protein Paint are all applications. Each application handles a specific task such as analysis or visualization and can also be used to refine and analyze cohorts. Applications have access to all the current cohort information and can use that information to query the GDC API for additional information.
 
-Local and Cohort filters are available to applications. Local filters are filters that are specific to the application and are used to refine the data that is displayed in the application. Local filters are those available from the GDC API and are typically not the
-most common. For example in the Mutation Frequency application, the local filters are the gene and mutation type filters. In the figure
-below the local filters are highlighted in yellow. These filters are used to refine the input cohort allowing users to
-drill down to specific genes and mutation types of interest in the cohort.
+Local and Cohort filters are available to applications. Local filters are filters that are specific to the application and are used to refine the data that is displayed in the application. Local filters are those available from the GDC API and are typically not the most common. For example in the Mutation Frequency application, the local filters are the gene and mutation type filters. In the figure below the local filters are highlighted in yellow. These filters are used to refine the input cohort allowing users to drill down to specific genes and mutation types of interest in the cohort.
+
+
 
 ![Mutation Frequency](./images/mutation_frequency_app.png)
 
 ### Local vs Cohort Filters
 
-A Portal application's input can be anything including a single cohort or multiple cohorts. The application then can either add filters to refine the cohort by adding filters, create additional cohorts, or display the data in a visualization. Applications typically
-have:
+A portal application's input can include the current cohort or multiple user defined cohorts. The application then can either add filters to refine the cohort, create additional cohorts, or display the data in a visualization. Applications typically have:
 
-* Local filters that are used to refine the data displayed in the application
-* Cohort filters that are used to refine the cohort
-* UI components that are used to display the data in the application
-* State that is used to store the data displayed in the application
-* Actions that are used to update the state of the application
+* **Local filters** that are used to refine the data displayed in the application
+* **Cohort filters** that are used to refine the cohort
+* **UI Elements** that are used to display the data in the application
+* **State** that is used to store the data displayed in the application
+* **Actions** that are used to update the state of the application
 
-Applications can also create new cohorts. These cohorts can be used by other Portal applications.
+Applications can also create new cohorts. These cohorts can be used by other GDC Data Portal applications. The figure below illustrates the application components and cohort filters.
 
-![Structure of an Application](./images/application_structure.png)
+
+
+![Local and Cohort Filters](./images/developers_guide/local_and_cohort_filters.png)
 
 ## Cohorts and Filters
 
 From an application perspective, a cohort is an Object containing the following information:
+
 ```typescript
 interface Cohort {
   id: string;        // unique id for cohort
   name: string;      // name of cohort
   filters: FilterSet; // active filters for cohort
-  caseSet: CaseSetDataAndStatus; // case ids for frozen cohorts
+  caseSet: CaseSetDataAndStatus; // case ids that are in the cohort
   modified?: boolean; // flag which is set to true is modified and unsaved
   modified_datetime: string; // last time cohort was modified
   saved?: boolean; // flag indicating if cohort has been saved.
@@ -59,9 +51,7 @@ interface Cohort {
 }
 ```
 
-Likely the most important part of the cohort is the `filters` field. The `filters` field contains the active filters for the cohort.
-The `filters` field is a `FilterSet` object. The `FilterSet` object contains the active filters for the cohort. When calling either the
-GDC API or GDC GraphQL API the `FilterSet`` is converted to the appropriate format for the API. The `FilterSet` object is of the form:
+Likely the most important part of the cohort is the `filters` field. The `filters` field contains the active filters for the cohort. The `filters` field is a `FilterSet` object. The `FilterSet` object contains the active filters for the cohort. When calling either the GDC REST API or GDC GraphQL API the `FilterSet` is converted to the appropriate format for the API. The `FilterSet` object is of the form:
 
 ```typescript
 interface FilterSet {
@@ -69,7 +59,9 @@ interface FilterSet {
   root: Record<string,Operation >; // map of filter name to filter operation
 }
 ```
-Operation are GDC API filters described in the [GDC API Guide](https://docs.gdc.cancer.gov/API/Users_Guide/Search_and_Retrieval/#filters-specifying-the-query). These are:
+
+Operation are GDC API filters as described in the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Search_and_Retrieval/#filters-specifying-the-query). These are:
+
 * Equals
 * NotEquals
 * LessThan
@@ -84,18 +76,14 @@ Operation are GDC API filters described in the [GDC API Guide](https://docs.gdc.
 * Intersection
 * Union
 
-The `root` field is a map of filter names (as defined in the GDC API) to filter operation. The filter operation can be either a single operation
-or a `FilterSet` object. The `op` field will eventually support either `and` or `or`, however at this time only `and` is supported. The `and`operator is used to combine filters using the `and` operator. The `or` operator is used to combine
-filters using the `or` operator. The `FilterSet` object is converted to the appropriate format for the GDC API when the cohort is saved.
-When using the GDC REST API, the FilterSet can be converted into the appropriate format using the `filterSetToOperation` function.
-When using the GDC GraphQL API, the FilterSet can be using the `convertFilterSetToGraphQL` function. The API guide will provide information
-on what format the filters should be in for the API. Also as the code is in TypeScript, the IDE will provide information on the format as well.
+The `root` field is a map of filter names (as defined in the GDC API) to filter operation. The filter operation can be either a single operation or a `FilterSet` object. The `op` field will eventually support either `and` or `or`, however at this time only `and` is supported. The `and`operator is used to combine filters using the `and` operator. The `or` operator is used to combine filters using the `or` operator. The `FilterSet` object is converted to the appropriate format for the GDC API when the cohort is saved.
 
+
+When using the GDC REST API, the FilterSet can be converted into the appropriate format using the `filterSetToOperation` function. When using the GDC GraphQL API, the FilterSet can be using the `convertFilterSetToGraphQL` function. The API guide will provide information on what format the filters should be in for the API. Also as the code is in TypeScript, the IDE will provide information on the format as well.
 
 ### Getting Cohort Information
 
-The current active cohort can be accessed via the selector `selectCurrentCohort`. This selector returns the current cohort,
-which is the cohort that is currently being displayed in the Cohort Management Bar. Accessing the current cohort is done via the
+The current active cohort can be accessed via the selector `selectCurrentCohort`. This selector returns the current cohort, which is the cohort that is currently being displayed in the Cohort Management Bar. Accessing the current cohort is done via the
 selector:
 
 ```typescript
@@ -105,7 +93,6 @@ const currentCohort = useSelector(selectCurrentCohort);
 ```
 
 By using the selector, the component/application will be updated when the cohort changes. There are also selectors for getting a particular field from the cohort. For example, to get the cohort name, the selector `selectCurrentCohortName` can be used. The selectors are:
-
 
 * `selectCurrentCohort`
 * `selectCurrentCohortName`
@@ -135,21 +122,21 @@ import {useCoreSelector,  selectAllCohorts } from '@gff/core';
 
 const allCohorts = useSelector(selectAllCohorts);
 ```
+
 # Using the Portal Application API
 
-The GDC Portal provides a number of hooks for querying the GDC API. These hooks are located in the `@gff/core` package.
-The hooks are designed to work in a manner similar to the RTL Query hooks. The hooks take arguments and return an object.
-The object contains the data and the status of the query. The status of the query is stored in the `isSuccess` variable.
-The @gff/core package also provides a set of selectors that return values stored in the core redux store: `CoreStore`.
+The GDC Portal provides a number of hooks for querying the GDC API. These hooks are located in the `@gff/core` package. The hooks are designed to work in a manner similar to the RTL Query hooks. The hooks take arguments and return an object.
+The object contains the data and the status of the query. The status of the query is stored in the `isSuccess` variable. The @gff/core package also provides a set of selectors that return values stored in the core redux store: `CoreStore`.
 
 There are a number of hooks and selectors that are available for querying the GDC API, a subset of which are shown below:
+
+
 
 ![hooks and selectors](./images/hooks_and_selectors.png)
 
 ## Case Information
 
-The GDC Portal provides several hooks for querying case information. These hooks are located in the `@gff/core` package.
-Cases can be queried using several different methods. The 'useAllCases' hook returns all the cases in the GDC and can be filtered by the current cohort as shown below:
+The GDC Data Portal provides several hooks for querying case information. These hooks are located in the `@gff/core` package. Cases can be queried using several different methods. The `useAllCases` hook returns all the cases in the GDC and can be filtered by the current cohort as shown below:
 
 ```typescript
 import { useCoreSelector, useAllCases } from '@gff/core';
@@ -199,9 +186,10 @@ const { data, isFetching, isSuccess, isError, pagination } = useAllCases({
   sortBy: sortBy,
   searchTerm,
 });
-
 ```
+
 The `useAllCases` hook takes a number of arguments:
+
 * `fields` - the fields to return from the GDC API
 * `size` - the number of cases to return
 * `filters` - the filters to apply to the cases
@@ -214,9 +202,7 @@ This call is used in the Table view tab of the Cohort Management Bar.
 Information for a single case can be queried using the `useCaseSummary` hook. This call is used in the caseView page:
 [portal.gdc.cancer.gov/cases/5693302a-4548-4c0b-8725-0cb7c67bc4f8](https://portal.gdc.cancer.gov/cases/5693302a-4548-4c0b-8725-0cb7c67bc4f8)
 
-
 ```typescript
-
   const { data, isFetching } = useCaseSummary({
   filters: {
     content: {
@@ -270,7 +256,9 @@ Information for a single case can be queried using the `useCaseSummary` hook. Th
     "diagnoses.last_known_disease_status"]
   });
 ```
+
 The `useCaseSummary` hook takes a number of arguments:
+
 * `fields` - the fields to return from the GDC API
 * `filters` - the filters to apply to the cases and where the caseId is passed in
 
@@ -313,10 +301,10 @@ const { data, isFetching, isError, isSuccess } = useGetFilesQuery({
   from: offset * pageSize,
   sortBy: sortBy,
 });
-
 ```
 
 The `useGetFilesQuery` hook takes a number of arguments:
+
 * `case_filters` - the filters to apply to the cases
 * `filters` - the filters to apply to the files
 * `expand` - the fields to expand
@@ -356,7 +344,9 @@ Information for a single file can be queried using the `useFileSummary` hook. Th
   ],
 });
 ```
+
 The `useFileSummary` hook takes several arguments:
+
 * `filters` - the filters to apply to the cases and where the file uuid is passed in
 * `expand` - the fields to expand
 
@@ -402,10 +392,10 @@ As the above hooks are Redux Toolkit Query hooks, namely mutation hooks, they re
     }
     ;
   }
-
 ```
 
 Once a set is created it can be altered using the following hooks:
+
 * `useAppendToGeneSetMutation`
 * `useAppendToSsmSetMutation`
 * `useRemoveFromGeneSetMutation`
@@ -449,7 +439,6 @@ In summary, the above code flow is:
 
 Additional details on the `SaveCohortModal` component can be found in the [Component Library](#component-library) section as
 well as buttons to create a saved cohort.
-
 
 ## Altering a cohort
 
@@ -496,13 +485,13 @@ coreDispatch(updateCohortFilter({
 ```
 
 This will update the current cohort's filter to include the project `TCGA-ACC`. The `removeCohortFilter` action can be used to remove a filter from the current cohort. The `removeCohortFilter` action takes a single argument:
-```typescript
 
+```typescript
 interface RemoveFilterParams {
   field: string;
 }
-
 ```
+
 where `field` is the field to remove. For example to remove the `cases.project.project_id` field from the current cohort's filter the following code can be used:
 
 ```typescript
@@ -530,13 +519,13 @@ This will clear all the filters from the current cohort.
 #### Updating the cohort name
 
 The cohort name can be updated using the `updateCohortName` action. The `updateCohortName` action takes a single argument:
-```typescript
 
+```typescript
 interface UpdateCohortNameParams {
   name: string;
 }
-
 ```
+
 where `name` is the new name for the cohort. For example, to update the current cohort's name to `My Cohort` the following code can be used:
 
 ```typescript
@@ -554,13 +543,13 @@ This will update the current cohort's name to `My Cohort`.
 #### Setting the current cohort
 
 The current cohort can be set using the `setCurrentCohort` action. The `setCurrentCohort` action takes a single argument:
-```typescript
 
+```typescript
 interface SetCurrentCohortParams {
   cohortId: string;
 }
-
 ```
+
 where `cohortId` is the id of the cohort to set as the current cohort. For example to set the cohort with id `1234` as the current cohort the following code can be used:
 
 ```typescript
@@ -574,7 +563,6 @@ coreDispatch(setCurrentCohort({
 ```
 
 This will set the cohort with ID `1234` as the current cohort.
-
 
 ## Count Information
 
@@ -602,6 +590,7 @@ interface TotalCounts {
   status: DataStatus;
 }
 ```
+
 where `DataStatus` is defined as:
 
 ```typescript
@@ -625,7 +614,6 @@ The buttons are:
 The `DownloadButton` component is used in the repository application to download data from the GDC API. The `DownloadButton` component takes a number of arguments:
 
 ```tsx
-
 <DownloadButton
         inactiveText={`Download ${numFilesCanAccess} Authorized File${
                 numFilesCanAccess !== 1 ? "s" : ""
@@ -644,7 +632,6 @@ The `DownloadButton` component is used in the repository application to download
         method="POST"
         setActive={setActive}
 />
-
 ```
 
 The parameters for the DownloadButton are defined in the Portal 2.0 SDK API documentation. The `DownloadButton` component will take care of
@@ -658,7 +645,6 @@ The `SaveCohortButton` component is used in the repository application to save a
 The `SaveCohortButton` component takes a number of arguments:
 
 ```tsx
-
 <CohortCreationButton
         numCases={cohort1Count}
         label={cohort1Count.toLocaleString()}
@@ -680,9 +666,9 @@ modals that can be used for various purposes. One such modal is the `SaveCohortM
 
 * `SaveCohortModal` - a modal that can be used to save a cohort.
 * Various modals for displaying information on Sets:
-    * `CaseSetModal`
-    * `GeneSetModal`
-    * `MutationSetModal`
+  * `CaseSetModal`
+  * `GeneSetModal`
+  * `MutationSetModal`
 * `SaveOrCreateEntityModal` - a modal that can be used to save or create a new entity.
 
 These modals and others, are documented in the Portal 2.0 SDK API documentation.
@@ -730,8 +716,8 @@ const BarChart = dynamic(() => import("@/components/charts/BarChart"), {
 ```
 
 * `Cancer Distribution` - a cancer distribution chart
-
- ![cancer distribution](images/most-frequently-mutated-genes-bar-chart.png)
+  
+  ![cancer distribution](images/most-frequently-mutated-genes-bar-chart.png)
 
 The `CancerDistribution` component (based on Plotly) is different as it passed the Gene Symbol
 and optionally cohort and gene filters.
@@ -771,7 +757,6 @@ Facet components are provided for use in building local filters for your applica
 
 *Date Range Facet*
 
-
 ![Number Range Facet Component](images/components/number_range.png)
 
 *Number Range Facet*
@@ -780,11 +765,9 @@ Facet components are provided for use in building local filters for your applica
 
 *Percentile Facet*
 
-
 ![Age Range Facet Component](images/components/age_range_facet.png)
 
 *Age Range Facet*
-
 
 ![Exact Value Facet Component](images/components/exact_value_facet.png)
 
@@ -793,7 +776,6 @@ Facet components are provided for use in building local filters for your applica
 ![Boolean Toggle Facet Component](images/components/toggle_facet.png)
 
 *Toggle Facet*
-
 
 The facet components are documented in the Portal 2.0 SDK API documentation. As these components are passed data fetcher
 and filter management hooks, they can be used for both cohort and local filters in an application.
@@ -883,6 +865,7 @@ export const { id, AppStore, AppContext, useAppSelector, useAppDispatch } =
 
 export type AppState = ReturnType<typeof reducers>;
 ```
+
 Call this function will create the local store given the reducers and the name, and version of the application.
 The name of the application is used to create the local storage key for the application. The `id` is the id of the
 application and is used to create the local storage key. The `AppStore` is the local store, the `AppContext` is the
@@ -930,7 +913,6 @@ export const { id, AppStore, AppContext, useAppSelector, useAppDispatch } =
   });
 
 export type AppState = ReturnType<typeof reducers>;
-
 ```
 
 For example, the `projectCenterFiltersSlice.ts` which handles the local filters, is defined as:
@@ -1043,6 +1025,7 @@ export const useProjectsFilters = (): FilterSet => {
   return useAppSelector((state) => selectFilters(state));
 };
 ```
+
 ## Creating a new cohort
 
 The project application allows users to create a new cohort from the selected projects. The cohort is created using the
@@ -1127,7 +1110,6 @@ import { useIsDemoApp } from "@/hooks/useIsDemoApp";
 const GenesAndMutationFrequencyAnalysisTool: React.FC = () => {
   const isDemoMode = useIsDemoApp();
   ...
-
 ```
 
 ### Application Registration
@@ -1152,6 +1134,7 @@ export default createGdcAppWithOwnStore({
 
 export const ProjectsCenterAppId: string = id;
 ```
+
 The above code registers the application with the GDC Portal. The `createGdcAppWithOwnStore` function takes a number of arguments:
 
 * `App`: React.ComponentType - the application component
@@ -1220,7 +1203,6 @@ While you are free to structure your application code as you with, the following
 
 *Application source code layout*
 
-
 # Appendix
 
 ## Using selectors and hooks
@@ -1238,7 +1220,6 @@ accessing the state of the GDC Portal. Selectors are functions that take the sta
 import {useCoreSelector,  selectCurrentCohort } from '@gff/core';
 
 const currentCohort = useSelector(selectCurrentCohort);
-
 ```
 
 The selector will return the current value of the item in the store. Consult the GDC 2.0 API documentation for a complete
@@ -1280,6 +1261,7 @@ and `error` is the error returned from the query.
 
 There may be cases where you need to query the GDC API directly. The GDC Portal provides a number of functions for querying
 the GDC API. These functions are located in the `@gff/core` package. The functions are:
+
 * `fetchGdcProjects` - fetches project data
 * `fetchGdcAnnotations` - fetches annotation data
 * `fetchGdcSsms` - fetches ssms data
