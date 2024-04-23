@@ -50,6 +50,7 @@ pages:
   - Clinical Data Analysis: 'Data_Portal/Users_Guide/clinical_data_analysis.md'
   - Cohort Comparison: 'Data_Portal/Users_Guide/cohort_comparison.md'
   - Gene Expression Clustering: 'Data_Portal/Users_Guide/gene_expression_clustering.md'
+  - MAF Aggregation: 'Data_Portal/Users_Guide/cohortMAF.md'
   - Mutation Frequency: 'Data_Portal/Users_Guide/mutation_frequency.md'
   - OncoMatrix: 'Data_Portal/Users_Guide/oncomatrix.md'
   - ProteinPaint: 'Data_Portal/Users_Guide/proteinpaint_lollipop.md'
