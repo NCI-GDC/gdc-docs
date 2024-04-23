@@ -1,4 +1,4 @@
-# Cohort MAF
+# Cohort Level MAF
 
 ## Introduction to Cohort Level MAF
 The Cohort Level MAF tool is a web-based tool for searching and selecting a desired set of open-access Mutation Annotation Format (MAF) files from the NCI Genomic Data Commons (GDC), and downloading the aggregated and compressed file. 
