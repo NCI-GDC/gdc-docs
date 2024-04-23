@@ -116,6 +116,7 @@
     * Using multiple browser tabs with the portal when adding or removing files from the cart may result in the cart not being updated as expected. <!--SV-2412-->
 * Gene/mutation sets created from the tables in the __Mutation Frequency__ tool may contain 0 genes/mutations if the cohort has Available Data filters or Biospecimen filters. <!--SV-2314-->
 * The TSV of the __cases table__ may not contain the expected tabs. <!--DEV-2324-->
+* The search for case IDs in the Repository and the cases table is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased. 
 * When the __Cohort Comparison__ tool is loading, the loading spinner may be displayed above the other areas of the Analysis Center. <!--SV-2360-->
 * The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
 
