@@ -70,7 +70,7 @@
     * Group similar mutation class colors together when sorting matrix samples and if CNVs are displayed.
     * Add "Single" style to render consequence data, as alternative to Stacked and OncoPrint styles.
 * __ProteinPaint__:
-    * Allow to visualize SSM in any genomic locus, besides “protein” mode.
+    * Allow visualizing SSM in any genomic locus, besides “protein” mode.
     * Support creating a single-case cohort.
 * The performance of the __Clinical Data Analysis__ tool has been improved, especially when large cohorts are used with QQ plots. <!--PEAR-1536-->
 * __Quick Search__ now returns results for the latest versions of files when searching for older versions of those files. <!--PEAR-1804--> 
@@ -117,12 +117,12 @@
     * Deprecated term "sample_type" is dropped from GDC dictionary.
 * __BAM Slicing Download and Sequence Reads__:
     * When downloading GDC BAM slice (no caching), do not limit request region max size.
-    * Reload page while streaming/downloading GDC BAM slice to client will not crash server.
-    * App UI requires hitting Enter to search by GDC file or case, and no longer auto search (on pressing any key) to avoid showing duplicate SSM table.
+    * Reloading page while streaming/downloading GDC BAM slice to client will not crash server.
+    * App UI requires hitting Enter to search by GDC file or case, and will no longer auto search (on pressing any key) to avoid showing duplicate SSM table.
     * BAM track bug fix to handle reads with no sequence without breaking.
     * BAM track bug fix for hide/show toggling at track menu without breaking.
 * __Disco Plot__:
-    * Bug fix for disco plot launched from sunburst shows AAchange in sandbox header rather than undefined.
+    * Bug fix for disco plot launched from sunburst showing AAchange in sandbox header rather than undefined.
     * Pass the cohort filter to the lollipop track from the matrix and disco plot label click.
 * __Gene Expression Clustering__:
     * Enable gene variant legend group filter.
