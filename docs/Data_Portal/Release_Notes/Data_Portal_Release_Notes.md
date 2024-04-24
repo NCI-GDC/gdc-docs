@@ -43,20 +43,46 @@
 * __Release Date__:  April 30, 2024
 
 ### New Features and Changes
-* The Annotations Browser and annotation summary page have been implemented. <!--PEAR-1838/1181/1182/1160--> 
-* The case summary page has been enhanced with a table listing all the files associated with the case. Additionally, a link to the table is now available in the header of the summary page, and information has been added to the File Counts summary tables to lead users to the new files table. The clinical and biospecimen supplements tables have also been removed from the case summary page. <!--PEAR-1822/1849/1833/PEAR-1832-->
-* Files in the Repository can now be filtered by Tissue Type, Tumor Descriptor, Specimen Type, and Preservation Method. <!--PEAR-1514-->
-* Metadata and Sample Sheet downloads have been added to the Repository. <!--PEAR-1863-->
-* The performance of the Clinical Data Analysis tool has been improved, especially when large cohorts are used with QQ plots. <!--PEAR-1536-->
-* Quick Search now returns results for the latest versions of files when searching for older versions of those files. <!--PEAR-1804--> 
-* Responsiveness improvements have been made to the Analysis Center and the Cohort Bar. <!--PEAR-1836-->
-* The X button on the Unexpected Error dialog box has been removed. <!--SV-2367-->
-* Buttons for launching demos have been removed from the selection view of Cohort Comparison and Set Operations. <!--SV-2328/2327-->
-* The UX/UI for the Cohort Builder has been improved. <!--PEAR-1547-->
-* Set names for sets of the same type are now enforced to be unique when editing names in Manage Sets. <!--PEAR-1359-->
-* Number range cards in the Cohort Builder no longer display the custom range option when there is no data. <!--PEAR-661-->
-* The Cohort Buider image on the home page has been updated to reflect the latest design. <!--PEAR-1593-->
-* The tooltip on the Mutation Frequency card in the Analysis Center has been updated. <!--PEAR-1877-->
+* __Annotations Browser__
+    * The Annotations Browser and annotation summary page have been implemented. <!--PEAR-1838/1181/1182/1160--> 
+* __Repository__:
+    * Files can now be filtered by Tissue Type, Tumor Descriptor, Specimen Type, and Preservation Method. <!--PEAR-1514-->
+    * Metadata and Sample Sheet downloads have been added to the Repository. <!--PEAR-1863-->
+* __Cohort Level MAF__:
+    * A cohort level MAF analysis tool has been added to the Analysis Center.
+* __BAM Slicing Download and Sequence Reads__:
+    * In BAM Slicing Download, call GDC API directly from client without going through pp backend. No limits are applied on slicing region size or BAM slice file size.
+    * In Sequence Reads Visualization, user can slice a BAM with a range lower than 300Kb, and if the resulting BAM slice is under 100Mb. Slicing and caching a BAM slice bigger than 100Mb will abort and user will be notified to reduce region size and try again. Before creating new cache file, find out old enough ones to delete to free up storage.
+    * For both apps: The table listing available cases and bam files can be filtered by assay types.
+* __Gene Expression Clustering__:
+    * Enable gene variant legend group filter.
+    * Support creating a single-case cohort.
+    * Supported more clustering and distance calculation methods.
+* __OncoMatrix__:
+    * Enable downloading data.
+    * Hide synonymous mutations by default.
+    * Improve the matrix sorting options to easily toggle sorting by cnv and/or consequence.
+    * Add Mutation and CNV control buttons, and hide CNV by default.
+    * Create a mutations/consequences legend group for mutations.
+    * Enable selecting individual mutation classes upon clicking the Mutation/CNV button.
+    * Support creating a single-case cohort.
+    * Display hints about persisted matrix gene set and option to unhide CNV and mutations when there is no matrix data to render.
+    * Group similar mutation class colors together when sorting matrix samples and if CNVs are displayed.
+    * Add "Single" style to render consequence data, as alternative to Stacked and OncoPrint styles.
+* __ProteinPaint__:
+    * Allow visualizing SSM in any genomic locus, besides “protein” mode.
+    * Support creating a single-case cohort.
+* The performance of the __Clinical Data Analysis__ tool has been improved, especially when large cohorts are used with QQ plots. <!--PEAR-1536-->
+* __Quick Search__ now returns results for the latest versions of files when searching for older versions of those files. <!--PEAR-1804--> 
+* The X button on the __Unexpected Error__ dialog box has been removed. <!--SV-2367-->
+* Buttons for launching demos have been removed from the selection view of __Cohort Comparison__ and __Set Operations__. <!--SV-2328/2327-->
+* Responsiveness improvements have been made to the __Analysis Center__ and the __Cohort Bar__. <!--PEAR-1836-->
+* The UX/UI for the __Cohort Builder__ has been improved. <!--PEAR-1547-->
+* The __case summary page__ has been enhanced with a table listing all the files associated with the case. Additionally, a link to the table is now available in the header of the summary page, and information has been added to the File Counts summary tables to lead users to the new files table. The clinical and biospecimen supplements tables have also been removed from the case summary page. <!--PEAR-1822/1849/1833/PEAR-1832-->
+* Set names for sets of the same type are now enforced to be unique when editing names in __Manage Sets__. <!--PEAR-1359-->
+* Number range cards in the __Cohort Builder__ no longer display the custom range option when there is no data. <!--PEAR-661-->
+* The Cohort Buider image on the __home page__ has been updated to reflect the latest design. <!--PEAR-1593-->
+* The tooltip on the __Mutation Frequency__ card in the Analysis Center has been updated. <!--PEAR-1877-->
 
 ### Bugs Fixed Since Last Release
 * __Section 508 Accessibility__:
@@ -85,6 +111,37 @@
 * __Mutation Frequency__:
     * The survival plot in __Mutation Frequency__ no longer flickers when the cohort has 0 cases. <!--SV-2331/PEAR-1701-->
     * Attempting to download a TSV of all the mutations in the GDC no longer results in an error due to the length of time needed to generate the TSV. <!--SV-2388-->
+* __All ProteinPaint-based Tools__:
+    * In GDC query, do not supply empty "case_filters{content[]}" that will slow down API. Lollipop and OncoMatrix are now faster when there's no cohort.
+    * Updated mutation class definitions and rank for protein_altering_variant. Affects all tools that can show mutation data.  
+    * Deprecated term "sample_type" is dropped from GDC dictionary.
+* __BAM Slicing Download and Sequence Reads__:
+    * When downloading GDC BAM slice (no caching), do not limit request region max size.
+    * Reloading page while streaming/downloading GDC BAM slice to client will not crash server.
+    * App UI requires hitting Enter to search by GDC file or case, and will no longer auto search (on pressing any key) to avoid showing duplicate SSM table.
+    * BAM track bug fix to handle reads with no sequence.
+    * BAM track bug fix for hide/show toggling at track menu.
+* __Disco Plot__:
+    * Bug fix for disco plot launched from sunburst showing AAchange in sandbox header rather than undefined.
+    * Pass the cohort filter to the lollipop track from the matrix and disco plot label click.
+* __Gene Expression Clustering__:
+    * Enable gene variant legend group filter.
+    * Support creating a single-case cohort.
+    * Supported more clustering and distance calculation methods.
+* __OncoMatrix__:
+    * Fix position errors after OncoMatrix/hierCluster zooming in/out caused by outdated imgBox.
+    * Do not allow hiding all the alteration groups.
+    * Disable the geneset submit button when there there is less than a minNumGenes option (3 for hier cluster, 1 for matrix).
+    * Add to OncoMatrix mutation/cnv buttons all available mutation/cnv classes in all GDC instead of only within current cohort.
+    * Change the definition of truncating/protein-changing mutation, change OncoMatrix mutation classes sorting order.
+    * Fix the detection of sorting-related updates in the matrix app, as distinct from the Gene Expression Clustering.
+    * Pass the cohort filter to the lollipop track from the matrix and disco plot label click.
+* __ProteinPaint__:
+    * Sample summary table will scroll if too tall.
+    * Bug fix to convert "case." to "cases." in case_filters[] for GDC mds3 sunburst clicking to load sample table.
+    * Do not force the sample table to be positioned relative to screen bottom after a sunburst click.
+    * Prevent double-clicking on a sunburst ring so that same sample table will not appear duplicated.
+    * Bug fix for Lollipop category total sample count to respond/shrink with cohort change.
 * Tokens are no longer refreshed when the __User Profile__ is viewed. <!--PEAR-1818-->
 * __Quick Search__ now correctly displays results even if the same search input is applied twice quickly. <!--SV-2410-->
 * In __Set Operations__, saving gene and mutation sets will now be successful if the saving dialog is manually dismissed after the Save button is clicked. <!--SV-2368-->
@@ -116,6 +173,7 @@
     * Using multiple browser tabs with the portal when adding or removing files from the cart may result in the cart not being updated as expected. <!--SV-2412-->
 * Gene/mutation sets created from the tables in the __Mutation Frequency__ tool may contain 0 genes/mutations if the cohort has Available Data filters or Biospecimen filters. <!--SV-2314-->
 * The TSV of the __cases table__ may not contain the expected tabs. <!--DEV-2324-->
+* In the Repository and cases table, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
 * When the __Cohort Comparison__ tool is loading, the loading spinner may be displayed above the other areas of the Analysis Center. <!--SV-2360-->
 * The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
 
