@@ -4,6 +4,9 @@
 
 The Repository tool is where data files associated with each case in the current cohort can be browsed and downloaded. It also offers file filters for identifying files of interest.
 
+> **NOTE:** Filters within the Repository are applied to the files associated with your cohort. If your goal is to filter the cases within your cohort, use the filters located in the Cohort Builder.
+
+
 The Repository tool can be reached in one of these two ways:
 
 * Choosing the Repository link in the GDC Data Portal header
