@@ -119,8 +119,8 @@
     * When downloading GDC BAM slice (no caching), do not limit request region max size.
     * Reloading page while streaming/downloading GDC BAM slice to client will not crash server.
     * App UI requires hitting Enter to search by GDC file or case, and will no longer auto search (on pressing any key) to avoid showing duplicate SSM table.
-    * BAM track bug fix to handle reads with no sequence without breaking.
-    * BAM track bug fix for hide/show toggling at track menu without breaking.
+    * BAM track bug fix to handle reads with no sequence.
+    * BAM track bug fix for hide/show toggling at track menu.
 * __Disco Plot__:
     * Bug fix for disco plot launched from sunburst showing AAchange in sandbox header rather than undefined.
     * Pass the cohort filter to the lollipop track from the matrix and disco plot label click.
