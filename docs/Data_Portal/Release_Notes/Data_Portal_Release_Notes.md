@@ -171,6 +171,7 @@
 * __Cart__:
     * Spinners on the Download Cart and Download Associated Data buttons may be displayed longer than expected. This is a visual issue and does not affect the use of these buttons. <!--SV-2343-->
     * Using multiple browser tabs with the portal when adding or removing files from the cart may result in the cart not being updated as expected. <!--SV-2412-->
+* The aggregated MAF generated using the __Cohort Level MAF__ tool is missing the tumor_bam_uuid column. The tumor_sample_uuid and case_id should be used for reproducibility until the tumor_bam_uuid has been added.
 * Gene/mutation sets created from the tables in the __Mutation Frequency__ tool may contain 0 genes/mutations if the cohort has Available Data filters or Biospecimen filters. <!--SV-2314-->
 * The TSV of the __cases table__ may not contain the expected tabs. <!--DEV-2324-->
 * In the Repository and cases table, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
