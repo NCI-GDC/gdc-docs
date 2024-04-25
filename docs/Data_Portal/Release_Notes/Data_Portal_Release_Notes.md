@@ -145,7 +145,7 @@
 * Tokens are no longer refreshed when the __User Profile__ is viewed. <!--PEAR-1818-->
 * __Quick Search__ now correctly displays results even if the same search input is applied twice quickly. <!--SV-2410-->
 * In __Set Operations__, saving gene and mutation sets will now be successful if the saving dialog is manually dismissed after the Save button is clicked. <!--SV-2368-->
-* Users will no longer be able to download more than 5 GB of files in total at a time via the browser from the cart. <!--SV-2342-->
+* Users will no longer be able to download more than 5 GB of files in total at a time via the browser from the __cart__. <!--SV-2342-->
 * Table buttons in __Clinical Data Analysis__ no longer overlay the survival plot on smaller screens when many survival plots are displayed at the same time. <!--PEAR-1600-->
 * The correct file size total will now be displayed in the __Repository__ when filtering is applied within the tool and the active cohort contains Available Data filters. <!--SV-2376-->
 * Downloading the **Clinical/Biospecimen TSV or JSON** before the cohort has fully loaded will no longer result in an error. <!--SV-2402-->
@@ -172,6 +172,7 @@
     * Spinners on the Download Cart and Download Associated Data buttons may be displayed longer than expected. This is a visual issue and does not affect the use of these buttons. <!--SV-2343-->
     * Using multiple browser tabs with the portal when adding or removing files from the cart may result in the cart not being updated as expected. <!--SV-2412-->
 * The aggregated MAF generated using the __Cohort Level MAF__ tool is missing the tumor_bam_uuid column. The tumor_sample_uuid and case_id should be used for reproducibility until the tumor_bam_uuid has been added.
+* In both the __Sequence Reads__ and __BAM Slicing Download__ tools, the number of available BAM files may be overcounted when a cohort filter is in use.
 * Gene/mutation sets created from the tables in the __Mutation Frequency__ tool may contain 0 genes/mutations if the cohort has Available Data filters or Biospecimen filters. <!--SV-2314-->
 * The TSV of the __cases table__ may not contain the expected tabs. <!--DEV-2324-->
 * In the Repository and cases table, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
