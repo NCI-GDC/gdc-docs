@@ -70,7 +70,7 @@
     * Group similar mutation class colors together when sorting matrix samples and if CNVs are displayed.
     * Add "Single" style to render consequence data, as alternative to Stacked and OncoPrint styles.
 * __ProteinPaint__:
-    * Allow visualizing SSM in any genomic locus, besides “protein” mode.
+    * Allow visualizing SSM in any genomic locus, besides "protein" mode.
     * Support creating a single-case cohort.
 * The performance of the __Clinical Data Analysis__ tool has been improved, especially when large cohorts are used with QQ plots. <!--PEAR-1536-->
 * __Quick Search__ now returns results for the latest versions of files when searching for older versions of those files. <!--PEAR-1804--> 
