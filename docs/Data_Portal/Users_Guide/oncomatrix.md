@@ -182,7 +182,7 @@ Click TP53 again to showcase the edit menu.
 
 Click on 'Replace' as shown above to replace TP53 gene variable with 'Primary site' as shown below. The chart updates with the first row as 'Primary site' thereby replacing TP53 gene variable as shown below. User may choose to sort samples by clicking the 'Primary site' label.
 
-[Replace a gene row](![./images/oncomatrix/13-replace_gene.png)(./images/oncomatrix/13-replace_gene.png 'Click to see the full image.')
+[![Replace a gene row](./images/oncomatrix/13-replace_gene.png)](./images/oncomatrix/13-replace_gene.png 'Click to see the full image.')
 
 [![Replaced row](./images/oncomatrix/14-term-replaced.png)](./images/oncomatrix/14-term-replaced.png 'Click to see the full image.')
 
