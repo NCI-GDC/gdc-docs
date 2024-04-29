@@ -16,13 +16,13 @@ Users can view publicly available genes as well as login with credentials to acc
 
 There are three main panels in the OncoMatrix tool: [control panel](#control-panel), [matrix plot](#matrix-plot), and [legend panel](#legend-panel).
 
-[![OncoMatrix Overview](images/oncomatrix_overview.png)](images/oncomatrix_overview.png 'Click to see the full image.')
+[![OncoMatrix Overview](images/oncomatrix/oncomatrix_overview.png)](images/oncomatrix/oncomatrix_overview.png 'Click to see the full image.')
 
 ### Control Panel
 
 The control panel has various functionalities with which users can change or modify the appearance of the matrix. The control panel provides flexibility and a wide range of options to maximize user control.
 
-[![OncoMatrix Control Panel](images/oncomatrix_control_panel.png)](images/oncomatrix_control_panel.png 'Click to see the full image.')
+[![OncoMatrix Control Panel](images/oncomatrix/oncomatrix_control_panel.png)](images/oncomatrix/oncomatrix_control_panel.png 'Click to see the full image.')
 
 __Control Panel:__
 
@@ -31,7 +31,7 @@ __Control Panel:__
     * __Edit Group:__ Displays a panel of currently selected genes, which can be modified by clicking on a gene to remove it from the gene set, searching for a particular gene to add, loading top variably expressed genes, or loading a pre-defined gene set provided by the MSigDB database
     * __Create Group:__ Create a new gene set by searching for a particular gene, loading top mutated genes, or loading a pre-defined gene set provided by the MSigDB database
 * __Mutation:__ Choose to show all or select mutations based on consequence
-* __CNV:__ Choose to show or hide CNV data 
+* __CNV:__ Choose to show or hide CNV data
 * __Variables:__ Search and select variables to add to the bottom of the matrix
 * __Cell Layout:__ Modify the format of the cells by changing colors, cell dimensions and spacing, and label formatting
 * __Legend Layout:__ Alter the legend by changing the font size, dimensions and spacing, and other formatting preferences
@@ -51,11 +51,11 @@ The OncoMatrix plot displays the genes or variables along the left of the panel 
 
 Each column in the matrix represents a case. Hovering over a cell will display the corresponding case submitter_id, gene name, copy number information, and mutation consequence if any are provided. Clicking on a cell also gives users the option to launch the Disco Plot.
 
-[![Disco Plot button](images/oncomatrix_disco_plot_button.png)](images/oncomatrix_disco_plot_button.png 'Click to see the full image.')
+[![Disco Plot button](images/oncomatrix/oncomatrix_disco_plot_button.png)](images/oncomatrix/oncomatrix_disco_plot_button.png 'Click to see the full image.')
 
 The Disco Plot is a circular plot that shows all the mutations and CNVs for a given case. The Disco Plot also displays the legend for the mutation class and the CNV.
 
-[![Disco Plot](images/oncomatrix_disco_plot.png)](images/oncomatrix_disco_plot.png 'Click to see the full image.')
+[![Disco Plot](images/oncomatrix/oncomatrix_disco_plot.png)](images/oncomatrix/oncomatrix_disco_plot.png 'Click to see the full image.')
 
 #### Automatic Zoom
 
@@ -182,7 +182,7 @@ Click TP53 again to showcase the edit menu.
 
 Click on 'Replace' as shown above to replace TP53 gene variable with 'Primary site' as shown below. The chart updates with the first row as 'Primary site' thereby replacing TP53 gene variable as shown below. User may choose to sort samples by clicking the 'Primary site' label.
 
-[Replace a gene row](![./images/oncomatrix/13-replace_gene.png)(./images/oncomatrix/13-replace_gene.png 'Click to see the full image.')
+[![Replace a gene row](./images/oncomatrix/13-replace_gene.png)](./images/oncomatrix/13-replace_gene.png 'Click to see the full image.')
 
 [![Replaced row](./images/oncomatrix/14-term-replaced.png)](./images/oncomatrix/14-term-replaced.png 'Click to see the full image.')
 
@@ -303,41 +303,41 @@ This shows the number of cases in parenthesis of the group label and the breakdo
 
 By default, only protein-changing mutations are shown. This control allows hiding or showing mutations with the following options:
 
-1. Show all mutations 
+1. Show all mutations
 
-Select this option to show all the mutations. 
+Select this option to show all the mutations.
 
-[![Show all mutations](images/show-all-mutation.png)](images/show-all-mutation.png 'Click to see the full image.')
+[![Show all mutations](images/oncomatrix/show-all-mutation.png)](images/oncomatrix/show-all-mutation.png 'Click to see the full image.')
 
 2. Show truncating mutations
 
 Select this option to show only truncating mutations
 
-[![Show truncating mutations](images/show-truncating-mutations.png)](images/show-truncating-mutations.png 'Click to see the full image.')
+[![Show truncating mutations](images/oncomatrix/show-truncating-mutations.png)](images/oncomatrix/show-truncating-mutations.png 'Click to see the full image.')
 
 3. To show selected mutations as per requirement, user can choose from the following options after selecting 'Show selected mutations'
 
-[![Show selected mutations](images/show-selected-mutations.png)](images/show-selected-mutations.png 'Click to see the full image.')
+[![Show selected mutations](images/oncomatrix/show-selected-mutations.png)](images/oncomatrix/show-selected-mutations.png 'Click to see the full image.')
 
 ## CNV
 
-By default, the CNV's are hidden from view as shown by the striked label on the CNV button in the control panel. 
+By default, the CNV's are hidden from view as shown by the striked label on the CNV button in the control panel.
 
-[![CNV button striked](images/CNV-striked.png)](images/CNV-striked.png 'Click to see the full image.')
+[![CNV button striked](images/oncomatrix/CNV-striked.png)](images/oncomatrix/CNV-striked.png 'Click to see the full image.')
 
 To show all CNV data, select the option 'Show all CNV'.
 
-[![Show all CNV](images/Show-all-CNV.png)](images/Show-all-CNV.png 'Click to see the full image.')
+[![Show all CNV](images/oncomatrix/Show-all-CNV.png)](images/oncomatrix/Show-all-CNV.png 'Click to see the full image.')
 
 To view/hide selected CNV (gain or loss) select 'Show selected CNV' allows user to display options for selecting/de-selecting checkboxes and click 'Apply'.
 
-[![Show selected CNV](images/show-selected-CNV.png)](images/show-selected-CNV.png 'Click to see the full image.')
+[![Show selected CNV](images/oncomatrix/show-selected-CNV.png)](images/oncomatrix/show-selected-CNV.png 'Click to see the full image.')
 
 ### Sorting CNV data
 
 After making selections to show the CNV data, user can sort the cases 'by CNV' from the sorting options under the 'Cases' button
 
-[![Sort by CNV](images/sort-by-cnv.png)](images/sort-by-cnv.png 'Click to see the full image.')
+[![Sort by CNV](images/oncomatrix/sort-by-cnv.png)](images/oncomatrix/sort-by-cnv.png 'Click to see the full image.')
 
 ## Genes
 
