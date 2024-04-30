@@ -47,7 +47,7 @@ __Control Panel:__
 
 The OncoMatrix plot displays the genes or variables along the left of the panel with each column representing an individual case.
 
-#### Matrix cells
+__Matrix cells__
 
 Each column in the matrix represents a case. Hovering over a cell will display the corresponding case submitter_id, gene name, copy number information, and mutation consequence if any are provided. Clicking on a cell also gives users the option to launch the Disco Plot.
 
@@ -57,7 +57,7 @@ The Disco Plot is a circular plot that shows all the mutations and CNVs for a gi
 
 [![Disco Plot](images/oncomatrix/oncomatrix_disco_plot.png)](images/oncomatrix/oncomatrix_disco_plot.png 'Click to see the full image.')
 
-#### Automatic Zoom
+__Automatic Zoom__
 
 To perform an automatic zoom, users can click on and hold a case column then drag the mouse from left to right to form a zoom boundary. From the pop-up window, users can choose to zoom in to the cases, list all highlighted cases, or create a cohort of the selected cases.
 
@@ -67,7 +67,7 @@ The individual case columns are now visible with a demarcated boundary. Above th
 
 [![Zoom using input control and slider](images/oncomatrix_zoom2.png)](images/oncomatrix_zoom2.png 'Click to see the full image.')
 
-#### Genes
+__Genes__
 
 In the panel of genes on the left, users can hover over a gene to view the number of mutated samples, a breakdown of consequence type, and copy number gain and loss counts.
 
@@ -77,7 +77,7 @@ Clicking on a gene opens a pop-up window where users can rename it, launch the [
 
 [![Click on a gene](images/oncomatrix_gene_click.png)](images/oncomatrix_gene_click.png 'Click to see the full image.')
 
-#### Variables
+__Variables__
 
 Any variables added to the matrix appear at the bottom of the plot. Users can hover over a cell in a variable row to display the case submitter_id and their value for the given variable.
 
@@ -87,7 +87,7 @@ Clicking on a variable allows users to rename it, edit it by excluding categorie
 
 [![Click on a variable](images/oncomatrix_variable_click.png)](images/oncomatrix_variable_click.png "Click to see the full image.")
 
-#### Drag and drop genes and variables
+__Drag and drop genes and variables__
 
 By default, the genes in the matrix are sorted in descending order according to which genes have the highest number of rendered cases. Users can override this by dragging and dropping gene and variable row labels to sort the rows manually.
 
@@ -231,7 +231,7 @@ These sections are described below.
 
 [![Cases menu](./images/oncomatrix/20-cases-controls.png)](./images/oncomatrix/20-cases-controls.png 'Click to see the full image.')
 
-#### Sort Case Priority
+__Sort Case Priority__
 
 The default sort setting sorts the cases 'by presence' which sorts samples with matching consequence to the left.
 
@@ -243,7 +243,7 @@ To change to sorting by consequence, select the option 'Sort by consequence'.
 
 Note that these sorting options correspond to SSM only. For CNV, user has to show CNV data using the CNV button for sorting options to become viewable. This step is explained in the 'CNV' section below.
 
-#### Maximum #cases
+__Maximum #cases__
 
 There is a default number of samples that are shown in the matrix chart. Users can choose to increase or decrease the number of samples. This allows the chart to re-render and display the number of columns based on the user's selection. Figure below shows increased cases to 10000. Please note that any high arbitrary number can be selected but the chart will only show the maximum cases that GDC has.
 
@@ -251,7 +251,7 @@ There is a default number of samples that are shown in the matrix chart. Users c
 
 The chart will reload with new cases added.
 
-#### Group cases by
+__Group cases by__
 
 This option allows users to group cases by different variables from the GDC dictionary. Click on the `+` icon shown in blue to display different variables such as demographics, diagnoses, Exposures etc. Users may also search for a variable from the search bar provided in the menu as shown by `Search Variables`.
 
