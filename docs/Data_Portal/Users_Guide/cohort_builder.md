@@ -2,6 +2,8 @@
 
 The Cohort Builder is a good starting point for users looking to gather information for a specific disease, project, or group of patients. Building a cohort allows users to download files, perform analyses, and query metadata for the same group of cases in multiple sections of the GDC Data Portal. This section will cover the process of building a cohort and downstream actions will be documented in their respective sections.
 
+> **NOTE:** Filters within the Cohort Builder are applied to the cases in your cohort. If you wish to target specific types of files for download, use the filters within the Repository.
+
 The Cohort Builder can be accessed in one of the following ways:
 
 * Selecting the Cohort Builder link in the GDC Data Portal header
@@ -39,9 +41,14 @@ The first six (or fewer) filters are shown for each card, but can be expanded to
 
 [![Cohort Builder Card Filter Expand](images/card_expand.png)](images/card_expand.png "Image of how to expand cohort builder card filters. Click to see the full image.")
 
+### Biospecimen Filters
+The filters within the "Biospecimen" category allow for cases that have certain types of biospecimens. For example, filtering in the "Tissue Type" card for "normal" will ensure that cases within your cohort have a normal tissue type. These filters may be useful for studies that require only cases for which a certain type of biospecimen is available.
+
 ### Available Data Filters
 
 Toward the bottom of the list of filter categories, "Available Data" can be selected.  These filters differ from the other default filters as they allow for cases that have certain types of associated data files. For example, filtering in the "Experimental Strategy" card for "RNA-Seq" will only display cases in the active cohort that have associated RNA-Seq files. These filters may be useful for studies that require only cases for which a certain type of analysis was performed.
+
+> **NOTE:** Some of the "Biospecimen" and "Available Data" filters are also available in the Repository, where they may be used to specify the types of files for browsing and download. For example, selecting "WXS" in the "Experimental Strategy" card will ensure that all cases in your cohort have WXS data. This, however, does not mean that your cohort will not also have other types of data, such as RNA-Seq or WGS. Likewise, selecting "normal" in the "Tissue Type" card narrows your cohort to those cases that have normal samples, but does not exclude cases with other types of samples. If the goal is to view or download only the files of a specific type, use the filters in the Repository rather than the filters located here in the Cohort Builder.
 
 ## Custom Filters ##
 

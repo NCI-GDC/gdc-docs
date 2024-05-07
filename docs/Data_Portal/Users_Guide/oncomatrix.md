@@ -16,13 +16,13 @@ Users can view publicly available genes as well as login with credentials to acc
 
 There are three main panels in the OncoMatrix tool: [control panel](#control-panel), [matrix plot](#matrix-plot), and [legend panel](#legend-panel).
 
-[![OncoMatrix Overview](images/oncomatrix_overview.png)](images/oncomatrix_overview.png 'Click to see the full image.')
+[![OncoMatrix Overview](images/oncomatrix/oncomatrix_overview.png)](images/oncomatrix/oncomatrix_overview.png 'Click to see the full image.')
 
 ### Control Panel
 
 The control panel has various functionalities with which users can change or modify the appearance of the matrix. The control panel provides flexibility and a wide range of options to maximize user control.
 
-[![OncoMatrix Control Panel](images/oncomatrix_control_panel.png)](images/oncomatrix_control_panel.png 'Click to see the full image.')
+[![OncoMatrix Control Panel](images/oncomatrix/oncomatrix_control_panel.png)](images/oncomatrix/oncomatrix_control_panel.png 'Click to see the full image.')
 
 __Control Panel:__
 
@@ -30,6 +30,8 @@ __Control Panel:__
 * __Genes:__ Modify how cases are represented for each gene (Absolute, Percent, or None), row group and label lengths, rendering style, how genes are sorted, the maximum number of genes displayed, and the existing gene set
     * __Edit Group:__ Displays a panel of currently selected genes, which can be modified by clicking on a gene to remove it from the gene set, searching for a particular gene to add, loading top variably expressed genes, or loading a pre-defined gene set provided by the MSigDB database
     * __Create Group:__ Create a new gene set by searching for a particular gene, loading top mutated genes, or loading a pre-defined gene set provided by the MSigDB database
+* __Mutation:__ Choose to show all or select mutations based on consequence
+* __CNV:__ Choose to show or hide CNV data
 * __Variables:__ Search and select variables to add to the bottom of the matrix
 * __Cell Layout:__ Modify the format of the cells by changing colors, cell dimensions and spacing, and label formatting
 * __Legend Layout:__ Alter the legend by changing the font size, dimensions and spacing, and other formatting preferences
@@ -43,19 +45,19 @@ __Control Panel:__
 
 ### Matrix Plot
 
-The OncoMatrix plot displays the genes along the left panel with each column representing a case.
+The OncoMatrix plot displays the genes or variables along the left of the panel with each column representing an individual case.
 
-#### Matrix cells
+__Matrix cells__
 
-Each column in the matrix represents a case. Hovering over a cell will display the corresponding case submitter_id, gene name, copy number information, and mutation class if any are provided. Clicking on a cell also gives users the option to launch the Disco Plot.
+Each column in the matrix represents a case. Hovering over a cell will display the corresponding case submitter_id, gene name, copy number information, and mutation consequence if any are provided. Clicking on a cell also gives users the option to launch the Disco Plot.
 
-[![Disco Plot button](images/oncomatrix_disco_plot_button.png)](images/oncomatrix_disco_plot_button.png 'Click to see the full image.')
+[![Disco Plot button](images/oncomatrix/oncomatrix_disco_plot_button.png)](images/oncomatrix/oncomatrix_disco_plot_button.png 'Click to see the full image.')
 
 The Disco Plot is a circular plot that shows all the mutations and CNVs for a given case. The Disco Plot also displays the legend for the mutation class and the CNV.
 
-[![Disco Plot](images/oncomatrix_disco_plot.png)](images/oncomatrix_disco_plot.png 'Click to see the full image.')
+[![Disco Plot](images/oncomatrix/oncomatrix_disco_plot.png)](images/oncomatrix/oncomatrix_disco_plot.png 'Click to see the full image.')
 
-#### Automatic Zoom
+__Automatic Zoom__
 
 To perform an automatic zoom, users can click on and hold a case column then drag the mouse from left to right to form a zoom boundary. From the pop-up window, users can choose to zoom in to the cases, list all highlighted cases, or create a cohort of the selected cases.
 
@@ -65,7 +67,7 @@ The individual case columns are now visible with a demarcated boundary. Above th
 
 [![Zoom using input control and slider](images/oncomatrix_zoom2.png)](images/oncomatrix_zoom2.png 'Click to see the full image.')
 
-#### Genes
+__Genes__
 
 In the panel of genes on the left, users can hover over a gene to view the number of mutated samples, a breakdown of consequence type, and copy number gain and loss counts.
 
@@ -75,7 +77,7 @@ Clicking on a gene opens a pop-up window where users can rename it, launch the [
 
 [![Click on a gene](images/oncomatrix_gene_click.png)](images/oncomatrix_gene_click.png 'Click to see the full image.')
 
-#### Variables
+__Variables__
 
 Any variables added to the matrix appear at the bottom of the plot. Users can hover over a cell in a variable row to display the case submitter_id and their value for the given variable.
 
@@ -85,7 +87,7 @@ Clicking on a variable allows users to rename it, edit it by excluding categorie
 
 [![Click on a variable](images/oncomatrix_variable_click.png)](images/oncomatrix_variable_click.png "Click to see the full image.")
 
-#### Drag and drop genes and variables
+__Drag and drop genes and variables__
 
 By default, the genes in the matrix are sorted in descending order according to which genes have the highest number of rendered cases. Users can override this by dragging and dropping gene and variable row labels to sort the rows manually.
 
@@ -107,13 +109,12 @@ Additionally, users can click on a variable's category to hide a specific group,
 
 [![OncoMatrix Legend - variable category](images/oncomatrix_legend_var_cat.png)](images/oncomatrix_legend_var_cat.png 'Click to see the full image.')
 
-
 ## Features
 
 The following features are viewable once the matrix application is loaded.
 There are three main panels as outlined in the figure below i.e., the `Control panel`, `Matrix chart`, and the `Legend panel`.
 
-[![Oncomatrix chart overview](./images/oncomatrix/2-entire_matrix.png)](./images/oncomatrix/2-entire_matrix.png 'Click to see the full image.')
+[![Oncomatrix chart overview](./images/oncomatrix/oncomatrix_overview.png)](./images/oncomatrix/oncomatrix_overview.png 'Click to see the full image.')
 
 Each of the features and functionalities are described in detail in the following sections.
 
@@ -181,7 +182,7 @@ Click TP53 again to showcase the edit menu.
 
 Click on 'Replace' as shown above to replace TP53 gene variable with 'Primary site' as shown below. The chart updates with the first row as 'Primary site' thereby replacing TP53 gene variable as shown below. User may choose to sort samples by clicking the 'Primary site' label.
 
-[Replace a gene row](![./images/oncomatrix/13-replace_gene.png)](./images/oncomatrix/13-replace_gene.png 'Click to see the full image.')
+[![Replace a gene row](./images/oncomatrix/13-replace_gene.png)](./images/oncomatrix/13-replace_gene.png 'Click to see the full image.')
 
 [![Replaced row](./images/oncomatrix/14-term-replaced.png)](./images/oncomatrix/14-term-replaced.png 'Click to see the full image.')
 
@@ -217,7 +218,7 @@ Within the control panel, the first button displays the number of cases that are
 
 [![Default view](./images/oncomatrix/19-default-view.png)](./images/oncomatrix/19-default-view.png 'Click to see the full image.')
 
-Click on the `917 Cases` button to display the following options as shown.
+Click on the `Cases` button to display the following options as shown.
 
 1. Sort Cases
 2. Maximum #cases
@@ -230,15 +231,19 @@ These sections are described below.
 
 [![Cases menu](./images/oncomatrix/20-cases-controls.png)](./images/oncomatrix/20-cases-controls.png 'Click to see the full image.')
 
-#### Sort Cases
+__Sort Case Priority__
 
-The default sort setting sorts the cases by row with first displaying samples with both CNV and SSM followed by SSM only and lastly CNV only.
+The default sort setting sorts the cases 'by presence' which sorts samples with matching consequence to the left.
 
-Click the second option 'CNV+SSM > SSM only'' to change the sorting as shown.
+[![Sort by presence](./images/oncomatrix/sort-by-presence.png)](./images/oncomatrix/sort-by-presence.png 'Click to see the full image.')
 
-[![Sort by CNV+SSM, then SSM only](./images/oncomatrix/21-sort-cases1.png)](./images/oncomatrix/21-sort-cases1.png 'Click to see the full image.')
+To change to sorting by consequence, select the option 'Sort by consequence'.
 
-#### Maximum #cases
+[![Sort by consequence](./images/oncomatrix/sort-by-consequence.png)](./images/oncomatrix/sort-by-consequence.png 'Click to see the full image.')
+
+Note that these sorting options correspond to SSM only. For CNV, user has to show CNV data using the CNV button for sorting options to become viewable. This step is explained in the 'CNV' section below.
+
+__Maximum #cases__
 
 There is a default number of samples that are shown in the matrix chart. Users can choose to increase or decrease the number of samples. This allows the chart to re-render and display the number of columns based on the user's selection. Figure below shows increased cases to 10000. Please note that any high arbitrary number can be selected but the chart will only show the maximum cases that GDC has.
 
@@ -246,7 +251,7 @@ There is a default number of samples that are shown in the matrix chart. Users c
 
 The chart will reload with new cases added.
 
-#### Group cases by
+__Group cases by__
 
 This option allows users to group cases by different variables from the GDC dictionary. Click on the `+` icon shown in blue to display different variables such as demographics, diagnoses, Exposures etc. Users may also search for a variable from the search bar provided in the menu as shown by `Search Variables`.
 
@@ -294,12 +299,52 @@ Next, hover over the first group label '<=30 years (81)' as shown below.
 
 This shows the number of cases in parenthesis of the group label and the breakdown for the  number of variants and CNV for all the samples within that group for the genes in display.
 
+## Mutation
+
+By default, only protein-changing mutations are shown. This control allows hiding or showing mutations with the following options:
+
+1. Show all mutations
+
+Select this option to show all the mutations.
+
+[![Show all mutations](images/oncomatrix/show-all-mutation.png)](images/oncomatrix/show-all-mutation.png 'Click to see the full image.')
+
+2. Show truncating mutations
+
+Select this option to show only truncating mutations
+
+[![Show truncating mutations](images/oncomatrix/show-truncating-mutations.png)](images/oncomatrix/show-truncating-mutations.png 'Click to see the full image.')
+
+3. To show selected mutations as per requirement, user can choose from the following options after selecting 'Show selected mutations'
+
+[![Show selected mutations](images/oncomatrix/show-selected-mutations.png)](images/oncomatrix/show-selected-mutations.png 'Click to see the full image.')
+
+## CNV
+
+By default, the CNV's are hidden from view as shown by the striked label on the CNV button in the control panel.
+
+[![CNV button striked](images/oncomatrix/CNV-striked.png)](images/oncomatrix/CNV-striked.png 'Click to see the full image.')
+
+To show all CNV data, select the option 'Show all CNV'.
+
+[![Show all CNV](images/oncomatrix/Show-all-CNV.png)](images/oncomatrix/Show-all-CNV.png 'Click to see the full image.')
+
+To view/hide selected CNV (gain or loss) select 'Show selected CNV' allows user to display options for selecting/de-selecting checkboxes and click 'Apply'.
+
+[![Show selected CNV](images/oncomatrix/show-selected-CNV.png)](images/oncomatrix/show-selected-CNV.png 'Click to see the full image.')
+
+### Sorting CNV data
+
+After making selections to show the CNV data, user can sort the cases 'by CNV' from the sorting options under the 'Cases' button
+
+[![Sort by CNV](images/oncomatrix/sort-by-cnv.png)](images/oncomatrix/sort-by-cnv.png 'Click to see the full image.')
+
 ## Genes
 
 The gene panel as shown below has several options as listed below for modifying the genes visible on the plot as well as their appearance/style.
 
 - Display Case Counts for Gene
-- Rendering Style
+- Genomic Alterations Rendering
 - Sort Genes
 - Maximum # Genes
 - Gene Set
@@ -326,15 +371,19 @@ This hides all the case counts as shown.
 
 [![Hide case counts](./images/oncomatrix/32-genes-none-display.png)](./images/oncomatrix/32-genes-none-display.png 'Click to see the full image.')
 
-### Rendering Style
+### Genomic Alterations Rendering
 
 The style of rendering for the sample cells/columns is an Oncoprint style by default. Click on `Stacked` option via `50 Genes` button as shown below.
 
-[![Rendering Style](./images/oncomatrix/33-rendering_stacked1.png)](./images/oncomatrix/33-rendering_stacked1.png 'Click to see the full image.')
+[![Rendering Style](./images/oncomatrix/rendering-options.png)](./images/oncomatrix/rendering-options.png 'Click to see the full image.')
 
 The mutations and CNV are now stacked on top of each other as shown below.
 
-[![Stacked rendering](./images/oncomatrix/34-stacked-view.png)](./images/oncomatrix/34-stacked-view.png 'Click to see the full image.')
+[![Stacked rendering](./images/oncomatrix/stacked.png)](./images/oncomatrix/stacked.png 'Click to see the full image.')
+
+There is also the option to show single rectangles to render the most severe variants.
+
+[![Single rendering](./images/oncomatrix/single-rendering.png)](./images/oncomatrix/single-rendering.png 'Click to see the full image.')
 
 ### Sort Genes
 
@@ -369,7 +418,9 @@ User may choose to remove single genes one at a time by clicking over the genes.
 
 User may choose to delete all genes from view by clicking the `Clear` button as shown below. However, a gene/variable selection is mandatory for the chart to load.
 
-[![Clear genes](./images/oncomatrix/40-clear_genes.png)](./images/oncomatrix/40-clear_genes.png 'Click to see the full image.')
+[![Clear genes](./images/oncomatrix/clear-genes.png)](./images/oncomatrix/clear-genes.png 'Click to see the full image.')
+
+To restore the cleared genes, click the 'Restore' button.
 
 ### MSigDB genes
 
@@ -377,15 +428,15 @@ The MSigDB database (Human Molecular Signatures Database) has 33591 gene sets di
 
 Click on the `50 Genes` button. Then click on the `Gene set - Edit`. Here user can see a button with a dropdown for loading MSigDB genes.
 
-[![msigdb dropdown](./images/oncomatrix/41-msigdb1.png)](./images/oncomatrix/41-msigdb1.png 'Click to see the full image.')
+[![msigdb dropdown](./images/oncomatrix/msigdb1.png)](./images/oncomatrix/msigdb1.png 'Click to see the full image.')
 
 Click on this dropdown to display a tree for the different gene sets.
 
-[![msigdb tree](./images/oncomatrix/42-msigdb_tree.png)](./images/oncomatrix/42-msigdb_tree.png 'Click to see the full image.')
+[![msigdb tree](./images/oncomatrix/msigdb-tree.png)](./images/oncomatrix/msigdb-tree.png 'Click to see the full image.')
 
 Select `C2: curated gene sets` and select `NABA_COLLAGENS` as shown below.
 
-[![NABA collagens gene set](./images/oncomatrix/43-naba_collagens.png)](./images/oncomatrix/43-naba_collagens.png 'Click to see the full image.')
+[![NABA collagens gene set](./images/oncomatrix/naba-collagens.png)](./images/oncomatrix/naba-collagens.png 'Click to see the full image.')
 
 This loads the following genes as shown below.
 
@@ -421,11 +472,11 @@ The legend layout menu enables customization of the appearance of the legend, su
 
 The matrix plot offers an interactive zoom panel as shown below with which a user can zoom in to view individual samples. There are two ways to use this panel. One by changing the input number and second by sliding the zoom bar to a desired zoom level as shown.
 
-[![Zoom slider](./images/oncomatrix/50-zoom_slider.png)](./images/oncomatrix/50-zoom_slider.png 'Click to see the full image.')
+[![Zoom slider](./images/oncomatrix/zoom_slider.png)](./images/oncomatrix/zoom_slider.png 'Click to see the full image.')
 
 Change zoom level to 10+ as shown.
 
-[![Zoom slider plus](./images/oncomatrix/51-zoom_slider_plus.png)](./images/oncomatrix/51-zoom_slider_plus.png 'Click to see the full image.')
+[![Zoom slider plus](./images/oncomatrix/zoom-slider-plus.png)](./images/oncomatrix/zoom-slider-plus.png 'Click to see the full image.')
 
 Scroll down to view individual samples at the bottom of the plot as shown below.
 
@@ -447,7 +498,7 @@ This plot shows all the mutations and CNV associated with that sample id as show
 
 To reset the zoom level to default, click on the `Reset` button as shown. This will reset the zoom level to a default of 1.0
 
-[![Reset Zoom](./images/oncomatrix/55-reset_zoom.png)](./images/oncomatrix/55-reset_zoom.png 'Click to see the full image.')
+[![Reset Zoom](./images/oncomatrix/zoom_slider.png)](./images/oncomatrix/zoom_slider.png 'Click to see the full image.')
 
 <!--
 ## Undo/Redo/Restore
@@ -475,7 +526,7 @@ The control panel shows an option to download the plot as an svg after user has 
 
 The download will get saved to the default download folder as shown at the bottom of the browser window.
 
-[![Download](./images/oncomatrix/60-download_svg2.png)](./images/oncomatrix/60-download_svg2.png 'Click to see the full image.')
+[![Download](./images/oncomatrix/download.png)](./images/oncomatrix/download.png 'Click to see the full image.')
 
 ## Legend
 

@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v2.1.0](Data_Portal_Release_Notes.md#release-210) | April 30, 2024 |
 | [v2.0.0](Data_Portal_Release_Notes.md#release-200) | February 8, 2024 |
 | [v1.30.4](Data_Portal_Release_Notes.md#release-1304) | May 11, 2023 |
 | [v1.30.0](Data_Portal_Release_Notes.md#release-1300) | July 8, 2022 |
@@ -36,6 +37,148 @@
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
 ---
+## Release 2.1.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  April 30, 2024
+
+### New Features and Changes
+* __Annotations Browser__
+    * The Annotations Browser and annotation summary page have been implemented. <!--PEAR-1838/1181/1182/1160--> 
+* __Repository__:
+    * Files can now be filtered by Tissue Type, Tumor Descriptor, Specimen Type, and Preservation Method. <!--PEAR-1514-->
+    * Metadata and Sample Sheet downloads have been added to the Repository. <!--PEAR-1863-->
+* __Cohort Level MAF__:
+    * A cohort level MAF analysis tool has been added to the Analysis Center.
+* __BAM Slicing Download and Sequence Reads__:
+    * In BAM Slicing Download, call GDC API directly from client without going through pp backend. No limits are applied on slicing region size or BAM slice file size.
+    * In Sequence Reads Visualization, user can slice a BAM with a range lower than 300Kb, and if the resulting BAM slice is under 100Mb. Slicing and caching a BAM slice bigger than 100Mb will abort and user will be notified to reduce region size and try again. Before creating new cache file, find out old enough ones to delete to free up storage.
+    * For both apps: The table listing available cases and bam files can be filtered by assay types.
+* __Gene Expression Clustering__:
+    * Enable gene variant legend group filter.
+    * Support creating a single-case cohort.
+    * Supported more clustering and distance calculation methods.
+* __OncoMatrix__:
+    * Enable downloading data.
+    * Hide synonymous mutations by default.
+    * Improve the matrix sorting options to easily toggle sorting by cnv and/or consequence.
+    * Add Mutation and CNV control buttons, and hide CNV by default.
+    * Create a mutations/consequences legend group for mutations.
+    * Enable selecting individual mutation classes upon clicking the Mutation/CNV button.
+    * Support creating a single-case cohort.
+    * Display hints about persisted matrix gene set and option to unhide CNV and mutations when there is no matrix data to render.
+    * Group similar mutation class colors together when sorting matrix samples and if CNVs are displayed.
+    * Add "Single" style to render consequence data, as alternative to Stacked and OncoPrint styles.
+* __ProteinPaint__:
+    * Allow visualizing SSM in any genomic locus, besides "protein" mode.
+    * Support creating a single-case cohort.
+* The performance of the __Clinical Data Analysis__ tool has been improved, especially when large cohorts are used with QQ plots. <!--PEAR-1536-->
+* __Quick Search__ now returns results for the latest versions of files when searching for older versions of those files. <!--PEAR-1804--> 
+* The X button on the __Unexpected Error__ dialog box has been removed. <!--SV-2367-->
+* Buttons for launching demos have been removed from the selection view of __Cohort Comparison__ and __Set Operations__. <!--SV-2328/2327-->
+* Responsiveness improvements have been made to the __Analysis Center__ and the __Cohort Bar__. <!--PEAR-1836-->
+* The UX/UI for the __Cohort Builder__ has been improved. <!--PEAR-1547-->
+* The __case summary page__ has been enhanced with a table listing all the files associated with the case. Additionally, a link to the table is now available in the header of the summary page, and information has been added to the File Counts summary tables to lead users to the new files table. The clinical and biospecimen supplements tables have also been removed from the case summary page. <!--PEAR-1822/1849/1833/PEAR-1832-->
+* Set names for sets of the same type are now enforced to be unique when editing names in __Manage Sets__. <!--PEAR-1359-->
+* Number range cards in the __Cohort Builder__ no longer display the custom range option when there is no data. <!--PEAR-661-->
+* The Cohort Buider image on the __home page__ has been updated to reflect the latest design. <!--PEAR-1593-->
+* The tooltip on the __Mutation Frequency__ card in the Analysis Center has been updated. <!--PEAR-1877-->
+
+### Bugs Fixed Since Last Release
+* __Section 508 Accessibility__:
+    * Small aria-label inconsistencies have been addressed. <!--PEAR-1715-->
+    * Keyboard focus is now returned to the triggering element when modals are closed. <!--PEAR-1658-->
+    * Screen readers will now read out the contents of toast messages. <!--PEAR-1765-->
+    * Toggles in the Clinical Data Analysis tool now have the correct number of labels. <!--PEAR-1764-->
+    * Table header checkboxes are now correctly labelled. <!--PEAR-1754-->
+    * Modal icons now have appropriate null alt text. <!--PEAR-1753-->
+    * Assistive technologies no longer behave incorrectly with some controls due to incorrect, missing, or redundant labels, attributes, or roles. <!--PEAR-1672-->
+    * Aria labels have been added to Cancer Gene Census annotation icon in Mutation Frequency. <!--PEAR-740-->
+    * The Survival icon is now appropriately hidden from the accessibility tree for the benefit of screen readers. <!--PEAR-739-->
+* __Cohorts__:
+    * Using "Save As" to replace a cohort with itself will no longer result in an error notification despite the replacement being successful. <!--SV-2363-->
+    * Saving a cohort that was previously saved now displays the correct message. <!--PEAR-1651-->
+    * Cohorts will now display data in Mutation Frequency, Cohort Builder, and the summary charts even when removing gene/mutation filters from a cohort temporarily results in 0 cases. <!--SV-2414-->
+    * Cohorts now contain the correct cases when created from the cases table by using the "Existing Cohort With Selected Cases" and "Existing Cohort Without Selected Cases" options with a cohort containing gene or mutation filters. <!--PEAR-1043-->
+    * When saving a cohort, the confirmation notification will no longer be automatically dismissed before the saving dialog has closed. <!--SV-2366-->
+* __Cohort Builder__:
+    * Cohort Builder cards for number ranges now display an informative message rather than a spinner when there is no data for the facet. <!--PEAR-1646-->
+    * Removing a custom Cohort Builder card no longer incorrectly removes the associated filters from the current cohort. <!--PEAR-1612-->    
+    * Filters related to numeric values in the Cohort Builder now correctly displays the numbers entered. <!--SV-2383-->
+* __Case Summary Page__:
+    * The Biospecimen tree in the case summary page is no longer hidden when the bioId provided in the URL does not exist. <!--PEAR-1202-->
+    * The error that sometimes occurs when viewing the __Follow-Ups/Molecular Tests__ tab in the case summary page has been resolved. <!--SV-2431-->
+* __Mutation Frequency__:
+    * The survival plot in __Mutation Frequency__ no longer flickers when the cohort has 0 cases. <!--SV-2331/PEAR-1701-->
+    * Attempting to download a TSV of all the mutations in the GDC no longer results in an error due to the length of time needed to generate the TSV. <!--SV-2388-->
+* __All ProteinPaint-based Tools__:
+    * In GDC query, do not supply empty "case_filters{content[]}" that will slow down API. Lollipop and OncoMatrix are now faster when there's no cohort.
+    * Updated mutation class definitions and rank for protein_altering_variant. Affects all tools that can show mutation data.  
+    * Deprecated term "sample_type" is dropped from GDC dictionary.
+* __BAM Slicing Download and Sequence Reads__:
+    * When downloading GDC BAM slice (no caching), do not limit request region max size.
+    * Reloading page while streaming/downloading GDC BAM slice to client will not crash server.
+    * App UI requires hitting Enter to search by GDC file or case, and will no longer auto search (on pressing any key) to avoid showing duplicate SSM table.
+    * BAM track bug fix to handle reads with no sequence.
+    * BAM track bug fix for hide/show toggling at track menu.
+* __Disco Plot__:
+    * Bug fix for disco plot launched from sunburst showing AAchange in sandbox header rather than undefined.
+    * Pass the cohort filter to the lollipop track from the matrix and disco plot label click.
+* __Gene Expression Clustering__:
+    * Enable gene variant legend group filter.
+    * Support creating a single-case cohort.
+    * Supported more clustering and distance calculation methods.
+* __OncoMatrix__:
+    * Fix position errors after OncoMatrix/hierCluster zooming in/out caused by outdated imgBox.
+    * Do not allow hiding all the alteration groups.
+    * Disable the geneset submit button when there there is less than a minNumGenes option (3 for hier cluster, 1 for matrix).
+    * Add to OncoMatrix mutation/cnv buttons all available mutation/cnv classes in all GDC instead of only within current cohort.
+    * Change the definition of truncating/protein-changing mutation, change OncoMatrix mutation classes sorting order.
+    * Fix the detection of sorting-related updates in the matrix app, as distinct from the Gene Expression Clustering.
+    * Pass the cohort filter to the lollipop track from the matrix and disco plot label click.
+* __ProteinPaint__:
+    * Sample summary table will scroll if too tall.
+    * Bug fix to convert "case." to "cases." in case_filters[] for GDC mds3 sunburst clicking to load sample table.
+    * Do not force the sample table to be positioned relative to screen bottom after a sunburst click.
+    * Prevent double-clicking on a sunburst ring so that same sample table will not appear duplicated.
+    * Bug fix for Lollipop category total sample count to respond/shrink with cohort change.
+* Tokens are no longer refreshed when the __User Profile__ is viewed. <!--PEAR-1818-->
+* __Quick Search__ now correctly displays results even if the same search input is applied twice quickly. <!--SV-2410-->
+* In __Set Operations__, saving gene and mutation sets will now be successful if the saving dialog is manually dismissed after the Save button is clicked. <!--SV-2368-->
+* Users will no longer be able to download more than 5 GB of files in total at a time via the browser from the __cart__. <!--SV-2342-->
+* Table buttons in __Clinical Data Analysis__ no longer overlay the survival plot on smaller screens when many survival plots are displayed at the same time. <!--PEAR-1600-->
+* The correct file size total will now be displayed in the __Repository__ when filtering is applied within the tool and the active cohort contains Available Data filters. <!--SV-2376-->
+* Downloading the **Clinical/Biospecimen TSV or JSON** before the cohort has fully loaded will no longer result in an error. <!--SV-2402-->
+
+### Known Issues and Workarounds
+
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives. Additionally, equivalent alternatives to the Box plots, QQ plots, Venn diagrams, and the body plot on the home page are not available.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * Some text can be difficult to read on a small screen at a 200% zoom level.
+* __Cohorts__:
+    * Cohorts are under active development and their behavior may change in the first several months after the release of GDC Portal 2.0. As this process may result in the loss of saved cohorts on the portal, we highly recommend [exporting cohorts](/Data_Portal/Users_Guide/getting_started.md#main-toolbar) locally.
+    * Cohorts created based on CNV losses or gains may not have the correct composition when filtered by additional mutated genes. As a workaround, first filter by the mutated genes before creating cohorts based on CNV losses and gains.
+    * Cohorts filtered by mutated genes and SSMs not in those genes may unexpectedly result in 0 cases. <!--SV-2331/PEAR-1616-->
+    * Cohorts containing FM-AD cases may not update correctly when users with dbGaP access to FM-AD (phs001179) log in or out. As a workaround, logging in before creating cohorts with FM-AD cases is recommended. <!--SV-2389-->
+* __Survival Plot__:
+    * The survival plot in Cohort Comparison does not display text indicating that there is insufficient survival data to plot. <!--SV-2357-->
+    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* __Cart__:
+    * Spinners on the Download Cart and Download Associated Data buttons may be displayed longer than expected. This is a visual issue and does not affect the use of these buttons. <!--SV-2343-->
+    * Using multiple browser tabs with the portal when adding or removing files from the cart may result in the cart not being updated as expected. <!--SV-2412-->
+* The aggregated MAF generated using the __Cohort Level MAF__ tool is missing the tumor_bam_uuid column. The tumor_sample_uuid and case_id should be used for reproducibility until the tumor_bam_uuid has been added.
+* In both the __Sequence Reads__ and __BAM Slicing Download__ tools, the number of available BAM files may be overcounted when a cohort filter is in use.
+* Gene/mutation sets created from the tables in the __Mutation Frequency__ tool may contain 0 genes/mutations if the cohort has Available Data filters or Biospecimen filters. <!--SV-2314-->
+* The TSV of the __cases table__ may not contain the expected tabs. <!--DEV-2324-->
+* In the Repository and cases table, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
+* When the __Cohort Comparison__ tool is loading, the loading spinner may be displayed above the other areas of the Analysis Center. <!--SV-2360-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+
 ## Release 2.0.0
 
 * __GDC Product__: GDC Data Portal
@@ -103,9 +246,14 @@ Not applicable as this is the initial release of GDC 2.0.
 * __OncoMatrix__:
     * Manually deleting all genes will result in an error message "Error: Cannot read properties of undefined (reading 'lst')". The user can close and re-open OncoMatrix for use.
     * Dragging genes only works once. After one gene is dragged to a new position, no genes can be dragged to new positions.
+    * In OncoMatrix, the cases may not get re-sorted as expected after a certain sequence of actions
 * __ProteinPaint__:
     * A nested filter may be constructed for a Lollipop subtrack, e.g. sex=male AND ( primarysite=aa OR disease=bb ), but cannot be translated into GDC cohort filters. The translation code has a preliminary implementation that only works for "flat" filters without nesting.
-    * Cohorts cannot be created using the Create Cohort button in ProteinPaint for a single sample.
+    * Cohorts cannot be created using the Create Cohort button in ProteinPaint for a single sample
+    * In ProteinPaint, the total number of samples in a category breakdown and the total number of samples in the sunburst ring are not based on a user's current cohort
+    * In ProteinPaint, when clicking on a sunburst ring, the sample table is not showing up
+    * In ProteinPaint, a Disco plot launched from the sunburst ring can show "undefined" in the plot header
+    * A ProteinPaint plot launched from OncoMatrix and Gene Expression Clustering does not observe the current cohort and displays mutated cases for all GDC
 * In the __Gene Expression Clustering__ tool, if any part of the dendrogram is selected and the current cohort is modified, then the new dendrogram will render with scattered subtrees selected.
 * The "A" in the Allele Summary text is cut off in the __Sequence Reads__ tool.
 * __Quick Search__ may not display results if the the same search input is applied twice quickly. As a workaround, temporarily change the input before reentering the intended search. <!--SV-2410-->
