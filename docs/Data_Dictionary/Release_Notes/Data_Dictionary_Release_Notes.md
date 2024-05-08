@@ -78,149 +78,88 @@
 	* New property: `tumor_ploidy`
 	* New property: `tumor_purity`
 * Altered `demographic` Entity
-	* Changes made to `country_of_birth`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `country_of_residence_at_enrollment`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `education_level`
-		* New permissible value: `Unknown`
-	* Changes made to `marital_status`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
+	* Added permissible values `Unknown` and/or `Not Reported` to properties
+		* `country_of_birth`
+		* `country_of_residence_at_enrollment`
+		* `education_level`
+		* `marital_status`
 * Altered `diagnosis` Entity
 	* New property: `calgb_risk_group`
 	* New property: `tumor_of_origin`
-	* Changes made to `adrenal_hormone`
-		* New permissible value: `Unknown`
-	* Changes made to `ann_arbor_b_symptoms_described`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `best_overall_response`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `cancer_detection_method`
-		* New permissible value: `Unknown`
-	* Changes made to `clark_level`
-		* New permissible value: `Unknown`
 	* Changes made to `classification_of_tumor`
 		* New permissible value: `Subsequent Primary`
-	* Changes made to `contiguous_organ_invaded`
-		* New permissible value: `Unknown`
-	* Changes made to `double_expressor_lymphoma`
-		* New permissible value: `Unknown`
-	* Changes made to `double_hit_lymphoma`
-		* New permissible value: `Unknown`
-	* Changes made to `ensat_clinical_m`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `ensat_pathologic_n`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `ensat_pathologic_stage`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `ensat_pathologic_t`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `gleason_grade_group`
-		* New permissible value: `Unknown`
-	* Changes made to `gleason_grade_tertiary`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `international_prognostic_index`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `margins_involved_site`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `masaoka_stage`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `melanoma_known_primary`
-		* New permissible value: `Unknown`
-	* Changes made to `pediatric_kidney_staging`
-		* New permissible value: `Unknown`
 	* Changes made to `primary_diagnosis`
 		* New permissible value: `Diffuse intrinsic pontine glioma, H3 K27M-mutant`
 		* Removed permissible value: `Hairy cell leukaemia variant`
-	* Changes made to `primary_gleason_grade`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `secondary_gleason_grade`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
 	* Changes made to `sites_of_involvement`
-		* Changes made to `items`
-			* New permissible value: `Dura Mater`
-			* New permissible value: `Esophagus, Lower Third`
-			* New permissible value: `Esophagus, Middle Third`
-			* New permissible value: `Esophagus, NOS`
-			* New permissible value: `Esophagus, Upper Third`
-			* New permissible value: `Lymph Node, Cervical`
-			* New permissible value: `Lymph Node, Femoral`
-			* New permissible value: `Lymph Node, Hilar`
-			* New permissible value: `Lymph Node, Iliac-Common`
-			* New permissible value: `Lymph Node, Iliac-External`
-			* New permissible value: `Lymph Node, Mediastinal`
-			* New permissible value: `Lymph Node, Mesenteric`
-			* New permissible value: `Lymph Node, Para-Aortic`
-			* New permissible value: `Lymph Node, Retroperitoneal`
-			* New permissible value: `Lymph Node, Splenic`
-			* New permissible value: `Lymph Node, Submandibular`
-			* New permissible value: `Lymph Node, Supraclavicular`
-			* New permissible value: `Pancreas Body`
-			* New permissible value: `Pancreas Duct`
-			* New permissible value: `Pancreas Head`
-			* New permissible value: `Pancreas Tail`
-			* New permissible value: `Pancreas, NOS`
-			* New permissible value: `Parametrium, NOS`
-			* New deprecated value: `Esophagus`
-			* New deprecated value: `Pancreas`
-	* Changes made to `tumor_grade_category`
-		* New permissible value: `Unknown`
-	* Changes made to `ulceration_indicator`
-		* New permissible value: `Unknown`
-	* Changes made to `weiss_assessment_findings`
-		* Changes made to `items`
-			* New permissible value: `Unknown`
-	* Changes made to `weiss_assessment_score`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
+		* New permissible value: `Dura Mater`
+		* New permissible value: `Esophagus, Lower Third`
+		* New permissible value: `Esophagus, Middle Third`
+		* New permissible value: `Esophagus, NOS`
+		* New permissible value: `Esophagus, Upper Third`
+		* New permissible value: `Lymph Node, Cervical`
+		* New permissible value: `Lymph Node, Femoral`
+		* New permissible value: `Lymph Node, Hilar`
+		* New permissible value: `Lymph Node, Iliac-Common`
+		* New permissible value: `Lymph Node, Iliac-External`
+		* New permissible value: `Lymph Node, Mediastinal`
+		* New permissible value: `Lymph Node, Mesenteric`
+		* New permissible value: `Lymph Node, Para-Aortic`
+		* New permissible value: `Lymph Node, Retroperitoneal`
+		* New permissible value: `Lymph Node, Splenic`
+		* New permissible value: `Lymph Node, Submandibular`
+		* New permissible value: `Lymph Node, Supraclavicular`
+		* New permissible value: `Pancreas Body`
+		* New permissible value: `Pancreas Duct`
+		* New permissible value: `Pancreas Head`
+		* New permissible value: `Pancreas Tail`
+		* New permissible value: `Pancreas, NOS`
+		* New permissible value: `Parametrium, NOS`
+		* New deprecated value: `Esophagus`
+		* New deprecated value: `Pancreas`
+	* Added permissible values `Unknown` and/or `Not Reported` to properties
+		* `adrenal_hormone`
+		* `ann_arbor_b_symptoms_described`
+		* `best_overall_response`
+		* `cancer_detection_method`
+		* `clark_level`
+		* `contiguous_organ_invaded`
+		* `double_expressor_lymphoma`
+		* `double_hit_lymphoma`
+		* `ensat_clinical_m`
+		* `ensat_pathologic_n`
+		* `ensat_pathologic_stage`
+		* `ensat_pathologic_t`
+		* `gleason_grade_group`
+		* `gleason_grade_tertiary`
+		* `international_prognostic_index`
+		* `margins_involved_site`
+		* `masaoka_stage`
+		* `melanoma_known_primary`
+		* `pediatric_kidney_staging`
+		* `primary_gleason_grade`
+		* `secondary_gleason_grade`
+		* `tumor_grade_category`
+		* `ulceration_indicator`
+		* `weiss_assessment_findings`
+		* `weiss_assessment_score`
 * Altered `exposure` Entity
-	* Changes made to `alcohol_frequency`
-		* New permissible value: `Not Reported`
-		* New permissible value: `Unknown`
-	* Changes made to `asbestos_exposure_type`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `chemical_exposure_type`
-		* New permissible value: `Unknown`
-	* Changes made to `environmental_tobacco_smoke_exposure`
-		* New permissible value: `Not Reported`
-	* Changes made to `exposure_source`
-		* New permissible value: `Not Reported`
-	* Changes made to `exposure_type`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `occupation_type`
-		* New permissible value: `Other`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `parent_with_radiation_exposure`
-		* New permissible value: `Unknown`
-	* Changes made to `smoking_frequency`
-		* New permissible value: `Not Reported`
-	* Changes made to `time_between_waking_and_first_smoke`
-		* New permissible value: `Not Reported`
-	* Changes made to `type_of_smoke_exposure`
-		* New permissible value: `Not Reported`
+	* Added permissible values `Other`, `Unknown` and/or `Not Reported` to properties
+		* `alcohol_frequency`
+		* `asbestos_exposure_type`
+		* `chemical_exposure_type`
+		* `environmental_tobacco_smoke_exposure`
+		* `exposure_source`
+		* `exposure_type`
+		* `occupation_type`
+		* `parent_with_radiation_exposure`
+		* `smoking_frequency`
+		* `time_between_waking_and_first_smoke`
+		* `type_of_smoke_exposure`
 * Altered `family_history` Entity
-	* Changes made to `relative_deceased`
-		* New permissible value: `Unknown`
-	* Changes made to `relative_smoker`
-		* New permissible value: `Unknown`
+	* Added permissible values `Unknown` to properties
+		* `relative_deceased`
+		* `relative_smoker`
 * Altered `filtered_copy_number_segment` Entity
 	* New property: `platform`
 * Altered `follow_up` Entity
@@ -234,28 +173,13 @@
 		* New permissible value: `Ureteral Obstruction`
 		* New permissible value: `Unknown`
 		* New permissible value: `Not Reported`
-	* Changes made to `adverse_event_grade`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `evidence_of_progression_type`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `evidence_of_recurrence_type`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
 	* Changes made to `first_event`
 		* New permissible value: `Recurrence`
 		* New permissible value: `Unknown`
-	* Changes made to `history_of_tumor`
-		* New permissible value: `Unknown`
-	* Changes made to `history_of_tumor_type`
+	* Changes made to `imaging_anatomic_site`
+		* New permissible value: `Pleura`
 		* New permissible value: `Unknown`
 		* New permissible value: `Not Reported`
-	* Changes made to `imaging_anatomic_site`
-		* Changes made to `items`
-			* New permissible value: `Pleura`
-			* New permissible value: `Unknown`
-			* New permissible value: `Not Reported`
 	* Changes made to `imaging_findings`
 		* New permissible value: `Distant Metastasis`
 		* New permissible value: `Equivocal`
@@ -267,15 +191,18 @@
 		* New permissible value: `Bone Scan, NOS`
 		* New permissible value: `Unknown`
 		* New permissible value: `Not Reported`
-	* Changes made to `peritoneal_washing_results`
-		* New permissible value: `Unknown`
-	* Changes made to `scan_tracer_used`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
 	* Changes made to `timepoint_category`
 		* New permissible value: `Prior to Adjuvant Therapy`
 		* New permissible value: `Within 2 Months After Completion of First-Course Treatment`
 		* New permissible value: `Unknown`
+	* Added permissible values `Unknown` and/or `Not Reported` to properties
+		* `adverse_event_grade`
+		* `evidence_of_progression_type`
+		* `evidence_of_recurrence_type`
+		* `history_of_tumor`
+		* `history_of_tumor_type`
+		* `peritoneal_washing_results`
+		* `scan_tracer_used`
 	* New deprecated property: `days_to_risk_factor`
 * Altered `gene_expression` Entity
 	* New property: `platform`
@@ -289,47 +216,21 @@
 * Altered `mirna_expression` Entity
 	* New property: `platform`
 * Altered `molecular_test` Entity
-	* Changes made to `aneuploidy`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
 	* Changes made to `chromosomal_translocation`
 		* New permissible value: `t(4;11)`
 		* New permissible value: `t(9;11)`
 		* New permissible value: `t(9;22)`
 		* New permissible value: `t(15;17)`
-	* Changes made to `chromosome_arm`
-		* New permissible value: `Unknown`
-	* Changes made to `clonality`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
 	* Changes made to `gene_symbol`
 		* New permissible value: `MPO`
 		* New permissible value: `RAS, NOS`
-	* Changes made to `hpv_strain`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
 	* Changes made to `laboratory_test`
 		* New permissible value: `Abnormal Cells`
 	* Changes made to `molecular_analysis_method`
 		* New permissible value: `Immunophenotyping, NOS`
-	* Changes made to `molecular_consequence`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `mutation_codon`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `pathogenicity`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
 	* Changes made to `second_gene_symbol`
 		* New permissible value: `MPO`
 		* New permissible value: `RAS, NOS`
-	* Changes made to `staining_intensity_scale`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `staining_intensity_value`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
 	* Changes made to `test_units`
 		* New permissible value: `IU`
 		* New permissible value: `nmol/L`
@@ -349,49 +250,47 @@
 		* New permissible value: `Initial Diagnosis`
 		* New permissible value: `Sample Procurement`
 		* New permissible value: `Unknown`
-	* Changes made to `variant_origin`
-		* New permissible value: `Not Reported`
+	* Added permissible values `Unknown` and/or `Not Reported` to properties
+		* `aneuploidy`
+		* `chromosome_arm`
+		* `clonality`
+		* `hpv_strain`
+		* `molecular_consequence`
+		* `mutation_codon`
+		* `pathogenicity`
+		* `staining_intensity_scale`
+		* `staining_intensity_value`
+		* `variant_origin`
 * Altered `other_clinical_attribute` Entity
 	* New property: `days_to_risk_factor`
 	* New property: `hormonal_replacement_therapy_status`
 	* New property: `number_of_pregnancies`
 	* New property: `viral_hepatitis_serology_tests`
-	* Changes made to `eye_color`
-		* New permissible value: `Unknown`
 	* Changes made to `immunosuppressive_treatment_type`
 		* New permissible value: `Immunoglobulin`
 		* New permissible value: `Prednisone`
-	* Changes made to `nononcologic_therapeutic_agents`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `oxygen_use_type`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
 	* Changes made to `pregnancy_outcome`
 		* New permissible value: `Full Term Birth, NOS`
-	* Changes made to `risk_factor_method_of_diagnosis`
-		* New permissible value: `Unknown`
 	* Changes made to `risk_factors`
-		* Changes made to `items`
-			* New permissible value: `BK Virus`
-			* New permissible value: `Diverticulosis`
-			* New permissible value: `Hypercholesterolemia`
-			* New permissible value: `Hypertension`
-			* New permissible value: `Scarlet Fever`
-			* New permissible value: `Ulcerative Colitis`
+		* New permissible value: `BK Virus`
+		* New permissible value: `Diverticulosis`
+		* New permissible value: `Hypercholesterolemia`
+		* New permissible value: `Hypertension`
+		* New permissible value: `Scarlet Fever`
+		* New permissible value: `Ulcerative Colitis`
 	* Changes made to `timepoint_category`
 		* New permissible value: `Sample Procurement`
 		* New permissible value: `Unknown`
-	* Changes made to `undescended_testis_corrected`
-		* New permissible value: `Unknown`
-	* Changes made to `undescended_testis_corrected_laterality`
-		* New permissible value: `Unknown`
-	* Changes made to `undescended_testis_corrected_method`
-		* New permissible value: `Unknown`
-	* Changes made to `undescended_testis_history`
-		* New permissible value: `Unknown`
-	* Changes made to `undescended_testis_history_laterality`
-		* New permissible value: `Unknown`
+	* Added permissible values `Unknown` and/or `Not Reported` to properties
+		* `eye_color`
+		* `nononcologic_therapeutic_agents`
+		* `oxygen_use_type`
+		* `risk_factor_method_of_diagnosis`
+		* `undescended_testis_corrected`
+		* `undescended_testis_corrected_laterality`
+		* `undescended_testis_corrected_method`
+		* `undescended_testis_history`
+		* `undescended_testis_history_laterality`
 	* Removed `maximum` value for properties
 		* `dlco_ref_predictive_percent`
 		* `fev1_fvc_post_bronch_percent`
@@ -403,55 +302,27 @@
 * Altered `pathology_detail` Entity
 	* New property: `prcc_type`
 	* New property: `tumor_burden`
-	* Changes made to `consistent_pathology_review`
-		* New permissible value: `Unknown`
-	* Changes made to `extracapsular_extension`
-		* New permissible value: `Unknown`
-	* Changes made to `extracapsular_extension_present`
-		* New permissible value: `Not Reported`
-	* Changes made to `extranodal_extension`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `extrathyroid_extension`
-		* New permissible value: `Not Reported`
-	* Changes made to `lymph_node_dissection_site`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `lymph_nodes_removed`
-		* New permissible value: `Unknown`
-	* Changes made to `measurement_type`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `measurement_unit`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `morphologic_architectural_pattern`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `necrosis_present`
-		* New permissible value: `Unknown`
-	* Changes made to `residual_tumor`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `residual_tumor_measurement`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `rhabdoid_present`
-		* New permissible value: `Unknown`
-	* Changes made to `sarcomatoid_present`
-		* New permissible value: `Unknown`
-	* Changes made to `tumor_depth_descriptor`
-		* New permissible value: `Unknown`
-	* Changes made to `tumor_infiltrating_lymphocytes`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `tumor_infiltrating_macrophages`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `tumor_shape`
-		* New permissible value: `Not Reported`
-	* Changes made to `zone_of_origin_prostate`
-		* New permissible value: `Not Reported`
+	* Added permissible values `Unknown` and/or `Not Reported` to properties
+		* `consistent_pathology_review`
+		* `extracapsular_extension`
+		* `extracapsular_extension_present`
+		* `extranodal_extension`
+		* `extrathyroid_extension`
+		* `lymph_node_dissection_site`
+		* `lymph_nodes_removed`
+		* `measurement_type`
+		* `measurement_unit`
+		* `morphologic_architectural_pattern`
+		* `necrosis_present`
+		* `residual_tumor`
+		* `residual_tumor_measurement`
+		* `rhabdoid_present`
+		* `sarcomatoid_present`
+		* `tumor_depth_descriptor`
+		* `tumor_infiltrating_lymphocytes`
+		* `tumor_infiltrating_macrophages`
+		* `tumor_shape`
+		* `zone_of_origin_prostate`
 * Altered `rna_expression_workflow` Entity
 	* Changes made to `links`
 		* `submitted_expression_arrays` added to subgroup
@@ -499,31 +370,19 @@
 	* New property: `platform`
 * Altered `treatment` Entity
 	* New property: `prescribed_dose_units`
-	* Changes made to `drug_category`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `embolic_agent`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `protocol_identifier`
-		* New permissible value: `Unknown`
-	* Changes made to `reason_treatment_ended`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
 	* Changes made to `reason_treatment_not_given`
 		* New permissible value: `Patient Ineligible`
-	* Changes made to `residual_disease`
-		* New permissible value: `Unknown`
-	* Changes made to `therapeutic_target_level`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
-	* Changes made to `timepoint_category`
-		* New permissible value: `Unknown`
-	* Changes made to `treatment_dose_units`
-		* New permissible value: `Unknown`
-		* New permissible value: `Not Reported`
 	* Changes made to `treatment_type`
 		* New permissible value: `Ablation or Embolization, NOS`
+	* Added permissible values `Unknown` and/or `Not Reported` to properties
+		* `drug_category`
+		* `embolic_agent`
+		* `protocol_identifier`
+		* `reason_treatment_ended`
+		* `residual_disease`
+		* `therapeutic_target_level`
+		* `timepoint_category`
+		* `treatment_dose_units`
 
 ### Bugs Fixed Since Last Release
 
