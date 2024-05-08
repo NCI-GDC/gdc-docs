@@ -396,7 +396,7 @@
 		* `dlco_ref_predictive_percent`
 		* `fev1_fvc_post_bronch_percent`
 		* `fev1_ref_post_bronch_percent`
-		* `fev1_fvc_pre_bronch_percen`
+		* `fev1_fvc_pre_bronch_percent`
 		* `fev1_ref_pre_bronch_percent`
 	* New deprecated property: `pregnancy_count`
 	* New deprecated property: `viral_hepatitis_serologies`
