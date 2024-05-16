@@ -12,11 +12,17 @@ which provides access to the GDC data. The GDC Data Portal provides an Analysis 
 applications that can be used to analyze, visualize, and download data from the GDC.
 
 The GDC Data Portal is built with the [React](https://reactjs.org/) framework and 
-the [Redux](https://redux.js.org/) library for state management. The GDC Portal uses [NextJS](https://nextjs.org/) as it's application framework which 
+the [Redux](https://redux.js.org/) library for state management. The GDC Data Portal uses [NextJS](https://nextjs.org/) as it's application framework which 
 provides server-side rendering of React components. [Mantine.dev](https://mantine.dev/) is the component library, and
 
 styling is through [TailwindCSS](https://tailwindcss.com/). The GDC Data Portal is built on top of the GDC API, which provides access to 
 the GDC data.
+
+![This image details the architecture of the GDC Data Portal. 
+It shows the interaction between the GDC Data API, the core
+module and the user interface.](./images/developers_guide/V2_architecture.png "Architecture of the GDC Data Portal")
+
+*Architecture of the GDC Data Portal*
 
 ## Overview of an Application
 
@@ -32,7 +38,7 @@ and are typically not the most common. For example in the Mutation Frequency app
 and mutation type filters. In the figure below the local filters are highlighted in yellow. These filters are used to
 refine the input cohort allowing users to drill down to specific genes and mutation types of interest in the cohort.
 
-![Mutation Frequency](./images/mutation_frequency_app.png)
+![Mutation Frequency](./images/developers_guide/mutation_frequency_parts_highlighted.png)
 
 ### Local vs Global Filters
 
@@ -161,7 +167,7 @@ const allCohorts = useSelector(selectAllCohorts);
 
 # Using the GDC Data Portal Application API
 
-The GDC Portal provides a number of hooks for querying the GDC API. These hooks are located in the `@gff/core` package.
+The GDC Data Portal provides a number of hooks for querying the GDC API. These hooks are located in the `@gff/core` package.
 The hooks are designed to work in a manner similar to the RTL Query hooks. The hooks take arguments and return an
 object.
 The object contains the data and the status of the query. The status of the query is stored in the `isSuccess` variable.
@@ -170,7 +176,7 @@ The @gff/core package also provides a set of selectors that return values stored
 There are a number of hooks and selectors that are available for querying the GDC API, a subset of which are shown
 below:
 
-![hooks and selectors](./images/hooks_and_selectors.png)
+![hooks and selectors](./images/developers_guide/hooks_and_selectors.png)
 
 ## Case Information
 
@@ -623,9 +629,9 @@ coreDispatch(setCurrentCohort({
 
 This will set the cohort with ID `1234` as the current cohort.
 
-## Count Information
+## Total Count Information
 
-Counts information can be queried using the `useTotalCounts` hook. This hook takes a number of arguments:
+Count information can be queried using the `useTotalCounts` hook. This hook takes a number of arguments:
 
 ```typescript
 import {useTotalCounts} from "@gff/core";
@@ -656,10 +662,103 @@ where `DataStatus` is defined as:
 export type DataStatus = "uninitialized" | "pending" | "fulfilled" | "rejected";
 ```
 
+## Application Card Counts
+The application cards show the counts for the data required by it. The data types below are supported:
+
+* caseCount 
+* fileCount
+* genesCount
+* mutationCount
+* ssmCaseCount
+* sequenceReadCaseCount
+* geneExpressionCaseCount
+* mafFileCount
+
+Each of these use a specific GraphQL query to the GDC Data API to get the count. If an application requires a 
+specialized count, then the developer will need to implement and register a count function that returns the following:
+```typescript
+[
+    {
+        data: number,                // The count for the specific data type
+        isFetching: boolean,         // True if the query is fetching data 
+        isSuccess: boolean,          // True if query sucessfully completes
+        isError: boolean             // True if the query has encountered an error
+    }      
+]
+```
+or use [RTK Query's ```useLazyQuery```](https://redux-toolkit.js.org/rtk-query/api/created-api/hooks#uselazyquery). 
+For example:
+
+```typescript
+import { graphqlAPISlice } from "../../gdcapi/gdcgraphql";
+import { buildCohortGqlOperator, FilterSet, joinFilters } from "../../cohort";
+
+const graphQLQuery = `
+  query ssmsCaseCountQuery($ssmCaseFilter: FiltersArgument) {
+  viewer {
+    repository {
+      ssmsCases : cases {
+        hits(case_filters: $ssmCaseFilter, first: 0) {
+          total
+        }
+      }
+    }
+  }
+}`;
+
+/**
+ * Injects endpoints for case counts for ssmsCounts
+ */
+const ssmsCaseCountSlice = graphqlAPISlice.injectEndpoints({
+  endpoints: (builder) => ({
+    ssmsCaseCount: builder.query<number, FilterSet>({
+      query: (cohortFilters) => {
+        const graphQLFilters = {
+          ssmCaseFilter: buildCohortGqlOperator(
+            joinFilters(cohortFilters ?? { mode: "and", root: {} }, {
+              mode: "and",
+              root: {
+                "cases.available_variation_data": {
+                  operator: "includes",
+                  field: "cases.available_variation_data",
+                  operands: ["ssm"],
+                },
+              },
+            }),
+          ),
+        };
+        return {
+          graphQLFilters,
+          graphQLQuery,
+        };
+      },
+      transformResponse: (response) =>
+        response?.data?.viewer?.repository?.ssmsCases?.hits?.total ?? 0,
+    }),
+  }),
+});
+
+export const { useLazySsmsCaseCountQuery } = ssmsCaseCountSlice;
+```
+
+This function then needs to be registered by adding the call:
+
+```typescript
+import { CountHookRegistry}  from "@gff/core";
+
+...
+
+CountHookRegistry.getInstance().registerHook("ssmCaseCount", useLazySsmsCaseCountQuery);
+```
+
+The count function is now registered with it name passed as the first argument to ```registerHook``` , and is used to set the value of the ```countsField``` in the 
+application registration described below. An appropriate place to add the registration call is in ```_app.tsx```.
+
+
 ## Component Library
 
-The Data GDC Portal provides a number of components
-that make it easy to develop applications for the GDC Portal. These components are located in the `@gff/portal-proto`
+The GDC Data Portal provides a number of components that make it easy to develop applications
+for it. These components are located in the `@gff/portal-proto`
 package.
 In several components, the GDC Data Portal uses the [Mantine](https://mantine.dev/) component library but base components and
 encapsulates calls to the GDC API so that developers do not have to.
@@ -671,7 +770,7 @@ the `@gff/portal-proto` package.
 The buttons are:
 
 * `DownloadButton` - A button that can be used to download data from the GDC API.
-* `SaveCohortButton` - aA button that can be used to save a cohort.
+* `SaveCohortButton` - A button that can be used to save a cohort.
 
 The `DownloadButton` component is used in the repository application to download data from the GDC API.
 The `DownloadButton` component takes a number of arguments:
@@ -705,7 +804,7 @@ a progress bar or spinner to display the progress of the download.
 
 The `SaveCohortButton` component is used in the Repository application to save a cohort.
 
-![img.png](images/create_cohort_button.png)
+![img.png](images/developers_guide/components/create_cohort_button.png)
 
 The `SaveCohortButton` component takes a number of arguments:
 
@@ -724,10 +823,10 @@ when the button is clicked. The `filtersCallback` is a function that returns the
 
 ### Modals
 
-Modals are used to show transitory information or obtain information from the user. The GDC Portal provides many
+Modals are used to show transitory information or obtain information from the user. The GDC Data Portal provides many
 modals that can be used for various purposes. One such modal is the `SaveCohortModal` component mentioned previously.
 
-![img.png](images/save_cohort_modal.png)
+![img.png](images/developers_guide/components/save_cohort_modal.png)
 
 * `SaveCohortModal` - A modal that can be used to save a cohort.
 * Various modals for displaying information on Sets:
@@ -741,12 +840,12 @@ These modals and others, are documented in the Portal 2.0 SDK API documentation.
 ### Charts
 
 Basic charts are provided for use within an application, although developers are free to use any  desired charting 
-library compatible
-with React 18.  The charts provided are:
+library compatible with React 18.
+The charts provided are:
 
 * `BarChart` - A bar chart
 
-![Bar Chart](images/primary_site.png)
+![Bar Chart](images/developers_guide/primary_site.png)
 
 The `BarChart` component (based on Plotly) is passed data in the form:
 
@@ -783,7 +882,7 @@ const BarChart = dynamic(() => import("@/components/charts/BarChart"), {
 
 * `Cancer Distribution` - A cancer distribution chart
   
-  ![cancer distribution](images/most-frequently-mutated-genes-bar-chart.png)
+  ![cancer distribution](images/developers_guide/most-frequently-mutated-genes-bar-chart.png)
 
 The `CancerDistribution` component (based on Plotly) is different as it passed the Gene Symbol
 and optionally cohort and gene filters.
@@ -812,35 +911,35 @@ components:
 * `TextFacet` - A facet that is used to filter a text field
 * `BooleanFacet` - A facet that is used to filter on a boolean field
 
-![Enum Facet Component](images/components/enum_facet.png)
+![Enum Facet Component](images/developers_guide/components/enum_facet.png)
 
 *Enum Facet*
 
-![Range Facet Component](images/components/numeric_range_facet.png)
+![Range Facet Component](images/developers_guide/components/numeric_range_facet.png)
 
 *Range Facet*
 
-![Date Range Facet Component](images/components/date_range_facet.png)
+![Date Range Facet Component](images/developers_guide/components/date_range_facet.png)
 
 *Date Range Facet*
 
-![Number Range Facet Component](images/components/number_range.png)
+![Number Range Facet Component](images/developers_guide/components/number_range.png)
 
 *Number Range Facet*
 
-![Percent Range Facet Component](images/components/percentile_facet.png)
+![Percent Range Facet Component](images/developers_guide/components/percentile_facet.png)
 
 *Percentile Facet*
 
-![Age Range Facet Component](images/components/age_range_facet.png)
+![Age Range Facet Component](images/developers_guide/components/age_range_facet.png)
 
 *Age Range Facet*
 
-![Exact Value Facet Component](images/components/exact_value_facet.png)
+![Exact Value Facet Component](images/developers_guide/components/exact_value_facet.png)
 
 *Exact Value Facet*
 
-![Boolean Toggle Facet Component](images/components/toggle_facet.png)
+![Boolean Toggle Facet Component](images/developers_guide/components/toggle_facet.png)
 
 *Toggle Facet*
 
@@ -859,19 +958,18 @@ to use React components for rendering columns.
 The Vertical Table is used for most of the table views in the GDC Data Portal. There are a number of examples of its use and
 is documented in the GDC Data Portal 2.0 SDK API documentation.
 
-![vertical_table.png](images/components/vertical_table.png)
+![vertical_table.png](images/developers_guide/components/vertical_table.png)
 *Vertical Table*
 
 # Application Development
 
 ## Getting Started
 
-The codebase is a monorepo that contains all the code for the GDC Data Portal. This monorepo is managed
-using [lerna](https://lerna.js.org) and [npm](https://www.npmjs.com/).
-The monorepo contains the following packages:
+The GDC Data Portal 2.0 is a monorepo that contains all the code for the GDC Data Portal. The monorepo is managed
+using [lerna](https://lerna.js.org) and [npm](https://www.npmjs.com/), and contains the following packages:
 
 * `@gff/core` - Contains the core components and hooks for the GDC Data Portal.
-* `@gff/portal-proto` - Contains the UI components and application framework (using NextJS) for the GDC Portal.
+* `@gff/portal-proto` - Contains the UI components and application framework (using NextJS) for the GDC Data Portal.
 
 Note that in the future, the UI components located in the `@gff/portal-proto` package will be refactored into a 
 separate package , and `@gff/portal-proto` will be renamed to `@gff/portal`.
@@ -883,7 +981,7 @@ the [README.md](https://github.com/NCI-GDC/gdc-frontend-framework/blob/develop/R
 
 A typical application will have the following layout. The main section of the application is the area where components
 like tables, graphs, and other components are displayed. Local filters are displayed on the left side and
-depending on the numbers will scroll vertically. This is a typical layout but other layouts are possible, like
+depending on the number of facets, will scroll vertically. This is a typical layout but other layouts are possible, like
 in the case of Protein Paint. Applications are encouraged to use vertical space as much as possible, as horizontal
 scrolling can be a poor user experience.
 
@@ -891,13 +989,13 @@ This section will describe parts of the Project application and how it is struct
 simple application that displays a table of projects and allows the user to filter the projects by a number of filters.
 As the local filters are selected the table display is updated, but the cohort is not changed (i.e. cohort filters are
 not
-updated). The Project application is located in the `@gff/portal-proto` package in the `src/features/projectsCenter`
+updated). The Project application's source code is in the `@gff/portal-proto` package in the `src/features/projectsCenter`
 directory.
 The user can create a new saved cohort by selecting projects and clicking the "Save New Cohort" button. This will open
 a modal that will allow the user to name the cohort and save it. The Project application is a good example of how to use
 the GDC Data Portal 2.0 SDK to create an application.
 
-![projects_app_parts_outlined.png](images/projects_app_parts_outlined.png)
+![projects_app_parts_outlined.png](images/developers_guide/projects_app_parts_outlined.png)
 *Major Sections of an Application*
 
 ## Local State
@@ -909,12 +1007,11 @@ the state uses [Redux Toolkit] and [Redux Persist] to store the state in local s
 by the portal core, the local state is managed by the application. Using a separate store for the local state allows
 the application to manage the state without having to worry about affecting the core state.
 
-The Portal core provides a number of functions to assist in the creation and persisting of the redux store and will
-create
-handlers such as AppState, AppDispatch, and AppSelector. The AppState is the type of the local state, the AppDispatch
-is the type of the dispatch function, and the AppSelector is the type of the selector function.
+The GDC Data Portal core package provides a number of functions to assist in the creation and persisting of the redux store and will
+create  handlers such as 'AppState', 'AppDispatch', and 'AppSelector'. The 'AppState' is the type of the local state, the AppDispatch
+is the type of the dispatch function, and the 'AppSelector' is the type of the selector function.
 
-An application can create all of the them using the `createAppStore` function:
+All of these can be automatically created using the `createAppStore` function:
 
 ```typescript
 import {createAppStore} from "@gff/core";
@@ -922,12 +1019,12 @@ import {projectCenterFiltersReducer} from "./projectCenterFiltersSlice";
 
 const PROJECT_APP_NAME = "ProjectCenter";
 
-// create the store, context and selector for the ProjectsCenter
+// create the store, context and selector for the Project  Center
 // Note the project app has a local store and context which isolates
 // the filters and other store/cache values
 
 const reducers = combineReducers({
-    projectApp: projectCenterFiltersReducer, // Your application might have more that one reducer
+    projectApp: projectCenterFiltersReducer, // An application may have more that one reducer
 });
 
 export const {id, AppStore, AppContext, useAppSelector, useAppDispatch} =
@@ -945,12 +1042,12 @@ The name of the application is used to create the local storage key for the appl
 application and is used to create the local storage key. The `AppStore` is the local store, the `AppContext` is the
 local context, the `useAppSelector` is the selector hook, and the `useAppDispatch` is the dispatch hook.
 
-Since there is now  local store, developers can create a slice associated with the local state. This is a standard Redux Toolkit
+Since there is now a local store, developers can create a slice associated with the local state. This is a standard Redux Toolkit
 slice and will contain the reducer, actions, and selectors for the local state.
 
 ## Persisting the Local State
 
-If is is desirable to persist the local state, this is done with the `persistReducer` function from the
+If it is desirable to persist the local state, this is done with the `persistReducer` function from the
 [redux-persist](https://github.com/rt2zz/redux-persist) package. Any reducer can be persisted by creating a
 persisted store and passing the reducer to the `persistReducer` function. For example, the `createAppStore` function
 can be modified to persist the local filter state as:
@@ -971,7 +1068,7 @@ const persistConfig = {
     whitelist: ["projectApp"],
 };
 
-// create the store, context and selector for the ProjectsCenter
+// create the store, context and selector for the Project Center
 // Note the project app has a local store and context which isolates
 // the filters and other store/cache values
 
@@ -1111,7 +1208,7 @@ The Project application allows users to create a new cohort from the selected pr
 filters to create a new saved cohort. In the case of the Project application, the `SaveCohortModal` component is used
 in a button component. The button component is passed the selected projects and the `SaveCohortModal` component is
 rendered when the button is clicked. The `SaveCohortModal` component passes the current cohort filters and the local
-project filters to create a new saved cohort. The `SaveCohortModal` component is used in the project application as:
+project filters to create a new saved cohort. The `SaveCohortModal` component is used in the Project application as:
 
 ```tsx
 import React, {useState} from "react";
@@ -1217,7 +1314,7 @@ export default createGdcAppWithOwnStore({
 export const ProjectsCenterAppId: string = id;
 ```
 
-The above code registers the application with the GDC Portal. The `createGdcAppWithOwnStore` function takes a number of
+The above code registers the application with the GDC Data Portal. The `createGdcAppWithOwnStore` function takes a number of
 arguments:
 
 * `App`: React.ComponentType - The application component
@@ -1237,71 +1334,55 @@ The other registration needed for the application is in
 [packages/portal-proto/src/features/user-flow/workflow/registeredApps.tsx](https://github.com/NCI-GDC/gdc-frontend-framework/blob/f9ab9710450172978f5f588558cbdaa2d2301418/packages/portal-proto/src/features/user-flow/workflow/registeredApps.tsx)
 This file contains an array of registered applications. For example the entry for the Project Center is:
 
-```tsx
+```typescript
 import ProjectsIcon from "public/user-flow/icons/crowd-of-users.svg";
 
 ...
 {
-    name: "Projects",
-        icon
-:
-    (
-        <ProjectsIcon
+    name: "Projects", 
+        icon: (<ProjectsIcon
             width={64}
             height={64}
             viewBox="0 -20 128 128"
             role="img"
-            aria-label="Projects icon"
-        />
-    ),
-        tags
-:
-    [],
-        hasDemo
-:
-    false,
-        id
-:
-    "Projects",
-        countsField
-:
-    "repositoryCaseCount",
-        description
-:
-    "View the Projects available within the GDC and select them for further exploration and analysis.",
+            aria-label="Projects icon" />),
+        tags: [], 
+        hasDemo: false,
+        id: "Projects",
+        countsField: "caseCount",
+        description: "View the Projects available within the GDC and select them for further exploration and analysis.",
 }
-,
 ...
 ```
 
 The above code registers the Project Center application with the GDC Data Portal. The members of the object are:
 
-*`name` The name of the application
-*`icon` The icon as an SVH file, it size and position can be adjusted using the `width`, `height`, and `viewBox`
+* `name` The name of the application
+* `icon` The icon as an SVG file, its size and position can be adjusted using the `width`, `height`, and `viewBox`
 properties
-*`tags` The tags for the application used for searching (which is not currently active)
-*`hasDemo` A boolean indicating if the application has a demo, if so the demo button will be shown
-*`id` The id of the application and needs to match the id of the application registered in
+* `tags` The tags for the application used for searching (which is not currently active)
+* `hasDemo` A boolean indicating if the application has a demo, if so the demo button will be shown
+* `id` The id of the application and needs to match the id of the application registered in
 the `createGdcAppWithOwnStore` function
-*`countsField` The field to use for the counts in the application, this is used to determine if the application can
+* `countsField` The field to use for the counts in the application, this is used to determine if the application can
 be used
-*`description` The description of the application
-*`noDataTooltip` The tooltip to show if the application has no data
+* `description` The description of the application
+* `noDataTooltip` The tooltip to show if the application has no data
 
-When the app is registered, it will be available in the GDC Data Portal. The application can be accessed by clicking on the
-app card.
+When the application is registered, it will be available in the GDC Data Portal. The application can be accessed by clicking on the
+application card.
 The visual elements of the card are:
 
-![application_card.png](images/application_card.png)
+![application_card.png](images/developers_guide/application_card.png)
 
 *Application Card and Associated Elements*
 
 ## Source Code Layout
 
-Developers have freedom to structure their application code as they wish, the following is a recommended layout for an
+While Developers have freedom in structuring application code, the following is a recommended layout for an
 application's source code:
 
-![source code layout](./images/app_source_code_layout_fig.png)
+![source code layout](images/developers_guide/app_source_code_layout_fig.png)
 
 *Application Source Code Layout*
 
@@ -1310,15 +1391,14 @@ application's source code:
 ## Using Selectors and Hooks
 
 Although a complete guide to React hooks and selectors is out of the scope of this document, a brief
-overview
-of how to use them is provided. For more information on hooks and selectors please see the
-[React Hooks](https://react.dev/reference/react/hooks) documentation. As the GDC uses Redux-toolkit, we will be using the calls
-described in the [Redux Toolkit](https://redux-toolkit.js.org/tutorials/typescript) documentation.
+overview of how to use them for application development is provided. For more information on hooks and selectors please see the
+[React Hooks](https://react.dev/reference/react/hooks) documentation. As the GDC uses the Redux-toolkit, calls
+described in the [Redux Toolkit](https://redux-toolkit.js.org/tutorials/typescript) documentation are used as examples.
 
 ### Selectors
 
-Selectors are used to access the state of the GDC Portal's main redux store. Using selectors is the preferred method for
-accessing the state of the GDC Portal. Selectors are functions that take the state as an argument and return a value.
+Selectors are used to access the state of the GDC Data  Portal's main redux store. Using selectors is the preferred method for
+accessing the state of the GDC Data Portal. Selectors are functions that take the state as an argument and return a value.
 
 ```typescript
 import {useCoreSelector, selectCurrentCohort} from '@gff/core';
@@ -1327,14 +1407,13 @@ const currentCohort = useSelector(selectCurrentCohort);
 ```
 
 The selector will return the current value of the item in the store. Consult the GDC 2.0 API documentation for a
-complete
-list of selectors.
+complete  list of selectors.
 
 ### Hooks
 
 Fetching data from the GDC API is done via hooks. Hooks are functions that take arguments and return a value. The value
-returned is typically a promise that resolves to the data requested. The GDC Portal provides a number of hooks for
-fetching data from the GDC API. These hooks are located in the `@gff/core` package.
+returned is typically a promise that resolves to the data requested. The GDC Data Portal provides a number of hooks for
+fetching data from the GDC 2.0 API. These hooks are located in the `@gff/core` package.
 
 ```typescript
 import {useGeneSymbol} from '@gff/core';
@@ -1361,14 +1440,12 @@ The data returned from the query is stored in the `data` variable. The object re
 where `data` is the data returned from the query, `isSuccess` is a boolean indicating if the query was
 successful, `isLoading`
 is a boolean indicating if the query is currently loading, `isError` is a boolean indicating if the query resulted in an
-error,
-and `error` is the error returned from the query.
+error,  and `error` is the error returned from the query.
 
 ## Querying the GDC API Directly
 
-There may be cases where you need to query the GDC API directly. The GDC Portal provides a number of functions for
-querying
-the GDC API. These functions are located in the `@gff/core` package and include:
+There may be cases where there is a need to query the GDC API directly. The GDC Data Portal provides a number of functions for
+querying  the GDC API. These functions are located in the `@gff/core` package and include:
 
 * `fetchGdcProjects` - Fetches project data
 * `fetchGdcAnnotations` - Fetches annotation data
@@ -1398,7 +1475,7 @@ There is also support for the GraphQL API. The `fetchGdcGraphQL` function takes 
 export const graphqlAPI = async <T>(
     query: string,
     variables: Record<string, unknown>,
-): Promise<GraphQLApiResponse<T>> =>
+): Promise<GraphQLApiResponse<T>> => ...
 ```
 
 where `query` is the GraphQL query and `variables` are the variables for the query.
