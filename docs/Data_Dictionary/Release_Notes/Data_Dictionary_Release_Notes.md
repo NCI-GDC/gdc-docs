@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v.3.1.0](Data_Dictionary_Release_Notes.md#v310) | May XX, 2024 |
 | [v.3.0.0](Data_Dictionary_Release_Notes.md#v300) | October 30, 2023 |
 | [v.2.6.6](Data_Dictionary_Release_Notes.md#v266) | June 16, 2023 |
 | [v.2.6.0](Data_Dictionary_Release_Notes.md#v260) | February 2, 2023 |
@@ -25,6 +26,371 @@
 | [v1.10.0](Data_Dictionary_Release_Notes.md#release-with-api-v1100) | August 22, 2017 |
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
+
+## v3.1.0
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: May XX, 2024
+
+### New Features and Changes
+
+* New Entity: `germline_mutation_index`
+* New Entity: `submitted_expression_array`
+* Altered `aggregated_somatic_mutation` Entity
+	* New property: `platform`
+* Altered `aligned_reads` Entity
+	* Added `minimum` and/or `maximum` values to properties <!-- summarized this for readability --> 
+		* `average_base_quality`
+		* `average_insert_size`
+		* `average_read_length`
+		* `contamination`
+		* `contamination_error`
+		* `mean_coverage`
+		* `msi_score`
+		* `pairs_on_diff_chr`
+		* `proportion_base_mismatch`
+		* `proportion_coverage_10x`
+		* `proportion_coverage_30x`
+		* `proportion_reads_duplicated`
+		* `proportion_reads_mapped`
+		* `proportion_targets_no_coverage`
+		* `total_reads`
+		* `tumor_ploidy`
+		* `tumor_purity`
+* Altered `annotated_somatic_mutation` Entity
+	* New property: `platform`
+* Altered `annotation` Entity
+	* Changes made to `links`
+		* `germline_mutation_indexes` added to subgroup
+		* `submitted_expression_arrays` added to subgroup
+	* Changes made to `properties`
+		* New property: `germline_mutation_indexes`
+		* New property: `submitted_expression_arrays`
+* Altered `copy_number_auxiliary_file` Entity <!-- excluded new internal prop `curated_model_index` -->
+	* Changes made to `data_format`
+		* New permissible value: `PDF`
+	* Changes made to `data_type`
+		* New permissible value: `CNV Model`
+* Altered `copy_number_segment` Entity
+	* New property: `cancer_dna_fraction`
+	* New property: `genome_doubling`
+	* New property: `subclonal_genome_fraction`
+	* New property: `tumor_ploidy`
+	* New property: `tumor_purity`
+* Altered `demographic` Entity
+	* Added permissible values `Unknown` and/or `Not Reported` to properties
+		* `country_of_birth`
+		* `country_of_residence_at_enrollment`
+		* `education_level`
+		* `marital_status`
+* Altered `diagnosis` Entity
+	* New property: `calgb_risk_group`
+	* New property: `tumor_of_origin`
+	* Changes made to `classification_of_tumor`
+		* New permissible value: `Subsequent Primary`
+	* Changes made to `primary_diagnosis`
+		* New permissible value: `Diffuse intrinsic pontine glioma, H3 K27M-mutant`
+		* Removed permissible value: `Hairy cell leukaemia variant`
+	* Changes made to `sites_of_involvement`
+		* New permissible value: `Dura Mater`
+		* New permissible value: `Esophagus, Lower Third`
+		* New permissible value: `Esophagus, Middle Third`
+		* New permissible value: `Esophagus, NOS`
+		* New permissible value: `Esophagus, Upper Third`
+		* New permissible value: `Lymph Node, Cervical`
+		* New permissible value: `Lymph Node, Femoral`
+		* New permissible value: `Lymph Node, Hilar`
+		* New permissible value: `Lymph Node, Iliac-Common`
+		* New permissible value: `Lymph Node, Iliac-External`
+		* New permissible value: `Lymph Node, Mediastinal`
+		* New permissible value: `Lymph Node, Mesenteric`
+		* New permissible value: `Lymph Node, Para-Aortic`
+		* New permissible value: `Lymph Node, Retroperitoneal`
+		* New permissible value: `Lymph Node, Splenic`
+		* New permissible value: `Lymph Node, Submandibular`
+		* New permissible value: `Lymph Node, Supraclavicular`
+		* New permissible value: `Pancreas Body`
+		* New permissible value: `Pancreas Duct`
+		* New permissible value: `Pancreas Head`
+		* New permissible value: `Pancreas Tail`
+		* New permissible value: `Pancreas, NOS`
+		* New permissible value: `Parametrium, NOS`
+		* New deprecated value: `Esophagus`
+		* New deprecated value: `Pancreas`
+	* Added permissible values `Unknown` and/or `Not Reported` to properties
+		* `adrenal_hormone`
+		* `ann_arbor_b_symptoms_described`
+		* `best_overall_response`
+		* `cancer_detection_method`
+		* `clark_level`
+		* `contiguous_organ_invaded`
+		* `double_expressor_lymphoma`
+		* `double_hit_lymphoma`
+		* `ensat_clinical_m`
+		* `ensat_pathologic_n`
+		* `ensat_pathologic_stage`
+		* `ensat_pathologic_t`
+		* `gleason_grade_group`
+		* `gleason_grade_tertiary`
+		* `international_prognostic_index`
+		* `margins_involved_site`
+		* `masaoka_stage`
+		* `melanoma_known_primary`
+		* `pediatric_kidney_staging`
+		* `primary_gleason_grade`
+		* `secondary_gleason_grade`
+		* `tumor_grade_category`
+		* `ulceration_indicator`
+		* `weiss_assessment_findings`
+		* `weiss_assessment_score`
+* Altered `exposure` Entity
+	* Added permissible values `Other`, `Unknown` and/or `Not Reported` to properties
+		* `alcohol_frequency`
+		* `asbestos_exposure_type`
+		* `chemical_exposure_type`
+		* `environmental_tobacco_smoke_exposure`
+		* `exposure_source`
+		* `exposure_type`
+		* `occupation_type`
+		* `parent_with_radiation_exposure`
+		* `smoking_frequency`
+		* `time_between_waking_and_first_smoke`
+		* `type_of_smoke_exposure`
+* Altered `family_history` Entity
+	* Added permissible values `Unknown` to properties
+		* `relative_deceased`
+		* `relative_smoker`
+* Altered `filtered_copy_number_segment` Entity
+	* New property: `platform`
+* Altered `follow_up` Entity
+	* New property: `treatment_emergent_adverse_event`
+	* Changes made to `adverse_event`
+		* New permissible value: `Cardiac Ischemia`
+		* New permissible value: `Glomerular Filtration Rate Decreased`
+		* New permissible value: `Joint Pain`
+		* New permissible value: `Rash/Desquamation`
+		* New permissible value: `Renal Failure`
+		* New permissible value: `Ureteral Obstruction`
+		* New permissible value: `Unknown`
+		* New permissible value: `Not Reported`
+	* Changes made to `first_event`
+		* New permissible value: `Recurrence`
+		* New permissible value: `Unknown`
+	* Changes made to `imaging_anatomic_site`
+		* New permissible value: `Pleura`
+		* New permissible value: `Unknown`
+		* New permissible value: `Not Reported`
+	* Changes made to `imaging_findings`
+		* New permissible value: `Distant Metastasis`
+		* New permissible value: `Equivocal`
+		* New permissible value: `Extraprostatic Extension, Localized`
+		* New permissible value: `Extraprostatic Extension, Regional Lymphadenopathy`
+		* New permissible value: `No Evidence of Extraprostatic Extension`
+		* New permissible value: `Unknown`
+	* Changes made to `imaging_type`
+		* New permissible value: `Bone Scan, NOS`
+		* New permissible value: `Unknown`
+		* New permissible value: `Not Reported`
+	* Changes made to `timepoint_category`
+		* New permissible value: `Prior to Adjuvant Therapy`
+		* New permissible value: `Within 2 Months After Completion of First-Course Treatment`
+		* New permissible value: `Unknown`
+	* Added permissible values `Unknown` and/or `Not Reported` to properties
+		* `adverse_event_grade`
+		* `evidence_of_progression_type`
+		* `evidence_of_recurrence_type`
+		* `history_of_tumor`
+		* `history_of_tumor_type`
+		* `peritoneal_washing_results`
+		* `scan_tracer_used`
+	* New deprecated property: `days_to_risk_factor`
+* Altered `gene_expression` Entity
+	* New property: `platform`
+	* Changes made to `experimental_strategy`
+		* New permissible value: `Expression Array`
+* Altered `germline_mutation_calling_workflow` Entity
+	* Changes made to `workflow_type`
+		* New permissible value: `Strelka2 Germline`
+* Altered `masked_somatic_mutation` Entity
+	* New property: `platform`
+* Altered `mirna_expression` Entity
+	* New property: `platform`
+* Altered `molecular_test` Entity
+	* Changes made to `chromosomal_translocation`
+		* New permissible value: `t(4;11)`
+		* New permissible value: `t(9;11)`
+		* New permissible value: `t(9;22)`
+		* New permissible value: `t(15;17)`
+	* Changes made to `gene_symbol`
+		* New permissible value: `MPO`
+		* New permissible value: `RAS, NOS`
+	* Changes made to `laboratory_test`
+		* New permissible value: `Abnormal Cells`
+	* Changes made to `molecular_analysis_method`
+		* New permissible value: `Immunophenotyping, NOS`
+	* Changes made to `second_gene_symbol`
+		* New permissible value: `MPO`
+		* New permissible value: `RAS, NOS`
+	* Changes made to `test_units`
+		* New permissible value: `IU`
+		* New permissible value: `nmol/L`
+		* New permissible value: `Seconds`
+		* New permissible value: `x10^6 cells/mcL`
+	* Changes made to `test_value_range`
+		* New permissible value: `0-25%`
+		* New permissible value: `26-50%`
+		* New permissible value: `51-75%`
+		* New permissible value: `76-100%`
+		* New permissible value: `Unknown`
+		* New deprecated value: `0-25`
+		* New deprecated value: `26-50`
+		* New deprecated value: `51-75`
+		* New deprecated value: `76-100`
+	* Changes made to `timepoint_category`
+		* New permissible value: `Initial Diagnosis`
+		* New permissible value: `Sample Procurement`
+		* New permissible value: `Unknown`
+	* Added permissible values `Unknown` and/or `Not Reported` to properties
+		* `aneuploidy`
+		* `chromosome_arm`
+		* `clonality`
+		* `hpv_strain`
+		* `molecular_consequence`
+		* `mutation_codon`
+		* `pathogenicity`
+		* `staining_intensity_scale`
+		* `staining_intensity_value`
+		* `variant_origin`
+* Altered `other_clinical_attribute` Entity
+	* New property: `days_to_risk_factor`
+	* New property: `hormonal_replacement_therapy_status`
+	* New property: `number_of_pregnancies`
+	* New property: `viral_hepatitis_serology_tests`
+	* Changes made to `immunosuppressive_treatment_type`
+		* New permissible value: `Immunoglobulin`
+		* New permissible value: `Prednisone`
+	* Changes made to `pregnancy_outcome`
+		* New permissible value: `Full Term Birth, NOS`
+	* Changes made to `risk_factors`
+		* New permissible value: `BK Virus`
+		* New permissible value: `Diverticulosis`
+		* New permissible value: `Hypercholesterolemia`
+		* New permissible value: `Hypertension`
+		* New permissible value: `Scarlet Fever`
+		* New permissible value: `Ulcerative Colitis`
+	* Changes made to `timepoint_category`
+		* New permissible value: `Sample Procurement`
+		* New permissible value: `Unknown`
+	* Added permissible values `Unknown` and/or `Not Reported` to properties
+		* `eye_color`
+		* `nononcologic_therapeutic_agents`
+		* `oxygen_use_type`
+		* `risk_factor_method_of_diagnosis`
+		* `undescended_testis_corrected`
+		* `undescended_testis_corrected_laterality`
+		* `undescended_testis_corrected_method`
+		* `undescended_testis_history`
+		* `undescended_testis_history_laterality`
+	* Removed `maximum` value for properties
+		* `dlco_ref_predictive_percent`
+		* `fev1_fvc_post_bronch_percent`
+		* `fev1_ref_post_bronch_percent`
+		* `fev1_fvc_pre_bronch_percent`
+		* `fev1_ref_pre_bronch_percent`
+	* New deprecated property: `pregnancy_count`
+	* New deprecated property: `viral_hepatitis_serologies`
+* Altered `pathology_detail` Entity
+	* New property: `prcc_type`
+	* New property: `tumor_burden`
+	* Added permissible values `Unknown` and/or `Not Reported` to properties
+		* `consistent_pathology_review`
+		* `extracapsular_extension`
+		* `extracapsular_extension_present`
+		* `extranodal_extension`
+		* `extrathyroid_extension`
+		* `lymph_node_dissection_site`
+		* `lymph_nodes_removed`
+		* `measurement_type`
+		* `measurement_unit`
+		* `morphologic_architectural_pattern`
+		* `necrosis_present`
+		* `residual_tumor`
+		* `residual_tumor_measurement`
+		* `rhabdoid_present`
+		* `sarcomatoid_present`
+		* `tumor_depth_descriptor`
+		* `tumor_infiltrating_lymphocytes`
+		* `tumor_infiltrating_macrophages`
+		* `tumor_shape`
+		* `zone_of_origin_prostate`
+* Altered `rna_expression_workflow` Entity
+	* Changes made to `links`
+		* `submitted_expression_arrays` added to subgroup
+	* New property: `submitted_expression_arrays`
+	* Changes made to `workflow_type`
+		* New permissible value: `Expression Array Quantification`
+* Altered `sample` Entity
+	* New deprecated property: `tumor_code`
+	* Updated definitions for properties
+		* `days_to_collection`
+		* `days_to_sample_procurement` 
+		* `biospecimen_anatomic_site` 
+* Altered `secondary_expression_analysis` Entity
+	* New property: `platform`
+* Altered `simple_germline_variation` Entity
+	* Changes made to `data_format`
+		* New permissible value: `gVCF`
+	* Changes made to `platform`
+		* New permissible value: `Illumina`
+* Altered `simple_somatic_mutation` Entity
+	* New property: `platform`
+* Altered `somatic_aggregation_workflow` Entity
+	* Changes made to `workflow_type`
+		* New permissible value: `Tumor-Only Somatic Variant Merging and Masking`
+* Altered `somatic_annotation_workflow` Entity
+	* Changes made to `workflow_type`
+		* New permissible value: `Manta Indel Annotation`
+		* New permissible value: `Strelka2 Annotation`
+		* New permissible value: `SvABA Indel Annotation`
+* Altered `somatic_copy_number_workflow` Entity
+	* Changes made to `workflow_type`
+		* New permissible value: `ABSOLUTE GATK4 CNV Auto`
+		* New permissible value: `ABSOLUTE GATK4 CNV Curated`
+* Altered `somatic_mutation_calling_workflow` Entity
+	* Changes made to `workflow_type`
+		* New permissible value: `Manta Indel`
+		* New permissible value: `Strelka2`
+		* New permissible value: `SvABA Indel`
+* Altered `somatic_mutation_index` Entity:
+	* Updated definition for Entity
+* Altered `structural_variant_calling_workflow` Entity
+	* Changes made to `workflow_type`
+		* New permissible value: `Manta`
+* Altered `structural_variation` Entity
+	* New property: `platform`
+* Altered `treatment` Entity
+	* New property: `prescribed_dose_units`
+	* Changes made to `reason_treatment_not_given`
+		* New permissible value: `Patient Ineligible`
+	* Changes made to `treatment_type`
+		* New permissible value: `Ablation or Embolization, NOS`
+	* Added permissible values `Unknown` and/or `Not Reported` to properties
+		* `drug_category`
+		* `embolic_agent`
+		* `protocol_identifier`
+		* `reason_treatment_ended`
+		* `residual_disease`
+		* `therapeutic_target_level`
+		* `timepoint_category`
+		* `treatment_dose_units`
+
+### Bugs Fixed Since Last Release
+
+* The [GDC Data Dictionary Viewer](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) on the [GDC Documentation Site](https://docs.gdc.cancer.gov) correctly displays links to terms for properties that were previously listed as 'null'. <!--DICT-375--->
+
+### Known Issues and Workarounds
+
+* The enum `Head - Face Or Neck, Nos` has been deprecated for the property `treatment_anatomic_sites` on the `treatment` entity, but still appears in the Data Dictionary viewer. This will be resolved in a future release. <!--SV-2310--->
 
 ## v3.0.0
 
