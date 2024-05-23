@@ -37,6 +37,8 @@
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
 ---
+## Release 2.2.0
+
 ## Release 2.1.0
 
 * __GDC Product__: GDC Data Portal
