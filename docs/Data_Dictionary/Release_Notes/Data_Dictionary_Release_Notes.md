@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v.3.1.0](Data_Dictionary_Release_Notes.md#v310) | May XX, 2024 |
+| [v.3.1.0](Data_Dictionary_Release_Notes.md#v310) | May 30, 2024 |
 | [v.3.0.0](Data_Dictionary_Release_Notes.md#v300) | October 30, 2023 |
 | [v.2.6.6](Data_Dictionary_Release_Notes.md#v266) | June 16, 2023 |
 | [v.2.6.0](Data_Dictionary_Release_Notes.md#v260) | February 2, 2023 |
@@ -30,7 +30,7 @@
 ## v3.1.0
 
 * __GDC Product__: GDC Data Dictionary
-* __Release Date__: May XX, 2024
+* __Release Date__: May 30, 2024
 
 ### New Features and Changes
 
@@ -39,7 +39,7 @@
 * Altered `aggregated_somatic_mutation` Entity
 	* New property: `platform`
 * Altered `aligned_reads` Entity
-	* Added `minimum` and/or `maximum` values to properties <!-- summarized this for readability --> 
+	* Added `minimum` and/or `maximum` values to properties <!-- summarized this for readability -->
 		* `average_base_quality`
 		* `average_insert_size`
 		* `average_read_length`
@@ -333,8 +333,8 @@
 	* New deprecated property: `tumor_code`
 	* Updated definitions for properties
 		* `days_to_collection`
-		* `days_to_sample_procurement` 
-		* `biospecimen_anatomic_site` 
+		* `days_to_sample_procurement`
+		* `biospecimen_anatomic_site`
 * Altered `secondary_expression_analysis` Entity
 	* New property: `platform`
 * Altered `simple_germline_variation` Entity
@@ -519,11 +519,11 @@
 
 ### Bugs Fixed Since Last Release
 
-* The [GDC Data Dictionary Viewer](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) on the [GDC Documentation Site](https://docs.gdc.cancer.gov) correctly displays links to terms for properties that were previously listed as 'null'. 
+* The [GDC Data Dictionary Viewer](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) on the [GDC Documentation Site](https://docs.gdc.cancer.gov) correctly displays links to terms for properties that were previously listed as 'null'.
 
 ### Known Issues and Workarounds
 
-* The enum `Head - Face Or Neck, Nos` has been deprecated for the property `treatment_anatomic_sites` on the `treatment` entity, but still appears in the Data Dictionary viewer. This will be resolved in a future release. 
+* The enum `Head - Face Or Neck, Nos` has been deprecated for the property `treatment_anatomic_sites` on the `treatment` entity, but still appears in the Data Dictionary viewer. This will be resolved in a future release.
 
 ## v2.6.6
 
@@ -1334,7 +1334,7 @@
 
 ### New Features and Changes
 
-* Added min-max limitations on property values in `demographic`, `portion`, `aliquot`, `family_history`, `slide`, `follow_up`, `read_group`, 
+* Added min-max limitations on property values in `demographic`, `portion`, `aliquot`, `family_history`, `slide`, `follow_up`, `read_group`,
 `sample`, `analyte`, `exposure`, `diagnosis`, `treatment`, `molecular_test`
 * Altered `submitted_unaligned_reads`, `submitted_aligned_reads`, `annotated_somatic_mutation`, `simple_somatic_mutation`, `masked_somatic_mutation`, `submitted_genomic_profile`, `aligned_reads`, `aggregated_somatic_mutation`, `simple_germline_variation` Entities
 	* Changes made to `experimental_strategy`
