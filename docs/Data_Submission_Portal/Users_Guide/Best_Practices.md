@@ -169,6 +169,7 @@ For any submitter that is uploading scRNA-Seq data, please follow these guidelin
 
 * If the data is single-nuclei RNA-Seq, please populate the associated aliquot field `analyte_type` with `Nuclei RNA`.
 * Please only submit the molecular files as `submitted_unaligned_reads` in FASTQ format.
+* When submitting molecular files, please submit files with file names that are in the acceptable format for CellRanger input. The acceptable format follows this regular expression: SampleName_S[\d*]\_L00[\d]\_R{1,2}\_001.fastq.gz, for example: `SampleName_S1_L001_R1_001.fastq.gz`
 
 ## Clinical Data Requirements
 
