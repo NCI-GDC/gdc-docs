@@ -982,7 +982,7 @@ the [README.md](https://github.com/NCI-GDC/gdc-frontend-framework/blob/develop/R
 A typical application will have the following layout. The main section of the application is the area where components
 like tables, graphs, and other components are displayed. Local filters are displayed on the left side and
 depending on the number of facets, will scroll vertically. This is a typical layout but other layouts are possible, like
-in the case of Protein Paint. Applications are encouraged to use vertical space as much as possible, as horizontal
+in the case of ProteinPaint. Applications are encouraged to use vertical space as much as possible, as horizontal
 scrolling can be a poor user experience.
 
 This section will describe parts of the Project application and how it is structured. The Project application is a
