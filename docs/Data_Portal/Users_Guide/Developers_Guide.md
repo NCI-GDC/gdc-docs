@@ -112,7 +112,7 @@ format for the GDC API when the cohort is saved.
 
 When using the GDC REpresentational State Transfer (REST) API, the FilterSet can be converted into the appropriate 
 format using the `filterSetToOperation` function. When using the GDC GraphQL API, the FilterSet can be using the
-`convertFilterSetToGraphQL` function. The API  guide will provide information on what format the filters should be in for the API. Also as the code is in TypeScript,
+`convertFilterSetToGraphQL` function. The API guide will provide information on what format the filters should be in for the API. Also as the code is in TypeScript,
 the IDE will provide information on the format as well.
 
 ### Obtaining Cohort Information
