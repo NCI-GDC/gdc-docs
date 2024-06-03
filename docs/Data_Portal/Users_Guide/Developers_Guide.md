@@ -1379,7 +1379,7 @@ The visual elements of the card are:
 
 ## Source Code Layout
 
-While Developers have freedom in structuring application code, the following is a recommended layout for an
+While developers have freedom in structuring application code, the following is a recommended layout for an
 application's source code:
 
 ![source code layout](images/developers_guide/app_source_code_layout_fig.png)
