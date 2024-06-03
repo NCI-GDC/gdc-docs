@@ -1440,7 +1440,7 @@ The data returned from the query is stored in the `data` variable. The object re
 where `data` is the data returned from the query, `isSuccess` is a boolean indicating if the query was
 successful, `isLoading`
 is a boolean indicating if the query is currently loading, `isError` is a boolean indicating if the query resulted in an
-error,  and `error` is the error returned from the query.
+error, and `error` is the error returned from the query.
 
 ## Querying the GDC API Directly
 
