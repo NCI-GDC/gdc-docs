@@ -1361,7 +1361,7 @@ The above code registers the Project Center application with the GDC Data Portal
 * `icon` The icon as an SVG file, its size and position can be adjusted using the `width`, `height`, and `viewBox`
 properties
 * `tags` The tags for the application used for searching (which is not currently active)
-* `hasDemo` A boolean indicating if the application has a demo, if so the demo button will be shown
+* `hasDemo` A boolean indicating if the application has a demo. If so, the demo button will be shown.
 * `id` The id of the application and needs to match the id of the application registered in
 the `createGdcAppWithOwnStore` function
 * `countsField` The field to use for the counts in the application, this is used to determine if the application can
