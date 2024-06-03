@@ -106,7 +106,7 @@ are:
 
 The `root` field is a map of filter names (as defined in the GDC API) to filter operation. The filter operation can be
 either a single operation or a `FilterSet` object. The `op` field will eventually support either `and` or `or`, however
-at this time only `and` is supported. The `and`operator is used to combine filters using the `and` operator. The `or`
+at this time only `and` is supported. The `and` operator is used to combine filters using the `and` operator. The `or`
 operator is used to combine filters using the `or` operator. The `FilterSet` object is converted to the appropriate
 format for the GDC API when the cohort is saved.
 
