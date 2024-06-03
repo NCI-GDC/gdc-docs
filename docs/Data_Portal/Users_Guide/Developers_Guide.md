@@ -1362,7 +1362,7 @@ The above code registers the Project Center application with the GDC Data Portal
 properties
 * `tags` The tags for the application used for searching (which is not currently active)
 * `hasDemo` A boolean indicating if the application has a demo. If so, the demo button will be shown.
-* `id` The id of the application and needs to match the id of the application registered in
+* `id` The id of the application, which needs to match the id of the application registered in
 the `createGdcAppWithOwnStore` function
 * `countsField` The field to use for the counts in the application, this is used to determine if the application can
 be used
