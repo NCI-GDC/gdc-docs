@@ -1407,7 +1407,7 @@ const currentCohort = useSelector(selectCurrentCohort);
 ```
 
 The selector will return the current value of the item in the store. Consult the GDC 2.0 API documentation for a
-complete  list of selectors.
+complete list of selectors.
 
 ### Hooks
 
