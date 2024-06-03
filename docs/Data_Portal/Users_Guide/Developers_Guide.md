@@ -27,8 +27,8 @@ module and the user interface.](./images/developers_guide/V2_architecture.png "A
 ## Overview of an Application
 
 Applications are React higher-order components (HOC) that are rendered in
-the [Analysis Center](https://portal.gdc.cancer.gov/analysis_page?app=). The GDC Data Portal major functions such as
-Projects, Repository,  and Protein Paint are all applications. Each application handles a specific task such as analysis or
+the [Analysis Center](https://portal.gdc.cancer.gov/analysis_page?app=). The GDC Data Portal's major functions such as
+Projects, Repository, and ProteinPaint are all applications. Each application handles a specific task such as analysis or
 visualization and can also be used to refine and build cohorts. Applications are cohort centric and can 
 query the GDC API for additional information.
 
