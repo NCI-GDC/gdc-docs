@@ -44,7 +44,7 @@ refine the input cohort allowing users to drill down to specific genes and mutat
 
 The GDC Data Portal application's input can be the current cohort or multiple user defined cohorts. The application then 
 allow users to add filters refining the cohort, create new additional cohorts, or display the data in a visualization. 
-Applications  typically have:
+Applications typically have:
 
 * **Local filters**  Refine the data displayed in the application
 * **Global filters**  Defines the cohort
