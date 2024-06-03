@@ -12,7 +12,7 @@ which provides access to the GDC data. The GDC Data Portal provides an Analysis 
 applications that can be used to analyze, visualize, and download data from the GDC.
 
 The GDC Data Portal is built with the [React](https://reactjs.org/) framework and 
-the [Redux](https://redux.js.org/) library for state management. The GDC Data Portal uses [NextJS](https://nextjs.org/) as it's application framework which 
+the [Redux](https://redux.js.org/) library for state management. The GDC Data Portal uses [NextJS](https://nextjs.org/) as its application framework which 
 provides server-side rendering of React components. [Mantine.dev](https://mantine.dev/) is the component library, and
 
 styling is through [TailwindCSS](https://tailwindcss.com/). The GDC Data Portal is built on top of the GDC API, which provides access to 
