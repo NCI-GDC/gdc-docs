@@ -550,8 +550,8 @@ interface RemoveFilterParams {
 }
 ```
 
-where `field` is the field to remove. For example to remove the `cases.project.project_id` field from the current
-cohort's filter the following code can be used:
+where `field` is the field to remove. For example, to remove the `cases.project.project_id` field from the current
+cohort's filter, the following code can be used:
 
 ```typescript
 import {useCoreDispatch, removeCohortFilter} from '@gff/core';
