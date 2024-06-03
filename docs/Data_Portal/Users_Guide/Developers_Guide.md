@@ -660,7 +660,7 @@ export type DataStatus = "uninitialized" | "pending" | "fulfilled" | "rejected";
 ```
 
 ## Application Card Counts
-The application cards show the counts for the data required by it. The data types below are supported:
+The application cards show the counts for the data required by them. The data types below are supported:
 
 * caseCount 
 * fileCount
