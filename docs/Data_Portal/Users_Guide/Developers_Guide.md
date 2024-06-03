@@ -588,7 +588,7 @@ interface UpdateCohortNameParams {
 }
 ```
 
-where `name` is the new name for the cohort. For example, to update the current cohort's name to `My Cohort` the
+where `name` is the new name for the cohort. For example, to update the current cohort's name to `My Cohort`, the
 following code can be used:
 
 ```typescript
