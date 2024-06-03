@@ -14,7 +14,6 @@ applications that can be used to analyze, visualize, and download data from the 
 The GDC Data Portal is built with the [React](https://reactjs.org/) framework and 
 the [Redux](https://redux.js.org/) library for state management. The GDC Data Portal uses [NextJS](https://nextjs.org/) as its application framework which 
 provides server-side rendering of React components. [Mantine.dev](https://mantine.dev/) is the component library, and
-
 styling is through [TailwindCSS](https://tailwindcss.com/). The GDC Data Portal is built on top of the GDC API, which provides access to 
 the GDC data.
 
@@ -33,8 +32,7 @@ visualization and can also be used to refine and build cohorts. Applications are
 query the GDC API for additional information.
 
 Local and Global filters are available to applications. Local filters are filters that are specific to the application
-and are used to refine the data that is displayed in the application. Local filters are those available from the GDC API
-and are typically not the most common. For example in the Mutation Frequency application, the local filters are the gene
+and are used to refine the data that is displayed in the application.For example in the Mutation Frequency application, the local filters are the gene
 and mutation type filters. In the figure below the local filters are highlighted in yellow. These filters are used to
 refine the input cohort allowing users to drill down to specific genes and mutation types of interest in the cohort.
 
@@ -489,12 +487,11 @@ In summary, the above code flow is:
    the `SaveCohortModal` component.
 3. The `SaveCohortModal` component passed:
    * An onClose function that sets the showSaveCohort state variable to false.
-   * A filters prop, which is an object defining the filters for the cohort based on the selected projects.
+   * A `filters` prop, which is an object defining the filters for the cohort based on the selected projects.
 4. The `SaveCohortModal` will use the passed filter to create, name, and save the cohort when the save button is clicked.
 
 Additional details on the `SaveCohortModal` component can be found in the [Component Library](#component-library)
-section as
-well as buttons to create a saved cohort.
+section.
 
 ## Altering a Cohort
 
@@ -506,7 +503,7 @@ for altering the current cohort:
 * `clearCohortFilters`
 
 Note that all of these operations are applied to the current cohort. The current cohort is the cohort that is currently
-being displayed in the Cohort Management Bar. Programmatically current cohort can be accessed via the `selectCurrentCohort` selector.
+being displayed in the Cohort Management Bar. The current cohort can be programmatically accessed via the `selectCurrentCohort` selector.
 The current cohort's filters can be accessed via the `selectCurrentCohortFilters` selector.
 
 ### Updating, Removing, and Clearing filters
@@ -1276,7 +1273,7 @@ the cohort and saving it.
 
 In addition to the actual application, it can have a demo. The demo can be used to show the
 application's functionality and is shown when the demo button is clicked. The demo button is shown when the
-application is registered with `hasDemo: false,` as described in
+application is registered with `hasDemo: true,` as described in
 the [Application Registration](#application-registration) section.
 
 The application can determine if the demo button should be shown by using the `useHasDemo` hook. The `useHasDemo` hook
