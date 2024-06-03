@@ -1364,8 +1364,8 @@ properties
 * `hasDemo` A boolean indicating if the application has a demo. If so, the demo button will be shown.
 * `id` The id of the application, which needs to match the id of the application registered in
 the `createGdcAppWithOwnStore` function
-* `countsField` The field to use for the counts in the application, this is used to determine if the application can
-be used
+* `countsField` The field to use for the counts in the application. This is used to determine if the application can
+be used.
 * `description` The description of the application
 * `noDataTooltip` The tooltip to show if the application has no data
 
