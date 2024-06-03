@@ -50,7 +50,7 @@ Applications typically have:
 * **Global filters**  Defines the cohort
 * **UI Components** Display the data in the application
 * **State** Stores the data displayed in the application
-* **Actions** Updates the state of the application
+* **Actions** Update the state of the application
 
 Applications can also create new cohorts. These cohorts can be used by other GDC Data Portal applications. The figure
 below illustrates the application components and cohort filters.
