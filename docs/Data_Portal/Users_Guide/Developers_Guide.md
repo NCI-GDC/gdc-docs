@@ -772,7 +772,7 @@ The buttons are:
 * `DownloadButton` - A button that can be used to download data from the GDC API.
 * `SaveCohortButton` - A button that can be used to save a cohort.
 
-The `DownloadButton` component is used in the repository application to download data from the GDC API.
+The `DownloadButton` component is used in the Repository application to download data from the GDC API.
 The `DownloadButton` component takes a number of arguments:
 
 ```tsx
