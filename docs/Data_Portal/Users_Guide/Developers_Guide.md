@@ -565,7 +565,7 @@ coreDispatch(removeCohortFilter({
 
 This will remove the `cases.project.project_id` field from the current cohort's filter. The `clearCohortFilters` action
 can be used to clear all the filters from the current cohort. The `clearCohortFilters` action takes no arguments. For
-example to clear all the filters from the current cohort the following code can be used:
+example, to clear all the filters from the current cohort, the following code can be used:
 
 ```typescript
 import {useCoreDispatch, clearCohortFilters} from '@gff/core';
