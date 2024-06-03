@@ -476,8 +476,8 @@ Finally, the following hooks are available for querying set size:
 
 ## Creating a Cohort
 
-Depending on the application function, if may be beneficial to create a new cohort. Although the GDC Data Portal SDK provides a
-number of functions for creating a new cohort. It is highly recommended that the application use the provided `Button` and
+Depending on the application function, it may be beneficial to create a new cohort. Although the GDC Data Portal SDK provides a
+number of functions for creating a new cohort, it is highly recommended that the application use the provided `Button` and
 `SaveCohortModal` components to create a new cohort. The `Button` and `SaveCohortModal` components are located in
 the `@gff/portal-proto` package.
 
