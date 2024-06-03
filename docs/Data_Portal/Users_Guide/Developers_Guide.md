@@ -614,8 +614,8 @@ interface SetCurrentCohortParams {
 }
 ```
 
-where `cohortId` is the id of the cohort to set as the current cohort. For example to set the cohort with id `1234` as
-the current cohort the following code can be used:
+where `cohortId` is the id of the cohort to set as the current cohort. For example, to set the cohort with id `1234` as
+the current cohort, the following code can be used:
 
 ```typescript
 import {useCoreDispatch, setCurrentCohort} from '@gff/core';
