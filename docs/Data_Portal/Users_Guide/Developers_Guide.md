@@ -839,7 +839,7 @@ These modals and others, are documented in the Portal 2.0 SDK API documentation.
 
 ### Charts
 
-Basic charts are provided for use within an application, although developers are free to use any  desired charting 
+Basic charts are provided for use within an application, although developers are free to use any desired charting 
 library compatible with React 18.
 The charts provided are:
 
