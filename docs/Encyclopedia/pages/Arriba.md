@@ -6,7 +6,7 @@ The Arriba workflow is part of the GDC mRNA quantification analysis pipeline use
 
 ## Overview ##
 
-Arriba is one of the two pipelines the GDC uses to detect gene fusions. The Arriba gene fusion pipeline uses Arriba v1.1.0 to detect gene fusions from the RNA-Seq data of tumor samples.
+Arriba is one of the two pipelines the GDC uses to detect gene fusions. The Arriba gene fusion pipeline detects gene fusions from the RNA-Seq data of tumor samples.
 
 ### Input
 

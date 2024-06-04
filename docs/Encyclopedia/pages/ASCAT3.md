@@ -6,7 +6,7 @@ ASCAT3 is an advanced copy number variation (CNV) analysis pipeline used in GDC 
 
 ## Overview ##
 
-ASCAT3 improves upon previous versions to provide more accurate CNV detection in tumor and normal samples from genotyping arrays. It processes the CEL files to generate high-resolution segmented CNV data.
+ASCAT3 improves upon previous versions to provide more accurate CNV detection in tumor and normal samples from genotyping arrays. It processes the raw array files to generate high-resolution segmented CNV data.
 
 ### Input
 

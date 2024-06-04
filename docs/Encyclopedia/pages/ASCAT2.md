@@ -6,7 +6,7 @@ ASCAT2 is a copy number variation (CNV) analysis pipeline used in GDC genotyping
 
 ## Overview ##
 
-ASCAT2 is used to analyze CNVs in tumor and normal samples from genotyping arrays. It processes the CEL files to generate segmented CNV data.
+ASCAT2 is used to analyze CNVs in tumor and normal samples from genotyping arrays. It processes the raw array files to generate segmented CNV data.
 
 ### Input
 
