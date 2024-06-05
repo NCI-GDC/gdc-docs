@@ -2,9 +2,7 @@
 
 ## Description ##
 
-MuTect2 Annotation is a somatic mutation annotation pipeline in GDC whole exome sequencing (WXS) and targeted sequencing harmonization. 
-
-used to annotate the mutations called in the GDC DNA-Seq pipelines.
+MuTect2 Annotation is a somatic mutation annotation pipeline in GDC whole exome sequencing (WXS) and targeted sequencing harmonization.
 
 ## Overview ##
 
