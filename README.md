@@ -26,7 +26,7 @@ Please direct technical questions to [GDC Support](https://gdc.cancer.gov/suppor
 
 ### Install & Run
 
-(Optional) Set up virtualenv:
+(Optional) Set up virtualenv - uses python 2.7.18:
 
 - [Install virtualenv](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
 - `python -m virtualenv venv`

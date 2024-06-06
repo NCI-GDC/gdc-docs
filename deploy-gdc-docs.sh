@@ -1,5 +1,5 @@
 #!/bin/bash
-# This script pull the latest version from git, build PDF and mkdocs.
+# This script is executed on the server to pull the latest version from git, build PDF and mkdocs.
 # Takes the following arguments:
 # - dev
 # - qa
@@ -28,14 +28,14 @@ fi
 
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Building script for ${ENVIRONMENT}"
 
-rm /tmp/${ENVIRONMENT}-buildlog.txt
-exec 3>&1 4>&2
-trap 'exec 2>&4 1>&3' 0 1 2 3
-exec 1>/tmp/${ENVIRONMENT}-buildlog.txt 2>&1
-
-if [ -d "~/gdc-docs-${ENVIRONMENT}/" ]; then
+if [ -d "/home/ubuntu/gdc-docs-${ENVIRONMENT}/" ]; then
    echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Directory exists, removing"
-   sudo rm ~/gdc-docs-${ENVIRONMENT}/ -R
+   sudo rm /home/ubuntu/gdc-docs-${ENVIRONMENT}/ -R
+   # wait to avoid error finding a directory
+   sleep 10s
+   echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Directory exists, removing"
+else
+   echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Directory ~/gdc-docs-${ENVIRONMENT}/ does not exist"
 fi
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Creating directory and cloning git repo"
 mkdir ~/gdc-docs-${ENVIRONMENT}/
@@ -73,19 +73,6 @@ if $hasEncodingError  ; then
    exit
 fi
 
-#echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Veryfing if all MARKDOWN files are UTF-8 encoded"
-#countWrongFiles=$(for f in `find docs/ | egrep -v Eliminate`; do echo "$f" ' -- ' `file -bi "$f"` ; done | grep ".md" | grep -v "utf-8" | wc -l)
-#echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Number of incorrectly encoded files: ${countWrongFiles}"
-
-#if [ "$countWrongFiles" -gt 0 ] ; then
-#   echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: ERROR the following files are not encoded in UTF-8"
-#   for f in `find docs/ | egrep -v Eliminate`; do echo "$f" ' -- ' `file -bi "$f"` ; done | grep ".md" | grep -v "utf-8"
-#   if [ -f /tmp/${ENVIRONMENT}-buildlog.txt ]; then
-#      echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Copying log file"
-#      cp /tmp/${ENVIRONMENT}-buildlog.txt /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/buildlog.txt
-#   fi
-#   exit
-#fi
 
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Looking for User Guides"
 userGuides=()
@@ -113,6 +100,8 @@ done
 
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Cleaning previous website directory (rm)"
 sudo rm /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/* -R
+   # wait to avoid error finding a directory
+   sleep 10s
 
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Build Encyclopedia"
 python buildencyclopedia.py
@@ -125,7 +114,4 @@ if [ -f /tmp/${ENVIRONMENT}-buildlog.txt ]; then
    cp /tmp/${ENVIRONMENT}-buildlog.txt /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/buildlog.txt
 fi
 
-#echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Temporarily creating symlink"
-#Temporary fix to address a link that would be broken otherwise in the submission portal due to a change of the dictionary name
-#rm /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/Dictionary/ -R
-#ln -sfn /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/Data_Dictionary /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/Dictionary
+sudo chown -R ubuntu:www-data /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov
