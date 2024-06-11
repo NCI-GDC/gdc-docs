@@ -45,9 +45,8 @@
 
 ### New Features and Changes
 
-* __GDC 1.0 (Legacy Version)__:
-    * The legacy version (GDC 1.0) of the Data Portal has been officially retired.
-    * GDC 1.0 can no longer be reached.
+* __GDC 1.0__:
+    * GDC 1.0 has been officially retired and can no longer be reached.
 * __Annotations__:
     * Annotations tables have been added to the __project, case, and file summary pages__. <!--PEAR-1853/1839/1855-->
     * Links to the case summary page have been removed for annotations that concern a redaction of the case. <!--PEAR-1942-->
