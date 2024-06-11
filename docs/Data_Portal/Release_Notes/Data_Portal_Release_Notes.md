@@ -54,7 +54,7 @@
 * __Cohorts__ created from analysis tools now consistently consist of a specific list of cases that will remain unchanged after a data release. This includes cohorts created from the gene and mutation summary pages. <!--PEAR-1911-->
 * The files tables in the __Cart__ and the __Repository__ now allow searching for files based on the associated cases' submitter ID and UUID. <!--PEAR-1900-->
 * In the __case summary page__, values whose units are days, e.g. Days to Death or Days to Birth, are now displayed in years and days as appropriate for the user's convenience. <!--PEAR-1467-->
-* __Quick Search__ results and the headers of all __summary pages__ have been updated with new designs and icons <!--PEAR-1301-->
+* __Quick Search__ results and the headers of all __summary pages__ have been updated with new designs and icons. <!--PEAR-1301-->
 * Word wrapping has been improved for __Quick Search__ results to avoid unexpected word breaks. <!--PEAR-1897-->
 * The Best Overall Response card in the Treatments category of the __Cohort Builder__ has been moved to a new position in the category. <!--PEAR-1988-->
 * The text referencing the deletion of custom sets in the __Manage Sets__ page has been updated. <!--PEAR-1939-->
@@ -65,18 +65,18 @@
 ### Bugs Fixed Since Last Release
 * __Section 508 Accessibility__:
     * Aria labels have been added to the tables in Set Operations. <!--PEAR-1936-->
-    * The Venn diagrams in __Set Operations__ and __Cohort Comparison__ now have the appropriate alt text and roles <!--PEAR-1936-->
+    * The Venn diagrams in __Set Operations__ and __Cohort Comparison__ now have the appropriate alt text and roles. <!--PEAR-1936-->
     * The Venn diagram button in __Cohort Comparison__ has been updated with both an aria label and an informative label. <!--PEAR-1936-->
-    * The statistics table and its TSV in __Clinical Data Analysis__ now contain data for Q1 and Q3. <!--PEAR-1935-->
+    * The statistics table and its TSV for Box and QQ plots in __Clinical Data Analysis__ now contain data for Q1 and Q3. <!--PEAR-1935-->
     * Alt text has been added to both the Box plot and the QQ plot in __Clinical Data Analysis__. <!--PEAR-1935-->
     * Responsiveness for the header, footer, home page, and also the Projects and Repository tools has been improved so that these areas are accessible at a 200% zoom level. <!--PEAR-1925/1912-->
 * __Cases Table__:
-    * The downloaded TSV now contain the expected tabs. <!--PEAR-1947-->
+    * The downloaded TSV now contains the expected tabs. <!--PEAR-1947-->
     * The correct number of annotations will now be displayed for each case. <!--PEAR-1965-->
     * The Customize Columns options are no longer cut off at the bottom. <!--PEAR-1997-->
-    * Search now correctly displays results even if the same search input is removed and then reapplied quickly <!--PEAR-1740-->
+    * Search now correctly displays results even if the same search input is removed and then reapplied quickly. <!--PEAR-1740-->
 * __Cohorts__:
-    * Cohorts containing FM-AD cases will now update correctly when users with dbGaP access to FM-AD (phs001179) log in or out <!--SV-2389-->
+    * Cohorts containing FM-AD cases will now update correctly when users with dbGaP access to FM-AD (phs001179) log in or out. <!--SV-2389-->
     * Cohorts created based on CNV losses or gains will now have the correct composition when filtered by additional mutated genes. <!--PEAR-1597-->
 * __Cohort Builder__:
     * The buckets for Age At Index will no longer display incorrect ranges and counts. <!--PEAR-1964-->
