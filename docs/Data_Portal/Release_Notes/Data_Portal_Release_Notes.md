@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v2.2.0](Data_Portal_Release_Notes.md#release-220) | June 26, 2024 |
 | [v2.1.0](Data_Portal_Release_Notes.md#release-210) | April 30, 2024 |
 | [v2.0.0](Data_Portal_Release_Notes.md#release-200) | February 8, 2024 |
 | [v1.30.4](Data_Portal_Release_Notes.md#release-1304) | May 11, 2023 |
@@ -37,6 +38,81 @@
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
 ---
+## Release 2.2.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  June 26, 2024
+
+### New Features and Changes
+
+* __GDC 1.0 (Legacy Version)__:
+    * The legacy version (GDC 1.0) of the Data Portal has been officially retired.
+    * GDC 1.0 can no longer be reached.
+* __Annotations__:
+    * Annotations tables have been added to the __project, case, and file summary pages__. <!--PEAR-1853/1839/1855-->
+    * Links to the case summary page have been removed for annotations that concern a redaction of the case. <!--PEAR-1942-->
+* __Cohorts__ created from analysis tools now consistently consist of a specific list of cases that will remain unchanged after a data release. This includes cohorts created from the gene and mutation summary pages. <!--PEAR-1911-->
+* The files tables in the __Cart__ and the __Repository__ now allow searching for files based on the associated cases' submitter ID and UUID. <!--PEAR-1900-->
+* In the __case summary page__, values whose units are days, e.g. Days to Death or Days to Birth, are now displayed in years and days as appropriate for the user's convenience. <!--PEAR-1467-->
+* __Quick Search__ results and the headers of all __summary pages__ have been updated with new designs and icons <!--PEAR-1301-->
+* Word wrapping has been improved for __Quick Search__ results to avoid unexpected word breaks. <!--PEAR-1897-->
+* The Best Overall Response card in the Treatments category of the __Cohort Builder__ has been moved to a new position in the category. <!--PEAR-1988-->
+* The text referencing the deletion of custom sets in the __Manage Sets__ page has been updated. <!--PEAR-1939-->
+* The Access column has been added to the Source Files and Download Analyses Files tables in the __file summary page__. <!--PEAR-1872-->
+* Text within the downloaded histogram image has been updated for greater clarity in the __Clinical Data Analysis__ tool. <!--PEAR-1805--> 
+* Filter panels in the __Projects__, __Mutation Frequency__, and __Repository__ tools have been standardized and now consistently allow scrolling to occur independently of the tables on the right. <!--PEAR-1579-->
+
+### Bugs Fixed Since Last Release
+* __Section 508 Accessibility__:
+    * Aria labels have been added to the tables in Set Operations. <!--PEAR-1936-->
+    * The Venn diagrams in __Set Operations__ and __Cohort Comparison__ now have the appropriate alt text and roles <!--PEAR-1936-->
+    * The Venn diagram button in __Cohort Comparison__ has been updated with both an aria label and an informative label. <!--PEAR-1936-->
+    * Statistics table and its TSV in __Clinical Data Analysis__ now contains data for Q1 and Q3. <!--PEAR-1935-->
+    * Alt text has been added to both the Box plot and the QQ plot in __Clinical Data Analysis__. <!--PEAR-1935-->
+    * Responsiveness for the header, footer, home page, and also the Projects and Repository tools has been improved so that these areas are accessible at a 200% zoom level. <!--PEAR--1925/1912-->
+* __Cases Table__:
+    * The Customize Columns options are no longer cut off at the buttom. <!--PEAR-1997-->
+    * The correct number of annotations will now be displayed for each case. <!--PEAR-1965-->
+    * Search now correctly displays results even if the same search input is removed and then reapplied quickly <!--PEAR-1740-->
+    * The downloaded TSV now contain the expected tabs. <!--DEV-2324-->
+* __Cohorts__:
+    * Cohorts containing FM-AD cases will now update correctly when users with dbGaP access to FM-AD (phs001179) log in or out <!--SV-2389-->
+    * Cohorts created based on CNV losses or gains will not have the correct composition when filtered by additional mutated genes. <!--PEAR-1597-->
+* __Cohort Builder__:
+    * The buckets for Age At Index will no longer display incorrect ranges and counts. <!--PEAR-1964-->
+    * Cards now display at the correct width when either the browser window is small or the zoom level is increased. <!--PEAR-1945-->
+* __Mutation Frequency__:
+    * Gene/mutation sets created from the tables in the Mutation Frequency tool will now contain the expected genes/mutations even if the cohort has Available Data filters or Biospecimen filters. <!--SV-2314-->
+    * Users will no longer be able to create several cohorts in quick succession from __Mutation Frequency__ without waiting for previous actions to be completed. <!--PEAR-1922-->
+
+* Fixed an issue where __Sample Sheet__ downloads can be incomplete due to missing sample type information. <!--PEAR-1972-->
+* Addressed an issue where changes to default filters in the __Cohort Builder__ and the __Repository__ may not be reflected after a release. <!--PEAR-1960-->
+* The __Query Expressions__ section now correctly displays a maximum of 3 rows by default. Additionally, the button to display more than 3 rows at a time is enabled only when the cohort query exceeds 3 rows. <!--PEAR-1578-->
+* The loading spinner is no longer displayed above the other areas of the Analysis Center when the __Cohort Comparison__ tool is loading. <!--SV-2360-->
+* Default values in the Custom Bins modal within the __Clinical Data Analysis__ tool are now properly updated when the user toggles between displaying continuous values in days and years. <!--PEAR-1981--> 
+* The right side of the chart on the __Home Page__ is no longer cut off at smaller browser sizes. <!--PEAR-1167-->
+* Tooltips are no longer displayed when there is no description available for filter properties. <!--SV-2425/PEAR-869-->
+
+### Known Issues and Workarounds
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives. Additionally, an equivalent alternative to the body plot on the home page is not available.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * Some text can be difficult to read on a small screen at a 200% zoom level.
+* __Survival Plot__:
+    * The survival plot in Cohort Comparison does not display text indicating that there is insufficient survival data to plot. <!--SV-2357-->
+    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* __Cart__:
+    * Spinners on the Download Cart and Download Associated Data buttons may be displayed longer than expected. This is a visual issue and does not affect the use of these buttons. <!--SV-2343-->
+    * Using multiple browser tabs with the portal when adding or removing files from the cart may result in the cart not being updated as expected. <!--SV-2412-->
+* In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+* __Cohorts__ filtered by mutated genes and SSMs not in those genes may unexpectedly result in 0 cases. <!--SV-2331/PEAR-1616-->
+* The annotations table in the __file summary page__ does not include the Case ID column. This column is planned to be added in a future update. <!--PEAR-1899-->
+
 ## Release 2.1.0
 
 * __GDC Product__: GDC Data Portal
