@@ -126,7 +126,7 @@
 * __Cohort Level MAF__:
     * A cohort level MAF analysis tool has been added to the Analysis Center.
 * __BAM Slicing Download and Sequence Reads__:
-    * In BAM Slicing Download, call GDC API directly from client without going through pp backend. No limits are applied on slicing region size or BAM slice file size.
+    * In BAM Slicing Download, call GDC API directly from client without going through ProteinPaint backend. No limits are applied on slicing region size or BAM slice file size.
     * In Sequence Reads Visualization, user can slice a BAM with a range lower than 300Kb, and if the resulting BAM slice is under 100Mb. Slicing and caching a BAM slice bigger than 100Mb will abort and user will be notified to reduce region size and try again. Before creating new cache file, find out old enough ones to delete to free up storage.
     * For both apps: The table listing available cases and bam files can be filtered by assay types.
 * __Gene Expression Clustering__:
