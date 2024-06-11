@@ -67,24 +67,23 @@
     * Aria labels have been added to the tables in Set Operations. <!--PEAR-1936-->
     * The Venn diagrams in __Set Operations__ and __Cohort Comparison__ now have the appropriate alt text and roles <!--PEAR-1936-->
     * The Venn diagram button in __Cohort Comparison__ has been updated with both an aria label and an informative label. <!--PEAR-1936-->
-    * Statistics table and its TSV in __Clinical Data Analysis__ now contains data for Q1 and Q3. <!--PEAR-1935-->
+    * The statistics table and its TSV in __Clinical Data Analysis__ now contain data for Q1 and Q3. <!--PEAR-1935-->
     * Alt text has been added to both the Box plot and the QQ plot in __Clinical Data Analysis__. <!--PEAR-1935-->
-    * Responsiveness for the header, footer, home page, and also the Projects and Repository tools has been improved so that these areas are accessible at a 200% zoom level. <!--PEAR--1925/1912-->
+    * Responsiveness for the header, footer, home page, and also the Projects and Repository tools has been improved so that these areas are accessible at a 200% zoom level. <!--PEAR-1925/1912-->
 * __Cases Table__:
-    * The Customize Columns options are no longer cut off at the buttom. <!--PEAR-1997-->
+    * The downloaded TSV now contain the expected tabs. <!--PEAR-1947-->
     * The correct number of annotations will now be displayed for each case. <!--PEAR-1965-->
+    * The Customize Columns options are no longer cut off at the bottom. <!--PEAR-1997-->
     * Search now correctly displays results even if the same search input is removed and then reapplied quickly <!--PEAR-1740-->
-    * The downloaded TSV now contain the expected tabs. <!--DEV-2324-->
 * __Cohorts__:
     * Cohorts containing FM-AD cases will now update correctly when users with dbGaP access to FM-AD (phs001179) log in or out <!--SV-2389-->
-    * Cohorts created based on CNV losses or gains will not have the correct composition when filtered by additional mutated genes. <!--PEAR-1597-->
+    * Cohorts created based on CNV losses or gains will now have the correct composition when filtered by additional mutated genes. <!--PEAR-1597-->
 * __Cohort Builder__:
     * The buckets for Age At Index will no longer display incorrect ranges and counts. <!--PEAR-1964-->
     * Cards now display at the correct width when either the browser window is small or the zoom level is increased. <!--PEAR-1945-->
 * __Mutation Frequency__:
     * Gene/mutation sets created from the tables in the Mutation Frequency tool will now contain the expected genes/mutations even if the cohort has Available Data filters or Biospecimen filters. <!--SV-2314-->
-    * Users will no longer be able to create several cohorts in quick succession from __Mutation Frequency__ without waiting for previous actions to be completed. <!--PEAR-1922-->
-
+    * Users will no longer be able to create several cohorts in quick succession from Mutation Frequency without waiting for previous actions to be completed. <!--PEAR-1922-->
 * Fixed an issue where __Sample Sheet__ downloads can be incomplete due to missing sample type information. <!--PEAR-1972-->
 * Addressed an issue where changes to default filters in the __Cohort Builder__ and the __Repository__ may not be reflected after a release. <!--PEAR-1960-->
 * The __Query Expressions__ section now correctly displays a maximum of 3 rows by default. Additionally, the button to display more than 3 rows at a time is enabled only when the cohort query exceeds 3 rows. <!--PEAR-1578-->
@@ -109,8 +108,8 @@
     * Spinners on the Download Cart and Download Associated Data buttons may be displayed longer than expected. This is a visual issue and does not affect the use of these buttons. <!--SV-2343-->
     * Using multiple browser tabs with the portal when adding or removing files from the cart may result in the cart not being updated as expected. <!--SV-2412-->
 * In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
-* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
 * __Cohorts__ filtered by mutated genes and SSMs not in those genes may unexpectedly result in 0 cases. <!--SV-2331/PEAR-1616-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
 * The annotations table in the __file summary page__ does not include the Case ID column. This column is planned to be added in a future update. <!--PEAR-1899-->
 
 ## Release 2.1.0
