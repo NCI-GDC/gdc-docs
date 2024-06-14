@@ -17,11 +17,11 @@ extra_css:
   - css/encyclopedia.css
 markdown_extensions:
   - tables
-  - BSCodeTabExtension:
-      animate_tab_transitions: false
-      default_lang: Source
-      show_all_code_as_folders: true
-pages:
+  # - BSCodeTabExtension:
+  #     animate_tab_transitions: false
+  #     default_lang: Source
+  #     show_all_code_as_folders: true
+nav:
   - Home: index.md
   - API:
       - Getting Started: API/Users_Guide/Getting_Started.md
@@ -159,4 +159,4 @@ repo_url: https://github.com/NCI-GDC/gdc-docs
 site_name: GDC Docs
 site_url: http://docs.gdc.cancer.gov
 theme: mkdocs
-theme_dir: theme
+# theme_dir: theme
