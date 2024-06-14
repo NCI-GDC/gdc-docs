@@ -157,9 +157,9 @@ gene_start      gene_end        symbol  id
 
 ### Gene Expression Availability Endpoint
 
-Retrieve the availability of gene expression data for only case, only genes, or both cases and genes. The availability response informs the user if gene expression data exists for each case or gene.  Gene expression data is only available for protein-coding genes.
+The purpose of this endpoint is to retrieve the availability of gene expression data for only cases, genes, or both. The availability response informs the user if gene expression data exists for each case or gene, which are specified with case and gene ids. Gene expression data is only available for protein-coding genes.
 
-__Example 1__: A user wants to get the availability of gene expression data for both case ids and gene ids.
+__Example 1__: A user wants to get the availability of gene expression data for a set of cases and genes.
 
 ```Filter
 {
@@ -226,21 +226,23 @@ curl -X 'POST' \
 
 ### Gene Expression Values Endpoint
 
-Get gene expression values for the given cases and genes. The response is a TSV containing the expression values for genes to cases.
+The purpose of this endpoint is to retrieve the gene expression values for the given cases and genes. The response is a TSV containing the expression values for genes to cases.
 
 __Example 1__: A user wants to get expression values using case ids and gene ids.
 
 ```Filter
 {
-  "case_ids": [
-    "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
-    "e3b32485-b204-43a7-93a5-601408fcdf96"
-  ],
-  "gene_ids": [
-    "ENSG00000141510",
-    "ENSG00000181143"
-  ],
-  "unit": "median-centered"
+    "case_ids": [
+        "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
+        "e3b32485-b204-43a7-93a5-601408fcdf96",
+        "000ead0d-abf5-4606-be04-1ea31b999840",
+        "001ab32d-f924-4753-ad67-4366fb845ae6"
+    ],
+    "gene_ids": [
+        "ENSG00000141510",
+        "ENSG00000181143"
+    ],
+    "unit": "median-centered"
 }
 ```
 
@@ -251,21 +253,23 @@ curl -X 'POST' \
   -H 'Content-Type: application/json' \
   -d '{
   "case_ids": [
-    "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
-    "e3b32485-b204-43a7-93a5-601408fcdf96"
-  ],
-  "gene_ids": [
-    "ENSG00000141510",
-    "ENSG00000181143"
-  ],
-  "unit": "median-centered"
+        "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
+        "e3b32485-b204-43a7-93a5-601408fcdf96",
+        "000ead0d-abf5-4606-be04-1ea31b999840",
+        "001ab32d-f924-4753-ad67-4366fb845ae6"
+    ],
+    "gene_ids": [
+        "ENSG00000141510",
+        "ENSG00000181143"
+    ],
+    "unit": "median-centered"
 }'
 ```
 
 ```Response
-gene_id	e3b32485-b204-43a7-93a5-601408fcdf96
-ENSG00000141510	6.93200
-ENSG00000181143	10.77660
+gene_id	000ead0d-abf5-4606-be04-1ea31b999840	001ab32d-f924-4753-ad67-4366fb845ae6	e3b32485-b204-43a7-93a5-601408fcdf96
+ENSG00000141510	4.29710	25.83390	6.93200
+ENSG00000181143	0.00670	0.02450	10.77660
 ```
 
 ### Gene Expression Gene Selection Endpoint
