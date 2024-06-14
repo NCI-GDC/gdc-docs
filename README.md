@@ -95,3 +95,54 @@ sed -i -e 's/\/site\//\/docs\//g' docs/Data_Portal/PDF/Data_portal_UG.pd
 pandoc --toc -V documentclass=report -V geometry:"top=2cm, bottom=1.5cm, left=1cm, right=1cm" -f markdown+grid_tables+table_captions -o docs/Data_Portal/PDF/Data_portal_UG.pdf docs/Data_Portal/PDF/Data_portal_UG.pd
 ```
 
+## Material Port
+
+Note for a port to the Material theme for mkdocs.
+
+### Resource
+
+[Material for MkDocs documentation](https://squidfunk.github.io/mkdocs-material/getting-started/)
+
+### Python Version
+
+Use Python 3.8 or greater. For development, this branch is using Python 3.12.
+
+### Installation
+
+Pre-req: Make sure `pip-tools` is installed
+
+```bash
+pip install pip-tools
+```
+
+Install MkDocs and dependencies
+
+```bash
+pip-sync requirements.txt
+```
+
+### Run Locally
+
+For development, start a mkdocs server locally with
+
+```bash
+mkdocs serve
+```
+
+In a browser, open `http://127.0.0.1:8000/`
+
+### Generate Site
+
+To build the site, run
+
+```bash
+mkdocs build
+```
+
+### Known Issues
+
+- Dict search app does not work
+- Dict viewer app does not work
+- Code blocks not displaying for multiple languages
+- PDF generation needs to be added
+  
