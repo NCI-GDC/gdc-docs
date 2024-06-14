@@ -146,3 +146,14 @@ mkdocs build
 - Code blocks not displaying for multiple languages
 - PDF generation needs to be added
   
+### Build Logs
+
+The build logs give us many warnings that could be investigated and fixed. Categories of messages:
+
+- The following pages exist in the docs directory, but are not included in the "nav" configuration
+- "there is no such anchor on this page"
+- "contains an absolute link"
+- "not found among documentation files."
+- "contains an unrecognized relative link"
+- "does not contain an anchor"
+  
