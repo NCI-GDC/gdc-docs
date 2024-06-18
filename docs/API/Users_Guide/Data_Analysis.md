@@ -11,7 +11,7 @@ The following data analysis endpoints are available from the GDC API:
 |__Genes__| __/genes__ | Allows users to access summary information about each gene using its Ensembl ID. |
 |__Gene Expression__|__/gene_expression/availability__|Allows users to retrieve the availability of gene expression data for specific cases and/or genes.|
 ||__/gene_expression/values__|Get gene expression values for specified cases and genes.|
-||__/gene_expression/gene_selection__|Allows users to select the most variably expressed genes for a collection of cases and genes.|
+||__/gene_expression/gene_selection__|Select the most variably expressed genes for a collection of cases and genes.|
 |__SSMS__| __/ssms__ | Allows users to access information about each somatic mutation. For example, a `ssm` would represent the transition of C to T at position 52000 of chromosome 1. |
 ||__/ssms/`<ssm_id>`__|Get information about a specific ssm using a `<ssm_id>`, often supplemented with the `expand` option to show fields of interest. |
 || __/ssm_occurrences__ | A `ssm` entity as applied to a single instance (case). An example of a `ssm occurrence` would be that the transition of C to T at position 52000 of chromosome 1 occurred in patient TCGA-XX-XXXX. |
@@ -157,7 +157,7 @@ gene_start      gene_end        symbol  id
 
 ### Gene Expression Availability Endpoint
 
-The purpose of this endpoint is to retrieve the availability of gene expression data for only cases, genes, or both. The availability response informs the user if gene expression data exists for each case or gene, which are specified with case and gene ids. Gene expression data is only available for protein-coding genes.
+The purpose of this endpoint is to retrieve the availability of gene expression data for cases, genes, or both. The availability response informs the user if gene expression data exists for each case or gene, which are specified with case and gene IDs. Gene expression data is only available for protein-coding genes.
 
 __Example 1__: A user wants to get the availability of gene expression data for a set of cases and genes.
 
@@ -227,8 +227,16 @@ curl -X 'POST' \
 ### Gene Expression Values Endpoint
 
 The purpose of this endpoint is to retrieve the gene expression values for the given cases and genes. The response is a TSV containing the expression values for genes to cases.
+The `tsv_units` of gene expression data must be defined by exactly one of the following:
+* `uqfpkm` - FPKM-UQ values. More information on calculations can be found [here](/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#calculations).
+* `median_centered_log2_uqfpkm` - Median-centered log2(FPKM-UQ+1) values.
 
-__Example 1__: A user wants to get expression values using case ids and gene ids.
+The `median_centered_log2_uqfpkm` is calculated through the following steps:
+1. Calculate the Median: Determine the median of all provided log2(uqfpkm + 1) values.
+1. Compute Median-Centered Values: Subtract the median from each log2(uqfpkm + 1) value.
+1. Generate the Result Sequence: Create a new sequence with the median-centered values, preserving the original order.
+
+__Example 1__: A user wants to get expression values using case IDs and gene IDs.
 
 ```Filter
 {
@@ -242,7 +250,8 @@ __Example 1__: A user wants to get expression values using case ids and gene ids
         "ENSG00000141510",
         "ENSG00000181143"
     ],
-    "unit": "median-centered"
+    "tsv_units": "median_centered_log2_uqfpkm",
+    "format": "tsv"
 }
 ```
 
@@ -252,7 +261,7 @@ curl -X 'POST' \
   -H 'accept: text/tab-separated-values' \
   -H 'Content-Type: application/json' \
   -d '{
-  "case_ids": [
+    "case_ids": [
         "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
         "e3b32485-b204-43a7-93a5-601408fcdf96",
         "000ead0d-abf5-4606-be04-1ea31b999840",
@@ -262,14 +271,15 @@ curl -X 'POST' \
         "ENSG00000141510",
         "ENSG00000181143"
     ],
-    "unit": "median-centered"
+    "tsv_units": "median_centered_log2_uqfpkm",
+    "format": "tsv"
 }'
 ```
 
 ```Response
 gene_id	000ead0d-abf5-4606-be04-1ea31b999840	001ab32d-f924-4753-ad67-4366fb845ae6	e3b32485-b204-43a7-93a5-601408fcdf96
-ENSG00000141510	4.29710	25.83390	6.93200
-ENSG00000181143	0.00670	0.02450	10.77660
+ENSG00000141510	-0.58248	1.75830	0.00000
+ENSG00000181143	-0.02529	0.00000	3.52293
 ```
 
 ### Gene Expression Gene Selection Endpoint
@@ -279,6 +289,7 @@ A collection of cases must be defined by case IDs.
 A collection of genes must be defined by exactly one of the following:
 * `gene_ids`
 * `gene_type`
+
 A selection size (`selection_size`) defines the maximum number of genes to select.
 An optional threshold (`min_median_log2_uqfpkm`) defines a minimum value for expression. Defaults to `1`.
 
