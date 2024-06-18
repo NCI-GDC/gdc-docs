@@ -6,7 +6,7 @@ BRASS is a structural variant calling pipeline used in GDC whole genome sequenci
 
 ## Overview ##
 
-BRASS is one of the four pipelines used for WGS variant calling at the GDC. Structural variant calling is performed with BRASS using tumor and normal alignments and generates Structural Rearrangement data.
+Structural variant calling is performed with BRASS using tumor and normal alignments and generates Structural Rearrangement data.
 
 ### Input
 

@@ -6,12 +6,11 @@ BCGSC miRNA Profiling is a miRNA profiling pipeline used in GDC for miRNA quanti
 
 ## Overview ##
 
-BCGSC miRNA Profiling is a part of the miRNA Analysis Pipeline in the GDC miRNA quantification analysis. It uses tumor and normal alignments and generates Isoform Expression Quantification and miRNA Expression Quantification data.
+BCGSC miRNA Profiling is a part of the miRNA Analysis Pipeline in the GDC miRNA quantification analysis. It uses tumor or normal alignments and generates Isoform Expression Quantification and miRNA Expression Quantification data.
 
 ### Input
 
-* Tumor BAM - miRNA-Seq
-* Normal BAM - miRNA-Seq
+* GDC-aligned BAM - miRNA-Seq
 
 ### Output
 
