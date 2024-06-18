@@ -6,12 +6,11 @@ MuSE Annotation is a somatic mutation annotation pipeline in GDC whole exome seq
 
 ## Overview ##
 
-MuSE Annotation is a workflow in the GDC that annotates somatic variants identified by the MuSE variant calling pipeline. Somatic mutation annotation is performed with MuSE Annotation using tumor and normal alignments and generates simple nucleotide variation (SNV) data.
+MuSE Annotation is a workflow in the GDC that annotates somatic variants identified by the MuSE variant calling pipeline.
 
 ### Input
 
-* Tumor VCF - WXS or Targeted Sequencing
-* Normal VCF - WXS or Targeted Sequencing
+* VCF (Data Type:  Raw Simple Somatic Mutation)
 
 ### Output
 

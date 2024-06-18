@@ -6,12 +6,11 @@ MuTect2 Annotation is a somatic mutation annotation pipeline in GDC whole exome 
 
 ## Overview ##
 
-MuTect2 Annotation is a workflow in the GDC that annotates somatic variants identified by the MuTect2 variant calling pipeline. Somatic mutation annotation is performed with MuTect2 Annotation using tumor and normal alignments and generates simple nucleotide variation (SNV) data.
+MuTect2 Annotation is a workflow in the GDC that annotates somatic variants identified by the MuTect2 variant calling pipeline.
 
 ### Input
 
-* Tumor VCF - WXS or Targeted Sequencing
-* Normal VCF - WXS or Targeted Sequencing
+* VCF (Data Type:  Raw Simple Somatic Mutation)
 
 ### Output
 

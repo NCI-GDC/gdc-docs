@@ -2,7 +2,7 @@
 
 ## Description ##
 
-GATK4 MuTect2 Tumor-Only is a somatic variant calling pipeline utilized in the GDC for analyzing tumor-only whole exome sequencing (WXS) and targeted sequencing data. 
+GATK4 MuTect2 Tumor-Only is a somatic variant calling pipeline utilized in the GDC for analyzing tumor-only whole exome sequencing (WXS) and targeted sequencing data without normal samples. 
 
 ## Overview ##
 
