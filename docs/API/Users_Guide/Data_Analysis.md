@@ -288,7 +288,7 @@ Select the most variably expressed genes for a collection of cases and collectio
 A collection of cases must be defined by case IDs. 
 A collection of genes must be defined by exactly one of the following:
 * `gene_ids`
-* `gene_type`
+* `gene_type` which has only one value: `protein_coding`.
 
 A selection size (`selection_size`) defines the maximum number of genes to select.
 An optional threshold (`min_median_log2_uqfpkm`) defines a minimum value for expression. Defaults to `1`.
