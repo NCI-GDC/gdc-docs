@@ -34,6 +34,10 @@ As most users are searching for specific types of files, a set of commonly-used 
 * **Workflow Type**: Bioinformatics workflow used to generate or harmonize the data file
 * **Platform**: Technological platform on which experimental data was produced
 * **Access**: Indicator of whether access to the data file is open or controlled
+* **Tissue Type**: Type of tissue collected, such as "Normal" or "Tumor"
+* **Tumor Descriptor**: Description of the disease present in the tumor specimen, such as "Primary" or "Metastatic"
+* **Specimen Type**: Type of material taken. This includes particular types of cellular molecules, cells, tissues, organs, body fluids, embryos, and body excretory substances.
+* **Preservation Method**: Method used to preserve the sample, such as "OCT" or "Snap Frozen" 
 
 Values within each facet can be sorted alphabetically by choosing the "Name" header on the top left of each card. Alternatively, the "Files" header may be selected to sort the values by the number of files available.
 
