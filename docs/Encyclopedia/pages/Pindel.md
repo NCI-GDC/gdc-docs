@@ -17,12 +17,10 @@ Pindel is one of the pipelines used for WGS, WXS and targeted sequencing somatic
 
 * VCF (Data Type: Raw Simple Somatic Mutation)
 
-
 ## References ##
 
 1. [Pindel Command Line Parameters at the GDC](/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/#pindel)
 1. [DNA Seq Processing at the GDC](/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/)
-
 
 ## External Links ##
 * [Pindel at Washingotn University in St.Louis](https://gmt.genome.wustl.edu/packages/pindel/)
