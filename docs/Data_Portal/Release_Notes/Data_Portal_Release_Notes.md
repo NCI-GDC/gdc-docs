@@ -127,7 +127,7 @@
     * Spinners on the Download Cart and Download Associated Data buttons may be displayed longer than expected. This is a visual issue and does not affect the use of these buttons. <!--SV-2343-->
     * Using multiple browser tabs with the portal when adding or removing files from the cart may result in the cart not being updated as expected. <!--SV-2412-->
 * In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
-* __Cohorts__ filtered by mutated genes and SSMs not in those genes may unexpectedly result in 0 cases. <!--SV-2331/PEAR-1616-->
+* __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
 * The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
 * The annotations table in the __file summary page__ does not include the Case ID column. This column is planned to be added in a future update. <!--PEAR-1899-->
 * In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
