@@ -53,7 +53,7 @@
 * __ProteinPaint__:
     * A new option to toggle lollipops pointing up or down is now available.
 * __OncoMatrix__:
-    * Advanced sorting options for power users have been aded.
+    * Advanced sorting options for power users have been added.
     * Implemented a prototype for adding gene expression rows.
 * __Gene Expression Clustering__:
     * Allows re-sort cases by dictionary variable, gene mutation, or expression level.
