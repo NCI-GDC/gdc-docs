@@ -131,6 +131,7 @@
 * The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
 * The annotations table in the __file summary page__ does not include the Case ID column. This column is planned to be added in a future update. <!--PEAR-1899-->
 * In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
+* In __Gene Expression Clustering__, the tooltip is not displayed when clicking an expression data cell. 
 
 ## Release 2.1.0
 
