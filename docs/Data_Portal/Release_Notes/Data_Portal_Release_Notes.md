@@ -101,7 +101,7 @@
     * The tool now displays the correct number of available BAM files when a cohort filter is in use.
 * __Cohort MAF__:
     * Added the "tumor_bam_uuid" column.
-* Limited the CSS reset to avoid conflict with embedder styles, by using scoped normalize CSS rules.
+* Limited the CSS reset to avoid conflict with embedded styles, by using scoped normalize CSS rules.
 * Fixed conflicting CSS that can alter portal styling.
 * Fixed an issue where __Sample Sheet__ downloads can be incomplete due to missing sample type information. <!--PEAR-1972-->
 * Addressed an issue where changes to default filters in the __Cohort Builder__ and the __Repository__ may not be reflected after a release. <!--PEAR-1960-->
