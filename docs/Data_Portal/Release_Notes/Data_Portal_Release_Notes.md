@@ -50,6 +50,15 @@
 * __Annotations__:
     * Annotations tables have been added to the __project, case, and file summary pages__. <!--PEAR-1853/1839/1855-->
     * Links to the case summary page have been removed for annotations that concern a redaction of the case. <!--PEAR-1942-->
+* __ProteinPaint__:
+    * A new option to toggle lollipops pointing up or down is now available.
+* __OncoMatrix__:
+    * Advanced sorting options for power users have been added.
+    * Implemented a prototype for adding gene expression rows.
+* __Gene Expression Clustering__:
+    * Allows re-sort cases by dictionary variable, gene mutation, or expression level.
+* __Sequence Reads__:
+    * Adds ability to visualize truncated BAM slice when the slice file size exceeds 20MB and streaming is terminated.
 * __Cohorts__ created from analysis tools now consistently consist of a specific list of cases that will remain unchanged after a data release. This includes cohorts created from the gene and mutation summary pages. <!--PEAR-1911-->
 * The files tables in the __Cart__ and the __Repository__ now allow searching for files based on the associated cases' submitter ID and UUID. <!--PEAR-1900-->
 * In the __case summary page__, values whose units are days, e.g. Days to Death or Days to Birth, are now displayed in years and days as appropriate for the user's convenience. <!--PEAR-1467-->
@@ -83,6 +92,17 @@
 * __Mutation Frequency__:
     * Gene/mutation sets created from the tables in the Mutation Frequency tool will now contain the expected genes/mutations even if the cohort has Available Data filters or Biospecimen filters. <!--SV-2314-->
     * Users will no longer be able to create several cohorts in quick succession from Mutation Frequency without waiting for previous actions to be completed. <!--PEAR-1922-->
+* __OncoMatrix__:
+    * Made OncoMatrix react to divide-by term edits from the label click menu.
+    * Fixed the continuous term scale for density plots.
+* __Gene Expression Clustering__:
+    * Fixed the continuous term scale for density plots.
+* __Sequence Reads__:
+    * The tool now displays the correct number of available BAM files when a cohort filter is in use.
+* __Cohort MAF__:
+    * Added the "tumor_bam_uuid" column.
+* Limited the CSS reset to avoid conflict with embedded styles, by using scoped normalize CSS rules.
+* Fixed conflicting CSS that can alter portal styling.
 * Fixed an issue where __Sample Sheet__ downloads can be incomplete due to missing sample type information. <!--PEAR-1972-->
 * Addressed an issue where changes to default filters in the __Cohort Builder__ and the __Repository__ may not be reflected after a release. <!--PEAR-1960-->
 * The __Query Expressions__ section now correctly displays a maximum of 3 rows by default. Additionally, the button to display more than 3 rows at a time is enabled only when the cohort query exceeds 3 rows. <!--PEAR-1578-->
@@ -107,9 +127,12 @@
     * Spinners on the Download Cart and Download Associated Data buttons may be displayed longer than expected. This is a visual issue and does not affect the use of these buttons. <!--SV-2343-->
     * Using multiple browser tabs with the portal when adding or removing files from the cart may result in the cart not being updated as expected. <!--SV-2412-->
 * In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
-* __Cohorts__ filtered by mutated genes and SSMs not in those genes may unexpectedly result in 0 cases. <!--SV-2331/PEAR-1616-->
+* __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
 * The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
 * The annotations table in the __file summary page__ does not include the Case ID column. This column is planned to be added in a future update. <!--PEAR-1899-->
+* In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
+* In __Gene Expression Clustering__, the tooltip is not displayed when clicking an expression data cell. 
+* The custom range inputs for the __Age at Index__ card in the __Cohort Builder__ are not behaving as expected. As a workaround, use the predefined ranges available. Alternatively, use the custom range inputs on the Days tab to query for ages in years.
 
 ## Release 2.1.0
 
