@@ -132,6 +132,7 @@
 * The annotations table in the __file summary page__ does not include the Case ID column. This column is planned to be added in a future update. <!--PEAR-1899-->
 * In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
 * In __Gene Expression Clustering__, the tooltip is not displayed when clicking an expression data cell. 
+* The custom range inputs for the __Age at Index__ card in the __Cohort Builder__ are not behaving as expected. As a workaround, use the predefined ranges available. Alternatively, use the custom range inputs on the Days tab to query for ages in years.
 
 ## Release 2.1.0
 
