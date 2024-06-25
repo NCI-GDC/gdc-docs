@@ -267,7 +267,6 @@ Submitting a [__Sample__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?v
     "tumor_descriptor": "Not Applicable",
     "specimen_type": "Peripheral Blood NOS",
     "preservation_method": "Frozen"
-
 }
 ```
 ```TSV
@@ -614,7 +613,6 @@ Registering a BAM file (or any other type) can be performed in one step by inclu
     "tumor_descriptor": "Not Applicable",
     "specimen_type": "Peripheral Blood NOS",
     "preservation_method": "Frozen"
-
 },
 {
     "type": "portion",
