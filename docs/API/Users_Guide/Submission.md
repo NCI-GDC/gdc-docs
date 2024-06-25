@@ -2329,24 +2329,75 @@ The PATCH method cannot be used to create new entities, and the provided submitt
 
 ```Request1
 {
-  "project_id": "GDC-INTERNAL",
+  "type": "demographic",
+  "submitter_id": "demographic7892",
+  "cases": {
+    "submitter_id": "GDC-INTERNAL-000073"
+  }, 
+  "ethnicity": "not reported",
+  "gender": "male",
+  "race": "white",
+  "vital_status": "Dead"
+}
+```
+```Command1
+token=$(<gdc-token-text-file.txt)
+
+curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 1,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 201,
+  "created_entity_count": 1,
+  "entities": [
+    {
+      "action": "create",
+      "errors": [],
+      "id": "4e4f29a3-5325-47ef-a583-a251677ed29a",
+      "related_cases": [
+        {
+          "id":"71d17c1f-8985-4b2f-bb63-1c39cb6562d5",
+          "submitter_id":"GDC-INTERNAL-000073"
+        }
+      ],
+      "type": "demographic",
+      "unique_keys": [
+        {
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "demographic7892"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    }
+  ],
+  "entity_error_count": 0,
+  "message": "Transaction successful.",
+  "success": true,
+  "transaction_id": 6357750,
+  "transactional_error_count": 0,
+  "transactional_errors": [],
+  "updated_entity_count": 0
+}
+```
+```Request2
+{
   "type": "demographic",
   "submitter_id": "demographic7892",
   "cause_of_death": "Infection", 
   "cause_of_death_source": "Death Certificate", 
   "country_of_birth": "Antigua and Barbuda", 
   "country_of_residence_at_enrollment": "Antigua and Barbuda"
-   "projects": {
-     "code": "INTERNAL"
-  }
 }
 ```
-```Command1
+```Command2
 token=$(<gdc-token-text-file.txt)
 
 curl --header "X-Auth-Token: $token" --request PATCH --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
 ```
-```Response1
+```Response2
 {
   "cases_related_to_created_entities_count": 0,
   "cases_related_to_updated_entities_count": 1,
