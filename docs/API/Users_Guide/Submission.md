@@ -2327,6 +2327,7 @@ The GDC Submission API supports the HTTP PATCH method for updating existing enti
 
 The PATCH method cannot be used to create new entities, and the provided submitter_id must match an existing submitter_id. 
 
+#### Example: Creating a new demographic entity using POST
 ```Request1
 {
   "type": "demographic",
@@ -2382,6 +2383,8 @@ curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --hea
   "updated_entity_count": 0
 }
 ```
+
+#### Example: Updating the existing demographic entity using PATCH
 ```Request2
 {
   "type": "demographic",
