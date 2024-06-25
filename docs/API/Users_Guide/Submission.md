@@ -2319,6 +2319,71 @@ curl --header "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/v0/submission/T
 
 Submitters can use the GraphQL query language for advanced search and retrieval of data from the GDC Submission Portal. See [GraphQL](#querying-submitted-data-using-graphql) for more information.
 
+## Patching Entitites
+
+The GDC Submission API supports the HTTP PATCH method for updating existing entities with additional fields.
+
+**PATCH** can be used to add extra fields to an existing entity, without requiring the submission of required fields. 
+
+The PATCH method cannot be used to create new entities, and the provided submitter_id must match an existing submitter_id. 
+
+```Request1
+{
+  "project_id": "GDC-INTERNAL",
+  "type": "demographic",
+  "submitter_id": "demographic7892",
+  "cause_of_death": "Infection", 
+  "cause_of_death_source": "Death Certificate", 
+  "country_of_birth": "Antigua and Barbuda", 
+  "country_of_residence_at_enrollment": "Antigua and Barbuda"
+   "projects": {
+     "code": "INTERNAL"
+  }
+}
+```
+```Command1
+token=$(<gdc-token-text-file.txt)
+
+curl --header "X-Auth-Token: $token" --request PATCH --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 1,
+  "code": 200,
+  "created_entity_count": 0,
+  "entities": [
+    {
+      "action": "update",
+      "errors": [],
+      "id": "4e4f29a3-5325-47ef-a583-a251677ed29a",
+      "related_cases": [
+        {
+          "id":"71d17c1f-8985-4b2f-bb63-1c39cb6562d5",
+          "submitter_id":"GDC-INTERNAL-000073"
+        }
+      ],
+      "type": "demographic",
+      "unique_keys": [
+        {
+          "project_id": "GDC-INTERNAL",
+          "submitter_id": "demographic7892"
+        }
+      ],
+      "valid": true,
+      "warnings": []
+    }
+  ],
+  "entity_error_count": 0,
+  "message": "Transaction successful.",
+  "success": true,
+  "transaction_id": 6357751,
+  "transactional_error_count": 0,
+  "transactional_errors": [],
+  "updated_entity_count": 1
+}
+```
+
 
 ## Deleting Entities
 
