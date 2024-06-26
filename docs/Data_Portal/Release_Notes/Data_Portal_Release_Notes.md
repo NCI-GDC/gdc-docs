@@ -67,7 +67,7 @@
 * The Best Overall Response card in the Treatments category of the __Cohort Builder__ has been moved to a new position in the category. <!--PEAR-1988-->
 * The text referencing the deletion of custom sets in the __Manage Sets__ page has been updated. <!--PEAR-1939-->
 * The Access column has been added to the Source Files and Download Analyses Files tables in the __file summary page__. <!--PEAR-1872-->
-* Text within the downloaded histogram image has been updated for greater clarity in the __Clinical Data Analysis__ tool. <!--PEAR-1805--> 
+* Text within the downloaded histogram image has been updated for greater clarity in the __Clinical Data Analysis__ tool. <!--PEAR-1805-->
 * Filter panels in the __Projects__, __Mutation Frequency__, and __Repository__ tools have been standardized and now consistently allow scrolling to occur independently of the tables on the right. <!--PEAR-1579-->
 
 ### Bugs Fixed Since Last Release
@@ -95,6 +95,7 @@
 * __OncoMatrix__:
     * Made OncoMatrix react to divide-by term edits from the label click menu.
     * Fixed the continuous term scale for density plots.
+    * Gene expression variable may not show expression data for all applicable cases, especially with a large cohort size.
 * __Gene Expression Clustering__:
     * Fixed the continuous term scale for density plots.
 * __Sequence Reads__:
@@ -107,7 +108,7 @@
 * Addressed an issue where changes to default filters in the __Cohort Builder__ and the __Repository__ may not be reflected after a release. <!--PEAR-1960-->
 * The __Query Expressions__ section now correctly displays a maximum of 3 rows by default. Additionally, the button to display more than 3 rows at a time is enabled only when the cohort query exceeds 3 rows. <!--PEAR-1578-->
 * The loading spinner is no longer displayed above the other areas of the Analysis Center when the __Cohort Comparison__ tool is loading. <!--SV-2360-->
-* Default values in the Custom Bins modal within the __Clinical Data Analysis__ tool are now properly updated when the user toggles between displaying continuous values in days and years. <!--PEAR-1981--> 
+* Default values in the Custom Bins modal within the __Clinical Data Analysis__ tool are now properly updated when the user toggles between displaying continuous values in days and years. <!--PEAR-1981-->
 * The right side of the chart on the __Home Page__ is no longer cut off at smaller browser sizes. <!--PEAR-1167-->
 * Tooltips are no longer displayed when there is no description available for filter properties. <!--SV-2425/PEAR-869-->
 
@@ -131,7 +132,7 @@
 * The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
 * The annotations table in the __file summary page__ does not include the Case ID column. This column is planned to be added in a future update. <!--PEAR-1899-->
 * In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
-* In __Gene Expression Clustering__, the tooltip is not displayed when clicking an expression data cell. 
+* In __Gene Expression Clustering__, the tooltip is not displayed when clicking an expression data cell.
 * The custom range inputs for the __Age at Index__ card in the __Cohort Builder__ are not behaving as expected. As a workaround, use the predefined ranges available. Alternatively, use the custom range inputs on the Days tab to query for ages in years.
 
 ## Release 2.1.0
@@ -141,7 +142,7 @@
 
 ### New Features and Changes
 * __Annotations Browser__
-    * The Annotations Browser and annotation summary page have been implemented. <!--PEAR-1838/1181/1182/1160--> 
+    * The Annotations Browser and annotation summary page have been implemented. <!--PEAR-1838/1181/1182/1160-->
 * __Repository__:
     * Files can now be filtered by Tissue Type, Tumor Descriptor, Specimen Type, and Preservation Method. <!--PEAR-1514-->
     * Metadata and Sample Sheet downloads have been added to the Repository. <!--PEAR-1863-->
@@ -170,7 +171,7 @@
     * Allow visualizing SSM in any genomic locus, besides "protein" mode.
     * Support creating a single-case cohort.
 * The performance of the __Clinical Data Analysis__ tool has been improved, especially when large cohorts are used with QQ plots. <!--PEAR-1536-->
-* __Quick Search__ now returns results for the latest versions of files when searching for older versions of those files. <!--PEAR-1804--> 
+* __Quick Search__ now returns results for the latest versions of files when searching for older versions of those files. <!--PEAR-1804-->
 * The X button on the __Unexpected Error__ dialog box has been removed. <!--SV-2367-->
 * Buttons for launching demos have been removed from the selection view of __Cohort Comparison__ and __Set Operations__. <!--SV-2328/2327-->
 * Responsiveness improvements have been made to the __Analysis Center__ and the __Cohort Bar__. <!--PEAR-1836-->
