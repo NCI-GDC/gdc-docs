@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v2.2.0](Data_Portal_Release_Notes.md#release-220) | June 26, 2024 |
 | [v2.1.0](Data_Portal_Release_Notes.md#release-210) | April 30, 2024 |
 | [v2.0.0](Data_Portal_Release_Notes.md#release-200) | February 8, 2024 |
 | [v1.30.4](Data_Portal_Release_Notes.md#release-1304) | May 11, 2023 |
@@ -37,6 +38,103 @@
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
 ---
+## Release 2.2.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  June 26, 2024
+
+### New Features and Changes
+
+* __GDC 1.0__:
+    * GDC 1.0 has been officially retired and can no longer be reached.
+* __Annotations__:
+    * Annotations tables have been added to the __project, case, and file summary pages__. <!--PEAR-1853/1839/1855-->
+    * Links to the case summary page have been removed for annotations that concern a redaction of the case. <!--PEAR-1942-->
+* __ProteinPaint__:
+    * A new option to toggle lollipops pointing up or down is now available.
+* __OncoMatrix__:
+    * Advanced sorting options for power users have been added.
+    * Implemented a prototype for adding gene expression rows.
+* __Gene Expression Clustering__:
+    * Allows re-sort cases by dictionary variable, gene mutation, or expression level.
+* __Sequence Reads__:
+    * Adds ability to visualize truncated BAM slice when the slice file size exceeds 20MB and streaming is terminated.
+* __Cohorts__ created from analysis tools now consistently consist of a specific list of cases that will remain unchanged after a data release. This includes cohorts created from the gene and mutation summary pages. <!--PEAR-1911-->
+* The files tables in the __Cart__ and the __Repository__ now allow searching for files based on the associated cases' submitter ID and UUID. <!--PEAR-1900-->
+* In the __case summary page__, values whose units are days, e.g. Days to Death or Days to Birth, are now displayed in years and days as appropriate for the user's convenience. <!--PEAR-1467-->
+* __Quick Search__ results and the headers of all __summary pages__ have been updated with new designs and icons. <!--PEAR-1301-->
+* Word wrapping has been improved for __Quick Search__ results to avoid unexpected word breaks. <!--PEAR-1897-->
+* The Best Overall Response card in the Treatments category of the __Cohort Builder__ has been moved to a new position in the category. <!--PEAR-1988-->
+* The text referencing the deletion of custom sets in the __Manage Sets__ page has been updated. <!--PEAR-1939-->
+* The Access column has been added to the Source Files and Download Analyses Files tables in the __file summary page__. <!--PEAR-1872-->
+* Text within the downloaded histogram image has been updated for greater clarity in the __Clinical Data Analysis__ tool. <!--PEAR-1805-->
+* Filter panels in the __Projects__, __Mutation Frequency__, and __Repository__ tools have been standardized and now consistently allow scrolling to occur independently of the tables on the right. <!--PEAR-1579-->
+
+### Bugs Fixed Since Last Release
+* __Section 508 Accessibility__:
+    * Aria labels have been added to the tables in Set Operations. <!--PEAR-1936-->
+    * The Venn diagrams in __Set Operations__ and __Cohort Comparison__ now have the appropriate alt text and roles. <!--PEAR-1936-->
+    * The Venn diagram button in __Cohort Comparison__ has been updated with both an aria label and an informative label. <!--PEAR-1936-->
+    * The statistics table and its TSV for Box and QQ plots in __Clinical Data Analysis__ now contain data for Q1 and Q3. <!--PEAR-1935-->
+    * Alt text has been added to both the Box plot and the QQ plot in __Clinical Data Analysis__. <!--PEAR-1935-->
+    * Responsiveness for the header, footer, home page, and also the Projects and Repository tools has been improved so that these areas are accessible at a 200% zoom level. <!--PEAR-1925/1912-->
+* __Cases Table__:
+    * The downloaded TSV now contains the expected tabs. <!--PEAR-1947-->
+    * The correct number of annotations will now be displayed for each case. <!--PEAR-1965-->
+    * The Customize Columns options are no longer cut off at the bottom. <!--PEAR-1997-->
+    * Search now correctly displays results even if the same search input is removed and then reapplied quickly. <!--PEAR-1740-->
+* __Cohorts__:
+    * Cohorts containing FM-AD cases will now update correctly when users with dbGaP access to FM-AD (phs001179) log in or out. <!--SV-2389-->
+    * Cohorts created based on CNV losses or gains will now have the correct composition when filtered by additional mutated genes. <!--PEAR-1597-->
+* __Cohort Builder__:
+    * The buckets for Age At Index will no longer display incorrect ranges and counts. <!--PEAR-1964-->
+    * Cards now display at the correct width when either the browser window is small or the zoom level is increased. <!--PEAR-1945-->
+* __Mutation Frequency__:
+    * Gene/mutation sets created from the tables in the Mutation Frequency tool will now contain the expected genes/mutations even if the cohort has Available Data filters or Biospecimen filters. <!--SV-2314-->
+    * Users will no longer be able to create several cohorts in quick succession from Mutation Frequency without waiting for previous actions to be completed. <!--PEAR-1922-->
+* __OncoMatrix__:
+    * Made OncoMatrix react to divide-by term edits from the label click menu.
+    * Fixed the continuous term scale for density plots.
+    * Gene expression variable may not show expression data for all applicable cases, especially with a large cohort size.
+* __Gene Expression Clustering__:
+    * Fixed the continuous term scale for density plots.
+* __Sequence Reads__:
+    * The tool now displays the correct number of available BAM files when a cohort filter is in use.
+* __Cohort MAF__:
+    * Added the "tumor_bam_uuid" column.
+* Limited the CSS reset to avoid conflict with embedded styles, by using scoped normalize CSS rules.
+* Fixed conflicting CSS that can alter portal styling.
+* Fixed an issue where __Sample Sheet__ downloads can be incomplete due to missing sample type information. <!--PEAR-1972-->
+* Addressed an issue where changes to default filters in the __Cohort Builder__ and the __Repository__ may not be reflected after a release. <!--PEAR-1960-->
+* The __Query Expressions__ section now correctly displays a maximum of 3 rows by default. Additionally, the button to display more than 3 rows at a time is enabled only when the cohort query exceeds 3 rows. <!--PEAR-1578-->
+* The loading spinner is no longer displayed above the other areas of the Analysis Center when the __Cohort Comparison__ tool is loading. <!--SV-2360-->
+* Default values in the Custom Bins modal within the __Clinical Data Analysis__ tool are now properly updated when the user toggles between displaying continuous values in days and years. <!--PEAR-1981-->
+* The right side of the chart on the __Home Page__ is no longer cut off at smaller browser sizes. <!--PEAR-1167-->
+* Tooltips are no longer displayed when there is no description available for filter properties. <!--SV-2425/PEAR-869-->
+
+### Known Issues and Workarounds
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives. Additionally, an equivalent alternative to the body plot on the home page is not available.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * Some text can be difficult to read on a small screen at a 200% zoom level.
+* __Survival Plot__:
+    * The survival plot in Cohort Comparison does not display text indicating that there is insufficient survival data to plot. <!--SV-2357-->
+    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* __Cart__:
+    * Spinners on the Download Cart and Download Associated Data buttons may be displayed longer than expected. This is a visual issue and does not affect the use of these buttons. <!--SV-2343-->
+    * Using multiple browser tabs with the portal when adding or removing files from the cart may result in the cart not being updated as expected. <!--SV-2412-->
+* In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
+* __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+* The annotations table in the __file summary page__ does not include the Case ID column. This column is planned to be added in a future update. <!--PEAR-1899-->
+* In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
+* In __Gene Expression Clustering__, the tooltip is not displayed when clicking an expression data cell.
+* The custom range inputs for the __Age at Index__ card in the __Cohort Builder__ are not behaving as expected. As a workaround, use the predefined ranges available. Alternatively, use the custom range inputs on the Days tab to query for ages in years.
+
 ## Release 2.1.0
 
 * __GDC Product__: GDC Data Portal
@@ -44,14 +142,14 @@
 
 ### New Features and Changes
 * __Annotations Browser__
-    * The Annotations Browser and annotation summary page have been implemented. <!--PEAR-1838/1181/1182/1160--> 
+    * The Annotations Browser and annotation summary page have been implemented. <!--PEAR-1838/1181/1182/1160-->
 * __Repository__:
     * Files can now be filtered by Tissue Type, Tumor Descriptor, Specimen Type, and Preservation Method. <!--PEAR-1514-->
     * Metadata and Sample Sheet downloads have been added to the Repository. <!--PEAR-1863-->
 * __Cohort Level MAF__:
     * A cohort level MAF analysis tool has been added to the Analysis Center.
 * __BAM Slicing Download and Sequence Reads__:
-    * In BAM Slicing Download, call GDC API directly from client without going through pp backend. No limits are applied on slicing region size or BAM slice file size.
+    * In BAM Slicing Download, call GDC API directly from client without going through ProteinPaint backend. No limits are applied on slicing region size or BAM slice file size.
     * In Sequence Reads Visualization, user can slice a BAM with a range lower than 300Kb, and if the resulting BAM slice is under 100Mb. Slicing and caching a BAM slice bigger than 100Mb will abort and user will be notified to reduce region size and try again. Before creating new cache file, find out old enough ones to delete to free up storage.
     * For both apps: The table listing available cases and bam files can be filtered by assay types.
 * __Gene Expression Clustering__:
@@ -73,7 +171,7 @@
     * Allow visualizing SSM in any genomic locus, besides "protein" mode.
     * Support creating a single-case cohort.
 * The performance of the __Clinical Data Analysis__ tool has been improved, especially when large cohorts are used with QQ plots. <!--PEAR-1536-->
-* __Quick Search__ now returns results for the latest versions of files when searching for older versions of those files. <!--PEAR-1804--> 
+* __Quick Search__ now returns results for the latest versions of files when searching for older versions of those files. <!--PEAR-1804-->
 * The X button on the __Unexpected Error__ dialog box has been removed. <!--SV-2367-->
 * Buttons for launching demos have been removed from the selection view of __Cohort Comparison__ and __Set Operations__. <!--SV-2328/2327-->
 * Responsiveness improvements have been made to the __Analysis Center__ and the __Cohort Bar__. <!--PEAR-1836-->

@@ -234,7 +234,14 @@ One of the main features of the GDC is the genomic data harmonization workflow. 
 
 [![GDC Data Model 3](images/GDC-Data-Model-Sample.png)](images/GDC-Data-Model-Sample.png "Click to see the full image.")
 
-A `sample` submission has the same general structure as a `case` submission as it will require a unique key and a link to the `case`.  However, `sample` entities require one additional value:  `sample_type`. This peripheral data is required because it is necessary for the data to be interpreted. For example, an investigator using this data would need to know whether the `sample` came from tumor or normal tissue.  
+A `sample` submission has the same general structure as a `case` submission as it will require a unique key and a link to the `case`.  However, `sample` entities require four additional values:  
+
+* `tissue_type`
+* `tumor_descriptor`
+* `specimen_type`
+* `preservation_method`
+
+This peripheral data is required because it is necessary for the data to be interpreted. For example, an investigator using this data would need to know whether the `sample` came from tumor or normal tissue.  
 
 [![Dictionary Sample](images/Dictionary_Sample.png)](images/Dictionary_Sample.png "Click to see the full image.")
 
@@ -242,8 +249,10 @@ Submitting a [__Sample__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?v
 
 * __`submitter_id`:__ A unique key to identify the `sample`.
 * __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `sample` to the `case`.
-* __`sample_type`:__ Type of the `sample`. Named for its cellular source, molecular composition, and/or therapeutic treatment.
 * __`tissue_type`:__ Text term that represents a description of the kind of tissue collected with respect to disease status or proximity to tumor tissue.
+* __`tumor_descriptor`:__ Text that describes the kind of disease present in the tumor specimen as related to a specific timepoint.
+* __`specimen_type`:__ The type of a material sample taken from a biological entity for testing, diagnostic, propagation, treatment or research purposes. This includes particular types of cellular molecules, cells, tissues, organs, body fluids, embryos, and body excretory substances.
+* __`preservation_method`:__ Text term that represents the method used to preserve the sample.
 
 >__Note:__ The `case` must be "committed" to the project before a `sample` can be linked to it.  This also applies to all other links between entities.
 
@@ -253,14 +262,16 @@ Submitting a [__Sample__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?v
     "cases": {
         "submitter_id": "PROJECT-INTERNAL-000055"
     },
-    "sample_type": "Blood Derived Normal",
-    "submitter_id": "Blood-00001SAMPLE_55"
-    "tissue_type": "Normal"
+    "submitter_id": "Blood-00001SAMPLE_55",
+    "tissue_type": "Normal",
+    "tumor_descriptor": "Not Applicable",
+    "specimen_type": "Peripheral Blood NOS",
+    "preservation_method": "Frozen"
 }
 ```
 ```TSV
-type	cases.submitter_id	submitter_id	sample_type tissue_type
-sample	PROJECT-INTERNAL-000055	Blood-00001SAMPLE_55	Blood Derived Normal    Normal
+type	cases.submitter_id	submitter_id	tissue_type	specimen_type	tumor_descriptor	preservation_method
+sample	PROJECT-INTERNAL-000055	Blood-00001SAMPLE_55	Normal	Peripheral Blood NOS	Not Applicable	Frozen
 ```
 
 ## Portion, Analyte and Aliquot Submission
@@ -597,14 +608,17 @@ Registering a BAM file (or any other type) can be performed in one step by inclu
     "cases": {
         "submitter_id": "PROJECT-INTERNAL-000055"
     },
-    "sample_type": "Blood Derived Normal",
-    "submitter_id": "Blood-00001_55"
+    "submitter_id": "Blood-00001SAMPLE_55",
+    "tissue_type": "Normal",
+    "tumor_descriptor": "Not Applicable",
+    "specimen_type": "Peripheral Blood NOS",
+    "preservation_method": "Frozen"
 },
 {
     "type": "portion",
     "submitter_id": "Blood-portion-000055",
     "samples": {
-        "submitter_id": "Blood-00001_55"
+        "submitter_id": "Blood-00001SAMPLE_55"
     }
 },
 {

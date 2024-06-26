@@ -9,6 +9,9 @@ The following data analysis endpoints are available from the GDC API:
 |__Node__| __Endpoint__ | __Description__ |
 |---|---|---|
 |__Genes__| __/genes__ | Allows users to access summary information about each gene using its Ensembl ID. |
+|__Gene Expression__|__/gene_expression/availability__|Allows users to retrieve the availability of gene expression data for specific cases and/or genes.|
+||__/gene_expression/values__|Get gene expression values for specified cases and genes.|
+||__/gene_expression/gene_selection__|Select the most variably expressed genes for a collection of cases and genes.|
 |__SSMS__| __/ssms__ | Allows users to access information about each somatic mutation. For example, a `ssm` would represent the transition of C to T at position 52000 of chromosome 1. |
 ||__/ssms/`<ssm_id>`__|Get information about a specific ssm using a `<ssm_id>`, often supplemented with the `expand` option to show fields of interest. |
 || __/ssm_occurrences__ | A `ssm` entity as applied to a single instance (case). An example of a `ssm occurrence` would be that the transition of C to T at position 52000 of chromosome 1 occurred in patient TCGA-XX-XXXX. |
@@ -148,6 +151,209 @@ gene_start      gene_end        symbol  id
 55736779        55739605        CICP11  ENSG00000237799
 142111749       142222324       RP11-1220K2.2   ENSG00000257743
 (truncated)
+```
+
+## Gene Expression Examples
+
+### Gene Expression Availability Endpoint
+
+The purpose of this endpoint is to retrieve the availability of gene expression data for cases, genes, or both. The availability response informs the user if gene expression data exists for each case or gene, which are specified with case and gene IDs. Gene expression data is only available for protein-coding genes.
+
+__Example 1__: A user wants to get the availability of gene expression data for a set of cases and genes.
+
+```Filter
+{
+  "case_ids": [
+    "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
+    "e3b32485-b204-43a7-93a5-601408fcdf96"
+  ],
+  "gene_ids": [
+    "ENSG00000141510",
+    "ENSG00000181143"
+  ]
+}
+```
+
+```Shell
+curl -X 'POST' \
+  'https://api.gdc.cancer.gov/gene_expression/availability' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "case_ids": [
+    "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
+    "e3b32485-b204-43a7-93a5-601408fcdf96"
+  ],
+  "gene_ids": [
+    "ENSG00000141510",
+    "ENSG00000181143"
+  ]
+}'
+```
+
+```Response
+{
+    "cases": {
+        "details": [
+            {
+                "case_id": "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
+                "has_gene_expression_values": false
+            },
+            {
+                "case_id": "e3b32485-b204-43a7-93a5-601408fcdf96",
+                "has_gene_expression_values": true
+            }
+        ],
+        "with_gene_expression_count": 1,
+        "without_gene_expression_count": 1
+    },
+    "genes": {
+        "details": [
+            {
+                "gene_id": "ENSG00000141510",
+                "has_gene_expression_values": true
+            },
+            {
+                "gene_id": "ENSG00000181143",
+                "has_gene_expression_values": true
+            }
+        ],
+        "with_gene_expression_count": 2,
+        "without_gene_expression_count": 0
+    }
+}
+```
+
+### Gene Expression Values Endpoint
+
+The purpose of this endpoint is to retrieve the gene expression values for the given cases and genes. The response is a TSV containing the expression values for genes to cases.
+The `tsv_units` of gene expression data must be defined by exactly one of the following:
+* `uqfpkm` - FPKM-UQ values. More information on calculations can be found [here](/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#calculations).
+* `median_centered_log2_uqfpkm` - Median-centered log2(FPKM-UQ+1) values.
+
+The `median_centered_log2_uqfpkm` is calculated through the following steps:
+1. Calculate the Median: Determine the median of all provided log2(uqfpkm + 1) values.
+1. Compute Median-Centered Values: Subtract the median from each log2(uqfpkm + 1) value.
+1. Generate the Result Sequence: Create a new sequence with the median-centered values, preserving the original order.
+
+__Example 1__: A user wants to get expression values using case IDs and gene IDs.
+
+```Filter
+{
+    "case_ids": [
+        "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
+        "e3b32485-b204-43a7-93a5-601408fcdf96",
+        "000ead0d-abf5-4606-be04-1ea31b999840",
+        "001ab32d-f924-4753-ad67-4366fb845ae6"
+    ],
+    "gene_ids": [
+        "ENSG00000141510",
+        "ENSG00000181143"
+    ],
+    "tsv_units": "median_centered_log2_uqfpkm",
+    "format": "tsv"
+}
+```
+
+```Shell
+curl -X 'POST' \
+  'https://api.gdc.cancer.gov/gene_expression/values' \
+  -H 'accept: text/tab-separated-values' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "case_ids": [
+        "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
+        "e3b32485-b204-43a7-93a5-601408fcdf96",
+        "000ead0d-abf5-4606-be04-1ea31b999840",
+        "001ab32d-f924-4753-ad67-4366fb845ae6"
+    ],
+    "gene_ids": [
+        "ENSG00000141510",
+        "ENSG00000181143"
+    ],
+    "tsv_units": "median_centered_log2_uqfpkm",
+    "format": "tsv"
+}'
+```
+
+```Response
+gene_id	000ead0d-abf5-4606-be04-1ea31b999840	001ab32d-f924-4753-ad67-4366fb845ae6	e3b32485-b204-43a7-93a5-601408fcdf96
+ENSG00000141510	-0.58248	1.75830	0.00000
+ENSG00000181143	-0.02529	0.00000	3.52293
+```
+
+### Gene Expression Gene Selection Endpoint
+
+Select the most variably expressed genes for a collection of cases and collection of genes. The request must define a collection of cases, a collection of genes, and a selection size. A minimum expression value may optionally be defined.
+A collection of cases must be defined by case IDs. 
+A collection of genes must be defined by exactly one of the following:
+* `gene_ids`
+* `gene_type` which has only one value: `protein_coding`.
+
+A selection size (`selection_size`) defines the maximum number of genes to select.
+An optional threshold (`min_median_log2_uqfpkm`) defines a minimum value for expression. Defaults to `1`.
+
+__Example 1__: A user wants to get the most variably expressed genes for a list of case UUIDs and a list of Ensembl gene IDs.
+
+```Filter
+{
+    "case_ids": [
+        "000ead0d-abf5-4606-be04-1ea31b999840",
+        "001ab32d-f924-4753-ad67-4366fb845ae6",
+        "0024c94c-88ff-49d9-8dc4-bf77f832d85e",
+        "003f4f85-3244-4132-8c9d-c29f09382269",
+        "005d0639-c923-470f-a179-02a4dbb5cdf2",
+        "006931bb-f5b1-4aa4-b0a8-af517a912db0",
+        "0084e8b6-57fc-48b6-aa77-fec6e45161d2",
+        "008d3744-e7f0-41a5-a419-702960cf1ccb",
+        "0094e07c-1595-402e-9d38-68b9cac71e7b",
+        "00bd58bd-223d-433e-b60a-5bf355f342b1"
+    ],
+    "gene_ids": [
+        "ENSG00000141510",
+        "ENSG00000181143"
+    ],
+    "selection_size": 1
+}
+```
+
+```Shell
+curl -X 'POST' \
+  'https://api.gdc.cancer.gov/gene_expression/gene_selection' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "case_ids": [
+        "000ead0d-abf5-4606-be04-1ea31b999840",
+        "001ab32d-f924-4753-ad67-4366fb845ae6",
+        "0024c94c-88ff-49d9-8dc4-bf77f832d85e",
+        "003f4f85-3244-4132-8c9d-c29f09382269",
+        "005d0639-c923-470f-a179-02a4dbb5cdf2",
+        "006931bb-f5b1-4aa4-b0a8-af517a912db0",
+        "0084e8b6-57fc-48b6-aa77-fec6e45161d2",
+        "008d3744-e7f0-41a5-a419-702960cf1ccb",
+        "0094e07c-1595-402e-9d38-68b9cac71e7b",
+        "00bd58bd-223d-433e-b60a-5bf355f342b1"
+    ],
+    "gene_ids": [
+        "ENSG00000141510",
+        "ENSG00000181143"
+    ],
+    "selection_size": 1
+}'
+```
+
+```Response
+{
+    "gene_selection": [
+        {
+            "log2_uqfpkm_stddev": 0.9962971125913709,
+            "log2_uqfpkm_median": 2.904457107848132,
+            "gene_id": "ENSG00000141510",
+            "symbol": "TP53"
+        }
+    ]
+}
 ```
 
 ## Simple Somatic Mutation Endpoint Examples
