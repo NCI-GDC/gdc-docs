@@ -228,10 +228,12 @@ curl -X 'POST' \
 
 The purpose of this endpoint is to retrieve the gene expression values for the given cases and genes. The response is a TSV containing the expression values for genes to cases.
 The `tsv_units` of gene expression data must be defined by exactly one of the following:
+
 * `uqfpkm` - FPKM-UQ values. More information on calculations can be found [here](/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#calculations).
 * `median_centered_log2_uqfpkm` - Median-centered log2(FPKM-UQ+1) values.
 
 The `median_centered_log2_uqfpkm` is calculated through the following steps:
+
 1. Calculate the Median: Determine the median of all provided log2(uqfpkm + 1) values.
 1. Compute Median-Centered Values: Subtract the median from each log2(uqfpkm + 1) value.
 1. Generate the Result Sequence: Create a new sequence with the median-centered values, preserving the original order.
@@ -285,12 +287,16 @@ ENSG00000181143	-0.02529	0.00000	3.52293
 ### Gene Expression Gene Selection Endpoint
 
 Select the most variably expressed genes for a collection of cases and collection of genes. The request must define a collection of cases, a collection of genes, and a selection size. A minimum expression value may optionally be defined.
-A collection of cases must be defined by case IDs. 
+
+A collection of cases must be defined by case IDs.
+
 A collection of genes must be defined by exactly one of the following:
+
 * `gene_ids`
 * `gene_type` which has only one value: `protein_coding`.
 
 A selection size (`selection_size`) defines the maximum number of genes to select.
+
 An optional threshold (`min_median_log2_uqfpkm`) defines a minimum value for expression. Defaults to `1`.
 
 __Example 1__: A user wants to get the most variably expressed genes for a list of case UUIDs and a list of Ensembl gene IDs.
