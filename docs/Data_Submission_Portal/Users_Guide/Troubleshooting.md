@@ -34,15 +34,15 @@ The Error Report table displays the following information:
 
 ### Data Upload Error Messages
 
-Each error type can have numerous error messages which are detailed in the following sections. If data upload is attempted through the API, the command line output will indicate whether the transaction was successful or failed, and if applicable, the same error message(s) that would be included in the Data Submission Error Report.
+Each error type can have numerous error messages which are detailed in the following sections. If data upload is attempted through the API, the command line output will indicate whether the transaction was successful or failed, and, if applicable, the same error message(s) that would be included in the Data Submission Error Report.
 
 #### ERROR Messages
 
 |Message|Explanation|Solution|
 | --- | --- | --- |
-| __'{Value}' is not one of [{acceptable values}]__ | The value is not accepted by the GDC for the designated property | Ensure the property value is acceptable by reviewing the GDC Data Dictionary |
+| __'{Value}' is not one of [{acceptable values}]__ | The value is not accepted by the GDC for the designated property | Ensure the property value is acceptable by reviewing the [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) |
 | __'{Entity}' with {'project_id': '{project_id}', 'submitter_id': '{entity submitter_id}'} already exists in the GDC__ | An entity with that submitter_id has already been uploaded to the designated project | Ensure the submitter_id is unique to the project |
-| __Additional properties are not allowed ('{property}' or '{list of properties}') was/were unexpected__ | The given property or properties are not accepted for the designated entity | Ensure entity accepts the properties by reviewing the GDC Data Dictionary |
+| __Additional properties are not allowed ('{property}' or '{list of properties}') was/were unexpected__ | The given property or properties are not accepted for the designated entity | Ensure entity accepts the properties by reviewing the [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) |
 | __{value} is less than the minimum of -32872__ | The amount is less than the minimum accepted value | Ensure the value is greater than or equal to the minimum value |
 
 ```Request1
@@ -1093,142 +1093,6 @@ Each error type can have numerous error messages which are detailed in the follo
     "message":"Transaction aborted due to 1 invalid entity.",
     "success":false,
     "transaction_id":6373005,
-    "transactional_error_count":0,
-    "transactional_errors":[],
-    "updated_entity_count":0
-}
-```
-
-#### UNALLOWED_GENCODE_VERSION Messages
-
-|Message|Explanation|Solution|
-| --- | --- | --- |
-| __{value} is not in allowed gencode versions {self.allowed_versions}__ | The specified gencode version is not accepted | Update the gencode version to an accepted GDC value (currently either "neutral" or "v36") |
-
-```Request1
-[
-    {
-        "data_category": "Sequencing Reads",
-        "data_format": "BAI",
-        "data_type": "Aligned Reads Index",
-        "gencode_version": "v48",
-        "project_id": "CPTAC-3",
-        "submitter_id": "Aligned_Reads_Index_000088",
-        "file_name": "1c5321a4-3b33-4787-9393-3c999940284f.rna_seq.genomic.gdc_realn.bam.bai",
-        "file_size": 5106896,
-        "md5sum": "250a27e69c3556311934d0d8daab2207",
-        "urls": "s3://cleversafe.service.consul/stage-submission-5/1c5321a4-3b33-4787-9393-3c999940284f/1c5321a4-3b33-4787-9393-3c999940284f.rna_seq.genomic.gdc_realn.bam.bai",
-        "aligned_reads_files": {
-            "submitter_id": "Aligned_Reads_000088"
-        },
-        "type": "aligned_reads_index"
-    }
-]
-```
-```Response1
-{
-  "cases_related_to_created_entities_count": 0,
-  "cases_related_to_updated_entities_count": 0,
-  "code": 400,
-  "created_entity_count": 0,
-  "entities":
-    [
-        {
-            "action":"create",
-            "errors":
-                [
-                    {
-                        "keys":["gencode_version"],
-                        "message":"v48 is not in allowed gencode versions ['neutral', 'v36']",
-                        "type":"UNALLOWED_GENCODE_VERSION"
-                    }
-                ],
-            "id":
-                [
-                    {
-                        "id":"53472da8-6d31-4cc3-b886-3e40344ba687"
-                    }
-                ],
-            "related_cases":[],
-            "type":"aligned_reads_index",
-            "unique_keys":
-                [
-                    {
-                        "project_id":"CPTAC-3",
-                        "submitter_id":"Aligned_Reads_Index_000000"
-                    }
-                ],
-            "valid":false,
-            "warnings":[]
-        }
-    ],
-    "entity_error_count":1,
-    "message":"Transaction aborted due to 1 invalid entity.",
-    "success":false,
-    "transaction_id":6372989,
-    "transactional_error_count":0,
-    "transactional_errors":[],
-    "updated_entity_count":0
-}
-```
-```Request2
-[
-    {
-        "data_category": "Sequencing Reads",
-        "data_format": "BAI",
-        "data_type": "Aligned Reads Index",
-        "gencode_version": "v36",
-        "project_id": "CPTAC-3",
-        "submitter_id": "Aligned_Reads_Index_000088",
-        "file_name": "1c5321a4-3b33-4787-9393-3c999940284f.rna_seq.genomic.gdc_realn.bam.bai",
-        "file_size": 5106896,
-        "md5sum": "250a27e69c3556311934d0d8daab2207",
-        "urls": "s3://cleversafe.service.consul/stage-submission-5/1c5321a4-3b33-4787-9393-3c999940284f/1c5321a4-3b33-4787-9393-3c999940284f.rna_seq.genomic.gdc_realn.bam.bai",
-        "aligned_reads_files": {
-            "submitter_id": "Aligned_Reads_000088"
-        },
-        "type": "aligned_reads_index"
-    }
-]
-```
-```Response2
-{
-  "cases_related_to_created_entities_count": 1,
-  "cases_related_to_updated_entities_count": 0,
-  "code": 200,
-  "created_entity_count": 1,
-  "entities":
-    [
-        {
-            "action":"create",
-            "errors":[],
-            "id":
-                [
-                    {
-                        "id":"5d8c1507-06c8-473e-83ff-b3580e895a63"
-                    }
-                ],
-            "related_cases":[
-                {
-                    "id":"221db987-6008-4839-a735-63869761b4f9","submitter_id":"GDC-INTERNAL-000088"
-                }
-            ],
-            "type":"aligned_reads_index",
-            "unique_keys":
-                [
-                    {
-                        "project_id":"CPTAC-3",
-                        "submitter_id":"Aligned_Reads_Index_000088"
-                    }
-                ],
-            "valid":true,
-            "warnings":[]
-        }
-    ],
-    "entity_error_count":0,
-    "message":"Transaction successful.",
-    "success":true,
-    "transaction_id":6372994,
     "transactional_error_count":0,
     "transactional_errors":[],
     "updated_entity_count":0
