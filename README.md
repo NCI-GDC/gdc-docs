@@ -109,6 +109,18 @@ Use Python 3.8 or greater. For development, this branch is using Python 3.12.
 
 ### Installation
 
+Create virtual environment
+
+```bash
+python -m venv venv
+```
+
+Activate virtual environment
+
+```bash
+source venv/bin/activate
+```
+
 Pre-req: Make sure `pip-tools` is installed
 
 ```bash
