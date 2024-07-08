@@ -1011,12 +1011,13 @@
       var categoryKeys = _DICTIONARY_CONSTANTS.ENTITY_LIST_DICTIONARY_KEY_ORDER;
 
       _tableEntityListView._parentDictionary
-        .fetchDictionaryTemplate("views/entity-list-controls.view.html")
+        .fetchDictionaryTemplate("entity-list-controls.view.html")
         .then(function (html) {
           var templateDefinitionControlSelection = d3
             .select(_DICTIONARY_CONSTANTS.VIEWS._STATIC.DICTIONARY_CONTROLS)
             .append("div")
-            .style({ display: "inline-block", "margin-left": "2rem" })
+            .style("display", "inline-block")
+            .style("margin-left", "2rem")
             .html(html);
 
           var viewDataFormatLabel =
