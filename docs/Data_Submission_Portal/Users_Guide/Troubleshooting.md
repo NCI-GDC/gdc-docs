@@ -34,7 +34,7 @@ The Error Report table displays the following information:
 
 ### Data Upload Error Messages
 
-Each error type can have numerous error messages which are detailed in the following sections.
+Each error type can have numerous error messages which are detailed in the following sections. If data upload is attempted through the API, the command line output will indicate whether the transaction was successful or failed, and if applicable, the same error message(s) that would be included in the Data Submission Error Report.
 
 #### ERROR Messages
 
@@ -42,8 +42,236 @@ Each error type can have numerous error messages which are detailed in the follo
 | --- | --- | --- |
 | __'{Value}' is not one of [{acceptable values}]__ | The value is not accepted by the GDC for the designated property | Ensure the property value is acceptable by reviewing the GDC Data Dictionary |
 | __'{Entity}' with {'project_id': '{project_id}', 'submitter_id': '{entity submitter_id}'} already exists in the GDC__ | An entity with that submitter_id has already been uploaded to the designated project | Ensure the submitter_id is unique to the project |
-| __Additional properties are not allowed ('{property}' or '{list of properties}')was/were unexpected__ | The given property or properties are not accepted for the designated entity | Ensure entity accepts the properties by reviewing the GDC Data Dictionary |
+| __Additional properties are not allowed ('{property}' or '{list of properties}') was/were unexpected__ | The given property or properties are not accepted for the designated entity | Ensure entity accepts the properties by reviewing the GDC Data Dictionary |
 | __{value} is less than the minimum of -32872__ | The amount is less than the minimum accepted value | Ensure the value is greater than or equal to the minimum value |
+
+```Request1
+{ 
+  "submitter_id": "Diagnosis_000093",
+  "tissue_or_organ_of_origin": "Abdomen, NOS",
+  "primary_diagnosis": "Adenoma, NOS", 
+  "morphology": "8000/9", 
+  "type": "diagnosis", 
+  "cases": {
+    "submitter_id": "GDC-INTERNAL-000093"
+  }, 
+  "age_at_diagnosis": 35, 
+  "diagnosis_is_primary_disease": true, 
+  "site_of_resection_or_biopsy": "Abdomen, NOS",
+  "gleason_grade_group": "Group 6"
+}
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 1,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 400,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":"create",
+            "errors":
+                [
+                    {
+                        "keys":["gleason_grade_group"],
+                        "message":"'Group 6' is not one of ['Group 1', 'Group 2', 'Group 3', 'Group 4', 'Group 5', 'Unknown', 'Not Reported']",
+                        "type":"ERROR"
+                    }
+                ],
+            "id":"61f17908-73fe-4961-b760-516d588105e6",
+            "related_cases":[],
+            "type":"diagnosis",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"GDC-INTERNAL",
+                        "submitter_id":"Diagnosis_000093"
+                    }
+                ],
+            "valid":false,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":1,
+    "message":"Transaction aborted due to 1 invalid entity.",
+    "success":false,
+    "transaction_id":6372895,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+```Request2
+{ 
+  "submitter_id": "Diagnosis_000093",
+  "tissue_or_organ_of_origin": "Abdomen, NOS",
+  "primary_diagnosis": "Adenoma, NOS", 
+  "morphology": "8000/9", 
+  "type": "diagnosis", 
+  "cases": {
+    "submitter_id": "GDC-INTERNAL-000093"
+  }, 
+  "age_at_diagnosis": 35, 
+  "diagnosis_is_primary_disease": true, 
+  "site_of_resection_or_biopsy": "Abdomen, NOS",
+  "gleason_grade_group": "Group 5"
+}
+```
+```Response2
+{
+    "cases_related_to_created_entities_count":1,
+    "cases_related_to_updated_entities_count":0,
+    "code":201,
+    "created_entity_count":1,
+    "entities":
+        [
+            {
+                "action":"create",
+                "errors":[],
+                "id":"a9d70ba0-a547-4936-889d-8da9f903816f",
+                "related_cases":
+                    [
+                        {
+                            "id":"a00f076e-d694-47dd-8e50-24c28e90fd6a",
+                            "submitter_id":"GDC-INTERNAL-000093"
+                        }
+                    ],
+                "type":"diagnosis",
+                "unique_keys":
+                    [
+                        {
+                            "project_id":"GDC-INTERNAL",
+                            "submitter_id":"Diagnosis_000093"
+                        }
+                    ],
+                "valid":true,
+                "warnings":[]
+            }
+        ],
+    "entity_error_count":0,
+    "message":"Transaction successful.",
+    "success":true,
+    "transaction_id":6372896,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+
+```Request1
+{ 
+  "submitter_id": "demographic_test",
+  "ethnicity": "not reported",
+  "gender": "female", 
+  "race": "black or african american", 
+  "type": "demographic", 
+  "cases": {
+    "submitter_id": "GDC-INTERNAL-000093"
+  }, 
+  "vital_status": "Alive", 
+  "days_to_birth": -42875
+}
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 1,
+  "code": 400,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":"update",
+            "errors":
+                [
+                    {
+                        "keys":["days_to_birth"],
+                        "message":"-42875 is less than the minimum of -32872",
+                        "type":"ERROR"
+                    }
+                ],
+            "id":"6bef9467-28d6-43ee-a294-cfbab2808d1b",
+            "related_cases":[
+                {
+                    "id":"a00f076e-d694-47dd-8e50-24c28e90fd6a","submitter_id":"GDC-INTERNAL-000093"
+                }
+            ],
+            "type":"demographic",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"GDC-INTERNAL",
+                        "submitter_id":"demographic_test"
+                    }
+                ],
+            "valid":false,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":1,
+    "message":"Transaction aborted due to 1 invalid entity.",
+    "success":false,
+    "transaction_id":6372898,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+```Request2
+{ 
+  "submitter_id": "demographic_test",
+  "ethnicity": "not reported",
+  "gender": "female", 
+  "race": "black or african american", 
+  "type": "demographic", 
+  "cases": {
+    "submitter_id": "GDC-INTERNAL-000093"
+  }, 
+  "vital_status": "Alive", 
+  "days_to_birth": -22875
+}
+```
+```Response2
+{
+    "cases_related_to_created_entities_count":0,
+    "cases_related_to_updated_entities_count":1,
+    "code":200,
+    "created_entity_count":0,
+    "entities":
+        [
+            {
+                "action":"update",
+                "errors":[],
+                "id":"6bef9467-28d6-43ee-a294-cfbab2808d1b",
+                "related_cases":
+                    [
+                        {
+                            "id":"a00f076e-d694-47dd-8e50-24c28e90fd6a",
+                            "submitter_id":"GDC-INTERNAL-000093"
+                        }
+                    ],
+                "type":"demographic",
+                "unique_keys":
+                    [
+                        {
+                            "project_id":"GDC-INTERNAL",
+                            "submitter_id":"demographic_test"
+                        }
+                    ],
+                "valid":true,
+                "warnings":[]
+            }
+        ],
+    "entity_error_count":0,
+    "message":"Transaction successful.",
+    "success":true,
+    "transaction_id":6372899,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":1
+}
+```
 
 #### INVALID_LINK Messages
 
@@ -56,11 +284,262 @@ Each error type can have numerous error messages which are detailed in the follo
 | __Entity is missing required link to {parent entity}__ | The child entity is not linked to a parent node | Link the child entity to at least one parent entity, based on their relationship (many_to_one, one_to_many, or one_to_one) |
 | __No link destination found for {}__ | The parent entity's submitter_id does not exist | Make sure the child entity is linking to the correct parent entity and that the submitter_id is accurate |
 
+```Request1
+{
+  "read_groups": {
+    "submitter_id": "Read_group_00093"
+  }, 
+  "data_type": "Aligned Reads", 
+  "md5sum": "aa6e82d11ccd8452f813a15a6d84faf1", 
+  "type": "submitted_aligned_reads", 
+  "data_category": "Sequencing Reads", 
+  "data_format": "BAM",
+  "project_id": "GDC-INTERNAL", 
+  "file_size": 928374, 
+  "file_name": "test.bam", 
+  "experimental_strategy": "WGS", 
+  "submitter_id": "Blood-00009-aliquot01_lane1_barcodeACGTAC_55.bam"
+}
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 1,
+  "code": 400,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":"update",
+            "errors":
+                [
+                    {
+                        "keys":["read_groups"],
+                        "message":"'read_groups' link has to be one_to_many, target node read_group already has submitted_aligned_reads_files",
+                        "type":"INVALID_LINK"
+                    }
+                ],
+            "id":
+                [
+                    {
+                        "id":"a00f076e-d694-47dd-8e50-24c28e90fd6a","submitter_id":"GDC-INTERNAL-000093"
+                    },
+                    {
+                        "id":"8c7e2ce7-a772-441c-a33b-e0e3bdbd4f78","submitter_id":"GDC-INTERNAL-000078"
+                    }
+                ],
+            "related_cases":[],
+            "type":"submitted_aligned_reads",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"GDC-INTERNAL",
+                        "submitter_id":"Blood-00009-aliquot01_lane1_barcodeACGTAC_55.bam"
+                    }
+                ],
+            "valid":false,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":1,
+    "message":"Transaction aborted due to 1 invalid entity.",
+    "success":false,
+    "transaction_id":6372988,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+
+```Request1
+[
+    {
+        "data_category": "Sequencing Reads",
+        "data_format": "BAI",
+        "data_type": "Aligned Reads Index",
+        "gencode_version": "v36",
+        "project_id": "CPTAC-3",
+        "submitter_id": "Aligned_Reads_Index_000000",
+        "file_name": "1c5321a4-3b33-4787-9393-3c999940284f.rna_seq.genomic.gdc_realn.bam.bai",
+        "file_size": 5106896,
+        "md5sum": "250a27e69c3556311934d0d8daab2207",
+        "urls": "s3://cleversafe.service.consul/stage-submission-5/1c5321a4-3b33-4787-9393-3c999940284f/1c5321a4-3b33-4787-9393-3c999940284f.rna_seq.genomic.gdc_realn.bam.bai",
+        "aligned_reads_files": {
+            "submitter_id": "Aligned_Reads_000000"
+        },
+        "type": "aligned_reads_index"
+    }
+]
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 400,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":"create",
+            "errors":
+                [
+                    {
+                        "keys":["aligned_reads_files"],
+                        "message":"No link destination found for aligned_reads_files, unique_keys='[{'project_id': 'GDC-INTERNAL', 'submitter_id': 'Aligned_Reads_000000'}]'",
+                        "type":"INVALID_LINK"
+                    }
+                ],
+            "id":
+                [
+                    {
+                        "id":"001812ff-15e0-4c29-a3bb-582f81b46b2c"
+                    }
+                ],
+            "related_cases":[],
+            "type":"aligned_reads_index",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"CPTAC-3",
+                        "submitter_id":"Aligned_Reads_Index_000000"
+                    }
+                ],
+            "valid":false,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":1,
+    "message":"Transaction aborted due to 1 invalid entity.",
+    "success":false,
+    "transaction_id":6372995,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+
 #### INVALID_PROPERTY Messages
 
 |Message|Explanation|Solution|
 | --- | --- | --- |
 | __Key '{property}' is not a valid property for type '{entity}'__ | The designated entity does not accept that property | Ensure the property is accepted for the entity by reviewing the GDC Data Dictionary |
+
+```Request1
+{
+  "projects": {
+    "code": "INTERNAL"
+  }, 
+  "disease_type": "Adenomas and Adenocarcinomas", 
+  "primary_site": "Bladder",
+  "type": "case",
+  "project_id": "GDC-INTERNAL", 
+  "submitter_id": "GDC-INTERNAL-000093",
+  "consent_typ": "Informed Consent"
+}
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 400,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":"update",
+            "errors":
+                [
+                    {
+                        "keys":["consent_typ"],
+                        "message":"Key 'consent_typ' is not a valid property for type 'case'. Did you mean 'consent_type'?",
+                        "type":"INVALID_PROPERTY"
+                    },
+                    {
+                        "keys":[],
+                        "message":"Additional properties are not allowed ('consent_typ' was unexpected)",
+                        "type":"ERROR"
+                    }
+                ],
+            "id":
+                [
+                    {
+                        "id":"a00f076e-d694-47dd-8e50-24c28e90fd6a"
+                    }
+                ],
+            "related_cases":[],
+            "type":"case",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"GDC-INTERNAL",
+                        "submitter_id":"GDC-INTERNAL-000093"
+                    }
+                ],
+            "valid":false,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":1,
+    "message":"Transaction aborted due to 1 invalid entity.",
+    "success":false,
+    "transaction_id":6372996,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+```Request2
+{
+  "projects": {
+    "code": "INTERNAL"
+  }, 
+  "disease_type": "Adenomas and Adenocarcinomas", 
+  "primary_site": "Bladder",
+  "type": "case",
+  "project_id": "GDC-INTERNAL", 
+  "submitter_id": "GDC-INTERNAL-000093",
+  "consent_type": "Informed Consent"
+}
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 200,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":"update",
+            "errors":[],
+            "id":
+                [
+                    {
+                        "id":"a00f076e-d694-47dd-8e50-24c28e90fd6a"
+                    }
+                ],
+            "related_cases":[],
+            "type":"case",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"GDC-INTERNAL",
+                        "submitter_id":"GDC-INTERNAL-000093"
+                    }
+                ],
+            "valid":true,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":0,
+    "message":"Transaction successful.",
+    "success":true,
+    "transaction_id":6372997,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":1
+}
+```
 
 #### INVALID_TYPE Messages
 
@@ -68,18 +547,363 @@ Each error type can have numerous error messages which are detailed in the follo
 | --- | --- | --- |
 | __missing 'type'__ | This is a vague error message that frequently does not encapsulate the reason that the data upload is failing | Scrutinize the file for other issues such as a formatting problem (e.g. an extra column in the TSV, incorrect JSON formatting, the node is already in state=submitted, or a case is not registered with dbGaP) |
 
+```Request1
+{
+  "projects": {
+    "code": "INTERNAL"
+  }, 
+  "disease_type": "Adenomas and Adenocarcinomas", 
+  "primary_site": "Bladder",
+  "project_id": "GDC-INTERNAL", 
+  "submitter_id": "GDC-INTERNAL-000099"
+}
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 400,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":null,
+            "errors":
+                [
+                    {
+                        "keys":["type"],
+                        "message":"missing 'type'",
+                        "type":"INVALID_TYPE"
+                    },
+                    {
+                        "keys":["type"],
+                        "message":"'type' is a required property",
+                        "type":"MISSING_PROPERTY"
+                    }
+                ]
+            "id":
+                [
+                    {
+                        "id":null
+                    }
+                ],
+            "related_cases":[],
+            "type":null,
+            "unique_keys":[],
+            "valid":false,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":1,
+    "message":"Transaction aborted due to 1 invalid entity.",
+    "success":false,
+    "transaction_id":6372998,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+```Request2
+{
+  "projects": {
+    "code": "INTERNAL"
+  }, 
+  "disease_type": "Adenomas and Adenocarcinomas", 
+  "primary_site": "Bladder",
+  "project_id": "GDC-INTERNAL", 
+  "type": "case",
+  "submitter_id": "GDC-INTERNAL-000099"
+}
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 200,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":"update",
+            "errors":[],
+            "id":
+                [
+                    {
+                        "id":"f0c68d72-ee54-4ad9-89e8-b08398b5aa0b"
+                    }
+                ],
+            "related_cases":[],
+            "type":"case",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"GDC-INTERNAL",
+                        "submitter_id":"GDC-INTERNAL-000099"
+                    }
+                ],
+            "valid":true,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":0,
+    "message":"Transaction successful.",
+    "success":true,
+    "transaction_id":6372999,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":1
+}
+```
+
 #### INVALID_VALUE Messages
 
 |Message|Explanation|Solution|
 | --- | --- | --- |
-| __None is not of type 'string'__ | If a property accepts string values, 'null' is not an accepted value | Update the entity to have a string value for the given property, change a null value to "null", or remove the property if it is not required |
+| __None is not of type 'string'__ | If a property accepts string values, null is not an accepted value | Update the entity to have a string value for the given property, change null to a string "null", or remove the property if it is not required |
 | __{value} is not valid under any of the given schemas: {value} is less than the minimum of {minimum value} and {value} is not of type 'null'__ | The amount does not fall within the accepted minimum and maximum values | Ensure the value falls within the accepted range |
+
+```Request1
+{
+    "channel": "Green",
+    "data_category": "DNA Methylation", 
+    "data_format": "IDAT", 
+    "data_type": "Masked Intensities", 
+    "experimental_strategy": "Methylation Array", 
+    "gencode_version": "neutral", 
+    "platform": "Illumina Human Methylation 450", 
+    "project_id": "GDC-INTERNAL", 
+    "submitter_id": "masked_methylation_array_test1", 
+    "file_name": "28daf457-7098-4254-a330-a411da32cd5e_noid_Grn.idat", 
+    "file_size": 8095272, "md5sum": "857c7e54f211d0fc6f6bee05b4b9968e", 
+    "urls": "s3://cleversafe.service.consul/stage-submission-5/28daf457-7098-4254-a330-a411da32cd5e/28daf457-7098-4254-a330-a411da32cd5e_noid_Grn.idat", 
+    "methylation_array_harmonization_workflows": 
+        {
+            "submitter_id": "test_methylation_array_harmonization_workflow1"
+        }, 
+    "type": "masked_methylation_array",
+    "chip_position": null
+}
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 400,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":"create",
+            "errors":
+                [
+                    {
+                        "keys":["chip_position"],
+                        "message":"None is not of type 'string'",
+                        "type":"INVALID_VALUE"
+                    }
+                ]
+            "id":
+                [
+                    {
+                        "id":"fd3f2f5b-ce6d-4028-b5c9-226044c51565"
+                    }
+                ],
+            "related_cases":[],
+            "type":"masked_methylation_array",
+            "unique_keys":[
+                {
+                    "project_id":"GDC-INTERNAL","submitter_id":"masked_methylation_array_test1"
+                }
+            ],
+            "valid":false,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":1,
+    "message":"Transaction aborted due to 1 invalid entity.",
+    "success":false,
+    "transaction_id":6373000,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+```Request2
+{
+    "channel": "Green",
+    "data_category": "DNA Methylation", 
+    "data_format": "IDAT", 
+    "data_type": "Masked Intensities", 
+    "experimental_strategy": "Methylation Array", 
+    "gencode_version": "neutral", 
+    "platform": "Illumina Human Methylation 450", 
+    "project_id": "GDC-INTERNAL", 
+    "submitter_id": "masked_methylation_array_test1", 
+    "file_name": "28daf457-7098-4254-a330-a411da32cd5e_noid_Grn.idat", 
+    "file_size": 8095272, "md5sum": "857c7e54f211d0fc6f6bee05b4b9968e", 
+    "urls": "s3://cleversafe.service.consul/stage-submission-5/28daf457-7098-4254-a330-a411da32cd5e/28daf457-7098-4254-a330-a411da32cd5e_noid_Grn.idat", 
+    "methylation_array_harmonization_workflows": 
+        {
+            "submitter_id": "test_methylation_array_harmonization_workflow1"
+        }, 
+    "type": "masked_methylation_array",
+    "chip_position": "null"
+}
+```
+```Response1
+{
+    "cases_related_to_created_entities_count":1,
+    "cases_related_to_updated_entities_count":0,
+    "code":201,
+    "created_entity_count":1,
+    "entities":
+        [
+            {
+                "action":"create",
+                "errors":[],
+                "id":"a7c70ba0-a447-4946-888e-8ea9e903816d",
+                "related_cases":
+                    [
+                        {
+                            "id":"a10f066d-d594-48ed-8d50-25c38e91ed6b",
+                            "submitter_id":"GDC-INTERNAL-000093"
+                        }
+                    ],
+                "type":"diagnosis",
+                "unique_keys":
+                    [
+                        {
+                            "project_id":"GDC-INTERNAL",
+                            "submitter_id":"masked_methylation_array_test1"
+                        }
+                    ],
+                "valid":true,
+                "warnings":[]
+            }
+        ],
+    "entity_error_count":0,
+    "message":"Transaction successful.",
+    "success":true,
+    "transaction_id":6373001,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
 
 #### MISSING_PROPERTY Messages
 
 |Message|Explanation|Solution|
 | --- | --- | --- |
 | __'{value}' is a required property__ | The upload is missing a required property | Ensure the required property is included in the file |
+
+```Request1
+{
+  "projects": {
+    "code": "INTERNAL"
+  }, 
+  "disease_type": "Adenomas and Adenocarcinomas", 
+  "primary_site": "Bladder",
+  "project_id": "GDC-INTERNAL", 
+  "submitter_id": "GDC-INTERNAL-000099"
+}
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 400,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":null,
+            "errors":
+                [
+                    {
+                        "keys":["type"],
+                        "message":"missing 'type'",
+                        "type":"INVALID_TYPE"
+                    },
+                    {
+                        "keys":["type"],
+                        "message":"'type' is a required property",
+                        "type":"MISSING_PROPERTY"
+                    }
+                ]
+            "id":
+                [
+                    {
+                        "id":null
+                    }
+                ],
+            "related_cases":[],
+            "type":null,
+            "unique_keys":[],
+            "valid":false,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":1,
+    "message":"Transaction aborted due to 1 invalid entity.",
+    "success":false,
+    "transaction_id":6372998,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+```Request2
+{
+  "projects": {
+    "code": "INTERNAL"
+  }, 
+  "disease_type": "Adenomas and Adenocarcinomas", 
+  "primary_site": "Bladder",
+  "project_id": "GDC-INTERNAL", 
+  "type": "case",
+  "submitter_id": "GDC-INTERNAL-000099"
+}
+```
+```Response2
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 200,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":"update",
+            "errors":[],
+            "id":
+                [
+                    {
+                        "id":"f0c68d72-ee54-4ad9-89e8-b08398b5aa0b"
+                    }
+                ],
+            "related_cases":[],
+            "type":"case",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"GDC-INTERNAL",
+                        "submitter_id":"GDC-INTERNAL-000099"
+                    }
+                ],
+            "valid":true,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":0,
+    "message":"Transaction successful.",
+    "success":true,
+    "transaction_id":6372999,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":1
+}
+```
 
 #### NOT_FOUND Messages
 
@@ -89,8 +913,324 @@ Each error type can have numerous error messages which are detailed in the follo
 | __Unable to validate case against dbGaP. {}__ | The case submitter_id is not registered in dbGaP | Ensure that there are no typos in the submitter_id or submit additional cases to dbGaP |
 | __Case submitter_id '{}' not found in dbGaP__ | The case submitter_id is not registered in dbGaP | Ensure that there are no typos in the submitter_id or submit additional cases to dbGaP |
 
+```Request1
+[
+    {
+        "data_category": "Sequencing Reads",
+        "data_format": "BAM",
+        "data_type": "Aligned Reads",
+        "project_id": "GDC-INTERNAL",
+        "experimental_strategy": "WXS",
+        "submitter_id": "Aligned_Reads_000089",
+        "new_submitter_id": "Aligned_Reads_000089_v2",
+        "file_name": "aligned_reads_00089_test.bam",
+        "file_size": 298374,
+        "md5sum": "250a27e69c3556312934e0e8eabb2218",
+        "urls": "s3://cleversafe.service.consul/aligned_reads_00089_test.bam",
+        "alignment_workflows": {
+            "submitter_id": "Alignment_Workflow_000088"
+        },
+        "type": "aligned_reads"
+    }
+]
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 400,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":null,
+            "errors":
+                [
+                    {
+                        "keys":[[["GDC-INTERNAL","Aligned_Reads_000089"]]],"message":"Cannot create node with new submitter id specified. If update action (PUT) requested, make sure specified id/submitter id exists","type":"NOT_FOUND"
+                    }
+                ]
+            "id":
+                [
+                    {
+                        "id":null
+                    }
+                ],
+            "related_cases":[],
+            "type":"aligned_reads",
+            "unique_keys":[
+                {
+                    "project_id":"GDC-INTERNAL",
+                    "submitter_id":"Aligned_Reads_000089"
+                }
+            ],
+            "valid":false,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":1,
+    "message":"Transaction aborted due to 1 invalid entity.",
+    "success":false,
+    "transaction_id":6373004,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+```Request2
+[
+    {
+        "data_category": "Sequencing Reads",
+        "data_format": "BAM",
+        "data_type": "Aligned Reads",
+        "project_id": "GDC-INTERNAL",
+        "experimental_strategy": "WXS",
+        "platform": "Illumina",
+        "submitter_id": "Aligned_Reads_000089_v2",
+        "file_name": "aligned_reads_00089_test.bam",
+        "file_size": 298374,
+        "md5sum": "250a27e69c3556312934e0e8eabb2218",
+        "urls": "s3://cleversafe.service.consul/aligned_reads_00089_test.bam",
+        "alignment_workflows": {
+            "submitter_id": "Alignment_Workflow_000088"
+        },
+        "type": "aligned_reads"
+    }
+]
+```
+```Response2
+{
+  "cases_related_to_created_entities_count": 1,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 200,
+  "created_entity_count": 1,
+  "entities":
+    [
+        {
+            "action":"create",
+            "errors":[],
+            "id":
+                [
+                    {
+                        "id":"ad19702e-7951-47a8-b547-00b077b1547a"
+                    }
+                ],
+            "related_cases":[
+                {
+                    "id":"221db987-6008-4839-a735-63869761b4f9","submitter_id":"GDC-INTERNAL-000088"
+                }
+            ],
+            "type":"aligned_reads",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"GDC-INTERNAL",
+                        "submitter_id":"Aligned_Reads_000089_v2"
+                    }
+                ],
+            "valid":true,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":0,
+    "message":"Transaction successful.",
+    "success":true,
+    "transaction_id":6373005,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":1
+}
+```
+
+```Request1
+{
+  "projects": {
+    "code": "INTERNAL"
+  }, 
+  "disease_type": "Adenomas and Adenocarcinomas", 
+  "primary_site": "Bladder",
+  "project_id": "GDC-INTERNAL", 
+  "type": "case",
+  "submitter_id": "GDC-INTERNAL-000101"
+}
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 400,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":"create",
+            "errors":
+                [
+                    {
+                        "keys":["submitter_id"],
+                        "message":"Unable to validate case against dbGaP. [500] - Internal server error: Unable to cross reference cases with dbGaP. Either this project is not registered in dbGaP or we were temporarily unable to communicate with dbGaP. Please try again later.",
+                        "type":"NOT_FOUND"
+                    }
+                ]
+            "id":
+                [
+                    {
+                        "id":"GDC-INTERNAL-000101"
+                    }
+                ],
+            "related_cases":[],
+            "type":"case",
+            "unique_keys":[
+                {
+                    "project_id":"GDC-INTERNAL"
+                }
+            ],
+            "valid":false,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":1,
+    "message":"Transaction aborted due to 1 invalid entity.",
+    "success":false,
+    "transaction_id":6373005,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+
 #### UNALLOWED_GENCODE_VERSION Messages
 
 |Message|Explanation|Solution|
 | --- | --- | --- |
 | __{value} is not in allowed gencode versions {self.allowed_versions}__ | The specified gencode version is not accepted | Update the gencode version to an accepted GDC value (currently either "neutral" or "v36") |
+
+```Request1
+[
+    {
+        "data_category": "Sequencing Reads",
+        "data_format": "BAI",
+        "data_type": "Aligned Reads Index",
+        "gencode_version": "v48",
+        "project_id": "CPTAC-3",
+        "submitter_id": "Aligned_Reads_Index_000088",
+        "file_name": "1c5321a4-3b33-4787-9393-3c999940284f.rna_seq.genomic.gdc_realn.bam.bai",
+        "file_size": 5106896,
+        "md5sum": "250a27e69c3556311934d0d8daab2207",
+        "urls": "s3://cleversafe.service.consul/stage-submission-5/1c5321a4-3b33-4787-9393-3c999940284f/1c5321a4-3b33-4787-9393-3c999940284f.rna_seq.genomic.gdc_realn.bam.bai",
+        "aligned_reads_files": {
+            "submitter_id": "Aligned_Reads_000088"
+        },
+        "type": "aligned_reads_index"
+    }
+]
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 400,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":"create",
+            "errors":
+                [
+                    {
+                        "keys":["gencode_version"],
+                        "message":"v48 is not in allowed gencode versions ['neutral', 'v36']",
+                        "type":"UNALLOWED_GENCODE_VERSION"
+                    }
+                ],
+            "id":
+                [
+                    {
+                        "id":"53472da8-6d31-4cc3-b886-3e40344ba687"
+                    }
+                ],
+            "related_cases":[],
+            "type":"aligned_reads_index",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"CPTAC-3",
+                        "submitter_id":"Aligned_Reads_Index_000000"
+                    }
+                ],
+            "valid":false,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":1,
+    "message":"Transaction aborted due to 1 invalid entity.",
+    "success":false,
+    "transaction_id":6372989,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+```Request2
+[
+    {
+        "data_category": "Sequencing Reads",
+        "data_format": "BAI",
+        "data_type": "Aligned Reads Index",
+        "gencode_version": "v36",
+        "project_id": "CPTAC-3",
+        "submitter_id": "Aligned_Reads_Index_000088",
+        "file_name": "1c5321a4-3b33-4787-9393-3c999940284f.rna_seq.genomic.gdc_realn.bam.bai",
+        "file_size": 5106896,
+        "md5sum": "250a27e69c3556311934d0d8daab2207",
+        "urls": "s3://cleversafe.service.consul/stage-submission-5/1c5321a4-3b33-4787-9393-3c999940284f/1c5321a4-3b33-4787-9393-3c999940284f.rna_seq.genomic.gdc_realn.bam.bai",
+        "aligned_reads_files": {
+            "submitter_id": "Aligned_Reads_000088"
+        },
+        "type": "aligned_reads_index"
+    }
+]
+```
+```Response2
+{
+  "cases_related_to_created_entities_count": 1,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 200,
+  "created_entity_count": 1,
+  "entities":
+    [
+        {
+            "action":"create",
+            "errors":[],
+            "id":
+                [
+                    {
+                        "id":"5d8c1507-06c8-473e-83ff-b3580e895a63"
+                    }
+                ],
+            "related_cases":[
+                {
+                    "id":"221db987-6008-4839-a735-63869761b4f9","submitter_id":"GDC-INTERNAL-000088"
+                }
+            ],
+            "type":"aligned_reads_index",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"CPTAC-3",
+                        "submitter_id":"Aligned_Reads_Index_000088"
+                    }
+                ],
+            "valid":true,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":0,
+    "message":"Transaction successful.",
+    "success":true,
+    "transaction_id":6372994,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
