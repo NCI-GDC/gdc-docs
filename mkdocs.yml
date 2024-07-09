@@ -17,6 +17,9 @@ extra_css:
   - css/encyclopedia.css
 markdown_extensions:
   - tables
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   # - BSCodeTabExtension:
   #     animate_tab_transitions: false
   #     default_lang: Source
