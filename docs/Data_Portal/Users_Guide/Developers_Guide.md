@@ -958,9 +958,9 @@ is documented in the GDC Data Portal 2.0 SDK API documentation.
 ![vertical_table.png](images/developers_guide/components/vertical_table.png)
 *Vertical Table*
 
-## Design Kit <!--TODO change name when finalized-->
+## Style Guide
 
-The GDC Data Portal Design Kit <!--TODO change name; include link to PDF --> provides a comprehensive reference for creating consistent designs adhering to the Data Portal's visual and accessibility standards. Within the Design Kit <!--TODO change name -->, you will find information about our predefined styles, available library of pre-built components, as well as guidelines on best practices for accessibility, responsive design, and usability.
+The GDC Data Portal Style Guide <!--TODO include link to PDF --> provides a comprehensive reference for creating consistent designs adhering to the Data Portal's visual and accessibility standards. Within the Style Guide, you will find information about our predefined styles, available library of pre-built components, as well as guidelines on best practices for accessibility, responsive design, and usability.
 
 # Application Development
 
