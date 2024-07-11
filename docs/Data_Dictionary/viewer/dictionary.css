@@ -1,15 +1,4 @@
-.dictionary-view {
-  opacity: 0;
-  width: 95%;
-  margin: 3rem auto 0rem auto;
-}
-.dictionary-view h1:after {
-  margin-top: 0.3rem;
-}
 
-.dictionary-view .bullets {
-  padding-left: 2.2rem;
-}
 
 /* Dictionary Entity View */
 .dictionary-properties-table,
@@ -35,6 +24,7 @@
   font-style:normal;
   padding: 1rem 0.5rem;
   position: relative;
+  text-align: left;
 }
 
 
@@ -122,7 +112,6 @@
   display: block;
   width: 100%;
   padding: 0.5rem 1rem;
-  font-size: 1.3rem;
 }
 
 .dictionary-entity-list-item {
@@ -169,7 +158,6 @@
 .dictionary-summary-table {
   width: 100%;
   margin: 0rem auto 4rem auto;
-  font-size: 1.2rem;
   border: solid 1px #ccc;
   background-color: #fff;
 }
@@ -193,12 +181,10 @@
 
 .dictionary-control-container {
   position: relative;
-  font-size: 1.5rem;
 }
 
 .dictionary-view-control i[class^="fa"] {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
-  font-size: 2rem;
 }
 
 .dictionary-control-bttn {
@@ -206,7 +192,6 @@
 }
 
 .dictionary-template-download-bttn {
-  font-size: 1.5rem;
   color: #6b6262;
 }
 
@@ -285,7 +270,6 @@
 
 /* Nav Breadcrumb */
 .dictionary-breadcrumb-container {
-  font-size: 1.4rem;
   padding: 0rem 0rem 0rem 0rem;
   display: none;
   height: 5rem;
@@ -300,7 +284,7 @@
 }
 
 .dictionary-view-control .dropdown-menu {
-  left: -55%;
+  left: 55%;
 }
 
 .dictionary-view-control .dictionary-tooltip span {
@@ -357,7 +341,6 @@
   visibility: hidden;
   z-index: 10;
   position: absolute;
-  font-size: 1.4rem;
   line-height: 2.1rem;
   font-style: normal;
   font-weight: normal;
