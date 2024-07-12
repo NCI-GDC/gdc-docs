@@ -72,6 +72,12 @@ A cohort can be analyzed by selecting an analysis tool in the Analysis Center. T
 </td>
 </tr>
 <tr>
+<td><b>Cohort Level MAF</b></td>
+<td>Download an aggregated set of variants in MAF format based on the cases in your active cohort.</td>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/4megNwrPsbs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+</td>
+</tr>
+<tr>
 <td><b>Gene Expression Clustering</b></td>
 <td>Display gene expression visualization </td>
 <td><iframe width="240" height="160" src="https://www.youtube.com/embed/f58U6hL4Wok" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
