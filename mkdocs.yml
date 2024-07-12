@@ -14,7 +14,6 @@ extra:
   project_root_dir: /
   version: 1.0
 extra_css:
-  - css/encyclopedia.css
   - stylesheets/gdc-common.css
   - stylesheets/homepage.css
   - stylesheets/font-awesome-4.5.css
@@ -104,8 +103,8 @@ nav:
       - Aligned Reads Summary Metrics: Data/Bioinformatics_Pipelines/Aligned_reads_summary_metrics.md
       - Release Notes: Data/Release_Notes/Data_Release_Notes.md
       - fa-file-text Download PDF /Data/PDF/Data_UG.pdf: Data/PDF/index.md
-  - Encyclopedia: Encyclopedia/index.md
-  - EncyclopediaEntries:
+  - Encyclopedia:
+      - Index: Encyclopedia/index.md
       - Affymetrix SNP 6.0: Encyclopedia/pages/Affymetrix_SNP_6.0.md
       - Aggregated Somatic Mutation: Encyclopedia/pages/Aggregated_Somatic_Mutation.md
       - Aligned Reads: Encyclopedia/pages/Aligned_Reads.md
