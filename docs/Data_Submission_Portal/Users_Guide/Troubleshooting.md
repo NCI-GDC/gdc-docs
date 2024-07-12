@@ -43,7 +43,7 @@ Each error type can have numerous error messages which are detailed in the follo
 | __'{Value}' is not one of [{acceptable values}]__ | The value is not accepted by the GDC for the designated property | Ensure the property value is acceptable by reviewing the [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) |
 | __'{Entity}' with {'project_id': '{project_id}', 'submitter_id': '{entity submitter_id}'} already exists in the GDC__ | An entity with that submitter_id has already been uploaded to the designated project | Ensure the submitter_id is unique to the project |
 | __Additional properties are not allowed ('{property}' or '{list of properties}') was/were unexpected__ | The given property or properties are not accepted for the designated entity | Ensure entity accepts the properties by reviewing the [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) |
-| __{value} is less than the minimum of -32872__ | The amount is less than the minimum accepted value | Ensure the value is greater than or equal to the minimum value |
+| __{value} is less than the minimum of -32872__ | The amount is less than the minimum accepted value | Ensure the value is greater than or equal to the minimum value and view the best practices section on [Date Obfuscation](https://docs.gdc.cancer.gov/Data_Submission_Portal/Users_Guide/Best_Practices/#date-obfuscation) if applicable |
 
 ```Request1
 { 
@@ -357,13 +357,11 @@ Each error type can have numerous error messages which are detailed in the follo
         "data_category": "Sequencing Reads",
         "data_format": "BAI",
         "data_type": "Aligned Reads Index",
-        "gencode_version": "v36",
         "project_id": "CPTAC-3",
         "submitter_id": "Aligned_Reads_Index_000000",
         "file_name": "1c5321a4-3b33-4787-9393-3c999940284f.rna_seq.genomic.gdc_realn.bam.bai",
         "file_size": 5106896,
         "md5sum": "250a27e69c3556311934d0d8daab2207",
-        "urls": "s3://cleversafe.service.consul/stage-submission-5/1c5321a4-3b33-4787-9393-3c999940284f/1c5321a4-3b33-4787-9393-3c999940284f.rna_seq.genomic.gdc_realn.bam.bai",
         "aligned_reads_files": {
             "submitter_id": "Aligned_Reads_000000"
         },
@@ -422,7 +420,7 @@ Each error type can have numerous error messages which are detailed in the follo
 
 |Message|Explanation|Solution|
 | --- | --- | --- |
-| __Key '{property}' is not a valid property for type '{entity}'__ | The designated entity does not accept that property | Ensure the property is accepted for the entity by reviewing the GDC Data Dictionary |
+| __Key '{property}' is not a valid property for type '{entity}'__ | The designated entity does not accept that property | Ensure the property is accepted for the entity by reviewing the [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) |
 
 ```Request1
 {
@@ -501,7 +499,7 @@ Each error type can have numerous error messages which are detailed in the follo
   "consent_type": "Informed Consent"
 }
 ```
-```Response1
+```Response2
 {
   "cases_related_to_created_entities_count": 0,
   "cases_related_to_updated_entities_count": 0,
@@ -545,7 +543,7 @@ Each error type can have numerous error messages which are detailed in the follo
 
 |Message|Explanation|Solution|
 | --- | --- | --- |
-| __missing 'type'__ | This is a vague error message that frequently does not encapsulate the reason that the data upload is failing | Scrutinize the file for other issues such as a formatting problem (e.g. an extra column in the TSV, incorrect JSON formatting, the node is already in state=submitted, or a case is not registered with dbGaP) |
+| __missing 'type'__ | This is a vague error message that frequently does not encapsulate the reason that the data upload is failing, and may be indicative of multiple errors occurring simultaneously | Scrutinize the file for other issues such as a formatting problem (e.g. an extra column in the TSV, incorrect JSON formatting, the node is already in state=submitted, or a case is not registered with dbGaP) |
 
 ```Request1
 {
@@ -615,7 +613,7 @@ Each error type can have numerous error messages which are detailed in the follo
   "submitter_id": "GDC-INTERNAL-000099"
 }
 ```
-```Response1
+```Response2
 {
   "cases_related_to_created_entities_count": 0,
   "cases_related_to_updated_entities_count": 0,
@@ -655,6 +653,126 @@ Each error type can have numerous error messages which are detailed in the follo
 }
 ```
 
+```Request1
+  read_groups": 
+    {                                                                    
+        "submitter_id":"Read_group_000093"                                            
+    },                                                                               
+  "data_type": "Unaligned Reads",                                                  
+  "file_name": "test_filename.txt",                                                
+  "md5sum": "b026324c6904b2a9cb4b88d6d61c81d1",                                    
+  "data_format": "FASTQ",                                                          
+  "submitter_id": "SUR_000093",                                           
+  "data_category": "Sequencing Reads",                   
+  "file_size": 1,                                                                  
+  "project_id": "GDC-INTERNAL",                                                    
+  "type": "submitted_unaligned_reads",                                             
+  "experimental_strategy": "WXS"                                                   
+} 
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 400,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":null,
+            "errors":
+                [
+                    {
+                        "keys":["type"],
+                        "message":"missing 'type'",
+                        "type":"INVALID_TYPE"
+                    },
+                    {
+                        "keys":["type"],
+                        "message":"'type' is a required property",
+                        "type":"MISSING_PROPERTY"
+                    }
+                ]
+            "id":
+                [
+                    {
+                        "id":null
+                    }
+                ],
+            "related_cases":[],
+            "type":null,
+            "unique_keys":[],
+            "valid":false,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":1,
+    "message":"Transaction aborted due to 1 invalid entity.",
+    "success":false,
+    "transaction_id":6373011,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+```Request2
+{
+  "read_groups": 
+    {                                                                    
+        "submitter_id":"Read_group_000093"                                   
+    },                                                                               
+  "data_type": "Unaligned Reads",                                                  
+  "file_name": "test_filename.txt",                                                
+  "md5sum": "b026324c6904b2a9cb4b88d6d61c81d1",                                    
+  "data_format": "FASTQ",                                                          
+  "submitter_id": "SUR_000093",                                           
+  "data_category": "Sequencing Reads",         
+  "file_size": 1,                                                                  
+  "project_id": "GDC-INTERNAL",                                                    
+  "type": "submitted_unaligned_reads",                                             
+  "experimental_strategy": "WXS"                                                   
+} 
+```
+```Response2
+{
+  "cases_related_to_created_entities_count": 1,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 200,
+  "created_entity_count": 1,
+  "entities":
+    [
+        {
+            "action":"update",
+            "errors":[],
+            "id":
+                [
+                    {
+                        "id":"f0c79d72-ed55-4ac4-82b8-b18335b5ea0e"
+                    }
+                ],
+            "related_cases":[],
+            "type":"case",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"GDC-INTERNAL",
+                        "submitter_id":"SUR_000093"
+                    }
+                ],
+            "valid":true,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":0,
+    "message":"Transaction successful.",
+    "success":true,
+    "transaction_id":6373012,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":1
+}
+```
+
 #### INVALID_VALUE Messages
 
 |Message|Explanation|Solution|
@@ -668,14 +786,12 @@ Each error type can have numerous error messages which are detailed in the follo
     "data_category": "DNA Methylation", 
     "data_format": "IDAT", 
     "data_type": "Masked Intensities", 
-    "experimental_strategy": "Methylation Array", 
-    "gencode_version": "neutral", 
+    "experimental_strategy": "Methylation Array",
     "platform": "Illumina Human Methylation 450", 
     "project_id": "GDC-INTERNAL", 
     "submitter_id": "masked_methylation_array_test1", 
     "file_name": "28daf457-7098-4254-a330-a411da32cd5e_noid_Grn.idat", 
-    "file_size": 8095272, "md5sum": "857c7e54f211d0fc6f6bee05b4b9968e", 
-    "urls": "s3://cleversafe.service.consul/stage-submission-5/28daf457-7098-4254-a330-a411da32cd5e/28daf457-7098-4254-a330-a411da32cd5e_noid_Grn.idat", 
+    "file_size": 8095272, "md5sum": "857c7e54f211d0fc6f6bee05b4b9968e",
     "methylation_array_harmonization_workflows": 
         {
             "submitter_id": "test_methylation_array_harmonization_workflow1"
@@ -734,14 +850,12 @@ Each error type can have numerous error messages which are detailed in the follo
     "data_category": "DNA Methylation", 
     "data_format": "IDAT", 
     "data_type": "Masked Intensities", 
-    "experimental_strategy": "Methylation Array", 
-    "gencode_version": "neutral", 
+    "experimental_strategy": "Methylation Array",
     "platform": "Illumina Human Methylation 450", 
     "project_id": "GDC-INTERNAL", 
     "submitter_id": "masked_methylation_array_test1", 
     "file_name": "28daf457-7098-4254-a330-a411da32cd5e_noid_Grn.idat", 
-    "file_size": 8095272, "md5sum": "857c7e54f211d0fc6f6bee05b4b9968e", 
-    "urls": "s3://cleversafe.service.consul/stage-submission-5/28daf457-7098-4254-a330-a411da32cd5e/28daf457-7098-4254-a330-a411da32cd5e_noid_Grn.idat", 
+    "file_size": 8095272, "md5sum": "857c7e54f211d0fc6f6bee05b4b9968e",
     "methylation_array_harmonization_workflows": 
         {
             "submitter_id": "test_methylation_array_harmonization_workflow1"
@@ -750,7 +864,7 @@ Each error type can have numerous error messages which are detailed in the follo
     "chip_position": "null"
 }
 ```
-```Response1
+```Response2
 {
     "cases_related_to_created_entities_count":1,
     "cases_related_to_updated_entities_count":0,
@@ -911,7 +1025,6 @@ Each error type can have numerous error messages which are detailed in the follo
 | --- | --- | --- |
 | __Cannot create node with new submitter id specified. If update action (PUT) requested, Ensure specified id/submitter id exists__ | The submitter_id does not exist so the entity cannot be versioned and replaced with an entity with the new_submitter_id | If the new_submitter_id already exists and the md5sum is the same, this entity has already been uploaded and can be skipped. If neither the submitter_id nor the new_submitter_id exists, remove submitter_id and change "new_submitter_id" to "submitter_id" |
 | __Unable to validate case against dbGaP. {}__ | The case submitter_id is not registered in dbGaP | Ensure that there are no typos in the submitter_id or submit additional cases to dbGaP |
-| __Case submitter_id '{}' not found in dbGaP__ | The case submitter_id is not registered in dbGaP | Ensure that there are no typos in the submitter_id or submit additional cases to dbGaP |
 
 ```Request1
 [
@@ -926,7 +1039,6 @@ Each error type can have numerous error messages which are detailed in the follo
         "file_name": "aligned_reads_00089_test.bam",
         "file_size": 298374,
         "md5sum": "250a27e69c3556312934e0e8eabb2218",
-        "urls": "s3://cleversafe.service.consul/aligned_reads_00089_test.bam",
         "alignment_workflows": {
             "submitter_id": "Alignment_Workflow_000088"
         },
@@ -990,7 +1102,6 @@ Each error type can have numerous error messages which are detailed in the follo
         "file_name": "aligned_reads_00089_test.bam",
         "file_size": 298374,
         "md5sum": "250a27e69c3556312934e0e8eabb2218",
-        "urls": "s3://cleversafe.service.consul/aligned_reads_00089_test.bam",
         "alignment_workflows": {
             "submitter_id": "Alignment_Workflow_000088"
         },
@@ -1093,142 +1204,6 @@ Each error type can have numerous error messages which are detailed in the follo
     "message":"Transaction aborted due to 1 invalid entity.",
     "success":false,
     "transaction_id":6373005,
-    "transactional_error_count":0,
-    "transactional_errors":[],
-    "updated_entity_count":0
-}
-```
-
-#### UNALLOWED_GENCODE_VERSION Messages
-
-|Message|Explanation|Solution|
-| --- | --- | --- |
-| __{value} is not in allowed gencode versions {self.allowed_versions}__ | The specified gencode version is not accepted | Update the gencode version to an accepted GDC value |
-
-```Request1
-[
-    {
-        "data_category": "Sequencing Reads",
-        "data_format": "BAI",
-        "data_type": "Aligned Reads Index",
-        "gencode_version": "v48",
-        "project_id": "CPTAC-3",
-        "submitter_id": "Aligned_Reads_Index_000088",
-        "file_name": "1c5321a4-3b33-4787-9393-3c999940284f.rna_seq.genomic.gdc_realn.bam.bai",
-        "file_size": 5106896,
-        "md5sum": "250a27e69c3556311934d0d8daab2207",
-        "urls": "s3://cleversafe.service.consul/stage-submission-5/1c5321a4-3b33-4787-9393-3c999940284f/1c5321a4-3b33-4787-9393-3c999940284f.rna_seq.genomic.gdc_realn.bam.bai",
-        "aligned_reads_files": {
-            "submitter_id": "Aligned_Reads_000088"
-        },
-        "type": "aligned_reads_index"
-    }
-]
-```
-```Response1
-{
-  "cases_related_to_created_entities_count": 0,
-  "cases_related_to_updated_entities_count": 0,
-  "code": 400,
-  "created_entity_count": 0,
-  "entities":
-    [
-        {
-            "action":"create",
-            "errors":
-                [
-                    {
-                        "keys":["gencode_version"],
-                        "message":"v48 is not in allowed gencode versions ['neutral', 'v36']",
-                        "type":"UNALLOWED_GENCODE_VERSION"
-                    }
-                ],
-            "id":
-                [
-                    {
-                        "id":"53472da8-6d31-4cc3-b886-3e40344ba687"
-                    }
-                ],
-            "related_cases":[],
-            "type":"aligned_reads_index",
-            "unique_keys":
-                [
-                    {
-                        "project_id":"CPTAC-3",
-                        "submitter_id":"Aligned_Reads_Index_000000"
-                    }
-                ],
-            "valid":false,
-            "warnings":[]
-        }
-    ],
-    "entity_error_count":1,
-    "message":"Transaction aborted due to 1 invalid entity.",
-    "success":false,
-    "transaction_id":6372989,
-    "transactional_error_count":0,
-    "transactional_errors":[],
-    "updated_entity_count":0
-}
-```
-```Request2
-[
-    {
-        "data_category": "Sequencing Reads",
-        "data_format": "BAI",
-        "data_type": "Aligned Reads Index",
-        "gencode_version": "v36",
-        "project_id": "CPTAC-3",
-        "submitter_id": "Aligned_Reads_Index_000088",
-        "file_name": "1c5321a4-3b33-4787-9393-3c999940284f.rna_seq.genomic.gdc_realn.bam.bai",
-        "file_size": 5106896,
-        "md5sum": "250a27e69c3556311934d0d8daab2207",
-        "urls": "s3://cleversafe.service.consul/stage-submission-5/1c5321a4-3b33-4787-9393-3c999940284f/1c5321a4-3b33-4787-9393-3c999940284f.rna_seq.genomic.gdc_realn.bam.bai",
-        "aligned_reads_files": {
-            "submitter_id": "Aligned_Reads_000088"
-        },
-        "type": "aligned_reads_index"
-    }
-]
-```
-```Response2
-{
-  "cases_related_to_created_entities_count": 1,
-  "cases_related_to_updated_entities_count": 0,
-  "code": 200,
-  "created_entity_count": 1,
-  "entities":
-    [
-        {
-            "action":"create",
-            "errors":[],
-            "id":
-                [
-                    {
-                        "id":"5d8c1507-06c8-473e-83ff-b3580e895a63"
-                    }
-                ],
-            "related_cases":[
-                {
-                    "id":"221db987-6008-4839-a735-63869761b4f9","submitter_id":"GDC-INTERNAL-000088"
-                }
-            ],
-            "type":"aligned_reads_index",
-            "unique_keys":
-                [
-                    {
-                        "project_id":"CPTAC-3",
-                        "submitter_id":"Aligned_Reads_Index_000088"
-                    }
-                ],
-            "valid":true,
-            "warnings":[]
-        }
-    ],
-    "entity_error_count":0,
-    "message":"Transaction successful.",
-    "success":true,
-    "transaction_id":6372994,
     "transactional_error_count":0,
     "transactional_errors":[],
     "updated_entity_count":0
