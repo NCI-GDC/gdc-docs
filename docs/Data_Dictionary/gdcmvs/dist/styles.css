@@ -11,7 +11,6 @@
 }
 
 .ui-widget.ui-widget-content {
-    font-size: 1.3rem;
     background: #fff;
     box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
     border: 1px solid rgba(0, 0, 0, .2);
@@ -71,7 +70,6 @@
     min-width: 450px;
     text-align: center;
     margin: auto;
-    font-size: 1.2em;
     position: absolute;
     top: 50%;
     left: 0;
@@ -101,7 +99,6 @@
     line-height: 1;
     font-weight: 700;
     color: #3a3a3a;
-    font-size: 1.3em;
     display: inline-block;
     overflow: initial
 }
@@ -126,7 +123,6 @@
 .ui-dialog-titlebar-close:after {
     position: relative;
     font-family: FontAwesome;
-    font-size: 1.5em;
     content: "\f00d";
     z-index: 2
 }
@@ -134,7 +130,6 @@
 .ui-label {
     display: inline;
     padding: .2em .6em .3em;
-    font-size: 1.3em;
     font-weight: 700;
     line-height: 1;
     background-color: #2079bb;
@@ -260,7 +255,6 @@
     min-width: 9em;
     box-shadow: none !important;
     border: 1px solid #2079bb;
-    font-size: 1em;
     color: #2079bb;
     background-color: #fff
 }
@@ -394,7 +388,6 @@
 }
 
 .search-bar__options {
-    padding: .85em 0;
     position: absolute;
     right: 160px;
     top: 0;
@@ -448,7 +441,6 @@
 
 .search-bar__dropdown>li>a {
     line-height: 1.2em;
-    font-size: .9em;
     color: #3a3a3a
 }
 
@@ -479,7 +471,6 @@
 
 .suggest__object {
     line-height: 1.8em;
-    font-size: 1em;
     display: flex;
     justify-content: space-between
 }
@@ -507,7 +498,6 @@
     visibility: hidden;
     position: fixed;
     overflow: auto;
-    font-size: 1.2em
 }
 
 .search-options {
@@ -557,7 +547,6 @@
     min-width: 12.2em;
     box-shadow: none !important;
     border: 1px solid #2079bb;
-    font-size: 1em;
     color: #2079bb !important;
     position: relative;
     float: left;
@@ -601,7 +590,6 @@
     position: absolute;
     top: -10px;
     right: 10px;
-    font-size: .9em;
     font-weight: 700;
     padding: 0 5px;
     color: #fff;
@@ -629,10 +617,6 @@
 
 .tab-nav__tooltip {
     display: inline-block
-}
-
-.cde-suggest {
-    font-size: .8em
 }
 
 .table__row--striped:nth-of-type(2n) {
@@ -679,8 +663,7 @@
     margin-bottom: 0
 }
 
-.table__ul {
-    padding-left: 15px;
+ul.table__ul {
     list-style: none
 }
 
@@ -750,7 +733,6 @@ body {
 
 .main-container {
     padding-bottom: 127px;
-    font-size: 1.3rem
 }
 
 .info-content {
@@ -795,7 +777,6 @@ a:visited {
 
 .checkbox__icon {
     position: absolute;
-    font-size: .9em;
     line-height: 0;
     top: 50%;
     left: 26%
@@ -839,7 +820,6 @@ a:visited {
 }
 
 .table__container {
-    font-size: 1.3rem;
     padding-left: 15px;
     padding-right: 15px
 }
@@ -1054,7 +1034,6 @@ a:visited {
 .btn-th {
     display: inline-block;
     padding: 3px 10px;
-    font-size: 1em;
     margin-left: 2em;
     background-color: #fff;
     border: 1px solid #dce4ec
@@ -1087,7 +1066,6 @@ a:visited {
     padding: 1em 0;
     background-color: #fff;
     color: #535a60;
-    font-size: 1.2em;
     position: absolute;
     top: 50%;
     left: 0;
@@ -1111,7 +1089,6 @@ a:visited {
 
 .indicator__mean-span {
     color: #c74060;
-    font-size: 1.1em
 }
 
 .indicator__suggestion {
@@ -1204,4 +1181,9 @@ a:visited {
         opacity: 0;
         transform: translate3d(-50%, -100%, 0)
     }
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
 }
