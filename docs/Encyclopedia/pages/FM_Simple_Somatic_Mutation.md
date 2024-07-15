@@ -2,15 +2,15 @@
 
 ## Description ##
 
-FM (Foundation Medicine) Simple Somatic Mutation (SSM) workflow is a genomic profile harmonization workflow in the GDC for identifying simple somatic mutations in targeted sequencing data.
+The FM (Foundation Medicine) Simple Somatic Mutation (SSM) workflow is a genomic profile harmonization workflow in the GDC for identifying simple somatic mutations in targeted sequencing data.
 
 ## Overview ##
 
-FM Simple Somatic Mutation is one of the pipelines used for genomic profile harmonization at the GDC. Genomic profile harmonization is performed with FM Simple Somatic Mutation using tumor alignments and generates simple nucleotide variation data.
+FM Simple Somatic Mutation is the pipeline used for genomic profile harmonization for the FM-AD project at the GDC. Genomic profile harmonization is performed by lifting over simple nucleotide variation data from uploaded genomic profile data.
 
 ### Input
 
-Submitted sequencing reads
+* Submitted sequencing reads
 
 ### Output
 

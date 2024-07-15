@@ -6,7 +6,7 @@ FoundationOne Annotation is a somatic mutation annotation workflow used in GDC t
 
 ## Overview ##
 
-FoundationOne Annotation is a pipeline used for targeted sequencing somatic mutation annotation at the GDC. Somatic mutation annotation is performed with FoundationOne Annotation using tumor alignments and generates simple nucleotide variation (SNV) data.
+FoundationOne Annotation is a pipeline used to annotate the raw somatic mutation data from the FM-AD project at the GDC.
 
 ### Input
 
@@ -15,11 +15,6 @@ FoundationOne Annotation is a pipeline used for targeted sequencing somatic muta
 ### Output
 
 * VCF (Data Type: Annotated Somatic Mutation)
-
-## References ##
-
-1. []()
-1. []()
 
 ## External Links ##
 

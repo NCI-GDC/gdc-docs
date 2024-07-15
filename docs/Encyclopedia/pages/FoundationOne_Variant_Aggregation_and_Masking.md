@@ -6,7 +6,7 @@ FoundationOne Variant Aggregation and Masking is a somatic mutation aggregation 
 
 ## Overview ##
 
-FoundationOne Variant Aggregation and Masking is a pipeline used for targeted sequencing somatic mutation aggregation at the GDC. Somatic mutation aggregation is performed with FoundationOne Variant Aggregation and Masking using tumor alignments and generates simple nucleotide variation (SNV) data.
+FoundationOne Variant Aggregation and Masking is a pipeline used for targeted sequencing somatic mutation aggregation at the GDC. Somatic mutation aggregation is performed by aggregating annotated somatic mutations from the FM-AD project in the GDC by case primary site.
 
 ### Input
 
@@ -15,11 +15,6 @@ FoundationOne Variant Aggregation and Masking is a pipeline used for targeted se
 ### Output
 
 * MAF (Data Type: Aggregated Somatic Mutation)
-
-## References ##
-
-1. []()
-1. []()
 
 ## External Links ##
 
