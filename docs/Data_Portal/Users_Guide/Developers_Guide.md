@@ -960,7 +960,7 @@ is documented in the GDC Data Portal 2.0 SDK API documentation.
 
 ## Style Guide
 
-The GDC Data Portal Style Guide <!--TODO include link to PDF --> provides a comprehensive reference for creating consistent designs adhering to the Data Portal's visual and accessibility standards. Within the Style Guide, you will find information about our predefined styles, available library of pre-built components, as well as guidelines on best practices for accessibility, responsive design, and usability.
+The [GDC Data Portal Style Guide](PDF/GDC%20Data%20Portal%20Style%20Guide.pdf) provides a comprehensive reference for creating consistent designs adhering to the Data Portal's visual and accessibility standards. Within the Style Guide, you will find information about our predefined styles, available library of pre-built components, as well as guidelines on best practices for accessibility, responsive design, and usability.
 
 # Application Development
 
