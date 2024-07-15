@@ -10,5 +10,10 @@ window.navigation.addEventListener("navigate", (event) => {
    updateDictView(event.destination.url); 
 });
 </script>
+<script>
+window.addEventListener("load", () => {
+    updateDictView(window.location.href);
+});
+</script>
 
 # GDC Encyclopedia

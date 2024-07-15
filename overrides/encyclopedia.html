@@ -1,21 +1,33 @@
 {% extends "base.html" %}
 
 {% set annotatedNavItems = [] %}
+{% set populatedLetters = [] %}
+{% set letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'|list %}
+
 {% for nav_item in nav %}
     {% if nav_item.title == "Encyclopedia" %}
         {% for nav_item in nav_item.children %} 
             {% set annotatedNavItems = annotatedNavItems.append(({ 'firstLetter': nav_item.title[0]|capitalize, 'title': nav_item.title, "path": nav_item.url })) %}
+        {% endfor %}
+        {% for group in annotatedNavItems|groupby("firstLetter") %}
+            {% set populatedLetters = populatedLetters.append(group.grouper) %}
         {% endfor %}
     {% endif %}
 {% endfor %}
 <
 {% block site_nav %}
     <div class="md-sidebar md-sidebar--primary">
-        <ul class="md-nav__list" data-md-scrollfix>
-            {% for group in annotatedNavItems|groupby("firstLetter") %}
-               <a href ="/Encyclopedia/#{{group.grouper}}">{{group.grouper}}</a>
-            {% endfor %}
-        </ul>
+        <div class="md-nav__list" data-md-scrollfix>
+            <div class="side-box">
+                <p>Browse the terms</p>
+                <div class="encyclopedia-menu">
+                    {% for letter in letters %}
+                   <a href ="/Encyclopedia/#{{letter}}" class="term-button {% if letter not in populatedLetters %}not-exists {% endif %}}">{{letter}}</a>
+                   {% endfor %}
+                </div>
+                <a href="/Encyclopedia">View all ></a>
+            </div>
+        </div>
     </div>
 {% endblock %}
 
