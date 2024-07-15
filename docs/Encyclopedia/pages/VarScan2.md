@@ -6,7 +6,7 @@ VarScan2 is a somatic variant calling pipeline used in GDC whole exome sequencin
 
 ## Overview ##
 
-VarScan2 is one of the four pipelines used for WXS and targeted sequencing somatic variant calling at the GDC. Somatic variant calling is performed with VarScan2 using tumor and normal alignments and generates single-nucleotide polymorphism (SNP) and insertion/deletion (indel) data.
+VarScan2 is one of the four pipelines used for WXS and targeted sequencing somatic variant calling at the GDC. Somatic variant calling is performed with VarScan2 using tumor and normal alignments and generates single-nucleotide polymorphism (SNP) data.
 
 ### Input
 
