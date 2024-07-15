@@ -6,7 +6,7 @@ STAR 2-Pass Transcriptome is an alignment pipeline used in GDC RNA-Seq harmoniza
 
 ## Overview ##
 
-STAR 2-Pass Transcriptome is a pipeline used for RNA-Seq reads alignment at the GDC. Alignment is performed with STAR 2-Pass Transcriptome using tumor and normal alignments and generates sequencing reads data.
+STAR 2-Pass Transcriptome is a pipeline used for RNA-Seq reads alignment at the GDC. Alignment is performed with STAR and generates sequencing reads data.
 
 ### Input
 

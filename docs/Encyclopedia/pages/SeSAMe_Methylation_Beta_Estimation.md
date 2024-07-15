@@ -6,7 +6,7 @@ SeSAMe Methylation Beta Estimation is a workflow used in GDC methylation array h
 
 ## Overview ##
 
-SeSAMe Methylation Beta Estimation is the only pipeline used for methylation array harmonization at the GDC. Methylation array harmonization is performed with SeSAMe Methylation Beta Estimation using tumor and normal alignments and generates dna methylation data.
+SeSAMe Methylation Beta Estimation is used for methylation array harmonization at the GDC. Methylation array harmonization is performed with SeSAMe using raw tumor or normal methylation array files and generates beta values and masked intensities data, which removes potential genotype information.
 
 ### Input
 

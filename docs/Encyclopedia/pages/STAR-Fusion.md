@@ -6,12 +6,11 @@ STAR-Fusion is a structural variant calling pipeline used in GDC RNA-Seq harmoni
 
 ## Overview ##
 
-STAR-Fusion is a pipeline used for RNA-Seq structural variant calling at the GDC. Structural variant calling is performed with STAR-Fusion using tumor and normal alignments and generates structural variation data.
+STAR-Fusion is a pipeline used for RNA-Seq structural variant calling at the GDC. Structural variant calling is performed with STAR-Fusion using tumor or normal alignments and generates structural variation data.
 
 ### Input
 
-* Tumor BAM - RNA-Seq
-* Normal BAM - RNA-Seq
+* BAM - RNA-Seq
 
 ### Output
 

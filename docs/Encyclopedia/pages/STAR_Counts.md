@@ -6,12 +6,11 @@ STAR - Counts is an RNA expression pipeline used in GDC RNA-Seq harmonization.
 
 ## Overview ##
 
-STAR - Counts is a pipeline used for to quantify RNA gene and exon expression from unharmonized or GDC harmonized data. Quantification is performed with STAR - Counts using tumor and normal alignments and generates transcriptome profiling data.
+STAR - Counts is a pipeline used for to quantify gene expression from RNA-Seq data. Quantification is performed with STAR using tumor or normal alignments and generates transcriptome profiling data.
 
 ### Input
 
-* Tumor BAM - RNA-Seq
-* Normal BAM - RNA-Seq
+* Genomic BAM - RNA-Seq
 
 ### Output
 
@@ -28,6 +27,7 @@ STAR - Counts is a pipeline used for to quantify RNA gene and exon expression fr
 ## External Links ##
 
 * [STAR](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf)
+* [Overview of GDC Harmonization Workflows](https://github.com/NCI-GDC/gdc-workflow-overview/blob/master/README.md)
 * [GDC Data Portal](https://portal.gdc.cancer.gov)
 
 Categories: Workflow Type

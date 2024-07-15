@@ -6,7 +6,7 @@ STAR 2-Pass Genome is an alignment pipeline used in GDC RNA-Seq harmonization.
 
 ## Overview ##
 
-STAR 2-Pass Genome is a pipeline used for RNA-Seq reads alignment at the GDC. Alignment is performed with STAR 2-Pass Genome using tumor and normal alignments and generates sequencing reads data.
+STAR 2-Pass Genome is a pipeline used for RNA-Seq reads alignment at the GDC. Alignment is performed with STAR and generates sequencing reads data.
 
 ### Input
 

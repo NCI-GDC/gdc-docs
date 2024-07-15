@@ -6,7 +6,7 @@ Pindel is a somatic variant calling pipeline used in GDC whole genome sequencing
 
 ## Overview ##
 
-Pindel is one of the pipelines used for WGS, WXS and targeted sequencing somatic variant calling at the GDC. Somatic variant calling is performed with Pindel using tumor and normal alignments and generates simple nucleotide variation (SNV) data.
+Pindel is one of the pipelines used for WGS, WXS and targeted sequencing somatic variant calling at the GDC. Somatic variant calling is performed with Pindel using tumor and normal alignments and generates indel data.
 
 ### Input
 

@@ -6,11 +6,11 @@ Seurat - 10x Chromium is a secondary gene expression pipeline used in GDC single
 
 ## Overview ##
 
-Seurat - 10x Chromium is a pipeline used for scRNA-Seq for secondary gene expression analysis at the GDC. Secondary gene expression analysis is performed with Seurat - 10x Chromium using tumor alignments and generates transcriptome profiling data.
+Seurat - 10x Chromium is a pipeline used for scRNA-Seq for secondary gene expression analysis at the GDC. Secondary gene expression analysis is performed with Seurat using gene expression data and generates transcriptome profiling data.
 
 ### Input
 
-* Tumor MEX - scRNA-Seq
+* MEX (Filtered Counts) - scRNA-Seq
 
 ### Output
 

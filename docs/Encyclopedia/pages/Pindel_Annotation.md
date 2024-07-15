@@ -6,12 +6,11 @@ Pindel Annotation is a somatic mutation annotation pipeline used in GDC whole ex
 
 ## Overview ##
 
-Pindel Annotation is a pipeline used for WXS and targeted sequencing somatic mutation annotation at the GDC. Somatic mutation annotation is performed with Pindel Annotation using tumor and normal alignments and generates simple nucleotide variation (SNV) data.
+Pindel Annotation is a pipeline used for WXS and targeted sequencing somatic mutation annotation at the GDC. Somatic mutation annotation is performed by annotating raw VCFs, which produces annotated somatic mutation files.
 
 ### Input
 
-* Tumor VCF - WXS or Targeted Sequencing
-* Normal VCF - WXS or Targeted Sequencing
+* Raw VCF - WXS or Targeted Sequencing
 
 ### Output
 
