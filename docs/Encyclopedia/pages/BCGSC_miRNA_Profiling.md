@@ -14,8 +14,7 @@ BCGSC miRNA Profiling is a part of the miRNA Analysis Pipeline in the GDC miRNA 
 
 ### Output
 
-* TSV (Data Type: Isoform Expression Quantification, miRNA Expression Quantification)
-* TXT (Data Type: Isoform Expression Quantification, miRNA Expression Quantification)
+* TSV/TXT (Data Type: Isoform Expression Quantification, miRNA Expression Quantification)
 
 ## References ##
 
