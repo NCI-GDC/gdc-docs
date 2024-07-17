@@ -90,3 +90,30 @@ Users can then perform the following actions:
 
 * Download files associated with the cohort from the [Repository](Repository.md)
 * Analyze data from the cohort in the [Analysis Center](analysis_center.md)
+
+
+## Cohort Types
+
+Depending on how they are created, cohorts are stored in two different ways at the GDC.
+
+* __Dynamic Cohorts__
+* __Static Cohorts__
+
+### Dynamic Cohorts
+
+Dynamic cohorts are represented as a group of filters. Examples of dynamic cohorts would be:
+
+1. All cases in the TCGA-BRCA project.
+1. Cases with a primary site of `brain`, and a gender of `male`.
+
+Dynamic cohorts will change depending on the data available. For example, if a data release adds cases to the TCGA-BRCA project, the first cohort example will include the new cases automatically and increase in size. A common way to create a dynamic cohort is to use the filters in the cohort builder to build a cohort. A dynamic cohort appears as a group of filters in the query toolbar.
+
+<photo of query toolbar>
+
+### Static Cohorts
+
+Static cohorts are represented as a list of specific cases. They do not necessarily share common properties and can comprise any group of released cases. Data releases that happen after a static cohort is created will not add additional cases to the cohort, but could subtract cases if there were redactions. A common way to create a static cohort is to use the import function in the cohort builder. A static cohort appears as a list of case uuids in the query toolbar.
+
+<photo of query toolbar>
+
+> **NOTE:** if an imported cohort was originally created by exporting a dynamic cohort, it will still result in a static cohort. The export function saves a list of cases, but does not preserve what was used to filter for those cases.
