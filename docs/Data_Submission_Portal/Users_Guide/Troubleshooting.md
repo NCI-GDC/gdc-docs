@@ -158,9 +158,7 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":0
 }
 ```
-
-
-```Request1
+```Request3
 { 
   "submitter_id": "demographic_test",
   "ethnicity": "not reported",
@@ -174,7 +172,7 @@ Each error type can have numerous error messages which are detailed in the follo
   "days_to_birth": -42875
 }
 ```
-```Response1
+```Response3
 {
   "cases_related_to_created_entities_count": 0,
   "cases_related_to_updated_entities_count": 1,
@@ -219,7 +217,7 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":0
 }
 ```
-```Request2
+```Request4
 { 
   "submitter_id": "demographic_test",
   "ethnicity": "not reported",
@@ -233,7 +231,7 @@ Each error type can have numerous error messages which are detailed in the follo
   "days_to_birth": -22875
 }
 ```
-```Response2
+```Response4
 {
     "cases_related_to_created_entities_count":0,
     "cases_related_to_updated_entities_count":1,
@@ -351,9 +349,7 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":0
 }
 ```
-
-
-```Request1
+```Request2
 [
     {
         "data_category": "Sequencing Reads",
@@ -371,7 +367,7 @@ Each error type can have numerous error messages which are detailed in the follo
     }
 ]
 ```
-```Response1
+```Response2
 {
   "cases_related_to_created_entities_count": 0,
   "cases_related_to_updated_entities_count": 0,
@@ -654,9 +650,7 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":1
 }
 ```
-
-
-```Request1
+```Request3
   read_groups": 
     {                                                                    
         "submitter_id":"Read_group_000093"                                            
@@ -673,7 +667,7 @@ Each error type can have numerous error messages which are detailed in the follo
   "experimental_strategy": "WXS"                                                   
 } 
 ```
-```Response1
+```Response3
 {
   "cases_related_to_created_entities_count": 0,
   "cases_related_to_updated_entities_count": 0,
@@ -718,7 +712,7 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":0
 }
 ```
-```Request2
+```Request4
 {
   "read_groups": 
     {                                                                    
@@ -736,7 +730,7 @@ Each error type can have numerous error messages which are detailed in the follo
   "experimental_strategy": "WXS"                                                   
 } 
 ```
-```Response2
+```Response4
 {
   "cases_related_to_created_entities_count": 1,
   "cases_related_to_updated_entities_count": 0,
@@ -1155,9 +1149,7 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":1
 }
 ```
-
-
-```Request1
+```Request3
 {
   "projects": {
     "code": "INTERNAL"
@@ -1169,7 +1161,7 @@ Each error type can have numerous error messages which are detailed in the follo
   "submitter_id": "GDC-INTERNAL-000101"
 }
 ```
-```Response1
+```Response3
 {
   "cases_related_to_created_entities_count": 0,
   "cases_related_to_updated_entities_count": 0,
