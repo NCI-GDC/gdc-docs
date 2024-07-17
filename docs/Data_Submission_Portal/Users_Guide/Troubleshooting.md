@@ -158,8 +158,7 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":0
 }
 ```
-
-
+--
 ```Request1
 { 
   "submitter_id": "demographic_test",
@@ -351,8 +350,7 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":0
 }
 ```
-
-
+--
 ```Request1
 [
     {
@@ -654,8 +652,7 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":1
 }
 ```
-
-
+--
 ```Request1
   read_groups": 
     {                                                                    
@@ -1155,8 +1152,7 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":1
 }
 ```
-
-
+--
 ```Request1
 {
   "projects": {
