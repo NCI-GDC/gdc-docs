@@ -45,6 +45,7 @@ Each error type can have numerous error messages which are detailed in the follo
 | __Additional properties are not allowed ('{property}' or '{list of properties}') was/were unexpected__ | The given property or properties are not accepted for the designated entity | Ensure entity accepts the properties by reviewing the [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) |
 | __{value} is less than the minimum of -32872__ | The amount is less than the minimum accepted value | Ensure the value is greater than or equal to the minimum value and view the best practices section on [Date Obfuscation](https://docs.gdc.cancer.gov/Data_Submission_Portal/Users_Guide/Best_Practices/#date-obfuscation) if applicable |
 
+Example 1:
 ```Request1
 { 
   "submitter_id": "Diagnosis_000093",
@@ -158,7 +159,8 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":0
 }
 ```
---
+
+Example 2:
 ```Request1
 { 
   "submitter_id": "demographic_test",
@@ -284,6 +286,7 @@ Each error type can have numerous error messages which are detailed in the follo
 | __Entity is missing required link to {parent entity}__ | The child entity is not linked to a parent node | Link the child entity to at least one parent entity, based on their relationship (many_to_one, one_to_many, or one_to_one) |
 | __No link destination found for {}__ | The parent entity's submitter_id does not exist | Make sure the child entity is linking to the correct parent entity and that the submitter_id is accurate |
 
+Example 1:
 ```Request1
 {
   "read_groups": {
@@ -350,7 +353,8 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":0
 }
 ```
---
+
+Example 2:
 ```Request1
 [
     {
@@ -422,6 +426,7 @@ Each error type can have numerous error messages which are detailed in the follo
 | --- | --- | --- |
 | __Key '{property}' is not a valid property for type '{entity}'__ | The designated entity does not accept that property | Ensure the property is accepted for the entity by reviewing the [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) |
 
+Example 1:
 ```Request1
 {
   "projects": {
@@ -545,6 +550,7 @@ Each error type can have numerous error messages which are detailed in the follo
 | --- | --- | --- |
 | __missing 'type'__ | This is a vague error message that frequently does not encapsulate the reason that the data upload is failing, and may be indicative of multiple errors occurring simultaneously | Scrutinize the file for other issues such as a formatting problem (e.g. an extra column in the TSV, incorrect JSON formatting, the node is already in state=submitted, or a case is not registered with dbGaP) |
 
+Example 1:
 ```Request1
 {
   "projects": {
@@ -652,7 +658,8 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":1
 }
 ```
---
+
+Example 2:
 ```Request1
   read_groups": 
     {                                                                    
@@ -780,6 +787,7 @@ Each error type can have numerous error messages which are detailed in the follo
 | __None is not of type 'string'__ | If a property accepts string values, null is not an accepted value | Update the entity to have a string value for the given property, change null to a string "null", or remove the property if it is not required |
 | __{value} is not valid under any of the given schemas: {value} is less than the minimum of {minimum value} and {value} is not of type 'null'__ | The amount does not fall within the accepted minimum and maximum values | Ensure the value falls within the accepted range |
 
+Example 1:
 ```Request1
 {
     "channel": "Green",
@@ -911,6 +919,7 @@ Each error type can have numerous error messages which are detailed in the follo
 | --- | --- | --- |
 | __'{value}' is a required property__ | The upload is missing a required property | Ensure the required property is included in the file |
 
+Example 1:
 ```Request1
 {
   "projects": {
@@ -1026,6 +1035,7 @@ Each error type can have numerous error messages which are detailed in the follo
 | __Cannot create node with new submitter id specified. If update action (PUT) requested, Ensure specified id/submitter id exists__ | The submitter_id does not exist so the entity cannot be versioned and replaced with an entity with the new_submitter_id | If the new_submitter_id already exists and the md5sum is the same, this entity has already been uploaded and can be skipped. If neither the submitter_id nor the new_submitter_id exists, remove submitter_id and change "new_submitter_id" to "submitter_id" |
 | __Unable to validate case against dbGaP. {}__ | The case submitter_id is not registered in dbGaP | Ensure that there are no typos in the submitter_id or submit additional cases to dbGaP |
 
+Example 1:
 ```Request1
 [
     {
@@ -1152,7 +1162,8 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":1
 }
 ```
---
+
+Example 2:
 ```Request1
 {
   "projects": {
