@@ -661,7 +661,7 @@ Example 1:
 
 Example 2:
 ```Request1
-  read_groups": 
+  "read_groups": 
     {                                                                    
         "submitter_id":"Read_group_000093"                                            
     },                                                                               
@@ -674,7 +674,8 @@ Example 2:
   "file_size": 1,                                                                  
   "project_id": "GDC-INTERNAL",                                                    
   "type": "submitted_unaligned_reads",                                             
-  "experimental_strategy": "WXS"                                                   
+  "experimental_strategy": "WXS",
+  "read_pair_number": "R1"                                                 
 } 
 ```
 ```Response1
@@ -726,19 +727,20 @@ Example 2:
 {
   "read_groups": 
     {                                                                    
-        "submitter_id":"Read_group_000093"                                   
+        "submitter_id":"Read_group_000093"                                            
     },                                                                               
   "data_type": "Unaligned Reads",                                                  
   "file_name": "test_filename.txt",                                                
   "md5sum": "b026324c6904b2a9cb4b88d6d61c81d1",                                    
   "data_format": "FASTQ",                                                          
   "submitter_id": "SUR_000093",                                           
-  "data_category": "Sequencing Reads",         
+  "data_category": "Sequencing Reads",                   
   "file_size": 1,                                                                  
   "project_id": "GDC-INTERNAL",                                                    
   "type": "submitted_unaligned_reads",                                             
-  "experimental_strategy": "WXS"                                                   
-} 
+  "experimental_strategy": "WXS",
+  "read_pair_number": "R1"                                                 
+}
 ```
 ```Response2
 {
