@@ -158,7 +158,8 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":0
 }
 ```
-```Request3
+--
+```Request1
 { 
   "submitter_id": "demographic_test",
   "ethnicity": "not reported",
@@ -172,7 +173,7 @@ Each error type can have numerous error messages which are detailed in the follo
   "days_to_birth": -42875
 }
 ```
-```Response3
+```Response1
 {
   "cases_related_to_created_entities_count": 0,
   "cases_related_to_updated_entities_count": 1,
@@ -217,7 +218,7 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":0
 }
 ```
-```Request4
+```Request2
 { 
   "submitter_id": "demographic_test",
   "ethnicity": "not reported",
@@ -231,7 +232,7 @@ Each error type can have numerous error messages which are detailed in the follo
   "days_to_birth": -22875
 }
 ```
-```Response4
+```Response2
 {
     "cases_related_to_created_entities_count":0,
     "cases_related_to_updated_entities_count":1,
@@ -349,7 +350,8 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":0
 }
 ```
-```Request2
+--
+```Request1
 [
     {
         "data_category": "Sequencing Reads",
@@ -367,7 +369,7 @@ Each error type can have numerous error messages which are detailed in the follo
     }
 ]
 ```
-```Response2
+```Response1
 {
   "cases_related_to_created_entities_count": 0,
   "cases_related_to_updated_entities_count": 0,
@@ -650,7 +652,8 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":1
 }
 ```
-```Request3
+--
+```Request1
   read_groups": 
     {                                                                    
         "submitter_id":"Read_group_000093"                                            
@@ -667,7 +670,7 @@ Each error type can have numerous error messages which are detailed in the follo
   "experimental_strategy": "WXS"                                                   
 } 
 ```
-```Response3
+```Response1
 {
   "cases_related_to_created_entities_count": 0,
   "cases_related_to_updated_entities_count": 0,
@@ -712,7 +715,7 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":0
 }
 ```
-```Request4
+```Request2
 {
   "read_groups": 
     {                                                                    
@@ -730,7 +733,7 @@ Each error type can have numerous error messages which are detailed in the follo
   "experimental_strategy": "WXS"                                                   
 } 
 ```
-```Response4
+```Response2
 {
   "cases_related_to_created_entities_count": 1,
   "cases_related_to_updated_entities_count": 0,
@@ -1149,7 +1152,8 @@ Each error type can have numerous error messages which are detailed in the follo
     "updated_entity_count":1
 }
 ```
-```Request3
+--
+```Request1
 {
   "projects": {
     "code": "INTERNAL"
@@ -1161,7 +1165,7 @@ Each error type can have numerous error messages which are detailed in the follo
   "submitter_id": "GDC-INTERNAL-000101"
 }
 ```
-```Response3
+```Response1
 {
   "cases_related_to_created_entities_count": 0,
   "cases_related_to_updated_entities_count": 0,
@@ -1200,6 +1204,259 @@ Each error type can have numerous error messages which are detailed in the follo
     "message":"Transaction aborted due to 1 invalid entity.",
     "success":false,
     "transaction_id":6373005,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+
+#### ID Guide
+
+Several errors, described below, stem from the mislabelling of entity IDs (submitter_ids and uuids).
+
+|Message|Explanation|Solution|
+| --- | --- | --- |
+| __Cannot create/update an entity with custom id that is not a UUID__ |  |  |
+| __There are no unique keys defined on type {} except for the official GDC id. To upload this entity you must add a UUID__ |  |  |
+| __Either an id or required unique fields ({}) required__ |  |  |
+| __Cannot create an entity with an id that already exists__ | The submitter_id already exists | Make sure the submitter_id is unique |
+| __Cannot create an entity with an id for which an indexed document already exists__ | A file with that uuid already exists in indexd | The new version of the file should have a new uuid |
+| __{} entities found with {}__ |  |  |
+| __Existing {} entity found with type different from {}__ | The submitter_id already exists for a different entity type | Make sure  the submitter_id is unique |
+| __Existing {} entity found with id different from {}__ |  |  |
+| __Cannot create entity that already exists. Try updating entity (PUT instead of POST)__ | The submitter_id already exists | If attempting to create a new entity, make sure the submitter_id is unique; if attempting to update an existing entity, use PUT instead of POST in the API call |
+| __Entity is not unique, (({project_id}, {submitter_id}),)__ | An entity with that submitter_id already exists in the given project | Make sure the submitter_id is unique |
+
+```Request1
+{
+  "projects": {
+    "code": "INTERNAL"
+  }, 
+  "disease_type": "Adenomas and Adenocarcinomas", 
+  "primary_site": "Bladder",
+  "project_id": "GDC-INTERNAL", 
+  "type": "case",
+  "submitter_id": "GDC-INTERNAL-000078"
+}
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 400,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":null,
+            "errors":
+                [
+                    {
+                        "keys":["id"],
+                        "message":"Cannot create an entity with an id that already exists.",
+                        "type":"NOT_UNIQUE"
+                    }
+                ]
+            "id":null
+            "related_cases":[],
+            "type":"case",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"GDC-INTERNAL","submitter_id":"GDC-INTERNAL-000078"
+                    }
+                ]
+            "valid":false,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":1,
+    "message":"Transaction aborted due to 1 invalid entity.",
+    "success":false,
+    "transaction_id":6466260,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+```Request2
+{
+  "projects": {
+    "code": "INTERNAL"
+  }, 
+  "disease_type": "Adenomas and Adenocarcinomas", 
+  "primary_site": "Bladder",
+  "project_id": "GDC-INTERNAL", 
+  "type": "case",
+  "submitter_id": "GDC-INTERNAL-000028"
+}
+```
+```Response2
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 201,
+  "created_entity_count": 1,
+  "entities":
+    [
+        {
+            "action":"create",
+            "errors":[],
+            "id":"3cb0dc61-2375-4edc-b8b9-7962e2362a65",
+            "related_cases":[],
+            "type":"case",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"GDC-INTERNAL","submitter_id":"GDC-INTERNAL-000028"
+                    }
+                ]
+            "valid":true,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":0,
+    "message":"Transaction successful.",
+    "success":true,
+    "transaction_id":6466261,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+--
+```Request1
+[
+  {
+    "type": "case",
+    "submitter_id": "GDC-INTERNAL-000029",
+    "primary_site": "Base of tongue",
+    "disease_type": "Acinar Cell Neoplasms",
+    "projects": {
+      "code": "INTERNAL"
+    }
+  },
+  {
+    "type": "family_history",
+    "submitter_id": "GDC-INTERNAL-000029",
+    "relative_deceased": "Yes",
+    "relative_smoker": "No",
+    "cases": {
+      "submitter_id": "GDC-INTERNAL-000029"
+    }
+  }
+]
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 400,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":null,
+            "errors":
+                [
+                    {
+                        "keys":["id"],
+                        "message":"Existing case entity found with type different frmo family_history.",
+                        "type":"NOT_UNIQUE"
+                    }
+                ]
+            "id":null
+            "related_cases":[],
+            "type":"family_history",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"GDC-INTERNAL","submitter_id":"GDC-INTERNAL-000029"
+                    }
+                ]
+            "valid":false,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":1,
+    "message":"Transaction aborted due to 1 invalid entity.",
+    "success":false,
+    "transaction_id":6466263,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+```Request2
+[
+  {
+    "type": "case",
+    "submitter_id": "GDC-INTERNAL-000029",
+    "primary_site": "Base of tongue",
+    "disease_type": "Acinar Cell Neoplasms",
+    "projects": {
+      "code": "INTERNAL"
+    }
+  },
+  {
+    "type": "family_history",
+    "submitter_id": "GDC-INTERNAL-000029_family_history",
+    "relative_deceased": "Yes",
+    "relative_smoker": "No",
+    "cases": {
+      "submitter_id": "GDC-INTERNAL-000029"
+    }
+  }
+]
+```
+```Response2
+{
+  "cases_related_to_created_entities_count": 1,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 201,
+  "created_entity_count": 2,
+  "entities":
+    [
+        {
+            "action":"create",
+            "errors":[]
+            "id":"03e1a4c8-d443-47d0-a4c9-9d1153b86c3a",
+            "related_cases":[],
+            "type":"case",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"GDC-INTERNAL","submitter_id":"GDC-INTERNAL-000029"
+                    }
+                ]
+            "valid":true,
+            "warnings":[]
+        },
+        {
+            "action":"create",
+            "errors":[]
+            "id":"905bb435-3e99-4585-b947-2cac5dd623a4",
+            "related_cases":
+                [
+                    {
+                        "id":"03e1a4c8-d443-47d0-a4c9-9d1153b86c3a","submitter_id":"GDC-INTERNAL-000029"
+                    }
+                ],
+            "type":"family_history",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"GDC-INTERNAL","submitter_id":"GDC-INTERNAL-000029_family_history"
+                    }
+                ]
+            "valid":true,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":0,
+    "message":"Transaction successful.",
+    "success":true,
+    "transaction_id":6466267,
     "transactional_error_count":0,
     "transactional_errors":[],
     "updated_entity_count":0
