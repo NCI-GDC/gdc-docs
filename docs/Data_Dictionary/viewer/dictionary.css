@@ -169,18 +169,19 @@
 }
 
 .definition-controls-container {
-  display: inline-block;
   float: right;
-}
-
-#dictionary-app-container .btn {
-  padding: 0.5rem 1rem;
-  transition: background 0.25s ease-in-out;
-  color: #fff;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 1rem;
 }
 
 .dictionary-control-container {
   position: relative;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 1rem;
 }
 
 .dictionary-view-control i[class^="fa"] {
@@ -281,10 +282,6 @@
   margin: 2rem auto 2rem auto;
   text-align: right;
   width: 95%;
-}
-
-.dictionary-view-control .dropdown-menu {
-  left: 55%;
 }
 
 .dictionary-view-control .dictionary-tooltip span {
@@ -408,4 +405,8 @@ a.dictionary-anchor {
 .monospace {
   font-family: monospace;
   font-size: 12px;
+}
+
+.dropdown-menu.show {
+    display: block;
 }
