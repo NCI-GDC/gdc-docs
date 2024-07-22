@@ -10,7 +10,7 @@ VCF LiftOver is a pipeline used for harmonization of genomic profiling reports a
 
 ### Input
 
-* Submitted sequencing reads
+* Submitted genomic profiles
 
 ### Output
 
