@@ -10,7 +10,7 @@ FM Simple Somatic Mutation is the pipeline used for genomic profile harmonizatio
 
 ### Input
 
-* Submitted sequencing reads
+* Submitted genomic profiles
 
 ### Output
 
