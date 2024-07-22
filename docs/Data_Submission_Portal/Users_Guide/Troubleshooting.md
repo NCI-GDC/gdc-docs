@@ -1222,3 +1222,229 @@ Example 2:
     "updated_entity_count":0
 }
 ```
+
+#### ID Guide
+
+Several errors, described below, stem from the mislabelling of entity IDs (submitter_ids and uuids).
+
+|Message|Explanation|Solution|
+| __Cannot create an entity with an id that already exists__ | The submitter_id already exists within your project | Make sure the submitter_id is unique within your project |
+| __Existing {} entity found with type different from {}__ | The submitter_id already exists for a different entity type in your project | Make sure the submitter_id is unique within your project |
+| __Cannot create entity that already exists. Try updating entity (PUT instead of POST)__ | The submitter_id already exists | If attempting to create a new entity, make sure the submitter_id is unique; if attempting to update an existing entity, use PUT instead of POST in the API call |
+| __Entity is not unique, (({project_id}, {submitter_id}),)__ | An entity with that submitter_id already exists in the given project | Make sure the submitter_id is unique |
+
+Example 1:
+```Request1
+{
+  "projects": {
+    "code": "INTERNAL"
+  }, 
+  "disease_type": "Adenomas and Adenocarcinomas", 
+  "primary_site": "Bladder",
+  "project_id": "GDC-INTERNAL", 
+  "type": "case",
+  "submitter_id": "GDC-INTERNAL-000078"
+}
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 400,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":null,
+            "errors":
+                [
+                    {
+                        "keys":["id"],
+                        "message":"Cannot create an entity with an id that already exists.",
+                        "type":"NOT_UNIQUE"
+                    }
+                ]
+            "id":null
+            "related_cases":[],
+            "type":"case",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"GDC-INTERNAL","submitter_id":"GDC-INTERNAL-000078"
+                    }
+                ]
+            "valid":false,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":1,
+    "message":"Transaction aborted due to 1 invalid entity.",
+    "success":false,
+    "transaction_id":6466260,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+```Request2
+{
+  "projects": {
+    "code": "INTERNAL"
+  }, 
+  "disease_type": "Adenomas and Adenocarcinomas", 
+  "primary_site": "Bladder",
+  "project_id": "GDC-INTERNAL", 
+  "type": "case",
+  "submitter_id": "GDC-INTERNAL-000028"
+}
+```
+```Response2
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 201,
+  "created_entity_count": 1,
+  "entities":
+    [
+        {
+            "action":"create",
+            "errors":[],
+            "id":"3cb0dc61-2375-4edc-b8b9-7962e2362a65",
+            "related_cases":[],
+            "type":"case",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"GDC-INTERNAL","submitter_id":"GDC-INTERNAL-000028"
+                    }
+                ]
+            "valid":true,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":0,
+    "message":"Transaction successful.",
+    "success":true,
+    "transaction_id":6466261,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+
+Example 2:
+```Request1
+[
+  {
+    "type": "case",
+    "submitter_id": "GDC-INTERNAL-000029",
+    "primary_site": "Base of tongue",
+    "disease_type": "Acinar Cell Neoplasms",
+    "projects": {
+      "code": "INTERNAL"
+    }
+  },
+  {
+    "type": "family_history",
+    "submitter_id": "GDC-INTERNAL-000029",
+    "relative_deceased": "Yes",
+    "relative_smoker": "No",
+    "cases": {
+      "submitter_id": "GDC-INTERNAL-000029"
+    }
+  }
+]
+```
+```Response1
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 400,
+  "created_entity_count": 0,
+  "entities":
+    [
+        {
+            "action":null,
+            "errors":
+                [
+                    {
+                        "keys":["id"],
+                        "message":"Existing case entity found with type different from family_history.",
+                        "type":"NOT_UNIQUE"
+                    }
+                ]
+            "id":null
+            "related_cases":[],
+            "type":"family_history",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"GDC-INTERNAL","submitter_id":"GDC-INTERNAL-000029"
+                    }
+                ]
+            "valid":false,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":1,
+    "message":"Transaction aborted due to 1 invalid entity.",
+    "success":false,
+    "transaction_id":6466263,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
+```Request2
+{
+    "type": "case",
+    "submitter_id": "GDC-INTERNAL-000029",
+    "primary_site": "Base of tongue",
+    "disease_type": "Acinar Cell Neoplasms",
+    "projects": {
+      "code": "INTERNAL"
+    }
+  },
+  {
+    "type": "family_history",
+    "submitter_id": "GDC-INTERNAL-000029_family_history",
+    "relative_deceased": "Yes",
+    "relative_smoker": "No",
+    "cases": {
+      "submitter_id": "GDC-INTERNAL-000029"
+    }
+}
+```
+```Response2
+{
+  "cases_related_to_created_entities_count": 0,
+  "cases_related_to_updated_entities_count": 0,
+  "code": 201,
+  "created_entity_count": 1,
+  "entities":
+    [
+        {
+            "action":"create",
+            "errors":[],
+            "id":"3ae1eb12-1724-4cba-b6c6-1283b1872c16",
+            "related_cases":[],
+            "type":"case",
+            "unique_keys":
+                [
+                    {
+                        "project_id":"GDC-INTERNAL","submitter_id":"GDC-INTERNAL-000028_family_history"
+                    }
+                ]
+            "valid":true,
+            "warnings":[]
+        }
+    ],
+    "entity_error_count":0,
+    "message":"Transaction successful.",
+    "success":true,
+    "transaction_id":6466262,
+    "transactional_error_count":0,
+    "transactional_errors":[],
+    "updated_entity_count":0
+}
+```
