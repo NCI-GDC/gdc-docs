@@ -91,24 +91,23 @@ Users can then perform the following actions:
 * Download files associated with the cohort from the [Repository](Repository.md)
 * Analyze data from the cohort in the [Analysis Center](analysis_center.md)
 
-
 ## Cohort Types
 
 Depending on how they are modified or created, cohorts can have different types of filters and thus behave differently:
-* __General Queries__
+
+* __Custom Queries__
 * __Specific List of Cases__
 
-### General Queries
+### Custom Queries
 
-Examples of cohorts with general queries would be:
+Examples of cohorts with custom queries would be:
 
 1. All cases in the `TCGA-BRCA` project.
-1. Cases with a primary site of `brain`, and a gender of `male`.
+1. Cases with a primary site of `brain` and a gender of `male`.
 
-Cohorts based on general queries will change depending on the data available. For example, if a data release adds cases to the TCGA-BRCA project, the first cohort example will include the new cases automatically and increase in size. A common way to create a cohort with general queries is to use the filters in the Cohort Builder to build a cohort. 
+Cohorts based on custom queries will change depending on the data available. For example, if a data release adds cases to the TCGA-BRCA project, the first cohort example will include the new cases automatically and increase in size. A common way to create a cohort with custom queries is to use the filters in the Cohort Builder to build a cohort. 
 
-The query expression section will display these general queries with information about the properties and values that were applied as filters to the cohort.
-
+The query expression section will display these custom queries with information about the properties and values that were applied as filters to the cohort.
 
 [![Query Expressions section with TCGA-BRCA cohort](images/QueryExpressionsTCGABRCA.png)](images/QueryExpressions.png "Click to see the full image.")
 
@@ -127,4 +126,4 @@ The query expression section will display a case UUID with the Case ID property 
 [![Query Expressions section with many specific cases](images/QueryExpressionsManyCases.png)](images/QueryExpressionsManyCases.png "Click to see the full image.")
 
 > **NOTE:** 
-If an imported cohort was originally created by exporting a cohort with general queries, it will still result in a cohort with specific cases. The export function saves a list of cases, but does not preserve the general queries used to filter for those cases.
+If an imported cohort was originally created by exporting a cohort with custom queries, it will still result in a cohort with specific cases. The export function saves a list of cases, but does not preserve the custom queries used to filter for those cases.
