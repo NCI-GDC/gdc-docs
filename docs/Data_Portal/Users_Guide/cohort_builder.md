@@ -93,7 +93,7 @@ Users can then perform the following actions:
 
 ## Cohort Types
 
-Depending on how they are modified or created, cohorts can have different types of filters and thus behave differently after a data release with regards to the cases they contain. The following are the types of filters cohorts can have:
+Depending on how they are modified or created, cohorts can have different types of filters and thus behave differently after a data release with regard to the cases they contain. The following are the types of filters cohorts can have:
 
 * __Custom Queries__
 * __Specific List of Cases__
