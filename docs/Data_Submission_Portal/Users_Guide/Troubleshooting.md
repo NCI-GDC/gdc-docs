@@ -1228,7 +1228,7 @@ Example 2:
 Several errors, described below, stem from the mislabelling of entity IDs (submitter_ids and uuids).
 
 |Message|Explanation|Solution|
-| __Cannot create an entity with an id that already exists__ | The submitter_id already exists | Make sure the submitter_id is unique |
+| __Cannot create an entity with an id that already exists__ | The submitter_id already exists within your project | Make sure the submitter_id is unique within your project |
 | __Cannot create an entity with an id for which an indexed document already exists__ | A file with that uuid already exists in indexd | The new version of the file should have a new uuid |
 | __Existing {} entity found with type different from {}__ | The submitter_id already exists for a different entity type | Make sure  the submitter_id is unique |
 | __Cannot create entity that already exists. Try updating entity (PUT instead of POST)__ | The submitter_id already exists | If attempting to create a new entity, make sure the submitter_id is unique; if attempting to update an existing entity, use PUT instead of POST in the API call |
