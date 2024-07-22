@@ -93,19 +93,19 @@ Users can then perform the following actions:
 
 ## Cohort Types
 
-Depending on how they are modified or created, cohorts can have different types of filters and thus behave differently:
+Depending on how they are modified or created, cohorts can have different types of filters and thus behave differently after a data release with regards to the cases they contain. The following are the types of filters cohorts can have:
 
 * __Custom Queries__
 * __Specific List of Cases__
 
 ### Custom Queries
 
-Examples of cohorts with custom queries would be:
+A very common way to modify a cohort is by using the filters in the Cohort Builder. Using the filters in the Cohort Builder to build a cohort will create a cohort with custom queries (see note below for an exception). Examples of cohorts with custom queries would be:
 
 1. All cases in the `TCGA-BRCA` project.
 1. Cases with a primary site of `brain` and a gender of `male`.
 
-Cohorts based on custom queries will change depending on the data available. For example, if a data release adds cases to the TCGA-BRCA project, the first cohort example will include the new cases automatically and increase in size. A common way to create a cohort with custom queries is to use the filters in the Cohort Builder to build a cohort. 
+Cohorts based on custom queries will change depending on the data available. For example, if a data release adds cases to the TCGA-BRCA project, the first cohort example will include the new cases automatically and increase in size. 
 
 The query expression section will display these custom queries with information about the properties and values that were applied as filters to the cohort.
 
