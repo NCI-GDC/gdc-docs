@@ -1228,6 +1228,7 @@ Example 2:
 Several errors, described below, stem from the mislabelling of entity IDs (submitter_ids and uuids).
 
 |Message|Explanation|Solution|
+| --- | --- | --- |
 | __Cannot create an entity with an id that already exists__ | The submitter_id already exists within your project | Make sure the submitter_id is unique within your project |
 | __Existing {} entity found with type different from {}__ | The submitter_id already exists for a different entity type in your project | Make sure the submitter_id is unique within your project |
 | __Cannot create entity that already exists. Try updating entity (PUT instead of POST)__ | The submitter_id already exists | If attempting to create a new entity, make sure the submitter_id is unique; if attempting to update an existing entity, use PUT instead of POST in the API call |
