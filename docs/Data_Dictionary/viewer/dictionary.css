@@ -17,7 +17,7 @@
 }
 
 .dictionary-entity-header {
-  background: #847c7c;
+  background: #7B7474;
   box-shadow: inset 0 1px 0 #999;
   color: #fff;
   font-weight: normal;
@@ -87,7 +87,7 @@
 }
 
 .dictionary-entity-list-item .link a {
-  color: #347cb0;
+  color: #204B6A;
 }
 
 .dictionary-entity-list-item:hover .link a {
@@ -139,7 +139,7 @@
 
 .required-val {
   font-weight: bold;
-  color: #437c36;
+  color: #305828;
 }
 
 
@@ -164,7 +164,7 @@
 
 
 .dictionary-summary-table td:first-child {
-  background-color: #847c7c;
+  background-color: #5C5757;
   color: #fff;
 }
 
@@ -219,7 +219,7 @@
 .dictionary-properties-table th,
 .dictionary-links-header th,
 .dictionary-summary-header th {
-  background: rgba(91, 81, 81, 0.75);
+  background: #5C5757;
   box-shadow: inset 0 1px 0 #999;
   color: #fff;
   font-weight: normal;

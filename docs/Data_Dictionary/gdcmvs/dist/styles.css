@@ -741,14 +741,6 @@ body {
     margin: .5em 0
 }
 
-a,
-a:focus,
-a:hover,
-a:link,
-a:visited {
-    color: #2a72a4
-}
-
 .gdc-app-list a {
     color: inherit
 }

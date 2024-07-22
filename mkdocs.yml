@@ -161,4 +161,5 @@ theme:
     - navigation.tabs.sticky
   palette:
     primary: white
+    scheme: gdc-accessible
   custom_dir: overrides

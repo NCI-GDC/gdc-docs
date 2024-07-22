@@ -1,4 +1,12 @@
 
+[data-md-color-scheme="gdc-accessible"] {
+    --md-typeset-a-color: #5969C5;
+    --md-code-hl-comment-color: #0000008C;
+    --md-code-hl-variable-color: #0000008C;
+    --md-default-fg-color--light: #0000008C;
+    --md-code-hl-operator-color: #3f6ec6;
+}
+
 footer {
     background-color: #123e57;
     border-top: 6px solid #8c8686;
