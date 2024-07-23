@@ -1159,3 +1159,7 @@ footer {
     white-space: pre-wrap;
     word-break: break-all;
   }
+
+  .md-header__title {
+    visibility: hidden;
+  }
