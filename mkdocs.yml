@@ -22,6 +22,10 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.details
   # - BSCodeTabExtension:
   #     animate_tab_transitions: false
   #     default_lang: Source

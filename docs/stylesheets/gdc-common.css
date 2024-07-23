@@ -1150,3 +1150,12 @@ footer {
       margin-left: 0%;
     }
   }
+
+  .md-typeset iframe {
+    max-width: inherit;
+  }
+
+  .md-typeset pre>code {
+    white-space: pre-wrap;
+    word-break: break-all;
+  }

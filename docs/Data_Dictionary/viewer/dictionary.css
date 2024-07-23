@@ -410,3 +410,10 @@ a.dictionary-anchor {
 .dropdown-menu.show {
     display: block;
 }
+
+td a {
+  word-break: normal !important;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
