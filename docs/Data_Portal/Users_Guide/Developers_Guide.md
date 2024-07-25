@@ -958,6 +958,10 @@ is documented in the GDC Data Portal 2.0 SDK API documentation.
 ![vertical_table.png](images/developers_guide/components/vertical_table.png)
 *Vertical Table*
 
+## Style Guide
+
+The [GDC Data Portal Style Guide](PDF/GDC_Data_Portal_Style_Guide.pdf) provides a comprehensive reference for creating consistent designs adhering to the Data Portal's visual and accessibility standards. Within the Style Guide, you will find information about our predefined styles, available library of pre-built components, as well as guidelines on best practices for accessibility, responsive design, and usability.
+
 # Application Development
 
 ## Getting Started
