@@ -26,10 +26,6 @@ markdown_extensions:
         kwds:
           case: lower
   - pymdownx.details
-  # - BSCodeTabExtension:
-  #     animate_tab_transitions: false
-  #     default_lang: Source
-  #     show_all_code_as_folders: true
 nav:
   - Home: index.md
   - API:
@@ -109,15 +105,23 @@ nav:
       - Release Notes: Data/Release_Notes/Data_Release_Notes.md
       - fa-file-text Download PDF /Data/PDF/Data_UG.pdf: Data/PDF/index.md
   - Encyclopedia:
-      - Index: Encyclopedia/index.md
+      - ABSOLUTE LiftOver: Encyclopedia/pages/ABSOLUTE_LiftOver.md
       - Affymetrix SNP 6.0: Encyclopedia/pages/Affymetrix_SNP_6.0.md
       - Aggregated Somatic Mutation: Encyclopedia/pages/Aggregated_Somatic_Mutation.md
       - Aligned Reads: Encyclopedia/pages/Aligned_Reads.md
       - Aliquot: Encyclopedia/pages/Aliquot.md
+      - Aliquot Ensemble Somatic Variant Merging and Masking: Encyclopedia/pages/Aliquot_Ensemble_Somatic_Variant_Merging_and_Masking.md
       - Analyte: Encyclopedia/pages/Analyte.md
       - Annotations: Encyclopedia/pages/Annotations.md
       - Annotations TCGA: Encyclopedia/pages/Annotations_TCGA.md
+      - Arriba: Encyclopedia/pages/Arriba.md
+      - ASCAT2: Encyclopedia/pages/ASCAT2.md
+      - ASCAT3: Encyclopedia/pages/ASCAT3.md
+      - AscatNGS: Encyclopedia/pages/AscatNGS.md
+      - BCGSC miRNA Profiling: Encyclopedia/pages/BCGSC_miRNA_Profiling.md
       - Biospecimen Data: Encyclopedia/pages/Biospecimen_Data.md
+      - Birdseed: Encyclopedia/pages/Birdseed.md
+      - BRASS: Encyclopedia/pages/BRASS.md
       - Cancer Genomics Hub: Encyclopedia/pages/Cancer_Genomics_Hub.md
       - Case: Encyclopedia/pages/Case.md
       - Center for Cancer Genomics: Encyclopedia/pages/Center_for_Cancer_Genomics.md
@@ -128,8 +132,13 @@ nav:
       - Data Submitter: Encyclopedia/pages/Data_Submitter.md
       - dbGaP: Encyclopedia/pages/dbGaP.md
       - Entity: Encyclopedia/pages/Entity.md
+      - FM Simple Somatic Mutation: Encyclopedia/pages/FM_Simple_Somatic_Mutation.md
+      - FoundationOne Annotation: Encyclopedia/pages/FoundationOne_Annotation.md
+      - FoundationOne Variant Aggregation and Masking: Encyclopedia/pages/FoundationOne_Variant_Aggregation_and_Masking.md
       - FPKM-UQ: Encyclopedia/pages/FPKM-UQ.md
       - FPKM: Encyclopedia/pages/FPKM.md
+      - GATK4 MuTect2 Tumor-Only: Encyclopedia/pages/GATK4_MuTect2_Tumor-Only.md
+      - GATK4 MuTect2 Tumor-Only Annotation: Encyclopedia/pages/GATK4_MuTect2_Tumor-Only_Annotation.md
       - GDC API: Encyclopedia/pages/GDC_API.md
       - GDC Data Portal: Encyclopedia/pages/GDC_Data_Portal.md
       - GDC Data Submission Portal: Encyclopedia/pages/GDC_Data_Submission_Portal.md
@@ -142,29 +151,45 @@ nav:
       - Latest Data: Encyclopedia/pages/Latest_Data.md
       - Manifest File: Encyclopedia/pages/Manifest_File.md
       - MD5 Checksum: Encyclopedia/pages/MD5_Checksum.md
+      - MuSE: Encyclopedia/pages/MuSE.md
+      - MuSE Annotation: Encyclopedia/pages/MuSE_Annotation.md
       - Mutation Annotation Format: Encyclopedia/pages/Mutation_Annotation_Format.md
       - Mutation Annotation Format TCGAv2: Encyclopedia/pages/Mutation_Annotation_Format_TCGAv2.md
+      - MuTect2: Encyclopedia/pages/MuTect2.md
+      - MuTect2 Annotation: Encyclopedia/pages/MuTect2_Annotation.md
+      - Pindel: Encyclopedia/pages/Pindel.md
+      - Pindel Annotation: Encyclopedia/pages/Pindel_Annotation.md
       - Redaction: Encyclopedia/pages/Redaction.md
       - Release Number: Encyclopedia/pages/Release_Number.md
       - REST API: Encyclopedia/pages/REST_API.md
       - RNA-Seq: Encyclopedia/pages/RNA-Seq.md
+      - SeSAMe Methylation Beta Estimation: Encyclopedia/pages/SeSAMe_Methylation_Beta_Estimation.md
+      - Seurat 10x Chromium: Encyclopedia/pages/Seurat_10x_Chromium.md
       - SNP Array-Based Data: Encyclopedia/pages/SNP_Array-Based_Data.md
+      - STAR-Fusion: Encyclopedia/pages/STAR-Fusion.md
+      - STAR 2-Pass Chimeric: Encyclopedia/pages/STAR_2-Pass_Chimeric.md
+      - STAR 2-Pass Genome: Encyclopedia/pages/STAR_2-Pass_Genome.md
+      - STAR 2-Pass Transcriptome: Encyclopedia/pages/STAR_2-Pass_Transcriptome.md
+      - STAR Counts: Encyclopedia/pages/STAR_Counts.md
       - TCGA Barcode: Encyclopedia/pages/TCGA_Barcode.md
       - TCGA VCF 1.1v2: Encyclopedia/pages/TCGA_VCF_1.1v2.md
       - TCIA: Encyclopedia/pages/TCIA.md
       - UUID: Encyclopedia/pages/UUID.md
       - Variant Call Format: Encyclopedia/pages/Variant_Call_Format.md
       - Variant Type: Encyclopedia/pages/Variant_Type.md
+      - VarScan2: Encyclopedia/pages/VarScan2.md
+      - VarScan2 Annotation: Encyclopedia/pages/VarScan2_Annotation.md
+      - VCF LiftOver: Encyclopedia/pages/VCF_LiftOver.md
 site_name: GDC Docs
 site_url: http://docs.gdc.cancer.gov
 theme:
-  name: material
-  logo: images/nih-header-logo-color.png
+  custom_dir: overrides
   favicon: images/favicon.ico
   features:
     - navigation.tabs
     - navigation.tabs.sticky
+  logo: images/nih-header-logo-color.png
+  name: material
   palette:
     primary: white
     scheme: gdc-accessible
-  custom_dir: overrides
