@@ -3,7 +3,7 @@
 
 | Version | Date |
 |---|---|
-| [v7.4.2](API_Release_Notes.md#v742) | July 30, 2024 |
+| [v7.4.1](API_Release_Notes.md#v742) | July 30, 2024 |
 | [v7.3.0](API_Release_Notes.md#v730) | June 26, 2024 |
 | [v4.0.0](API_Release_Notes.md#v400) | July 31, 2023 |
 | [v3.28.0](API_Release_Notes.md#v3280) | May 11, 2023 |
