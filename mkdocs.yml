@@ -13,10 +13,14 @@ extra:
   project_org: GDC
   project_root_dir: /
   version: 1.0
+  analytics:
+    provider: custom
 extra_css:
   - stylesheets/gdc-common.css
   - stylesheets/homepage.css
   - stylesheets/font-awesome-4.5.css
+extra_javascript:
+  - js/analytics-after-load.js
 markdown_extensions:
   - tables
   - pymdownx.superfences
