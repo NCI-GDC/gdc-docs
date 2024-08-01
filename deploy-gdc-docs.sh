@@ -84,6 +84,7 @@ if $hasEncodingError  ; then
    exit
 fi
 
+# Generating PDFs from *_UG.yml files.
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Looking for User Guides"
 userGuides=()
 for i in $( ls *_UG.yml ); do
@@ -97,8 +98,8 @@ for userGuide in "${userGuides[@]}"; do
       echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: ${userGuide}: PDF Directory does not exists, creating ..."
       mkdir docs/${userGuide}/PDF/
    fi
-   echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: ${userGuide}: Building PDF"
-   ENABLE_PDF_EXPORT=1 mkdocs build -f ${userGuide}_UG.yml  
+   echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: ${userGuide}: Building PDF documents"
+   ENABLE_PDF_EXPORT=1 venv/bin/mkdocs build -f ${userGuide}_UG.yml
 done
 
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Cleaning previous website directory (rm)"
@@ -107,7 +108,7 @@ sudo rm /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/* -R
    sleep 10s
 
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Build Encyclopedia"
-#python buildencyclopedia.py
+python buildencyclopedia.py
 
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Deploying new version to /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/"
 venv/bin/mkdocs build -v --site-dir /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/
