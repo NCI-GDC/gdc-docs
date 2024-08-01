@@ -1,5 +1,5 @@
 ---
-copyright: '&copy; 2015-2016'
+copyright: '&copy; 2015-2024'
 extra:
   dictionary_app_root: /apps/dictionary
   dictionary_viewer_page_id: Viewer
@@ -25,6 +25,7 @@ markdown_extensions:
   - tables
   - pymdownx.superfences
   - pymdownx.tabbed:
+      combine_header_slug: true
       alternate_style: true
       slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
@@ -47,7 +48,7 @@ nav:
       - 'Appendix B: Key Terms': API/Users_Guide/Appendix_B_Key_Terms.md
       - 'Appendix C: Format of Submission Queries and Responses': API/Users_Guide/Appendix_C_Format_of_Submission_Requests_and_Responses.md
       - Release Notes: API/Release_Notes/API_Release_Notes.md
-      - fa-file-text Download PDF /API/PDF/API_UG.pdf: API/PDF/index.md
+      - Download PDF: /API/PDF/API_UG.pdf
   - Data Portal:
       - Getting Started: Data_Portal/Users_Guide/getting_started.md
       - Quick Start: Data_Portal/Users_Guide/quick_start.md
@@ -68,7 +69,7 @@ nav:
       - Set Operations: Data_Portal/Users_Guide/set_operations.md
       - For Developers: Data_Portal/Users_Guide/Developers_Guide.md
       - Release Notes: Data_Portal/Release_Notes/Data_Portal_Release_Notes.md
-      - fa-file-text Download PDF /Data_Portal/PDF/Data_Portal_UG.pdf: Data_Portal/PDF/index.md
+      - Download PDF: Data_Portal/PDF/Data_Portal_UG.pdf
   - Data Submission:
       - Before Submitting Data to the GDC Portal: Data_Submission_Portal/Users_Guide/Checklist.md
       - Data Submission Overview: Data_Submission_Portal/Users_Guide/Data_Submission_Overview.md
@@ -78,7 +79,7 @@ nav:
       - Submission Best Practices: Data_Submission_Portal/Users_Guide/Best_Practices.md
       - Troubleshooting Guide: Data_Submission_Portal/Users_Guide/Troubleshooting.md
       - Release Notes: Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes.md
-      - fa-file-text Download PDF /Data_Submission_Portal/PDF/Data_Submission_Portal_UG.pdf: Data_Submission_Portal/PDF/index.md
+      - Download PDF: Data_Submission_Portal/PDF/Data_Submission_Portal_UG.pdf
   - Data Transfer Tool:
       - Getting Started: Data_Transfer_Tool/Users_Guide/Getting_Started.md
       - Preparing for Data Download and Upload: Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload.md
@@ -87,7 +88,7 @@ nav:
       - Data Transfer Tool UI Documentation: Data_Transfer_Tool/Users_Guide/Data_Download_DTT_UI.md
       - Release Notes - UI: Data_Transfer_Tool/Release_Notes/DTT_UI_Release_Notes.md
       - Troubleshooting Guide: Data_Transfer_Tool/Users_Guide/Appendix_B_TroubleShooting.md
-      - fa-file-text Download PDF /Data_Transfer_Tool/PDF/Data_Transfer_Tool_UG.pdf: Data_Transfer_Tool/PDF/index.md
+      - Download PDF: Data_Transfer_Tool/PDF/Data_Transfer_Tool_UG.pdf
   - Data Dictionary:
       - About: Data_Dictionary/index.md
       - Viewer: Data_Dictionary/viewer.md
@@ -107,7 +108,7 @@ nav:
       - 'Bioinformatics Pipeline: Protein Expression': Data/Bioinformatics_Pipelines/RPPA_intro.md
       - Aligned Reads Summary Metrics: Data/Bioinformatics_Pipelines/Aligned_reads_summary_metrics.md
       - Release Notes: Data/Release_Notes/Data_Release_Notes.md
-      - fa-file-text Download PDF /Data/PDF/Data_UG.pdf: Data/PDF/index.md
+      - Download PDF: Data/PDF/Data_UG.pdf
   - Encyclopedia:
       - ABSOLUTE LiftOver: Encyclopedia/pages/ABSOLUTE_LiftOver.md
       - Affymetrix SNP 6.0: Encyclopedia/pages/Affymetrix_SNP_6.0.md
@@ -185,7 +186,7 @@ nav:
       - VarScan2 Annotation: Encyclopedia/pages/VarScan2_Annotation.md
       - VCF LiftOver: Encyclopedia/pages/VCF_LiftOver.md
 site_name: GDC Docs
-site_url: http://docs.gdc.cancer.gov
+site_url: https://docs.gdc.cancer.gov
 theme:
   custom_dir: overrides
   favicon: images/favicon.ico

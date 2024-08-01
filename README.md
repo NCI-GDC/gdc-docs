@@ -151,6 +151,18 @@ To build the site, run
 mkdocs build
 ```
 
+### Building User Guide PDFs
+
+The `mkdocs-with-pdf` plugin is used to generate PDFs.
+
+```bash
+ENABLE_PDF_EXPORT=1 mkdocs build -f API_UG.yml 
+ENABLE_PDF_EXPORT=1 mkdocs build -f Data_Portal_UG.yml 
+ENABLE_PDF_EXPORT=1 mkdocs build -f Data_Submission_Portal_UG.yml 
+ENABLE_PDF_EXPORT=1 mkdocs build -f Data_Transfer_Tool_UG.yml 
+ENABLE_PDF_EXPORT=1 mkdocs build -f Data_UG.yml 
+```
+
 ### Known Issues
 
 - Dict search app does not work
