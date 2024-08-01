@@ -72,29 +72,6 @@ example:
 
 A detailed list of all conventions is available on [GDC Website](https://gdc.cancer.gov/conventions-page)
 
-
-### Build PDF
-
-Install mkdocs2pandoc, following instructions available here:
-```
-https://github.com/jgrassler/mkdocs-pandoc
-```
-
-Prepare a yml file dedicated to your Userguide, using Data_Portal_UG.yml as an example.
-
-Run the following commands to:
-* Convert the User Guide to Pandoc:
-* Tweak the pandoc file
-* Build a PDF
-
-```
-mkdocs2pandoc -f Data_Portal_UG.yml -o docs/Data_Portal/PDF/Data_portal_UG.pd
-sed -i -e 's/# / /g' docs/Data_Portal/PDF/Data_portal_UG.pd
-sed -i -e 's/### /## /g' docs/Data_Portal/PDF/Data_portal_UG.pd
-sed -i -e 's/\/site\//\/docs\//g' docs/Data_Portal/PDF/Data_portal_UG.pd
-pandoc --toc -V documentclass=report -V geometry:"top=2cm, bottom=1.5cm, left=1cm, right=1cm" -f markdown+grid_tables+table_captions -o docs/Data_Portal/PDF/Data_portal_UG.pdf docs/Data_Portal/PDF/Data_portal_UG.pd
-```
-
 ## Material Port
 
 Note for a port to the Material theme for mkdocs.
@@ -153,7 +130,13 @@ mkdocs build
 
 ### Building User Guide PDFs
 
-The `mkdocs-with-pdf` plugin is used to generate PDFs.
+Building PDFs requires a library named **Pango** which used for laying out and rendering text. Install it using apt. 
+
+```bash
+sudo apt install libpango1.0-dev
+```
+
+The `mkdocs-with-pdf` plugin is used to generate PDFs.  
 
 ```bash
 ENABLE_PDF_EXPORT=1 mkdocs build -f API_UG.yml 
@@ -161,6 +144,12 @@ ENABLE_PDF_EXPORT=1 mkdocs build -f Data_Portal_UG.yml
 ENABLE_PDF_EXPORT=1 mkdocs build -f Data_Submission_Portal_UG.yml 
 ENABLE_PDF_EXPORT=1 mkdocs build -f Data_Transfer_Tool_UG.yml 
 ENABLE_PDF_EXPORT=1 mkdocs build -f Data_UG.yml 
+```
+
+Build the site again to move the generated PDFs in the correct directory.
+
+```bash
+mkdocs build
 ```
 
 ### Known Issues
