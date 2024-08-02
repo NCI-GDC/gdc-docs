@@ -52,9 +52,6 @@ else
    exit;
 fi
 
-echo "Checking out branch feat/mkdocs-material - PLEASE REMOVE AFTER DEV"
-/usr/bin/git checkout feat/mkdocs-material
-
 # Building virtualenv and installing dependencies
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Building virtualenv for ${ENVIRONMENT}"
 python3 -m virtualenv -p python3.8 venv
