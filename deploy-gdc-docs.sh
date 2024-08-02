@@ -108,7 +108,7 @@ sudo rm /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/* -R
    sleep 10s
 
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Build Encyclopedia"
-python buildencyclopedia.py
+# python buildencyclopedia.py
 
 echo "$(date +'%d %B %Y - %k:%M'): ${ENVIRONMENT}: Deploying new version to /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/"
 venv/bin/mkdocs build -v --site-dir /var/www/gdc-docs-${ENVIRONMENT}.nci.nih.gov/
