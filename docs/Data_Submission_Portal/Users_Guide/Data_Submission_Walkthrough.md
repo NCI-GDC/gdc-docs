@@ -29,19 +29,24 @@ The `projects.code` field connects the `case` entity to the `project` entity.  T
 
 The `case` entity can be added in JSON or TSV format. A template for any entity in either of these formats can be found in the Data Dictionary at the top of each page. Templates populated with `case` metadata in both formats are displayed below.  
 
-```JSON
-{
-    "type": "case",
-    "submitter_id": "PROJECT-INTERNAL-000055",
-    "projects": {
-        "code": "INTERNAL"
+=== "JSON"
+
+    ```JSON
+    {
+        "type": "case",
+        "submitter_id": "PROJECT-INTERNAL-000055",
+        "projects": {
+            "code": "INTERNAL"
+        }
     }
-}
-```
-```TSV
-type  submitter_id  projects.code
-case  PROJECT-INTERNAL-000055 INTERNAL   
-```
+    ```
+
+=== "TSV"
+
+    ```TSV
+    type  submitter_id  projects.code
+    case  PROJECT-INTERNAL-000055 INTERNAL   
+    ```
 
 >__Note:__ JSON and TSV formats handle links between entities (`case` and `project`) differently.  JSON includes the `code` field nested within `projects` while TSV appends `code` to `projects` with a period.  
 
@@ -82,19 +87,25 @@ If the upload contains invalid files, a transaction will appear with a FAILED st
 
 The API has a much broader range of functionality than the Data Wizard. Entities can be created, updated, and deleted through the API. See the [API Submission User Guide](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#creating-and-updating-entities) for a more detailed explanation and for the rest of the functionalities of the API. Generally, uploading an entity through the API can be performed using a command similar to the following:
 
-```Shell
-curl --header "X-Auth-Token: $token" --request POST --data @CASE.json https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/_dry_run?async=true
-```
+=== "Shell"
+
+    ```Shell
+    curl --header "X-Auth-Token: $token" --request POST --data @CASE.json https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/_dry_run?async=true
+    ```
+
 CASE.json is detailed below.
-```json
-{
-    "type": "case",
-    "submitter_id": "PROJECT-INTERNAL-000055",
-    "projects": {
-        "code": "INTERNAL"
+
+=== "JSON"
+
+    ```json
+    {
+        "type": "case",
+        "submitter_id": "PROJECT-INTERNAL-000055",
+        "projects": {
+            "code": "INTERNAL"
+        }
     }
-}
-```
+    ```
 
 In this example, the `_dry_run` marker is used to determine if the entities can be validated, but without committing any information. If a command passed through the `_dry_run` works, the command will work when it is changed to `commit`. For more information please go to [Dry Run Transactions](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#dry-run-transactions).
 
@@ -102,9 +113,11 @@ In this example, the `_dry_run` marker is used to determine if the entities can 
 
 Next, the file can either be committed (applied to the project) through the Data Submission Portal as before, or another API query can be performed that will commit the file to the project. The transaction number in the URL (467) is printed to the console during the first step of API submission and can also be retrieved from the [Transactions](Data_Submission_Process.md#transactions) tab in the Data Submission Portal.
 
-```Shell
-curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/transactions/467/commit?async=true
-```
+=== "Shell"
+
+    ```Shell
+    curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/transactions/467/commit?async=true
+    ```
 
 # Clinical Data Submission
 
@@ -271,23 +284,27 @@ Submitting a [__Sample__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?v
 
 >__Note:__ The `case` must be "committed" to the project before a `sample` can be linked to it.  This also applies to all other links between entities.
 
-```JSON
-{
-    "type": "sample",
-    "cases": {
-        "submitter_id": "PROJECT-INTERNAL-000055"
-    },
-    "submitter_id": "Blood-00001SAMPLE_55",
-    "tissue_type": "Normal",
-    "tumor_descriptor": "Not Applicable",
-    "specimen_type": "Peripheral Blood NOS",
-    "preservation_method": "Frozen"
-}
-```
-```TSV
-type	cases.submitter_id	submitter_id	tissue_type	specimen_type	tumor_descriptor	preservation_method
-sample	PROJECT-INTERNAL-000055	Blood-00001SAMPLE_55	Normal	Peripheral Blood NOS	Not Applicable	Frozen
-```
+=== "JSON"
+
+    ```JSON
+    {
+        "type": "sample",
+        "cases": {
+            "submitter_id": "PROJECT-INTERNAL-000055"
+        },
+        "submitter_id": "Blood-00001SAMPLE_55",
+        "tissue_type": "Normal",
+        "tumor_descriptor": "Not Applicable",
+        "specimen_type": "Peripheral Blood NOS",
+        "preservation_method": "Frozen"
+    }
+    ```
+=== "TSV"
+
+    ```TSV
+    type	cases.submitter_id	submitter_id	tissue_type	specimen_type	tumor_descriptor	preservation_method
+    sample	PROJECT-INTERNAL-000055	Blood-00001SAMPLE_55	Normal	Peripheral Blood NOS	Not Applicable	Frozen
+    ```
 
 ## Portion, Analyte and Aliquot Submission
 
@@ -307,8 +324,7 @@ Submitting a [__Portion__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?
         "samples": {
             "submitter_id": "Blood-00001SAMPLE_55"
         }
-    }
-    
+    }    
     ```
 
 === "TSV"
@@ -335,7 +351,6 @@ Submitting an [__Analyte__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#
         "analyte_type": "DNA",
         "submitter_id": "Blood-analyte-000055"
     }
-    
     ```
 
 === "TSV"
@@ -360,7 +375,6 @@ Submitting an [__Aliquot__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#
             "submitter_id": "Blood-analyte-000055"
         }
     }
-    
     ```
 
 === "TSV"
@@ -414,7 +428,6 @@ Submitting a [__Read Group__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer
                 "submitter_id": "Blood-00021-aliquot55"
             }    
     }
-    
     ```
 
 === "TSV"
@@ -487,21 +500,27 @@ __GDC Data Transfer Tool:__ A file can be uploaded using its UUID (which can be 
 
 The following command can be used to upload the file:
 
-```Shell
-gdc-client upload --project-id PROJECT-INTERNAL --identifier a053fad1-adc9-4f2d-8632-923579128985 -t $token -f $path_to_file
-```   
+=== "Shell"
+
+    ```shell
+    gdc-client upload --project-id PROJECT-INTERNAL --identifier a053fad1-adc9-4f2d-8632-923579128985 -t $token -f $path_to_file
+    ```
 
 Additionally a manifest can be downloaded from the Submission Portal and passed to the Data Transfer Tool. This will allow for the upload of more than one `submittable_data_file`:
 
-```Shell
-gdc-client upload -m manifest.yml -t $token
-```
+=== "Shell"
+
+    ```Shell
+    gdc-client upload -m manifest.yml -t $token
+    ```
+
 __API Upload:__  A `submittable_data_file` can be uploaded through the API by using the `/submission/$PROGRAM/$PROJECT/files` endpoint.  The following command would be typically used to upload a file:  
 
-```Shell
-curl --request PUT --header "X-Auth-Token: $token" https://api.gdc.cancer.gov/v0/submission/PROJECT/INTERNAL/files/6d45f2a0-8161-42e3-97e6-e058ac18f3f3 -d $path_to_file
+=== "Shell"
 
-```
+    ```Shell
+    curl --request PUT --header "X-Auth-Token: $token" https://api.gdc.cancer.gov/v0/submission/PROJECT/INTERNAL/files/6d45f2a0-8161-42e3-97e6-e058ac18f3f3 -d $path_to_file
+    ```
 
 For more details on how to upload a `submittable_data_file` to a project see the [API Users Guide](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/) and the [Data Transfer Tool Users Guide](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/).  
 
@@ -648,81 +667,83 @@ Each submission in the previous sections was broken down by component to demonst
 
 Registering a BAM file (or any other type) can be performed in one step by including all of the entities, from `case` to `submitted_aligned_reads`, in one file.  See the example below:
 
-```JSON
-[{
-    "type": "case",
-    "submitter_id": "PROJECT-INTERNAL-000055",
-    "projects": {
-        "code": "INTERNAL"
-    }
-},
-{
-    "type": "sample",
-    "cases": {
-        "submitter_id": "PROJECT-INTERNAL-000055"
-    },
-    "submitter_id": "Blood-00001SAMPLE_55",
-    "tissue_type": "Normal",
-    "tumor_descriptor": "Not Applicable",
-    "specimen_type": "Peripheral Blood NOS",
-    "preservation_method": "Frozen"
-},
-{
-    "type": "portion",
-    "submitter_id": "Blood-portion-000055",
-    "samples": {
-        "submitter_id": "Blood-00001SAMPLE_55"
-    }
-},
-{
-    "type": "analyte",
-    "portions": {
-        "submitter_id": "Blood-portion-000055"
-    },
-    "analyte_type": "DNA",
-    "submitter_id": "Blood-analyte-000055"
-},
-{
-    "type": "aliquot",
-    "submitter_id": "Blood-00021-aliquot55",
-    "analytes": {
-        "submitter_id": "Blood-analyte-000055"
-    }
-},
-{
-    "type": "read_group",
-    "submitter_id": "Blood-00001-aliquot_lane1_barcodeACGTAC_55",
-    "experiment_name": "Resequencing",
-    "is_paired_end": true,
-    "library_name": "Solexa-34688",
-    "library_selection":"Hybrid Selection",
-    "library_strategy": "WXS",
-    "platform": "Illumina",
-    "read_group_name": "205DD.3-2",
-    "read_length": 75,
-    "sequencing_center": "BI",
-    "aliquots":
-        {
-            "submitter_id": "Blood-00021-aliquot55"
-        }    
-},
-{
-    "type": "submitted_aligned_reads",
-    "submitter_id": "Blood-00001-aliquot_lane1_barcodeACGTAC_55.bam",
-    "data_category": "Raw Sequencing Data",
-    "data_format": "BAM",
-    "data_type": "Aligned Reads",
-    "experimental_strategy": "WGS",
-    "file_name": "test.bam",
-    "file_size": 38,
-    "md5sum": "aa6e82d11ccd8452f813a15a6d84faf1",
-    "read_groups": [
-        {
-            "submitter_id": "Blood-00001-aliquot_lane1_barcodeACGTAC_55"
+=== "JSON"
+
+    ```
+    [{
+        "type": "case",
+        "submitter_id": "PROJECT-INTERNAL-000055",
+        "projects": {
+            "code": "INTERNAL"
         }
-    ]
-}]
-```
+    },
+    {
+        "type": "sample",
+        "cases": {
+            "submitter_id": "PROJECT-INTERNAL-000055"
+        },
+        "submitter_id": "Blood-00001SAMPLE_55",
+        "tissue_type": "Normal",
+        "tumor_descriptor": "Not Applicable",
+        "specimen_type": "Peripheral Blood NOS",
+        "preservation_method": "Frozen"
+    },
+    {
+        "type": "portion",
+        "submitter_id": "Blood-portion-000055",
+        "samples": {
+            "submitter_id": "Blood-00001SAMPLE_55"
+        }
+    },
+    {
+        "type": "analyte",
+        "portions": {
+            "submitter_id": "Blood-portion-000055"
+        },
+        "analyte_type": "DNA",
+        "submitter_id": "Blood-analyte-000055"
+    },
+    {
+        "type": "aliquot",
+        "submitter_id": "Blood-00021-aliquot55",
+        "analytes": {
+            "submitter_id": "Blood-analyte-000055"
+        }
+    },
+    {
+        "type": "read_group",
+        "submitter_id": "Blood-00001-aliquot_lane1_barcodeACGTAC_55",
+        "experiment_name": "Resequencing",
+        "is_paired_end": true,
+        "library_name": "Solexa-34688",
+        "library_selection":"Hybrid Selection",
+        "library_strategy": "WXS",
+        "platform": "Illumina",
+        "read_group_name": "205DD.3-2",
+        "read_length": 75,
+        "sequencing_center": "BI",
+        "aliquots":
+            {
+                "submitter_id": "Blood-00021-aliquot55"
+            }    
+    },
+    {
+        "type": "submitted_aligned_reads",
+        "submitter_id": "Blood-00001-aliquot_lane1_barcodeACGTAC_55.bam",
+        "data_category": "Raw Sequencing Data",
+        "data_format": "BAM",
+        "data_type": "Aligned Reads",
+        "experimental_strategy": "WGS",
+        "file_name": "test.bam",
+        "file_size": 38,
+        "md5sum": "aa6e82d11ccd8452f813a15a6d84faf1",
+        "read_groups": [
+            {
+                "submitter_id": "Blood-00001-aliquot_lane1_barcodeACGTAC_55"
+            }
+        ]
+    }]
+    ```
 
 All of the entities are placed into a JSON list object:
 

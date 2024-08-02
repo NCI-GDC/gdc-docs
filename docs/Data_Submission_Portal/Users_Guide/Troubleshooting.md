@@ -1410,7 +1410,10 @@ Example 1:
       "submitter_id": "GDC-INTERNAL-000028"
     }
     ```
-    ```Response2
+
+=== "Response2"
+
+    ```
     {
       "cases_related_to_created_entities_count": 0,
       "cases_related_to_updated_entities_count": 0,

@@ -15,15 +15,20 @@ The `data` endpoint supports GET and POST requests as demonstrated in the follow
 
 This example demonstrates downloading a single file from the GDC. Here we pass the file's UUID to the `data` endpoint with a GET request.
 
-```shell
-curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/5b2974ad-f932-499b-90a3-93577a9f0573'
-```
-```Output
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 6111k  100 6111k    0     0   414k      0  0:00:14  0:00:14 --:--:--  412k
+=== "Shell"
 
-```
+    ```shell
+    curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/5b2974ad-f932-499b-90a3-93577a9f0573'
+    ```
+
+=== "Output"
+
+    ```
+    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                    Dload  Upload   Total   Spent    Left  Speed
+    100 6111k  100 6111k    0     0   414k      0  0:00:14  0:00:14 --:--:--  412k
+    ```
+
 ### Related Files
 
 If the `related_files=true` parameter is specified, the following related files, if available, will be included in the download package by the GDC API:
@@ -33,15 +38,19 @@ If the `related_files=true` parameter is specified, the following related files,
 
 For example, this request will download a BAM file and its associated BAI file:
 
-```shell
-curl --remote-name --remote-header-name -H "x-auth-token: $token" "https://api.gdc.cancer.gov/data/f587ef82-acbe-44f9-ad5a-6207e148f61f?related_files=true"
-```
-```Output
-% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                               Dload  Upload   Total   Spent    Left  Speed
-100 63.4M    0 63.4M    0     0  7541k      0 --:--:--  0:00:08 --:--:--  9.9M
+=== "Shell"
 
-```
+    ```shell
+    curl --remote-name --remote-header-name -H "x-auth-token: $token" "https://api.gdc.cancer.gov/data/f587ef82-acbe-44f9-ad5a-6207e148f61f?related_files=true"
+    ```
+
+=== "Output"
+
+    ```
+    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                Dload  Upload   Total   Spent    Left  Speed
+    100 63.4M    0 63.4M    0     0  7541k      0 --:--:--  0:00:08 --:--:--  9.9M
+    ```
 
 
 ### Downloading Multiple Files using GET
@@ -68,9 +77,12 @@ This example demonstrates downloading multiple files from the GDC using a GET re
 #### Downloading an Uncompressed Group of Files
 
 If the `?tarfile` parameter is specified to a data endpoint download query all files requested in the download string will be bundled in a single tar file rather than a tar.gz file which is the default behavior.  
-```shell
-curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/1da7105a-f0ff-479d-9f82-6c1d94456c91,77e73cc4-ff31-449e-8e3c-7ae5ce57838c?tarfile'
-```      
+
+=== "Shell"
+
+    ```shell
+    curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/1da7105a-f0ff-479d-9f82-6c1d94456c91,77e73cc4-ff31-449e-8e3c-7ae5ce57838c?tarfile'
+    ```      
 
 ### Downloading Multiple Files using POST
 

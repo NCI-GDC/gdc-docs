@@ -2676,7 +2676,10 @@ This is an example of a request for a count of projects in each program.
     response = requests.get(projects_endpt, params = params)
     print(json.dumps(response.json(), indent=2))
     ```
-    ```Response
+
+=== "Response"
+
+    ```
     {
       "data": {
         "hits": [],

@@ -902,7 +902,10 @@ New nodes are created in Request1.  Nodes in state `validated` are updated in Re
       "updated_entity_count": 0
     }
     ```
-    ```Request2
+
+=== "Request2"
+
+    ```json
     [
        {
         "type": "case",
@@ -922,7 +925,7 @@ New nodes are created in Request1.  Nodes in state `validated` are updated in Re
         }
       },
       {
-        "type": "aliquot",
+        "type": "aliquot",diff
         "submitter_id": "QA-REGRESSION-0002-SAMPLE000001-ALIQUOT000001",
         "samples": {
           "submitter_id": "QA-REGRESSION-0002-SAMPLE000001"
@@ -1247,115 +1250,133 @@ The GDC Submission API supports the HTTP PATCH method for updating existing enti
 The PATCH method cannot be used to create new entities, and the provided submitter_id must match an existing submitter_id. 
 
 #### Example: Creating a new demographic entity using POST
-```Request1
-{
-  "type": "demographic",
-  "submitter_id": "demographic7892",
-  "cases": {
-    "submitter_id": "GDC-INTERNAL-000073"
-  }, 
-  "ethnicity": "not reported",
-  "gender": "male",
-  "race": "white",
-  "vital_status": "Dead"
-}
-```
-```Command1
-token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
-```
-```Response1
-{
-  "cases_related_to_created_entities_count": 1,
-  "cases_related_to_updated_entities_count": 0,
-  "code": 201,
-  "created_entity_count": 1,
-  "entities": [
+=== "Request1"
+
+    ```json
     {
-      "action": "create",
-      "errors": [],
-      "id": "4e4f29a3-5325-47ef-a583-a251677ed29a",
-      "related_cases": [
-        {
-          "id":"71d17c1f-8985-4b2f-bb63-1c39cb6562d5",
-          "submitter_id":"GDC-INTERNAL-000073"
-        }
-      ],
       "type": "demographic",
-      "unique_keys": [
+      "submitter_id": "demographic7892",
+      "cases": {
+        "submitter_id": "GDC-INTERNAL-000073"
+      }, 
+      "ethnicity": "not reported",
+      "gender": "male",
+      "race": "white",
+      "vital_status": "Dead"
+    }
+    ```
+
+=== "Command1"
+
+  ```shell
+  token=$(<gdc-token-text-file.txt)
+
+  curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
+  ```
+
+=== "Response1"
+
+    ```json
+    {
+      "cases_related_to_created_entities_count": 1,
+      "cases_related_to_updated_entities_count": 0,
+      "code": 201,
+      "created_entity_count": 1,
+      "entities": [
         {
-          "project_id": "GDC-INTERNAL",
-          "submitter_id": "demographic7892"
+          "action": "create",
+          "errors": [],
+          "id": "4e4f29a3-5325-47ef-a583-a251677ed29a",
+          "related_cases": [
+            {
+              "id":"71d17c1f-8985-4b2f-bb63-1c39cb6562d5",
+              "submitter_id":"GDC-INTERNAL-000073"
+            }
+          ],
+          "type": "demographic",
+          "unique_keys": [
+            {
+              "project_id": "GDC-INTERNAL",
+              "submitter_id": "demographic7892"
+            }
+          ],
+          "valid": true,
+          "warnings": []
         }
       ],
-      "valid": true,
-      "warnings": []
+      "entity_error_count": 0,
+      "message": "Transaction successful.",
+      "success": true,
+      "transaction_id": 6357750,
+      "transactional_error_count": 0,
+      "transactional_errors": [],
+      "updated_entity_count": 0
     }
-  ],
-  "entity_error_count": 0,
-  "message": "Transaction successful.",
-  "success": true,
-  "transaction_id": 6357750,
-  "transactional_error_count": 0,
-  "transactional_errors": [],
-  "updated_entity_count": 0
-}
-```
+    ```
 
 #### Example: Updating the existing demographic entity using PATCH
-```Request2
-{
-  "type": "demographic",
-  "submitter_id": "demographic7892",
-  "cause_of_death": "Infection", 
-  "cause_of_death_source": "Death Certificate", 
-  "country_of_birth": "Antigua and Barbuda", 
-  "country_of_residence_at_enrollment": "Antigua and Barbuda"
-}
-```
-```Command2
-token=$(<gdc-token-text-file.txt)
 
-curl --header "X-Auth-Token: $token" --request PATCH --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
-```
-```Response2
-{
-  "cases_related_to_created_entities_count": 0,
-  "cases_related_to_updated_entities_count": 1,
-  "code": 200,
-  "created_entity_count": 0,
-  "entities": [
+=== "Request2"
+
+  ```json
+  {
+    "type": "demographic",
+    "submitter_id": "demographic7892",
+    "cause_of_death": "Infection", 
+    "cause_of_death_source": "Death Certificate", 
+    "country_of_birth": "Antigua and Barbuda", 
+    "country_of_residence_at_enrollment": "Antigua and Barbuda"
+  }
+  ```
+
+=== "Command2"
+
+    ```shell
+    token=$(<gdc-token-text-file.txt)
+
+    curl --header "X-Auth-Token: $token" --request PATCH --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
+    ```
+
+"Response2"
+
+    ```json
     {
-      "action": "update",
-      "errors": [],
-      "id": "4e4f29a3-5325-47ef-a583-a251677ed29a",
-      "related_cases": [
+      "cases_related_to_created_entities_count": 0,
+      "cases_related_to_updated_entities_count": 1,
+      "code": 200,
+      "created_entity_count": 0,
+      "entities": [
         {
-          "id":"71d17c1f-8985-4b2f-bb63-1c39cb6562d5",
-          "submitter_id":"GDC-INTERNAL-000073"
+          "action": "update",
+          "errors": [],
+          "id": "4e4f29a3-5325-47ef-a583-a251677ed29a",
+          "related_cases": [
+            {
+              "id":"71d17c1f-8985-4b2f-bb63-1c39cb6562d5",
+              "submitter_id":"GDC-INTERNAL-000073"
+            }
+          ],
+          "type": "demographic",
+          "unique_keys": [
+            {
+              "project_id": "GDC-INTERNAL",
+              "submitter_id": "demographic7892"
+            }
+          ],
+          "valid": true,
+          "warnings": []
         }
       ],
-      "type": "demographic",
-      "unique_keys": [
-        {
-          "project_id": "GDC-INTERNAL",
-          "submitter_id": "demographic7892"
-        }
-      ],
-      "valid": true,
-      "warnings": []
+      "entity_error_count": 0,
+      "message": "Transaction successful.",
+      "success": true,
+      "transaction_id": 6357751,
+      "transactional_error_count": 0,
+      "transactional_errors": [],
+      "updated_entity_count": 1
     }
-  ],
-  "entity_error_count": 0,
-  "message": "Transaction successful.",
-  "success": true,
-  "transaction_id": 6357751,
-  "transactional_error_count": 0,
-  "transactional_errors": [],
-  "updated_entity_count": 1
-}
-```
+    ```
 
 
 ## Deleting Entities

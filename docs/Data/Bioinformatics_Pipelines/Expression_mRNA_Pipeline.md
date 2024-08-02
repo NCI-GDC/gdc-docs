@@ -25,186 +25,194 @@ As of Data Release 32 the reference annotation will be updated to GENCODE v36 an
 
 __Note that version numbers may vary in files downloaded from the GDC Data Portal due to ongoing pipeline development and improvement.__
 
-```Original
-# STAR-2
+=== "Original"
 
-### For users with access to the ICGC pipeline:
+    ```shell
+    # STAR-2
 
-python star_align.py \
---genomeDir <star_index_path> \
---FastqFileIn <input_fastq_path> \
---workDir <work_dir> \
---out <output_bam> \
---genomeFastaFiles <reference> \
---runThreadN 8 \
---outFilterMultimapScoreRange 1 \
---outFilterMultimapNmax 20 \
---outFilterMismatchNmax 10 \
---alignIntronMax 500000 \
---alignMatesGapMax 1000000 \
---sjdbScore 2 \
---limitBAMsortRAM 0 \
---alignSJDBoverhangMin 1 \
---genomeLoad NoSharedMemory \
---outFilterMatchNminOverLread 0.33 \
---outFilterScoreMinOverLread 0.33 \
---twopass1readsN -1 \
---sjdbOverhang 100 \
---outSAMstrandField intronMotif \
---outSAMunmapped Within
+    ### For users with access to the ICGC pipeline:
 
-### For users without access to the ICGC pipeline:
+    python star_align.py \
+    --genomeDir <star_index_path> \
+    --FastqFileIn <input_fastq_path> \
+    --workDir <work_dir> \
+    --out <output_bam> \
+    --genomeFastaFiles <reference> \
+    --runThreadN 8 \
+    --outFilterMultimapScoreRange 1 \
+    --outFilterMultimapNmax 20 \
+    --outFilterMismatchNmax 10 \
+    --alignIntronMax 500000 \
+    --alignMatesGapMax 1000000 \
+    --sjdbScore 2 \
+    --limitBAMsortRAM 0 \
+    --alignSJDBoverhangMin 1 \
+    --genomeLoad NoSharedMemory \
+    --outFilterMatchNminOverLread 0.33 \
+    --outFilterScoreMinOverLread 0.33 \
+    --twopass1readsN -1 \
+    --sjdbOverhang 100 \
+    --outSAMstrandField intronMotif \
+    --outSAMunmapped Within
 
-### Step 1: Building the STAR index.*
+    ### For users without access to the ICGC pipeline:
 
-STAR
---runMode genomeGenerate
---genomeDir <star_index_path>
---genomeFastaFiles <reference>
---sjdbOverhang 100
---sjdbGTFfile <gencode.v36.annotation.gtf>
---runThreadN 8
+    ### Step 1: Building the STAR index.*
 
-### Step 2: Alignment 1st Pass.
+    STAR
+    --runMode genomeGenerate
+    --genomeDir <star_index_path>
+    --genomeFastaFiles <reference>
+    --sjdbOverhang 100
+    --sjdbGTFfile <gencode.v36.annotation.gtf>
+    --runThreadN 8
 
-STAR
---genomeDir <star_index_path>
---readFilesIn <fastq_left_1>,<fastq_left2>,... <fastq_right_1>,<fastq_right_2>,...
---runThreadN <runThreadN>
---outFilterMultimapScoreRange 1
---outFilterMultimapNmax 20
---outFilterMismatchNmax 10
---alignIntronMax 500000
---alignMatesGapMax 1000000
---sjdbScore 2
---alignSJDBoverhangMin 1
---genomeLoad NoSharedMemory
---readFilesCommand <bzcat|cat|zcat>
---outFilterMatchNminOverLread 0.33
---outFilterScoreMinOverLread 0.33
---sjdbOverhang 100
---outSAMstrandField intronMotif
---outSAMtype None
---outSAMmode None
+    ### Step 2: Alignment 1st Pass.
 
-### Step 3: Intermediate Index Generation.
+    STAR
+    --genomeDir <star_index_path>
+    --readFilesIn <fastq_left_1>,<fastq_left2>,... <fastq_right_1>,<fastq_right_2>,...
+    --runThreadN <runThreadN>
+    --outFilterMultimapScoreRange 1
+    --outFilterMultimapNmax 20
+    --outFilterMismatchNmax 10
+    --alignIntronMax 500000
+    --alignMatesGapMax 1000000
+    --sjdbScore 2
+    --alignSJDBoverhangMin 1
+    --genomeLoad NoSharedMemory
+    --readFilesCommand <bzcat|cat|zcat>
+    --outFilterMatchNminOverLread 0.33
+    --outFilterScoreMinOverLread 0.33
+    --sjdbOverhang 100
+    --outSAMstrandField intronMotif
+    --outSAMtype None
+    --outSAMmode None
 
-STAR
---runMode genomeGenerate
---genomeDir <output_path>
---genomeFastaFiles <reference>
---sjdbOverhang 100
---runThreadN <runThreadN>
---sjdbFileChrStartEnd <SJ.out.tab from previous step>
+    ### Step 3: Intermediate Index Generation.
 
-### Step 4: Alignment 2nd Pass.
+    STAR
+    --runMode genomeGenerate
+    --genomeDir <output_path>
+    --genomeFastaFiles <reference>
+    --sjdbOverhang 100
+    --runThreadN <runThreadN>
+    --sjdbFileChrStartEnd <SJ.out.tab from previous step>
 
-STAR
---genomeDir <output_path from previous step>
---readFilesIn <fastq_left_1>,<fastq_left2>,... <fastq_right_1>,<fastq_right_2>,...
---runThreadN <runThreadN>
---outFilterMultimapScoreRange 1
---outFilterMultimapNmax 20
---outFilterMismatchNmax 10
---alignIntronMax 500000
---alignMatesGapMax 1000000
---sjdbScore 2
---alignSJDBoverhangMin 1
---genomeLoad NoSharedMemory
---limitBAMsortRAM 0
---readFilesCommand <bzcat|cat|zcat>
---outFilterMatchNminOverLread 0.33
---outFilterScoreMinOverLread 0.33
---sjdbOverhang 100
---outSAMstrandField intronMotif
---outSAMattributes NH HI NM MD AS XS
---outSAMunmapped Within
---outSAMtype BAM SortedByCoordinate
---outSAMheaderHD @HD VN:1.4
---outSAMattrRGline <formatted RG line provided by wrapper>
-```
-```DR15Plus
-# STAR-2
+    ### Step 4: Alignment 2nd Pass.
 
-STAR \
---readFilesIn <fastq_files> \
---outSAMattrRGline <read_group_strings> \
---alignIntronMax 1000000 \
---alignIntronMin 20 \
---alignMatesGapMax 1000000 \
---alignSJDBoverhangMin 1 \
---alignSJoverhangMin 8 \
---alignSoftClipAtReferenceEnds Yes \
---chimJunctionOverhangMin 15 \
---chimMainSegmentMultNmax 1 \
---chimOutType Junctions SeparateSAMold WithinBAM SoftClip \
---chimSegmentMin 15 \
---genomeDir <genome_dir> \
---genomeLoad NoSharedMemory \
---limitSjdbInsertNsj 1200000 \
---outFileNamePrefix <output_prefix> \
---outFilterIntronMotifs None \
---outFilterMatchNminOverLread 0.33 \
---outFilterMismatchNmax 999 \
---outFilterMismatchNoverLmax 0.1 \
---outFilterMultimapNmax 20 \
---outFilterScoreMinOverLread 0.33 \
---outFilterType BySJout \
---outSAMattributes NH HI AS nM NM ch \
---outSAMstrandField intronMotif \
---outSAMtype BAM Unsorted \
---outSAMunmapped Within \
---quantMode TranscriptomeSAM GeneCounts \
---readFilesCommand <zcat, etc> \
---runThreadN <threads> \
---twopassMode Basic
-```
-```DR32
-# STAR Genome Index
-STAR
---runMode genomeGenerate
---genomeDir <star_index_path>
---genomeFastaFiles <reference>
---sjdbOverhang 100
---sjdbGTFfile <gencode.v36.annotation.gtf>
---runThreadN 8
+    STAR
+    --genomeDir <output_path from previous step>
+    --readFilesIn <fastq_left_1>,<fastq_left2>,... <fastq_right_1>,<fastq_right_2>,...
+    --runThreadN <runThreadN>
+    --outFilterMultimapScoreRange 1
+    --outFilterMultimapNmax 20
+    --outFilterMismatchNmax 10
+    --alignIntronMax 500000
+    --alignMatesGapMax 1000000
+    --sjdbScore 2
+    --alignSJDBoverhangMin 1
+    --genomeLoad NoSharedMemory
+    --limitBAMsortRAM 0
+    --readFilesCommand <bzcat|cat|zcat>
+    --outFilterMatchNminOverLread 0.33
+    --outFilterScoreMinOverLread 0.33
+    --sjdbOverhang 100
+    --outSAMstrandField intronMotif
+    --outSAMattributes NH HI NM MD AS XS
+    --outSAMunmapped Within
+    --outSAMtype BAM SortedByCoordinate
+    --outSAMheaderHD @HD VN:1.4
+    --outSAMattrRGline <formatted RG line provided by wrapper>
+    ```
 
-# STAR Alignment
-# STAR v2
-STAR
---readFilesIn <fastq_files> \
---outSAMattrRGline <read_group_strings> \
---genomeDir <genome_dir> \
---readFilesCommand <cat, zcat, etc> \
---runThreadN <threads> \
---twopassMode Basic \
---outFilterMultimapNmax 20 \
---alignSJoverhangMin 8 \
---alignSJDBoverhangMin 1 \
---outFilterMismatchNmax 999 \
---outFilterMismatchNoverLmax 0.1 \
---alignIntronMin 20 \
---alignIntronMax 1000000 \
---alignMatesGapMax 1000000 \
---outFilterType BySJout \
---outFilterScoreMinOverLread 0.33 \
---outFilterMatchNminOverLread 0.33 \
---limitSjdbInsertNsj 1200000 \
---outFileNamePrefix <output prefix> \
---outSAMstrandField intronMotif \
---outFilterIntronMotifs None \
---alignSoftClipAtReferenceEnds Yes \
---quantMode TranscriptomeSAM GeneCounts \
---outSAMtype BAM Unsorted \
---outSAMunmapped Within \
---genomeLoad NoSharedMemory \
---chimSegmentMin 15 \
---chimJunctionOverhangMin 15 \
---chimOutType Junctions SeparateSAMold WithinBAM SoftClip \
---chimOutJunctionFormat 1 \
---chimMainSegmentMultNmax 1 \
---outSAMattributes NH HI AS nM NM ch
-```
+=== "DR15Plus"
+
+    ```shell
+    # STAR-2
+
+    STAR \
+    --readFilesIn <fastq_files> \
+    --outSAMattrRGline <read_group_strings> \
+    --alignIntronMax 1000000 \
+    --alignIntronMin 20 \
+    --alignMatesGapMax 1000000 \
+    --alignSJDBoverhangMin 1 \
+    --alignSJoverhangMin 8 \
+    --alignSoftClipAtReferenceEnds Yes \
+    --chimJunctionOverhangMin 15 \
+    --chimMainSegmentMultNmax 1 \
+    --chimOutType Junctions SeparateSAMold WithinBAM SoftClip \
+    --chimSegmentMin 15 \
+    --genomeDir <genome_dir> \
+    --genomeLoad NoSharedMemory \
+    --limitSjdbInsertNsj 1200000 \
+    --outFileNamePrefix <output_prefix> \
+    --outFilterIntronMotifs None \
+    --outFilterMatchNminOverLread 0.33 \
+    --outFilterMismatchNmax 999 \
+    --outFilterMismatchNoverLmax 0.1 \
+    --outFilterMultimapNmax 20 \
+    --outFilterScoreMinOverLread 0.33 \
+    --outFilterType BySJout \
+    --outSAMattributes NH HI AS nM NM ch \
+    --outSAMstrandField intronMotif \
+    --outSAMtype BAM Unsorted \
+    --outSAMunmapped Within \
+    --quantMode TranscriptomeSAM GeneCounts \
+    --readFilesCommand <zcat, etc> \
+    --runThreadN <threads> \
+    --twopassMode Basic
+    ```
+
+=== "DR32"
+
+      ```shell
+      # STAR Genome Index
+      STAR
+      --runMode genomeGenerate
+      --genomeDir <star_index_path>
+      --genomeFastaFiles <reference>
+      --sjdbOverhang 100
+      --sjdbGTFfile <gencode.v36.annotation.gtf>
+      --runThreadN 8
+
+      # STAR Alignment
+      # STAR v2
+      STAR
+      --readFilesIn <fastq_files> \
+      --outSAMattrRGline <read_group_strings> \
+      --genomeDir <genome_dir> \
+      --readFilesCommand <cat, zcat, etc> \
+      --runThreadN <threads> \
+      --twopassMode Basic \
+      --outFilterMultimapNmax 20 \
+      --alignSJoverhangMin 8 \
+      --alignSJDBoverhangMin 1 \
+      --outFilterMismatchNmax 999 \
+      --outFilterMismatchNoverLmax 0.1 \
+      --alignIntronMin 20 \
+      --alignIntronMax 1000000 \
+      --alignMatesGapMax 1000000 \
+      --outFilterType BySJout \
+      --outFilterScoreMinOverLread 0.33 \
+      --outFilterMatchNminOverLread 0.33 \
+      --limitSjdbInsertNsj 1200000 \
+      --outFileNamePrefix <output prefix> \
+      --outSAMstrandField intronMotif \
+      --outFilterIntronMotifs None \
+      --alignSoftClipAtReferenceEnds Yes \
+      --quantMode TranscriptomeSAM GeneCounts \
+      --outSAMtype BAM Unsorted \
+      --outSAMunmapped Within \
+      --genomeLoad NoSharedMemory \
+      --chimSegmentMin 15 \
+      --chimJunctionOverhangMin 15 \
+      --chimOutType Junctions SeparateSAMold WithinBAM SoftClip \
+      --chimOutJunctionFormat 1 \
+      --chimMainSegmentMultNmax 1 \
+      --outSAMattributes NH HI AS nM NM ch
+      ```
 
 \*These indices are available for download at the [GDC Website](https://gdc.cancer.gov/about-data/data-harmonization-and-generation/gdc-reference-files) and do not need to be built again.
 
@@ -226,29 +234,37 @@ Note that the STAR counting results will not count reads that are mapped to more
 
 HTSeq
 
-```Current
-Counts are produced by STAR concurrent with alignment.
-```
-```Original
-htseq-count \
--m intersection-nonempty \
--i gene_id \
--r pos \
--s no \
-- gencode.v22.annotation.gtf
-```
-```DR15-31
-htseq-count \
--f bam \
--r name \
--s no \
--a 10 \
--t exon \
--i gene_id \
--m intersection-nonempty \
-<input_bam> \
-<gtf_file> > <counts_file>
-```
+=== "Current"
+
+    ```
+    Counts are produced by STAR concurrent with alignment.
+    ```
+
+=== "Original"
+
+    ```shell
+    htseq-count \
+    -m intersection-nonempty \
+    -i gene_id \
+    -r pos \
+    -s no \
+    - gencode.v22.annotation.gtf
+    ```
+
+=== "DR15-31"
+
+    ```shell
+    htseq-count \
+    -f bam \
+    -r name \
+    -s no \
+    -a 10 \
+    -t exon \
+    -i gene_id \
+    -m intersection-nonempty \
+    <input_bam> \
+    <gtf_file> > <counts_file>
+    ```
 
 ## mRNA Expression Transformation
 

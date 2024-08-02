@@ -176,68 +176,74 @@ The purpose of this endpoint is to retrieve the availability of gene expression 
 
 __Example 1__: A user wants to get the availability of gene expression data for a set of cases and genes.
 
-```Filter
-{
-  "case_ids": [
-    "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
-    "e3b32485-b204-43a7-93a5-601408fcdf96"
-  ],
-  "gene_ids": [
-    "ENSG00000141510",
-    "ENSG00000181143"
-  ]
-}
-```
+=== "Filter"
 
-```Shell
-curl -X 'POST' \
-  'https://api.gdc.cancer.gov/gene_expression/availability' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "case_ids": [
-    "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
-    "e3b32485-b204-43a7-93a5-601408fcdf96"
-  ],
-  "gene_ids": [
-    "ENSG00000141510",
-    "ENSG00000181143"
-  ]
-}'
-```
-
-```Response
-{
-    "cases": {
-        "details": [
-            {
-                "case_id": "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
-                "has_gene_expression_values": false
-            },
-            {
-                "case_id": "e3b32485-b204-43a7-93a5-601408fcdf96",
-                "has_gene_expression_values": true
-            }
-        ],
-        "with_gene_expression_count": 1,
-        "without_gene_expression_count": 1
-    },
-    "genes": {
-        "details": [
-            {
-                "gene_id": "ENSG00000141510",
-                "has_gene_expression_values": true
-            },
-            {
-                "gene_id": "ENSG00000181143",
-                "has_gene_expression_values": true
-            }
-        ],
-        "with_gene_expression_count": 2,
-        "without_gene_expression_count": 0
+    ```json
+    {
+      "case_ids": [
+        "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
+        "e3b32485-b204-43a7-93a5-601408fcdf96"
+      ],
+      "gene_ids": [
+        "ENSG00000141510",
+        "ENSG00000181143"
+      ]
     }
-}
-```
+    ```
+
+=== "Shell"
+
+    ```json
+    curl -X 'POST' \
+      'https://api.gdc.cancer.gov/gene_expression/availability' \
+      -H 'accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -d '{
+      "case_ids": [
+        "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
+        "e3b32485-b204-43a7-93a5-601408fcdf96"
+      ],
+      "gene_ids": [
+        "ENSG00000141510",
+        "ENSG00000181143"
+      ]
+    }'
+    ```
+
+=== "Response"
+
+    ```json
+    {
+        "cases": {
+            "details": [
+                {
+                    "case_id": "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
+                    "has_gene_expression_values": false
+                },
+                {
+                    "case_id": "e3b32485-b204-43a7-93a5-601408fcdf96",
+                    "has_gene_expression_values": true
+                }
+            ],
+            "with_gene_expression_count": 1,
+            "without_gene_expression_count": 1
+        },
+        "genes": {
+            "details": [
+                {
+                    "gene_id": "ENSG00000141510",
+                    "has_gene_expression_values": true
+                },
+                {
+                    "gene_id": "ENSG00000181143",
+                    "has_gene_expression_values": true
+                }
+            ],
+            "with_gene_expression_count": 2,
+            "without_gene_expression_count": 0
+        }
+    }
+    ```
 
 ### Gene Expression Values Endpoint
 
@@ -255,49 +261,55 @@ The `median_centered_log2_uqfpkm` is calculated through the following steps:
 
 __Example 1__: A user wants to get expression values using case IDs and gene IDs.
 
-```Filter
-{
-    "case_ids": [
-        "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
-        "e3b32485-b204-43a7-93a5-601408fcdf96",
-        "000ead0d-abf5-4606-be04-1ea31b999840",
-        "001ab32d-f924-4753-ad67-4366fb845ae6"
-    ],
-    "gene_ids": [
-        "ENSG00000141510",
-        "ENSG00000181143"
-    ],
-    "tsv_units": "median_centered_log2_uqfpkm",
-    "format": "tsv"
-}
-```
+=== "Filter"
 
-```Shell
-curl -X 'POST' \
-  'https://api.gdc.cancer.gov/gene_expression/values' \
-  -H 'accept: text/tab-separated-values' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "case_ids": [
-        "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
-        "e3b32485-b204-43a7-93a5-601408fcdf96",
-        "000ead0d-abf5-4606-be04-1ea31b999840",
-        "001ab32d-f924-4753-ad67-4366fb845ae6"
-    ],
-    "gene_ids": [
-        "ENSG00000141510",
-        "ENSG00000181143"
-    ],
-    "tsv_units": "median_centered_log2_uqfpkm",
-    "format": "tsv"
-}'
-```
+    ```json
+    {
+        "case_ids": [
+            "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
+            "e3b32485-b204-43a7-93a5-601408fcdf96",
+            "000ead0d-abf5-4606-be04-1ea31b999840",
+            "001ab32d-f924-4753-ad67-4366fb845ae6"
+        ],
+        "gene_ids": [
+            "ENSG00000141510",
+            "ENSG00000181143"
+        ],
+        "tsv_units": "median_centered_log2_uqfpkm",
+        "format": "tsv"
+    }
+    ```
 
-```Response
-gene_id	000ead0d-abf5-4606-be04-1ea31b999840	001ab32d-f924-4753-ad67-4366fb845ae6	e3b32485-b204-43a7-93a5-601408fcdf96
-ENSG00000141510	-0.58248	1.75830	0.00000
-ENSG00000181143	-0.02529	0.00000	3.52293
-```
+=== "Shell"
+
+    ```shell
+    curl -X 'POST' \
+      'https://api.gdc.cancer.gov/gene_expression/values' \
+      -H 'accept: text/tab-separated-values' \
+      -H 'Content-Type: application/json' \
+      -d '{
+        "case_ids": [
+            "6d4f38db-a97b-4dc0-8dc5-2ac7f2cc5e38",
+            "e3b32485-b204-43a7-93a5-601408fcdf96",
+            "000ead0d-abf5-4606-be04-1ea31b999840",
+            "001ab32d-f924-4753-ad67-4366fb845ae6"
+        ],
+        "gene_ids": [
+            "ENSG00000141510",
+            "ENSG00000181143"
+        ],
+        "tsv_units": "median_centered_log2_uqfpkm",
+        "format": "tsv"
+    }'
+    ```
+
+=== "Response"
+
+    ```
+    gene_id	000ead0d-abf5-4606-be04-1ea31b999840	001ab32d-f924-4753-ad67-4366fb845ae6	e3b32485-b204-43a7-93a5-601408fcdf96
+    ENSG00000141510	-0.58248	1.75830	0.00000
+    ENSG00000181143	-0.02529	0.00000	3.52293
+    ```
 
 ### Gene Expression Gene Selection Endpoint
 
@@ -316,66 +328,72 @@ An optional threshold (`min_median_log2_uqfpkm`) defines a minimum value for exp
 
 __Example 1__: A user wants to get the most variably expressed genes for a list of case UUIDs and a list of Ensembl gene IDs.
 
-```Filter
-{
-    "case_ids": [
-        "000ead0d-abf5-4606-be04-1ea31b999840",
-        "001ab32d-f924-4753-ad67-4366fb845ae6",
-        "0024c94c-88ff-49d9-8dc4-bf77f832d85e",
-        "003f4f85-3244-4132-8c9d-c29f09382269",
-        "005d0639-c923-470f-a179-02a4dbb5cdf2",
-        "006931bb-f5b1-4aa4-b0a8-af517a912db0",
-        "0084e8b6-57fc-48b6-aa77-fec6e45161d2",
-        "008d3744-e7f0-41a5-a419-702960cf1ccb",
-        "0094e07c-1595-402e-9d38-68b9cac71e7b",
-        "00bd58bd-223d-433e-b60a-5bf355f342b1"
-    ],
-    "gene_ids": [
-        "ENSG00000141510",
-        "ENSG00000181143"
-    ],
-    "selection_size": 1
-}
-```
+=== "Filter"
 
-```Shell
-curl -X 'POST' \
-  'https://api.gdc.cancer.gov/gene_expression/gene_selection' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "case_ids": [
-        "000ead0d-abf5-4606-be04-1ea31b999840",
-        "001ab32d-f924-4753-ad67-4366fb845ae6",
-        "0024c94c-88ff-49d9-8dc4-bf77f832d85e",
-        "003f4f85-3244-4132-8c9d-c29f09382269",
-        "005d0639-c923-470f-a179-02a4dbb5cdf2",
-        "006931bb-f5b1-4aa4-b0a8-af517a912db0",
-        "0084e8b6-57fc-48b6-aa77-fec6e45161d2",
-        "008d3744-e7f0-41a5-a419-702960cf1ccb",
-        "0094e07c-1595-402e-9d38-68b9cac71e7b",
-        "00bd58bd-223d-433e-b60a-5bf355f342b1"
-    ],
-    "gene_ids": [
-        "ENSG00000141510",
-        "ENSG00000181143"
-    ],
-    "selection_size": 1
-}'
-```
+    ```json
+    {
+        "case_ids": [
+            "000ead0d-abf5-4606-be04-1ea31b999840",
+            "001ab32d-f924-4753-ad67-4366fb845ae6",
+            "0024c94c-88ff-49d9-8dc4-bf77f832d85e",
+            "003f4f85-3244-4132-8c9d-c29f09382269",
+            "005d0639-c923-470f-a179-02a4dbb5cdf2",
+            "006931bb-f5b1-4aa4-b0a8-af517a912db0",
+            "0084e8b6-57fc-48b6-aa77-fec6e45161d2",
+            "008d3744-e7f0-41a5-a419-702960cf1ccb",
+            "0094e07c-1595-402e-9d38-68b9cac71e7b",
+            "00bd58bd-223d-433e-b60a-5bf355f342b1"
+        ],
+        "gene_ids": [
+            "ENSG00000141510",
+            "ENSG00000181143"
+        ],
+        "selection_size": 1
+    }
+    ```
 
-```Response
-{
-    "gene_selection": [
-        {
-            "log2_uqfpkm_stddev": 0.9962971125913709,
-            "log2_uqfpkm_median": 2.904457107848132,
-            "gene_id": "ENSG00000141510",
-            "symbol": "TP53"
-        }
-    ]
-}
-```
+=== "Shell"
+
+    ```shell
+    curl -X 'POST' \
+      'https://api.gdc.cancer.gov/gene_expression/gene_selection' \
+      -H 'accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -d '{
+        "case_ids": [
+            "000ead0d-abf5-4606-be04-1ea31b999840",
+            "001ab32d-f924-4753-ad67-4366fb845ae6",
+            "0024c94c-88ff-49d9-8dc4-bf77f832d85e",
+            "003f4f85-3244-4132-8c9d-c29f09382269",
+            "005d0639-c923-470f-a179-02a4dbb5cdf2",
+            "006931bb-f5b1-4aa4-b0a8-af517a912db0",
+            "0084e8b6-57fc-48b6-aa77-fec6e45161d2",
+            "008d3744-e7f0-41a5-a419-702960cf1ccb",
+            "0094e07c-1595-402e-9d38-68b9cac71e7b",
+            "00bd58bd-223d-433e-b60a-5bf355f342b1"
+        ],
+        "gene_ids": [
+            "ENSG00000141510",
+            "ENSG00000181143"
+        ],
+        "selection_size": 1
+    }'
+    ```
+
+=== "Response"
+
+    ```json
+    {
+        "gene_selection": [
+            {
+                "log2_uqfpkm_stddev": 0.9962971125913709,
+                "log2_uqfpkm_median": 2.904457107848132,
+                "gene_id": "ENSG00000141510",
+                "symbol": "TP53"
+            }
+        ]
+    }
+    ```
 
 ## Simple Somatic Mutation Endpoint Examples
 
