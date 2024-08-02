@@ -28,7 +28,6 @@ The GDC Data Submission Portal is a platform that allows researchers to submit a
 * [__Data Submission Overview__](Data_Submission_Overview.md): Graphical explanations used to display the life cycle of projects and their data.
 * [__Data Submission Process__](Data_Submission_Process.md): An overview of the data submission process using the GDC Data Submission Portal.
 * [__Data Submission Walkthrough__](Data_Submission_Walkthrough.md): Step-by-step instructions on GDC data submission and their relationship to the GDC Data Model.
-* [__Pre-Release Data Portal__](Pre_Release_QC.md): Instructions on how to use the Pre-Release Data Portal for projects that have been harmonized but not released.
 
 ## HIPAA Compliance
 
