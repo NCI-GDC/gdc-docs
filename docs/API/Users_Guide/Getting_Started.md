@@ -67,25 +67,31 @@ See [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md) for details.
 
 The following is an example of a request to the `files` endpoint, which retrieves information about a MAF file stored in the GDC.
 
-``` shell
-curl https://api.gdc.cancer.gov/files/cb92f61d-041c-4424-a3e9-891b7545f351?pretty=true
-```
-``` python
-import requests
-import json
+=== "Shell"
+  
+    ``` shell
+    curl https://api.gdc.cancer.gov/files/cb92f61d-041c-4424-a3e9-891b7545f351?pretty=true
+    ```
 
-file_endpt = 'https://api.gdc.cancer.gov/files/'
-file_uuid = 'cb92f61d-041c-4424-a3e9-891b7545f351'
-response = requests.get(file_endpt + file_uuid)
+=== "Python"
 
-# OUTPUT METHOD 1: Write to a file.
-file = open("sample_request.json", "w")
-file.write(response.text)
-file.close()
+    ``` python
+    import requests
+    import json
+    
+    file_endpt = 'https://api.gdc.cancer.gov/files/'
+    file_uuid = 'cb92f61d-041c-4424-a3e9-891b7545f351'
+    response = requests.get(file_endpt + file_uuid)
+    
+    # OUTPUT METHOD 1: Write to a file.
+    file = open("sample_request.json", "w")
+    file.write(response.text)
+    file.close()
+    
+    # OUTPUT METHOD 2: View on screen.
+    print(json.dumps(response.json(), indent=2))
+    ```
 
-# OUTPUT METHOD 2: View on screen.
-print(json.dumps(response.json(), indent=2))
-```
 [Download Script](scripts/Sample_Request.py)
 ## Authentication
 
@@ -99,49 +105,58 @@ All API requests that require authentication must include a token as an `X-Auth-
 
 In the following example, an authentication token is saved as an environment variable and passed to `curl` to download a controlled-access file:
 
-```Shell
-token=$(cat <gdc-token-text-file.txt>)
+=== "Shell"
+    
+    ```shell
+    token=$(cat <gdc-token-text-file.txt>)
+    
+    curl -O -J -H "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/data/fd89bfa5-b3a7-4079-bf90-709580c006e5'
+    ```
 
-curl -O -J -H "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/data/fd89bfa5-b3a7-4079-bf90-709580c006e5'
-```
-```Output
-% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                Dload  Upload   Total   Spent    Left  Speed
-100 4161M  100 4161M    0     0   281k      0  4:12:45  4:12:45 --:--:-- 1894k
+=== "Output"
 
-```
-```Python
-import requests
-import json
-import re
+    ```
+    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                    Dload  Upload   Total   Spent    Left  Speed
+    100 4161M  100 4161M    0     0   281k      0  4:12:45  4:12:45 --:--:-- 1894k
+    
+    ```
 
-'''
- This script will not work until $TOKEN_FILE_PATH
- is replaced with an actual path.
-'''
+=== "Python"
 
-with open("$TOKEN_FILE_PATH","r") as token:
-    token_string = str(token.read().strip())
+    ```Python
+    import requests
+    import json
+    import re
+    
+    '''
+     This script will not work until $TOKEN_FILE_PATH
+     is replaced with an actual path.
+    '''
+    
+    with open("$TOKEN_FILE_PATH","r") as token:
+        token_string = str(token.read().strip())
+    
+    headers = {
+               'X-Auth-Token': token_string
+              }
+    
+    data_endpt = 'https://api.gdc.cancer.gov/data/'
+    data_uuid = 'fd89bfa5-b3a7-4079-bf90-709580c006e5'
+    headers = {
+               'X-Auth-Token': token_string
+              }
+    response = requests.get(data_endpt + data_uuid, headers=headers)
+    
+    # The file name can be found in the header within the Content-Disposition key.
+    response_head_cd = response.headers["Content-Disposition"]
+    
+    file_name = re.findall("filename=(.+)", response_head_cd)[0]
+    
+    with open(file_name, "wb") as output_file:
+        output_file.write(response.content)
+    ```
 
-headers = {
-           'X-Auth-Token': token_string
-          }
-
-data_endpt = 'https://api.gdc.cancer.gov/data/'
-data_uuid = 'fd89bfa5-b3a7-4079-bf90-709580c006e5'
-headers = {
-           'X-Auth-Token': token_string
-          }
-response = requests.get(data_endpt + data_uuid, headers=headers)
-
-# The file name can be found in the header within the Content-Disposition key.
-response_head_cd = response.headers["Content-Disposition"]
-
-file_name = re.findall("filename=(.+)", response_head_cd)[0]
-
-with open(file_name, "wb") as output_file:
-    output_file.write(response.content)
-```
 [Download Python Script](scripts/Authentication_Tokens.py)
 
 

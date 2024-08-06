@@ -434,7 +434,7 @@
   // Dictionary Constants
   ///////////////////////////////////////////////
   var _DICTIONARY_CONSTANTS = {
-    APP_ABSOLUTE_DIR: "/apps/dictionary",
+    APP_ABSOLUTE_DIR: "",
     VIEWS: {
       TABLE: {
         _ID: "TABLE",
@@ -527,7 +527,7 @@
       },
     },
     TEMPLATES: {
-      RELATIVE_DIR: "/html-shards",
+      RELATIVE_DIR: "/Data_Dictionary/viewer",
       MAIN_DICTIONARY: "dictionary.html",
     },
     BROWSER_CAPABILITIES: {

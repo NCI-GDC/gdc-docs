@@ -124,24 +124,16 @@
           );
 
         _tableDefinitionView._parentDictionary
-          .fetchDictionaryTemplate("views/entity-definition-controls.view.html")
+          .fetchDictionaryTemplate("/entity-definition-controls.view.html")
           .then(function (html) {
-            var templateDefinitionControlSelection = definitionControlsSelection
-              .append("div")
-              .style({ display: "inline-block", "margin-left": "2rem" })
-              .html(html);
+            definitionControlsSelection
+                .append("div")
+                .html(html);
 
             var viewDataFormatLabel =
-              templateDefinitionControlSelection.select(".data-format-value");
+              definitionControlsSelection.select(".data-format-value");
 
-            // Set the label to the current default on control load
-            viewDataFormatLabel.text(
-              _tableDefinitionView._parentDictionary
-                .getDefaultDictionaryTemplateDownloadFormat()
-                .toUpperCase()
-            );
-
-            templateDefinitionControlSelection
+            definitionControlsSelection
               .selectAll("a")
               .on("click", function () {
                 var option = d3.select(this);
@@ -1011,12 +1003,13 @@
       var categoryKeys = _DICTIONARY_CONSTANTS.ENTITY_LIST_DICTIONARY_KEY_ORDER;
 
       _tableEntityListView._parentDictionary
-        .fetchDictionaryTemplate("views/entity-list-controls.view.html")
+        .fetchDictionaryTemplate("entity-list-controls.view.html")
         .then(function (html) {
           var templateDefinitionControlSelection = d3
             .select(_DICTIONARY_CONSTANTS.VIEWS._STATIC.DICTIONARY_CONTROLS)
             .append("div")
-            .style({ display: "inline-block", "margin-left": "2rem" })
+            .style("display", "inline-block")
+            .style("margin-left", "2rem")
             .html(html);
 
           var viewDataFormatLabel =

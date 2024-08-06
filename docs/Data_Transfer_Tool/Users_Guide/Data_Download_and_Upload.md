@@ -31,15 +31,20 @@ The GDC Data Transfer Tool supports resumption of interrupted downloads. To resu
 ### Download Latest Version of a File
 The GDC Data Transfer Tool supports file versioning.  Our backend data storage supports multiple file versions so older and current versions can be accessible to our users.  For information about accessing file versioning information with our API and finding older UUID information from current UUIDs please check out the [the API User Guide](https://docs.gdc.cancer.gov/API/Users_Guide/Search_and_Retrieval/#example-of-retrieving-file-version-information) section in our API documentation.  When working with older manifests or older lists of UUIDs the latest version of a file can always be download with the --latest flag.   
 
-```Shell
-gdc-client download 426de656-7e34-4a49-b87e-6e2563fa3cdd --latest -t gdc-user-token.2018.txt
-```
-```Output
-Downloading LATEST versions of files
-Latest version for 426de656-7e34-4a49-b87e-6e2563fa3cdd ==> 6633bfbd-87f1-4d3a-a475-7ad1e8c2017a
-100% [#############################################################################################################################] Time: 0:01:16  14.10 MB/s
-Successfully downloaded: 1
-```
+=== "Shell"
+
+    ```Shell
+    gdc-client download 426de656-7e34-4a49-b87e-6e2563fa3cdd --latest -t gdc-user-token.2018.txt
+    ```
+
+=== "Output"
+
+    ```
+    Downloading LATEST versions of files
+    Latest version for 426de656-7e34-4a49-b87e-6e2563fa3cdd ==> 6633bfbd-87f1-4d3a-a475-7ad1e8c2017a
+    100% [#############################################################################################################################] Time: 0:01:16  14.10 MB/s
+    Successfully downloaded: 1
+    ```
 
 ### Downloading Controlled-Access Data
 
@@ -62,14 +67,19 @@ GDC Data Transfer Tool supports uploading molecular data using a manifest file t
 
 First, generate an upload manifest, either using the GDC Data Submission Portal, or [using a call](/API/Users_Guide/Submission.md#upload-manifest) to the GDC Submission API `manifest` endpoint (as in the following example):
 
-```Manifest
-export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+=== "Manifest"
 
-curl --header "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/submission/CGCI/BLGSP/manifest?ids=460ad2fe-5a7f-4797-9e18-336d33e21444' >manifest.yml
-```
-```Upload
-gdc-client upload --manifest manifest.yml --token-file token.txt
-```
+    ```shell
+    export token=ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTOKEN-01234567890+AlPhAnUmErIcToKeN=0123456789-ALPHANUMERICTO
+
+    curl --header "X-Auth-Token: $token" 'https://api.gdc.cancer.gov/submission/CGCI/BLGSP/manifest?ids=460ad2fe-5a7f-4797-9e18-336d33e21444' >manifest.yml
+    ```
+
+=== "Upload"
+
+    ```shell
+    gdc-client upload --manifest manifest.yml --token-file token.txt
+    ```
 
 ### Uploading Data Using a GDC File UUID
 
@@ -154,25 +164,30 @@ The GDC Data Transfer Tool comes with built-in help menus. These menus are displ
 
 
 
-```Shell
-gdc-client --help
-```
-``` Output
-usage: gdc-client [-h] [--version] {download,upload,settings} ...
+=== "Shell"
 
-The Genomic Data Commons Command Line Client
+    ```Shell
+    gdc-client --help
+    ```
 
-optional arguments:
-  -h, --help            show this help message and exit
-  --version             show program's version number and exit
+=== "Output"
 
-commands:
-  {download,upload,settings}
-                        for more information, specify -h after a command
-    download            download data from the GDC
-    upload              upload data to the GDC
-    settings            display default settings
-```
+    ```shell 
+    usage: gdc-client [-h] [--version] {download,upload,settings} ...
+    
+    The Genomic Data Commons Command Line Client
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      --version             show program's version number and exit
+    
+    commands:
+      {download,upload,settings}
+                            for more information, specify -h after a command
+        download            download data from the GDC
+        upload              upload data to the GDC
+        settings            display default settings
+    ```
 
  The available menus are provided below.
 
@@ -180,140 +195,154 @@ commands:
 
 The GDC Data Transfer Tool displays the following output when executed without any arguments.
 
-```Shell
-gdc-client
-```
-```Output
-usage: gdc-client [-h] [--version] {download,upload,settings} ...
-gdc-client: error: too few arguments
-```
+=== "Shell"
+
+    ```Shell
+    gdc-client
+    ```
+
+=== "Output"
+
+    ```shell
+    usage: gdc-client [-h] [--version] {download,upload,settings} ...
+    gdc-client: error: too few arguments
+    ```
 
 
 ### Download help menu
 
 The GDC Data Transfer Tool displays the following help menu for its download functionality.
 
-```Shell
-gdc-client download --help
-```
-```Output
-usage: gdc-client download [-h] [--debug]
-                           [--log-file LOG_FILE]
-                           [--color_off] [-t TOKEN_FILE]
-                           [-d DIR] [-s server]
-                           [--no-segment-md5sums]
-                           [--no-file-md5sum]
-                           [-n N_PROCESSES]
-                           [--http-chunk-size HTTP_CHUNK_SIZE]
-                           [--save-interval SAVE_INTERVAL]
-                           [--no-verify]
-                           [--no-related-files]
-                           [--no-annotations]
-                           [--no-auto-retry]
-                           [--retry-amount RETRY_AMOUNT]
-                           [--wait-time WAIT_TIME]
-                           [--latest] [--config FILE] [-u]
-                           [-m MANIFEST]
-                           [file_id [file_id ...]]
+=== "Shell"
 
-positional arguments:
-file_id               The GDC UUID of the file(s) to download
+    ```Shell
+    gdc-client download --help
+    ```
 
-optional arguments:
--h, --help            show this help message and exit
---debug               Enable debug logging. If a failure occurs, the program
-                      will stop.
---log-file LOG_FILE   Save logs to file. Amount logged affected by --debug
---color_off           Disable colored output
--t TOKEN_FILE, --token-file TOKEN_FILE
-                      GDC API auth token file
--d DIR, --dir DIR     Directory to download files to. Defaults to current
-                      dir
--s server, --server server
-                      The TCP server address server[:port]
---no-segment-md5sums  Do not calculate inbound segment md5sums and/or do not
-                      verify md5sums on restart
---no-file-md5sum      Do not verify file md5sum after download
--n N_PROCESSES, --n-processes N_PROCESSES
-                      Number of client connections.
---http-chunk-size HTTP_CHUNK_SIZE, -c HTTP_CHUNK_SIZE
-                      Size in bytes of standard HTTP block size.
---save-interval SAVE_INTERVAL
-                      The number of chunks after which to flush state file.
-                      A lower save interval will result in more frequent
-                      printout but lower performance.
---no-verify           Perform insecure SSL connection and transfer
---no-related-files    Do not download related files.
---no-annotations      Do not download annotations.
---no-auto-retry       Ask before retrying to download a file
---retry-amount RETRY_AMOUNT
-                      Number of times to retry a download
---wait-time WAIT_TIME
-                      Amount of seconds to wait before retrying
---latest              Download latest version of a file if it exists
---config FILE         Path to INI-type config file
--u, --udt             Use the UDT protocol.
--m MANIFEST, --manifest MANIFEST
-                      GDC download manifest file
-```
+=== "Output"
+
+    ```shell
+    usage: gdc-client download [-h] [--debug]
+                               [--log-file LOG_FILE]
+                               [--color_off] [-t TOKEN_FILE]
+                               [-d DIR] [-s server]
+                               [--no-segment-md5sums]
+                               [--no-file-md5sum]
+                               [-n N_PROCESSES]
+                               [--http-chunk-size HTTP_CHUNK_SIZE]
+                               [--save-interval SAVE_INTERVAL]
+                               [--no-verify]
+                               [--no-related-files]
+                               [--no-annotations]
+                               [--no-auto-retry]
+                               [--retry-amount RETRY_AMOUNT]
+                               [--wait-time WAIT_TIME]
+                               [--latest] [--config FILE] [-u]
+                               [-m MANIFEST]
+                               [file_id [file_id ...]]
+
+    positional arguments:
+    file_id               The GDC UUID of the file(s) to download
+
+    optional arguments:
+    -h, --help            show this help message and exit
+    --debug               Enable debug logging. If a failure occurs, the program
+                          will stop.
+    --log-file LOG_FILE   Save logs to file. Amount logged affected by --debug
+    --color_off           Disable colored output
+    -t TOKEN_FILE, --token-file TOKEN_FILE
+                          GDC API auth token file
+    -d DIR, --dir DIR     Directory to download files to. Defaults to current
+                          dir
+    -s server, --server server
+                          The TCP server address server[:port]
+    --no-segment-md5sums  Do not calculate inbound segment md5sums and/or do not
+                          verify md5sums on restart
+    --no-file-md5sum      Do not verify file md5sum after download
+    -n N_PROCESSES, --n-processes N_PROCESSES
+                          Number of client connections.
+    --http-chunk-size HTTP_CHUNK_SIZE, -c HTTP_CHUNK_SIZE
+                          Size in bytes of standard HTTP block size.
+    --save-interval SAVE_INTERVAL
+                          The number of chunks after which to flush state file.
+                          A lower save interval will result in more frequent
+                          printout but lower performance.
+    --no-verify           Perform insecure SSL connection and transfer
+    --no-related-files    Do not download related files.
+    --no-annotations      Do not download annotations.
+    --no-auto-retry       Ask before retrying to download a file
+    --retry-amount RETRY_AMOUNT
+                          Number of times to retry a download
+    --wait-time WAIT_TIME
+                          Amount of seconds to wait before retrying
+    --latest              Download latest version of a file if it exists
+    --config FILE         Path to INI-type config file
+    -u, --udt             Use the UDT protocol.
+    -m MANIFEST, --manifest MANIFEST
+                          GDC download manifest file
+    ```
 
 ### Upload help menu
 
 The GDC Data Transfer Tool displays the following help menu for its upload functionality.
 
 
-```Shell
-gdc-client upload --help
-```
-```Output
-usage: gdc-client upload [-h] [--debug]
-                                            [--log-file LOG_FILE]
-                                            [--color_off] [-t TOKEN_FILE]
-                                            [--project-id PROJECT_ID]
-                                            [--path path]
-                                            [--upload-id UPLOAD_ID]
-                                            [--insecure] [--server SERVER]
-                                            [--part-size PART_SIZE]
-                                            [--upload-part-size UPLOAD_PART_SIZE]
-                                            [-n N_PROCESSES]
-                                            [--disable-multipart] [--abort]
-                                            [--resume] [--delete]
-                                            [--manifest MANIFEST]
-                                            [--config FILE]
-                                            [file_id [file_id ...]]
-positional arguments:
- file_id               The GDC UUID of the file(s) to upload
+=== "Shell"
 
-optional arguments:
- -h, --help            show this help message and exit
- --debug               Enable debug logging. If a failure occurs, the program
-                       will stop.
- --log-file LOG_FILE   Save logs to file. Amount logged affected by --debug
- --color_off           Disable colored output
- -t TOKEN_FILE, --token-file TOKEN_FILE
-                       GDC API auth token file
- --project-id PROJECT_ID, -p PROJECT_ID
-                       The project ID that owns the file
- --path path, -f path  directory path to find file
- --upload-id UPLOAD_ID, -u UPLOAD_ID
-                       Multipart upload id
- --insecure, -k        Allow connections to server without certs
- --server SERVER, -s SERVER
-                       GDC API server address
- --part-size PART_SIZE
-                       DEPRECATED in favor of [--upload-part-size]
- --upload-part-size UPLOAD_PART_SIZE, -c UPLOAD_PART_SIZE
-                       Part size for multipart upload
- -n N_PROCESSES, --n-processes N_PROCESSES
-                       Number of client connections
- --disable-multipart   Disable multipart upload
- --abort               Abort previous multipart upload
- --resume, -r          Resume previous multipart upload
- --delete              Delete an uploaded file
- --manifest MANIFEST, -m MANIFEST
-                       Manifest which describes files to be uploaded
- --config FILE         Path to INI-type config file
-```
+    ```Shell
+    gdc-client upload --help
+    ```
+
+=== "Output"
+    ```shell
+    usage: gdc-client upload [-h] [--debug]
+                                                [--log-file LOG_FILE]
+                                                [--color_off] [-t TOKEN_FILE]
+                                                [--project-id PROJECT_ID]
+                                                [--path path]
+                                                [--upload-id UPLOAD_ID]
+                                                [--insecure] [--server SERVER]
+                                                [--part-size PART_SIZE]
+                                                [--upload-part-size UPLOAD_PART_SIZE]
+                                                [-n N_PROCESSES]
+                                                [--disable-multipart] [--abort]
+                                                [--resume] [--delete]
+                                                [--manifest MANIFEST]
+                                                [--config FILE]
+                                                [file_id [file_id ...]]
+    positional arguments:
+     file_id               The GDC UUID of the file(s) to upload
+    
+    optional arguments:
+     -h, --help            show this help message and exit
+     --debug               Enable debug logging. If a failure occurs, the program
+                           will stop.
+     --log-file LOG_FILE   Save logs to file. Amount logged affected by --debug
+     --color_off           Disable colored output
+     -t TOKEN_FILE, --token-file TOKEN_FILE
+                           GDC API auth token file
+     --project-id PROJECT_ID, -p PROJECT_ID
+                           The project ID that owns the file
+     --path path, -f path  directory path to find file
+     --upload-id UPLOAD_ID, -u UPLOAD_ID
+                           Multipart upload id
+     --insecure, -k        Allow connections to server without certs
+     --server SERVER, -s SERVER
+                           GDC API server address
+     --part-size PART_SIZE
+                           DEPRECATED in favor of [--upload-part-size]
+     --upload-part-size UPLOAD_PART_SIZE, -c UPLOAD_PART_SIZE
+                           Part size for multipart upload
+     -n N_PROCESSES, --n-processes N_PROCESSES
+                           Number of client connections
+     --disable-multipart   Disable multipart upload
+     --abort               Abort previous multipart upload
+     --resume, -r          Resume previous multipart upload
+     --delete              Delete an uploaded file
+     --manifest MANIFEST, -m MANIFEST
+                           Manifest which describes files to be uploaded
+     --config FILE         Path to INI-type config file
+    ```
 
 ##Data Transfer Tool Configuration File  
 The DTT has the ability to save and reuse configuration parameters in the format of a flat text file via a command line argument.  A simple text file needs to be created first with an extension of either txt or dtt.  The supported section headers are upload and download which can be used independently of each other or used in the same configuration file.  Each section header corresponds to the main functions of the application which are to either download data from the GDC portals or to upload data to the submission system of the GDC.  The configurable parameters are those listed in the help menus under either [download](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#download-help-menu) or [upload](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#upload-help-menu) displayed under the output tabs.             
