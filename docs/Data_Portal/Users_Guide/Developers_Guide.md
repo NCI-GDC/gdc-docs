@@ -163,7 +163,7 @@ import {useCoreSelector, selectAllCohorts} from '@gff/core';
 const allCohorts = useSelector(selectAllCohorts);
 ```
 
-# Using the GDC Data Portal Application API
+## Using the GDC Data Portal Application API
 
 The GDC Data Portal provides a number of hooks for querying the GDC API. These hooks are located in the `@gff/core` package.
 The hooks are designed to work in a manner similar to the RTL Query hooks. The hooks take arguments and return an
@@ -176,7 +176,7 @@ below:
 
 ![hooks and selectors](./images/developers_guide/hooks_and_selectors.png)
 
-## Case Information
+### Case Information
 
 The GDC Data Portal provides several hooks for querying case information. These hooks are located in the `@gff/core`
 package. Cases can be queried using several different methods. The `useAllCases` hook returns all the cases in the GDC
@@ -306,7 +306,7 @@ The `useCaseSummary` hook takes a number of arguments:
 * `fields` - The fields to return from the GDC API
 * `filters` - The filters to apply to the cases and where the caseId is passed in
 
-## File Information
+### File Information
 
 Similar to the case information, the GDC Data Portal provides a number of hooks for querying file information. These hooks
 are located in the `@gff/core` package.
@@ -400,7 +400,7 @@ The `useFileSummary` hook takes several arguments:
 * `filters` - The filters to apply to the cases and where the file uuid is passed in
 * `expand` - The fields to expand
 
-## Sets: Gene, SSMS, and Case
+### Sets: Gene, SSMS, and Case
 
 Sets are supported by the GDC API and are used to create an entity that represents a set of items as a `set_id`. Sets
 are either gene sets, SSM sets, or case sets. All of the GDC APIs support passing sets as a filter parameter.
@@ -574,7 +574,7 @@ coreDispatch(clearCohortFilters());
 
 This will clear all the filters from the current cohort.
 
-#### Updating the Cohort Name
+## Updating the Cohort Name
 
 The cohort name can be updated using the `updateCohortName` action. The `updateCohortName` action takes a single
 argument:
@@ -600,7 +600,7 @@ coreDispatch(updateCohortName({
 
 This will update the current cohort's name to `My Cohort`.
 
-#### Setting the Current Cohort
+## Setting the Current Cohort
 
 The current cohort can be set using the `setCurrentCohort` action. The `setCurrentCohort` action takes a single
 argument:
@@ -962,9 +962,9 @@ is documented in the GDC Data Portal 2.0 SDK API documentation.
 
 The [GDC Data Portal Style Guide](PDF/GDC_Data_Portal_Style_Guide.pdf) provides a comprehensive reference for creating consistent designs adhering to the Data Portal's visual and accessibility standards. Within the Style Guide, you will find information about our predefined styles, available library of pre-built components, as well as guidelines on best practices for accessibility, responsive design, and usability.
 
-# Application Development
+## Application Development
 
-## Getting Started
+### Getting Started
 
 The GDC Data Portal 2.0 is a monorepo that contains all the code for the GDC Data Portal. The monorepo is managed
 using [lerna](https://lerna.js.org) and [npm](https://www.npmjs.com/), and contains the following packages:
@@ -978,7 +978,7 @@ separate package , and `@gff/portal-proto` will be renamed to `@gff/portal`.
 Developers can get started by cloning the repo and following the instructions in
 the [README.md](https://github.com/NCI-GDC/gdc-frontend-framework/blob/develop/README.md) file.
 
-## Application Layout
+### Application Layout
 
 A typical application will have the following layout. The main section of the application is the area where components
 like tables, graphs, and other components are displayed. Local filters are displayed on the left side and
@@ -1046,7 +1046,7 @@ local context, the `useAppSelector` is the selector hook, and the `useAppDispatc
 Since there is now a local store, developers can create a slice associated with the local state. This is a standard Redux Toolkit
 slice and will contain the reducer, actions, and selectors for the local state.
 
-## Persisting the Local State
+### Persisting the Local State
 
 If it is desirable to persist the local state, this is done with the `persistReducer` function from the
 [redux-persist](https://github.com/rt2zz/redux-persist) package. Any reducer can be persisted by creating a
@@ -1273,7 +1273,7 @@ needs to be shown.
 The `SaveCohortModal` component is passed to the current list of projects selected by the user and handles the creation of
 the cohort and saving it.
 
-### Application Demo
+## Application Demo
 
 In addition to the actual application, it can have a demo. The demo can be used to show the
 application's functionality and is shown when the demo button is clicked. The demo button is shown when the
@@ -1291,7 +1291,7 @@ const GenesAndMutationFrequencyAnalysisTool: React.FC = () => {
 ...
 ```
 
-### Application Registration
+## Application Registration
 
 An application needs to be "registered" to be used in the GDC Data Portal. Registration is done by adding the application
 using `createGdcAppWithOwnStore`function. If the app is not using its store, then the `createGdcApp` function can be
@@ -1387,16 +1387,16 @@ application's source code:
 
 *Application Source Code Layout*
 
-# Appendix
+## Appendix
 
-## Using Selectors and Hooks
+### Using Selectors and Hooks
 
 Although a complete guide to React hooks and selectors is out of the scope of this document, a brief
 overview of how to use them for application development is provided. For more information on hooks and selectors please see the
 [React Hooks](https://react.dev/reference/react/hooks) documentation. As the GDC uses the Redux-toolkit, calls
 described in the [Redux Toolkit](https://redux-toolkit.js.org/tutorials/typescript) documentation are used as examples.
 
-### Selectors
+#### Selectors
 
 Selectors are used to access the state of the GDC Data  Portal's main redux store. Using selectors is the preferred method for
 accessing the state of the GDC Data Portal. Selectors are functions that take the state as an argument and return a value.
@@ -1410,7 +1410,7 @@ const currentCohort = useSelector(selectCurrentCohort);
 The selector will return the current value of the item in the store. Consult the GDC 2.0 API documentation for a
 complete list of selectors.
 
-### Hooks
+#### Hooks
 
 Fetching data from the GDC API is done via hooks. Hooks are functions that take arguments and return a value. The value
 returned is typically a promise that resolves to the data requested. The GDC Data Portal provides a number of hooks for
@@ -1443,7 +1443,7 @@ successful, `isLoading`
 is a boolean indicating if the query is currently loading, `isError` is a boolean indicating if the query resulted in an
 error, and `error` is the error returned from the query.
 
-## Querying the GDC API Directly
+### Querying the GDC API Directly
 
 There may be cases where there is a need to query the GDC API directly. The GDC Data Portal provides a number of functions for
 querying  the GDC API. These functions are located in the `@gff/core` package and include:
@@ -1481,7 +1481,7 @@ export const graphqlAPI = async <T>(
 
 where `query` is the GraphQL query and `variables` are the variables for the query.
 
-### API Documentation
+#### API Documentation
 
 To access the Developers documentation for the GDC API, use the following commands in your terminal:
 
