@@ -23,46 +23,54 @@ All GDC GraphQL queries are validated and executed against the [GDC GraphQL sche
 
 The `__schema` keyword can be queried to list all types defined in the schema and retrieve details about each:
 
-```GraphQL
-{
-  __schema {
-    types {
-      name
-      kind
-      fields {
-        name
+=== "GraphQL"
+
+    ```graphql
+    {
+      __schema {
+        types {
+          name
+          kind
+          fields {
+            name
+          }
+        }
       }
     }
-  }
-}
-```
+    ```
+
 The `__type` keyword can also be queried to retrieve details about any type such as "Explore" or "Case":
-```GraphQL
 
-{
-  __type(name: "Explore") {
-    name
-    kind
-    description
-    fields {
-      name
-    }
-  }
-}
-```
+=== "Explore"
 
-```GraphQL
-{
-  __type(name: "Case") {
-    name
-    kind
-    description
-    fields {
-      name
+    ```graphql
+
+    {
+      __type(name: "Explore") {
+        name
+        kind
+        description
+        fields {
+          name
+        }
+      }
     }
-  }
-}
-```
+    ```
+
+=== "Case"
+
+    ```graphql
+    {
+      __type(name: "Case") {
+        name
+        kind
+        description
+        fields {
+          name
+        }
+      }
+    }
+    ```
 
 ## Basic GraphQL queries in GDC
 The two types of allowed operations in GDC GraphQL API are queries and mutations. Comparing GraphQL to REST, queries operate like `GET` requests, while mutations operate like `POST`/`PATCH`/`DELETE`.
@@ -89,52 +97,57 @@ GraphQL queries return only the data that is specified. Queries are built by spe
 ### Nodes And Edges Example
 A very powerful feature of GDC GraphQL API is that the graph structures defined in the [GDC GraphQL schema]( https://github.com/NCI-GDC/portal-ui/blob/92f0dfa17838746093c3c011141d08391016da91/data/schema.graphql ) can be queried and traversed. In these queries, nodes define objects and edges define relationships between objects.
 
-```GraphQL
+=== "GraphQL"
 
-query PROJECTS_EDGES($filters_1: FiltersArgument) {
-  projects {
-    hits(filters: $filters_1) {
-      total
-      edges {
-        node {
-          primary_site
-          disease_type
-          project_id
-          dbgap_accession_number
+    ```graphql
+    query PROJECTS_EDGES($filters_1: FiltersArgument) {
+      projects {
+        hits(filters: $filters_1) {
+          total
+          edges {
+            node {
+              primary_site
+              disease_type
+              project_id
+              dbgap_accession_number
+            }
+          }
         }
       }
     }
-  }
-}
 
-    variable:
-    { "filters_1": {"op": "in", "content": {"field": "projects.primary_site", "value": ["Kidney"]}}}
-```
+        variable:
+        { "filters_1": {"op": "in", "content": {"field": "projects.primary_site", "value": ["Kidney"]}}}
+    ```
 
 ### Query Case File Counts
 
-```GraphQL
-query CaseFileCounts($filters: FiltersArgument) {
-  viewer {
-    repository {
-      cases {
-        hits(first: 1, filters: $filters) {
-          edges {
-            node {
-              case_id
-              files {
-                hits(first: 0) {
-                  total
-                }
-              }
-              summary {
-                experimental_strategies {
-                  experimental_strategy
-                  file_count
-                }
-                data_categories {
-                  data_category
-                  file_count
+=== "GraphQL"
+
+    ```graphql
+    query CaseFileCounts($filters: FiltersArgument) {
+      viewer {
+        repository {
+          cases {
+            hits(first: 1, filters: $filters) {
+              edges {
+                node {
+                  case_id
+                  files {
+                    hits(first: 0) {
+                      total
+                    }
+                  }
+                  summary {
+                    experimental_strategies {
+                      experimental_strategy
+                      file_count
+                    }
+                    data_categories {
+                      data_category
+                      file_count
+                    }
+                  }
                 }
               }
             }
@@ -142,33 +155,32 @@ query CaseFileCounts($filters: FiltersArgument) {
         }
       }
     }
-  }
-}
 
-variable:
-{"filters":{"op":"in","content":{"field":"cases.case_id","value":["dcd5860c-7e3a-44f3-a732-fe92fe3fe300"]}}}
-```
+    variable:
+    {"filters":{"op":"in","content":{"field":"cases.case_id","value":["dcd5860c-7e3a-44f3-a732-fe92fe3fe300"]}}}
+    ```
 
 ### Query Simple Static Mutations Based on Gene IDs
 
-```GraphQL
+=== "GraphQL"
 
-query PROJECTS_EDGES($filters_2: FiltersArgument) {
-  explore {
-    ssms {
-      hits(filters: $filters_2) {
-        total
-        edges {
-          node {
-            ssm_id
-            gene_aa_change
+    ```graphql
+    query PROJECTS_EDGES($filters_2: FiltersArgument) {
+      explore {
+        ssms {
+          hits(filters: $filters_2) {
+            total
+            edges {
+              node {
+                ssm_id
+                gene_aa_change
+              }
+            }
           }
         }
       }
     }
-  }
-}
 
-variable:
-{"filters_2": {"op":"in","content":{"field":"consequence.transcript.gene.gene_id","value":["ENSG00000155657"]}}}
-```
+    variable:
+    {"filters_2": {"op":"in","content":{"field":"consequence.transcript.gene.gene_id","value":["ENSG00000155657"]}}}
+    ```
