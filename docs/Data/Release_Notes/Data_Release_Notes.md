@@ -1225,7 +1225,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
     1.  New Project: CMI-MPC - Count Me In - The Metastatic Prostate Cancer Project
         * WXS alignments and variant calls (VCFs) are available.
-    2.  New Data Type: Single nuclei (snRNA-Seq) data is now available for 18 CPTAC-3 cases. See the [RNA-Seq](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#scrna-seq-pipeline) documentation for details.
+    2.  New Data Type: Single nuclei (snRNA-Seq) data is now available for 18 CPTAC-3 cases. See the [RNA-Seq](/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#scrna-seq-pipeline) documentation for details.
     3.  CPTAC-3
         * Data files for 147 new cases from the pancreatic cohort are now available.
         * CPTAC-3 open-access somatic mutations are now browsable through the GDC Exploration Portal.
@@ -2468,7 +2468,7 @@ A complete list of files for DR16.0 are listed for the GDC Data Portal and the G
 ### New updates
 
 1.  TARGET-ALL-P3 is now available and includes RNA-Seq and WXS data.
-2.  New RNA-Seq workflow is now being utilized for new projects.  More details can be found in the [RNA-Seq pipeline documentation](../../Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#rna-seq-alignment-workflow).
+2.  New RNA-Seq workflow is now being utilized for new projects.  More details can be found in the [RNA-Seq pipeline documentation](/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#rna-seq-alignment-workflow).
 3.  New tumor only variant calling pipeline is now being utilized for new projects.  More details can be found in the [Tumor only pipeline documentation](../../Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/#tumor-only-variant-calling-workflow).
 
 
