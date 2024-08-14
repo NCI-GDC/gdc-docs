@@ -135,7 +135,7 @@ The table below describes the columns in a protected MAF and their definitions. 
 |82 - EAS_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined East Asian population |
 |83 - EUR_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined European population |
 |84 - SAS_MAF | Non-reference allele and frequency of existing variant in 1000 Genomes combined South Asian population |
-|85 - AA_MAF | Non-reference allele and frequency of existing variant in [NHLBI-ESP](https://esp.gs.washington.edu/drupal/) African American population |
+|85 - AA_MAF | Non-reference allele and frequency of existing variant in [NHLBI-ESP](https://genome.ucsc.edu/cgi-bin/hgTables?db=hg19&hgta_group=varRep&hgta_track=evsEsp6500&hgta_table=evsEsp6500&hgta_doSchema=describe+table+schema) African American population |
 |86 - EA_MAF | Non-reference allele and frequency of existing variant in NHLBI-ESP European American population|
 |87 - CLIN_SIG | Clinical significance of variant from dbSNP as annotated in ClinVar |
 |88 - SOMATIC |Somatic status of each ID reported under Existing_variation (0, 1, or null) |
@@ -194,7 +194,7 @@ The table below describes the columns in a protected MAF and their definitions. 
 
 ### FILTER Value Definitions (column 111)
 
-* __oxog :__ Signifies that this variant was determined to be an OxoG artifact. This was calculated with [D-ToxoG](https://software.broadinstitute.org/cancer/cga/dtoxog)
+* __oxog :__ Signifies that this variant was determined to be an OxoG artifact. This was calculated with D-ToxoG.
 * __bPcr :__ Signifies that this variant was determined to be an artifact of bias on the PCR template strand.  This was calculated with the [DKFZ Bias Filter](https://github.com/eilslabs/DKFZBiasFilter).
 * __bSeq :__ Signifies that this variant was determined to be an artifact of bias on the forward/reverse strand. This was also calculated with the [DKFZ Bias Filter](https://github.com/eilslabs/DKFZBiasFilter).
 
