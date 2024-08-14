@@ -144,7 +144,7 @@ This example is a query for files contained in GDC. It returns only the first tw
     }
     ```
 
-#### Cases Endpoint Example
+#### Cases Endpoint Examples
 
 This example is a query for cases contained in GDC. It returns only the first five files.
 
@@ -542,6 +542,218 @@ This example is a query for cases contained in GDC. It returns only the first fi
       "warnings": {}
     }
     ```
+
+This example is a query for cases with a height (follow_ups.other_clinical_attributes.height) equal to or greater than 225, and return the height and project_id the case belongs to. Note: height is expressed in centimeters. 
+
+=== "Filter"
+
+```json
+{
+            "op":">=",
+            "content":{
+                "field": "follow_ups.other_clinical_attributes.height",
+                "value": 225
+    }
+}
+```
+
+=== "Query"
+
+```shell
+curl 'https://api.gdc.cancer.gov/cases?filters=%7B%22op%22%3A%20%22%3E%3D%22%2C%20%22content%22%3A%20%7B%22field%22%3A%20%22follow_ups.other_clinical_attributes.height%22%2C%20%22value%22%3A%20225%7D%7D&fields=follow_ups.other_clinical_attributes.height,project.project_id&pretty=true'
+```
+
+=== "Response"
+
+```json
+{
+  "data": {
+    "hits": [
+      {
+        "id": "56a06787-58e9-4cd4-a027-0c0fabcc0983", 
+        "follow_ups": [
+          {
+            "other_clinical_attributes": [
+              {
+                "height": 243
+              }
+            ]
+          }
+        ], 
+        "project": {
+          "project_id": "MMRF-COMMPASS"
+        }
+      }
+    ], 
+    "pagination": {
+      "count": 1, 
+      "total": 1, 
+      "size": 10, 
+      "from": 0, 
+      "sort": "", 
+      "page": 1, 
+      "pages": 1
+    }
+  }, 
+  "warnings": {}
+}
+```
+
+This example is a query to filter for first 5 cases that have Other Clinical Attribute entities with data and to display the Other Clinical Attribute data and project_id. Note: the `not` operator filters for fields that are *not* missing or *not* empty. 
+
+=== "Filter"
+
+```json
+{
+            "op":"not",
+            "content":{
+                "field": "follow_ups.other_clinical_attributes.submitter_id",
+    }
+}
+```
+
+=== "Query"
+
+```shell
+curl 'https://api.gdc.cancer.gov/cases?filters=%7B%22op%22%3A%20%22not%22%2C%20%22content%22%3A%20%7B%22field%22%3A%20%22follow_ups.other_clinical_attributes.submitter_id%22%7D%7D&fields=project.project_id&expand=follow_ups.other_clinical_attributes&size=5&pretty=true'
+```
+
+=== "Response"
+
+```json
+{
+  "data": {
+    "hits": [
+      {
+        "id": "4ad1f10e-b45d-4bed-bc99-f3d48254623d", 
+        "follow_ups": [
+          {
+            "other_clinical_attributes": [
+              {
+                "timepoint_category": "Initial Diagnosis", 
+                "updated_datetime": "2024-07-09T13:45:54.127250-05:00", 
+                "other_clinical_attribute_id": "b1828570-fe96-4b74-8e35-1d7b7c5b25b8", 
+                "weight": 91, 
+                "submitter_id": "CTSP-AD2E_other_clinical_attribute", 
+                "state": "released", 
+                "created_datetime": "2023-11-30T10:08:31.042703-06:00", 
+                "bmi": 39.4, 
+                "height": 152
+              }
+            ]
+          }
+        ], 
+        "project": {
+          "project_id": "CTSP-DLBCL1"
+        }
+      }, 
+      {
+        "id": "1cfe090d-9a34-4984-a0d8-392ab83635b3", 
+        "follow_ups": [
+          {
+            "other_clinical_attributes": [
+              {
+                "timepoint_category": "Initial Diagnosis", 
+                "updated_datetime": "2024-07-09T13:45:54.127250-05:00", 
+                "other_clinical_attribute_id": "c8098f60-394a-422b-a3aa-a3a1c0d9dae7", 
+                "weight": 58, 
+                "submitter_id": "CTSP-AD4C_other_clinical_attribute", 
+                "state": "released", 
+                "created_datetime": "2023-11-30T10:19:30.283698-06:00", 
+                "bmi": 22.4, 
+                "height": 161
+              }
+            ]
+          }
+        ], 
+        "project": {
+          "project_id": "CTSP-DLBCL1"
+        }
+      }, 
+      {
+        "id": "297b1cb6-df7d-4e75-a17c-592179be7b71", 
+        "follow_ups": [
+          {
+            "other_clinical_attributes": [
+              {
+                "timepoint_category": "Initial Diagnosis", 
+                "updated_datetime": "2024-07-09T13:45:54.127250-05:00", 
+                "other_clinical_attribute_id": "069f5ef5-a488-454d-8b28-ca1f81375006", 
+                "weight": 132, 
+                "submitter_id": "CTSP-AD1S_other_clinical_attribute", 
+                "state": "released", 
+                "created_datetime": "2023-11-30T10:01:36.617920-06:00", 
+                "bmi": 45.7, 
+                "height": 170
+              }
+            ]
+          }
+        ], 
+        "project": {
+          "project_id": "CTSP-DLBCL1"
+        }
+      }, 
+      {
+        "id": "dd6f8769-ee57-4171-a353-ceb762541845", 
+        "follow_ups": [
+          {
+            "other_clinical_attributes": [
+              {
+                "timepoint_category": "Initial Diagnosis", 
+                "updated_datetime": "2024-07-09T13:45:54.127250-05:00", 
+                "other_clinical_attribute_id": "5c9c4fe0-aedc-4016-90c6-1075f82a139b", 
+                "weight": 81, 
+                "submitter_id": "CTSP-AD1Z_other_clinical_attribute", 
+                "state": "released", 
+                "created_datetime": "2023-11-30T10:00:47.753276-06:00", 
+                "bmi": 30.1, 
+                "height": 164
+              }
+            ]
+          }
+        ], 
+        "project": {
+          "project_id": "CTSP-DLBCL1"
+        }
+      }, 
+      {
+        "id": "19ec7505-20c7-4ba2-bf08-4a8875cb2639", 
+        "follow_ups": [
+          {
+            "other_clinical_attributes": [
+              {
+                "timepoint_category": "Initial Diagnosis", 
+                "updated_datetime": "2024-07-09T13:45:54.127250-05:00", 
+                "other_clinical_attribute_id": "89938ef7-aa86-49e1-98b6-fd6ee6a4278a", 
+                "weight": 47, 
+                "submitter_id": "CTSP-AD1R_other_clinical_attribute", 
+                "state": "released", 
+                "created_datetime": "2023-11-30T10:01:55.498836-06:00", 
+                "bmi": 20.3, 
+                "height": 152
+              }
+            ]
+          }
+        ], 
+        "project": {
+          "project_id": "CTSP-DLBCL1"
+        }
+      }
+    ], 
+    "pagination": {
+      "count": 5, 
+      "total": 3306, 
+      "size": 5, 
+      "from": 0, 
+      "sort": "", 
+      "page": 1, 
+      "pages": 662
+    }
+  }, 
+  "warnings": {}
+}
+```
+
 
 #### Annotations Endpoint Example
 
