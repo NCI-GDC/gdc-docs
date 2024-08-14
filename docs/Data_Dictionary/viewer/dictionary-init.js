@@ -107,7 +107,7 @@ window.onload = function() {
       }
     };
 
-    window.$gdcApp.dictionaryViewer = new Dictionary(dictionaryContainer, dictionaryOptions);
+    window.gdcApp.dictionaryViewer = new Dictionary(dictionaryContainer, dictionaryOptions);
 
   }
 
@@ -115,5 +115,5 @@ window.onload = function() {
 };
 
 window.onunload = function() {
-  window.$gdcApp.dictionaryViewer.destroy();
+  window.gdcApp.dictionaryViewer.destroy();
 };
