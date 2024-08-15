@@ -199,3 +199,5 @@ theme:
   palette:
     primary: white
     scheme: gdc-accessible
+  plugins:
+    - search
