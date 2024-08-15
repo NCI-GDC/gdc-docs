@@ -20,7 +20,7 @@ The values of `Program.name` and `Project.code` can be obtained from the project
 
 	https://portal.gdc.cancer.gov/submission/Program.name/Project.code/dashboard
 
-For more information about program name and project code see [The GDC Data Model  section](../../Data/Data_Model/GDC_Data_Model/#program-name-project-code-and-project-id).
+For more information about program name and project code see [The GDC Data Model section](/Data/Data_Model/GDC_Data_Model/#program-name-project-code-and-project-id).
 
 #### Example
 
@@ -1245,9 +1245,9 @@ Submitters can use the GraphQL query language for advanced search and retrieval 
 
 The GDC Submission API supports the HTTP PATCH method for updating existing entities with additional fields.
 
-**PATCH** can be used to add extra fields to an existing entity, without requiring the submission of required fields. 
+**PATCH** can be used to add extra fields to an existing entity, without requiring the submission of required fields.
 
-The PATCH method cannot be used to create new entities, and the provided submitter_id must match an existing submitter_id. 
+The PATCH method cannot be used to create new entities, and the provided submitter_id must match an existing submitter_id.
 
 #### Example: Creating a new demographic entity using POST
 
@@ -1600,7 +1600,7 @@ Files in `file_state = validated` can be downloaded by the submitter using the A
 
 ### Deleting Files
 
-Uploaded files must be deleted using a two step process.  First, the file is deleted using the Data Transfer Tool.  See [Deleting Previously Uploaded Data](../../Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#deleting-previously-uploaded-data) for details.
+Uploaded files must be deleted using a two step process.  First, the file is deleted using the Data Transfer Tool.  See [Deleting Previously Uploaded Data](/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#deleting-previously-uploaded-data) for details.
 
 Second, the file node can be deleted or modified. See [Deleting Entities](#deleting-entities) for details.
 

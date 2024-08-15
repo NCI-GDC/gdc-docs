@@ -1225,7 +1225,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
     1.  New Project: CMI-MPC - Count Me In - The Metastatic Prostate Cancer Project
         * WXS alignments and variant calls (VCFs) are available.
-    2.  New Data Type: Single nuclei (snRNA-Seq) data is now available for 18 CPTAC-3 cases. See the [RNA-Seq](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#scrna-seq-pipeline) documentation for details.
+    2.  New Data Type: Single nuclei (snRNA-Seq) data is now available for 18 CPTAC-3 cases. See the [RNA-Seq](/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#scrna-seq-pipeline) documentation for details.
     3.  CPTAC-3
         * Data files for 147 new cases from the pancreatic cohort are now available.
         * CPTAC-3 open-access somatic mutations are now browsable through the GDC Exploration Portal.
@@ -1373,7 +1373,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
 ### New updates
 
-1.  Initial release for the WGS variant calling pipeline. See the [documentation](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/#whole-genome-sequencing-variant-calling) on WGS variant calling for more details on the available files.  This includes data from the following projects:
+1.  Initial release for the WGS variant calling pipeline. See the [documentation](/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/#whole-genome-sequencing-variant-calling) on WGS variant calling for more details on the available files.  This includes data from the following projects:
     * CGCI-BLGSP <!--SPT7-75-->
     * CGCI-HTMCP-CC <!--SPT7-27-->
     * HCMI-CMDC <!--DAT-2948-->
@@ -2468,8 +2468,8 @@ A complete list of files for DR16.0 are listed for the GDC Data Portal and the G
 ### New updates
 
 1.  TARGET-ALL-P3 is now available and includes RNA-Seq and WXS data.
-2.  New RNA-Seq workflow is now being utilized for new projects.  More details can be found in the [RNA-Seq pipeline documentation](../../Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#rna-seq-alignment-workflow).
-3.  New tumor only variant calling pipeline is now being utilized for new projects.  More details can be found in the [Tumor only pipeline documentation](../../Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/#tumor-only-variant-calling-workflow).
+2.  New RNA-Seq workflow is now being utilized for new projects.  More details can be found in the [RNA-Seq pipeline documentation](/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#rna-seq-alignment-workflow).
+3.  New tumor only variant calling pipeline is now being utilized for new projects.  More details can be found in the [Tumor only pipeline documentation](/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/#tumor-only-variant-calling-workflow).
 
 
 A complete list of files for DR15.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
@@ -3110,7 +3110,7 @@ None
 
 ### New updates
 
-1.  GDC updated public Mutation Annotation Format (MAF) files are now available. Updates include leveraging the MC3 variant filtering strategy, which results in more variants being recovered relative to the previous version. A detailed description of the new format can be found [here](../File_Formats/MAF_Format/). <!--DAT-572-->
+1.  GDC updated public Mutation Annotation Format (MAF) files are now available. Updates include leveraging the MC3 variant filtering strategy, which results in more variants being recovered relative to the previous version. A detailed description of the new format can be found [here](/Data/File_Formats/MAF_Format/). <!--DAT-572-->
 2.  Protected MAFs are updated to include additional variant annotation information <!--DAT-572-->
 3.  Some MuTect2 VCFs updated to include dbSNP and COSMIC annotations found in other VCFs <!--TT-21-->
 

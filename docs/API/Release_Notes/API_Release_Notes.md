@@ -64,8 +64,8 @@
 
 ### New Features and Changes
 
-* The GDC submission API now supports the [PATCH method](../Users_Guide/Submission/#patching-entitites), which allow users to upload without required fields while updating already-existing entities.
-* The gene expression API is now available to be queried by users. See the [Gene Expression API](../Users_Guide/Data_Analysis/#gene-expression-examples) documentation for more information.
+* The GDC submission API now supports the [PATCH method](/API/Users_Guide/Submission/#patching-entitites), which allow users to upload without required fields while updating already-existing entities.
+* The gene expression API is now available to be queried by users. See the [Gene Expression API](/API/Users_Guide/Data_Analysis/#gene-expression-examples) documentation for more information.
 
 ### Bugs Fixed Since Last Release
 
@@ -622,7 +622,7 @@
 
 ### New Features and Changes
 
-* Users can now control whether a set of files will be compressed or not when downloading.  For further details see the [API User Guide](../Users_Guide/Downloading_Files/#downloading-an-uncompressed-group-of-files). <!--API-175-->
+* Users can now control whether a set of files will be compressed or not when downloading.  For further details see the [API Users Guide](/API/Users_Guide/Downloading_Files/#downloading-an-uncompressed-group-of-files). <!--API-175-->
 
 ### Known Issues and Workarounds
 
