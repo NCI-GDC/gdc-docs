@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v41.0](Data_Release_Notes.md#data-release-410) | August XX, 2024 |
+| [v41.0](Data_Release_Notes.md#data-release-410) | August 28, 2024 |
 | [v40.0](Data_Release_Notes.md#data-release-400) | March 29, 2024 |
 | [v39.0](Data_Release_Notes.md#data-release-390) | December 4, 2023 |
 | [v38.0](Data_Release_Notes.md#data-release-380) | August 31, 2023 |
@@ -52,7 +52,7 @@
 ## Data Release 41.0
 
 * __GDC Product__: Data
-* __Release Date__: August XX, 2024
+* __Release Date__: August 28, 2024
 
 ### New Updates
 
