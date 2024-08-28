@@ -44,74 +44,96 @@ All alignments are performed using the human reference genome GRCh38.d1.vd1. Dec
 __Note that version numbers may vary in files downloaded from the GDC Portal due to ongoing pipeline development and improvement.__
 
 #### Step 1: Converting BAMs to FASTQs with Biobambam - biobambam2
-```Shell
-bamtofastq \
-collate=1 \
-exclude=QCFAIL,SECONDARY,SUPPLEMENTARY \
-filename= <input.bam> \
-gz=1 \
-inputformat=bam \
-level=5 \
-outputdir= <output_path> \
-outputperreadgroup=1 \
-outputperreadgroupsuffixF=_1.fq.gz \
-outputperreadgroupsuffixF2=_2.fq.gz \
-outputperreadgroupsuffixO=_o1.fq.gz \
-outputperreadgroupsuffixO2=_o2.fq.gz \
-outputperreadgroupsuffixS=_s.fq.gz \
-tryoq=1 \
-```
+
+=== "Shell"
+
+    ```shell
+    bamtofastq \
+    collate=1 \
+    exclude=QCFAIL,SECONDARY,SUPPLEMENTARY \
+    filename= <input.bam> \
+    gz=1 \
+    inputformat=bam \
+    level=5 \
+    outputdir= <output_path> \
+    outputperreadgroup=1 \
+    outputperreadgroupsuffixF=_1.fq.gz \
+    outputperreadgroupsuffixF2=_2.fq.gz \
+    outputperreadgroupsuffixO=_o1.fq.gz \
+    outputperreadgroupsuffixO2=_o2.fq.gz \
+    outputperreadgroupsuffixS=_s.fq.gz \
+    tryoq=1 \
+    ```
+
 #### Step 2: BWA Alignment - bwa - samtools
 If mean read length is greater than or equal to 70bp:
-```Shell
-bwa mem \
--t 8 \
--T 0 \
--R <read_group> \
-<reference> \
-<fastq_1.fq.gz> \
-<fastq_2.fq.gz> |
-samtools view \
--Shb
--o <output.bam> -
-```
+
+=== "Shell"
+
+    ```shell
+    bwa mem \
+    -t 8 \
+    -T 0 \
+    -R <read_group> \
+    <reference> \
+    <fastq_1.fq.gz> \
+    <fastq_2.fq.gz> |
+    samtools view \
+    -Shb
+    -o <output.bam> -
+    ```
+
 If mean read length is less than 70bp:
-```Shell
-bwa aln -t 8 <reference> <fastq_1.fq.gz> > <sai_1.sai> &&
-bwa aln -t 8 <reference> <fastq_2.fq.gz> > <sai_2.sai> &&
-bwa sampe -r <read_group> <reference> <sai_1.sai> <sai_2.sai> <fastq_1.fq.gz> <fastq_2.fq.gz> | samtools view -Shb -o <output.bam> -
-```
+
+=== "Shell"
+
+    ```shell
+    bwa aln -t 8 <reference> <fastq_1.fq.gz> > <sai_1.sai> &&
+    bwa aln -t 8 <reference> <fastq_2.fq.gz> > <sai_2.sai> &&
+    bwa sampe -r <read_group> <reference> <sai_1.sai> <sai_2.sai> <fastq_1.fq.gz> <fastq_2.fq.gz> | samtools view -Shb -o <output.bam> -
+    ```
+
 If the quality scores are encoded as Illumina 1.3 or 1.5, use BWA aln with the "-l" flag.  
 
 #### Step 3: BAM Sort - picard 2
 
-```Shell
-java -jar picard.jar SortSam \
-CREATE_INDEX=true \
-INPUT=<input.bam> \
-OUTPUT=<output.bam> \
-SORT_ORDER=coordinate \
-VALIDATION_STRINGENCY=STRICT
-```
+=== "Shell"
+
+    ```shell
+    java -jar picard.jar SortSam \
+    CREATE_INDEX=true \
+    INPUT=<input.bam> \
+    OUTPUT=<output.bam> \
+    SORT_ORDER=coordinate \
+    VALIDATION_STRINGENCY=STRICT
+    ```
+
 #### Step 4: BAM Merge - picard 2
-```Shell
-java -jar picard.jar MergeSamFiles \
-ASSUME_SORTED=false \
-CREATE_INDEX=true \                 
-[INPUT= <input.bam>]  \
-MERGE_SEQUENCE_DICTIONARIES=false \
-OUTPUT= <output_path> \
-SORT_ORDER=coordinate \
-USE_THREADING=true \
-VALIDATION_STRINGENCY=STRICT
-```
+
+=== "Shell"
+
+    ```Shell
+    java -jar picard.jar MergeSamFiles \
+    ASSUME_SORTED=false \
+    CREATE_INDEX=true \                 
+    [INPUT= <input.bam>]  \
+    MERGE_SEQUENCE_DICTIONARIES=false \
+    OUTPUT= <output_path> \
+    SORT_ORDER=coordinate \
+    USE_THREADING=true \
+    VALIDATION_STRINGENCY=STRICT
+    ```
+
 #### Step 5: Mark Duplicates - picard 2
-```Shell
-java -jar picard.jar MarkDuplicates \
-CREATE_INDEX=true \
-INPUT=<input.bam> \
-VALIDATION_STRINGENCY=STRICT
-```
+
+=== "Shell"
+
+    ```Shell
+    java -jar picard.jar MarkDuplicates \
+    CREATE_INDEX=true \
+    INPUT=<input.bam> \
+    VALIDATION_STRINGENCY=STRICT
+    ```
 
 ### Co-cleaning Workflow
 
@@ -134,46 +156,58 @@ A base quality score recalibration (BQSR) step is then performed using  [BaseRec
 ### DNA-Seq Co-Cleaning Command Line Parameters
 
 #### __Step 1:__ RealignTargetCreator
-```Shell
-java -jar GenomeAnalysisTK.jar \
--T RealignerTargetCreator \
--R <reference>
--known <known_indels.vcf>
-[ -I <input.bam> ]
--o <realign_target.intervals>
-```
+
+=== "Shell"
+
+    ```Shell
+    java -jar GenomeAnalysisTK.jar \
+    -T RealignerTargetCreator \
+    -R <reference>
+    -known <known_indels.vcf>
+    [ -I <input.bam> ]
+    -o <realign_target.intervals>
+    ```
 
 #### __Step 2:__ IndelRealigner
-```Shell
-java -jar GenomeAnalysisTK.jar \
--T IndelRealigner \
--R <reference> \
--known <known_indels.vcf> \
--targetIntervals <realign_target.intervals> \
---noOriginalAlignmentTags \
-[ -I <input.bam> ] \
--nWayOut <output.map>
-```
+
+=== "Shell"
+
+    ```Shell
+    java -jar GenomeAnalysisTK.jar \
+    -T IndelRealigner \
+    -R <reference> \
+    -known <known_indels.vcf> \
+    -targetIntervals <realign_target.intervals> \
+    --noOriginalAlignmentTags \
+    [ -I <input.bam> ] \
+    -nWayOut <output.map>
+    ```
 
 #### __Step 3:__ BaseRecalibrator; dbSNP v.144
-```Shell
-java -jar GenomeAnalysisTK.jar \
--T BaseRecalibrator \
--R <reference> \
--I <input.bam> \
--knownSites <dbsnp.vcf>
--o <bqsr.grp>
-```
+
+=== "Shell"
+
+    ```Shell
+    java -jar GenomeAnalysisTK.jar \
+    -T BaseRecalibrator \
+    -R <reference> \
+    -I <input.bam> \
+    -knownSites <dbsnp.vcf>
+    -o <bqsr.grp>
+    ```
 
 #### __Step 4:__ PrintReads
-```Shell
-java -jar GenomeAnalysisTK.jar \
--T PrintReads \
--R <reference> \
--I <input.bam> \
---BQSR <bqsr.grp> \
--o <output.bam>
-```
+
+=== "Shell"
+
+    ```Shell
+    java -jar GenomeAnalysisTK.jar \
+    -T PrintReads \
+    -R <reference> \
+    -I <input.bam> \
+    --BQSR <bqsr.grp> \
+    -o <output.bam>
+    ```
 
 
 ### Somatic Variant Calling Workflow
@@ -186,7 +220,7 @@ Aligned and co-cleaned BAM files are processed through the [Somatic Mutation Cal
 
 Note that [SomaticSniper](http://gmt.genome.wustl.edu/packages/somatic-sniper/) [[5]](http://bioinformatics.oxfordjournals.org/content/28/3/311.short) was used and available on the GDC Data Portal prior to [GDC Data Release 35](https://docs.gdc.cancer.gov/Data/Release_Notes/Data_Release_Notes/#data-release-350).
 
-Variant calls are reported by each pipeline in a VCF formatted file. See the GDC [VCF Format](../File_Formats/VCF_Format/) documentation for details on each available field. At this point in the DNA-Seq pipeline, all downstream analyses are branched into four separate paths that correspond to their respective variant calling pipeline.
+Variant calls are reported by each pipeline in a VCF formatted file. See the GDC [VCF Format](/Data/File_Formats/VCF_Format/) documentation for details on each available field. At this point in the DNA-Seq pipeline, all downstream analyses are branched into four separate paths that correspond to their respective variant calling pipeline.
 
 #### Pipeline Descriptions
 Four separate variant calling pipelines are implemented for GDC data harmonization. There is currently no scientific consensus on the best variant calling pipeline so the investigator is responsible for choosing the pipeline(s) most appropriate for the data. Some details about the pipelines are indicated below.
@@ -218,88 +252,104 @@ MuSEv1.0; dbSNP v.144
 
 __Step 1:__ MuSE call
 
-```Shell
-MuSE call \
--f <reference> \
--r <region> \                               	
-<tumor.bam> \
-<normal.bam> \
--O <intermediate_muse_call.txt>
-```
+=== "Shell"
+
+    ```Shell
+    MuSE call \
+    -f <reference> \
+    -r <region> \                               	
+    <tumor.bam> \
+    <normal.bam> \
+    -O <intermediate_muse_call.txt>
+    ```
 
 __Step 2:__ MuSE sump
-```Shell
-MuSE sump \
--I <intermediate_muse_call.txt> \                        	
--E \                          		
--D <dbsnp_known_snp_sites.vcf> \
--O <muse_variants.vcf>  
-```
-__Note:__ -E is used for WXS data and -G can be used for WGS data.  
 
+=== "Shell"
+
+    ```Shell
+    MuSE sump \
+    -I <intermediate_muse_call.txt> \                        	
+    -E \                          		
+    -D <dbsnp_known_snp_sites.vcf> \
+    -O <muse_variants.vcf>  
+    ```
+
+__Note:__ -E is used for WXS data and -G can be used for WGS data.  
 
 
 #### MuTect2
 
 GATK; dbSNP v.144
 
-```Shell
-java -jar GenomeAnalysisTK.jar \
--T MuTect2 \
--R <reference> \
--L <region> \
--I:tumor <tumor.bam> \
--I:normal <normal.bam> \
---normal_panel <pon.vcf> \                        
---cosmic <cosmic.vcf> \
---dbsnp <dbsnp.vcf> \
---contamination_fraction_to_filter 0.02 \                   
--o <mutect_variants.vcf> \
---output_mode EMIT_VARIANTS_ONLY \
---disable_auto_index_creation_and_locking_when_reading_rods
-```
+=== "Shell"
+
+    ```Shell
+    java -jar GenomeAnalysisTK.jar \
+    -T MuTect2 \
+    -R <reference> \
+    -L <region> \
+    -I:tumor <tumor.bam> \
+    -I:normal <normal.bam> \
+    --normal_panel <pon.vcf> \                        
+    --cosmic <cosmic.vcf> \
+    --dbsnp <dbsnp.vcf> \
+    --contamination_fraction_to_filter 0.02 \                   
+    -o <mutect_variants.vcf> \
+    --output_mode EMIT_VARIANTS_ONLY \
+    --disable_auto_index_creation_and_locking_when_reading_rods
+    ```
 
 #### VarScan
 
 
 __Step 1:__ Mpileup; Samtools
-```Shell
-samtools mpileup \
--f <reference> \
--q 1 \
--B \
-<normal.bam> \
-<tumor.bam> >
-<intermediate_mpileup.pileup>
-```
+
+=== "Shell"
+
+    ```Shell
+    samtools mpileup \
+    -f <reference> \
+    -q 1 \
+    -B \
+    <normal.bam> \
+    <tumor.bam> >
+    <intermediate_mpileup.pileup>
+    ```
 
 __Step 2:__ Varscan Somatic; Varscan.v2
-```Shell
-java -jar VarScan.jar somatic \
-<intermediate_mpileup.pileup> \
-<output_path> \
---mpileup      1 \
---min-coverage 8 \
---min-coverage-normal 8 \
---min-coverage-tumor 6 \
---min-var-freq 0.10 \
---min-freq-for-hom 0.75 \
---normal-purity 1.0 \
---tumor-purity 1.00 \
---p-value 0.99 \
---somatic-p-value 0.05 \
---strand-filter 0 \
---output-vcf
-```
+
+=== "Shell"
+
+    ```Shell
+    java -jar VarScan.jar somatic \
+    <intermediate_mpileup.pileup> \
+    <output_path> \
+    --mpileup      1 \
+    --min-coverage 8 \
+    --min-coverage-normal 8 \
+    --min-coverage-tumor 6 \
+    --min-var-freq 0.10 \
+    --min-freq-for-hom 0.75 \
+    --normal-purity 1.0 \
+    --tumor-purity 1.00 \
+    --p-value 0.99 \
+    --somatic-p-value 0.05 \
+    --strand-filter 0 \
+    --output-vcf
+    ```
 
 __Step 3:__ Varscan ProcessSomatic; Varscan.v2
-```Shell
-java -jar VarScan.jar processSomatic \
-<intermediate_varscan_somatic.vcf> \
---min-tumor-freq 0.10 \
---max-normal-freq 0.05 \
---p-value 0.07
-```
+
+=== "Shell"
+
+    ```Shell
+    java -jar VarScan.jar processSomatic \
+    <intermediate_varscan_somatic.vcf> \
+    --min-tumor-freq 0.10 \
+    --max-normal-freq 0.05 \
+    --p-value 0.07
+    ```
 
 #### Pindel
 
@@ -309,114 +359,142 @@ Filter BAM reads that are not unmapped or duplicate or secondary_alignment or fa
 
 Tool: sambamba
 
-```Shell
-Sambamba view $(input.bam) --filter "not (unmapped or duplicate or secondary_alignment or failed_quality_control or supplementary)" --format bam --nthreads 1 --output-filename $(output.bam)
-```
+=== "Shell"
+
+    ```Shell
+    Sambamba view $(input.bam) --filter "not (unmapped or duplicate or secondary_alignment or failed_quality_control or supplementary)" --format bam --nthreads 1 --output-filename $(output.bam)
+    ```
 
 __Step 2:__ Pindel
 
 [Pindel Repo](https://github.com/genome/pindel/releases/tag/v0.2.5b8)
 
 __Step 2a.:__ Calculate mean insert size
-```Python
-cmd = "samtools view -f66 %s | head -n 1000000" % (bam)
-output = do_shell_command(cmd)
-lines = output.decode('utf-8').split('\n')
-b_sum = 0
-b_count = 0
-numlines = 0
-for line in lines:
-    numlines += 1
-    tmp = line.split("\t")
-    if len(tmp) < 9:
-        break
-    if abs(int(tmp[8])) < 10000:
-        b_sum += abs(int(tmp[8]))
-        b_count += 1
-try:
-    mean = b_sum / b_count
-```
-__Step 2b.:__ Write it to a config file
-```Python
-for inputBamFile, meanInsertSize, tag in zip(inputBamFiles, meanInsertSizes, tags):
-        fil.write("%s\t%s\t%s\n" %(inputBamFile, meanInsertSize, tag))
-    fil.close()
-```
-__Step 2c.:__ Run pindel
-```Shell
-pindel \
--f GRCh38.d1.vd1.fa \
--i config_file \
--o $(output_prefix) \
---exclude GRCh38.d1.vd1.centromeres.telomeres.bed
 
-```
+=== "Python"
+
+    ```Python
+    cmd = "samtools view -f66 %s | head -n 1000000" % (bam)
+    output = do_shell_command(cmd)
+    lines = output.decode('utf-8').split('\n')
+    b_sum = 0
+    b_count = 0
+    numlines = 0
+    for line in lines:
+        numlines += 1
+        tmp = line.split("\t")
+        if len(tmp) < 9:
+            break
+        if abs(int(tmp[8])) < 10000:
+            b_sum += abs(int(tmp[8]))
+            b_count += 1
+    try:
+        mean = b_sum / b_count
+    ```
+
+__Step 2b.:__ Write it to a config file
+
+=== "Python"
+
+    ```Python
+    for inputBamFile, meanInsertSize, tag in zip(inputBamFiles, meanInsertSizes, tags):
+            fil.write("%s\t%s\t%s\n" %(inputBamFile, meanInsertSize, tag))
+        fil.close()
+    ```
+
+__Step 2c.:__ Run pindel
+
+=== "Shell"
+
+    ```Shell
+    pindel \
+    -f GRCh38.d1.vd1.fa \
+    -i config_file \
+    -o $(output_prefix) \
+    --exclude GRCh38.d1.vd1.centromeres.telomeres.bed
+    ```
+
 __Step 2d.:__ Merge DI and SI OUTPUT
-```Python
-with open(os.path.join(args.workdir, "pindel_somatic"), "w") as handle:
-        for p in pindel_files:
-            if p.endswith("_D"):
-              with open(p) as ihandle:
-                for line in ihandle:
+
+=== "Python"
+
+    ```Python
+    with open(os.path.join(args.workdir, "pindel_somatic"), "w") as handle:
+            for p in pindel_files:
+                if p.endswith("_D"):
+                with open(p) as ihandle:
+                    for line in ihandle:
+                        if re.search("ChrID", line):
+                            handle.write(line)
+            for p in pindel_files:
+                if p.endswith("_SI"):
+                with open(p) as ihandle:
+                    for line in ihandle:
                     if re.search("ChrID", line):
                         handle.write(line)
-        for p in pindel_files:
-            if p.endswith("_SI"):
-              with open(p) as ihandle:
-                for line in ihandle:
-                  if re.search("ChrID", line):
-                     handle.write(line)
-```
-__Step 2e.:__ Create a config for pindel somatic filter
-```Python
-indel.filter.input = $(merged.pindel.output)
-indel.filter.vaf = 0.08
-indel.filter.cov = 20
-indel.filter.hom = 6
-indel.filter.pindel2vcf = "/path/to/pindel/pindel2vcf4tcga"
-indel.filter.reference =  "GRCh38.d1.vd1.fa"
-indel.filter.referencename = "GRCh38"
-indel.filter.referencedate = datetime.datetime.now().strftime("%Y%m%d")
-indel.filter.output = $(output.file.name.vcf)
+    ```
 
-```
+__Step 2e.:__ Create a config for pindel somatic filter
+
+=== "Python"
+
+    ```Python
+    indel.filter.input = $(merged.pindel.output)
+    indel.filter.vaf = 0.08
+    indel.filter.cov = 20
+    indel.filter.hom = 6
+    indel.filter.pindel2vcf = "/path/to/pindel/pindel2vcf4tcga"
+    indel.filter.reference =  "GRCh38.d1.vd1.fa"
+    indel.filter.referencename = "GRCh38"
+    indel.filter.referencedate = datetime.datetime.now().strftime("%Y%m%d")
+    indel.filter.output = $(output.file.name.vcf)
+    ```
+
 __Step 2f.:__ Apply somatic filter on pindel output
 Tool: pindel2vcf4tcga
-```Perl
-perl pindel/somatic_filter/somatic_indelfilter.pl $(somatic.indel.filter.config)
-```
+
+=== "Perl"
+
+    ```Perl
+    perl pindel/somatic_filter/somatic_indelfilter.pl $(somatic.indel.filter.config)
+    ```
+
 __Step 3:__ Pindel
 Tool: Picard.jar 2
-```Shell
-java \
--d64 \
--XX: +UseSerialGC \
--Xmx16G \
--jar picard.jar \
-SortVcf \
-CREATE_INDEX=true \
-SEQUENCE_DICTIONARY=GRCh38.d1.vd1.dict \
-I=$(pindel.somatic.vcf) \
-OUTPUT=$(output.vcf.gz)
-```
+
+=== "Shell"
+
+    ```Shell
+    java \
+    -d64 \
+    -XX: +UseSerialGC \
+    -Xmx16G \
+    -jar picard.jar \
+    SortVcf \
+    CREATE_INDEX=true \
+    SEQUENCE_DICTIONARY=GRCh38.d1.vd1.dict \
+    I=$(pindel.somatic.vcf) \
+    OUTPUT=$(output.vcf.gz)
+    ```
+
 __Step 5:__ Vt Normalization
 Tool: GenomeAnalysisTK.jar nightly-2016-02-25-gf39d340
 
-```Shell
-java \
--Xmx4G \
--jar \
-/bin/GenomeAnalysisTK.jar \
--T VariantFiltration \
---disable_auto_index_creation_and_locking_when_reading_rods \
---variant $(vt.normal.output.vcf.gz) \
--R GRCh38.d1.vd1.fa \
---filterExpression vc.isBiallelic() && vc.getGenotype(\"TUMOR\").getAD().1 < 3" \
---filterName TALTDP \
--o $(output.vcf.gz)
+=== "Shell"
 
-
-```
+    ```Shell
+    java \
+    -Xmx4G \
+    -jar \
+    /bin/GenomeAnalysisTK.jar \
+    -T VariantFiltration \
+    --disable_auto_index_creation_and_locking_when_reading_rods \
+    --variant $(vt.normal.output.vcf.gz) \
+    -R GRCh38.d1.vd1.fa \
+    --filterExpression vc.isBiallelic() && vc.getGenotype(\"TUMOR\").getAD().1 < 3" \
+    --filterName TALTDP \
+    -o $(output.vcf.gz)
+    ```
 
 ### Variant Call Annotation Workflow
 
@@ -448,7 +526,8 @@ In addition to annotation, [False Positive Filter](https://github.com/ucscCancer
 Tumor only variant calling is performed on a tumor sample with no paired normal at the request of the research group. This method takes advantage of the normal cell contamination that is present in most tumor samples. These calls are made using the version of MuTect2 included in GATK4. Tumor-only variant call files can be found in the GDC Portal by filtering for "Workflow Type: GATK4 MuTect2".   
 
 ### Tumor-Only Variant Call Command-Line Parameters
-```
+
+```shell
 GATK4 v4
 
 ## 1. Generate OXOG metrics:
@@ -553,7 +632,7 @@ The Somatic Aggregation Workflow generates one MAF file from multiple VCF files;
 
 ### Masked Somatic Aggregation Workflow
 
-The MAF files generated by Somatic Aggregation Workflow are controlled-access due to the presence of germline mutations. Open-access MAF files are modified for public release by removing columns and variants that could potentially contain germline mutation information. See the GDC [MAF Format](../File_Formats/MAF_Format/) for details about the criteria used to remove variants.
+The MAF files generated by Somatic Aggregation Workflow are controlled-access due to the presence of germline mutations. Open-access MAF files are modified for public release by removing columns and variants that could potentially contain germline mutation information. See the GDC [MAF Format](/Data/File_Formats/MAF_Format/) for details about the criteria used to remove variants.
 
 While these criteria cause the pipeline to over-filter some of the true positive somatic variants in open-access MAF files, they prevent personally identifiable germline mutation information from becoming publicly available. The GDC recommends that investigators explore both controlled and open-access MAF files if omission of certain somatic mutations is a concern.
 

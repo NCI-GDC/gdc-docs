@@ -7,7 +7,7 @@ Annotations are automatically downloaded in TSV format with impacted files when 
 
 For information on Annotation structure and content please review the [GDC Data Dictionary](/Data_Dictionary/viewer/#?view=table-definition-view&id=annotation)
 
-For information about TCGA conventions for annotations please see the [TCGA Introduction to Annotations](Annotations_TCGA/).  
+For information about TCGA conventions for annotations please see the [TCGA Introduction to Annotations](/Encyclopedia/pages/Annotations_TCGA).  
 
 If a submitter would like to create an annotation, please contact the GDC Support Team (support@nci-gdc.datacommons.io).
 

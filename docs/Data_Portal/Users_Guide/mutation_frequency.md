@@ -53,11 +53,11 @@ The summary section of the gene page contains the following information:
 * __Description:__ A description of gene function and downstream consequences of gene alteration
 * __Annotation:__ A notation/link that states whether the gene is part of [The Cancer Gene Census](http://cancer.sanger.ac.uk/census/)
 
-__External References__ 
+__External References__
 
 A list with links that lead to external databases with additional information about each gene is displayed here. These external databases include: [Entrez](https://www.ncbi.nlm.nih.gov/gquery/), [Uniprot](http://www.uniprot.org/), [Hugo Gene Nomenclature Committee](http://www.genenames.org/), [Online Mendelian Inheritance in Man](https://www.omim.org/), [Ensembl](http://may2015.archive.ensembl.org/index.html), and [CIViC](https://civicdb.org/home).
 
-__Cancer Distribution__ 
+__Cancer Distribution__
 
 A table and two bar graphs (one for mutations, one for CNV events) show how many cases are affected by mutations and CNV events within the gene as a ratio and percentage. Each row/bar represents the number of cases for each project.  The final column in the table lists the number of unique mutations observed on the gene for each project.
 
@@ -77,7 +77,7 @@ A table is displayed below that lists information about each mutation including:
 * __Consequences:__ The effects the mutation has on the gene coding for a protein (i.e. synonymous, missense, non-coding transcript)
 * __# Affected Cases in Gene:__ The number of affected cases, expressed as number across all mutations within the Gene
 * __# Affected Cases Across GDC:__ The number of affected cases, expressed as number across all projects. Choosing the arrow next to the percentage will expand the selection with a breakdown of each affected project.
-* __Impact:__ A subjective classification of the severity of the variant consequence. This is determined using [Ensembl VEP](http://www.ensembl.org/info/genome/variation/predicted_data.html), [PolyPhen](http://genetics.bwh.harvard.edu/pph/), and [SIFT](http://sift.jcvi.org/). The categories are outlined [here](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/#impact-categories).
+* __Impact:__ A subjective classification of the severity of the variant consequence. This is determined using [Ensembl VEP](https://useast.ensembl.org/info/docs/tools/vep/index.html), [PolyPhen](http://genetics.bwh.harvard.edu/wiki/!pph2/about), and [SIFT](http://sift.jcvi.org/). The categories are outlined [here](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/#impact-categories).
 
 *Note: The Mutation UUID can be displayed in this table by selecting it from the Customize Columns button, represented by three parallel lines*
 
@@ -112,7 +112,7 @@ The fields that describe each consequence are listed below:
   * __Coding DNA Change:__ The specific nucleotide change and position of the mutation within the gene
   * __Impact:__ VEP, SIFT, and/or PolyPhen Impact ratings
   * __Gene Strand:__ If the gene is located on the forward (+) or reverse (-) strand
-  * __Transcript:__ The transcript(s) affected by the mutation. Each contains a link to the [Ensembl](https://www.ensembl.org) entry for the transcript 
+  * __Transcript:__ The transcript(s) affected by the mutation. Each contains a link to the [Ensembl](https://www.ensembl.org) entry for the transcript
 
 __Cancer Distribution__
 

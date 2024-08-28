@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v41.0](Data_Release_Notes.md#data-release-410) | August 28, 2024 |
 | [v40.0](Data_Release_Notes.md#data-release-400) | March 29, 2024 |
 | [v39.0](Data_Release_Notes.md#data-release-390) | December 4, 2023 |
 | [v38.0](Data_Release_Notes.md#data-release-380) | August 31, 2023 |
@@ -47,6 +48,78 @@
 | [v3.0](Data_Release_Notes.md#data-release-30) | September 16, 2016 |
 | [v2.0](Data_Release_Notes.md#data-release-20) | August 9, 2016 |
 | [v1.0](Data_Release_Notes.md#initial-data-release-10) | June 6, 2016 |
+
+## Data Release 41.0
+
+* __GDC Product__: Data
+* __Release Date__: August 28, 2024
+
+### New Updates
+
+* New Projects
+    * MATCH-C1
+        * 11 cases
+        * WXS, RNA-Seq
+    * MATCH-P
+        * 28 cases
+        * WXS, RNA-Seq
+    * MATCH-Z1B
+        * 29 cases
+        * WXS, RNA-Seq
+
+* New Cases from Existing Projects
+    * CPTAC-3 - 31 cases
+
+* New Data Sets
+    * TARGET-AML Tumor-Only Targeted Sequencing - 163 variant call sets
+    * TCGA U133 Submitted Expression Arrays
+        * TCGA-GBM - 560 aliquots
+        * TCGA-LAML - 183 aliquots
+        * TCGA-LUSC - 135 aliquots
+        * TCGA-OV - 548 aliquots 
+    * TCGA-LUAD Methylation Data - 53 aliquots
+    * CDDP_EAGLE-1 Slide Images - 49 cases
+    * HCMI-CMDC
+        * Tumor-Only WGS Data - 2 aliquot BAMs, 2 variant call sets
+        * Tumor-Only WXS Data - 3 aliquot BAMs, 3 variant call sets
+        * Updated clinical supplements
+
+* Data Updates
+    * Indexing of [ABSOLUTE Liftover](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/CNV_Pipeline/) copy number variation data
+    * Release of data for [Other Clinical Attribute](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=other_clinical_attribute) clinical entities
+    * `platform` field populated for harmonized data files, can be used as a filter in `Repository` 
+
+A complete list of files included in the GDC Data Portal can be found below:
+
+* [gdc_manifest_20240826_data_release_41.0_active.tsv.gz](https://api.gdc.cancer.gov/data/7e1bb66c-c944-4057-85b0-4bfe3bf3acd1)
+* [DR41 Project Level Manifests](https://api.gdc.cancer.gov/data/339aef11-7176-45c5-811f-81bee1534ea8)
+* [DR41 New Files Manifest](https://api.gdc.cancer.gov/data/3f7f2d3a-73a3-487c-ac9d-7aa2aa3aaaf1)
+
+### Bugs Fixed Since Last Release
+
+* Fixed 4 TARGET-NBL gene expression sets that pointed to multiple cases/aliquots <!--SV-1332-->
+* Fixed multiple expression files per aliquot for several TARGET-AML RNA-Seq aliquots <!--DAT-3711-->
+
+### Known Issues and Workarounds
+
+* The slide image viewer does not display for any non-TCGA slides. At this time, these slides will need to be downloaded and viewed locally. Additionally, the slide image viewer does not display properly for 14 TCGA slides, which are identified [here](missing_tiling.txt).
+* Pathology reports do not have any associated case/biospecimen information in the portal. This information can be found in the reports themselves. <!--SV-2118-->  
+* 397 alignments from the TCGA program were found to have contamination values over 0.04 ([alignment list](Contaminated_Alignments.dr32.tsv)). The ensemble MAFs produced by these alignments were removed from the Data Portal.
+* One methylation aliquot from the TCGA-COAD project, TCGA-D5-6930-01A-11D-1926-05, was not added to the portal and will be added in a future release.
+* Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
+* The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
+* Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
+* Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* No data from TARGET-MDLS is available.
+* TCGA Projects
+    * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
+    * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
+    * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+    * Tumor_grade property is not populated <!--SV-585-->
+    * Progression_or_recurrence property is not populated <!--SV-584-->
 
 ## Data Release 40.0
 
@@ -1225,7 +1298,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
     1.  New Project: CMI-MPC - Count Me In - The Metastatic Prostate Cancer Project
         * WXS alignments and variant calls (VCFs) are available.
-    2.  New Data Type: Single nuclei (snRNA-Seq) data is now available for 18 CPTAC-3 cases. See the [RNA-Seq](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#scrna-seq-pipeline) documentation for details.
+    2.  New Data Type: Single nuclei (snRNA-Seq) data is now available for 18 CPTAC-3 cases. See the [RNA-Seq](/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#scrna-seq-pipeline) documentation for details.
     3.  CPTAC-3
         * Data files for 147 new cases from the pancreatic cohort are now available.
         * CPTAC-3 open-access somatic mutations are now browsable through the GDC Exploration Portal.
@@ -1373,7 +1446,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 
 ### New updates
 
-1.  Initial release for the WGS variant calling pipeline. See the [documentation](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/#whole-genome-sequencing-variant-calling) on WGS variant calling for more details on the available files.  This includes data from the following projects:
+1.  Initial release for the WGS variant calling pipeline. See the [documentation](/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/#whole-genome-sequencing-variant-calling) on WGS variant calling for more details on the available files.  This includes data from the following projects:
     * CGCI-BLGSP <!--SPT7-75-->
     * CGCI-HTMCP-CC <!--SPT7-27-->
     * HCMI-CMDC <!--DAT-2948-->
@@ -2468,8 +2541,8 @@ A complete list of files for DR16.0 are listed for the GDC Data Portal and the G
 ### New updates
 
 1.  TARGET-ALL-P3 is now available and includes RNA-Seq and WXS data.
-2.  New RNA-Seq workflow is now being utilized for new projects.  More details can be found in the [RNA-Seq pipeline documentation](../../Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#rna-seq-alignment-workflow).
-3.  New tumor only variant calling pipeline is now being utilized for new projects.  More details can be found in the [Tumor only pipeline documentation](../../Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/#tumor-only-variant-calling-workflow).
+2.  New RNA-Seq workflow is now being utilized for new projects.  More details can be found in the [RNA-Seq pipeline documentation](/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#rna-seq-alignment-workflow).
+3.  New tumor only variant calling pipeline is now being utilized for new projects.  More details can be found in the [Tumor only pipeline documentation](/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/#tumor-only-variant-calling-workflow).
 
 
 A complete list of files for DR15.0 are listed for the GDC Data Portal and the GDC Legacy Archive are found below:
@@ -3110,7 +3183,7 @@ None
 
 ### New updates
 
-1.  GDC updated public Mutation Annotation Format (MAF) files are now available. Updates include leveraging the MC3 variant filtering strategy, which results in more variants being recovered relative to the previous version. A detailed description of the new format can be found [here](../File_Formats/MAF_Format/). <!--DAT-572-->
+1.  GDC updated public Mutation Annotation Format (MAF) files are now available. Updates include leveraging the MC3 variant filtering strategy, which results in more variants being recovered relative to the previous version. A detailed description of the new format can be found [here](/Data/File_Formats/MAF_Format/). <!--DAT-572-->
 2.  Protected MAFs are updated to include additional variant annotation information <!--DAT-572-->
 3.  Some MuTect2 VCFs updated to include dbSNP and COSMIC annotations found in other VCFs <!--TT-21-->
 

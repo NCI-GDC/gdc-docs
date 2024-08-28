@@ -1,3 +1,20 @@
+---
+hide:
+    - navigation
+    - toc
+---
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script type="text/javascript" src="lib/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="lib/js/pagination.min.js"></script>
+<script type="text/javascript" src="lib/js/jsrender.min.js"></script>
+<!-- boostrap used by bundle.js for tooltips -->
+<script type="text/javascript" src="dist/bundle.js"></script>
+<link rel="stylesheet" href="lib/css/jquery-ui.min.css">
+<link rel="stylesheet" href="lib/css/pagination.min.css">
+<link rel="stylesheet" href="dist/styles.css">
+
 
 <!-- GDCMVS APP -->
 
@@ -9,11 +26,11 @@
         <input id="keywords" type="text" class="form-control search-bar__input" aria-label="keywords" placeholder="Please enter keyword" autocomplete="off">
         <div id="search-bar-options" class="search-bar__options dropdown" style="display: none;">
           <a href="#" data-toggle="dropdown" class="dropdown-toggle search-bar__option" aria-label="boolean operators"><i class="fa fa-ellipsis-h"></i></a>
-          <ul class="dropdown-menu search-bar__dropdown">
-              <li><a class="search-bar__boolean" data-boolean="AND" href="#">AND</a></li>
-              <li><a class="search-bar__boolean" data-boolean="OR" href="#">OR</a></li>
-              <li><a class="search-bar__boolean" data-boolean="NOT" href="#">NOT</a></li>
-          </ul>
+          <div class="dropdown-menu search-bar__dropdown">
+              <a class="search-bar__boolean" data-boolean="AND" href="#">AND</a>
+              <a class="search-bar__boolean" data-boolean="OR" href="#">OR</a>
+              <a class="search-bar__boolean" data-boolean="NOT" href="#">NOT</a>
+          </div>
           <a href="#" id="searchclear" class="search-bar__option" aria-label="clear search bar"><i class="fa fa-times"></i></a>
         </div>
         <span class="input-group-btn">
@@ -41,7 +58,7 @@
       </div>
       <div class="ref-box">
         <a href="https://ncit.nci.nih.gov/" class="ref-box__link" target="_blank">Search in NCIt</a>
-        <a href="https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?programArea=0&contextId=2C8BAF10-7E19-B797-E050-BB89AD43619C"
+        <a href="https://cadsr.cancer.gov/onedata/Home.jsp"
           class="ref-box__link" target="_blank">Search in caDSR</a>
       </div>
     </div>
