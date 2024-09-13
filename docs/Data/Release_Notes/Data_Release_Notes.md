@@ -76,18 +76,19 @@
         * TCGA-GBM - 560 aliquots
         * TCGA-LAML - 183 aliquots
         * TCGA-LUSC - 135 aliquots
-        * TCGA-OV - 548 aliquots 
+        * TCGA-OV - 548 aliquots
     * TCGA-LUAD Methylation Data - 53 aliquots
     * CDDP_EAGLE-1 Slide Images - 49 cases
     * HCMI-CMDC
         * Tumor-Only WGS Data - 2 aliquot BAMs, 2 variant call sets
         * Tumor-Only WXS Data - 3 aliquot BAMs, 3 variant call sets
         * Updated clinical supplements
+    * BEATAML1.0-COHORT scRNA-Seq Data - 8 aliquots
 
 * Data Updates
     * Indexing of [ABSOLUTE Liftover](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/CNV_Pipeline/) copy number variation data
     * Release of data for [Other Clinical Attribute](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=other_clinical_attribute) clinical entities
-    * `platform` field populated for harmonized data files, can be used as a filter in `Repository` 
+    * `platform` field populated for harmonized data files, can be used as a filter in `Repository`
 
 A complete list of files included in the GDC Data Portal can be found below:
 
