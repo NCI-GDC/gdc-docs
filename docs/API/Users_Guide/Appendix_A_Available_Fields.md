@@ -2119,7 +2119,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | project.program |
 
 ### GDC Conventions Supplemental
-| Field Group Name |
+| Field Group Name | |
 | --- | --- |
 | File size | Listed in bytes |
 | Submitter id | String supplied by submitter |

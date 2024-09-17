@@ -1151,15 +1151,19 @@ footer {
     }
   }
 
-  .md-typeset iframe {
-    max-width: inherit;
-  }
+.md-typeset iframe {
+  max-width: inherit;
+}
 
-  .md-typeset pre>code {
-    white-space: pre-wrap;
-    word-break: break-all;
-  }
+.md-typeset pre>code {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
 
-  .md-header__title {
-    visibility: hidden;
-  }
+.md-header__title {
+  visibility: hidden;
+}
+
+.md-header__button.md-logo img, .md-header__button.md-logo svg {
+    height: 1.8rem;
+}
