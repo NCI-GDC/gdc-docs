@@ -1269,11 +1269,11 @@ The PATCH method cannot be used to create new entities, and the provided submitt
 
 === "Command1"
 
-  ```shell
-  token=$(<gdc-token-text-file.txt)
+    ```shell
+    token=$(<gdc-token-text-file.txt)
 
-  curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
-  ```
+    curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
+    ```
 
 === "Response1"
 
@@ -1319,16 +1319,16 @@ The PATCH method cannot be used to create new entities, and the provided submitt
 
 === "Request2"
 
-  ```json
-  {
-    "type": "demographic",
-    "submitter_id": "demographic7892",
-    "cause_of_death": "Infection", 
-    "cause_of_death_source": "Death Certificate", 
-    "country_of_birth": "Antigua and Barbuda", 
-    "country_of_residence_at_enrollment": "Antigua and Barbuda"
-  }
-  ```
+    ```json
+    {
+      "type": "demographic",
+      "submitter_id": "demographic7892",
+      "cause_of_death": "Infection",
+      "cause_of_death_source": "Death Certificate",
+      "country_of_birth": "Antigua and Barbuda",
+      "country_of_residence_at_enrollment": "Antigua and Barbuda"
+    }
+    ```
 
 === "Command2"
 
@@ -1338,7 +1338,7 @@ The PATCH method cannot be used to create new entities, and the provided submitt
     curl --header "X-Auth-Token: $token" --request PATCH --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
     ```
 
-"Response2"
+=== "Response2"
 
     ```json
     {
