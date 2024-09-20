@@ -6,12 +6,11 @@ DNAcopy is a copy number variation (CNV) analysis pipeline used in GDC genotypin
 
 ## Overview ##
 
-DNAcopy is one of the three copy number variation analysis pipelines at the GDC. CNV analysis is performed with DNAcopy using tumor and normal alignments and generates copy number variation data.
-
+DNAcopy is one of the three copy number variation analysis pipelines at the GDC. CNV analysis is performed with DNAcopy using Affymetrix SNP 6.0 data and generates copy number variation data.
 
 ### Input
 
-Submitted sequencing reads
+* Submitted tangent copy number files
 
 ### Output
 

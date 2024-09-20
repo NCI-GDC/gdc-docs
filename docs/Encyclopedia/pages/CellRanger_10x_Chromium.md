@@ -10,7 +10,7 @@ CellRanger - 10x Chromium is part of the scRNA-Seq Pipeline (single-nuclei) used
 
 ### Input
 
-Submitted sequencing reads 
+* Submitted sequencing reads
 
 ### Output
 

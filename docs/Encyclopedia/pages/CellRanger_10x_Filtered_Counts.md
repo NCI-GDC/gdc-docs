@@ -6,11 +6,11 @@ CellRanger - 10x Filtered Counts is a gene expression pipeline used in GDC singl
 
 ## Overview ##
 
-CellRanger - 10x Filtered Counts is part of the scRNA-Seq Pipeline (single-nuclei) used for scRNA-Seq harmonization at GDC. Alignment is performed with CellRanger - 10x Filtered Counts using tumor tissues and generates transcriptome profiling data.
+CellRanger - 10x Filtered Counts is part of the scRNA-Seq Pipeline used for scRNA-Seq harmonization at GDC. Gene expression quantification, for detected cellular barcodes only, is performed with CellRanger and generates transcriptome profiling data.
 
 ### Input
 
-* Tumor BAM - scRNA-Seq
+* BAM - scRNA-Seq
 
 ### Output
 
