@@ -6,7 +6,7 @@ BWA with Mark Duplicates and BQSR (Base Quality Score Recalibration) is a sequen
 
 ## Overview ##
 
-BWA with Mark Duplicates and BQSR is a BWA based alignment workflow for ATAC-Seq, targeted sequencing, whole genome sequencing (WGS) and whole exome sequencing (WXS) with additional steps of Mark Duplicates and Base Quality Score Recalibration (BQSR). BWA with Mark Duplicates and BQSR is used for aligning sequence reads to a reference genome for both normal and tumor tissues.
+BWA with Mark Duplicates and BQSR is a BWA based alignment workflow for ATAC-Seq, targeted sequencing, whole genome sequencing (WGS) and whole exome sequencing (WXS) with additional steps of Mark Duplicates and Base Quality Score Recalibration (BQSR). BWA with Mark Duplicates and BQSR is used for aligning sequence reads to a reference genome.
 
 ### Input
 

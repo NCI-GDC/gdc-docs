@@ -6,7 +6,7 @@ BWA-aln is an alignment workflow used in GDC miRNA-Seq data harmonization. BWA i
 
 ## Overview ##
 
-BWA-aln is a BWA based alignment workflow for miRNA-Seq. BWA-aln is used for aligning sequence reads to a reference genome for both normal and tumor tissues with BWA algorithm.
+See the Reference links below.
 
 ### Input
 

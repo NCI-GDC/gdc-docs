@@ -6,7 +6,7 @@ BWA with BQSR (Base Quality Score Recalibration) is a sequencing alignment and q
 
 ## Overview ##
 
-BWA with BQSR is a BWA based alignment workflow for targeted sequencing with additional step of Base Quality Score Recalibration (BQSR). BWA with BQSR is used for aligning sequence reads to a reference genome for tumor tissues only.
+BWA with BQSR is a BWA based alignment workflow for targeted sequencing with additional step of Base Quality Score Recalibration (BQSR). BWA with BQSR is used for aligning sequence reads to a reference genome.
 
 ### Input
 
