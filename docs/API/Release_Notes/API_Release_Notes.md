@@ -42,7 +42,7 @@
 ## v7.5.1
 
 * __GDC Product__: Application Programming Interface (API)
-* __Release Date__:  July 30, 2024
+* __Release Date__:  September 30, 2024
 
 ### New Features and Changes
 
