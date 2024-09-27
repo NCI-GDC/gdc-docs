@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v.3.2.0](Data_Dictionary_Release_Notes.md#v320) | September XX, 2024 |
+| [v.3.3.0](Data_Dictionary_Release_Notes.md#v320) | September 30, 2024 |
 | [v.3.1.0](Data_Dictionary_Release_Notes.md#v310) | May 30, 2024 |
 | [v.3.0.0](Data_Dictionary_Release_Notes.md#v300) | October 30, 2023 |
 | [v.2.6.6](Data_Dictionary_Release_Notes.md#v266) | June 16, 2023 |
@@ -28,10 +28,10 @@
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
 
-## v3.2.0
+## v3.3.0
 
 * __GDC Product__: GDC Data Dictionary
-* __Release Date__: September XX, 2024
+* __Release Date__: September 30, 2024
 
 ### New Features and Changes
 
@@ -401,7 +401,7 @@
 
 ### Bugs Fixed Since Last Release
 
-* N/A 
+* N/A
 
 ### Known Issues and Workarounds
 
