@@ -281,7 +281,7 @@ QC checks are automatically run on all supplied metadata and data files.  The re
 | WXS_LIBRARY_SELECTION  | ReadGroup has library strategy WXS but does not have Hybrid Selection as its library selection| Modify library selection to be Hybrid Selection for WXS read groups |  
 | WGS_LIBRARY_SELECTION  | ReadGroup has library strategy WGS but does not have Random as its library selection| For WGS read groups, ensure library strategy is set to Random |
 | NO_READ_PAIR_NUMBER  | The FASTQ is paired but has no read_pair_number| Include a read_pair_number for paired end FASTQ files |
-| DUPLICATE_MD5S  | Two or more files have the same md5sum| This means there are duplicate files in the submission.  You must delete one of these files |
+| DUPLICATE_MD5S  | Two or more files have the same md5sum | This means there are duplicate files in the submission.  You must delete one of these files |
 
 #### __Warning Errors__
 | Error Message | Description | How to Fix / Error Meaning |

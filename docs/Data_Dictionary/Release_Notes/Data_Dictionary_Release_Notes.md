@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v.3.3.0](Data_Dictionary_Release_Notes.md#v330) | September 30, 2024 |
 | [v.3.1.0](Data_Dictionary_Release_Notes.md#v310) | May 30, 2024 |
 | [v.3.0.0](Data_Dictionary_Release_Notes.md#v300) | October 30, 2023 |
 | [v.2.6.6](Data_Dictionary_Release_Notes.md#v266) | June 16, 2023 |
@@ -26,6 +27,385 @@
 | [v1.10.0](Data_Dictionary_Release_Notes.md#release-with-api-v1100) | August 22, 2017 |
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
+
+## v3.3.0
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: September 30, 2024
+
+### New Features and Changes
+
+* Altered `demographic` Entity
+	* New property: `population_group`
+* Altered `diagnosis` Entity
+	* New property: `ajcc_serum_tumor_markers`
+	* Changes made to `method_of_diagnosis`
+		* New permissible value: `Orchiectomy`
+	* Changes made to `primary_diagnosis`
+		* New permissible value: `Adenocarcinoma in tubulovillous adenoma`
+		* New permissible value: `Myxofibrosarcoma`
+		* New deprecated value: `Adenocarcinoma in tubolovillous adenoma`
+	* Changes made to `sites_of_involvement`
+		* New permissible value: `Breast, Left Lower Inner`
+		* New permissible value: `Breast, Left Lower Outer`
+		* New permissible value: `Breast, Left Upper Inner`
+		* New permissible value: `Breast, Left Upper Outer`
+		* New permissible value: `Breast, Right Lower Inner`
+		* New permissible value: `Breast, Right Lower Outer`
+		* New permissible value: `Breast, Right Upper Inner`
+		* New permissible value: `Breast, Right Upper Outer`
+		* New permissible value: `Eye, Choroid`
+		* New permissible value: `Eye, Ciliary Body`
+		* New permissible value: `Eye, Iris`
+		* New permissible value: `Hilar Fat`
+		* New permissible value: `Rete Testis`
+		* New permissible value: `Scrotum`
+		* New permissible value: `Skin, Extremities`
+		* New permissible value: `Skin, Groin`
+		* New permissible value: `Skin, Head and Neck`
+		* New permissible value: `Skin, Trunk`
+		* New permissible value: `Spermatic Cord`
+		* New permissible value: `Tunica Albuginea`
+		* New permissible value: `Tunica Vaginalis`
+* Altered `follow_up` Entity
+	* New property: `histologic_progression`
+	* Changes made to `evidence_of_progression_type`
+		* New permissible value: `Biopsy with Histologic Confirmation`
+		* New permissible value: `Physical Examination`
+		* New permissible value: `Positive Biomarker(s)`
+	* Changes made to `imaging_anatomic_site`
+		* New permissible value: `Cervix Uteri`
+	* Changes made to `imaging_findings`
+		* New permissible value: `Bladder Involvement`
+		* New permissible value: `Extra-Pelvic Metastatic Disease`
+		* New permissible value: `Paraaortic Lymph Node Involvement`
+		* New permissible value: `Parametrium Involvement`
+		* New permissible value: `Pelvic Lymph Node Involvement`
+		* New permissible value: `Supraclavicular Lymph Node Involvement`
+	* Changes made to `timepoint_category`
+		* New permissible value: `After Chemotherapy`
+		* New permissible value: `After Study Enrollment`
+		* New permissible value: `End of Consolidation Therapy`
+		* New permissible value: `End of Treatment Course`
+		* New permissible value: `End of Treatment Course 1`
+		* New permissible value: `End of Treatment Course 2`
+		* New permissible value: `First Complete Response`
+		* New permissible value: `First Treatment`
+		* New permissible value: `Post Initial Treatment`
+		* New permissible value: `Prior to Chemotherapy`
+		* New permissible value: `Prior to Procurement`
+		* New permissible value: `Prior to Study Enrollment`
+		* New permissible value: `Prior to Study Registration`
+		* New permissible value: `Progression`
+		* New permissible value: `Recurrence`
+		* New permissible value: `Sample Procurement`
+* Altered `molecular_test` Entity
+	* Changes made to `hpv_strain`
+		* New permissible value: `HPV63`
+		* New permissible value: `HPV70`
+	* Changes made to `test_value_range`
+		* New permissible value: `1-4%`
+		* New permissible value: `5-9%`
+	* Changes made to `timepoint_category`
+		* New permissible value: `Adjuvant Therapy`
+		* New permissible value: `Adolescence`
+		* New permissible value: `Adulthood`
+		* New permissible value: `After Chemotherapy`
+		* New permissible value: `After Study Enrollment`
+		* New permissible value: `Childhood`
+		* New permissible value: `End of Treatment Course`
+		* New permissible value: `First Complete Response`
+		* New permissible value: `First Treatment`
+		* New permissible value: `Follow-up`
+		* New permissible value: `Last Contact`
+		* New permissible value: `Post Adjuvant Therapy`
+		* New permissible value: `Post Hormone Therapy`
+		* New permissible value: `Post Initial Treatment`
+		* New permissible value: `Post Secondary Therapy`
+		* New permissible value: `Postoperative`
+		* New permissible value: `Prior to Adjuvant Therapy`
+		* New permissible value: `Prior to Chemotherapy`
+		* New permissible value: `Prior to Diagnosis`
+		* New permissible value: `Prior to Procurement`
+		* New permissible value: `Prior to Study Enrollment`
+		* New permissible value: `Prior to Study Registration`
+		* New permissible value: `Progression`
+		* New permissible value: `Recurrence`
+		* New permissible value: `Recurrence/Progression`
+		* New permissible value: `Within 2 Months After Completion of First-Course Treatment`
+		* New permissible value: `Within 3 Months of Surgery`
+		* New permissible value: `Other`
+* Altered `other_clinical_attribute` Entity
+	* New property: `undescended_testis_corrected_age_range`
+	* Changes made to `comorbidities`
+		* New permissible value: `Adenomyosis`
+		* New permissible value: `Adenosis (Atypical Adenomatous Hyperplasia)`
+		* New permissible value: `Alcoholic Liver Disease`
+		* New permissible value: `Allergy, Animal, NOS`
+		* New permissible value: `Allergy, Ant`
+		* New permissible value: `Allergy, Bee`
+		* New permissible value: `Allergy, Cat`
+		* New permissible value: `Allergy, Dairy or Lactose`
+		* New permissible value: `Allergy, Dog`
+		* New permissible value: `Allergy, Eggs`
+		* New permissible value: `Allergy, Food, NOS`
+		* New permissible value: `Allergy, Fruit`
+		* New permissible value: `Allergy, Meat`
+		* New permissible value: `Allergy, Mold or Dust`
+		* New permissible value: `Allergy, Nuts`
+		* New permissible value: `Allergy, Processed Foods`
+		* New permissible value: `Allergy, Seafood`
+		* New permissible value: `Allergy, Wasp`
+		* New permissible value: `Alpha-1 Antitrypsin Deficiency`
+		* New permissible value: `Altered Mental Status`
+		* New permissible value: `Androgen Excess`
+		* New permissible value: `Autoimmune Atrophic Chronic Gastritis`
+		* New permissible value: `BAP1 Tumor Predisposition Syndrome`
+		* New permissible value: `Benign Prostatic Hyperplasia`
+		* New permissible value: `Birt-Hogg-Dube Syndrome`
+		* New permissible value: `BK Virus`
+		* New permissible value: `Chronic Kidney Disease`
+		* New permissible value: `Colonization, Bacterial`
+		* New permissible value: `Colonization, Fungal`
+		* New permissible value: `Common Variable Immune Deficiency (CVID)`
+		* New permissible value: `Cortisol Excess`
+		* New permissible value: `Cowden Syndrome`
+		* New permissible value: `Cyst(s)`
+		* New permissible value: `Dementia`
+		* New permissible value: `Diabetes, NOS`
+		* New permissible value: `Diabetes, Type I`
+		* New permissible value: `Diverticulosis`
+		* New permissible value: `Endometriosis`
+		* New permissible value: `Endosalpingiosis`
+		* New permissible value: `Epithelial Dysplasia`
+		* New permissible value: `Epithelial Hyperplasia`
+		* New permissible value: `Estrogen Excess`
+		* New permissible value: `Gastric Polyp(s)`
+		* New permissible value: `Gilbert's Syndrome`
+		* New permissible value: `Glomerular Disease`
+		* New permissible value: `Hay Fever`
+		* New permissible value: `Helicobacter pylori-Associated Gastritis`
+		* New permissible value: `Hematologic Disorder, NOS`
+		* New permissible value: `Hemochromatosis`
+		* New permissible value: `Hepatic Encephalopathy`
+		* New permissible value: `Hepatitis, NOS`
+		* New permissible value: `Hereditary Breast Cancer`
+		* New permissible value: `Hereditary Hemorrhagic Telangiectasia`
+		* New permissible value: `Hereditary Kidney Oncocytoma`
+		* New permissible value: `Hereditary Leiomyomatosis and Renal Cell Carcinoma`
+		* New permissible value: `Hereditary Ovarian Cancer`
+		* New permissible value: `Hereditary Papillary Renal Cell Carcinoma`
+		* New permissible value: `Hereditary Prostate Cancer`
+		* New permissible value: `Hereditary Renal Cell Carcinoma`
+		* New permissible value: `High Grade Dysplasia`
+		* New permissible value: `High-grade Prostatic Intraepithelial Neoplasia (PIN)`
+		* New permissible value: `Human Herpesvirus-6 (HHV-6)`
+		* New permissible value: `Human Herpesvirus-8 (HHV-8)`
+		* New permissible value: `Inflammation`
+		* New permissible value: `Inflammation, Hyperkeratosis`
+		* New permissible value: `Inherited Genetic Syndrome, NOS`
+		* New permissible value: `Intestinal Metaplasia`
+		* New permissible value: `Low Grade Dysplasia`
+		* New permissible value: `Mineralcorticoids Excess`
+		* New permissible value: `Motor / Movement Change`
+		* New permissible value: `Myelodysplastic Syndrome`
+		* New permissible value: `Neurocystericerosis`
+		* New permissible value: `Nevus of Ota`
+		* New permissible value: `Nodular Prostatic Hyperplasia`
+		* New permissible value: `Nonalcoholic Fatty Liver Disease`
+		* New permissible value: `Parasitic Disease of Biliary Tract`
+		* New permissible value: `Parkinson's Disease`
+		* New permissible value: `Recurrent Pyogenic Cholangitis`
+		* New permissible value: `Rubella`
+		* New permissible value: `Scarlet Fever`
+		* New permissible value: `Sensory Changes`
+		* New permissible value: `Serous Tubal Intraepithelial Carcinoma (STIC)`
+		* New permissible value: `Sialadenitis`
+		* New permissible value: `Skin Rash`
+		* New permissible value: `Squamous Metaplasia`
+		* New permissible value: `Succinate Dehydrogenase-Deficient Renal Cell Carcinoma`
+		* New permissible value: `Thyroid Nodular Hyperplasia`
+		* New permissible value: `Tobacco, NOS`
+		* New permissible value: `Tobacco, Smokeless`
+		* New permissible value: `Tobacco, Smoking`
+		* New permissible value: `Tuberous Sclerosis`
+		* New permissible value: `Tubulointerstitial Disease`
+		* New permissible value: `Tumor-Associated Lymphoid Proliferation`
+		* New permissible value: `Undescended Testis`
+		* New permissible value: `Vascular Disease`
+		* New permissible value: `Vision Changes`
+		* New permissible value: `Von Hippel-Lindau Syndrome`
+		* New deprecated value: `Alpha-1 Antitrypsin`
+		* New deprecated value: `Diabetes`
+		* New deprecated value: `Gastroesophageal Reflux Disease`
+		* New deprecated value: `Hepatitis`
+		* New deprecated value: `Kidney Disease`
+		* New deprecated value: `Smoking`
+	* Changes made to `number_of_pregnancies`
+		* New permissible value: `0`
+	* Changes made to `risk_factors`
+		* New permissible value: `Adenocarcinoma`
+		* New permissible value: `Adenomatous Polyposis Coli`
+		* New permissible value: `Allergies`
+		* New permissible value: `Arthritis`
+		* New permissible value: `Atrial Fibrillation`
+		* New permissible value: `Basal Cell Carcinoma`
+		* New permissible value: `Biliary Disorder`
+		* New permissible value: `Bronchitis`
+		* New permissible value: `Calcium Channel Blockers`
+		* New permissible value: `Cataracts`
+		* New permissible value: `Celiac Disease`
+		* New permissible value: `Cerebrovascular Disease`
+		* New permissible value: `Chronic Fatigue Syndrome`
+		* New permissible value: `Clonal Hematopoiesis`
+		* New permissible value: `CNS Infection`
+		* New permissible value: `Common Variable Immunodeficiency`
+		* New permissible value: `Congestive Heart Failure (CHF)`
+		* New permissible value: `Connective Tissue Disorder`
+		* New permissible value: `COPD`
+		* New permissible value: `Coronary Artery Disease`
+		* New permissible value: `Crohn's Disease`
+		* New permissible value: `Cryptogenic Organizing Pneumonia`
+		* New permissible value: `Dyslipidemia`
+		* New permissible value: `GERD`
+		* New permissible value: `Glaucoma`
+		* New permissible value: `Glycogen Storage Disease`
+		* New permissible value: `Gout`
+		* New permissible value: `Heart Disease`
+		* New permissible value: `Hepatitis, Chronic`
+		* New permissible value: `Hereditary Non-Polyposis Colon Cancer`
+		* New permissible value: `Herpes`
+		* New permissible value: `Herpes Simplex Virus`
+		* New permissible value: `High Grade Liver Dysplastic Nodule`
+		* New permissible value: `HIV/AIDS`
+		* New permissible value: `Hyperglycemia`
+		* New permissible value: `Hyperlipidemia`
+		* New permissible value: `Inflammatory Bowel Disease`
+		* New permissible value: `Interstitial Pneumonitis or ARDS`
+		* New permissible value: `Intraductal Papillary Mucinous Neoplasm`
+		* New permissible value: `Ischemic Heart Disease`
+		* New permissible value: `ITP`
+		* New permissible value: `Liver Cirrhosis (Liver Disease)`
+		* New permissible value: `Low Grade Liver Dysplastic Nodule`
+		* New permissible value: `Lupus`
+		* New permissible value: `Myocardial Infarction`
+		* New permissible value: `Neuroendocrine Tumor`
+		* New permissible value: `Nevus of Ota`
+		* New permissible value: `Organ Transplant (Site)`
+		* New permissible value: `Osteoarthritis`
+		* New permissible value: `Peptic Ulcer (Ulcer)`
+		* New permissible value: `Peripheral Vascular Disease`
+		* New permissible value: `Peutz-Jeghers Disease`
+		* New permissible value: `Pregnancy in Patient or Partner`
+		* New permissible value: `Psoriasis`
+		* New permissible value: `Pulmonary Fibrosis`
+		* New permissible value: `Renal Failure (Requiring Dialysis)`
+		* New permissible value: `Renal Insufficiency`
+		* New permissible value: `Rheumatologic Disease`
+		* New permissible value: `Sleep Apnea`
+		* New permissible value: `Staph Osteomyelitis`
+		* New permissible value: `Thyroid Disease, Non-Cancer`
+		* New permissible value: `Tyrosinemia`
+		* New permissible value: `Urinary Tract Infection`
+		* New deprecated value: `Chronic Hepatitis`
+		* New deprecated value: `Cirrhosis`
+		* New deprecated value: `HIV`
+		* New deprecated value: `Reflux Disease`
+	* Changes made to `timepoint_category`
+		* New permissible value: `After Chemotherapy`
+		* New permissible value: `After Study Enrollment`
+		* New permissible value: `End of Consolidation Therapy`
+		* New permissible value: `End of Treatment Course`
+		* New permissible value: `End of Treatment Course 1`
+		* New permissible value: `End of Treatment Course 2`
+		* New permissible value: `First Complete Response`
+		* New permissible value: `First Treatment`
+		* New permissible value: `Post Initial Treatment`
+		* New permissible value: `Prior to Adjuvant Therapy`
+		* New permissible value: `Prior to Chemotherapy`
+		* New permissible value: `Prior to Procurement`
+		* New permissible value: `Prior to Study Enrollment`
+		* New permissible value: `Prior to Study Registration`
+		* New permissible value: `Progression`
+		* New permissible value: `Recurrence`
+		* New permissible value: `Within 2 Months After Completion of First-Course Treatment`
+	* New deprecated property: `undescended_testis_corrected_age`
+* Altered `pathology_detail` Entity
+	* New property: `epithelioid_cell_percent_range`
+	* New property: `extraocular_nodule_size`
+	* New property: `extrascleral_extension_present`
+	* New property: `intratubular_germ_cell_neoplasia_present`
+	* New property: `spindle_cell_percent_range`
+	* New property: `timepoint_category`
+	* New property: `tumor_basal_diameter`
+	* Changes made to `lymph_node_dissection_site`
+		* New permissible value: `Retroperitoneal`
+	* Changes made to `lymph_node_involved_site`
+		* New permissible value: `Intra-Abdominal, NOS`
+	* New deprecated property: `epithelioid_cell_percent`
+	* New deprecated property: `extrascleral_extension`
+	* New deprecated property: `size_extraocular_nodule`
+	* New deprecated property: `spindle_cell_percent`
+* Altered `sample` Entity
+	* Changes made to `biospecimen_anatomic_site`
+		* New permissible value: `Brainstem`
+		* New permissible value: `Common Bile Duct`
+		* New deprecated value: `Brain Stem`
+		* New deprecated value: `Common Duct`
+	* Changes made to `method_of_sample_procurement`
+		* New permissible value: `Indeterminate`
+		* New deprecated value: `Indeterminant`
+* Altered `treatment` Entity
+	* New property: `margin_distance`
+	* New property: `margin_status`
+	* New property: `margins_involved_site`
+	* New property: `pretreatment`
+	* Changes made to `drug_category`
+		* New permissible value: `Platinum`
+	* Changes made to `therapeutic_agents`
+		* New permissible value: `Cidofovir`
+		* New permissible value: `Cyanocobalamin`
+		* New permissible value: `Poly ICLC`
+	* Changes made to `timepoint_category`
+		* New permissible value: `Adjuvant Therapy`
+		* New permissible value: `Adolescence`
+		* New permissible value: `Adulthood`
+		* New permissible value: `After Chemotherapy`
+		* New permissible value: `After Study Enrollment`
+		* New permissible value: `Childhood`
+		* New permissible value: `End of Treatment Course 1`
+		* New permissible value: `End of Treatment Course 2`
+		* New permissible value: `Follow-up`
+		* New permissible value: `Initial Diagnosis`
+		* New permissible value: `Last Contact`
+		* New permissible value: `Post Adjuvant Therapy`
+		* New permissible value: `Post Hormone Therapy`
+		* New permissible value: `Post Initial Treatment`
+		* New permissible value: `Post Secondary Therapy`
+		* New permissible value: `Prior to Adjuvant Therapy`
+		* New permissible value: `Prior to Chemotherapy`
+		* New permissible value: `Prior to Study Enrollment`
+		* New permissible value: `Recurrence/Progression`
+		* New permissible value: `Sample Procurement`
+		* New permissible value: `Within 2 Months After Completion of First-Course Treatment`
+		* New permissible value: `Within 3 Months of Surgery`
+		* New permissible value: `Other`
+	* Changes made to `treatment_anatomic_sites`
+		* New permissible value: `Epiglottis`
+	* Changes made to `treatment_intent_type`
+		* New permissible value: `Re-Excision`
+		* New permissible value: `Salvage`
+	* Changes made to `treatment_type`
+		* New permissible value: `Hysterectomy, NOS`
+	* New deprecated property: `therapeutic_level_achieved`
+
+### Bugs Fixed Since Last Release
+
+* N/A
+
+### Known Issues and Workarounds
+
+* The enum `Head - Face Or Neck, Nos` has been deprecated for the property `treatment_anatomic_sites` on the `treatment` entity, but still appears in the Data Dictionary viewer. This will be resolved in a future release. <!--SV-2310--->
 
 ## v3.1.0
 

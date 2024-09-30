@@ -8,7 +8,7 @@ The [GDC Pre-Release Data Portal](https://portal.awg.gdc.cancer.gov/) provides u
 
 [![GDC Views](images/AWG_Portal.png)](images/AWG_Portal.png "Click to see the full image.")
 
-For more information on any of these general features please review the [GDC Data Portal User Guide](/Data_Portal/Users_Guide/Getting_Started/#navigation).
+For more information on any of these general features please review the [GDC Data Portal User Guide](/Data_Portal/Users_Guide/getting_started/).
 
 ## Authentication
 
