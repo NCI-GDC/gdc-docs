@@ -347,14 +347,14 @@
 	* New deprecated property: `size_extraocular_nodule`
 	* New deprecated property: `spindle_cell_percent`
 * Altered `sample` Entity
-		* Changes made to `biospecimen_anatomic_site`
-			* New permissible value: `Brainstem`
-			* New permissible value: `Common Bile Duct`
-			* New deprecated value: `Brain Stem`
-			* New deprecated value: `Common Duct`
-		* Changes made to `method_of_sample_procurement`
-			* New permissible value: `Indeterminate`
-			* New deprecated value: `Indeterminant`
+	* Changes made to `biospecimen_anatomic_site`
+		* New permissible value: `Brainstem`
+		* New permissible value: `Common Bile Duct`
+		* New deprecated value: `Brain Stem`
+		* New deprecated value: `Common Duct`
+	* Changes made to `method_of_sample_procurement`
+		* New permissible value: `Indeterminate`
+		* New deprecated value: `Indeterminant`
 * Altered `treatment` Entity
 	* New property: `margin_distance`
 	* New property: `margin_status`
