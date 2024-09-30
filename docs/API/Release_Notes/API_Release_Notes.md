@@ -48,7 +48,7 @@
 
 * New QC tests have been added to the QC Reports section of the submission portal.  These include:
     * Verifying that normal samples don't have tumor descriptors and that tumor samples do
-    * Verifying that cases that were not lost to follow up do not have a corresponding date indicate that they were lost
+    * Verifying that cases that were not lost to follow up do not have a corresponding date indicating that they were lost
 
 ### Bugs Fixed Since Last Release
 
