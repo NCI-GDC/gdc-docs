@@ -282,7 +282,6 @@ QC checks are automatically run on all supplied metadata and data files.  The re
 | WGS_LIBRARY_SELECTION  | ReadGroup has library strategy WGS but does not have Random as its library selection| For WGS read groups, ensure library strategy is set to Random |
 | NO_READ_PAIR_NUMBER  | The FASTQ is paired but has no read_pair_number| Include a read_pair_number for paired end FASTQ files |
 | DUPLICATE_MD5S  | Two or more files have the same md5sum | This means there are duplicate files in the submission.  You must delete one of these files |
-| SAMPLE_FIELD_MISMATCH_NORMAL | The tumor_descriptor field should be populated with 'Not Applicable' for normal samples. | Set tumor_descriptor to 'Not Applicable' for any normal sample. |
 
 #### __Warning Errors__
 | Error Message | Description | How to Fix / Error Meaning |
@@ -304,9 +303,6 @@ QC checks are automatically run on all supplied metadata and data files.  The re
 | INVALID_FASTQ_EXTENSION  | Submitted FASTQ file name has an invalid extension| FASTQ file extension should be `.fq` or `.fq.gz`. Impermissible extensions are `tar.gz` and `tar`.|
 | FASTQ_TOO_LARGE  | FASTQ exceeds 10GB in size| The `submitted_unaligned_reads` file is larger than 10 GB. |
 | NO_ASSOCIATED_FILES  | ReadGroup has no associated genomic files| Ensure that all read groups have genomic files attached - or delete them if they are no longer needed |
-| SAMPLE_FIELD_MISMATCH_TUMOR | The tumor_descriptor field should be specified for tumor samples. | Set the tumor_descriptor to a value for tumor samples if possible. |
-| CASE_LTFU_DAYS | If the patient is not lost to follow-up, the days to lost to follow-up question should not be answered. | Set days_to_lost_to_follow_up to 'null' if the patient was not lost to follow up. |
-
 
 Once user review is complete and all Critical errors are resolved, clicking the `REQUEST HARMONIZATION` button will indicate to the GDC Team and pipeline automation system that data processing can begin.
 
