@@ -19,8 +19,6 @@ extra_css:
   - stylesheets/gdc-common.css
   - stylesheets/homepage.css
   - stylesheets/font-awesome-4.5.css
-extra_javascript:
-  - js/analytics-after-load.js
 markdown_extensions:
   - tables
   - pymdownx.superfences
