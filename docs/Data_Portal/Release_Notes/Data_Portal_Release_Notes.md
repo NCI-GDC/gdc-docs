@@ -56,6 +56,7 @@
     * UICC Clinical and Pathologic Stage filter cards have been added to the General Diagnosis category, and Specimen Type has been added to the Biospecimen category. <!--PEAR-2205/2042-->
     * The Enneking MSTS Stage card and Composition card have been removed from the default cards. <!--PEAR-2205/2042-->
     * Cards for filtering cohort by specific cases, mutated genes, and SSMs have been added. <!--PEAR-1269-->
+    * Improved number range inputs in Cohort Builder by removing autofill behavior, adding Min/Max labels, and validating user inputs with error messages for out-of-range values. <!--PEAR-2030-->
 * __General UX/UI Improvements__:
     * Filter cards for entering text and entering/uploading sets now have an appropriate maximum height. <!--PEAR-1311-->
     * Additional loading indicators have been added throughout the portal to indicate that information is still in the process of rendering. <!--PEAR-748-->
@@ -68,30 +69,31 @@
     * Filter panels located on the left side of the __Projects__, __Repository__, and __Mutation Frequency__ tools will now extend up to the height of the tables in the tools. <!--PEAR-2110-->
     * Styling for survival plots has been improved for consistency. <!--PEAR-2176-->
     * Download icons have been standardized. <!--PEAR-2186-->
+* __File Summary Page__:
+    * The __Reference Genome__ section is no longer displayed in the the for files that have not been processed with the reference genome <!--PEAR-1967-->
+    * The Case ID column is now displayed by default in the Annotations table. Additionally, the Case UUID column is no longer displayed by default. <!--PEAR-1968-->
+    * Pagination has been added to the Read Groups table. <!--PEAR-2192-->
+    * Sample Type has been removed from the Associated Cases/Biospecimens table and replaced with Tissue Type and Tumor Descriptor. <!--PEAR-2042-->
 * __Repository__:
     * Stability improvements have been added. <!--PEAR-2022->
     * The placement and design of the buttons to add custom filters and reset them have been updated. <!--PEAR-2059-->
 * __Clinical Data Analysis__:
     * The y-axis of histograms will now only display integers for case counts. <!--PEAR-2087-->
     * The rounding of numbers displayed in th etool has been improved. <!--PEAR-1040-->
-* __File summary page__:
-    * The __Reference Genome__ section is no longer displayed in the the for files that have not been processed with the reference genome <!--PEAR-1967-->
-    * The Case ID column is now displayed by default in the Annotations table. Additionally, the Case UUID column is no longer displayed by default. <!--PEAR-1968-->
-    * Pagination has been added to the Read Groups table. <!--PEAR-2192-->
-    * Sample Type has been removed from the Associated Cases/Biospecimens table and replaced with Tissue Type and Tumor Descriptor. <!--PEAR-2042-->
+* __Case Summary Page__:
+    * Information about Other Clinical Attributes has been added to the Clinical section. Additionally, deprecated properties have been removed from the Follow-Ups table. <!--PEAR-1983-->
+    * Sample Type, Sample Type ID, and Composition have been removed from the Biospecimen tree's Samples table. Additionally, the table has been updated with the addition of Specimen Type. <!--PEAR-2042-->
 * The tooltips for the survival plot now display the time to death and the interval of last follow-up in both years and months. The downloaded TSV now includes the time value in years, months, and days, and the downloaded JSON now includes the time value in days. <!--PEAR-1961/2060-->
 * The ability to reset all filters in the __Projects__, __Repository__, and __Mutation Frequency__ tools to their defaults has been added. <!--PEAR-1431-->
 * Filters in the __Projects__, __Repository__, and __Mutation Frequency__ tools no longer reset when the composition of the active cohort has been changed. <!--PEAR-1856-->
 * Filter cards in the __Projects__, __Repository__, and __Mutation Frequency__ tools can now be expanded and collapsed singly or all at once. <!--PEAR-2029-->
-* With the exception of the __Most Frequent Somatic Mutations table in the case summary page__, downloaded JSON and TSV files now reflect the information displayed in the associated tables whenever search filters have been applied. <!--PEAR-1865/2190--> 
+* With the exception of the Most Frequent Somatic Mutations table in the __Case Summary Page__, downloaded JSON and TSV files now reflect the information displayed in the associated tables whenever search filters have been applied. <!--PEAR-1865/2190--> 
 * A modal will now be displayed to inform users of any issues that occurred when saving sets and cohorts, and when exporting sets. <!--PEAR-1971/2141-->
 * __Quick Search__'s accuracy has been improved to account for files that are no longer available. <!--PEAR-2082-->
 * When genes or mutations are entered or uploaded for filtering in __Mutation Frequency__, other filters within the tool will be cleared. <!--PEAR-2133-->
 * The ability to display a banner notifying users of government shutdowns has been added. <!--PEAR-2161-->
 * Text size has been increased for instructions in modals for selecting cohorts. <!--PEAR-2175-->
 * __Slide Image Viewer__'s performance has been improved. <!--PEAR-1771-->
-* Information about Other Clinical Attributes has been added to the Clinical section of the __case summary page__. Additionally, deprecated properties have been removed from the Follow-Ups table. <!--PEAR-1983-->
-* Sample Type, Sample Type ID, and Composition have been removed from the Biospecimen tree's Samples table. Additionally, the table has been updated with the addition of Specimen Type. <!--PEAR-2042-->
 
 ### Bugs Fixed Since Last Release
 * __Section 508 Accessibility__:
@@ -99,84 +101,42 @@
     * Responsiveness for __Mutation Frequency__, all summary pages, and all table headers has been improved. <!--PEAR-1927/2130/2090-->
     * An equivalent alternative to the body plot on the home page is now available. <!--PEAR-1937-->
     * Aria labels have been made consistent with the displayed text in the Query Expressions section. <!--PEAR-2117-->
-* __Cohort Bar__:
-    * Resolved inconsistencies in the "Discard Changes" button and cohort status indicators in the Cohort Bar, ensuring clearer behavior for unsaved cohorts and improved messaging for users. <!--PEAR-1499-->
-    * Fixed issue where clicking on an operator in the __Query Expressions Area__ removed the wrong filter in Cohort Builder, ensuring the correct operator is deleted. <!--PEAR-2108-->
-    * Fixed issue where clicking on the operator in the __Query Expressions Area__ did not delete the filter in Cohort Builder. <!--PEAR-2109-->
-    * The Cohort Case Table metadata file now correctly includes entries when a gene set filter is applied, resolving the issue where the file was previously blank. <!--PEAR-2203-->
 * __Cohort Builder__:
-    * Fixed inconsistent behavior when removing filters in Cohort Builder, specifically for "Packs Years Smoked" and "Year of Diagnosis" filter cards. <!--PEAR-1379-->
-    * The Cohort Builder now ensures that cards are displayed by default when loaded, resolving issues where no cards appeared after using the browser's back button or clicking the Cohort Builder link. <!--PEAR-1808-->
-    * The Cohort Builder's Treatment tab now maintains consistent case counts next to checkboxes after selection, ensuring they accurately reflect the total cases in the cohort bar, addressing previously noted discrepancies. <!--PEAR-1830-->
-    * Improved number range inputs in Cohort Builder by removing autofill behavior, adding Min/Max labels, and validating user inputs with error messages for out-of-range values. <!--PEAR-2030-->
-    * Fixed issue in the Cohort Builder where entering "0" in range cards would not persist after applying, affecting all range cards that accept "0" as a valid entry. <!--PEAR-2098-->
-    * Updated the minimum value for the "Age at Diagnosis" range in Cohort Builder's Demographic card to "0" years, replacing the incorrect value of "-90" years. <!--PEAR-2106-->
-    * Range card filters, such as "Age at Diagnosis," can now be properly removed after saving a cohort and performing additional actions. <!--PEAR-2181-->
-* __Mutation Frequency__:
-    * The CNV counts in the cancer distribution tables on the gene summary page have been aligned with those in Mutation Frequency, ensuring consistency and unaffected by SSM or local gene filters. <!--PEAR-1649-->
-    * Standardized the "Upload Genes" button in the "Mutated Gene" facet card to match the width of similar buttons in Mutation Frequency and Cohort Builder. <!--PEAR-2102-->
-    * Adjusted the "Mutated Gene" and "Somatic Mutation" filter cards in Mutation Frequency to prevent excessive horizontal expansion before wrapping filters to a new line. <!--PEAR-2103-->
-    * Fixed an issue in Mutation Frequency where turning off "Is Cancer Gene Census" caused the table search functionality to stop working. <!--PEAR-2115-->
-    * Updated the chart breakpoints in the Mutation Frequency App to stack vertically at screen widths below 1280px. <!--PEAR-2132-->
-    * The x-axis label of the Survival Plot is now fully visible in downloaded images, resolving the issue of it being slightly cut off. <!--PEAR-2212-->
-    * The issue where removing a gene or mutation filter in the Mutation Frequency app caused other filters to reset has been resolved, ensuring that filter states remain intact. <!--PEAR-2224-->
-* __Survival Plot__:
-    * Removed "undefined" text in the survival plot when no data is available in the Mutations tab, ensuring consistent messaging with the Genes tab. <!--PEAR-1524-->
-* __Cart__:
-    * Spinners on the Cart page now display only for the specific download option selected, and no spinners will appear if the download does not start or has completed, ensuring consistent behavior. <!--PEAR-1722-->
-    * Cart page download buttons now display the correct download icons for "Download Cart" and "Download Associated Data." <!--PEAR-2184-->
-* __Set Operations__:
-    * Fixed an issue in Set Operations where cohorts were not properly displayed after saving an "Unsaved_Cohort" during comparison, ensuring correct cohort selection and comparison behavior. <!--PEAR-2009-->
-    * Resolved issue in the Set Operations Selection Screen that prevented users from selecting the Gene or Mutation Set checkboxes for analysis. <!--PEAR-2097-->
-    * The issue with the Create Union Gene and Mutation Set buttons, where the created sets show fewer items than expected, has been addressed. <!--PEAR-2160-->
-* __Clinical Data Analysis__:
-    * Standardized the icon sizes for both numerical and continuous variables to ensure consistency. <!--PEAR-2034-->
-    * Fixed issue where Y-axis labels on Clinical Data Analysis histograms were cut off; labels are now fully visible. <!--PEAR-2055-->
-    * Fixed the alignment of the search bar 'x' button to ensure it fits properly within the design format. <!--PEAR-2088-->
-    * The Survival Plot text alignment in Clinical Data Analysis has been adjusted to match the left-aligned styling in Mutation Frequency. <!--PEAR-2174-->
-    * The "Show Number of Entries" button has been restored in the "Modify Cohort" modal for both "existing cohort with selected cases" and "existing cohort without selected cases," allowing users to select the number of items displayed in the table. <!--PEAR-2198-->
-* __Manage Sets__:
-    * Fixed sorting functionality for "Submitted Gene Identifier" columns (Symbol, Ensembl ID, Entrez ID) to correctly sort by numbers/alphabet. <!--PEAR-2045-->
+    * Fixed inconsistent behavior for number range cards when removing filters.  <!--PEAR-1379-->
+    * The tool now ensures that cards are displayed by default when loaded, resolving issues where no cards appeared after using the browser's back button or clicking the Cohort Builder link. <!--PEAR-1808-->
+    * Cards in the Treatment tab now display the correct case counts after a selection has been made. <!--PEAR-1830-->
+    * Fixed issue where entering "0" in range cards would not persist after applying, affecting all range cards that accept "0" as a valid entry. <!--PEAR-2098-->
+    * Updated the minimum value for the "Age at Diagnosis" range to "0" years, replacing the incorrect value of "-90" years. <!--PEAR-2106-->
+    * Fixed an issue where number range filters can be added to a cohort multiple times and not be properly removed. <!--PEAR-2181-->
+* __Cohort Bar__:
+    * Resolved inconsistencies in the Discard Changes button and cohort status indicators, ensuring clearer behavior for unsaved cohorts and improved messaging for users. <!--PEAR-1499-->
+    * The Metadata download now correctly includes entries when molecular filters are applied to the cohort, resolving the issue where the file was previously blank. <!--PEAR-2203-->
 * __File Summary Page__:
     * Fixed an issue where the incorrect file version table could appear on the File Summary page after performing multiple searches. <!--PEAR-2057-->
     * Resolved an issue in the portal where navigating from a file page summary to its source files page summary and hitting the back button did not load the complete content of the initially searched file. <!--PEAR-2120-->
-* __Project Summary Page__:
-    * Aligned the summary tables in the Project summary page for better consistency at smaller screen sizes. <!--PEAR-2122-->
-    * Error handling modals now appear correctly on the summary page, ensuring that users receive feedback when encountering errors without needing to navigate away. <!--PEAR-2185-->
-* __Case Summary Page__:
-    * The issue with the Create Cohort button label case count in the Most Frequent Somatic Mutations table not matching the actual cohort case count has been resolved to ensure accurate numerator and denominator calculations. <!--PEAR-2142-->
-    * The issue with the JSON download from the Annotations table page not reflecting the applied table filters has been fixed, ensuring the downloaded file now matches the filtered view. <!--PEAR-2143-->
-* __Cohort Comparison__:
-    * The Survival Plot now correctly displays the message “No Survival data available for this Cohort Comparison” when no curves are plotted, with no table or empty plot area shown. <!--PEAR-1941-->
-    * Fixed an issue on the Selection Screen where a prohibited cursor icon appeared when hovering over cohort radio buttons. <!--PEAR-2094-->
-    * Fixed redirection issue in the Cohort Comparison Demo, where clicking "View Venn Diagram in Set Operations" incorrectly led to the Set Operations selection screen. <!--PEAR-2096-->
-    * Fixed an issue in Cohort Comparison where the P-value was incorrectly positioned on the border of the graph. <!--PEAR-2116-->
+    * Addressed the issue where the action button icon in the Source Files table was not displayed on screens narrower than 1280px. <!--PEAR-2089-->
 * __Repository__:
-    * Fixed an issue in the Repository where the "Read Groups Days to Sequencing" custom filter caused an infinite spinner and excessive GraphQL requests. <!--PEAR-2114-->
-    * Custom filters on the Repository page now correctly display additional information in their titles. <!--PEAR-2180-->
-* __Projects Page__:
-    * The error occurring during the JSON download on the Projects page, which previously displayed "Value undefined for filters is not valid JSON," has been resolved. <!--PEAR-2159-->
-* __Quick Search__:
-    * Fixed issue causing an application error when searching for particular Entity UUIDs in the quick search bar by handling redacted or updated entities properly. <!--PEAR-2032-->
-    * Quick Search now correctly handles files removed in DR39, preventing users from being led to a "File Not Found" page when an outdated file is searched. <!--PEAR-2183-->
-    * Searching for removed annotations now correctly returns a "No Results Found" message instead of continuously spinning in the Quick Search Bar. <!--PEAR-2206-->
-* __Browse Annotations__:
-    * The JSON download functionality now works without errors, resolving the issue where users previously encountered a “Value undefined for filters is not valid JSON” message. <!--PEAR-2189-->
+    * Fixed an issue where adding custom number range cards resulted in an infinite spinner on the cards. <!--PEAR-2114-->
+    * Custom filters now correctly display additional information in their titles. <!--PEAR-2180-->
 * __Authentication__:
     * Implemented error modal/banner for users without controlled data access when attempting to view "Download Token" in the GDC data portal. <!--PEAR-1024-->
     * Fixed continuous loading spinner in the header for users without access to controlled projects upon login or page navigation. <!--PEAR-1351-->
-    * Updated the warning modal dismiss button to say "Close" instead of "Done" for users with no controlled access. <!--PEAR-2099-->
-* __Other__:
-    * The enum filtering in facet cards has been updated to display only matching enums based on search criteria, ensuring selected enums that do not match are no longer shown in the __Repository__, __Cohort Builder__, __Summary Cards__, and any other local filtering cards across all interfaces, enhancing user clarity. <!--PEAR-1848-->
-    * The "Unexpected Error" modal issue caused by rapidly clicking options in the Customize Column selector has been resolved for the __Cases Table__, __Mutation Frequency Genes Table__, and other places. <!--PEAR-1999-->
-    * Fixed the z-index issue where the reset button tooltip in the Customize Columns feature appeared behind other elements when hovered. <!--PEAR-2056-->
-    * Fixed an issue where icons were missing from the username dropdown menu items. <!--PEAR-2023-->
-    * Implemented fix to ensure search bar filters are included in GraphQL requests for creating, appending, or removing genes and mutations from sets in __Mutation Frequency__, __Gene Summary Page__ and __Case Summary page__. <!--PEAR-2050-->
-    * Added the missing text "consequences" in the "Showing X - Y of Z" label for the Consequences table on the __Mutation Summary page__. <!--PEAR-2077-->
-    * Implemented a fix to remove the extra "s" in the plural forms of item names in the pagination text "Showing X - Y of Z" across various tables, including the __Mutation Frequency__ and __Repository__. <!--PEAR-2084-->
-    * Resolved the issue where the action button icon was disappearing on screens smaller than 1280px. <!--PEAR-2089-->
-    * Fixed the pagination filter display issue where the entry count of 100 was split into two lines across the __Repository__, __Projects__ and other pages. <!--PEAR-2095-->
-    * Minor font fixes. <!--PEAR-867--> <!--PEAR-1908-->
+* Fixed issue causing an application error when searching for redacted Entity UUIDs in __Quick Search__. <!--PEAR-2032-->
+* Selected values that do not match the search criteria will no longer be displayed amongst the search results in filter cards. <!--PEAR-1848-->
+* Implemented fix to ensure search bar filters are included when creating or modifying gene and mutation sets. <!--PEAR-2050-->
+* The "Unexpected Error" modal issue caused by rapidly clicking options in the Customize Column selector has been resolved for all tables. <!--PEAR-1999-->
+* Fixed the issue where the reset button tooltip in the Customize Columns feature appeared behind other elements. <!--PEAR-2056-->
+* Fixed an issue where clicking on an operator for number range filters in the __Query Expressions__ section did not remove the expected operand. <!--PEAR-2108/2109-->
+* The CNV counts in the __Cancer Distribution__ table are now consistent with the associated counts in Mutation Frequency when the gene summary page is loaded from Mutation Frequency. <!--PEAR-1649-->
+* Removed "undefined" text in the __Survival Plot__ of __Mutation Frequency__ when no data is available in the Mutations tab, ensuring consistent messaging with the Genes tab. <!--PEAR-1524-->
+* Fixed an issue in __Set Operations__ where cohorts were not properly displayed after saving an "Unsaved_Cohort" during comparison, ensuring correct cohort selection and comparison behavior. <!--PEAR-2009-->
+* Users can now change the number of rows displayed in the table when selecting an existing cohort as the basis of a new cohort. <!--PEAR-2198-->
+* Fixed sorting functionality for "Submitted Gene Identifier" columns (Symbol, Ensembl ID, Entrez ID) in __Manage Sets__ to correctly sort by numbers/alphabet. <!--PEAR-2045-->
+* In the __Case Summary Page__, the issue with the Create Cohort button label case count in the Most Frequent Somatic Mutations table not matching the actual cohort case count has been resolved to ensure accurate numerator and denominator calculations. <!--PEAR-2142-->
+* Fixed issue where Y-axis labels on __Clinical Data Analysis__ histograms were cut off; labels are now fully visible. <!--PEAR-2055-->
+* The Survival Analysis section in __Cohort Comparison__ now correctly displays the message “No Survival data available for this Cohort Comparison” when there is insufficient data for the survival plot. <!--PEAR-1941-->
+* Spinners on the __Cart__ page now display only for the specific download option selected, and no spinners will appear if the download does not start or has completed, ensuring consistent behavior. <!--PEAR-1722-->
+* Minor text and styling fixes. <!--PEAR-2034/2122/2099/2056/2023/2077/2095/867/1908-->
 
 ### Known Issues and Workarounds
 * __Section 508 Accessibility__:
@@ -189,13 +149,14 @@
 * __Survival Plot__:
     * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
     * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
-* Using multiple browser tabs with the portal when adding or removing files from the cart may result in the cart not being updated as expected. <!--SV-2412-->
+* Using multiple browser tabs with the portal when adding or removing files from the __cart__ may result in the cart not being updated as expected. <!--SV-2412-->
 * In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
 * __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
 * The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
 * In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
 * In __Gene Expression Clustering__, the tooltip is not displayed when clicking an expression data cell.
 * The TSV of the __Most Frequent Somatic Mutations table in the case summary page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
+* Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
 
 ## Release 2.2.0
 
