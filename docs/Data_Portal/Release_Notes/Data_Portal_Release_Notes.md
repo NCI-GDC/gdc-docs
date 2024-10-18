@@ -46,10 +46,10 @@
 
 ### New Features and Changes
 * __Cohort Builder__:
-    * Custom filters in the now display their parent category name. <!--PEAR-1083-->
-    * Cards with numeric range filters are better aligned with other cards in the same row. <!--PEAR-1881-->
+    * Custom filters now display their parent category name. <!--PEAR-1083-->
     * Filter cards in classification categories have been moved to the General Diagnosis category or the new Disease Specific Classifications category. <!--PEAR-1989-->
     * The Years-Days toggle has been removed for Age at Index. <!--PEAR-1994-->
+    * Cards with number range filters are better aligned with other cards in the same row. <!--PEAR-1881-->
     * Search results have been improved to display more relevant searches first. <!--PEAR-2013-->
     * The Best Overall Response card has been moved to the first card in the Treatment category. <!--PEAR-2123-->
     * Descriptions are now available for Other Clinical Attribute properties when adding custom filters. <!--PEAR-2226-->
@@ -64,18 +64,19 @@
     * Row selection is now appropriately disabled for table rows containing 0 items in a set. <!--PEAR-1951-->
     * Styling for the tool cards in the Analysis Center has been standardized. <!--PEAR-1957-->
     * The search bar in the left panel within the __Clinical Data Analysis__ tool now remains fixed at the top of the page. <!--PEAR-1963-->
-    * The message "No data for this field" will only be displayed when information for a filter card has been loaded. <!--PEAR-2036>
+    * The message "No data for this field" will only be displayed when information for a filter card has been loaded. <!--PEAR-2036-->
     * Vertical alignment has been improved for tables that are displayed next to each other. <!--PEAR-2049--> 
     * Filter panels located on the left side of the __Projects__, __Repository__, and __Mutation Frequency__ tools will now extend up to the height of the tables in the tools. <!--PEAR-2110-->
     * Styling for survival plots has been improved for consistency. <!--PEAR-2176-->
     * Download icons have been standardized. <!--PEAR-2186-->
+    * Text size has been increased for instructions in modals for selecting cohorts. <!--PEAR-2175-->
 * __File Summary Page__:
     * The __Reference Genome__ section is no longer displayed in the the for files that have not been processed with the reference genome <!--PEAR-1967-->
     * The Case ID column is now displayed by default in the Annotations table. Additionally, the Case UUID column is no longer displayed by default. <!--PEAR-1968-->
     * Pagination has been added to the Read Groups table. <!--PEAR-2192-->
     * Sample Type has been removed from the Associated Cases/Biospecimens table and replaced with Tissue Type and Tumor Descriptor. <!--PEAR-2042-->
 * __Repository__:
-    * Stability improvements have been added. <!--PEAR-2022->
+    * Stability improvements have been added. <!--PEAR-2022-->
     * The placement and design of the buttons to add custom filters and reset them have been updated. <!--PEAR-2059-->
 * __Clinical Data Analysis__:
     * The y-axis of histograms will now only display integers for case counts. <!--PEAR-2087-->
@@ -83,7 +84,7 @@
 * __Case Summary Page__:
     * Information about Other Clinical Attributes has been added to the Clinical section. Additionally, deprecated properties have been removed from the Follow-Ups table. <!--PEAR-1983-->
     * Sample Type, Sample Type ID, and Composition have been removed from the Biospecimen tree's Samples table. Additionally, the table has been updated with the addition of Specimen Type. <!--PEAR-2042-->
-* The tooltips for the survival plot now display the time to death and the interval of last follow-up in both years and months. The downloaded TSV now includes the time value in years, months, and days, and the downloaded JSON now includes the time value in days. <!--PEAR-1961/2060-->
+* The tooltips for the __Survival Plot__ now display the time to death and the interval of last follow-up in both years and months. The downloaded TSV now includes the time value in years, months, and days, and the downloaded JSON now includes the time value in days. <!--PEAR-1961/2060-->
 * The ability to reset all filters in the __Projects__, __Repository__, and __Mutation Frequency__ tools to their defaults has been added. <!--PEAR-1431-->
 * Filters in the __Projects__, __Repository__, and __Mutation Frequency__ tools no longer reset when the composition of the active cohort has been changed. <!--PEAR-1856-->
 * Filter cards in the __Projects__, __Repository__, and __Mutation Frequency__ tools can now be expanded and collapsed singly or all at once. <!--PEAR-2029-->
@@ -92,7 +93,6 @@
 * __Quick Search__'s accuracy has been improved to account for files that are no longer available. <!--PEAR-2082-->
 * When genes or mutations are entered or uploaded for filtering in __Mutation Frequency__, other filters within the tool will be cleared. <!--PEAR-2133-->
 * The ability to display a banner notifying users of government shutdowns has been added. <!--PEAR-2161-->
-* Text size has been increased for instructions in modals for selecting cohorts. <!--PEAR-2175-->
 * __Slide Image Viewer__'s performance has been improved. <!--PEAR-1771-->
 
 ### Bugs Fixed Since Last Release
@@ -100,7 +100,7 @@
     * Aria roles now contain the expected children. <!--PEAR-1669-->
     * Responsiveness for __Mutation Frequency__, all summary pages, and all table headers has been improved. <!--PEAR-1927/2130/2090-->
     * An equivalent alternative to the body plot on the home page is now available. <!--PEAR-1937-->
-    * Aria labels have been made consistent with the displayed text in the Query Expressions section. <!--PEAR-2117-->
+    * Aria labels have been made consistent with the displayed text in the __Query Expressions__ section. <!--PEAR-2117-->
 * __Cohort Builder__:
     * Fixed inconsistent behavior for number range cards when removing filters.  <!--PEAR-1379-->
     * The tool now ensures that cards are displayed by default when loaded, resolving issues where no cards appeared after using the browser's back button or clicking the Cohort Builder link. <!--PEAR-1808-->
@@ -115,16 +115,14 @@
     * Fixed an issue where the incorrect file version table could appear on the File Summary page after performing multiple searches. <!--PEAR-2057-->
     * Resolved an issue in the portal where navigating from a file page summary to its source files page summary and hitting the back button did not load the complete content of the initially searched file. <!--PEAR-2120-->
     * Addressed the issue where the action button icon in the Source Files table was not displayed on screens narrower than 1280px. <!--PEAR-2089-->
-* __Repository__:
-    * Fixed an issue where adding custom number range cards resulted in an infinite spinner on the cards. <!--PEAR-2114-->
-    * Custom filters now correctly display additional information in their titles. <!--PEAR-2180-->
 * __Authentication__:
     * Implemented error modal/banner for users without controlled data access when attempting to view "Download Token" in the GDC data portal. <!--PEAR-1024-->
     * Fixed continuous loading spinner in the header for users without access to controlled projects upon login or page navigation. <!--PEAR-1351-->
 * Fixed issue causing an application error when searching for redacted Entity UUIDs in __Quick Search__. <!--PEAR-2032-->
 * Selected values that do not match the search criteria will no longer be displayed amongst the search results in filter cards. <!--PEAR-1848-->
 * Implemented fix to ensure search bar filters are included when creating or modifying gene and mutation sets. <!--PEAR-2050-->
-* The "Unexpected Error" modal issue caused by rapidly clicking options in the Customize Column selector has been resolved for all tables. <!--PEAR-1999-->
+* Fixed an issue where adding custom number range cards in the __Repository__ resulted in an infinite spinner on the cards. <!--PEAR-2114-->
+* The Unexpected Error modal issue caused by rapidly clicking options in the __Customize Columns__ feature has been resolved for all tables. <!--PEAR-1999-->
 * Fixed the issue where the reset button tooltip in the Customize Columns feature appeared behind other elements. <!--PEAR-2056-->
 * Fixed an issue where clicking on an operator for number range filters in the __Query Expressions__ section did not remove the expected operand. <!--PEAR-2108/2109-->
 * The CNV counts in the __Cancer Distribution__ table are now consistent with the associated counts in Mutation Frequency when the gene summary page is loaded from Mutation Frequency. <!--PEAR-1649-->
