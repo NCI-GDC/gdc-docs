@@ -80,7 +80,7 @@
     * The placement and design of the buttons to add custom filters and reset them have been updated. <!--PEAR-2059-->
 * __Clinical Data Analysis__:
     * The y-axis of histograms will now only display integers for case counts. <!--PEAR-2087-->
-    * The rounding of numbers displayed in th etool has been improved. <!--PEAR-1040-->
+    * The rounding of numbers displayed in the tool has been improved. <!--PEAR-1040-->
 * __Case Summary Page__:
     * Information about Other Clinical Attributes has been added to the Clinical section. Additionally, deprecated properties have been removed from the Follow-Ups table. <!--PEAR-1983-->
     * Sample Type, Sample Type ID, and Composition have been removed from the Biospecimen tree's Samples table. Additionally, the table has been updated with the addition of Specimen Type. <!--PEAR-2042-->
@@ -131,7 +131,7 @@
 * Users can now change the number of rows displayed in the table when selecting an existing cohort as the basis of a new cohort. <!--PEAR-2198-->
 * Fixed sorting functionality for "Submitted Gene Identifier" columns (Symbol, Ensembl ID, Entrez ID) in __Manage Sets__ to correctly sort by numbers/alphabet. <!--PEAR-2045-->
 * In the __Case Summary Page__, the issue with the Create Cohort button label case count in the Most Frequent Somatic Mutations table not matching the actual cohort case count has been resolved to ensure accurate numerator and denominator calculations. <!--PEAR-2142-->
-* Fixed issue where Y-axis labels on __Clinical Data Analysis__ histograms were cut off; labels are now fully visible. <!--PEAR-2055-->
+* Fixed issue where y-axis labels on __Clinical Data Analysis__ histograms were cut off; labels are now fully visible. <!--PEAR-2055-->
 * The Survival Analysis section in __Cohort Comparison__ now correctly displays the message “No Survival data available for this Cohort Comparison” when there is insufficient data for the survival plot. <!--PEAR-1941-->
 * Spinners on the __Cart__ page now display only for the specific download option selected, and no spinners will appear if the download does not start or has completed, ensuring consistent behavior. <!--PEAR-1722-->
 * Minor text and styling fixes. <!--PEAR-2034/2122/2099/2056/2023/2077/2095/867/1908-->
