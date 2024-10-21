@@ -71,7 +71,7 @@
     * Download icons have been standardized. <!--PEAR-2186-->
     * Text size has been increased for instructions in modals for selecting cohorts. <!--PEAR-2175-->
 * __File Summary Page__:
-    * The __Reference Genome__ section is no longer displayed in the the for files that have not been processed with the reference genome <!--PEAR-1967-->
+    * The __Reference Genome__ section is no longer displayed for files that have not been processed with the reference genome. <!--PEAR-1967-->
     * The Case ID column is now displayed by default in the Annotations table. Additionally, the Case UUID column is no longer displayed by default. <!--PEAR-1968-->
     * Pagination has been added to the Read Groups table. <!--PEAR-2192-->
     * Sample Type has been removed from the Associated Cases/Biospecimens table and replaced with Tissue Type and Tumor Descriptor. <!--PEAR-2042-->
@@ -472,7 +472,7 @@ Not applicable as this is the initial release of GDC 2.0.
     * A ProteinPaint plot launched from OncoMatrix and Gene Expression Clustering does not observe the current cohort and displays mutated cases for all GDC
 * In the __Gene Expression Clustering__ tool, if any part of the dendrogram is selected and the current cohort is modified, then the new dendrogram will render with scattered subtrees selected.
 * The "A" in the Allele Summary text is cut off in the __Sequence Reads__ tool.
-* __Quick Search__ may not display results if the the same search input is applied twice quickly. As a workaround, temporarily change the input before reentering the intended search. <!--SV-2410-->
+* __Quick Search__ may not display results if the same search input is applied twice quickly. As a workaround, temporarily change the input before reentering the intended search. <!--SV-2410-->
 * Filters related to numeric values may display a smaller number than what the user entered within the __Cohort Builder__. This is a visual issue and does not affect the filters applied to the cohort. <!--SV-2383-->
 * When the __Cohort Comparison__ tool is loading, the loading spinner may be displayed above the other areas of the Analysis Center. <!--SV-2360-->
 * The __Repository__ tool may display an incorrect file size total of 0 bytes when filtering is applied within the tool and the active cohort contains Available Data filters. <!--SV-2376-->
