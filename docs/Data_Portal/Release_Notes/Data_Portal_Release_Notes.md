@@ -148,7 +148,7 @@
     * The tooltip is now displayed when clicking an expression data cell.
     * The tool will now render even when 1 or more submitted genes have no expression data for any sample, instead of showing a computation error.
 * __Sequence Reads__:
-    * In the table listing available BAM files, replace deprecated sample_type variable with tissue_type and tumor_descriptor.
+    * In the table listing available BAM files, replaced deprecated sample_type variable with tissue_type and tumor_descriptor.
     * In the initial search input, the number of available BAM files now maxes out at first 1000 files for applicable cohorts.
 * Fixed issue causing an application error when searching for redacted Entity UUIDs in __Quick Search__. <!--PEAR-2032-->
 * Selected values that do not match the search criteria will no longer be displayed amongst the search results in filter cards. <!--PEAR-1848-->
