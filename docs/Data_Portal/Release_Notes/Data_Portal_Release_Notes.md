@@ -146,7 +146,7 @@
     * Fixed socket hangup error.
     * Improved the error message when <3 genes are submitted for gene clustering.
 * __Sequence Reads__:
-    * In table listing available BAM files, replace outdated sample_type variable with tissue_type and tumor_descriptor.
+    * In table listing available BAM files, replaced outdated sample_type variable with tissue_type and tumor_descriptor.
     * In the initial search input, the number of available BAM files now maxes out at 1000 for applicable cohorts.
 * Fixed issue causing an application error when searching for redacted Entity UUIDs in __Quick Search__. <!--PEAR-2032-->
 * Selected values that do not match the search criteria will no longer be displayed amongst the search results in filter cards. <!--PEAR-1848-->
@@ -179,7 +179,7 @@
     * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
 * __Gene Expression Clustering__:
     * The tooltip is not displayed when clicking an expression data cell.
-    * There is a computation error when the the first genes in a gene expression data request does not have data for any sample.
+    * There is a computation error when the the first gene in a gene expression data request does not have data for any sample.
 * In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
 * Adding family_histories.relationship_age_at_diagnosis or follow_ups.other_clinical_attributes.undescended_testis_corrected_age_range as a custom filter in the __Cohort Builder__ will result in endless spinners being displayed on these filter cards. To remove these cards, close the browser tab and return to the portal. <!--SV-2532-->
 * Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
