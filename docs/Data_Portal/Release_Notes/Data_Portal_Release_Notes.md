@@ -85,7 +85,7 @@
     * Information about Other Clinical Attributes has been added to the Clinical section. Additionally, deprecated properties have been removed from the Follow-Ups table. <!--PEAR-1983-->
     * Sample Type, Sample Type ID, and Composition have been removed from the Biospecimen tree's Samples table. Additionally, the table has been updated with the addition of Specimen Type. <!--PEAR-2042-->
 * __ProteinPaint__:
-    * Allow users to customize consequence colors and restore to default.
+    * Allows users to customize consequence colors and restore to default.
 * __Gene Expression Clustering__:
     * The tool now displays the top 1000 variably expressed genes and first 1000 cases as the default plot.
     * The tool and Gene Expression API are now ~80% more performant.
