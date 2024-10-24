@@ -141,7 +141,7 @@
     * Implemented error modal/banner for users without controlled data access when attempting to view "Download Token" in the GDC data portal. <!--PEAR-1024-->
     * Fixed continuous loading spinner in the header for users without access to controlled projects upon login or page navigation. <!--PEAR-1351-->
 * __ProteinPaint__:
-    * Fixed gene search results latency when pressing Enter key immediately, to prevent showing invalid search error message.
+    * Fixed gene search results latency when pressing the Enter key immediately, to prevent showing invalid search error message.
 * __Gene Expression Clustering__:
     * Fixed socket hangup error.
     * Improved the error message when <3 genes are submitted for gene clustering.
