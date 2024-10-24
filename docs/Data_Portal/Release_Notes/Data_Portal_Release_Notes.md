@@ -84,11 +84,32 @@
 * __Case Summary Page__:
     * Information about Other Clinical Attributes has been added to the Clinical section. Additionally, deprecated properties have been removed from the Follow-Ups table. <!--PEAR-1983-->
     * Sample Type, Sample Type ID, and Composition have been removed from the Biospecimen tree's Samples table. Additionally, the table has been updated with the addition of Specimen Type. <!--PEAR-2042-->
+* __ProteinPaint__:
+    * Allows users to customize consequence colors and restore to default.
+* __Gene Expression Clustering__:
+    * The tool now displays the top 1000 variably expressed genes and first 1000 cases as the default plot.
+    * The tool and Gene Expression API are now ~80% more performant.
+    * Users can now change the plot color scheme to Blue-White-Red, Green-Black-Red, Green-Black-Red, and Blue-Black-Yellow, under the Clustering tab.
+    * Z-score values are now capped to not exceed absolute values, under the Clustering tab.
+    * Implemented support for adding user-saved custom gene sets, under the Genes tab.
+    * Added support for adding “Overall Survival” as an annotation variable.
+    * The tool now supports clicking the gene dendrogram to select genes and launch “Gene Set Overrepresentation Analysis.”
+    * When screening user-defined gene sets, use a close-to-zero min_median_log2_uqfpkm parameter to keep more genes expressed at low level.
+    * Allows the drag/drop of mutation and dictionary variable rows not used for clustering.
+    * Improved performance of the top variably expressed genes query from the GDC API by directly submitting the case filters without first retrieving a list of cases.
+* __OncoMatrix__:
+    * Implemented support for adding user-saved custom gene sets, under the Genes tab.
+    * Added support of gene expression rows along with mutation and dictionary variables.
+    * When plotting gene expression genes as a variable, users can now edit the genes display as a z-score.
+    * For cases that do not have expression data, the displayed gene expression variable track now displays them as blank values.
+    * Added support for “Overall Survival” variable.
+    * Allows the display of only dictionary variables with all genes removed.
+    * Users can now click on a mutated gene and edit and customize its variant grouping.
 * The tooltips for the __Survival Plot__ now display the time to death and the interval of last follow-up in both years and months. The downloaded TSV now includes the time value in years, months, and days, and the downloaded JSON now includes the time value in days. <!--PEAR-1961/2060-->
 * The ability to reset all filters in the __Projects__, __Repository__, and __Mutation Frequency__ tools to their defaults has been added. <!--PEAR-1431-->
 * Filters in the __Projects__, __Repository__, and __Mutation Frequency__ tools no longer reset when the composition of the active cohort has been changed. <!--PEAR-1856-->
 * Filter cards in the __Projects__, __Repository__, and __Mutation Frequency__ tools can now be expanded and collapsed singly or all at once. <!--PEAR-2029-->
-* With the exception of the Most Frequent Somatic Mutations table in the __Case Summary Page__, downloaded JSON and TSV files now reflect the information displayed in the associated tables whenever search filters have been applied. <!--PEAR-1865/2190--> 
+* Except for the Most Frequent Somatic Mutations table in the __Case Summary Page__, downloadeded JSON and TSV files now reflect the information displayed in the associated tables whenever search filters have been applied. <!--PEAR-1865/2190--> 
 * A modal will now be displayed to inform users of any issues that occurred when saving sets and cohorts, and when exporting sets. <!--PEAR-1971/2141-->
 * __Quick Search__'s accuracy has been improved to account for files that are no longer available. <!--PEAR-2082-->
 * When genes or mutations are entered or uploaded for filtering in __Mutation Frequency__, other filters within the tool will be cleared. <!--PEAR-2133-->
@@ -101,6 +122,7 @@
     * Responsiveness for __Mutation Frequency__, all summary pages, and all table headers has been improved. <!--PEAR-1927/2130/2090-->
     * An equivalent alternative to the body plot on the home page is now available. <!--PEAR-1937-->
     * Aria labels have been made consistent with the displayed text in the __Query Expressions__ section. <!--PEAR-2117-->
+    * Fixed input labels and color contrasts in __ProteinPaint__, __Gene Expression Clustering__, and __OncoMatrix__.
 * __Cohort Builder__:
     * Fixed inconsistent behavior for number range cards when removing filters.  <!--PEAR-1379-->
     * The tool now ensures that cards are displayed by default when loaded, resolving issues where no cards appeared after using the browser's back button or clicking the Cohort Builder link. <!--PEAR-1808-->
@@ -118,6 +140,16 @@
 * __Authentication__:
     * Implemented error modal/banner for users without controlled data access when attempting to view "Download Token" in the GDC data portal. <!--PEAR-1024-->
     * Fixed continuous loading spinner in the header for users without access to controlled projects upon login or page navigation. <!--PEAR-1351-->
+* __ProteinPaint__:
+    * Improved the gene search results latency when a user presses the Enter key immediately, to prevent showing invalid search error message.
+* __Gene Expression Clustering__:
+    * Fixed socket hangup error.
+    * Improved the error message when <3 genes are submitted for gene clustering.
+    * The tooltip is now displayed when clicking an expression data cell.
+    * The tool will now render even when 1 or more submitted genes have no expression data for any sample, instead of showing a computation error.
+* __Sequence Reads__:
+    * In the table listing available BAM files, replaced deprecated sample_type variable with tissue_type and tumor_descriptor.
+    * In the initial search input, the number of available BAM files now maxes out at first 1000 files for applicable cohorts.
 * Fixed issue causing an application error when searching for redacted Entity UUIDs in __Quick Search__. <!--PEAR-2032-->
 * Selected values that do not match the search criteria will no longer be displayed amongst the search results in filter cards. <!--PEAR-1848-->
 * Implemented fix to ensure search bar filters are included when creating or modifying gene and mutation sets. <!--PEAR-2050-->
@@ -147,12 +179,14 @@
 * __Survival Plot__:
     * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
     * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* __Gene Expression Clustering__:
+    * The tool allows deleting the gene expression group and displays an uninformative error message after submitting the deletion.
+* In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
+* Adding family_histories.relationship_age_at_diagnosis or follow_ups.other_clinical_attributes.undescended_testis_corrected_age_range as a custom filter in the __Cohort Builder__ will result in endless spinners being displayed on these filter cards. To remove these cards, close the browser tab and return to the portal. <!--SV-2532-->
 * Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
 * In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
 * __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
 * The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
-* In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
-* In __Gene Expression Clustering__, the tooltip is not displayed when clicking an expression data cell.
 * The TSV of the __Most Frequent Somatic Mutations table in the case summary page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
 * Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
 
