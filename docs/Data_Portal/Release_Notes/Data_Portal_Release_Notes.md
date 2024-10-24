@@ -96,7 +96,7 @@
     * The tool now supports clicking the gene dendrogram to select genes and launch “Gene Set Overrepresentation Analysis.”
     * When screening user-defined gene sets, use a close-to-zero min_median_log2_uqfpkm parameter to keep more genes expressed at low level.
     * Allows the drag/drop of mutation and dictionary variable rows not used for clustering.
-    * Sped up the top variably expressed genes query from the GDC API by directly submitting the case filters without first retrieving a list of cases.
+    * Improved performance of the top variably expressed genes query from the GDC API by directly submitting the case filters without first retrieving a list of cases.
 * __OncoMatrix__:
     * Implemented support for adding user-saved custom gene sets, under the Genes tab.
     * Added support of gene expression rows along with mutation and dictionary variables.
@@ -104,7 +104,7 @@
     * For cases that do not have expression data, the displayed gene expression variable track now displays them as blank values.
     * Added support for “Overall Survival” variable.
     * Allows the display of only dictionary variables with all genes removed.
-    * Enabled edit option for mutation variables.
+    * Users can now click on a mutated gene and edit and customize its variant grouping.
 * The tooltips for the __Survival Plot__ now display the time to death and the interval of last follow-up in both years and months. The downloaded TSV now includes the time value in years, months, and days, and the downloaded JSON now includes the time value in days. <!--PEAR-1961/2060-->
 * The ability to reset all filters in the __Projects__, __Repository__, and __Mutation Frequency__ tools to their defaults has been added. <!--PEAR-1431-->
 * Filters in the __Projects__, __Repository__, and __Mutation Frequency__ tools no longer reset when the composition of the active cohort has been changed. <!--PEAR-1856-->
@@ -141,13 +141,15 @@
     * Implemented error modal/banner for users without controlled data access when attempting to view "Download Token" in the GDC data portal. <!--PEAR-1024-->
     * Fixed continuous loading spinner in the header for users without access to controlled projects upon login or page navigation. <!--PEAR-1351-->
 * __ProteinPaint__:
-    * Fixed gene search results latency when pressing the Enter key immediately, to prevent showing invalid search error message.
+    * Improved the gene search results latency when a user presses the Enter key immediately, to prevent showing invalid search error message.
 * __Gene Expression Clustering__:
     * Fixed socket hangup error.
     * Improved the error message when <3 genes are submitted for gene clustering.
+    * The tooltip is now displayed when clicking an expression data cell.
+    * The tool will now render even when 1 or more submitted genes have no expression data for any sample, instead of showing a computation error.
 * __Sequence Reads__:
-    * In table listing available BAM files, replaced outdated sample_type variable with tissue_type and tumor_descriptor.
-    * In the initial search input, the number of available BAM files now maxes out at 1000 for applicable cohorts.
+    * In the table listing available BAM files, replace deprecated sample_type variable with tissue_type and tumor_descriptor.
+    * In the initial search input, the number of available BAM files now maxes out at first 1000 files for applicable cohorts.
 * Fixed issue causing an application error when searching for redacted Entity UUIDs in __Quick Search__. <!--PEAR-2032-->
 * Selected values that do not match the search criteria will no longer be displayed amongst the search results in filter cards. <!--PEAR-1848-->
 * Implemented fix to ensure search bar filters are included when creating or modifying gene and mutation sets. <!--PEAR-2050-->
@@ -178,8 +180,7 @@
     * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
     * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
 * __Gene Expression Clustering__:
-    * The tooltip is not displayed when clicking an expression data cell.
-    * There is a computation error when the the first gene in a gene expression data request does not have data for any sample.
+    * The tool allows deleting the gene expression group and displays an uninformative error message after submitting the deletion.
 * In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
 * Adding family_histories.relationship_age_at_diagnosis or follow_ups.other_clinical_attributes.undescended_testis_corrected_age_range as a custom filter in the __Cohort Builder__ will result in endless spinners being displayed on these filter cards. To remove these cards, close the browser tab and return to the portal. <!--SV-2532-->
 * Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
