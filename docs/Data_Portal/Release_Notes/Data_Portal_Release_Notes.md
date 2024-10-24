@@ -88,23 +88,23 @@
     * Allow users to customize consequence colors and restore to default.
 * __Gene Expression Clustering__:
     * The tool now displays the top 1000 variably expressed genes and first 1000 cases as the default plot.
-    * The tool and Gene Expression API are now ~80% more preformant.
-    * Users can change the plot color scheme to Blue-White-Red, Blue-White-Red, Green-Black-Red, Green-Black-Red, and Blue-Black-Yellow, under the Clustering tab.
+    * The tool and Gene Expression API are now ~80% more performant.
+    * Users can now change the plot color scheme to Blue-White-Red, Blue-White-Red, Green-Black-Red, Green-Black-Red, and Blue-Black-Yellow, under the Clustering tab.
     * Z-score values are now capped to not exceed absolute values, under the Clustering tab.
-    * Support for adding user-saved custom gene sets, under the Genes tab.
-    * Support for adding “Overall Survival” as an annotation variable.
-    * Support clicking gene dendrogram to select genes and launch “Gene Set Overrepresentation Analysis”
+    * Implemented support for adding user-saved custom gene sets, under the Genes tab.
+    * Added support for adding “Overall Survival” as an annotation variable.
+    * The tool now supports clicking the gene dendrogram to select genes and launch “Gene Set Overrepresentation Analysis.”
     * When screening user-defined gene sets, use a close-to-zero min_median_log2_uqfpkm parameter to keep more genes expressed at low level.
-    * Allow the drag/drop of mutation and dictionary variable rows not used for clustering.
-    * Speed up top variably expressed genes query from the GDC API, directly submit case filter and do not first retrieve list of cases.
+    * Allows the drag/drop of mutation and dictionary variable rows not used for clustering.
+    * Sped up the top variably expressed genes query from the GDC API by directly submitting the case filters without first retrieving a list of cases.
 * __OncoMatrix__:
-    * Support for adding user-saved custom gene sets, under the Genes tab.
-    * Support gene expression rows along with mutation and dictionary variables.
+    * Implemented support for adding user-saved custom gene sets, under the Genes tab.
+    * Added support of gene expression rows along with mutation and dictionary variables.
     * When plotting gene expression genes as a variable, users can now edit the genes display as a z-score.
     * For cases that do not have expression data, the displayed gene expression variable track now displays them as blank values.
-    * Support for “Overall Survival” variable.
-    * Can display only dictionary variables with all genes removed.
-    * Enable edit option for mutation variables.
+    * Added support for “Overall Survival” variable.
+    * Allows the display of only dictionary variables with all genes removed.
+    * Enabled edit option for mutation variables.
 * The tooltips for the __Survival Plot__ now display the time to death and the interval of last follow-up in both years and months. The downloaded TSV now includes the time value in years, months, and days, and the downloaded JSON now includes the time value in days. <!--PEAR-1961/2060-->
 * The ability to reset all filters in the __Projects__, __Repository__, and __Mutation Frequency__ tools to their defaults has been added. <!--PEAR-1431-->
 * Filters in the __Projects__, __Repository__, and __Mutation Frequency__ tools no longer reset when the composition of the active cohort has been changed. <!--PEAR-1856-->
