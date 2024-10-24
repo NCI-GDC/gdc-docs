@@ -89,7 +89,7 @@
 * __Gene Expression Clustering__:
     * The tool now displays the top 1000 variably expressed genes and first 1000 cases as the default plot.
     * The tool and Gene Expression API are now ~80% more performant.
-    * Users can now change the plot color scheme to Blue-White-Red, Blue-White-Red, Green-Black-Red, Green-Black-Red, and Blue-Black-Yellow, under the Clustering tab.
+    * Users can now change the plot color scheme to Blue-White-Red, Green-Black-Red, Green-Black-Red, and Blue-Black-Yellow, under the Clustering tab.
     * Z-score values are now capped to not exceed absolute values, under the Clustering tab.
     * Implemented support for adding user-saved custom gene sets, under the Genes tab.
     * Added support for adding “Overall Survival” as an annotation variable.
