@@ -127,7 +127,7 @@ The table contains the following fields:
   * __Primary Site__: The anatomical site affected by the disease
   * __# SSM Affected Cases__: The number of affected cases and total number of cases displayed as a fraction and percentage
 
-## Custom Mutated Gene and Somatic Mutation Filters
+## Custom Mutated Genes and Somatic Mutation Filters
 
 [![Custom Gene/Mutation Filters](images/CustomGeneMutationFilters.png)](images/CustomGeneMutationFilters.png "Click to see the full image.")
 
