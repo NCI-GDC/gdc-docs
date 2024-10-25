@@ -73,9 +73,10 @@ In the panel of genes on the left, users can hover over a gene to view the numbe
 
 [![Hover over gene](images/oncomatrix_gene_hover.png)](images/oncomatrix_gene_hover.png 'Click to see the full image.')
 
-Clicking on a gene opens a pop-up window where users can rename it, launch the [ProteinPaint Lollipop plot](proteinpaint_lollipop.md), display the [Gene Summary Page](mutation_frequency.md#gene-and-mutation-summary-pages), and replace or remove the gene. The lollipop plot displays all cases across the GDC affected by SSMs in the selected gene.
 
-[![Click on a gene](images/oncomatrix_gene_click.png)](images/oncomatrix_gene_click.png 'Click to see the full image.')
+Clicking on a gene opens a pop-up window where users can rename it, launch the [ProteinPaint Lollipop plot](proteinpaint_lollipop.md), display the [Gene Summary Page](mutation_frequency.md#gene-and-mutation-summary-pages), and edit, replace or remove the gene. The lollipop plot displays all cases across the GDC affected by SSMs in the selected gene.
+
+[![Click on a gene](images/oncomatrix/oncomatrix_gene_click.png)](images/oncomatrix/oncomatrix_gene_click.png 'Click to see the full image.')
 
 __Variables__
 
@@ -86,6 +87,10 @@ Any variables added to the matrix appear at the bottom of the plot. Users can ho
 Clicking on a variable allows users to rename it, edit it by excluding categories, replace it with a different variable, or remove it entirely.
 
 [![Click on a variable](images/oncomatrix_variable_click.png)](images/oncomatrix_variable_click.png "Click to see the full image.")
+
+When editing the "Overall Survival" variable, users can choose between `Time to Event` or `Exit Code`. If `Time to Event` is selected, users have the option to convert the values to z-scores.
+
+[![Gene Expression Clustering Tool Overall Survival Editting](images/oncomatrix/oncoMatrix_OS.png)](images/oncomatrix/oncoMatrix_OS.png "Click to see the full image.")
 
 __Drag and drop genes and variables__
 
@@ -179,6 +184,15 @@ Click the gene label `TP53` and click the up arrow as shown.
 The row containing TP53 cases now moves back up in position 1 above ATRX.
 
 Click TP53 again to showcase the edit menu.
+
+Click on 'Edit' to customize its variant grouping. Selecting "Assign variants to groups" allows users to customize the variant grouping. 
+
+[![Replace a gene row](./images/oncomatrix/gene_Edit.png)](./images/oncomatrix/gene_Edit.png 'Click to see the full image.')
+
+
+When editing the "Overall Survival" variable, users can choose between `Time to Event` or `Exit Code`. If `Time to Event` is selected, users have the option to convert the values to z-scores.
+
+[![Gene Expression Clustering Tool Overall Survival Editting](images/oncomatrix/oncoMatrix_OS.png)](images/oncomatrix/oncoMatrix_OS.png "Click to see the full image.")
 
 Click on 'Replace' as shown above to replace TP53 gene variable with 'Primary site' as shown below. The chart updates with the first row as 'Primary site' thereby replacing TP53 gene variable as shown below. User may choose to sort samples by clicking the 'Primary site' label.
 
@@ -403,15 +417,11 @@ The chart updates and loads the extra 20 genes. User can modify the set of genes
 
 ### Editing gene set
 
-Gene groups can be edited using the `Gene set` option as shown below. Click `50 Genes` button to display this option and then click the `Edit` button in the `Gene set` as shown.
+Gene groups can be edited using the `Gene set` option as shown below. Click `50 Genes` button to display this option and then click the `Edit Current Group` button in the `Gene set` as shown.
 
 [![Edit geneset](./images/oncomatrix/37-geneset_edit1.png)](./images/oncomatrix/37-geneset_edit1.png 'Click to see the full image.')
 
-Select or deselect the blue checkbox to change the display to show `Cancer Gene Census` (CGC) genes only as shown below.
 
-[![Geneset edit CGC option](./images/oncomatrix/38-geneset_edit2.png)](./images/oncomatrix/38-geneset_edit2.png 'Click to see the full image.')
-
-More information about CGC can be found at https://cancer.sanger.ac.uk/census. Figure displays the top 50 CGC genes.
 User may choose to remove single genes one at a time by clicking over the genes.To do so, hover over TP53 as shown in the image below. A red cross mark appears with a description box. Click TP53 to delete the gene as shown below.
 
 [![Deleting a gene](./images/oncomatrix/39-geneset_edit3.png)](./images/oncomatrix/39-geneset_edit3.png 'Click to see the full image.')
@@ -426,7 +436,7 @@ To restore the cleared genes, click the 'Restore' button.
 
 The MSigDB database (Human Molecular Signatures Database) has 33591 gene sets divided into 9 major collections and several subcollections. Users can choose to view the gene sets on the matrix plot.
 
-Click on the `50 Genes` button. Then click on the `Gene set - Edit`. Here user can see a button with a dropdown for loading MSigDB genes.
+Click on the `50 Genes` button. Then click on the `Gene set - Edit Current Group`. Here user can see a button with a dropdown for loading MSigDB genes.
 
 [![msigdb dropdown](./images/oncomatrix/msigdb1.png)](./images/oncomatrix/msigdb1.png 'Click to see the full image.')
 
@@ -446,15 +456,34 @@ Click `Submit` and the matrix will update to reflect the selected MSigDB gene se
 
 [![NABA collagens genes matrix](./images/oncomatrix/45-msigdb_collagen_matrix.png)](./images/oncomatrix/45-msigdb_collagen_matrix.png 'Click to see the full image.')
 
+#### Load gene set
+
+The oncomatrix tool also enables users to load a user-saved custom gene sets. Click on the button 'Load gene set' and choose one of the user-saved custom gene sets.
+
+[![load gene set](./images/oncomatrix/load_gene_set.png)](./images/oncomatrix/load_gene_set.png 'Click to see the full image.')
+
 ## Variables
 
 The third button from the left called `Variables` allows user to add in additional variables in the form of rows on the matrix. Click `Variables` to display a tree of variables and select `Disease type`, `Index date` and `Primary site`. Click the button `Submit 3 variables` as shown.
 
 [![Variables menu](./images/oncomatrix/46-variables.png)](./images/oncomatrix/46-variables.png 'Click to see the full image.')
 
-This updates the chart to display the selected variables on the very top of the matrix as shown below. User may choose to configure these rows by following steps outlined in section Clicking on gene/variable labels.
+This updates the chart to display the selected variables on the bottom of the matrix as shown below. User may choose to configure these rows by following steps outlined in section Clicking on gene/variable labels.
 
 [![Loaded variables](./images/oncomatrix/47-variable-loaded.png)](./images/oncomatrix/47-variable-loaded.png 'Click to see the full image.')
+
+Users could add gene expression rows along with mutation and dictionary variables. To do that, in `Variables` menu, click `Gene Expression` tab and type a gene.
+
+[![Loaded variables](./images/oncomatrix/oncomatrix_geneExpression.png)](./images/oncomatrix/oncomatrix_geneExpression.png 'Click to see the full image.')
+
+After submitting, expression values of the gene would be displayed as a row in Variables group. 
+
+[![Loaded variables](./images/oncomatrix/oncomatrix_geneExpression_Row.png)](./images/oncomatrix/oncomatrix_geneExpression_Row.png 'Click to see the full image.')
+
+gene expression values could be displayed as z-scores by clicking the gene expression variable, Edit, and check the "Convert to z-score". 
+
+[![Loaded variables](./images/oncomatrix/oncomatrix_geneExpression_Zscore.png)](./images/oncomatrix/oncomatrix_geneExpression_Zscore.png 'Click to see the full image.')
+
 
 ## Cell Layout
 
