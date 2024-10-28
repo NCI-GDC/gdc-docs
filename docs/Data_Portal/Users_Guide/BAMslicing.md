@@ -7,24 +7,16 @@ The GDC BAM slicing download feature is a tool for slicing individual BAM files 
 
 ## Download
 
-### Searching for a case
+### Searching for a case by string id
 To search for a case, enter a string id which could be a file name, file id, case UUID or case ID. For example, enter and search for the case 'TCGA-C8-A12N' as shown. Please note that the complete id must be used. Partial ids are not allowed.
 
 [![Searching by a string id](images/BAM_Slicing/search_by_string.png)](images/BAM_Slicing/search_by_string.png 'Click to see the full image.')
-
-A user may also choose to browse the first thousand BAM files. Click on the label "Or, browse first 1000 BAM files out of 141461 total" to load the following view. Scroll and select the case of interest.
-
-[![Browsing the first 1000 BAM files](images/BAM_Slicing/first_1000_bams.png)](images/BAM_Slicing/first_1000_bams.png 'Click to see the full image.')
 
 ### Selecting Variant/Gene, Position or Unmapped reads
 
 Upon searching by a string id, the following view is displayed. User must select an Entity ID associated with the case ID as shown. This view shows the 'Experimental strategy', 'Sample Type', and 'Size' of the file associated with that entity id.
 
 [![Selecting Entities](images/BAM_Slicing/selecting_entities.png)](images/BAM_Slicing/selecting_entities.png 'Click to see the full image.')
-
-Choosing a BAM file directly from the thousand files will display the following view. This view has selected an entity id chosen by the user with 'miRNA-Seq' as the experimental strategy, sample type being the 'Primary Tumor' with a file size of 83.03 MB.
-
-[![View upon Selection](images/BAM_Slicing/selecting_entities02.png)](images/BAM_Slicing/selecting_entities02.png 'Click to see the full image.')
 
 ### Selecting a Variant
 
@@ -37,6 +29,17 @@ From the view as shown above, user can choose from 48 variants. Select WDR44 as 
 Click on the next tab to access the view that allows selecting BAM files for a particular gene, snp or a specific position/range in the genome. After making your selection, click the 'Submit' button at the bottom of the view to download the slices.
 
 [![Selecting a gene](images/BAM_Slicing/selecting_genes.png)](images/BAM_Slicing/selecting_genes.png 'Click to see the full image.')
+
+### Searching a case from the first 1000 files
+
+A user may also choose to browse the first thousand BAM files.
+Click on the tab labeled 'Or, browse first 1000 Available BAM files' to load the following view. Scroll and select the case of interest.
+
+[![Selecting Entities](images/BAM_Slicing/selecting_entities2.png)](images/BAM_Slicing/selecting_entities2.png 'Click to see the full image.')
+
+Choosing a BAM file directly from the thousand files will display the following view.
+
+[![View upon Selection](images/BAM_Slicing/selecting_entities02.png)](images/BAM_Slicing/selecting_entities02.png 'Click to see the full image.')
 
 ### Selecting unmapped reads
 
