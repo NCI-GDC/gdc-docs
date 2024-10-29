@@ -92,8 +92,8 @@
     * Users can now change the plot color scheme to Blue-White-Red, Green-Black-Red, Green-Black-Red, and Blue-Black-Yellow, under the Clustering tab.
     * Z-score values are now capped to not exceed absolute values, under the Clustering tab.
     * Implemented support for adding user-saved custom gene sets, under the Genes tab.
-    * Added support for adding “Overall Survival” as an annotation variable.
-    * The tool now supports clicking the gene dendrogram to select genes and launch “Gene Set Overrepresentation Analysis.”
+    * Added support for adding "Overall Survival" as an annotation variable.
+    * The tool now supports clicking the gene dendrogram to select genes and launch "Gene Set Overrepresentation Analysis."
     * When screening user-defined gene sets, use a close-to-zero min_median_log2_uqfpkm parameter to keep more genes expressed at low level.
     * Allows the drag/drop of mutation and dictionary variable rows not used for clustering.
     * Improved performance of the top variably expressed genes query from the GDC API by directly submitting the case filters without first retrieving a list of cases.
@@ -102,7 +102,7 @@
     * Added support of gene expression rows along with mutation and dictionary variables.
     * When plotting gene expression genes as a variable, users can now edit the genes display as a z-score.
     * For cases that do not have expression data, the displayed gene expression variable track now displays them as blank values.
-    * Added support for “Overall Survival” variable.
+    * Added support for "Overall Survival" variable.
     * Allows the display of only dictionary variables with all genes removed.
     * Users can now click on a mutated gene and edit and customize its variant grouping.
 * The tooltips for the __Survival Plot__ now display the time to death and the interval of last follow-up in both years and months. The downloaded TSV now includes the time value in years, months, and days, and the downloaded JSON now includes the time value in days. <!--PEAR-1961/2060-->
@@ -164,7 +164,7 @@
 * Fixed sorting functionality for "Submitted Gene Identifier" columns (Symbol, Ensembl ID, Entrez ID) in __Manage Sets__ to correctly sort by numbers/alphabet. <!--PEAR-2045-->
 * In the __Case Summary Page__, the issue with the Create Cohort button label case count in the Most Frequent Somatic Mutations table not matching the actual cohort case count has been resolved to ensure accurate numerator and denominator calculations. <!--PEAR-2142-->
 * Fixed issue where y-axis labels on __Clinical Data Analysis__ histograms were cut off; labels are now fully visible. <!--PEAR-2055-->
-* The Survival Analysis section in __Cohort Comparison__ now correctly displays the message “No Survival data available for this Cohort Comparison” when there is insufficient data for the survival plot. <!--PEAR-1941-->
+* The Survival Analysis section in __Cohort Comparison__ now correctly displays the message "No Survival data available for this Cohort Comparison" when there is insufficient data for the survival plot. <!--PEAR-1941-->
 * Spinners on the __Cart__ page now display only for the specific download option selected, and no spinners will appear if the download does not start or has completed, ensuring consistent behavior. <!--PEAR-1722-->
 * Minor text and styling fixes. <!--PEAR-2034/2122/2099/2056/2023/2077/2095/867/1908-->
 
