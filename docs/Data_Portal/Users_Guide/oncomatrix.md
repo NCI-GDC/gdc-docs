@@ -174,13 +174,13 @@ The row containing TP53 cases now moves back up in position 1 above ATRX.
 
 Click TP53 again to showcase the edit menu.
 
-Click on ‘Replace’ as shown above to replace TP53 gene variable with ‘Primary site’ as shown below. The chart updates with the first row as ‘Primary site’ thereby replacing TP53 gene variable as shown below. User may choose to sort samples by clicking the ‘Primary site’ label.
+Click on `Replace` as shown above to replace TP53 gene variable with `Primary site` as shown below. The chart updates with the first row as `Primary site` thereby replacing TP53 gene variable as shown below. User may choose to sort samples by clicking the `Primary site` label.
 
 [![Replace a gene row](./images/oncomatrix/13-replace_gene.png)](./images/oncomatrix/13-replace_gene.png 'Click to see the full image.')
 
 [![Replaced row](./images/oncomatrix/14-term-replaced.png)](./images/oncomatrix/14-term-replaced.png 'Click to see the full image.')
 
-Click on the label ‘Primary site’ and click the option ‘Remove’ as shown to remove the row completely. 
+Click on the label `Primary site` and click the option `Remove` as shown to remove the row completely. 
 
 [![Remove term](./images/oncomatrix/15-remove-primary.png)](./images/oncomatrix/15-remove-primary.png 'Click to see the full image.')
 
@@ -188,7 +188,7 @@ This updates the chart. User may choose to add back TP53 through the gene panel.
 
 Click on `Replace` as shown above to replace TP53 gene variable with `Primary site` as shown below.
 
-Moreover, a user has the option to add rows for gene expression data. Click on 'TP53' gene label, click on the option ‘Gene expression’ and search for a gene of interest as shown.
+Moreover, a user has the option to add rows for gene expression data. Click on `TP53` gene label, click on the option `Gene expression` and search for a gene of interest as shown.
 
 [<img src="./images/oncomatrix/13.1-replace_term_gene_exp.png" width="500"/>](./images/oncomatrix/15-remove-primary.png 'Click to see the full image.')
 
@@ -206,7 +206,7 @@ The control panel as shown has various functionalities with which users can chan
 
 The genes on the matrix are sorted by default on the number of cases with the gene having the highest number of cases at the top of the matrix. A user may choose to override this by dragging a gene label and dropping it above or below any other gene in order to customize their own gene groupings. 
 
-Select ‘PTEN’ gene label and drag it below the gene labeled ‘EGFR’ as shown. When dragging a gene label, hover over EGFR such that the EGFR gene label would appear blue.
+Select `PTEN` gene label and drag it below the gene labeled `EGFR` as shown. When dragging a gene label, hover over EGFR such that the EGFR gene label would appear blue.
 
 [![Drag a gene row](./images/oncomatrix/16-drag-gene-row.png)](./images/oncomatrix/16-drag-gene-row.png 'Click to see the full image.')
 
@@ -233,7 +233,7 @@ These sections are described below.
 
 #### Maximum #cases
 
-There is a default number of samples that are shown in the matrix chart. Users can choose to increase or decrease the number of samples. This allows the chart to re-render and display the number of columns based on the user`s selection. Figure below shows increased cases to 10000. Please note that any high arbitrary number can be selected but the chart will only show the maximum cases that GDC has.
+There is a default number of samples that are shown in the matrix chart. Users can choose to increase or decrease the number of samples. This allows the chart to re-render and display the number of columns based on the user's selection. Figure below shows increased cases to 10000. Please note that any high arbitrary number can be selected but the chart will only show the maximum cases that GDC has.
 
 [![Cases menu](./images/oncomatrix/20.1-by_consequence.png)](./images/oncomatrix/20.1-by_consequence.png 'Click to see the full image.')
 
@@ -249,29 +249,29 @@ This option allows users to group cases by different variables from the GDC dict
 
 [![Group cases by another variable](./images/oncomatrix/group-cases-by.png)](./images/oncomatrix/group-cases-by.png 'Click to see the full image.')
 
-Search for the term ‘Age at diagnosis’ and Click the term. The matrix reloads to show the following view.
+Search for the term `Age at diagnosis` and Click the term. The matrix reloads to show the following view.
 
 [![Select a grouping variable](./images/oncomatrix/22-group-age-at-diag.png)](./images/oncomatrix/22-group-age-at-diag.png 'Click to see the full image.')
 
 As shown above, labels for different age groups show up vertically and all cases get distributed with a clearcut separation according to the age bins.
 
-Click on the ‘Age at diagnosis’ (blue pill, as shown). This opens a short menu with action items. Click on the first item ‘Edit’ as shown.
+Click on the `Age at diagnosis` (blue pill, as shown). This opens a short menu with action items. Click on the first item `Edit` as shown.
 
 [![Click the variable button to edit](./images/oncomatrix/23-edit-groups.png)](./images/oncomatrix/23-edit-groups.png 'Click to see the full image.')
 
-Drag the red lines on the density distribution to select binning or input numbers for custom binning and select ‘Apply’.
+Drag the red lines on the density distribution to select binning or input numbers for custom binning and select `Apply`.
 
 [![Click the variable button to edit bins](./images/oncomatrix/24-binning.png)](./images/oncomatrix/24-binning.png 'Click to see the full image.')
 
 The matrix reloads with new bin groupings The labels for the groups are user controlled and hence can be modified according to user requirements. 
 
-Click on the blue pill for ‘Age at diagnosis’ again and click ‘Replace’. Select ‘Primary site’ as shown.
+Click on the blue pill for `Age at diagnosis` again and click `Replace`. Select `Primary site` as shown.
 
 [![Replace the grouping variable](./images/oncomatrix/25-replace-group.png)](./images/oncomatrix/25-replace-group.png 'Click to see the full image.')
 
 The matrix reloads with the new variable distribution.
 
-The last option on the menu is ‘Remove’. Click on the ‘917 Cases’ button, followed by ‘Age at diagnosis’ shown in blue to reveal the menu option. Click ‘Remove’ to completely get rid of any groups.
+The last option on the menu is `Remove`. Click on the `917 Cases` button, followed by `Age at diagnosis` shown in blue to reveal the menu option. Click `Remove` to completely get rid of any groups.
 
 [![Remove the grouping variable](./images/oncomatrix/26-remove-group.png)](./images/oncomatrix/26-remove-group.png 'Click to see the full image.')
 
@@ -279,7 +279,7 @@ This will remove all and any groupings and show the default view again.
 
 ### Adding Survival term as a grouping variable
 
-Click on the ‘Age at diagnosis’ (blue pill, as shown). This opens a short menu with action items. Click on the second item ‘Replace’ as shown.
+Click on the `Age at diagnosis` (blue pill, as shown). This opens a short menu with action items. Click on the second item `Replace` as shown.
 
 [![Click the variable button to edit](./images/oncomatrix/23-edit-groups.png)](./images/oncomatrix/23-edit-groups.png 'Click to see the full image.')
 
@@ -315,7 +315,7 @@ This reloads the matrix and now displays the survival outcome as a continuous di
 
 The default sort setting sorts the cases 'by presence' under 'Basic' sort settings. 
 
-Click the second option ‘by consequence’ to change the sorting. The matrix reloads with the new sorting as shown below.
+Click the second option `by consequence` to change the sorting. The matrix reloads with the new sorting as shown below.
 
 [![Sort oncomatrix by consequence](./images/oncomatrix/20.1-by_consequence.png)](./images/oncomatrix/20.1-by_consequence.png 'Click to see the full image.')
 
@@ -327,13 +327,13 @@ Now user has the option to sort the cases by each selected row, gene mutation, d
 
 ### Sort Case Groups
 
-Add the variable ‘Age at diagnosis’ again using the ‘Group Cases by’ button as shown in the previous section. By default, groups are loaded ordered by their name. Change the selection to ‘Case count’ as shown below. 
+Add the variable `Age at diagnosis` again using the `Group Cases by` button as shown in the previous section. By default, groups are loaded ordered by their name. Change the selection to `Case count` as shown below. 
 
 [![Sorting Case groups](./images/oncomatrix/27-sort-case-groups.png)](./images/oncomatrix/27-sort-case-groups.png 'Click to see the full image.')
 
-The third selection option ‘Hits’ orders the groupings based on the number of gene variants for a particular case or case group for the genes in display. Click ‘Hits’ under ‘Sort Case Groups’ to change the order of groupings.
+The third selection option `Hits` orders the groupings based on the number of gene variants for a particular case or case group for the genes in display. Click `Hits` under `Sort Case Groups` to change the order of groupings.
 
-Next, hover over the group label ‘<=30 years (81)’ as shown below.
+Next, hover over the group label `<=30 years (81)` as shown below.
 
 [![Hover over lables](./images/oncomatrix/28-label-hover.png)](./images/oncomatrix/28-label-hover.png 'Click to see the full image.')
 
@@ -477,7 +477,7 @@ To select specific CNVs, click on the 'Show selected CNV' tab in the control pan
 
 ## Variables
 
-The third button from the left called ``Variables` allows user to add in additional variables in the form of rows on the matrix. Click `Variables` to display a tree of variables and select `Disease type`, `Index date` and `Primary site`. Click the button `Submit 3 variables` as shown.
+The third button from the left called `Variables` allows user to add in additional variables in the form of rows on the matrix. Click `Variables` to display a tree of variables and select `Disease type`, `Index date` and `Primary site`. Click the button `Submit 3 variables` as shown.
 
 [![Variables menu](./images/oncomatrix/46-variables.png)](./images/oncomatrix/46-variables.png 'Click to see the full image.')
 

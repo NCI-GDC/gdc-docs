@@ -58,7 +58,7 @@ Click on a case in the dendrogram to showcase the Disco plot or the GDC [Case Su
 
 #### Selecting genes on the cluster
 
-genes on the cluster can be selected by clicking on the left dendrogram. Once part of the dendrogram is selected, users can choose to list the genes selected or launch `Gene Set Overrepresentation Analysis` with the genes selected.
+Genes on the cluster can be selected by clicking on the left dendrogram. Once part of the dendrogram is selected, users can choose to list the genes selected or launch `Gene Set Overrepresentation Analysis` with the genes selected.
 
 [![Gene Expression Clustering Tool Heatmap Genes Dendrogram](images/GEC_tool_heatmap_gene_selection.png)](images/GEC_tool_heatmap_gene_selection.png "Click to see the full image.")
 
@@ -180,7 +180,7 @@ Clicking the "+" allows users to select a term to group cases by the categories 
 
 Allows users to set case sorting priority. The default sort setting sorts the cases 'by presence' under 'Basic' sort settings. To change sorting click on the 'Cases' tab.
 
-Then click the second option ‘by consequence’ to change the sorting. The clustering reloads with the new sorting.
+Then click the second option `by consequence` to change the sorting. The clustering reloads with the new sorting.
 
 To perform an advanced sorting, click 'Advanced' on the 'Sort Case Priority' menu as shown below.
 
@@ -362,7 +362,7 @@ Users can drag and drop a variable row that isn't used for clustering to reposit
 
 ### Replacing a variable
 
-To replace a variable, click on the row label for that variable and click 'Replace'. This shows the GDC dictionary from which a user can select a variable of choice as shown.
+To replace a variable, click on the row label for that variable and click `Replace`. This shows the GDC dictionary from which a user can select a variable of choice as shown.
 
 [![Replace variable](./images/geneexpclust/37-replacing-var.png)](./images/geneexpclust/37-replacing-var.png 'Click to see the full image.')
 
