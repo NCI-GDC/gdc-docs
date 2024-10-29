@@ -89,19 +89,19 @@ By default, the genes in the matrix are sorted in descending order according to 
 
 Below the matrix, the legend displays color coding for mutation classes, CNV, as well as each variable that is selected to appear in the plot.
 
-[![OncoMatrix Legend](./images/oncomatrix_legend.png)](./images/oncomatrix_legend.png 'Click to see the full image.')
+[![OncoMatrix Legend](./images/oncomatrix/oncomatrix_legend.png)](./images/oncomatrix/oncomatrix_legend.png 'Click to see the full image.')
 
 Clicking on `Consequences` offers options to show only truncating mutations, show only protein-changing mutations, or hide consequences.
 
-[![OncoMatrix Legend - Consequences button](./images/oncomatrix_legend_consequences.png)](./images/oncomatrix_legend_consequences.png 'Click to see the full image.')
+[![OncoMatrix Legend - Consequences button](./images/oncomatrix/oncomatrix_legend_consequences.png)](./images/oncomatrix/oncomatrix_legend_consequences.png 'Click to see the full image.')
 
 Clicking on `CNV` allows users to hide CNV.
 
-[![OncoMatrix Legend - CNV button](./images/oncomatrix_legend_cnv.png)](./images/oncomatrix_legend_cnv.png 'Click to see the full image.')
+[![OncoMatrix Legend - CNV button](./images/oncomatrix/oncomatrix_legend_cnv.png)](./images/oncomatrix/oncomatrix_legend_cnv.png 'Click to see the full image.')
 
 Additionally, users can click on a variable's category to hide a specific group, only show a specific group, or show all groups for the selected variable.
 
-[![OncoMatrix Legend - variable category](./images/oncomatrix_legend_var_cat.png)](./images/oncomatrix_legend_var_cat.png 'Click to see the full image.')
+[![OncoMatrix Legend - variable category](./images/oncomatrix/oncomatrix_legend_var_cat.png)](./images/oncomatrix/oncomatrix_legend_var_cat.png 'Click to see the full image.')
 
 ## Features
 
