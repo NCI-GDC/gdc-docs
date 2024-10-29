@@ -32,12 +32,7 @@ The control panel can modify the displayed data or the appearance of the matrix.
 * __Cell Layout:__ Modify the format of the cells by changing colors, cell dimensions, and label formatting
 * __Legend Layout:__ Alter the legend by changing the font size, dimensions, and other formatting preferences
 * __Download:__ Download the plot in svg format
-* __Zoom:__ Adjust the zoom level by using the up and down arrows on the input box, entering a number, or using the sliding scale to view the case labels
-<!--
-* __Undo:__ Undo changes made to the matrix (Coming Soon)
-* __Redo:__ Redo changes made to the matrix (Coming Soon)
-* __Restore:__ Restore the matrix to its default settings (Coming Soon)
--->
+* __Zoom:__ Adjust the zoom level by using the up and down arrows on the input box, entering a number, or using the sliding scale to view the case labels.
 
 ### Heatmap
 
@@ -102,7 +97,6 @@ Users can click on a variable in the legend to hide a specific category, only sh
 
 [![Gene Expression Clustering Tool Legend Selection](images/GEC_tool_legend_selection.png)](images/GEC_tool_legend_selection.png "Click to see the full image.")
 
-
 ## Accessing the Tool
 
 At the analysis center, click the 'Gene Expression Clustering' card to launch the heatmap.
@@ -137,15 +131,27 @@ check/uncheck to show/hide the column dendrogram
 
 Click on the options to change the method of clustering. The heatmap will render again with the clustering method selected.
 
+[![Clustering button](./images/geneexpclust/5-clustering-method.png)](./images/geneexpclust/5-clustering-method.png 'Click to see the full image.')
+
 #### Distance method
 
 Click on the options to change the distance method. The heatmap will render again with the distance method selected.
 
+[![Distance method clustering](./images/geneexpclust/40-distance_method.png)](./images/geneexpclust/40-distance_method.png 'Click to see the full image.')
+
 #### Column Dendrogram Height
 Click or edit the number in the input box to adjust the height of the column dendrograms as shown.
 
+[![Column Dendrogram Height](./images/geneexpclust/6-col-dendrogram-height.png)](./images/geneexpclust/6-col-dendrogram-height.png 'Click to see the full image.')
+
+[![Column Dendrogram Height](./images/geneexpclust/7-adj-dend-height.png)](./images/geneexpclust/7-adj-dend-height.png 'Click to see the full image.')
+
 #### Row Dendrogram Width
 Similary, row dendrogram width can also be modified as per user requirement as shown.
+
+[![Row dendrogram width](./images/geneexpclust/8-row-dend-height.png)](./images/geneexpclust/8-row-dend-height.png 'Click to see the full image.')
+
+[![Row dendrogram width](./images/geneexpclust/9-adj-row-dend-height.png)](./images/geneexpclust/9-adj-row-dend-height.png 'Click to see the full image.')
 
 #### Z-score Cap
 Z scores are used to compare gene expression across samples. A Z-score of zero indicates that the gene's expression level is the same as the mean expression level across all samples, while a positive Z-score indicates that the gene is expressed at a higher level than the mean, and a negative Z-score indicates that the gene is expressed at a lower level than the mean.
@@ -154,14 +160,15 @@ User can increase or decrease the Z-score Capping. Increase the Z-score cap from
 
 [![Z-score capping](./images/geneexpclust/10-zscore-cap.png)](./images/geneexpclust/10-zscore-capt.png 'Click to see the full image.')
 
-
 #### Color Scheme
 Click on the options to change the color scheme used. The heatmap will render again with the color scheme selected.
+
+[![Color scheme](./images/geneexpclust/41-color_scheme.png)](./images/geneexpclust/41-color_scheme.png 'Click to see the full image.')
 
 ### Cases
 The 'Cases' control has these options: 
 
-[![cases options](./images/geneexpclust/case_options.png)](./images/geneexpclust/case_options.png 'Click to see the full image.')
+[![Cases options](./images/geneexpclust/case_options.png)](./images/geneexpclust/case_options.png 'Click to see the full image.')
 
 #### Case Label Character Limit
 adjust the visible characters of these sample labels. The default is '32'. Note that reducing the character limit truncates the labels.
@@ -170,7 +177,16 @@ adjust the visible characters of these sample labels. The default is '32'. Note 
 Clicking the "+" allows users to select a term to group cases by the categories in the term. 
 
 #### Sort Case Priority
-Allows users to set case sorting prioritiy
+
+Allows users to set case sorting priority. The default sort setting sorts the cases 'by presence' under 'Basic' sort settings. To change sorting click on the 'Cases' tab.
+
+Then click the second option ‘by consequence’ to change the sorting. The clustering reloads with the new sorting.
+
+To perform an advanced sorting, click 'Advanced' on the 'Sort Case Priority' menu as shown below.
+
+[![Advanced sorting options](./images/geneexpclust/20.2-sort_advanced.png)](./images/geneexpclust/20.2-sort_advanced.png 'Click to see the full image.')
+
+Now user has the option to sort the cases by each selected row, gene mutation, dictionary variable or alphabetically by name. Details of each sort option are provided.
 
 ### Genes
 
@@ -202,9 +218,9 @@ Click on the gene 'Wee1' to delete the gene from the gene set. Click submit to r
 
 #### Load top variably expressed genes
 
-User has the option to load the top genes that are variably expressed. To do so, click on the 'Edit Group' button under the 'Genes' controls. Click on the button that reads 'Load top variably expressed genes'. The genes will change to the top most variable genes as shown in this selected cohort.
+User has the option to load the top genes that are variably expressed. To do so, click on the 'Edit Selected Group' under 'Genes' controls. Click on the,'Top variably expressed genes' button. 
 
-Click submit to reload the heatmap.
+Here the user has the option to select 'Gene count' with the minimum cutoff to narrow down the list of top variably expressed genes. Additionally, a user has the option to choose all genes or show genes from a subset. 
 
 [![Load top variably expressed genes](./images/geneexpclust/17-top-variably-exp-genes.png)](./images/geneexpclust/17-top-variably-exp-genes.png 'Click to see the full image.')
 
@@ -227,7 +243,6 @@ Upon selecting a MSigDB gene set, the genes get updated as shown.
 [![Selected geneset hypoxia](./images/geneexpclust/20-geneset-hypoxia.png)](./images/geneexpclust/20-geneset-hypoxia.png 'Click to see the full image.')
 
 Click 'Submit' to reload the heatmap with the new gene set from MSigDB.
-
 
 #### Load gene set
 
@@ -266,14 +281,13 @@ Once the variable terms are submitted, the heatmap will display the added variab
 
 ### Download
 
-The control panel shows an option to download the plot as an svg after user has specified their customizations. Select the 'Download' button as shown below to save the svg.
+The control panel shows an option to download the plot as an svg after user has specified their customizations. Select the 'Download' button as shown below to save the visualization in either SVG or TSV format.
 
 [![Download button](./images/geneexpclust/28-download-btn.png)](./images/geneexpclust/28-download-btn.png 'Click to see the full image.')
 
-The download will get saved to the default download folder as shown at the bottom of the browser window.
+If svg format is selected then the download will get saved to the default download folder as shown at the bottom of the browser window.
 
 [![Saved download](./images/geneexpclust/29-downloaded-svg.png)](./images/geneexpclust/29-downloaded-svg.png 'Click to see the full image.')
-
 
 ### Adjusting the zoom using the zoom buttons
 
