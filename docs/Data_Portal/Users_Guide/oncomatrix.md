@@ -6,7 +6,7 @@ The OncoMatrix tool is a web-based tool for visualizing coding mutations such as
 
 ## Accessing the Matrix Chart
 
-At the Analysis Center, click on the “OncoMatrix” card to launch the app.
+At the Analysis Center, click on the "OncoMatrix" card to launch the app.
 [![Analysis Tools with Oncomatrix Card](./images/oncomatrix/1-analysis_center.png)](./images/oncomatrix/1-analysis_center.png 'Click to see the full image.')
 
 View publicly available genes as well as login with credentials to access controlled data.
