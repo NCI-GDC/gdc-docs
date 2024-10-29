@@ -194,8 +194,6 @@ Moreover, a user has the option to add rows for gene expression data. Click on `
 
 After a gene expression term is selected, the chart updates with the selected term shown as a separate row at the end of the matrix in a continuous distribution
 
-[<img src="./images/oncomatrix/13.2_gene_exp_term_row.png" width="500"/>](./images/oncomatrix/15-remove-primary.png 'Click to see the full image.')
-
 [![Gene Exp2](./images/oncomatrix/13.2_gene_exp_term_row.png)](./images/oncomatrix/13.2_gene_exp_term_row.png 'Click to see the full image.')
 
 ## Control panel
