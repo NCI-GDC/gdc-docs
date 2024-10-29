@@ -190,11 +190,13 @@ Click on `Replace` as shown above to replace TP53 gene variable with `Primary si
 
 Moreover, a user has the option to add rows for gene expression data. Click on `TP53` gene label, click on the option `Gene expression` and search for a gene of interest as shown.
 
-[<img src="./images/oncomatrix/13.1-replace_term_gene_exp.png" width="500"/>](./images/oncomatrix/15-remove-primary.png 'Click to see the full image.')
+[![Gene Exp1](./images/oncomatrix/13.1-replace_term_gene_exp.png)](./images/oncomatrix/13.1-replace_term_gene_exp.png 'Click to see the full image.')
 
 After a gene expression term is selected, the chart updates with the selected term shown as a separate row at the end of the matrix in a continuous distribution
 
 [<img src="./images/oncomatrix/13.2_gene_exp_term_row.png" width="500"/>](./images/oncomatrix/15-remove-primary.png 'Click to see the full image.')
+
+[![Gene Exp2](./images/oncomatrix/13.2_gene_exp_term_row.png)](./images/oncomatrix/13.2_gene_exp_term_row.png 'Click to see the full image.')
 
 ## Control panel
 
