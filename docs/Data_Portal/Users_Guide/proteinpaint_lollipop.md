@@ -114,6 +114,8 @@ Clicking on a mutation class opens a pop-up menu with show/hide functionalities:
 * __Show only:__ Only show the lollipop discs for the particular mutation class
 * __Show all:__ Display the lollipop discs for all mutation classes
 
+The color selector in the pop-up menu allows users to customize consequence colors.
+
 [![Mutation Pop-Up Menu](images/lollipop42.png)](images/lollipop42.png "Click to see the full image.")
 
 ### Additional Features
@@ -348,13 +350,17 @@ The classification for the type of variant is color coded as follows:
 
 [![Color Coding Classification](images/lollipop41.png)](images/lollipop41.png "Click to see the full image.")
 
-Clicking on a mutation prompts a pop-up menu to appear with the description of the mutation. Options to 'hide' or 'show only' are specific to the mutation. The option 'show all' includes all previously hidden mutations. Selecting 'MISSENSE' shown in the figure below by the yellow highlight displays the initial menu with the 'hide' and 'show only' buttons.
+Clicking on a mutation prompts a pop-up menu to appear with the description of the mutation. Options to 'hide' or 'show only' are specific to the mutation. The option 'show all' includes all previously hidden mutations. Selecting 'MISSENSE' shown in the figure below displays the initial menu with the 'hide' and 'show only' buttons.
 
 [![Mutation Pop-Up Menu](images/lollipop42.png)](images/lollipop42.png "Click to see the full image.")
 
 Clicking 'Hide' removes all of the mutation discs from the lollipop. The mutation is reordered to the end of the list and the font is striked through and grayed out. The discs reappear when the mutation label is clicked again.
 
 [![Hide Mutation Discs](images/lollipop43.png)](images/lollipop43.png "Click to see the full image.")
+
+The color selector in the pop-up menu allows users to customize consequence colors. Once a custom color is selected, the consequence will be rendered in that color, and a clockwise icon will be shown next to the color selector. Clicking the icon will restore consequence color to default.
+
+[![Mutation color selector](images/lollipop43-1.png)](images/lollipop43-1.png "Click to see the full image.")
 
 # More Options
 
