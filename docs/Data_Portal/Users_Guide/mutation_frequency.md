@@ -127,15 +127,15 @@ The table contains the following fields:
   * __Primary Site__: The anatomical site affected by the disease
   * __# SSM Affected Cases__: The number of affected cases and total number of cases displayed as a fraction and percentage
 
-## Custom Gene and Mutation Filters
+## Custom Mutated Genes and Somatic Mutation Filters
 
 [![Custom Gene/Mutation Filters](images/CustomGeneMutationFilters.png)](images/CustomGeneMutationFilters.png "Click to see the full image.")
 
-The `+ Add Custom Gene Filters` button in the left panel of the Mutation Frequency tool allows users to filter mutation frequency by genes. Users can enter unique identifiers (i.e. gene symbols, gene IDs, etc.) directly into the text box as a plain text list or upload a list of unique identifiers as a CSV, TSV, or TXT file. Users can hover over the orange (i) to verify accepted gene identifiers, delimiters, and file formats.
+The `Upload Genes` button in the left panel of the Mutation Frequency tool allows users to filter mutation frequency by genes. Users can enter unique identifiers (i.e. gene symbols, gene IDs, etc.) directly into the text box as a plain text list or upload a list of unique identifiers as a CSV, TSV, or TXT file. Users can hover over the orange (i) to verify accepted gene identifiers, delimiters, and file formats.
 
 [![Custom Gene Filters](images/CustomGeneFilters.png)](images/CustomGeneFilters.png "Click to see the full image.")
 
-The `+ Add Custom Mutation Filters` button allows users to filter mutation frequency by mutations. Users can enter unique identifiers (i.e. mutation UUIDs, etc.) directly into the text box as a plain text list or upload a list of unique identifiers as a CSV, TSV, or TXT file. Users can hover over the orange (i) to verify accepted mutation identifiers, delimiters, and file formats.
+The `Upload Somatic Mutations` button allows users to filter mutation frequency by mutations. Users can enter unique identifiers (i.e. mutation UUIDs, etc.) directly into the text box as a plain text list or upload a list of unique identifiers as a CSV, TSV, or TXT file. Users can hover over the orange (i) to verify accepted mutation identifiers, delimiters, and file formats.
 
 [![Custom Mutation Filters](images/CustomMutationFilters.png)](images/CustomMutationFilters.png "Click to see the full image.")
 
