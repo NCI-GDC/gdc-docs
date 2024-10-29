@@ -535,7 +535,7 @@ The control panel shows an option to download the plot as an svg after user has 
 
 [![Download button](./images/oncomatrix/59-download_svg1.png)](./images/oncomatrix/59-download_svg1.png 'Click to see the full image.')
 
-The download will get saved to the default download folder as shown at the bottom of the browser window.
+If svg format is selected then the download will get saved to the default download folder as shown at the bottom of the browser window.
 
 [![Download](./images/oncomatrix/60-download_svg2.png)](./images/oncomatrix/60-download_svg2.png 'Click to see the full image.')
 
