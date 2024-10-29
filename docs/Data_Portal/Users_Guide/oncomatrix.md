@@ -55,31 +55,31 @@ The Disco Plot is a circular plot that shows all the mutations and CNVs for a gi
 
 To perform an automatic zoom, users can click on and hold a case column then drag the mouse from left to right to form a zoom boundary. From the pop-up window, users can choose to zoom in to the cases, list all highlighted cases, or create a cohort of the selected cases.
 
-[![Dragging and zooming on case columns](./images/oncomatrix_zoom.png)](./images/oncomatrix_zoom.png 'Click to see the full image.')
+[![Dragging and zooming on case columns](./images/oncomatrix/oncomatrix_zoom.png)](./images/oncomatrix/oncomatrix_zoom.png 'Click to see the full image.')
 
 The individual case columns are now visible with a demarcated boundary. Above the cases, a slider has been provided for moving from one view to another to accommodate all cases.
 
-[![Zoom using input control and slider](./images/oncomatrix_zoom2.png)](./images/oncomatrix_zoom2.png 'Click to see the full image.')
+[![Zoom using input control and slider](./images/oncomatrix/oncomatrix_zoom2.png)](./images/oncomatrix/oncomatrix_zoom2.png 'Click to see the full image.')
 
 #### Genes
 
 In the panel of genes on the left, users can hover over a gene to view the number of mutated samples, a breakdown of consequence type, and copy number gain and loss counts.
 
-[![Hover over gene](./images/oncomatrix_gene_hover.png)](./images/oncomatrix_gene_hover.png 'Click to see the full image.')
+[![Hover over gene](./images/oncomatrix/oncomatrix_gene_hover.png)](./images/oncomatrix/oncomatrix_gene_hover.png 'Click to see the full image.')
 
 Clicking on a gene opens a pop-up window where users can rename it, launch the [ProteinPaint Lollipop plot](proteinpaint_lollipop.md), display the [Gene Summary Page](mutation_frequency.md#gene-and-mutation-summary-pages), and replace or remove the gene. The lollipop plot displays all cases across the GDC affected by SSMs in the selected gene.
 
-[![Click on a gene](./images/oncomatrix_gene_click.png)](./images/oncomatrix_gene_click.png 'Click to see the full image.')
+[![Click on a gene](./images/oncomatrix/oncomatrix_gene_click.png)](./images/oncomatrix/oncomatrix_gene_click.png 'Click to see the full image.')
 
 #### Variables
 
 Any variables added to the matrix appear at the bottom of the plot. Users can hover over a cell in a variable row to display the case submitter_id and their value for the given variable.
 
-[![Hover over a variable cell](./images/oncomatrix_variable_cell.png)](./images/oncomatrix_variable_cell.png "Click to see the full image.")
+[![Hover over a variable cell](./images/oncomatrix/oncomatrix_variable_cell.png)](./images/oncomatrix/oncomatrix_variable_cell.png "Click to see the full image.")
 
 Clicking on a variable allows users to rename it, edit it by excluding categories, replace it with a different variable, or remove it entirely.
 
-[![Click on a variable](./images/oncomatrix_variable_click.png)](./images/oncomatrix_variable_click.png "Click to see the full image.")
+[![Click on a variable](./images/oncomatrix/oncomatrix_variable_click.png)](./images/oncomatrix/oncomatrix_variable_click.png "Click to see the full image.")
 
 #### Drag and drop genes and variables
 
