@@ -45,17 +45,20 @@
 * __Release Date__:  November 21, 2024
 
 ### New Features and Changes
+
 * Custom filter cards in the __Cohort Builder__ will be automatically removed if the property is no longer available. <!--PEAR-2248-->
 * File names for manifests now include the timestamp. Additionally, dates and times are now based on the user's timezone rather than UTC. <!--PEAR-1203-->
 * Responsiveness improvements have been made to the __Cart__. <!--PEAR-2169-->
 * Minor UX improvements. <!--PEAR-2220/2211-->
 
 ### Bugs Fixed Since Last Release
+
 * Adding family_histories.relationship_age_at_diagnosis or follow_ups.other_clinical_attributes.undescended_testis_corrected_age_range as a custom filter in the __Cohort Builder__ will no longer result in endless spinners being displayed on these filter cards. <!--PEAR-2247-->
 * Fixed an issue where the Replace Existing Cohort modal is not being displayed when creating a cohort from Mutation Frequency. <!--PEAR-2219-->
 * Minor UI and font fixes. <!--PEAR-1284/2208-->
 
 ### Known Issues and Workarounds
+
 * __Section 508 Accessibility__:
     * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
         * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
@@ -77,6 +80,7 @@
 * Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
 
 ### Properties Removed
+
 The following properties have been removed and are no longer available. Any data values that were previously found in these properties have been verified to have been moved to other available properties.
 * cases.diagnoses.anaplasia_present, cases.diagnoses.anaplasia_present_type, cases.diagnoses.breslow_thickness, cases.diagnoses.circumferential_resection_margin, cases.diagnoses.greatest_tumor_dimension, cases.diagnoses.gross_tumor_weight, cases.diagnoses.largest_extrapelvic_peritoneal_focus, cases.diagnoses.lymph_node_involved_site, cases.diagnoses.lymph_nodes_positive, cases.diagnoses.lymph_nodes_tested, cases.diagnoses.lymphatic_invasion_present, cases.diagnoses.non_nodal_regional_disease, cases.diagnoses.non_nodal_tumor_deposits, cases.diagnoses.percent_tumor_invasion, cases.diagnoses.perineural_invasion_present, cases.diagnoses.peripancreatic_lymph_nodes_positive, cases.diagnoses.peripancreatic_lymph_nodes_tested, cases.diagnoses.transglottic_extension, cases.diagnoses.tumor_largest_dimension_diameter, cases.diagnoses.tumor_stage, cases.diagnoses.vascular_invasion_present, cases.diagnoses.vascular_invasion_type, cases.exposures.bmi, cases.exposures.height, cases.exposures.marijuana_use_per_week, cases.exposures.smokeless_tobacco_quit_age, cases.exposures.tobacco_use_per_day, cases.exposures.weight, files.analysis.input_files.proportion_coverage_10X, files.analysis.input_files.proportion_coverage_30X, files.analysis.metadata.read_groups.RIN, files.downstream_analyses.output_files.proportion_coverage_10X, files.downstream_analyses.output_files.proportion_coverage_30X, files.index_files.proportion_coverage_10X, files.index_files.proportion_coverage_30X, files.proportion_coverage_10X, files.proportion_coverage_30X
 
@@ -86,6 +90,7 @@ The following properties have been removed and are no longer available. Any data
 * __Release Date__:  October 29, 2024
 
 ### New Features and Changes
+
 * __Cohort Builder__:
     * Custom filters now display their parent category name. <!--PEAR-1083-->
     * Filter cards in classification categories have been moved to the General Diagnosis category or the new Disease Specific Classifications category. <!--PEAR-1989-->
@@ -158,6 +163,7 @@ The following properties have been removed and are no longer available. Any data
 * __Slide Image Viewer__'s performance has been improved. <!--PEAR-1771-->
 
 ### Bugs Fixed Since Last Release
+
 * __Section 508 Accessibility__:
     * Aria roles now contain the expected children. <!--PEAR-1669-->
     * Responsiveness for __Mutation Frequency__, all summary pages, and all table headers has been improved. <!--PEAR-1927/2130/2090-->
@@ -210,6 +216,7 @@ The following properties have been removed and are no longer available. Any data
 * Minor text and styling fixes. <!--PEAR-2034/2122/2099/2056/2023/2077/2095/867/1908-->
 
 ### Known Issues and Workarounds
+
 * __Section 508 Accessibility__:
     * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
         * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
@@ -264,6 +271,7 @@ The following properties have been removed and are no longer available. Any data
 * Filter panels in the __Projects__, __Mutation Frequency__, and __Repository__ tools have been standardized and now consistently allow scrolling to occur independently of the tables on the right. <!--PEAR-1579-->
 
 ### Bugs Fixed Since Last Release
+
 * __Section 508 Accessibility__:
     * Aria labels have been added to the tables in Set Operations. <!--PEAR-1936-->
     * The Venn diagrams in __Set Operations__ and __Cohort Comparison__ now have the appropriate alt text and roles. <!--PEAR-1936-->
@@ -306,6 +314,7 @@ The following properties have been removed and are no longer available. Any data
 * Tooltips are no longer displayed when there is no description available for filter properties. <!--SV-2425/PEAR-869-->
 
 ### Known Issues and Workarounds
+
 * __Section 508 Accessibility__:
     * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
         * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
