@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v2.3.1](Data_Portal_Release_Notes.md#release-231) | November 21, 2024 |
 | [v2.3.0](Data_Portal_Release_Notes.md#release-230) | October 29, 2024 |
 | [v2.2.0](Data_Portal_Release_Notes.md#release-220) | June 26, 2024 |
 | [v2.1.0](Data_Portal_Release_Notes.md#release-210) | April 30, 2024 |
@@ -39,12 +40,59 @@
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
 ---
+## Release 2.3.1
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  November 21, 2024
+
+### New Features and Changes
+
+* Custom filter cards in the __Cohort Builder__ will be automatically removed if the property is no longer available. <!--PEAR-2248-->
+* File names for manifests now include the timestamp. Additionally, dates and times are now based on the user's timezone rather than UTC. <!--PEAR-1203-->
+* Responsiveness improvements have been made to the __Cart__. <!--PEAR-2169-->
+* Minor UX improvements. <!--PEAR-2220/2211-->
+
+### Bugs Fixed Since Last Release
+
+* Adding family_histories.relationship_age_at_diagnosis or follow_ups.other_clinical_attributes.undescended_testis_corrected_age_range as a custom filter in the __Cohort Builder__ will no longer result in endless spinners being displayed on these filter cards. <!--PEAR-2247-->
+* Fixed an issue where the Replace Existing Cohort modal is not being displayed when creating a cohort from Mutation Frequency. <!--PEAR-2219-->
+* Minor UI and font fixes. <!--PEAR-1284/2208-->
+
+### Known Issues and Workarounds
+
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * Some text can be difficult to read on a small screen at a 200% zoom level.
+* __Survival Plot__:
+    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* __Gene Expression Clustering__:
+    * The tool allows deleting the gene expression group and displays an uninformative error message after submitting the deletion.
+* In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
+* Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
+* In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
+* __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+* The TSV of the __Most Frequent Somatic Mutations table in the case summary page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
+* Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
+
+### Properties Removed
+
+The following properties have been removed and are no longer available. Any data values that were previously found in these properties have been verified to have been moved to other available properties.
+
+* cases.diagnoses.anaplasia_present, cases.diagnoses.anaplasia_present_type, cases.diagnoses.breslow_thickness, cases.diagnoses.circumferential_resection_margin, cases.diagnoses.greatest_tumor_dimension, cases.diagnoses.gross_tumor_weight, cases.diagnoses.largest_extrapelvic_peritoneal_focus, cases.diagnoses.lymph_node_involved_site, cases.diagnoses.lymph_nodes_positive, cases.diagnoses.lymph_nodes_tested, cases.diagnoses.lymphatic_invasion_present, cases.diagnoses.non_nodal_regional_disease, cases.diagnoses.non_nodal_tumor_deposits, cases.diagnoses.percent_tumor_invasion, cases.diagnoses.perineural_invasion_present, cases.diagnoses.peripancreatic_lymph_nodes_positive, cases.diagnoses.peripancreatic_lymph_nodes_tested, cases.diagnoses.transglottic_extension, cases.diagnoses.tumor_largest_dimension_diameter, cases.diagnoses.tumor_stage, cases.diagnoses.vascular_invasion_present, cases.diagnoses.vascular_invasion_type, cases.exposures.bmi, cases.exposures.height, cases.exposures.marijuana_use_per_week, cases.exposures.smokeless_tobacco_quit_age, cases.exposures.tobacco_use_per_day, cases.exposures.weight, files.analysis.input_files.proportion_coverage_10X, files.analysis.input_files.proportion_coverage_30X, files.analysis.metadata.read_groups.RIN, files.downstream_analyses.output_files.proportion_coverage_10X, files.downstream_analyses.output_files.proportion_coverage_30X, files.index_files.proportion_coverage_10X, files.index_files.proportion_coverage_30X, files.proportion_coverage_10X, files.proportion_coverage_30X
+
 ## Release 2.3.0
 
 * __GDC Product__: GDC Data Portal
 * __Release Date__:  October 29, 2024
 
 ### New Features and Changes
+
 * __Cohort Builder__:
     * Custom filters now display their parent category name. <!--PEAR-1083-->
     * Filter cards in classification categories have been moved to the General Diagnosis category or the new Disease Specific Classifications category. <!--PEAR-1989-->
@@ -65,7 +113,7 @@
     * Styling for the tool cards in the Analysis Center has been standardized. <!--PEAR-1957-->
     * The search bar in the left panel within the __Clinical Data Analysis__ tool now remains fixed at the top of the page. <!--PEAR-1963-->
     * The message "No data for this field" will only be displayed when information for a filter card has been loaded. <!--PEAR-2036-->
-    * Vertical alignment has been improved for tables that are displayed next to each other. <!--PEAR-2049--> 
+    * Vertical alignment has been improved for tables that are displayed next to each other. <!--PEAR-2049-->
     * Filter panels located on the left side of the __Projects__, __Repository__, and __Mutation Frequency__ tools will now extend up to the height of the tables in the tools. <!--PEAR-2110-->
     * Styling for survival plots has been improved for consistency. <!--PEAR-2176-->
     * Download icons have been standardized. <!--PEAR-2186-->
@@ -109,7 +157,7 @@
 * The ability to reset all filters in the __Projects__, __Repository__, and __Mutation Frequency__ tools to their defaults has been added. <!--PEAR-1431-->
 * Filters in the __Projects__, __Repository__, and __Mutation Frequency__ tools no longer reset when the composition of the active cohort has been changed. <!--PEAR-1856-->
 * Filter cards in the __Projects__, __Repository__, and __Mutation Frequency__ tools can now be expanded and collapsed singly or all at once. <!--PEAR-2029-->
-* Except for the Most Frequent Somatic Mutations table in the __Case Summary Page__, downloadeded JSON and TSV files now reflect the information displayed in the associated tables whenever search filters have been applied. <!--PEAR-1865/2190--> 
+* Except for the Most Frequent Somatic Mutations table in the __Case Summary Page__, downloadeded JSON and TSV files now reflect the information displayed in the associated tables whenever search filters have been applied. <!--PEAR-1865/2190-->
 * A modal will now be displayed to inform users of any issues that occurred when saving sets and cohorts, and when exporting sets. <!--PEAR-1971/2141-->
 * __Quick Search__'s accuracy has been improved to account for files that are no longer available. <!--PEAR-2082-->
 * When genes or mutations are entered or uploaded for filtering in __Mutation Frequency__, other filters within the tool will be cleared. <!--PEAR-2133-->
@@ -117,6 +165,7 @@
 * __Slide Image Viewer__'s performance has been improved. <!--PEAR-1771-->
 
 ### Bugs Fixed Since Last Release
+
 * __Section 508 Accessibility__:
     * Aria roles now contain the expected children. <!--PEAR-1669-->
     * Responsiveness for __Mutation Frequency__, all summary pages, and all table headers has been improved. <!--PEAR-1927/2130/2090-->
@@ -169,10 +218,11 @@
 * Minor text and styling fixes. <!--PEAR-2034/2122/2099/2056/2023/2077/2095/867/1908-->
 
 ### Known Issues and Workarounds
+
 * __Section 508 Accessibility__:
     * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
         * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
-        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives. 
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives.
         * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
         * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
         * Some text can be difficult to read on a small screen at a 200% zoom level.
@@ -223,6 +273,7 @@
 * Filter panels in the __Projects__, __Mutation Frequency__, and __Repository__ tools have been standardized and now consistently allow scrolling to occur independently of the tables on the right. <!--PEAR-1579-->
 
 ### Bugs Fixed Since Last Release
+
 * __Section 508 Accessibility__:
     * Aria labels have been added to the tables in Set Operations. <!--PEAR-1936-->
     * The Venn diagrams in __Set Operations__ and __Cohort Comparison__ now have the appropriate alt text and roles. <!--PEAR-1936-->
@@ -265,6 +316,7 @@
 * Tooltips are no longer displayed when there is no description available for filter properties. <!--SV-2425/PEAR-869-->
 
 ### Known Issues and Workarounds
+
 * __Section 508 Accessibility__:
     * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
         * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
