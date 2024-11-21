@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v2.3.1](Data_Portal_Release_Notes.md#release-231) | November 21, 2024 |
 | [v2.3.0](Data_Portal_Release_Notes.md#release-230) | October 29, 2024 |
 | [v2.2.0](Data_Portal_Release_Notes.md#release-220) | June 26, 2024 |
 | [v2.1.0](Data_Portal_Release_Notes.md#release-210) | April 30, 2024 |
@@ -62,7 +63,7 @@
 * __Section 508 Accessibility__:
     * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
         * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
-        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives. 
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives.
         * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
         * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
         * Some text can be difficult to read on a small screen at a 200% zoom level.
@@ -111,7 +112,7 @@ The following properties have been removed and are no longer available. Any data
     * Styling for the tool cards in the Analysis Center has been standardized. <!--PEAR-1957-->
     * The search bar in the left panel within the __Clinical Data Analysis__ tool now remains fixed at the top of the page. <!--PEAR-1963-->
     * The message "No data for this field" will only be displayed when information for a filter card has been loaded. <!--PEAR-2036-->
-    * Vertical alignment has been improved for tables that are displayed next to each other. <!--PEAR-2049--> 
+    * Vertical alignment has been improved for tables that are displayed next to each other. <!--PEAR-2049-->
     * Filter panels located on the left side of the __Projects__, __Repository__, and __Mutation Frequency__ tools will now extend up to the height of the tables in the tools. <!--PEAR-2110-->
     * Styling for survival plots has been improved for consistency. <!--PEAR-2176-->
     * Download icons have been standardized. <!--PEAR-2186-->
@@ -155,7 +156,7 @@ The following properties have been removed and are no longer available. Any data
 * The ability to reset all filters in the __Projects__, __Repository__, and __Mutation Frequency__ tools to their defaults has been added. <!--PEAR-1431-->
 * Filters in the __Projects__, __Repository__, and __Mutation Frequency__ tools no longer reset when the composition of the active cohort has been changed. <!--PEAR-1856-->
 * Filter cards in the __Projects__, __Repository__, and __Mutation Frequency__ tools can now be expanded and collapsed singly or all at once. <!--PEAR-2029-->
-* Except for the Most Frequent Somatic Mutations table in the __Case Summary Page__, downloadeded JSON and TSV files now reflect the information displayed in the associated tables whenever search filters have been applied. <!--PEAR-1865/2190--> 
+* Except for the Most Frequent Somatic Mutations table in the __Case Summary Page__, downloadeded JSON and TSV files now reflect the information displayed in the associated tables whenever search filters have been applied. <!--PEAR-1865/2190-->
 * A modal will now be displayed to inform users of any issues that occurred when saving sets and cohorts, and when exporting sets. <!--PEAR-1971/2141-->
 * __Quick Search__'s accuracy has been improved to account for files that are no longer available. <!--PEAR-2082-->
 * When genes or mutations are entered or uploaded for filtering in __Mutation Frequency__, other filters within the tool will be cleared. <!--PEAR-2133-->
@@ -220,7 +221,7 @@ The following properties have been removed and are no longer available. Any data
 * __Section 508 Accessibility__:
     * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
         * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
-        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives. 
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives.
         * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
         * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
         * Some text can be difficult to read on a small screen at a 200% zoom level.
