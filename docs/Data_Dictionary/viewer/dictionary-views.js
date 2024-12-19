@@ -544,7 +544,7 @@
                 cdeStr =
                   '<a href="' +
                   (data.term_url ? data.term_url : "#") +
-                  '" target="_blank">' +
+                  '" target="_blank" rel="noreferrer">' +
                   data.cde_id +
                   "</a>" +
                   " - " +
@@ -873,7 +873,7 @@
               '</em><span class="dictionary-tooltip-content"><i></i>The links ' +
               "should be included in the files uploaded to the GDC. " +
               "For more information, please refer to the " +
-              '<a href="/Data_Submission_Portal/Users_Guide/Upload_Data/#step1-prepare-files" target="_blank">' +
+              '<a href="/Data_Submission_Portal/Users_Guide/Upload_Data/#step1-prepare-files" target="_blank" rel="noreferrer">' +
               '<!-- b class="fa fa-external-link"></b --> File ' +
               "Preparation's User Guide</a>.</span></span>"
             );
