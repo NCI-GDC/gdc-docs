@@ -1,8 +1,8 @@
-# DNA-Seq Analysis Pipeline
+# DNA-Seq: Whole Exome Sequencing Analysis Pipeline
 
 ## Introduction
 
-The GDC DNA-Seq analysis pipeline identifies somatic variants within whole exome sequencing (WXS) and whole genome sequencing (WGS) data. Somatic variants are identified by comparing allele frequencies in normal and tumor sample alignments, annotating each mutation, and aggregating mutations from multiple cases into one project file.
+The GDC DNA-Seq analysis pipeline identifies somatic variants within whole exome sequencing (WXS) data. Somatic variants are identified by comparing allele frequencies in normal and tumor sample alignments, annotating each mutation, and aggregating mutations from multiple cases into one project file.
 
 The first pipeline starts with a reference alignment step followed by co-cleaning to increase the alignment quality. Four different variant calling pipelines are then implemented separately to identify somatic mutations. Somatic-caller-identified variants are then annotated. An aggregation pipeline incorporates variants from all cases in one project into a MAF file for each pipeline.
 
