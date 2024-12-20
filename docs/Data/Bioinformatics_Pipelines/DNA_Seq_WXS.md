@@ -1,4 +1,4 @@
-# DNA-Seq: Whole Exome Sequencing Analysis Pipeline
+# DNA-Seq: Whole Exome and Targeted Sequencing Analysis Pipeline
 
 ## Introduction
 
