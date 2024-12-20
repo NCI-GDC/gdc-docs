@@ -172,7 +172,7 @@ SvABA (structural variation and indel analysis by assembly) detects variants by 
     -a <sample_id>
     ```
 
-###VarScan2 CLI
+### VarScan2 CLI
 
 __Step 1:__ Mpileup; Samtools
 
