@@ -150,7 +150,7 @@ The Strelka tool is then run with the Manta candidate indel file as an input par
     --runDir <output_directory> && <output_directory>/runWorkflow.py -m local -j 4
     ```
 
-###SvABA CLI
+### SvABA CLI
 
 SvABA (structural variation and indel analysis by assembly) detects variants by genome-wide local assembly. 
 
