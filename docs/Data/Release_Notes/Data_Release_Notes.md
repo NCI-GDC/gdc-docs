@@ -126,7 +126,7 @@
         * TCGA-LUSC - 12 alignments
         * TCGA-OV - 8 alignments
         * TCGA-SKCM - 624 alignments
-    * New clinical data for all TCGA projects
+    * _New clinical data for all TCGA projects:_ Fields that were previously only available in clinical supplement files are now queryable and downloadable through the GDC Data Portal and API.  
     * New versions of 31 CTSP-DLBCL1 clinical supplements
 
 * Data Updates
