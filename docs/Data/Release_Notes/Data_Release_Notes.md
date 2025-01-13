@@ -59,7 +59,12 @@
 
 * New Data Sets
     * Release of new WGS variant calling workflows for existing WGS tumor normal pairs. See the [documentation](Data/Bioinformatics_Pipelines/DNA_Seq_WGS.md) on WGS variant calling for more details on the available files. This includes data from the following pipelines:
-        * APOLLO-LUAD
+        * GATK4 MuTect2 - SNVs (raw and annotated VCFs)
+        * SvABA Indel - SNVs (raw and annotated VCFs)
+        * SvABA - Structural variants (VCF and BEDPE)
+        * Manta - Structural variants (VCF and BEDPE)
+        * GATK4 CNV - Copy number segments and auxiliary files
+        * __Note:__ Variants from pipelines were released from aliquots pairs on a pipeline-basis.  Aliquot pairs may have data from some pipelines but not others.  The completed set will be made available in future releases.
         * CGCI-BLGSP
         * CGCI-HTMCP-CC
         * CGCI-HTMCP-DLBCL
