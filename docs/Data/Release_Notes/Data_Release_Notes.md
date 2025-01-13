@@ -58,7 +58,7 @@
 ### New Updates
 
 * New Data Sets
-    * Release of new WGS variant calling workflows. See the [documentation](Data/Bioinformatics_Pipelines/DNA_Seq_WGS.md) on WGS variant calling for more details on the available files. This includes data from the following projects:
+    * Release of new WGS variant calling workflows for existing WGS tumor normal pairs. See the [documentation](Data/Bioinformatics_Pipelines/DNA_Seq_WGS.md) on WGS variant calling for more details on the available files. This includes data from the following pipelines:
         * APOLLO-LUAD
         * CGCI-BLGSP
         * CGCI-HTMCP-CC
