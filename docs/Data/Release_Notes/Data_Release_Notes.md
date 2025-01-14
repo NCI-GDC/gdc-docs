@@ -117,7 +117,7 @@ A complete list of files included in the GDC Data Portal can be found below:
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
-    * Tumor_grade property is not populated <!--SV-585-->
+   
     * Progression_or_recurrence property is not populated <!--SV-584-->
 
 ## Data Release 41.0
