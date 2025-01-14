@@ -65,60 +65,6 @@
         * Manta - Structural variants (VCF and BEDPE)
         * GATK4 CNV - Copy number segments and auxiliary files
         * __Note:__ Variants from pipelines were released from aliquots pairs on a pipeline-basis.  Aliquot pairs may have data from some pipelines but not others.  The completed set will be made available in future releases.
-        * CGCI-BLGSP
-        * CGCI-HTMCP-CC
-        * CGCI-HTMCP-DLBCL
-        * CGCI-HTMCP-LC
-        * CPTAC-3
-        * MMRF-COMMPASS
-        * MP2PRT-ALL
-        * MP2PRT-WT
-        * REBC-THYR
-        * TARGET-ALL-P1
-        * TARGET-ALL-P2
-        * TARGET-ALL-P3
-        * TARGET-AML
-        * TARGET-OS
-        * TCGA-ACC
-        * TCGA-BLCA
-        * TCGA-BRCA
-        * TCGA-CESC
-        * TCGA-CHOL
-        * TCGA-COAD
-        * TCGA-DLBC
-        * TCGA-ESCA
-        * TCGA-GBM
-        * TCGA-HNSC
-        * TCGA-KICH
-        * TCGA-KIRC
-        * TCGA-KIRP
-        * TCGA-LGG
-        * TCGA-LIHC
-        * TCGA-LUAD
-        * TCGA-LUSC
-        * TCGA-MESO
-        * TCGA-OV
-        * TCGA-PAAD
-        * TCGA-PCPG
-        * TCGA-PRAD
-        * TCGA-READ
-        * TCGA-SARC
-        * TCGA-SKCM
-        * TCGA-STAD
-        * TCGA-TGCT
-        * TCGA-THCA
-        * TCGA-THYM
-        * TCGA-UCEC
-        * TCGA-UCS
-        * TCGA-UVM
-        * WCDT-MCRPC
-    * TARGET-AML RNA-Seq - 46 aliquots
-    * TARGET-NBL WGS - 146 raw CGI variants released
-    * TCGA-GBM RNA-Seq - 215 aliquots
-    * TCGA-GBM miRNA-Seq - 265 aliquots
-    * TCGA-LUSC miRNA-Seq - 10 aliqiuots
-    * TCGA-LUSC RNA-Seq - 9 aliquots
-    * TCGA-OV miRNA-Seq - 76 aliquots
     * TCGA WGS alignments
         * TCGA-BLCA - 9 alignments
         * TCGA-BRCA - 1 alignment
@@ -131,7 +77,14 @@
         * TCGA-LUSC - 12 alignments
         * TCGA-OV - 8 alignments
         * TCGA-SKCM - 624 alignments
-    * _New clinical data for all TCGA projects:_ Fields that were previously only available in clinical supplement files are now queryable and downloadable through the GDC Data Portal and API.  
+    * _New clinical data for all TCGA projects:_ Fields that were previously only available in clinical supplement files are now queryable and downloadable through the GDC Data Portal and API
+    * TCGA-GBM miRNA-Seq - 265 aliquots
+    * TCGA-LUSC miRNA-Seq - 10 aliqiuots
+    * TCGA-OV miRNA-Seq - 76 aliquots
+    * TARGET-AML RNA-Seq - 46 aliquots
+    * TCGA-GBM RNA-Seq - 215 aliquots
+    * TCGA-LUSC RNA-Seq - 9 aliquots
+    * TARGET-NBL WGS - 146 raw CGI variants released
     * New versions of 31 CTSP-DLBCL1 clinical supplements
 
 * Data Updates
