@@ -261,11 +261,11 @@ For visualization, PlotDenoisedCopyRatios and PlotModeledSegments generate detai
 
 GATK4 version documentation can be found on the [Broad Institute's webpage](https://gatk.broadinstitute.org/hc/en-us/sections/5358821689883-4-2-6-1). 
 
-- Inputs: aligned reads files BAMs
-- References:
-    - intervals.preprocessed.interval_list
-    - reference .fa [GRCh38.d1.vd1.fa](https://api.gdc.cancer.gov/data/254f697d-310d-4d7d-a27b-27fbf767a834)
-    - panel of normals
+* Inputs: aligned reads files BAMs
+* References:
+    * intervals.preprocessed.interval_list
+    * reference .fa [GRCh38.d1.vd1.fa](https://api.gdc.cancer.gov/data/254f697d-310d-4d7d-a27b-27fbf767a834)
+    * panel of normals
 
 === "Shell"
 
