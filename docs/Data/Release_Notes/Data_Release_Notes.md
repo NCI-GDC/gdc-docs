@@ -99,6 +99,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 ### Bugs Fixed Since Last Release
 
 * Pathology reports now have associated case/biospecimen information in the portal.
+* Several bugs were fixed with the inclusion of TCGA clinical data in the API.
 
 ### Known Issues and Workarounds
 
