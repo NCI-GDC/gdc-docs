@@ -22,16 +22,16 @@ Output from the new WGS variant calling pipelines mentioned above has been relea
 
 ### BEDPE File Format
 
-[BEDPE file format](https://bedtools.readthedocs.io/en/latest/content/general-usage.html#bedpe-format), (**b**rowser **e**xtensible **d**ata **p**aired-**e**nd) is designed to concisely describe disjoint genome features, such as structural variations or paired-end sequence alignments. It's an enhanced version of the [BED format](http://genome.ucsc.edu/FAQ/FAQformat#format1), as BED does not allow inter-chromosomal feature definitions. In addition, BED only has one strand field, which is insufficient for paired-end sequence alignments, especially when studying structural variation. The BEDPE format is described below.
+[BEDPE file format](https://bedtools.readthedocs.io/en/latest/content/general-usage.html#bedpe-format), (**b**rowser **e**xtensible **d**ata **p**aired - **e**nd) is designed to concisely describe disjoint genome features, such as structural variations or paired - end sequence alignments. It's an enhanced version of the [BED format](http://genome.ucsc.edu/FAQ/FAQformat#format1), as BED does not allow inter - chromosomal feature definitions. In addition, BED only has one strand field, which is insufficient for paired - end sequence alignments, especially when studying structural variation. The BEDPE format is described below.
 
 * __chr*x* (required):__ The name of the chromosome on which the *x*th end of the feature exists. (x is 1 or 2). Any string can be used. For example, "chr1", "III", "myChrom", "contig1112.23" (use "." for unknown).
-* __start*x* (required):__ The zero-based starting position of the **first** end of the feature on chr*x*. The first base in a chromosome is numbered 0. The start position in each BEDPE feature is therefore interpreted to be 1 greater than the start position listed in the feature (use -1 for unknown).
-* __end*x* (required):__ The one-based ending position of the first end of the feature on chr*x*. The end position in each BEDPE feature is one-based (use -1 for unknown).
+* __start*x* (required):__ The zero - based starting position of the **first** end of the feature on chr*x*. The first base in a chromosome is numbered 0. The start position in each BEDPE feature is therefore interpreted to be 1 greater than the start position listed in the feature (use -1 for unknown).
+* __end*x* (required):__ The one - based ending position of the first end of the feature on chr*x*. The end position in each BEDPE feature is one - based (use -1 for unknown).
 * __name (optional):__ Defines the name of the BEDPE feature. Any string can be used.  
 * __score (optional):__ A score between 0 and 1000. If the track line *useScore* attribute is set to 1 for this annotation data set, the score value will determine the level of gray in which this feature is displayed (higher numbers = darker gray). Any string can be used.
 * __strand*x* (optional):__ Defines the strand for the *x*th end of the feature. Either "." (unknown),  "+", or "-".
 
-In addition to the above fields, bedtools allows for the addition of user-defined fields to the normal, 10-column BEDPE format as necessary. These columns are merely "passed through" pairToBed and pairToPair and are not part of any analysis. One would use these additional columns to add extra information (e.g., edit distance for each end of an alignment, or "deletion", "inversion", etc.) to each BEDPE feature.
+In addition to the above fields, bedtools allows for the addition of user - defined fields to the normal, 10 - column BEDPE format as necessary. These columns are merely "passed through" pairToBed and pairToPair and are not part of any analysis. One would use these additional columns to add extra information (e.g., edit distance for each end of an alignment, or "deletion", "inversion", etc.) to each BEDPE feature.
 
 ### CNV from WGS File Format
 
@@ -57,7 +57,7 @@ The GATK4 MuTect2 pipeline follows the documentation from the [Broad Institute's
 * PoN: gatk4_mutect2_4136_pon.vcf.tar
 * Reference Seq: GRCh38.d1.vd1 Reference Sequence
 * Common variant reference: [af-only-gnomad-common-biallelic.grch38.main.vcf.gz](https://console.cloud.google.com/storage/browser/gatk-best-practices/somatic-hg38?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&inv=1&invt=AbkN9w)
-* Germline-resource: af-only-gnomad.hg38.vcf.gz
+* Germline - resource: af-only-gnomad.hg38.vcf.gz
 * Reference image: GRCh38.d1.vd1.fa.img
 ```gatk BwaMemIndexImageCreator
      -I reference.fasta
@@ -181,7 +181,7 @@ The Strelka tool is then run with the Manta candidate indel file as an input par
 
 ### SvABA CLI
 
-SvABA (structural variation and indel analysis by assembly) detects variants by genome-wide local assembly. 
+SvABA (structural variation and indel analysis by assembly) detects variants by genome - wide local assembly. 
 
     ```Shell
     svaba run --override-reference-check
@@ -255,9 +255,9 @@ __Step 3:__ Varscan ProcessSomatic; Varscan.v2
 
 The GATK4 Copy Number Variant (CNV) pipeline provides a comprehensive framework for analyzing somatic CNVs in genomic data. It begins with CollectReadCounts, which calculates read counts at specified genomic intervals, and DenoiseReadCounts, which uses a Panel of Normals (PoN) generated by GATK’s CreateReadCountPanelOfNormals to standardize and denoise these counts. The CollectAllelicCounts gathers reference and alternate allele counts at specified sites.
 
-The ModelSegments calculates copy ratios from denoised copy ratios and segmented minor-allele fractions from allelic counts. These segments are then classified by CallCopyRatioSegments as amplified, deleted, or neutral.
+The ModelSegments calculates copy ratios from denoised copy ratios and segmented minor - allele fractions from allelic counts. These segments are then classified by CallCopyRatioSegments as amplified, deleted, or neutral.
 
-For visualization, PlotDenoisedCopyRatios and PlotModeledSegments generate detailed plots of denoised copy ratios, segmented copy ratios, and minor-allele-fraction estimates.
+For visualization, PlotDenoisedCopyRatios and PlotModeledSegments generate detailed plots of denoised copy ratios, segmented copy ratios, and minor - allele - fraction estimates.
 
 GATK4 version documentation can be found on the [Broad Institute's webpage](https://gatk.broadinstitute.org/hc/en-us/sections/5358821689883-4-2-6-1). 
 
