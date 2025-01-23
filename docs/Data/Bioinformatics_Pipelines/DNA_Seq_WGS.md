@@ -83,7 +83,7 @@ __Step 1:__ Calculate Contamination
     --java-options "-XX:+UseSerialGC -Xmx$(java_heap)" 
     CalculateContamination
     -I $(tumor_pileups) 
-    –matched $(normal_pileups)
+    -matched $(normal_pileups)
     -O $(output_prefix).contamination.table 
     --tumor-segmentation $(inputs.output_prefix).segments.table
     ```
@@ -100,7 +100,7 @@ If mean read length is greater than or equal to 70bp:
     -I $(normal)
     -I $(tumor)
     -R $(Reference seq)
-    –normal-sample $(normal sample name)
+    -normal-sample $(normal sample name)
     -pon $(PoN)
     --germline-resource $(Germline resource)
     -L $(intervals)
