@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v42.0](Data_Release_Notes.md#data-release-420) | January 2#, 2025 |
 | [v41.0](Data_Release_Notes.md#data-release-410) | August 28, 2024 |
 | [v40.0](Data_Release_Notes.md#data-release-400) | March 29, 2024 |
 | [v39.0](Data_Release_Notes.md#data-release-390) | December 4, 2023 |
@@ -48,6 +49,76 @@
 | [v3.0](Data_Release_Notes.md#data-release-30) | September 16, 2016 |
 | [v2.0](Data_Release_Notes.md#data-release-20) | August 9, 2016 |
 | [v1.0](Data_Release_Notes.md#initial-data-release-10) | June 6, 2016 |
+
+## Data Release 42.0
+
+* __GDC Product__: Data
+* __Release Date__: January 2#, 2025
+
+### New Updates
+
+* New Data Sets
+    * Release of new WGS variant calling workflows for existing WGS tumor normal pairs. See the [documentation](Data/Bioinformatics_Pipelines/DNA_Seq_WGS.md) on WGS variant calling for more details on the available files. This includes data from the following pipelines:
+        * GATK4 MuTect2 - SNVs (raw and annotated VCFs)
+        * SvABA Indel - SNVs (raw and annotated VCFs)
+        * SvABA - Structural variants (VCF and BEDPE)
+        * Manta - Structural variants (VCF and BEDPE)
+        * GATK4 CNV - Copy number segments and auxiliary files
+        * __Note:__ Variants from pipelines were released from aliquots pairs on a pipeline-basis.  Aliquot pairs may have data from some pipelines but not others.  The completed set will be made available in future releases.
+    * TCGA WGS alignments
+        * TCGA-BLCA - 9 alignments
+        * TCGA-BRCA - 1 alignment
+        * TCGA-COAD - 54 alignments
+        * TCGA-HNSC - 5 alignments
+        * TCGA-KIRC - 837 alignments
+        * TCGA-KIRP - 6 alignments
+        * TCGA-LGG - 2 alignments
+        * TCGA-LUAD - 175 alignments
+        * TCGA-LUSC - 12 alignments
+        * TCGA-OV - 8 alignments
+        * TCGA-SKCM - 624 alignments
+    * _New clinical data for all TCGA projects:_ Fields that were previously only available in clinical supplement files are now queryable and downloadable through the GDC Data Portal and API
+    * TCGA-GBM miRNA-Seq - 265 aliquots
+    * TCGA-LUSC miRNA-Seq - 10 aliqiuots
+    * TCGA-OV miRNA-Seq - 76 aliquots
+    * TARGET-AML RNA-Seq - 46 aliquots
+    * TCGA-GBM RNA-Seq - 215 aliquots
+    * TCGA-LUSC RNA-Seq - 9 aliquots
+    * TARGET-NBL WGS - 146 raw CGI variants released
+    * New versions of 31 CTSP-DLBCL1 clinical supplements
+
+* Data Updates
+    * Tumor purity and tumor ploidy properties were migrated from the [aligned reads node](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=aligned_reads) to the [copy number segment node](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=copy_number_segment) <!--DAT-3683-->
+
+A complete list of files included in the GDC Data Portal can be found below:
+
+* [gdc_manifest_2025012#_data_release_42.0_active.tsv.gz](https://api.gdc.cancer.gov/data/<uuid>)
+* [DR42 Project Level Manifests](https://api.gdc.cancer.gov/data/<uuid>)
+* [DR42 New Files Manifest](https://api.gdc.cancer.gov/data/<uuid>)
+
+### Bugs Fixed Since Last Release
+
+* Pathology reports now have associated case/biospecimen information in the portal.
+* Several bugs were fixed with the inclusion of TCGA clinical data in the API.
+
+### Known Issues and Workarounds
+
+* The slide image viewer does not display for any non-TCGA slides. At this time, these slides will need to be downloaded and viewed locally. Additionally, the slide image viewer does not display properly for 14 TCGA slides, which are identified [here](missing_tiling.txt).
+* 397 alignments from the TCGA program were found to have contamination values over 0.04 ([alignment list](Contaminated_Alignments.dr32.tsv)). The ensemble MAFs produced by these alignments were removed from the Data Portal.
+* One methylation aliquot from the TCGA-COAD project, TCGA-D5-6930-01A-11D-1926-05, was not added to the portal and will be added in a future release.
+* Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
+* The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
+* Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
+* Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* No data from TARGET-MDLS is available.
+* TCGA Projects
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
+   
+    * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+   
+  
 
 ## Data Release 41.0
 
