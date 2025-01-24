@@ -59,11 +59,15 @@ The GATK4 MuTect2 pipeline follows the documentation from the [Broad Institute's
 * Common variant reference: [af-only-gnomad-common-biallelic.grch38.main.vcf.gz](https://console.cloud.google.com/storage/browser/gatk-best-practices/somatic-hg38?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&inv=1&invt=AbkN9w)
 * Germline - resource: af-only-gnomad.hg38.vcf.gz
 * Reference image: GRCh38.d1.vd1.fa.img
-```gatk BwaMemIndexImageCreator
+    * Created by:
+
+    ```
+    gatk BwaMemIndexImageCreator
      -I reference.fasta
      -O reference.fasta.img
-```
-__Step 1:__ Calculate Contamination
+    ```
+
+#### Step 1: Calculate Contamination
 
 === "Shell"
 
@@ -88,7 +92,7 @@ __Step 1:__ Calculate Contamination
     --tumor-segmentation $(inputs.output_prefix).segments.table
     ```
 
-__Step 2:__ MuTect2 Calling
+#### Step 2: MuTect2 Calling
 If mean read length is greater than or equal to 70bp:
 
 === "Shell"
@@ -109,7 +113,7 @@ If mean read length is greater than or equal to 70bp:
     --f1r2-tar-gz
     ```
 
-__Step 3:__ Filter MuTect2
+#### Step 3: Filter MuTect2
 
 === "Shell"
 
@@ -128,11 +132,11 @@ __Step 3:__ Filter MuTect2
     --filtering-stats filtering.stats
     ```
 
-__Step 4:__ Filter Alignment Artifacts
+#### Step 4: Filter Alignment Artifacts
 
 === "Shell"
 
-    ```Shell
+    ```shell
     ##GatherBamFiles
     /usr/local/bin/gatk 
     --java-options "-XX:+UseSerialGC -Xmx$(java_heap)" 
@@ -157,7 +161,7 @@ The Manta tool is run first to produce a candidate indel file to have more accur
 
 === "Shell"
 
-    ```Shell
+    ```shell
     python manta/bin/configManta.py 
     --normalBam normal.bam
     --tumorBam tumor.bam
@@ -170,7 +174,7 @@ The Strelka tool is then run with the Manta candidate indel file as an input par
 
 === "Shell"
 
-    ```Shell
+    ```shell
     /bin/strelka-tool somatic 
     --normalBam normal.bam
     --tumorBam tumor.bam
@@ -183,7 +187,8 @@ The Strelka tool is then run with the Manta candidate indel file as an input par
 
 SvABA (structural variation and indel analysis by assembly) detects variants by genome - wide local assembly. 
 
-    ```Shell
+=== "Shell"
+    ```shell
     svaba run --override-reference-check
     -D dbsnp_144.hg38.vcf
     -t tumor.bam  
@@ -203,11 +208,11 @@ SvABA (structural variation and indel analysis by assembly) detects variants by 
 
 ### VarScan2 CLI
 
-__Step 1:__ Mpileup; Samtools
+#### Step 1: Mpileup; Samtools
 
 === "Shell"
 
-    ```Shell
+    ```shell
     samtools mpileup
     -f <reference>
     -q 1
@@ -217,11 +222,11 @@ __Step 1:__ Mpileup; Samtools
     <intermediate_mpileup.pileup>
     ```
 
-__Step 2:__ Varscan Somatic; Varscan.v2
+#### Step 2: Varscan Somatic; Varscan.v2
 
 === "Shell"
 
-    ```Shell
+    ```shell
     java -jar VarScan.jar somatic
     <intermediate_mpileup.pileup>
     <output_path>
@@ -239,11 +244,11 @@ __Step 2:__ Varscan Somatic; Varscan.v2
     --output-vcf
     ```
 
-__Step 3:__ Varscan ProcessSomatic; Varscan.v2
+#### Step 3: Varscan ProcessSomatic; Varscan.v2
 
 === "Shell"
 
-    ```Shell
+    ```shell
     java -jar VarScan.jar processSomatic
     <intermediate_varscan_somatic.vcf>
     --min-tumor-freq 0.10
@@ -269,7 +274,7 @@ GATK4 version documentation can be found on the [Broad Institute's webpage](http
 
 === "Shell"
 
-    ```Shell
+    ```shell
     #CollectCounts Tumor/Normal
     gatk --java-options -Xmx31500m
     CollectReadCounts
