@@ -2,13 +2,13 @@
 
 ## Introduction
 
-Variant calls from Whole Genome Sequencing (WGS) data are produced using pipelines distinct from those used for WXS and Targeted Sequencing samples. The GDC WGS variant calling workflows currently generate multiple downstream data types, including small somatic mutations (SSMs), structural variants (SVs), and copy number variations (CNVs), leveraging the following software packages:
+Variant calls from Whole Genome Sequencing (WGS) data are produced using pipelines distinct from those used for WXS and Targeted Sequencing samples. The GDC WGS variant calling workflows currently generate multiple downstream data types, including simple somatic mutations (SSMs), structural variants (SVs), and copy number variations (CNVs), leveraging the following software packages:
 
 * [Manta](https://github.com/Illumina/manta): Structural variants, which are available in both VCF and BEDPE format.
     * Additionally, Manta generates a set of candidate indels, which are subsequently used as input for the [Strelka](https://github.com/Illumina/strelka) SSM calling pipeline to enhance Strelka's coverage across all indel sizes. Note that the Manta candidate indel file is not released on the GDC data portal.
 * [Strelka](https://github.com/Illumina/strelka): Simple nucleotide variants, including both point mutations and Indels, which are available in VCF format.
 * [VarScan2](https://dkoboldt.github.io/varscan/): Simple nucleotide variants, including both point mutations and Indels, which are available in VCF format. This is the same tool that is also used in GDC WXS somatic variant calling.
-* [Svaba](https://github.com/walaj/svaba): Indel variants only, which are available in VCF format, and Structural variants, which are available in both VCF and BEDPE format.
+* [SvABA](https://github.com/walaj/svaba): Indel variants only, which are available in VCF format, and Structural variants, which are available in both VCF and BEDPE format.
 * [GATK4 MuTect2](https://gatk.broadinstitute.org): Simple nucleotide variants, including both point mutations and Indels, which are available in VCF format.
 * [GATK4 CNV](https://gatk.broadinstitute.org): Copy number segments, which are available in TXT format.
     * Additionally, an auxiliary TAR file containing intermediate calling files is produced. This auxiliary file is intended for expert data reviewers to manually assess potential CNV model discrepancies and is not designed for regular user consumption.
@@ -18,40 +18,11 @@ Output from the new WGS variant calling pipelines mentioned above has been relea
 * CaVEMan: Single nucleotide variants, which are available in VCF format.
 * Pindel: Small indel variants, which are available in VCF format.
 * BRASS: Structural variants, which are available in BEDPE format.
-* AscatNGS: Copy number variants, which are available as copy number estimates or copy number segment files, data may be available in tab separated values (.TSV) or plain text file (.TXT)
+* AscatNGS: Copy number variants, which are available as copy number estimates or copy number segment files. Data may be available in tab separated values (.TSV) or plain text file (.TXT)
 
-### BEDPE File Format
+### GATK4 MuTect2 CLI
 
-[BEDPE file format](https://bedtools.readthedocs.io/en/latest/content/general-usage.html#bedpe-format), (**b**rowser **e**xtensible **d**ata **p**aired - **e**nd) is designed to concisely describe disjoint genome features, such as structural variations or paired - end sequence alignments. It's an enhanced version of the [BED format](http://genome.ucsc.edu/FAQ/FAQformat#format1), as BED does not allow inter - chromosomal feature definitions. In addition, BED only has one strand field, which is insufficient for paired - end sequence alignments, especially when studying structural variation. The BEDPE format is described below.
-
-* __chr*x* (required):__ The name of the chromosome on which the *x*th end of the feature exists. (x is 1 or 2). Any string can be used. For example, "chr1", "III", "myChrom", "contig1112.23" (use "." for unknown).
-* __start*x* (required):__ The zero - based starting position of the **first** end of the feature on chr*x*. The first base in a chromosome is numbered 0. The start position in each BEDPE feature is therefore interpreted to be 1 greater than the start position listed in the feature (use -1 for unknown).
-* __end*x* (required):__ The one - based ending position of the first end of the feature on chr*x*. The end position in each BEDPE feature is one - based (use -1 for unknown).
-* __name (optional):__ Defines the name of the BEDPE feature. Any string can be used.  
-* __score (optional):__ A score between 0 and 1000. If the track line *useScore* attribute is set to 1 for this annotation data set, the score value will determine the level of gray in which this feature is displayed (higher numbers = darker gray). Any string can be used.
-* __strand*x* (optional):__ Defines the strand for the *x*th end of the feature. Either "." (unknown),  "+", or "-".
-
-In addition to the above fields, bedtools allows for the addition of user - defined fields to the normal, 10 - column BEDPE format as necessary. These columns are merely "passed through" pairToBed and pairToPair and are not part of any analysis. One would use these additional columns to add extra information (e.g., edit distance for each end of an alignment, or "deletion", "inversion", etc.) to each BEDPE feature.
-
-### CNV from WGS File Format
-
-AscatNGS, originally developed by [Raine *et al* (2016)]( https://doi.org/10.1002/cpbi.17) ([GitHub page](https://github.com/cancerit)), indicates the DNA copy number changes affecting a tumor genome when comparing to a matched normal sample. See below for a description of the copy number segment and copy number estimation files produced by AscatNGS:
-
-* __GDC Aliquot:__  The GDC ID for the aliquot collected from the sample (copy number segment files only).
-* __Gene ID:__  The gene ENSMBL ID (copy number variant only).
-* __Gene Name:__  The gene symbol (copy number variant only).
-* __Chromosome:__  The name of the chromosome on which the copy number change exists.
-* __Start:__  The starting position of the copy.
-* __End:__  The ending position of the copy.
-* __Copy Number:__  The weighted median of the strand copy numbers [9].
-* __Major Copy Number:__ The greater strand copy number of the two strands of the DNA (copy number segment files only).
-* __Minor Copy number:__  The smaller strand copy number of the two strands of the DNA (copy number segment files only).
-* __Max. Copy number:__ The highest copy number for overlapped segment (copy number variant only).
-* __Min. Copy number:__ The lowest copy number for overlapped segment (copy number variant only).
-
-### GATK4 CLI
-
-The GATK4 MuTect2 pipeline follows the documentation from the [Broad Institute's best practices](https://gatk.broadinstitute.org/hc/en-us/articles/360047232772--Notebook-Intro-to-using-Mutect2-for-somatic-data). 
+The GATK4 MuTect2 pipeline follows the documentation from the [Broad Institute's best practices](https://gatk.broadinstitute.org/hc/en-us/articles/360047232772--Notebook-Intro-to-using-Mutect2-for-somatic-data).
 
 * [GDC Reference Files](https://gdc.cancer.gov/about-data/gdc-data-processing/gdc-reference-files)
 * PoN: gatk4_mutect2_4136_pon.vcf.tar
@@ -73,26 +44,27 @@ The GATK4 MuTect2 pipeline follows the documentation from the [Broad Institute's
 
     ```shell
     ##GetPileupSummaries
-    /usr/local/bin/gatk 
-    --java-options "-XX:+UseSerialGC -Xmx$(java_heap)" 
-    GetPileupSummaries 
+    /usr/local/bin/gatk
+    --java-options "-XX:+UseSerialGC -Xmx$(java_heap)"
+    GetPileupSummaries
     -R $(reference_seq)
     -I $(bam_file) # (For tumor and normal runs individually)
-    -V $(common_variant_reference) 
+    -V $(common_variant_reference)
     -L $(intervals) (GDC uses chromosomal level intervals.)
     -O $(output).pileups.table
 
     ##CalculateContamination
-    /usr/local/bin/gatk 
-    --java-options "-XX:+UseSerialGC -Xmx$(java_heap)" 
+    /usr/local/bin/gatk
+    --java-options "-XX:+UseSerialGC -Xmx$(java_heap)"
     CalculateContamination
-    -I $(tumor_pileups) 
+    -I $(tumor_pileups)
     -matched $(normal_pileups)
-    -O $(output_prefix).contamination.table 
+    -O $(output_prefix).contamination.table
     --tumor-segmentation $(inputs.output_prefix).segments.table
     ```
 
 #### Step 2: MuTect2 Calling
+
 If mean read length is greater than or equal to 70bp:
 
 === "Shell"
@@ -100,7 +72,7 @@ If mean read length is greater than or equal to 70bp:
     ```shell
     ##Mutect2
     /usr/local/bin/gatk
-    --java-options "-XX:+UseSerialGC -Xmx$(java_heap)" 
+    --java-options "-XX:+UseSerialGC -Xmx$(java_heap)"
     -I $(normal)
     -I $(tumor)
     -R $(Reference seq)
@@ -119,16 +91,16 @@ If mean read length is greater than or equal to 70bp:
 
     ```shell
     ##FilterMutectCalls
-    /usr/local/bin/gatk 
+    /usr/local/bin/gatk
     --java-options "-XX:+UseSerialGC -Xmx$(java_heap)"
     FilterMutectCalls
-    -V $(unfiltered_vcf) 
-    -R $(Reference Seq) 
+    -V $(unfiltered_vcf)
+    -R $(Reference Seq)
     -O $(output_prefix).gatk4_mutect2.filtered.vcf.gz
-    --contamination-table $(contamination_table) 
-    --tumor-segmentation $(tumor_segments_table) 
-    --ob-priors $(artifacts_priors) 
-    -stats $(mutect2_stats) 
+    --contamination-table $(contamination_table)
+    --tumor-segmentation $(tumor_segments_table)
+    --ob-priors $(artifacts_priors)
+    -stats $(mutect2_stats)
     --filtering-stats filtering.stats
     ```
 
@@ -138,21 +110,44 @@ If mean read length is greater than or equal to 70bp:
 
     ```shell
     ##GatherBamFiles
-    /usr/local/bin/gatk 
-    --java-options "-XX:+UseSerialGC -Xmx$(java_heap)" 
+    /usr/local/bin/gatk
+    --java-options "-XX:+UseSerialGC -Xmx$(java_heap)"
     GatherBamFiles
-    -O $(output_prefix).unsorted.out.bam 
+    -O $(output_prefix).unsorted.out.bam
     -R $(Reference seq)
 
     ##FilterAlignmentArtifacts
-    /usr/local/bin/gatk 
-    --java-options "-XX:+UseSerialGC -Xmx$(java_heap)" 
+    /usr/local/bin/gatk
+    --java-options "-XX:+UseSerialGC -Xmx$(java_heap)"
     FilterAlignmentArtifacts
     -V $(input_vcf)
     -I $(reassembly_bam)
     --bwa-mem-index-image $(Reference image)
     -R $(Reference seq)
     -O $(output_prefix).gatk4_mutect2.raw_filtered.vcf.gz
+    ```
+
+### SvABA CLI
+
+SvABA (structural variation and indel analysis by assembly) detects variants by genome - wide local assembly.
+
+=== "Shell"
+    ```shell
+    svaba run --override-reference-check
+    -D dbsnp_144.hg38.vcf
+    -t tumor.bam  
+    -n normal.bam
+    -k intervals.bed
+    -v 0
+    -G GRCh38.d1.vd1.fa (with the following secondary files)
+      - .amb
+      - .ann
+      - .bwt
+      - .fai
+      - .pac
+      - .sa
+    -p 8
+    -a <sample_id>
     ```
 
 ### Strelka-Manta CLI:
@@ -162,7 +157,7 @@ The Manta tool is run first to produce a candidate indel file to have more accur
 === "Shell"
 
     ```shell
-    python manta/bin/configManta.py 
+    python manta/bin/configManta.py
     --normalBam normal.bam
     --tumorBam tumor.bam
     --exome
@@ -175,86 +170,27 @@ The Strelka tool is then run with the Manta candidate indel file as an input par
 === "Shell"
 
     ```shell
-    /bin/strelka-tool somatic 
+    /bin/strelka-tool somatic
     --normalBam normal.bam
     --tumorBam tumor.bam
-    --referenceFasta GRCh38.d1.vd1.fa 
+    --referenceFasta GRCh38.d1.vd1.fa
     --indelCandidates candidateSmallIndels.vcf.gz
     --runDir <output_directory> && <output_directory>/runWorkflow.py -m local -j 4
     ```
 
-### SvABA CLI
+### BEDPE File Format
 
-SvABA (structural variation and indel analysis by assembly) detects variants by genome - wide local assembly. 
+The [BEDPE file format](https://bedtools.readthedocs.io/en/latest/content/general-usage.html#bedpe-format), (**b**rowser **e**xtensible **d**ata **p**aired - **e**nd) is designed to concisely describe disjoint genome features, such as structural variations or paired - end sequence alignments. It's an enhanced version of the [BED format](http://genome.ucsc.edu/FAQ/FAQformat#format1), as BED does not allow inter - chromosomal feature definitions. In addition, BED only has one strand field, which is insufficient for paired - end sequence alignments, especially when studying structural variation. The BEDPE format is described below.
 
-=== "Shell"
-    ```shell
-    svaba run --override-reference-check
-    -D dbsnp_144.hg38.vcf
-    -t tumor.bam  
-    -n normal.bam
-    -k intervals.bed 
-    -v 0 
-    -G GRCh38.d1.vd1.fa (with the following secondary files)
-      - .amb
-      - .ann
-      - .bwt
-      - .fai
-      - .pac
-      - .sa
-    -p 8 
-    -a <sample_id>
-    ```
+* __chr*x* (required):__ The name of the chromosome on which the *x*th end of the feature exists (x is 1 or 2). Any string can be used. For example, "chr1", "III", "myChrom", "contig1112.23" (use "." for unknown).
+* __start*x* (required):__ The zero - based starting position of the **first** end of the feature on chr*x*. The first base in a chromosome is numbered 0. The start position in each BEDPE feature is therefore interpreted to be 1 greater than the start position listed in the feature (use -1 for unknown).
+* __end*x* (required):__ The one - based ending position of the first end of the feature on chr*x*. The end position in each BEDPE feature is one - based (use -1 for unknown).
+* __name (optional):__ Defines the name of the BEDPE feature. Any string can be used.  
+* __score (optional):__ A score between 0 and 1000. If the track line *useScore* attribute is set to 1 for this annotation data set, the score value will determine the level of gray in which this feature is displayed (higher numbers = darker gray). Any string can be used.
+* __strand*x* (optional):__ Defines the strand for the *x*th end of the feature. Either "." (unknown),  "+", or "-".
 
-### VarScan2 CLI
+In addition to the above fields, bedtools allows for the addition of user - defined fields to the normal, 10 - column BEDPE format as necessary. These columns are merely "passed through" pairToBed and pairToPair and are not part of any analysis. One would use these additional columns to add extra information (e.g., edit distance for each end of an alignment, or "deletion", "inversion", etc.) to each BEDPE feature.
 
-#### Step 1: Mpileup; Samtools
-
-=== "Shell"
-
-    ```shell
-    samtools mpileup
-    -f <reference>
-    -q 1
-    -B
-    <normal.bam>
-    <tumor.bam> >
-    <intermediate_mpileup.pileup>
-    ```
-
-#### Step 2: Varscan Somatic; Varscan.v2
-
-=== "Shell"
-
-    ```shell
-    java -jar VarScan.jar somatic
-    <intermediate_mpileup.pileup>
-    <output_path>
-    --mpileup      1
-    --min-coverage 8
-    --min-coverage-normal 8
-    --min-coverage-tumor 6
-    --min-var-freq 0.10
-    --min-freq-for-hom 0.75
-    --normal-purity 1.0
-    --tumor-purity 1.00
-    --p-value 0.99
-    --somatic-p-value 0.05
-    --strand-filter 0
-    --output-vcf
-    ```
-
-#### Step 3: Varscan ProcessSomatic; Varscan.v2
-
-=== "Shell"
-
-    ```shell
-    java -jar VarScan.jar processSomatic
-    <intermediate_varscan_somatic.vcf>
-    --min-tumor-freq 0.10
-    --max-normal-freq 0.05
-    --p-value 0.07
-    ```
 
 ### GATK4 CNV CLI
 
@@ -264,7 +200,7 @@ The ModelSegments calculates copy ratios from denoised copy ratios and segmented
 
 For visualization, PlotDenoisedCopyRatios and PlotModeledSegments generate detailed plots of denoised copy ratios, segmented copy ratios, and minor - allele - fraction estimates.
 
-GATK4 version documentation can be found on the [Broad Institute's webpage](https://gatk.broadinstitute.org/hc/en-us/sections/5358821689883-4-2-6-1). 
+GATK4 version documentation can be found on the [Broad Institute's webpage](https://gatk.broadinstitute.org/hc/en-us/sections/5358821689883-4-2-6-1). The pipeline parameters and steps are described below.
 
 * Inputs: aligned reads files BAMs
 * References:
@@ -295,7 +231,7 @@ GATK4 version documentation can be found on the [Broad Institute's webpage](http
 
     #DenoiseReadCounts Tumor/Normal
     gatk --java-options -Xmx31000m
-    DenoiseReadCounts 
+    DenoiseReadCounts
     --standardized-copy-ratios <output_filename.standardizedCR.tsv>
     --denoised-copy-ratios <output_filename.denoisedCR.tsv>
     --count-panel-of-normals <read_count_panel_of_normal.hdf5>
@@ -364,3 +300,29 @@ GATK4 version documentation can be found on the [Broad Institute's webpage](http
     --output <output_filename.seg>
     --sequence-dictionary GRCh38.d1.vd1.dict
     ```
+
+
+
+### CNV from WGS File Format
+
+As of Data Release 42, copy number segment data from the GATK4 pipeline is available for download. See below for a description of the available columns in each file.  
+
+* __GDC_Aliquot_ID__: The GDC submitter ID for the aliquot collected from the sample  
+* __Start__: Starting position of the segment
+* __End__: Ending position of the segment
+* __Segment_Mean__: This is equal to log2(copy-number/ 2) for the segment
+* __Num_Probes__: Legacy field from when segment files were derived from SNP 6.0 arrays. This has no significance for NGS-derived CNV data
+
+AscatNGS (__now deprecated at GDC__), originally developed by [Raine *et al* (2016)]( https://doi.org/10.1002/cpbi.17) ([GitHub page](https://github.com/cancerit)), indicates the DNA copy number changes affecting a tumor genome when comparing to a matched normal sample. See below for a description of the copy number segment and copy number estimation files produced by AscatNGS:
+
+* GDC Aliquot:  The GDC ID for the aliquot collected from the sample (copy number segment files only).
+* Gene ID:  The gene ENSEMBL ID (copy number variant only).
+* Gene Name:  The gene symbol (copy number variant only).
+* Chromosome:  The name of the chromosome on which the copy number change exists.
+* Start:  The starting position of the copy.
+* End:  The ending position of the copy.
+* Copy Number:  The weighted median of the strand copy numbers [9].
+* Major Copy Number: The greater strand copy number of the two strands of the DNA (copy number segment files only).
+* Minor Copy number:  The smaller strand copy number of the two strands of the DNA (copy number segment files only).
+* Max. Copy number: The highest copy number for overlapped segment (copy number variant only).
+* Min. Copy number: The lowest copy number for overlapped segment (copy number variant only).
