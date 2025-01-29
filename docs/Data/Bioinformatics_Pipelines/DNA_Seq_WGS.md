@@ -7,8 +7,8 @@ Variant calls from Whole Genome Sequencing (WGS) data are produced using pipelin
 * [Manta](https://github.com/Illumina/manta): Structural variants, which are available in both VCF and BEDPE format.
     * Additionally, Manta generates a set of candidate indels, which are subsequently used as input for the [Strelka](https://github.com/Illumina/strelka) SSM calling pipeline to enhance Strelka's coverage across all indel sizes. Note that the Manta candidate indel file is not released on the GDC data portal.
 * [Strelka](https://github.com/Illumina/strelka): Simple nucleotide variants, including both point mutations and Indels, which are available in VCF format.
-* [VarScan2](https://dkoboldt.github.io/varscan/): Simple nucleotide variants, including both point mutations and Indels, which are available in VCF format. This is the same tool that is also used in GDC WXS somatic variant calling.
-* [SvABA](https://github.com/walaj/svaba): Indel variants only, which are available in VCF format, and Structural variants, which are available in both VCF and BEDPE format.
+* [VarScan2](https://dkoboldt.github.io/varscan/): Simple nucleotide variants, including both point mutations and Indels, which are available in VCF format. This is the same tool that is used in GDC WXS somatic variant calling.
+* [SvABA](https://github.com/walaj/svaba): Indel variants only, which are available in VCF format, and structural variants, which are available in both VCF and BEDPE format.
 * [GATK4 MuTect2](https://gatk.broadinstitute.org): Simple nucleotide variants, including both point mutations and Indels, which are available in VCF format.
 * [GATK4 CNV](https://gatk.broadinstitute.org): Copy number segments, which are available in TXT format.
     * Additionally, an auxiliary TAR file containing intermediate calling files is produced. This auxiliary file is intended for expert data reviewers to manually assess potential CNV model discrepancies and is not designed for regular user consumption.
@@ -186,7 +186,7 @@ The [BEDPE file format](https://bedtools.readthedocs.io/en/latest/content/genera
 * __start*x* (required):__ The zero - based starting position of the **first** end of the feature on chr*x*. The first base in a chromosome is numbered 0. The start position in each BEDPE feature is therefore interpreted to be 1 greater than the start position listed in the feature (use -1 for unknown).
 * __end*x* (required):__ The one - based ending position of the first end of the feature on chr*x*. The end position in each BEDPE feature is one - based (use -1 for unknown).
 * __name (optional):__ Defines the name of the BEDPE feature. Any string can be used.  
-* __score (optional):__ A score between 0 and 1000. If the track line *useScore* attribute is set to 1 for this annotation data set, the score value will determine the level of gray in which this feature is displayed (higher numbers = darker gray). Any string can be used.
+* __score (optional):__ A score between 0 and 1000.
 * __strand*x* (optional):__ Defines the strand for the *x*th end of the feature. Either "." (unknown),  "+", or "-".
 
 In addition to the above fields, bedtools allows for the addition of user - defined fields to the normal, 10 - column BEDPE format as necessary. These columns are merely "passed through" pairToBed and pairToPair and are not part of any analysis. One would use these additional columns to add extra information (e.g., edit distance for each end of an alignment, or "deletion", "inversion", etc.) to each BEDPE feature.
@@ -300,8 +300,6 @@ GATK4 version documentation can be found on the [Broad Institute's webpage](http
     --output <output_filename.seg>
     --sequence-dictionary GRCh38.d1.vd1.dict
     ```
-
-
 
 ### CNV from WGS File Format
 
