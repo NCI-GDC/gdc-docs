@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v42.0](Data_Release_Notes.md#data-release-420) | January 2#, 2025 |
+| [v42.0](Data_Release_Notes.md#data-release-420) | January 30, 2025 |
 | [v41.0](Data_Release_Notes.md#data-release-410) | August 28, 2024 |
 | [v40.0](Data_Release_Notes.md#data-release-400) | March 29, 2024 |
 | [v39.0](Data_Release_Notes.md#data-release-390) | December 4, 2023 |
@@ -53,7 +53,7 @@
 ## Data Release 42.0
 
 * __GDC Product__: Data
-* __Release Date__: January 2#, 2025
+* __Release Date__: January 30, 2025
 
 ### New Updates
 
@@ -92,9 +92,9 @@
 
 A complete list of files included in the GDC Data Portal can be found below:
 
-* [gdc_manifest_2025012#_data_release_42.0_active.tsv.gz](https://api.gdc.cancer.gov/data/<uuid>)
-* [DR42 Project Level Manifests](https://api.gdc.cancer.gov/data/<uuid>)
-* [DR42 New Files Manifest](https://api.gdc.cancer.gov/data/<uuid>)
+* [gdc_manifest_20250130_data_release_42.0_active.tsv.gz](https://api.gdc.cancer.gov/data/e4953ed4-6132-4a0c-9f6d-d73f110e18b8)
+* [DR42 Project Level Manifests](https://api.gdc.cancer.gov/data/eda672f7-b89d-40d0-9acf-1ff63f7de877)
+* [DR42 New Files Manifest](https://api.gdc.cancer.gov/data/3af6fbe2-d322-42b8-8144-f733b3fbfc78)
 
 ### Bugs Fixed Since Last Release
 
