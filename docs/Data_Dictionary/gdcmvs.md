@@ -57,9 +57,9 @@ hide:
         </label>
       </div>
       <div class="ref-box">
-        <a href="https://ncit.nci.nih.gov/" class="ref-box__link" target="_blank">Search in NCIt</a>
+        <a href="https://ncit.nci.nih.gov/" class="ref-box__link" target="_blank" rel="noreferrer">Search in NCIt</a>
         <a href="https://cadsr.cancer.gov/onedata/Home.jsp"
-          class="ref-box__link" target="_blank">Search in caDSR</a>
+          class="ref-box__link" target="_blank" rel="noreferrer">Search in caDSR</a>
       </div>
     </div>
 </div>
