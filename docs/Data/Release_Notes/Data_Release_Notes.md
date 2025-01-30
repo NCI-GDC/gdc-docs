@@ -103,6 +103,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 
 ### Known Issues and Workarounds
 
+* Some VCF headers from SvABA list the names of the BAM files they originated from instead of "NORMAL" and "TUMOR", in that order.
 * The slide image viewer does not display for any non-TCGA slides. At this time, these slides will need to be downloaded and viewed locally. Additionally, the slide image viewer does not display properly for 14 TCGA slides, which are identified [here](missing_tiling.txt).
 * 397 alignments from the TCGA program were found to have contamination values over 0.04 ([alignment list](Contaminated_Alignments.dr32.tsv)). The ensemble MAFs produced by these alignments were removed from the Data Portal.
 * One methylation aliquot from the TCGA-COAD project, TCGA-D5-6930-01A-11D-1926-05, was not added to the portal and will be added in a future release.
@@ -115,10 +116,9 @@ A complete list of files included in the GDC Data Portal can be found below:
 * TCGA Projects
     * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
-   
     * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
-   
-  
+
+
 
 ## Data Release 41.0
 
