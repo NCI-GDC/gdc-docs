@@ -7,7 +7,6 @@ Variant calls from Whole Genome Sequencing (WGS) data are produced using pipelin
 * [Manta](https://github.com/Illumina/manta): Structural variants, which are available in both VCF and BEDPE format.
     * Additionally, Manta generates a set of candidate indels, which are subsequently used as input for the [Strelka](https://github.com/Illumina/strelka) SSM calling pipeline to enhance Strelka's coverage across all indel sizes. Note that the Manta candidate indel file is not released on the GDC data portal.
 * [Strelka](https://github.com/Illumina/strelka): Simple nucleotide variants, including both point mutations and Indels, which are available in VCF format.
-* [VarScan2](https://dkoboldt.github.io/varscan/): Simple nucleotide variants, including both point mutations and Indels, which are available in VCF format. This is the same tool that is used in GDC WXS somatic variant calling.
 * [SvABA](https://github.com/walaj/svaba): Indel variants only, which are available in VCF format, and structural variants, which are available in both VCF and BEDPE format.
 * [GATK4 MuTect2](https://gatk.broadinstitute.org): Simple nucleotide variants, including both point mutations and Indels, which are available in VCF format.
 * [GATK4 CNV](https://gatk.broadinstitute.org): Copy number segments, which are available in TXT format.
