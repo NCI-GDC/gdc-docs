@@ -23,7 +23,7 @@ GDC 2.0 Videos are available in the [NCI GDC YouTube Playlist](https://www.youtu
 The GDC Data Portal serves as a repository and computational platform, providing access to harmonized clinical and genomic data. Cancer Research Centers contribute clinical, biospecimen, and molecular data - like DNA and RNA sequences - using standardized formats set by the GDC Data Dictionary. This data undergoes a rigorous processing pipeline, ensuring that it aligns with a common reference genome before being made available for analysis.
 <br>
 <br>
-To access this vital resource, visit [GDC Data Portal](https://portal.gdc.cancer.gov).
+To access this vital resource, visit the <a href="https://portal.gdc.cancer.gov">GDC Data Portal</a>.
 <br>
 <br>
 In this video, obtain an overview of the features of the GDC Data Portal, the portal layout, and workflow.
