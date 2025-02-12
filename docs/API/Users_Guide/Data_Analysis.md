@@ -680,40 +680,112 @@ __Example 1:__ A user is interested in finding the first 30 cnvs found on chromo
 === "Tsv"
 
     ```tsv
-    chromosome	cnv_change	cnv_id	end_position	gene_level_cn	id	ncbi_build	start_position
-    4	Loss	11381600-f064-5c42-90d2-a5c79c8b23e1	88208	True	11381600-f064-5c42-90d2-a5c79c8b23e1	GRCh38	53286
-    4	Loss	edef0f2f-c1a7-507c-842f-e1f8a568df9d	202303	True	edef0f2f-c1a7-507c-842f-e1f8a568df9d	GRCh38	124501
-    4	Loss	eba92f9a-b045-54a8-948a-451e439ed418	305474	True	eba92f9a-b045-54a8-948a-451e439ed418	GRCh38	270675
-    4	Loss	89319453-2a3f-5ebe-be30-8af0426e0343	384868	True	89319453-2a3f-5ebe-be30-8af0426e0343	GRCh38	337814
-    4	Loss	6567929c-4b6f-582b-aedf-acde2c0ec736	499156	True	6567929c-4b6f-582b-aedf-acde2c0ec736	GRCh38	425815
-    4	Loss	2daff58b-5065-50cd-8239-253180eaee81	540200	True	2daff58b-5065-50cd-8239-253180eaee81	GRCh38	499210
-    4	Loss	2b42c8d4-6d85-5352-96e1-9e52e722c248	576295	True	2b42c8d4-6d85-5352-96e1-9e52e722c248	GRCh38	573880
-    4	Loss	2646cdc7-7602-59a4-ae4f-d171352bae88	670782	True	2646cdc7-7602-59a4-ae4f-d171352bae88	GRCh38	625573
-    4	Loss	c11ad392-949f-593f-a3ab-d834b2f82809	674330	True	c11ad392-949f-593f-a3ab-d834b2f82809	GRCh38	672436
-    4	Loss	f31be658-4de0-549e-81be-e79759879acf	682033	True	f31be658-4de0-549e-81be-e79759879acf	GRCh38	673580
-    4	Loss	d72c62f2-fc29-5b83-9839-7f6b03970aff	689271	True	d72c62f2-fc29-5b83-9839-7f6b03970aff	GRCh38	681829
-    4	Loss	45448d47-6e13-5d30-824d-96150a7f55c6	770640	True	45448d47-6e13-5d30-824d-96150a7f55c6	GRCh38	705748
-    4	Loss	517e65ea-9084-54c2-abe0-b1b47e9f872c	826129	True	517e65ea-9084-54c2-abe0-b1b47e9f872c	GRCh38	784957
-    4	Loss	b5a09c9b-d842-5b76-a500-56f18252c29d	932373	True	b5a09c9b-d842-5b76-a500-56f18252c29d	GRCh38	849276
-    4	Loss	e3a3b61d-2881-5ad4-90bf-58ef29ae9ecb	958656	True	e3a3b61d-2881-5ad4-90bf-58ef29ae9ecb	GRCh38	932387
-    4	Loss	8630a1b6-3215-5b71-903a-ad9845505afc	986895	True	8630a1b6-3215-5b71-903a-ad9845505afc	GRCh38	958887
-    4	Loss	f748b06f-1fb7-53a9-a7d6-2c22a3ae6de5	993440	True	f748b06f-1fb7-53a9-a7d6-2c22a3ae6de5	GRCh38	979073
-    4	Loss	a5e4a63f-c5f6-5f0f-a6b6-f51bfb643533	1004564	True	a5e4a63f-c5f6-5f0f-a6b6-f51bfb643533	GRCh38	986997
-    4	Loss	73f6fbbe-6fd9-524c-a7c8-a7cf3f08ada4	1026898	True	73f6fbbe-6fd9-524c-a7c8-a7cf3f08ada4	GRCh38	1009936
-    4	Loss	adad579a-b002-5022-823a-570c59549065	1113564	True	adad579a-b002-5022-823a-570c59549065	GRCh38	1056250
-    4	Loss	d5a5c45e-594b-5cbc-97d5-75fc5155d021	1208962	True	d5a5c45e-594b-5cbc-97d5-75fc5155d021	GRCh38	1166932
-    4	Loss	6c910993-faa8-5abc-b433-b3afcc5e9e11	1249953	True	6c910993-faa8-5abc-b433-b3afcc5e9e11	GRCh38	1211445
-    4	Loss	4453b4cb-7d8a-5e26-a856-eac62eec287a	1340147	True	4453b4cb-7d8a-5e26-a856-eac62eec287a	GRCh38	1289887
-    4	Loss	6db1001a-a41b-518d-9491-2bf41544d90f	1395989	True	6db1001a-a41b-518d-9491-2bf41544d90f	GRCh38	1345691
-    4	Loss	6bef981a-ead1-5aa7-8a69-8d38e576e5c0	1406442	True	6bef981a-ead1-5aa7-8a69-8d38e576e5c0	GRCh38	1402932
-    4	Loss	af6e0b49-922a-587e-b353-4b9414605cf1	1684261	True	af6e0b49-922a-587e-b353-4b9414605cf1	GRCh38	1617915
-    4	Loss	400352ad-8526-562a-bbf4-29b90a48f46f	1712344	True	400352ad-8526-562a-bbf4-29b90a48f46f	GRCh38	1692731
-    4	Loss	8811414d-2434-56c6-afe5-a998c9b18d47	1745171	True	8811414d-2434-56c6-afe5-a998c9b18d47	GRCh38	1712891
-    4	Loss	169c4409-0256-5841-9314-f1a4dd2bcc38	1721358	True	169c4409-0256-5841-9314-f1a4dd2bcc38	GRCh38	1715952
-    4	Loss	1712ccac-6e70-5fb3-b71e-1a029eaf047c	1808872	True	1712ccac-6e70-5fb3-b71e-1a029eaf047c	GRCh38	1793293
+    chromosome	cnv_change	cnv_change_5_category	cnv_id	end_position	gene_level_cn	id	ncbi_build	start_position
+    4	Loss	Loss	11381600-f064-5c42-90d2-a5c79c8b23e1	88208	True	11381600-f064-5c42-90d2-a5c79c8b23e1	GRCh38	53286
+    4	Loss	Homozygous Deletion	8884174a-1a74-5fec-af2a-1abd816c4022	88208	True	8884174a-1a74-5fec-af2a-1abd816c4022	GRCh38	53286
+    4	Loss	Homozygous Deletion	1dc3143b-99d8-5d9b-80a4-84a4e8967b37	202303	True	1dc3143b-99d8-5d9b-80a4-84a4e8967b37	GRCh38	124501
+    4	Loss	Loss	edef0f2f-c1a7-507c-842f-e1f8a568df9d	202303	True	edef0f2f-c1a7-507c-842f-e1f8a568df9d	GRCh38	124501
+    4	Loss	Loss	eba92f9a-b045-54a8-948a-451e439ed418	305474	True	eba92f9a-b045-54a8-948a-451e439ed418	GRCh38	270675
+    4	Loss	Homozygous Deletion	1d656e18-64c3-51c1-856f-eba2a2bb4214	305474	True	1d656e18-64c3-51c1-856f-eba2a2bb4214	GRCh38	270675
+    4	Loss	Loss	89319453-2a3f-5ebe-be30-8af0426e0343	384868	True	89319453-2a3f-5ebe-be30-8af0426e0343	GRCh38	337814
+    4	Loss	Homozygous Deletion	a392d072-2650-5c7f-b3a6-d325680d87fb	384868	True	a392d072-2650-5c7f-b3a6-d325680d87fb	GRCh38	337814
+    4	Loss	Homozygous Deletion	653d70d7-07fa-5b5a-8961-ba031060e33a	499156	True	653d70d7-07fa-5b5a-8961-ba031060e33a	GRCh38	425815
+    4	Loss	Loss	6567929c-4b6f-582b-aedf-acde2c0ec736	499156	True	6567929c-4b6f-582b-aedf-acde2c0ec736	GRCh38	425815
+    4	Loss	Loss	2daff58b-5065-50cd-8239-253180eaee81	540200	True	2daff58b-5065-50cd-8239-253180eaee81	GRCh38	499210
+    4	Loss	Homozygous Deletion	a793c3d6-805b-531e-86fc-0b92eb3b8d98	540200	True	a793c3d6-805b-531e-86fc-0b92eb3b8d98	GRCh38	499210
+    4	Loss	Loss	2b42c8d4-6d85-5352-96e1-9e52e722c248	576295	True	2b42c8d4-6d85-5352-96e1-9e52e722c248	GRCh38	573880
+    4	Loss	Homozygous Deletion	6a7256cb-f674-58e1-8359-13045f0e5abc	576295	True	6a7256cb-f674-58e1-8359-13045f0e5abc	GRCh38	573880
+    4	Loss	Homozygous Deletion	a055b2b3-8135-509c-b870-ef7ab693d394	670782	True	a055b2b3-8135-509c-b870-ef7ab693d394	GRCh38	625573
+    4	Loss	Loss	2646cdc7-7602-59a4-ae4f-d171352bae88	670782	True	2646cdc7-7602-59a4-ae4f-d171352bae88	GRCh38	625573
+    4	Loss	Loss	c11ad392-949f-593f-a3ab-d834b2f82809	674330	True	c11ad392-949f-593f-a3ab-d834b2f82809	GRCh38	672436
+    4	Loss	Homozygous Deletion	b98c4b26-6c62-5a89-931a-bba7f882083e	674330	True	b98c4b26-6c62-5a89-931a-bba7f882083e	GRCh38	672436
+    4	Loss	Loss	f31be658-4de0-549e-81be-e79759879acf	682033	True	f31be658-4de0-549e-81be-e79759879acf	GRCh38	673580
+    4	Loss	Homozygous Deletion	efb72922-c8ee-51bd-9340-b6c24cf0e120	682033	True	efb72922-c8ee-51bd-9340-b6c24cf0e120	GRCh38	673580
+    4	Loss	Homozygous Deletion	f7e8f2a0-50ba-57b7-9604-109de3832a0d	689271	True	f7e8f2a0-50ba-57b7-9604-109de3832a0d	GRCh38	681829
+    4	Loss	Loss	d72c62f2-fc29-5b83-9839-7f6b03970aff	689271	True	d72c62f2-fc29-5b83-9839-7f6b03970aff	GRCh38	681829
+    4	Loss	Loss	45448d47-6e13-5d30-824d-96150a7f55c6	770640	True	45448d47-6e13-5d30-824d-96150a7f55c6	GRCh38	705748
+    4	Loss	Homozygous Deletion	8f439ea0-b792-5d31-a457-f01ead7351d4	770640	True	8f439ea0-b792-5d31-a457-f01ead7351d4	GRCh38	705748
+    4	Loss	Loss	517e65ea-9084-54c2-abe0-b1b47e9f872c	826129	True	517e65ea-9084-54c2-abe0-b1b47e9f872c	GRCh38	784957
+    4	Loss	Homozygous Deletion	c73f54a7-6c75-51c8-b9ee-9a0f9e649eca	826129	True	c73f54a7-6c75-51c8-b9ee-9a0f9e649eca	GRCh38	784957
+    4	Loss	Homozygous Deletion	f7fa174c-2c9b-5462-b807-a1f6d18b1320	932373	True	f7fa174c-2c9b-5462-b807-a1f6d18b1320	GRCh38	849276
+    4	Loss	Loss	b5a09c9b-d842-5b76-a500-56f18252c29d	932373	True	b5a09c9b-d842-5b76-a500-56f18252c29d	GRCh38	849276
+    4	Loss	Homozygous Deletion	3b7a64d1-f4d2-5186-ba74-07483d5f53c1	958656	True	3b7a64d1-f4d2-5186-ba74-07483d5f53c1	GRCh38	932387
+    4	Loss	Loss	e3a3b61d-2881-5ad4-90bf-58ef29ae9ecb	958656	True	e3a3b61d-2881-5ad4-90bf-58ef29ae9ecb	GRCh38	932387
     ```
 
-__Example 2:__ A user wants to determine the location and identity of the gene affected by the cnv `544c4896-0152-5787-8d77-894a16f0ded0`, and determine whether the gene is found within the Cancer Gene Census.
+__Example 2:__ A user is interested in finding the first 30 cnvs found on chromosome 4 that have cnv homozygous deletions only.
+
+=== "Filter"
+
+    ```json
+    {
+        "op": "and",
+        "content": [
+            {
+                "op": "in",
+                "content": {
+                    "field": "chromosome",
+                    "value": [
+                        "4"
+                    ]
+                }
+            },
+            {
+                "op": "in",
+                "content": {
+                    "field": "cnv_change_5_category",
+                    "value": [
+                        "Homozygous Deletion"
+                    ]
+                }
+            }
+        ]
+    }
+    ```
+
+=== "Shell"
+
+    ```Shell
+    curl 'https://api.gdc.cancer.gov/cnvs?filters=%7B%0A%20%20%20%20%20%20%20%20%22op%22%3A%20%22and%22%2C%0A%20%20%20%20%20%20%20%20%22content%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22op%22%3A%20%22in%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22content%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22field%22%3A%20%22chromosome%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22value%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%224%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22op%22%3A%20%22in%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22content%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22field%22%3A%20%22cnv_change_5_category%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22value%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22Homozygous%20Deletion%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%7D&size=30&sort=start_position&format=tsv'
+    ```
+
+=== "Tsv"
+
+    ```tsv
+    chromosome	cnv_change	cnv_change_5_category	cnv_id	end_position	gene_level_cn	id	ncbi_build	start_position
+    4	Loss	Homozygous Deletion	8884174a-1a74-5fec-af2a-1abd816c4022	88208	True	8884174a-1a74-5fec-af2a-1abd816c4022	GRCh38	53286
+    4	Loss	Homozygous Deletion	1dc3143b-99d8-5d9b-80a4-84a4e8967b37	202303	True	1dc3143b-99d8-5d9b-80a4-84a4e8967b37	GRCh38	124501
+    4	Loss	Homozygous Deletion	1d656e18-64c3-51c1-856f-eba2a2bb4214	305474	True	1d656e18-64c3-51c1-856f-eba2a2bb4214	GRCh38	270675
+    4	Loss	Homozygous Deletion	a392d072-2650-5c7f-b3a6-d325680d87fb	384868	True	a392d072-2650-5c7f-b3a6-d325680d87fb	GRCh38	337814
+    4	Loss	Homozygous Deletion	653d70d7-07fa-5b5a-8961-ba031060e33a	499156	True	653d70d7-07fa-5b5a-8961-ba031060e33a	GRCh38	425815
+    4	Loss	Homozygous Deletion	a793c3d6-805b-531e-86fc-0b92eb3b8d98	540200	True	a793c3d6-805b-531e-86fc-0b92eb3b8d98	GRCh38	499210
+    4	Loss	Homozygous Deletion	6a7256cb-f674-58e1-8359-13045f0e5abc	576295	True	6a7256cb-f674-58e1-8359-13045f0e5abc	GRCh38	573880
+    4	Loss	Homozygous Deletion	a055b2b3-8135-509c-b870-ef7ab693d394	670782	True	a055b2b3-8135-509c-b870-ef7ab693d394	GRCh38	625573
+    4	Loss	Homozygous Deletion	b98c4b26-6c62-5a89-931a-bba7f882083e	674330	True	b98c4b26-6c62-5a89-931a-bba7f882083e	GRCh38	672436
+    4	Loss	Homozygous Deletion	efb72922-c8ee-51bd-9340-b6c24cf0e120	682033	True	efb72922-c8ee-51bd-9340-b6c24cf0e120	GRCh38	673580
+    4	Loss	Homozygous Deletion	f7e8f2a0-50ba-57b7-9604-109de3832a0d	689271	True	f7e8f2a0-50ba-57b7-9604-109de3832a0d	GRCh38	681829
+    4	Loss	Homozygous Deletion	8f439ea0-b792-5d31-a457-f01ead7351d4	770640	True	8f439ea0-b792-5d31-a457-f01ead7351d4	GRCh38	705748
+    4	Loss	Homozygous Deletion	c73f54a7-6c75-51c8-b9ee-9a0f9e649eca	826129	True	c73f54a7-6c75-51c8-b9ee-9a0f9e649eca	GRCh38	784957
+    4	Loss	Homozygous Deletion	f7fa174c-2c9b-5462-b807-a1f6d18b1320	932373	True	f7fa174c-2c9b-5462-b807-a1f6d18b1320	GRCh38	849276
+    4	Loss	Homozygous Deletion	3b7a64d1-f4d2-5186-ba74-07483d5f53c1	958656	True	3b7a64d1-f4d2-5186-ba74-07483d5f53c1	GRCh38	932387
+    4	Loss	Homozygous Deletion	a7457adc-31d0-5b5e-9fb2-53ff26f354ce	986895	True	a7457adc-31d0-5b5e-9fb2-53ff26f354ce	GRCh38	958887
+    4	Loss	Homozygous Deletion	30d664ec-c0b6-5283-9342-5af09a882a05	993440	True	30d664ec-c0b6-5283-9342-5af09a882a05	GRCh38	979073
+    4	Loss	Homozygous Deletion	88373fd0-771d-5ee2-870c-8b38b469b386	1004564	True	88373fd0-771d-5ee2-870c-8b38b469b386	GRCh38	986997
+    4	Loss	Homozygous Deletion	282251fd-8556-5b32-b285-c63b58662263	1026898	True	282251fd-8556-5b32-b285-c63b58662263	GRCh38	1009936
+    4	Loss	Homozygous Deletion	71480086-ef38-5ddb-a10b-e5165d207846	1113564	True	71480086-ef38-5ddb-a10b-e5165d207846	GRCh38	1056250
+    4	Loss	Homozygous Deletion	2a87f0ba-7cda-51e6-914d-acc6ab42e4ce	1208962	True	2a87f0ba-7cda-51e6-914d-acc6ab42e4ce	GRCh38	1166932
+    4	Loss	Homozygous Deletion	99897d07-d376-559b-8bf5-5361467a3b11	1249953	True	99897d07-d376-559b-8bf5-5361467a3b11	GRCh38	1211445
+    4	Loss	Homozygous Deletion	71980ad9-0561-5b17-8fa8-1c0280940a98	1340147	True	71980ad9-0561-5b17-8fa8-1c0280940a98	GRCh38	1289887
+    4	Loss	Homozygous Deletion	dc6f0cde-beb2-5b67-b279-66d993e4072b	1395989	True	dc6f0cde-beb2-5b67-b279-66d993e4072b	GRCh38	1345691
+    4	Loss	Homozygous Deletion	3897b742-1fb0-59af-94a3-468f414954bb	1406442	True	3897b742-1fb0-59af-94a3-468f414954bb	GRCh38	1402932
+    4	Loss	Homozygous Deletion	35cdeb0b-9fb6-5d5c-9474-e94dc3d95dce	1684261	True	35cdeb0b-9fb6-5d5c-9474-e94dc3d95dce	GRCh38	1617915
+    4	Loss	Homozygous Deletion	3237ca12-ab72-5278-a57e-21ebfee6a408	1712344	True	3237ca12-ab72-5278-a57e-21ebfee6a408	GRCh38	1692731
+    4	Loss	Homozygous Deletion	60664ffe-8c48-5f2b-bc6f-71408c876794	1745171	True	60664ffe-8c48-5f2b-bc6f-71408c876794	GRCh38	1712891
+    4	Loss	Homozygous Deletion	967a8cd6-6b29-5a93-ab4d-7aa7cf696716	1721358	True	967a8cd6-6b29-5a93-ab4d-7aa7cf696716	GRCh38	1715952
+    4	Loss	Homozygous Deletion	6846f70b-8327-555a-8486-f7036906465e	1808872	True	6846f70b-8327-555a-8486-f7036906465e	GRCh38	1793293
+    ```
+
+__Example 3:__ A user wants to determine the location and identity of the gene affected by the cnv `544c4896-0152-5787-8d77-894a16f0ded0`, and determine whether the gene is found within the Cancer Gene Census.
 
 === "Shell"
 
@@ -899,6 +971,85 @@ __Example 2:__ A user is interested in the first cnv occurrence (`3b9f7ecc-2280-
       },
       "warnings": {}
     }
+    ```
+
+__Example 3:__ A user is interested in finding cases that have cnv data for males diagnosed with gliomas and have a cnv amplification on chromosome 7.
+
+=== "Filter"
+
+    ```json
+    {
+        "op": "and",
+        "content": [
+            {
+                "op": "in",
+                "content": {
+                    "field": "cnv.cnv_change_5_category",
+                    "value": [
+                        "Amplification"
+                    ]
+                }
+            },
+            {
+                "op": "in",
+                "content": {
+                    "field": "case.demographic.gender",
+                    "value": [
+                        "male"
+                    ]
+                }
+            },
+            {
+                "op": "in",
+                "content": {
+                    "field": "case.available_variation_data",
+                    "value": [
+                        "cnv"
+                    ]
+                }
+            },
+            {
+                "op": "in",
+                "content": {
+                    "field": "cnv.chromosome",
+                    "value": [
+                        "7"
+                    ]
+                }
+            },
+            {
+                "op": "in",
+                "content": {
+                    "field": "case.disease_type",
+                    "value": [
+                        "Gliomas"
+                    ]
+                }
+            }
+        ]
+    }
+
+    ```
+=== "Shell"
+
+    ```shell
+    curl 'https://api.gdc.cancer.gov/cnv_occurrences?filters=%7B%0A%20%20%20%20%20%20%20%20%22op%22%3A%20%22and%22%2C%0A%20%20%20%20%20%20%20%20%22content%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22op%22%3A%20%22in%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22content%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22field%22%3A%20%22cnv.cnv_change_5_category%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22value%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22Amplification%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22op%22%3A%20%22in%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22content%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22field%22%3A%20%22case.demographic.gender%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22value%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22male%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22op%22%3A%20%22in%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22content%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22field%22%3A%20%22case.available_variation_data%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22value%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22cnv%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22op%22%3A%20%22in%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22content%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22field%22%3A%20%22cnv.chromosome%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22value%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%227%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22op%22%3A%20%22in%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22content%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22field%22%3A%20%22case.disease_type%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22value%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22Gliomas%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%7D&fields=case.available_variation_data,case.case_id&format=tsv'
+    ```
+
+=== "Tsv"
+
+    ```tsv
+    case.available_variation_data.0	case.available_variation_data.1	case.case_id	id
+    cnv	ssm	a1da2f64-5a24-4e6b-abc1-e70aae23082c	15bbf08b-6d6a-5c1d-bd94-1e86710ce29a
+    cnv	ssm	2e3b9f32-304e-454b-ac2c-fc72d2ccaa19	c9ff4332-959e-5e68-a305-29ae7f898a67
+    cnv		0133e584-111e-450a-b451-77a2799ef529	7d6ca206-7c41-5f3e-89d5-69106d3262cb
+    cnv	ssm	50603cc6-42e6-412f-ab07-4805f728e6b6	eccbd36c-93a3-5644-aa30-6b06d66ac35b
+    cnv		372a4cc6-8fc9-4157-9cdc-fe020b176249	ea64dfc0-d297-5686-bcfc-3336201e7c01
+    cnv	ssm	92f323c8-dae4-4fdc-a108-148ddc238d1a	4b07a619-ad6f-5169-af7f-3360cc2a8845
+    cnv	ssm	e349d8aa-bb82-4ce8-b14c-61216289f25b	4ae6c613-92be-5424-a5d6-305deb5b3cac
+    cnv	ssm	6c5154d2-af36-492f-b520-d925528824e4	dcf8e315-e868-5dc2-8ca0-5f76d4f7e5ee
+    cnv	ssm	fbb0dc0d-6314-40ea-bc43-0cbf3b710dbe	504fd9f6-dc90-55c4-abf0-68ab38e17f61
+    cnv	ssm	7cada85b-00b1-41e5-9924-e09eb077ad56	1e6f552a-78ed-5ce7-bef9-a55670c979db
     ```
 
 ## Analysis Endpoints
