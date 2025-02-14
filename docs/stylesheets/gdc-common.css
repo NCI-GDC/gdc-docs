@@ -238,6 +238,49 @@ footer {
     color: black;
 }
 
+.dropdown-menu.show {
+  display: block;
+}
+
+.app-menu-dropdown button {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: .7rem;
+  color: var(--md-primary-bg-color);
+  margin-left: 12px;
+}
+
+.app-menu-dropdown .dropdown-menu.show {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 8px;
+ }
+
+.app-menu-dropdown .dropdown-menu a {
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.app-menu-dropdown .dropdown-menu a:hover {
+  background-color: #e9eff5;
+}
+
+span.icon {
+  display: block;
+  height: inherit;
+  margin: 0;
+  overflow: hidden;
+  padding: 3px 0;
+  float: none;
+}
+
+span.icon-sized {
+  width: 32px;
+  height: 32px;
+}
+
 .checkbox {
     position: relative;
     display: block;
