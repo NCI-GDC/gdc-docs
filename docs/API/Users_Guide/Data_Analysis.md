@@ -819,7 +819,7 @@ __Example 3:__ A user wants to determine the location and identity of the gene a
     }
     ```
 
-## Copy Number Variation Occurrence Enpoint Examples
+## Copy Number Variation Occurrence Endpoint Examples
 
 __Example 1:__ A user is interested in finding cases that have both cnv and ssm data for females diagnosed with Squamous Cell Neoplasms and have a cnv gain change on chromosome 9. It is important to note that for a case like this, where multiple arguments are need for one filtered field, it is easier for the API to have multiple filters for the same field, `case.available_variation_data` in this example, than having one filter with multiple arguments.
 
