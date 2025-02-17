@@ -22,6 +22,7 @@ The following data analysis endpoints are available from the GDC API:
 ||__/cnv_occurrences__|A `cnv` entity as applied to a single case.|
 ||__/cnv_occurrences/`<cnv_occurrence_id>`__|Get information about a specific copy number variation occurrence using a `<cnv_occurrence_id>`, often supplemented with the `expand` option to show fields of interest. |
 ||__/cnv_occurrences/ids__|This endpoint will retrieve nodes that contain the queried cnv_occurrence_id. This is accomplished by adding the query parameter: /cnv_occurrences/ids?query=`<cnv_occurrences_id>`|
+|__scRNA-Seq Gene Expression__|__/scrna_seq/gene_expression__|Returns scRNA-Seq gene expression data for specific cases or files, with details about gene expression across different cell IDs.|
 |__Analysis__|__/analysis/top_cases_counts_by_genes__| Returns the number of cases with a mutation in each gene listed in the gene_ids parameter for each project. Note that this endpoint cannot be used with the `format` or `fields` parameters.|
 ||__/analysis/top_mutated_genes_by_project__| Returns a list of genes that have the most mutations within a given project. |
 ||__/analysis/top_mutated_cases_by_gene__| Generates information about the cases that are most affected by mutations in a given number of genes |
@@ -1050,6 +1051,235 @@ __Example 3:__ A user is interested in finding cases that have cnv data for male
     cnv	ssm	6c5154d2-af36-492f-b520-d925528824e4	dcf8e315-e868-5dc2-8ca0-5f76d4f7e5ee
     cnv	ssm	fbb0dc0d-6314-40ea-bc43-0cbf3b710dbe	504fd9f6-dc90-55c4-abf0-68ab38e17f61
     cnv	ssm	7cada85b-00b1-41e5-9924-e09eb077ad56	1e6f552a-78ed-5ce7-bef9-a55670c979db
+    ```
+
+## scRNA-Seq Gene Expression Endpoints
+
+This endpoint retrieves gene expression data for a specified case or file, returning information about gene expression across various cell IDs. It requires specifying either a `case_id` or `file_id`, but not both, and a list of gene IDs. Only one gene can be queried per request. The data is stored in HDF5 files.
+
+The request must adhere to authorization requirements if accessing protected data, using an authentication token (`X-Auth-Token`) acquired from the user profile after logging in at the [GDC Portal](https://portal.gdc.cancer.gov/). The `X-Auth-Token` header is optional and only needed for accessing restricted datasets.
+
+__Example 1:__ A user wants to retrieve scRNA-Seq gene expression data for a specific case. They want to query the expression levels of the gene identified by `ENSG00000139618` across different cell IDs.
+
+=== "Filter"
+
+    ```json
+    {
+      "case_id": "00a29522-5eb0-4dbe-ae63-875aba3bf1b1",
+      "gene_ids": [
+        "ENSG00000139618"
+      ]
+    }
+    ```
+=== "Shell"
+
+    ```shell
+    curl --location 'https://api.gdc.cancer.gov/scrna_seq/gene_expression' \
+    --header 'Content-Type: application/json' \
+    --header 'Accept: application/json' \
+    --data '{
+      "case_id": "00a29522-5eb0-4dbe-ae63-875aba3bf1b1",
+      "gene_ids": [
+        "ENSG00000139618"
+      ]
+    }' 
+    ```
+
+=== "Response"
+
+    ```json
+    {
+      "data": [
+        {
+          "case_id": "00a29522-5eb0-4dbe-ae63-875aba3bf1b1",
+          "file_id": "2a095c71-d5ba-4a8a-bacc-2391b52d8328",
+          "gene_id": "ENSG00000139618",
+          "cells": [
+            {
+              "cell_id": "AAACCCAAGCAATTAG-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACCCAAGCCATTCA-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACCCAAGTGGAAAG-1",
+              "value": 3
+            },
+            {
+              "cell_id": "AAACCCACAACGGTAG-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACCCACATCGCTCT-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACCCAGTTAGAAAC-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACCCATCAAGCTGT-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACCCATCGACACTA-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACCCATCTCCCATG-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACGAAAGACTCTAC-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACGAACACGGTCTG-1",
+              "value": 1
+            },
+            {
+              "cell_id": "AAACGAAGTATCCTTT-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACGAAGTGATTCTG-1",
+              "value": 1
+            },
+            {
+              "cell_id": "AAACGAAGTGGACTGA-1",
+              "value": 0
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
+    ```
+
+__Example 2:__ A researcher wants to analyze the gene expression data associated with a specific file from a sequencing experiment. To perform this analysis, they query the expression levels of the gene identified by `ENSG00000139618` across different cell IDs using the file ID `c8ea9c15-368d-460c-9775-5037a5f1790a`.
+
+=== "Filter"
+
+    ```json
+    {
+      "file_id": "c8ea9c15-368d-460c-9775-5037a5f1790a",
+      "gene_ids": [
+        "ENSG00000139618"
+      ]
+    }
+    ```
+
+=== "Shell"
+
+    ```shell
+    curl --location 'https://api.gdc.cancer.gov/scrna_seq/gene_expression' \
+    --header 'Content-Type: application/json' \
+    --header 'Accept: application/json' \
+    --data '{
+      "file_id": "c8ea9c15-368d-460c-9775-5037a5f1790a",
+      "gene_ids": [
+        "ENSG00000139618"
+      ]
+    }' 
+    ```
+
+=== "Response"
+
+    ```json
+    {
+      "data": [
+        {
+          "case_id": "aa7502a9-5ffe-48c1-a1a8-3b07e83f78d7",
+          "file_id": "c8ea9c15-368d-460c-9775-5037a5f1790a",
+          "gene_id": "ENSG00000139618",
+          "cells": [
+            {
+              "cell_id": "AAACCCACAAGGTCAG-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACCCACACGACGAA-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACCCACACGGGTAA-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACCCACAGCGGTCT-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACCCATCGCGTGCA-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACGAACAAATCAGA-1",
+              "value": 2
+            },
+            {
+              "cell_id": "AAACGAACACTTGTGA-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACGAACATAACGGG-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACGAACATCTTAGG-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACGAAGTATCGATC-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACGAAGTGTGATGG-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACGAATCCGTACGG-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACGAATCCTGGCTT-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACGAATCTATGTGG-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACGAATCTCAACGA-1",
+              "value": 1
+            },
+            {
+              "cell_id": "AAACGAATCTTGATTC-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACGCTAGACGACGT-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACGCTAGCCTTTCC-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACGCTAGCTGTTAC-1",
+              "value": 0
+            },
+            {
+              "cell_id": "AAACGCTAGTATGTAG-1",
+              "value": 0
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
     ```
 
 ## Analysis Endpoints
