@@ -1055,7 +1055,7 @@ __Example 3:__ A user is interested in finding cases that have cnv data for male
 
 ## scRNA-Seq Gene Expression Endpoints
 
-This endpoint retrieves gene expression data for a specified case or file, returning information about gene expression across various cell IDs. It requires specifying either a `case_id` or `file_id`, but not both, and a list of gene IDs. Only one gene can be queried per request. The data is stored in HDF5 files.
+This endpoint retrieves gene expression data for a specified case or file, returning information about gene expression across various cell IDs. It requires specifying either a `case_id` or `file_id`, but not both, and a list of gene IDs. Up to 10 gene IDs can be queried per request. The data is stored in HDF5 files.
 
 The request must adhere to authorization requirements if accessing protected data, using an authentication token (`X-Auth-Token`) acquired from the user profile after logging in at the [GDC Portal](https://portal.gdc.cancer.gov/). The `X-Auth-Token` header is optional and only needed for accessing restricted datasets.
 
@@ -1158,7 +1158,7 @@ __Example 1:__ A user wants to retrieve scRNA-Seq gene expression data for a spe
     }
     ```
 
-__Example 2:__ A researcher wants to analyze the gene expression data associated with a specific file from a sequencing experiment. To perform this analysis, they query the expression levels of the gene identified by `ENSG00000139618` across different cell IDs using the file ID `c8ea9c15-368d-460c-9775-5037a5f1790a`.
+__Example 2:__ A researcher wants to analyze the gene expression data associated with a specific file from a sequencing experiment. To perform this analysis, they query the expression levels of the genes identified by `ENSG00000139618`, `ENSG00000141510`, and `ENSG00000181143` across different cell IDs using the file ID `c8ea9c15-368d-460c-9775-5037a5f1790a`.
 
 === "Filter"
 
@@ -1166,7 +1166,9 @@ __Example 2:__ A researcher wants to analyze the gene expression data associated
     {
       "file_id": "c8ea9c15-368d-460c-9775-5037a5f1790a",
       "gene_ids": [
-        "ENSG00000139618"
+        "ENSG00000139618",
+        "ENSG00000141510",
+        "ENSG00000181143"
       ]
     }
     ```
@@ -1180,7 +1182,9 @@ __Example 2:__ A researcher wants to analyze the gene expression data associated
     --data '{
       "file_id": "c8ea9c15-368d-460c-9775-5037a5f1790a",
       "gene_ids": [
-        "ENSG00000139618"
+        "ENSG00000139618",
+        "ENSG00000141510",
+        "ENSG00000181143"
       ]
     }' 
     ```
@@ -1224,55 +1228,63 @@ __Example 2:__ A researcher wants to analyze the gene expression data associated
               "value": 0
             },
             {
-              "cell_id": "AAACGAACATAACGGG-1",
+              "cell_id": "TTTGTTGTCGCTCTCA-1",
+              "value": 0
+            }
+          ],
+          "errors": []
+        },
+        {
+          "case_id": "aa7502a9-5ffe-48c1-a1a8-3b07e83f78d7",
+          "file_id": "c8ea9c15-368d-460c-9775-5037a5f1790a",
+          "gene_id": "ENSG00000141510",
+          "cells": [
+            {
+              "cell_id": "AAACCCACAAGGTCAG-1",
               "value": 0
             },
             {
-              "cell_id": "AAACGAACATCTTAGG-1",
+              "cell_id": "AAACCCACACGACGAA-1",
               "value": 0
             },
             {
-              "cell_id": "AAACGAAGTATCGATC-1",
+              "cell_id": "AAACCCACACGGGTAA-1",
               "value": 0
             },
             {
-              "cell_id": "AAACGAAGTGTGATGG-1",
-              "value": 0
-            },
-            {
-              "cell_id": "AAACGAATCCGTACGG-1",
-              "value": 0
-            },
-            {
-              "cell_id": "AAACGAATCCTGGCTT-1",
-              "value": 0
-            },
-            {
-              "cell_id": "AAACGAATCTATGTGG-1",
-              "value": 0
-            },
-            {
-              "cell_id": "AAACGAATCTCAACGA-1",
+              "cell_id": "AAACCCACAGCGGTCT-1",
               "value": 1
             },
             {
-              "cell_id": "AAACGAATCTTGATTC-1",
+              "cell_id": "AAACCCATCGCGTGCA-1",
+              "value": 0
+            }
+          ],
+          "errors": []
+        },
+        {
+          "case_id": "aa7502a9-5ffe-48c1-a1a8-3b07e83f78d7",
+          "file_id": "c8ea9c15-368d-460c-9775-5037a5f1790a",
+          "gene_id": "ENSG00000181143",
+          "cells": [
+            {
+              "cell_id": "AAACCCACAAGGTCAG-1",
               "value": 0
             },
             {
-              "cell_id": "AAACGCTAGACGACGT-1",
+              "cell_id": "AAACCCACACGACGAA-1",
               "value": 0
             },
             {
-              "cell_id": "AAACGCTAGCCTTTCC-1",
+              "cell_id": "AAACCCACACGGGTAA-1",
               "value": 0
             },
             {
-              "cell_id": "AAACGCTAGCTGTTAC-1",
+              "cell_id": "AAACCCACAGCGGTCT-1",
               "value": 0
             },
             {
-              "cell_id": "AAACGCTAGTATGTAG-1",
+              "cell_id": "TTTGTTGTCGCTCTCA-1",
               "value": 0
             }
           ],
