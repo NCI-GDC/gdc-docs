@@ -1055,7 +1055,7 @@ __Example 3:__ A user is interested in finding cases that have cnv data for male
 
 ## scRNA-Seq Gene Expression Endpoints
 
-This endpoint retrieves gene expression data for a specified case or file, returning information about gene expression across various cell IDs. It requires specifying either a `case_id` or `file_id`, but not both, and a list of gene IDs. Up to 10 gene IDs can be queried per request. The data is stored in HDF5 files.
+This endpoint retrieves gene expression data for a specified case or file, returning information about gene expression across various cell IDs. It requires specifying either a `case_id` or `file_id`, but not both, and a list of gene IDs. Up to 10 gene IDs can be queried per request.
 
 The request must adhere to authorization requirements if accessing protected data, using an authentication token (`X-Auth-Token`) acquired from the user profile after logging in at the [GDC Portal](https://portal.gdc.cancer.gov/). The `X-Auth-Token` header is optional and only needed for accessing restricted datasets.
 
@@ -1097,59 +1097,59 @@ __Example 1:__ A user wants to retrieve scRNA-Seq gene expression data for a spe
           "cells": [
             {
               "cell_id": "AAACCCAAGCAATTAG-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACCCAAGCCATTCA-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACCCAAGTGGAAAG-1",
-              "value": 3
+              "value": 3.0
             },
             {
               "cell_id": "AAACCCACAACGGTAG-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACCCACATCGCTCT-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACCCAGTTAGAAAC-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACCCATCAAGCTGT-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACCCATCGACACTA-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACCCATCTCCCATG-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACGAAAGACTCTAC-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACGAACACGGTCTG-1",
-              "value": 1
+              "value": 1.0
             },
             {
               "cell_id": "AAACGAAGTATCCTTT-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACGAAGTGATTCTG-1",
-              "value": 1
+              "value": 1.0
             },
             {
               "cell_id": "AAACGAAGTGGACTGA-1",
-              "value": 0
+              "value": 0.0
             }
           ],
           "errors": []
@@ -1201,35 +1201,35 @@ __Example 2:__ A researcher wants to analyze the gene expression data associated
           "cells": [
             {
               "cell_id": "AAACCCACAAGGTCAG-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACCCACACGACGAA-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACCCACACGGGTAA-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACCCACAGCGGTCT-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACCCATCGCGTGCA-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACGAACAAATCAGA-1",
-              "value": 2
+              "value": 2.0
             },
             {
               "cell_id": "AAACGAACACTTGTGA-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "TTTGTTGTCGCTCTCA-1",
-              "value": 0
+              "value": 0.0
             }
           ],
           "errors": []
@@ -1241,23 +1241,23 @@ __Example 2:__ A researcher wants to analyze the gene expression data associated
           "cells": [
             {
               "cell_id": "AAACCCACAAGGTCAG-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACCCACACGACGAA-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACCCACACGGGTAA-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACCCACAGCGGTCT-1",
-              "value": 1
+              "value": 1.0
             },
             {
               "cell_id": "AAACCCATCGCGTGCA-1",
-              "value": 0
+              "value": 0.0
             }
           ],
           "errors": []
@@ -1269,23 +1269,23 @@ __Example 2:__ A researcher wants to analyze the gene expression data associated
           "cells": [
             {
               "cell_id": "AAACCCACAAGGTCAG-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACCCACACGACGAA-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACCCACACGGGTAA-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "AAACCCACAGCGGTCT-1",
-              "value": 0
+              "value": 0.0
             },
             {
               "cell_id": "TTTGTTGTCGCTCTCA-1",
-              "value": 0
+              "value": 0.0
             }
           ],
           "errors": []
