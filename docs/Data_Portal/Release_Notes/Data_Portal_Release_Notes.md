@@ -48,6 +48,7 @@
 
 ### New Features and Changes
 * __New CNV Categories__:
+    * New CNV categories (Amplification, Gain, Homozygous Deletion, and Heterozygous Deletion) are now available.
     * The genes table and its associated TSV download in __Mutation Frequency__ have been updated with the new CNV categories. <!--PEAR-2135/2137-->
     * The Cancer Distribution tool in the __Gene Summary Page__ has been updated to reflect the new CNV categories. <!--PEAR-2136/2291-->
 * __Cohort Builder__:
@@ -61,17 +62,17 @@
 * __File Summary Page__:
     * BAM metrics have been added. <!--PEAR-2231-->
     * The Workflow Completion Date has been removed. <!--PEAR-2131-->
-* The deprecated sample_type property has been replaced by new sample properties (tissue_type, tumor_descriptor, specimen_type, and preservation_method) in the __Sample Sheet__. <!--PEAR-2113-->
-* Deprecated properties (analyte_type_id, is_ffpe, oct_embedded, and tumor_code) have been removed from the biospecimen tree in the __Case Summary Page__. <!--PEAR-2306-->
+* The deprecated Sample Type property has been replaced by new sample properties (Tissue Type, Tumor Descriptor, Specimen Type, and Preservation Method) in the __Sample Sheet__. <!--PEAR-2113-->
+* Deprecated properties (Analyte Type ID, Is FFPE, OCT Embedded, and Tumor Code) have been removed from the biospecimen tree in the __Case Summary Page__. <!--PEAR-2306-->
 * As appropriate, deprecated properties (Premature at Birth, Metastasis at Diagnosis Site, Pregnant at Diagnosis, Treatment Anatomic Site) have been removed or replaced in the __Clinical Data Analysis__ tool. Additionally, a new Other Clinical Attribute category has been created. <!--PEAR-2306-->
-* Case counts are no longer displayed for cases with missing Age At Diagnosis values in __Cohort Comparison__ <!--PEAR-2316/SV-2558-->
+* Case counts are no longer displayed for cases with missing Age At Diagnosis values in __Cohort Comparison__. <!--PEAR-2316/SV-2558-->
 * Updated the Repository and Cart to display Sample Sheet and Metadata downloads as separate buttons for better visibility. <!--PEAR-2232-->
 * Minor text and styling improvements. <!--PEAR-452/2298/2341/2323/2253/2290-->
 
 ### Bugs Fixed Since Last Release
 
 * __Section 508 Accessibility__:
-    * Responsiveness has been improved for the __Clinical Data Analysis__ tool and the Manage sets page. <!--PEAR-2168/2171-->
+    * Responsiveness has been improved for the __Clinical Data Analysis__ tool and the Manage Sets page. <!--PEAR-2168/2171-->
     * Aria-hidden elements in the __Cohort Bar__ are no longer focusable. <!--PEAR-2300-->
     * A conflict where using the ESC key to close dropdown menus also unintentionally closed modals has been resolved. <!--PEAR-1882-->
 * The "Existing Cohort with Selected Cases" option of the "Save New Cohort" feature in __Clinical Data Analysis__ now creates cohorts with the correct composition. <!--PEAR-2285-->
@@ -98,7 +99,7 @@
 * In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
 * __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
 * The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
-* The TSV of the __Most Frequent Somatic Mutations table in the case summary page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
+* The TSV of the __Most Frequent Somatic Mutations__ table in the __Case Summary Page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
 * Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
 
 ## Release 2.3.1
@@ -139,7 +140,7 @@
 * __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
 * The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
 * __Cohort Comparison__ may incorrectly display negative counts for cases with missing Age at Diagnosis values. Cohorts created from these counts should still have the correct cases. <!--SV-2558-->
-* The TSV of the __Most Frequent Somatic Mutations table in the case summary page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
+* The TSV of the __Most Frequent Somatic Mutations__ table in the __Case Summary Page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
 * Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
 
 ### Properties Removed
@@ -299,7 +300,7 @@ The following properties have been removed and are no longer available. Any data
 * In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
 * __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
 * The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
-* The TSV of the __Most Frequent Somatic Mutations table in the case summary page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
+* The TSV of the __Most Frequent Somatic Mutations__ table in the __Case Summary Page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
 * Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
 
 ## Release 2.2.0
