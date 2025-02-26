@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v2.4.0](Data_Portal_Release_Notes.md#release-240) | March 3, 2025 |
 | [v2.3.1](Data_Portal_Release_Notes.md#release-231) | November 21, 2024 |
 | [v2.3.0](Data_Portal_Release_Notes.md#release-230) | October 29, 2024 |
 | [v2.2.0](Data_Portal_Release_Notes.md#release-220) | June 26, 2024 |
@@ -40,6 +41,67 @@
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
 ---
+## Release 2.4.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  March 13, 2025
+
+### New Features and Changes
+* __New CNV Categories__:
+    * The genes table and its associated TSV download in __Mutation Frequency__ have been updated with the new CNV categories. <!--PEAR-2135/2137-->
+    * The Cancer Distribution tool in the __Gene Summary Page__ has been updated to reflect the new CNV categories. <!--PEAR-2136/2291-->
+* __Cohort Builder__:
+    * Search behavior has been enhanced by automatically populating the search bar of selected cards as appropriate. Additionally, search accuracy has been improved by ensuring that additional values matching the search input will be returned in the results. <!--PEAR-2107/2274/2274-->
+    *  Child Pugh Classification, Ishak Fibrosis Score, and Weiss Assessment Score have been added as default cards. <!--PEAR-2322-->
+    * The deprecated property, Tumor Code, is no longer a default card. <!--PEAR-2332-->
+* __Clinical TSV and JSON__:
+    * Other Clinical Attribute properties are now available.  <!--PEAR-1984-->
+    * TSV headers have been standardized. <!--PEAR-1984-->
+    * All properties directly associated with a case, such as Primary Site and Disease Type, are now included <!--PEAR-2304-->
+* __File Summary Page__:
+    * BAM metrics have been added. <!--PEAR-2231-->
+    * The Workflow Completion Date has been removed. <!--PEAR-2131-->
+* The deprecated sample_type property has been replaced by new sample properties (tissue_type, tumor_descriptor, specimen_type, and preservation_method) in the __Sample Sheet__. <!--PEAR-2113-->
+* Deprecated properties (analyte_type_id, is_ffpe, oct_embedded, and tumor_code) have been removed from the biospecimen tree in the __Case Summary Page__. <!--PEAR-2306-->
+* As appropriate, deprecated properties (Premature at Birth, Metastasis at Diagnosis Site, Pregnant at Diagnosis, Treatment Anatomic Site) have been removed or replaced in the __Clinical Data Analysis__ tool. Additionally, a new Other Clinical Attribute category has been created. <!--PEAR-2306-->
+* Updated the Repository and Cart to display Sample Sheet and Metadata downloads as separate buttons for better visibility. <!--PEAR-2232-->
+* Minor text and styling improvements. <!--PEAR-452/2298/2341/2323/2253/2290-->
+
+### Bugs Fixed Since Last Release
+
+* __Section 508 Accessibility__:
+    * Responsiveness has been improved for the __Clinical Data Analysis__ tool and the Manage sets page. <!--PEAR-2168/2171-->
+    * Aria-hidden elements in the __Cohort Bar__ are no longer focusable. <!--PEAR-2300-->
+    * A conflict where using the ESC key to close dropdown menus also unintentionally closed modals has been resolved. <!--PEAR-1882-->
+* The "Existing Cohort with Selected Cases" option of the "Save New Cohort" feature in __Clinical Data Analysis__ now creates cohorts with the correct composition. <!--PEAR-2285-->
+* Links to the GDC Data Transfer Tool page have been updated to point to the correct location. <!--PEAR-2276-->
+An issue where the case count for "missing" may be a negative value for the Age at Diagnosis property in __Cohort Comparison__ has been addressed. <!--PEAR-2316-->
+* Data in arrays are now included in the clinical and biospecimen TSVs. <!--SV-2564/PEAR-2339-->
+* Fixed an intermittent issue where Quick Search navigation would randomly fail, preventing users from reaching the expected page. <!--PEAR-2294-->
+
+### Known Issues and Workarounds
+
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * Some text can be difficult to read on a small screen at a 200% zoom level.
+* __Survival Plot__:
+    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* __Gene Expression Clustering__:
+    * The tool allows deleting the gene expression group and displays an uninformative error message after submitting the deletion.
+* In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
+* Adding family_histories.relationship_age_at_diagnosis or follow_ups.other_clinical_attributes.undescended_testis_corrected_age_range as a custom filter in the __Cohort Builder__ will result in endless spinners being displayed on these filter cards. To remove these cards, close the browser tab and return to the portal. <!--SV-2532-->
+* Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
+* In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
+* __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+* The TSV of the __Most Frequent Somatic Mutations table in the case summary page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
+* Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
+
 ## Release 2.3.1
 
 * __GDC Product__: GDC Data Portal
