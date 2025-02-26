@@ -64,6 +64,7 @@
 * The deprecated sample_type property has been replaced by new sample properties (tissue_type, tumor_descriptor, specimen_type, and preservation_method) in the __Sample Sheet__. <!--PEAR-2113-->
 * Deprecated properties (analyte_type_id, is_ffpe, oct_embedded, and tumor_code) have been removed from the biospecimen tree in the __Case Summary Page__. <!--PEAR-2306-->
 * As appropriate, deprecated properties (Premature at Birth, Metastasis at Diagnosis Site, Pregnant at Diagnosis, Treatment Anatomic Site) have been removed or replaced in the __Clinical Data Analysis__ tool. Additionally, a new Other Clinical Attribute category has been created. <!--PEAR-2306-->
+* Case counts are no longer displayed for cases with missing Age At Diagnosis values in __Cohort Comparison__ <!--PEAR-2316/SV-2558-->
 * Updated the Repository and Cart to display Sample Sheet and Metadata downloads as separate buttons for better visibility. <!--PEAR-2232-->
 * Minor text and styling improvements. <!--PEAR-452/2298/2341/2323/2253/2290-->
 
@@ -75,9 +76,8 @@
     * A conflict where using the ESC key to close dropdown menus also unintentionally closed modals has been resolved. <!--PEAR-1882-->
 * The "Existing Cohort with Selected Cases" option of the "Save New Cohort" feature in __Clinical Data Analysis__ now creates cohorts with the correct composition. <!--PEAR-2285-->
 * Links to the GDC Data Transfer Tool page have been updated to point to the correct location. <!--PEAR-2276-->
-An issue where the case count for "missing" may be a negative value for the Age at Diagnosis property in __Cohort Comparison__ has been addressed. <!--PEAR-2316-->
 * Data in arrays are now included in the clinical and biospecimen TSVs. <!--SV-2564/PEAR-2339-->
-* Fixed an intermittent issue where Quick Search navigation would randomly fail, preventing users from reaching the expected page. <!--PEAR-2294-->
+* Fixed an intermittent issue where __Quick Search__ navigation would randomly fail, preventing users from reaching the expected page. <!--PEAR-2294-->
 
 ### Known Issues and Workarounds
 
@@ -94,7 +94,6 @@ An issue where the case count for "missing" may be a negative value for the Age 
 * __Gene Expression Clustering__:
     * The tool allows deleting the gene expression group and displays an uninformative error message after submitting the deletion.
 * In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
-* Adding family_histories.relationship_age_at_diagnosis or follow_ups.other_clinical_attributes.undescended_testis_corrected_age_range as a custom filter in the __Cohort Builder__ will result in endless spinners being displayed on these filter cards. To remove these cards, close the browser tab and return to the portal. <!--SV-2532-->
 * Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
 * In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
 * __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
