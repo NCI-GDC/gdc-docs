@@ -52,7 +52,7 @@
     * The Cancer Distribution tool in the __Gene Summary Page__ has been updated to reflect the new CNV categories. <!--PEAR-2136/2291-->
 * __Cohort Builder__:
     * Search behavior has been enhanced by automatically populating the search bar of selected cards as appropriate. Additionally, search accuracy has been improved by ensuring that additional values matching the search input will be returned in the results. <!--PEAR-2107/2274/2274-->
-    *  Child Pugh Classification, Ishak Fibrosis Score, and Weiss Assessment Score have been added as default cards. <!--PEAR-2322-->
+    * Child Pugh Classification, Ishak Fibrosis Score, and Weiss Assessment Score have been added as default cards. <!--PEAR-2322-->
     * The deprecated property, Tumor Code, is no longer a default card. <!--PEAR-2332-->
 * __Clinical TSV and JSON__:
     * Other Clinical Attribute properties are now available.  <!--PEAR-1984-->
