@@ -1055,7 +1055,7 @@ __Example 3:__ A user is interested in finding cases that have cnv data for male
 
 ## scRNA-Seq Gene Expression Endpoints
 
-This endpoint retrieves gene expression data for a specified case or file, returning information about gene expression across various cell IDs. It requires specifying either a `case_id` or `file_id`, but not both, and a list of gene IDs. Up to 10 gene IDs can be queried per request.
+This endpoint retrieves gene expression data for a specified case or file, returning normalized gene expression values across cell IDs. It requires specifying either a `case_id` or `file_id`, but not both, and a list of gene IDs. The `file_id` must correspond to a file in `HDF5` format and up to 10 gene IDs can be queried per request.  The gene expression values come from the `matrix` layer of the `HDF5` file.  
 
 The request must adhere to authorization requirements if accessing protected data, using an authentication token (`X-Auth-Token`) acquired from the user profile after logging in at the [GDC Portal](https://portal.gdc.cancer.gov/). The `X-Auth-Token` header is optional and only needed for accessing restricted datasets.
 
