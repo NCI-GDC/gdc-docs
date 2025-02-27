@@ -44,7 +44,7 @@ For example, select sample '2409':
 
 The different dimensionality reduction visualizations serve as the foundation for subsequent analysis through the Gene Expression and Differential Expression tabs.
 
-[![Introduction to scRNA application](images/scrna/image1-introduction.png)](images/scrna/image1-introduction.png 'Click to see the full image.')
+[![Introduction to scRNA application](./images/scrna/image1-introduction.png)](./images/scrna/image1-introduction.png 'Click to see the full image.')
 
 ## Features
 
@@ -82,7 +82,7 @@ The specific sample you selected presents the UMAP visualization as an interacti
 
 The default view configuration ensures optimal initial visualization of all cells while enabling detailed exploration through navigation controls. These controls apply to other plot types such as t-SNE and PCA.
 
-[![Basics of the plot](images/scrna/image2-basics-of-plots.png)](images/scrna/image2-basics-of-plots.png 'Click to see the full image.')
+[![Basics of the plot](./images/scrna/image2-basics-of-plots.png)](./images/scrna/image2-basics-of-plots.png 'Click to see the full image.')
 
 ### Customizing the Plots
 
@@ -95,7 +95,7 @@ The Plots tab provides visualization parameters accessible through the configura
   * Height adjustment controls vertical plot size.
   * Values specified in pixels.
 
-[![Chart dimensions](images/scrna/image3-basics-of-plots.png)](images/scrna/image3-basics-of-plots.png 'Click to see the full image.')
+[![Chart dimensions](./images/scrna/image3-basics-of-plots.png)](./images/scrna/image3-basics-of-plots.png 'Click to see the full image.')
 
 * **Dot Size Configuration**
   * Controls diameter of cells.
@@ -103,7 +103,7 @@ The Plots tab provides visualization parameters accessible through the configura
   * Smaller values: Reveal fine population boundaries.
   * Larger values: Emphasize individual cells.
 
-[![Dot size configuration](images/scrna/image4-basics-of-plots.png)](images/scrna/image4-basics-of-plots.png 'Click to see the full image.')
+[![Dot size configuration](./images/scrna/image4-basics-of-plots.png)](./images/scrna/image4-basics-of-plots.png 'Click to see the full image.')
 
 * **Dot Opacity Configuration**
   * Controls transparency of cells.
@@ -159,19 +159,19 @@ To display a certain plot type, check its respective box. You can examine each p
   * Highlights variance-driven relationships.
   * Confirms population distinctions.
 
-[![Dimensionality reduction method](images/scrna/image5-dimensionality-reduction-methods.png)](images/scrna/image5-dimensionality-reduction-methods.png 'Click to see the full image.')
+[![Dimensionality reduction method](./images/scrna/image5-dimensionality-reduction-methods.png)](./images/scrna/image5-dimensionality-reduction-methods.png 'Click to see the full image.')
 
 ### Investigating Gene Expression
 
 To investigate gene expression across cells, click on the Gene Expression tab. Users can initiate gene queries through the search field, which provides dynamic suggestions based on input. Following gene selection, the plot updates to display expression levels of that gene across the cells in the selected sample.
 
-[![Investigating gene expression](images/scrna/image7-investigating-gene-expression.png)](images/scrna/image7-investigating-gene-expression.png 'Click to see the full image.')
+[![Investigating gene expression](./images/scrna/image7-investigating-gene-expression.png)](./images/scrna/image7-investigating-gene-expression.png 'Click to see the full image.')
 
 #### Color Scale Configuration
 
 Users can configure the color of the expression legend through the minimum and maximum selectors when clicking on the color bar. For both the min and max, the tab presents a color selection window enabling precise control of the color and hue that are selected.
 
-[![Color scale configuration](images/scrna/image8-color-config.png)](images/scrna/image8-color-config.png 'Click to see the full image.')
+[![Color scale configuration](./images/scrna/image8-color-config.png)](./images/scrna/image8-color-config.png 'Click to see the full image.')
 
 ### Contour Features
 
@@ -184,20 +184,20 @@ The Plots tab provides density analysis through contour mapping accessible in th
   * Toggles density-based contour map. The contours are weighted by the gene expression values of each point. This allows the contour to visualize regions of high expression.
   * The default is to have the contours turned off. They can be enabled by checking the “show contour map” checkbox.
 
-[![Show contour map](images/scrna/image10-contour-features.png)](images/scrna/image10-contour-features.png 'Click to see the full image.')
+[![Show contour map](./images/scrna/image10-contour-features.png)](./images/scrna/image10-contour-features.png 'Click to see the full image.')
 
 Here we show the contour map of FLT3 in sample 2321.
 
-[![Show contour map of FLT3](images/scrna/image11-contour-features.png)](images/scrna/image11-contour-features.png 'Click to see the full image.')
+[![Show contour map of FLT3](./images/scrna/image11-contour-features.png)](./images/scrna/image11-contour-features.png 'Click to see the full image.')
 
 * **Color Contour Options**
   * Enable colored contours via "Color Contours" toggle.
 
-[![Show contour colors](images/scrna/image12-contour-features.png)](images/scrna/image12-contour-features.png 'Click to see the full image.')
+[![Show contour colors](./images/scrna/image12-contour-features.png)](./images/scrna/image12-contour-features.png 'Click to see the full image.')
 
 Here we show the colored contours of FLT3 in sample 2321.
 
-[![Show contour colors for FLT3](images/scrna/image13-contour-features.png)](images/scrna/image13-contour-features.png 'Click to see the full image.')
+[![Show contour colors for FLT3](./images/scrna/image13-contour-features.png)](./images/scrna/image13-contour-features.png 'Click to see the full image.')
 
 * **Contour Bandwidth Options**
   * Control the resolution of the contour map.
@@ -205,7 +205,7 @@ Here we show the colored contours of FLT3 in sample 2321.
   * Smaller values capture more data variation and therefore make a more detailed map.
   * Larger values smooth out the lines by taking into account a wider range of data and focusing less on the nuances of the data variation.
 
-[![Show contour bandwidth](images/scrna/image14-contour-features.png)](images/scrna/image14-contour-features.png 'Click to see the full image.')
+[![Show contour bandwidth](./images/scrna/image14-contour-features.png)](./images/scrna/image14-contour-features.png 'Click to see the full image.')
 
 * **Contour Threshold Options**
   * Control the density of the coloring of the contours.
@@ -213,7 +213,7 @@ Here we show the colored contours of FLT3 in sample 2321.
   * Smaller values make the coloring less dark.
   * Larger values make the coloring more dark.
 
-[![Show contour threshold values](images/scrna/image15-contour-features.png)](images/scrna/image15-contour-features.png 'Click to see the full image.')
+[![Show contour threshold values](./images/scrna/image15-contour-features.png)](./images/scrna/image15-contour-features.png 'Click to see the full image.')
 
 #### Analysis Applications:
 
@@ -234,7 +234,7 @@ Here we show the colored contours of FLT3 in sample 2321.
 
 The DE analysis calculates the top genes that are differentially expressed between clusters based on certain parameters. In the Differential Expression tab, a cluster can be selected to compare the genes that have been differentially expressed between the selected cluster and all other cells in the sample. A table filtered on the basis of both log fold change and FDR is returned with the differentially expressed genes sorted by log2 fold-change (log2FC). Genes can be selected to display their expression levels across all cells in that sample.
 
-[![Differential expression analysis](images/scrna/image16-DE.png)](images/scrna/image16-DE.png 'Click to see the full image.')
+[![Differential expression analysis](./images/scrna/image16-DE.png)](./images/scrna/image16-DE.png 'Click to see the full image.')
 
 ### Gene Set Enrichment Analysis (GSEA)
 
@@ -246,7 +246,7 @@ Our app supports examining the pathways that are most enriched in samples throug
 * Gene set group selector (allows selecting from multiple options including Reactome, WikiPathways, and Gene Ontology (GO)).
 * Choosing a cutoff parameter - control whether FDR or ‘top gene sets’ is used as the cutoff for gene sets. Specifically, the cutoff method allows the user to set a specific number of gene sets ordered by their ascending FDR value.
 
-[![Gene set enrichment analysis](images/scrna/image17-GSEA.png)](images/scrna/image17-GSEA.png 'Click to see the full image.')
+[![Gene set enrichment analysis](./images/scrna/image17-GSEA.png)](./images/scrna/image17-GSEA.png 'Click to see the full image.')
 
 
 ### Summary Tab
@@ -255,7 +255,7 @@ To see how highly differentially expressed genes vary across clusters, users can
 
 Here, a violin plot is displayed, showing the distribution of the gene of interest across all clusters in the sample.
 
-[![Violin plot](images/scrna/image18-summary.png)](images/scrna/image18-summary.png 'Click to see the full image.')
+[![Violin plot](./images/scrna/image18-summary.png)](./images/scrna/image18-summary.png 'Click to see the full image.')
 
 Measures of central tendency such as mean, median, variance, and others are provided, along with a table showing pairwise statistical comparisons. This comparison is performed between all clusters for the particular gene of interest, with their respective p-values (generated by the Wilcoxon Rank Sum test method). Several options to refine the violin plot visualization include:
 
