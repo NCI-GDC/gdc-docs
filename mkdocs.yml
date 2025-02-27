@@ -93,7 +93,7 @@ nav:
   - Data Dictionary:
       - About: Data_Dictionary/index.md
       - Viewer: Data_Dictionary/viewer.md
-      - Search: Data_Dictionary/gdcmvs.md
+      - Search: https://gdc-mvs.nci.nih.gov/gdc/" target="_blank" rel="noopener noreferrer
       - Release Notes: Data_Dictionary/Release_Notes/Data_Dictionary_Release_Notes.md
   - Data:
       - Introduction: Data/Introduction.md
