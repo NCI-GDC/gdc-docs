@@ -125,13 +125,13 @@ To download files in the Cart, select the Download Cart button and choose either
 
 ### Additional Data Download
 
-Additional data can be downloaded from the Cart page using the Download Associated Data button at the top of the page and choosing one of the available options.
+Additional data can be downloaded from the Cart page by using the buttons available at the top of the page.
 
-[![Cart Metadata](images/CartAssociatedData.png)](images/CartAssociatedData.png "Click to see the full image.")
+[![Cart Additional Data](images/CartAdditionalData.png)](images/CartAdditionalData.png "Click to see the full image.")
 
-* __Clinical:__ TSV / Clinical: JSON - This includes all clinical information from the cases that are associated with the files (available as TSV or JSON)
 * __Biospecimen:__ TSV / Biospecimen: JSON - This includes all biospecimen information from the cases that are associated with the files (available as TSV or JSON).
-* __Sample Sheet:__ A TSV with commonly-used elements associated with each file, such as sample barcode and sample type.
+* __Clinical:__ TSV / Clinical: JSON - This includes all clinical information from the cases that are associated with the files (available as TSV or JSON)
+* __Sample Sheet:__ A TSV with commonly-used elements associated with each file, such as tissue type and tumor descriptor.
 * __Metadata:__ This includes all of the metadata associated with each and every file in the cart.  Note that this file is only available in JSON format and may take several minutes to download.
 
 ## File Summary Page ##
