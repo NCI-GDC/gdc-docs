@@ -1105,7 +1105,7 @@ __Example 1:__ A user wants to retrieve scRNA-Seq gene expression data for a spe
             },
             {
               "cell_id": "AAACCCAAGTGGAAAG-1",
-              "value": 3.0
+              "value": 1.3862943611198906
             },
             {
               "cell_id": "AAACCCACAACGGTAG-1",
@@ -1137,18 +1137,10 @@ __Example 1:__ A user wants to retrieve scRNA-Seq gene expression data for a spe
             },
             {
               "cell_id": "AAACGAACACGGTCTG-1",
-              "value": 1.0
+              "value": 0.6931471805599453
             },
             {
               "cell_id": "AAACGAAGTATCCTTT-1",
-              "value": 0.0
-            },
-            {
-              "cell_id": "AAACGAAGTGATTCTG-1",
-              "value": 1.0
-            },
-            {
-              "cell_id": "AAACGAAGTGGACTGA-1",
               "value": 0.0
             }
           ],
@@ -1221,7 +1213,7 @@ __Example 2:__ A researcher wants to analyze the gene expression data associated
             },
             {
               "cell_id": "AAACGAACAAATCAGA-1",
-              "value": 2.0
+              "value": 1.0986122886681096
             },
             {
               "cell_id": "AAACGAACACTTGTGA-1",
@@ -1253,7 +1245,7 @@ __Example 2:__ A researcher wants to analyze the gene expression data associated
             },
             {
               "cell_id": "AAACCCACAGCGGTCT-1",
-              "value": 1.0
+              "value": 0.6931471805599453
             },
             {
               "cell_id": "AAACCCATCGCGTGCA-1",
