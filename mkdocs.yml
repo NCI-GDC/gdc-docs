@@ -5,8 +5,6 @@ extra:
   dictionary_viewer_page_id: Viewer
   encyclopedia_entries_page_title: EncyclopediaEntries
   encyclopedia_page_title: Encyclopedia
-  gdcmvs_app_root: /apps/gdcmvs
-  gdcmvs_viewer_page_id: Search
   nav_exclude:
     - EncyclopediaEntries
   project_description: GDC Docs
@@ -33,6 +31,8 @@ markdown_extensions:
         kwds:
           case: lower
   - pymdownx.details
+  - attr_list
+
 nav:
   - Home: index.md
   - API:
@@ -93,7 +93,7 @@ nav:
   - Data Dictionary:
       - About: Data_Dictionary/index.md
       - Viewer: Data_Dictionary/viewer.md
-      - Search: Data_Dictionary/gdcmvs.md
+      - Search: https://gdc-mvs.nci.nih.gov/gdc/" target="_blank" rel="noopener noreferrer
       - Release Notes: Data_Dictionary/Release_Notes/Data_Dictionary_Release_Notes.md
   - Data:
       - Introduction: Data/Introduction.md

@@ -24,7 +24,7 @@ Each property is assigned a [Common Data Element](https://cadsr.cancer.gov/oneda
 
 In addition to the caDSR and NCIt references, many of the properties are defined by additional standards including, but not limited to the following: [International Classification of Diseases](https://www.who.int/health-topics/international-classification-of-diseases) ([ICD-O-3](http://codes.iarc.fr/) and [ICD-10](https://www.cdc.gov/nchs/icd/icd-10-cm/)), [American Joint Committee on Cancer](https://www.facs.org/quality-programs/cancer-programs/american-joint-committee-on-cancer/) staging classifications, [Children's Oncology Group](https://www.childrensoncologygroup.org/) (COG) categorizations, and the [International Federation of Gynecology and Obstetrics](https://www.figo.org/) (FIGO) classifications. When these additional standards are used to describe a property, this is referenced in the description and the list of allowable values will reflect the criteria defined by the standard.
 
-Using external standards benefits both data contributors and data consumers at the GDC.  For example, the curated lists of synonyms provided by NCIt allows for easy mapping of other study-specific clinical data standards to the GDC data dictionary.  The available synonyms can be leveraged using the [GDC Data Dictionary Search](gdcmvs/).
+Using external standards benefits both data contributors and data consumers at the GDC.  For example, the curated lists of synonyms provided by NCIt allows for easy mapping of other study-specific clinical data standards to the GDC data dictionary.  The available synonyms can be leveraged using the [GDC Data Dictionary Search](https://gdc-mvs.nci.nih.gov/gdc/){:target="_blank" rel="noopener noreferrer"}.
 
 ## Data Dictionary Viewer
 
