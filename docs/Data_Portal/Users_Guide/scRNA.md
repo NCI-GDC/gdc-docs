@@ -86,7 +86,7 @@ The default view configuration ensures optimal initial visualization of all cell
 
 ### Customizing the Plots
 
-The Plots tab provides visualization parameters accessible through the configuration menu (☰) in the left panel:
+The Plots tab provides visualization parameters accessible through the configuration menu in the left panel:
 
 #### Display Parameters:
 
@@ -146,7 +146,7 @@ The Plots tab provides three dimensionality reduction methods:
   * Presents variance distribution across components.
 
 **Note:**
-To display a certain plot type, check its respective box. You can examine each plot separately as they are opened in their own “sandbox”. When multiple plot types are open, they can be viewed simultaneously. You can use the “Basics of Plots” section controls in all three dimensionality reduction plot types.
+To display a certain plot type, check its respective box. You can examine each plot separately as they are opened in their own "sandbox". When multiple plot types are open, they can be viewed simultaneously. You can use the "Basics of Plots" section controls in all three dimensionality reduction plot types.
 
 **Comparative Analysis:**
 
@@ -182,7 +182,7 @@ The Plots tab provides density analysis through contour mapping accessible in th
 * **Show Contour Map**
   * Located in the configuration menu after entering a gene in the Gene Expression tab.
   * Toggles density-based contour map. The contours are weighted by the gene expression values of each point. This allows the contour to visualize regions of high expression.
-  * The default is to have the contours turned off. They can be enabled by checking the “show contour map” checkbox.
+  * The default is to have the contours turned off. They can be enabled by checking the "show contour map" checkbox.
 
 [![Show contour map](./images/scrna/image10-contour-features.png)](./images/scrna/image10-contour-features.png 'Click to see the full image.')
 
@@ -209,7 +209,7 @@ Here we show the colored contours of FLT3 in sample 2321.
 
 * **Contour Threshold Options**
   * Control the density of the coloring of the contours.
-  * The default threshold value is 10
+  * The default threshold value is 10.
   * Smaller values make the coloring less dark.
   * Larger values make the coloring more dark.
 
@@ -251,7 +251,7 @@ Our app supports examining the pathways that are most enriched in samples throug
 
 ### Summary Tab
 
-To see how highly differentially expressed genes vary across clusters, users can get an overview in the **Summary tab**. This tab provides visualization parameters accessible through the configuration menu (☰) in the left panel.
+To see how highly differentially expressed genes vary across clusters, users can get an overview in the **Summary tab**. This tab provides visualization parameters accessible through the configuration menu in the left panel.
 
 Here, a violin plot is displayed, showing the distribution of the gene of interest across all clusters in the sample.
 
