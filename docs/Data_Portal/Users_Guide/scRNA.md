@@ -244,7 +244,7 @@ Our app supports examining the pathways that are most enriched in samples throug
 * Minimum and maximum gene set size filter - to control the size of the gene sets used in the analysis.
 * Filtering non-coding genes from the analysis.
 * Gene set group selector (allows selecting from multiple options including Reactome, WikiPathways, and Gene Ontology (GO)).
-* Choosing a cutoff parameter - control whether FDR or ‘top gene sets’ is used as the cutoff for gene sets. Specifically, the cutoff method allows the user to set a specific number of gene sets ordered by their ascending FDR value.
+* Choosing a cutoff parameter - control whether FDR or 'top gene sets' is used as the cutoff for gene sets. Specifically, the cutoff method allows the user to set a specific number of gene sets ordered by their ascending FDR value.
 
 [![Gene set enrichment analysis](./images/scrna/image17-GSEA.png)](./images/scrna/image17-GSEA.png 'Click to see the full image.')
 
