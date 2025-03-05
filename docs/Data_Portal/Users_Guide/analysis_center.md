@@ -36,6 +36,7 @@ The 'Analysis Tools' section contains the tools available for specific analyses 
 * [ProteinPaint](proteinpaint_lollipop.md)
 * [Sequence Reads](proteinpaint_bam.md)
 * [Set Operations](set_operations.md)
+* [Single Cell RNA-seq](scRNA.md)
 
 Each can be launched by clicking the Play buttons in each of the tool cards.
 
