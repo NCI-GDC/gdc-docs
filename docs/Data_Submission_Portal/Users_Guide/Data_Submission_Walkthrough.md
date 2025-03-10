@@ -488,7 +488,7 @@ Submitting a [__Submitted Aligned-Reads__](https://docs.gdc.cancer.gov/Data_Dict
     submitted_aligned_reads	Blood-00001-aliquot_lane1_barcodeACGTAC_55.bam	Raw Sequencing Data	BAM	Aligned Reads	WGS	test.bam	38	aa6e82d11ccd8452f813a15a6d84faf1	Primary_Tumor_RG_86-1
     ```
 
->__Note:__ For details on submitting experiment data associated with more than one `read_group` entity, see the [Tips for Complex Submissions](#submitting-complex-data-model-relationships) section.    
+>__Note:__ For details on submitting experiment data associated with more than one `read_group` entity, see the [Tips for Complex Submissions](Best_Practices.md#submitting-complex-data-model-relationships) section.    
 
 ## Uploading the Submittable Data File to the GDC
 
