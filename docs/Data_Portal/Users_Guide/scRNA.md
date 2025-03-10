@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The single-cell visualization platform facilitates the analysis of single-cell sequencing data.
+The single cell visualization platform facilitates the analysis of single cell RNA sequencing data with cluster plots and gene expression overlays.
 
 ## Overview of the Platform
 
@@ -19,8 +19,6 @@ The platform is divided into four primary tabs:
 Each tab provides specific tools for data exploration and statistical analysis, enabling reproducible single-cell data interpretation.
 
 ## Accessing the Tool
-
-You can choose from UMAP, t-SNE, and PCA plots here. By default, the UMAP plot is selected. The sample you picked shows the UMAP visualization as an interactive scatter plot with these features. These features are also available in all plots
 
 The Samples tab enables sample selection and initial data exploration. A case consists of an experimental dataset containing:
 
@@ -79,6 +77,12 @@ The specific sample you selected presents the UMAP visualization as an interacti
 * **Hide/Show Controls**
   * Clicking on the legend text presents options to show or hide specific clusters.
   * Showing or hiding only a specific cluster is also supported.
+
+* **Download Controls**
+Clicking the download button as shown starts the download..
+Both a .png of the plot of interest and a .svg of the legend of the plot are downloadable as separate files.
+
+[![Download controls](./images/scrna/image6-download-icon.png)](./images/scrna/image6-download-icon.png 'Click to see the full image.')
 
 The default view configuration ensures optimal initial visualization of all cells while enabling detailed exploration through navigation controls. These controls apply to other plot types such as t-SNE and PCA.
 
@@ -146,7 +150,7 @@ The Plots tab provides three dimensionality reduction methods:
   * Presents variance distribution across components.
 
 **Note:**
-To display a certain plot type, check its respective box. You can examine each plot separately as they are opened in their own "sandbox". When multiple plot types are open, they can be viewed simultaneously. You can use the "Basics of Plots" section controls in all three dimensionality reduction plot types.
+To display a certain plot type, check its respective box. You can examine each plot separately. When multiple plot types are open, they can be viewed simultaneously. You can use the “Basics of Plots” section controls in all three dimensionality reduction plot types.
 
 **Comparative Analysis:**
 
@@ -169,7 +173,7 @@ To investigate gene expression across cells, click on the Gene Expression tab. U
 
 #### Color Scale Configuration
 
-Users can configure the color of the expression legend through the minimum and maximum selectors when clicking on the color bar. For both the min and max, the tab presents a color selection window enabling precise control of the color and hue that are selected.
+Users can configure the color of the expression legend through the minimum and maximum selectors when clicking on the color bar. For both the min and max, the tab presents a color selection window enabling precise control of the color and hue that are selected. . A user can also select Automatic, Fixed, or Percentile to set the min and max.
 
 [![Color scale configuration](./images/scrna/image8-color-config.png)](./images/scrna/image8-color-config.png 'Click to see the full image.')
 
@@ -211,7 +215,7 @@ Here we show the colored contours of FLT3 in sample 2321.
   * Control the density of the coloring of the contours.
   * The default threshold value is 10.
   * Smaller values make the coloring less dark.
-  * Larger values make the coloring more dark.
+  * Larger values make the coloring darker.
 
 [![Show contour threshold values](./images/scrna/image15-contour-features.png)](./images/scrna/image15-contour-features.png 'Click to see the full image.')
 
@@ -238,13 +242,13 @@ The DE analysis calculates the top genes that are differentially expressed betwe
 
 ### Gene Set Enrichment Analysis (GSEA)
 
-Our app supports examining the pathways that are most enriched in samples through the GSEA tab after a DE analysis is run. Users can select various options to refine their analysis:
+Users can examine the pathways that are most enriched in samples through the GSEA tab after a DE analysis is run. Users can select various options to refine their analysis:
+*	Number of permutations (a higher number gives higher accuracy but with a longer runtime).
+*	Minimum and maximum gene set size filter to control the size of the gene sets used in the analysis.
+*	Filtering non-coding genes from the analysis.
+*	Choosing a cutoff parameter controls whether FDR or ‘top gene sets’ is used as the cutoff for gene sets. Specifically, the cutoff method allows the user to set a specific number of gene sets ordered by their ascending FDR value.
+*	Gene set group selector (allows selecting from multiple options including those from the Gene Ontology (GO), Reactome, WikiPathways, and hallmark gene sets). Once a Gene set group is selected, a rank plot is displayed.
 
-* Number of permutations (a higher number gives higher accuracy but with a longer runtime).
-* Minimum and maximum gene set size filter - to control the size of the gene sets used in the analysis.
-* Filtering non-coding genes from the analysis.
-* Gene set group selector (allows selecting from multiple options including Reactome, WikiPathways, and Gene Ontology (GO)).
-* Choosing a cutoff parameter - control whether FDR or 'top gene sets' is used as the cutoff for gene sets. Specifically, the cutoff method allows the user to set a specific number of gene sets ordered by their ascending FDR value.
 
 [![Gene set enrichment analysis](./images/scrna/image17-GSEA.png)](./images/scrna/image17-GSEA.png 'Click to see the full image.')
 
@@ -258,9 +262,12 @@ Here, a violin plot is displayed, showing the distribution of the gene of intere
 [![Violin plot](./images/scrna/image18-summary.png)](./images/scrna/image18-summary.png 'Click to see the full image.')
 
 Measures of central tendency such as mean, median, variance, and others are provided, along with a table showing pairwise statistical comparisons. This comparison is performed between all clusters for the particular gene of interest, with their respective p-values (generated by the Wilcoxon Rank Sum test method). Several options to refine the violin plot visualization include:
+1.	The ability to alter the orientation of the plot (horizontal or vertical).
+2.	Visualizing the violin plot using different methodologies (kernel density estimation (KDE) or histogram).
+3.	Symbols to represent data (ticks or circles) and the symbol size.
+4.	Scale for the axis of the plot (linear or log10).
+5.	Visualize data as either discrete or continuous
+6.	Other options like the ability to modify the color of the violin plot fill, width, and height of the plot.
 
-1. The ability to alter the orientation of the plot (horizontal or vertical).
-2. Visualizing the violin plot using different methodologies (kernel density estimation (KDE) or histogram).
-3. Symbols to represent data (ticks or circles).
-4. Scale for the axis of the plot (linear or log10).
-5. Other options like the ability to modify the color of the violin plot fill, width, and height of the plot.
+In addition, there are options to control the number of bins used to make the violin plots, how much padding is between each violin of the plot, how wide and long the plot is, and the length and width of the median symbol. There are also options to control the width and length of the symbols seen in the violins.
+
