@@ -4,12 +4,11 @@
 
 Variant calls from Whole Genome Sequencing (WGS) data are produced using pipelines distinct from those used for WXS and Targeted Sequencing samples. The GDC WGS variant calling workflows currently generate multiple downstream data types, including simple somatic mutations (SSMs), structural variants (SVs), and copy number variations (CNVs), leveraging the following software packages:
 
-
-* [Strelka](https://github.com/Illumina/strelka): Simple nucleotide variants, including both point mutations and Indels, which are available in VCF format.
-* [GATK4 MuTect2](https://gatk.broadinstitute.org): Simple nucleotide variants, including both point mutations and Indels, which are available in VCF format.
-* [SvABA](https://github.com/walaj/svaba): Indel variants only, which are available in VCF format, and structural variants, which are available in both VCF and BEDPE format.
 * [Manta](https://github.com/Illumina/manta): Structural variants, which are available in both VCF and BEDPE format.
     * Additionally, Manta generates a set of candidate indels, which are subsequently used as input for the [Strelka](https://github.com/Illumina/strelka) SSM calling pipeline to enhance Strelka's coverage across all indel sizes. Note that the Manta candidate indel file is not released on the GDC data portal.
+* [Strelka](https://github.com/Illumina/strelka): Simple nucleotide variants, including both point mutations and Indels, which are available in VCF format.
+* [SvABA](https://github.com/walaj/svaba): Indel variants only, which are available in VCF format, and structural variants, which are available in both VCF and BEDPE format.
+* [GATK4 MuTect2](https://gatk.broadinstitute.org): Simple nucleotide variants, including both point mutations and Indels, which are available in VCF format.
 * [GATK4 CNV](https://gatk.broadinstitute.org): Copy number segments, which are available in TXT format.
     * Additionally, an auxiliary TAR file containing intermediate calling files is produced. This auxiliary file is intended for expert data reviewers to manually assess potential CNV model discrepancies and is not designed for regular user consumption.
 
@@ -19,10 +18,6 @@ Output from the new WGS variant calling pipelines mentioned above has been relea
 * Pindel: Small indel variants, which are available in VCF format.
 * BRASS: Structural variants, which are available in BEDPE format.
 * AscatNGS: Copy number variants, which are available as copy number estimates or copy number segment files. Data may be available in tab separated values (.TSV) or plain text file (.TXT)
-
-## Simple Nucleotide Variation
-
-Simple nucleotide variation refers to the point mutations and small indels that are identified by GDC bioinformatic pipelines during somatic variant calling. SNV files derived from WGS are currently available in VCF format for the GATK MuTect2, Strelka, and SvABA Indel pipelines. Note that the processing steps that call indels from the SvABA and Strelka pipelines are located in the Structual Variants section of this document, due to the software producing SNVs and SVs in the same pipeline.
 
 ### GATK4 MuTect2 CLI
 
@@ -131,10 +126,6 @@ If mean read length is greater than or equal to 70bp:
     -O $(output_prefix).gatk4_mutect2.raw_filtered.vcf.gz
     ```
 
-## Structural Variant Pipelines
-
-Structural variants refer to larger chromosomal alterations and are available in VCF of BEDPE format. Both pipelines described here, SvABA and Strelka-Manta, produce both SVs and SNVs from WGS data.  Note that these are separate files when downloaded from the GDC Data Portal.   
-
 ### SvABA CLI
 
 SvABA (structural variation and indel analysis by assembly) detects variants by genome - wide local assembly.
@@ -199,9 +190,6 @@ The [BEDPE file format](https://bedtools.readthedocs.io/en/latest/content/genera
 
 In addition to the above fields, bedtools allows for the addition of user - defined fields to the normal, 10 - column BEDPE format as necessary. These columns are merely "passed through" pairToBed and pairToPair and are not part of any analysis. One would use these additional columns to add extra information (e.g., edit distance for each end of an alignment, or "deletion", "inversion", etc.) to each BEDPE feature.
 
-## Copy Number Variation
-
-Somatic copy number variant calling is performed on WGS data using the GATK4 CNV pipeline.  This produces TXT files, which are described below, and auxiliary files that are available as tarballs.
 
 ### GATK4 CNV CLI
 
