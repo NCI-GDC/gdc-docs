@@ -545,7 +545,7 @@ In this example, an `aliquot` entity and a `sample` entity are created in a sing
 
     ```shell
     token=$(<gdc-token-text-file.txt)
-    
+
     curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL
     ```
 
@@ -612,7 +612,7 @@ In this example, an `aliquot` entity and a `sample` entity are created in a sing
 #### Request 2: Creating Links Using UUID
 
 === "Request"
-    
+
     ```json
     [
       {
@@ -640,7 +640,7 @@ In this example, an `aliquot` entity and a `sample` entity are created in a sing
 
     ```shell
     token=$(<gdc-token-text-file.txt)
-    
+
     curl --header "X-Auth-Token: $token" --request POST --data-binary @Request --header 'Content-Type: application/json' https://api.gdc.cancer.gov/submission/GDC/INTERNAL
     ```
 
@@ -819,7 +819,7 @@ New nodes are created in Request1.  Nodes in state `validated` are updated in Re
       }
     ]
     ```
-    
+
 === "Conmmand1"
 
     ```shell
@@ -941,7 +941,7 @@ New nodes are created in Request1.  Nodes in state `validated` are updated in Re
 
     curl --header "X-Auth-Token: $token" --request PUT --data-binary @sample2.json --header 'Content-Type: application/json' https://api.gdc.cancer.gov/v0/submission/QA/REGRESSION
     ```
-    
+
 === "Response2"
 
     ```json
@@ -1024,10 +1024,10 @@ New nodes are created in Request1.  Nodes in state `validated` are updated in Re
 JSON objects representing submitted entities can be retrieved with a GET request to the `entities` endpoint. This endpoint retrieves entities by UUID. A single UUID or a comma-separated list of UUIDs can be passed to this endpoint as a query.
 
 === "Command"
-    
+
     ```shell
     token=$(<gdc-token-text-file.txt)
-    
+
     curl --header "X-Auth-Token: $token" https://api.gdc.cancer.gov/v0/submission/TCGA/ALCH/entities/fbf69646-5904-4f95-92d6-692bde658f05
     ```
 
@@ -1259,7 +1259,7 @@ The PATCH method cannot be used to create new entities, and the provided submitt
       "submitter_id": "demographic7892",
       "cases": {
         "submitter_id": "GDC-INTERNAL-000073"
-      }, 
+      },
       "ethnicity": "not reported",
       "gender": "male",
       "race": "white",
@@ -1647,7 +1647,7 @@ When using the GDC GraphQL IDE, the bare JSON query must be used without a JSON 
 
 #### Bare GraphQL query
 
-In its simplest form, a GraphQL query is a **selection set** (curly brackets) that encloses a set of **fields**. The selection set defines the set of information that is to be retrieved. Furthermore, in GraphQL fields are conceptually equivalent to functions that retrieve additional fields and, in some cases, can take arguments. So each field in a selection set can have its own selection set, thereby creating a nested query structure that can navigate complex data relationships. See [GraphQL Specification](https://facebook.github.io/graphql/) for further details.
+In its simplest form, a GraphQL query is a **selection set** (curly brackets) that encloses a set of **fields**. The selection set defines the set of information that is to be retrieved. Furthermore, in GraphQL fields are conceptually equivalent to functions that retrieve additional fields and, in some cases, can take arguments. So each field in a selection set can have its own selection set, thereby creating a nested query structure that can navigate complex data relationships. See [GraphQL Specification](https://spec.graphql.org/) for further details.
 
 In GDC GraphQL IDE, a root field (field within the outermost/umbrella selection set) typically corresponds to an entity, whereas fields inside nested selection sets are typically a combination of entities and entity properties.
 
@@ -1704,7 +1704,7 @@ Using the `case` and `_case_count` example above as the starting point, the resu
     ```GraphQL
     {\n\tcase (project_id: \"TCGA-ALCH\", first: 0) {\n\t\tid\n\t\tsubmitter_id\n\n\t}\n\t_case_count (project_id: \"TCGA-ALCH\")\n}
     ```
-    
+
 === "Query_json"
 
     ```json
@@ -1873,7 +1873,7 @@ GraphQL query to find the file UUID based on file `submitter_id`:
 GraphQL query for any one case in 'TCGA-LUAD' without Diagnosis information:
 
 === "bare_GraphQL"
-    
+
     ```GraphQL
     {
       case (project_id: "TCGA-LUAD", without_links: ["diagnoses"], first: 1) {
@@ -1923,7 +1923,7 @@ GraphQL query for the number of cases in 'TCGA-LUAD' without Diagnosis informati
 Query for the `state` of aliquots belonging to case with `submitter_id: "TCGA-ALCH-000001"`:
 
 === "bare_GraphQL"
-    
+
     ```GraphQL
     {
       aliquot(with_path_to: {type: "case", submitter_id:"TCGA-ALCH-000001"}) {
@@ -1952,7 +1952,7 @@ Query for the `state` of aliquots belonging to case with `submitter_id: "TCGA-AL
 GraphQL query that uses a GraphQL fragment to get specific properties from two portions and give them aliases in the response:
 
 === "bare_GraphQL"
-    
+
     ```GraphQL
     {
       some_portion: portion (first: 1) {
