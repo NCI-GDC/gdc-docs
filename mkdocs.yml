@@ -131,8 +131,15 @@ nav:
       - Biospecimen Data: Encyclopedia/pages/Biospecimen_Data.md
       - Birdseed: Encyclopedia/pages/Birdseed.md
       - BRASS: Encyclopedia/pages/BRASS.md
+      - BWA with BQSR: Encyclopedia/pages/BWA_with_BQSR.md
+      - BWA with Mark Duplicates and BQSR: Encyclopedia/pages/BWA_with_Mark_Duplicates_and_BQSR.md
+      - BWA-aln: Encyclopedia/pages/BWA-aln.md
       - Cancer Genomics Hub: Encyclopedia/pages/Cancer_Genomics_Hub.md
       - Case: Encyclopedia/pages/Case.md
+      - CaVEMan: Encyclopedia/pages/CaVEMan.md
+      - CellRanger - 10x Chromium: Encyclopedia/pages/CellRanger_10x_Chromium.md
+      - CellRanger - 10x Filtered Counts: Encyclopedia/pages/CellRanger_10x_Filtered_Counts.md
+      - CellRanger - 10x Raw Counts: Encyclopedia/pages/CellRanger_10x_Raw_Counts.md
       - Center for Cancer Genomics: Encyclopedia/pages/Center_for_Cancer_Genomics.md
       - Clinical Data: Encyclopedia/pages/Clinical_Data.md
       - Clinical Supplement: Encyclopedia/pages/Clinical_Supplement.md
@@ -140,6 +147,7 @@ nav:
       - Data Access Policy: Encyclopedia/pages/Data_Access_Policy.md
       - Data Submitter: Encyclopedia/pages/Data_Submitter.md
       - dbGaP: Encyclopedia/pages/dbGaP.md
+      - DNAcopy: Encyclopedia/pages/DNAcopy.md
       - Entity: Encyclopedia/pages/Entity.md
       - FM Simple Somatic Mutation: Encyclopedia/pages/FM_Simple_Somatic_Mutation.md
       - FoundationOne Annotation: Encyclopedia/pages/FoundationOne_Annotation.md
