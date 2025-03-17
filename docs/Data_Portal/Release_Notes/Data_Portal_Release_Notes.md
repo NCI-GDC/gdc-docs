@@ -91,6 +91,7 @@
         * Some text can be difficult to read on a small screen at a 200% zoom level.
         * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
 * __Survival Plot__:
+    * Survival plots are generated from the `diagnoses.days_to_last_follow_up` field. For some TCGA projects, in Data Release 42, data was migrated to the `follow_ups.days_to_follow_up` field. This resulted in an issue with missing cases for some TCGA projects in survival plots. The GDC is actively working on a fix. In the interim, users should create survival plots using the greatest value in the `follow_ups.days_to_follow_up` field. <!-- SV-2584 -->
     * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
     * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
 * __Gene Expression Clustering__:
