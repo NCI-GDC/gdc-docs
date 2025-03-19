@@ -47,6 +47,7 @@
 * __Release Date__:  March 13, 2025
 
 ### New Features and Changes
+
 * __New Analysis Tool:  Single-Cell RNAseq__:
     * Visualize single-cell RNA-Seq data with tSNE/UMAP plots, gene expression overlays and contour maps.
     * Load differentially expressed genes and GSEA analysis.
