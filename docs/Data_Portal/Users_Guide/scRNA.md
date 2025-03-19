@@ -246,7 +246,7 @@ Users can examine the pathways that are most enriched in samples through the GSE
 *	Number of permutations (a higher number gives higher accuracy but with a longer runtime).
 *	Minimum and maximum gene set size filter to control the size of the gene sets used in the analysis.
 *	Filtering non-coding genes from the analysis.
-*	Choosing a cutoff parameter controls whether FDR or ‘top gene sets’ is used as the cutoff for gene sets. Specifically, the cutoff method allows the user to set a specific number of gene sets ordered by their ascending FDR value.
+*	Choosing a cutoff parameter controls whether FDR or 'top gene sets' is used as the cutoff for gene sets. Specifically, the cutoff method allows the user to set a specific number of gene sets ordered by their ascending FDR value.
 *	Gene set group selector (allows selecting from multiple options including those from the Gene Ontology (GO), Reactome, WikiPathways, and hallmark gene sets). Once a Gene set group is selected, a rank plot is displayed.
 
 
@@ -271,4 +271,3 @@ Measures of central tendency such as mean, median, variance, and others are prov
  6. Other options like the ability to modify the color of the violin plot fill, width, and height of the plot.
 
 In addition, there are options to control the number of bins used to make the violin plots, how much padding is between each violin of the plot, how wide and long the plot is, and the length and width of the median symbol. There are also options to control the width and length of the symbols seen in the violins.
-
