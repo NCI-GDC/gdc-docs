@@ -118,7 +118,7 @@ A complete list of files included in the GDC Data Portal can be found below:
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
 
-### DR42 Data Caveats
+### DR42 Data Notes
 
 * __Survival Plot__:
     * Survival plots are generated from the `diagnoses.days_to_last_follow_up` field. For some TCGA projects, in Data Release 42, data was migrated to the `follow_ups.days_to_follow_up` field. This resulted in an issue with missing cases for some TCGA projects in survival plots. The GDC is actively working on a fix. In the interim, users should create survival plots using the greatest value in the `follow_ups.days_to_follow_up` field. <!-- SV-2584 -->
