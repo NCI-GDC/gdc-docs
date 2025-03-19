@@ -47,6 +47,10 @@
 * __Release Date__:  March 13, 2025
 
 ### New Features and Changes
+* __New Analysis Tool:  Single-Cell RNAseq__:
+    * Visualize single-cell RNA-Seq data with tSNE/UMAP plots, gene expression overlays and contour maps.
+    * Load differentially expressed genes and GSEA analysis.
+    * Load violin plot to summarize gene expression.
 * __New CNV Categories__:
     * New CNV categories (Amplification, Gain, Homozygous Deletion, and Heterozygous Deletion) are now available.
     * The genes table and its associated TSV download in __Mutation Frequency__ have been updated with the new CNV categories. <!--PEAR-2135/2137-->
@@ -69,20 +73,16 @@
 * Updated the Repository and Cart to display Sample Sheet and Metadata downloads as separate buttons for better visibility. <!--PEAR-2232-->
 * Minor text and styling improvements. <!--PEAR-452/2298/2341/2323/2253/2290-->
 
-* __Single-Cell RNAseq__:
-    * Visualize single-cell RNA-Seq data with tSNE/UMAP plots, gene expression overlays and contour maps.
-    * Load differentially expressed genes and GSEA analysis.
-    * Load violin plot to summarize gene expression.
 * __OncoMatrix__:
-    * By default hide “splice region” consequence mutations.
-    * Support 5-category CNV; in OncoPrint mode, plot a white border around SSM to better distinguish it from CNV when columns are wide enough
+    * By default hide "splice region" consequence mutations.
+    * Support 5-category CNV: in OncoPrint mode, plot a white border around SSM to better distinguish it from CNV when columns are wide enough
     * Continuous variable row label menu supports option to edit bar height and color.
     * Allow user to modify colors from the legend.
 * __Gene Expression Clustering__:
     * Avoids showing genes with no expression values (due to an issue of ProteinPaint GENCODE v36 data that affects only certain genes; data issue will be fixed at the next release)
     * Make zscore transformation a checkbox option in Clustering menu.
 * __Cohort MAF__:
-    * Allowed to sort the table of MAF files. Resolved a bug to allow the correct set of files to be returned after sorting the table (the bug was not present in the production environment). Used barplot to display MAF file size and disabled sorting for now.
+    * Allowed to sort the table of MAF files and use bar plot to display MAF file size.
 
 ### Bugs Fixed Since Last Release
 
@@ -99,9 +99,9 @@
     * Long-running downloads are now terminated after 5 minutes.
     * On successful downloads, number of empty or failed MAF files are indicated to user.
 * __Gene Expression Clustering__:
-    * Show value when it equals to 0 in hover over tooltip and click menu.
+    * Show value when it's equal to 0 in mouseover tooltip and click menu.
 * __OncoMatrix__:
-    * Show value when it equals to 0 in hover over tooltip and click menu.
+    * Show value when it's equal to 0 in mouseover tooltip and click menu.
 
 ### Known Issues and Workarounds
 
@@ -121,7 +121,7 @@
     * The tool allows deleting the gene expression group and displays an uninformative error message after submitting the deletion.
 * __Cohort MAF__:
     * A downloaded file may be corrupted if the server data processing is terminated after 5 minutes in order to conserve server resources.
-    There will be a red banner above the MAF contorls to indicate the termination.
+    There will be a red banner above the MAF controls to indicate the termination.
 
 * In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
 * Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
