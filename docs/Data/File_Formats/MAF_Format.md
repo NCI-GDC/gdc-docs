@@ -163,9 +163,9 @@ The table below describes the columns in a protected MAF and their definitions. 
 | 110 - GENE_PHENO | Indicates if gene that the variant maps to is associated with a phenotype, disease or trait (0, 1, or null) |
 | 111 - FILTER | Copied from input VCF.  This includes filters implemented directly by the variant caller and other external software used in the DNA-Seq pipeline. See below for additional details. |
 | 112 - CONTEXT | The reference allele per VCF specs, and its five flanking base pairs |
-| 113 - src_vcf_id | GDC UUID for the input VCF file |
-| 114 - tumor_bam_uuid | GDC UUID for the tumor bam file |
-| 115 - normal_bam_uuid | GDC UUID for the normal bam file |
+| 113 - src_vcf_id | GDC Submitter_ID for the input VCF file |
+| 114 - tumor_bam_uuid | GDC Submitter_ID for the tumor bam file |
+| 115 - normal_bam_uuid | GDC Submitter_ID for the normal bam file |
 | 116 - case_id | GDC UUID for the case |
 | 117 - GDC_FILTER | GDC filters applied universally across all MAFs |
 | 118 - COSMIC | Overlapping COSMIC variants |
