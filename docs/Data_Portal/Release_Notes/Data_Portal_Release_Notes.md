@@ -70,13 +70,14 @@
 * Minor text and styling improvements. <!--PEAR-452/2298/2341/2323/2253/2290-->
 
 * __Single-Cell RNAseq__:
-    * Visualize single-cell RNA-Seq data with cluster plots and gene expression overlays.
+    * Visualize single-cell RNA-Seq data with tSNE/UMAP plots, gene expression overlays and contour maps.
+    * Load differentially expressed genes and GSEA analysis.
+    * Load violin plot to summarize gene expression.
 * __OncoMatrix__:
     * By default hide “splice region” consequence mutations.
     * Support 5-category CNV; in OncoPrint mode, plot a white border around SSM to better distinguish it from CNV when columns are wide enough
     * Continuous variable row label menu supports option to edit bar height and color.
     * Allow user to modify colors from the legend.
-    * Show white border for SNV-Indel cell in OncoPrint mode when CNV data is also rendered.
 * __Gene Expression Clustering__:
     * Avoids showing genes with no expression values (due to an issue of ProteinPaint GENCODE v36 data that affects only certain genes; data issue will be fixed at the next release)
     * Make zscore transformation a checkbox option in Clustering menu.
@@ -94,6 +95,9 @@
 * Data in arrays are now included in the clinical and biospecimen TSVs. <!--SV-2564/PEAR-2339-->
 * Fixed an intermittent issue where __Quick Search__ navigation would randomly fail, preventing users from reaching the expected page. <!--PEAR-2294-->
 
+* __Cohort MAF__:
+    * Long-running downloads are now terminated after 5 minutes.
+    * On successful downloads, number of empty or failed MAF files are indicated to user.
 * __Gene Expression Clustering__:
     * Show value when it equals to 0 in hover over tooltip and click menu.
 * __OncoMatrix__:
