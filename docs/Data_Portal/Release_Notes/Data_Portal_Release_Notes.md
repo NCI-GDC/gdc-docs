@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v2.4.0](Data_Portal_Release_Notes.md#release-240) | March 13, 2025 |
+| [v2.4.0](Data_Portal_Release_Notes.md#release-240) | March 20, 2025 |
 | [v2.3.1](Data_Portal_Release_Notes.md#release-231) | November 21, 2024 |
 | [v2.3.0](Data_Portal_Release_Notes.md#release-230) | October 29, 2024 |
 | [v2.2.0](Data_Portal_Release_Notes.md#release-220) | June 26, 2024 |
@@ -44,7 +44,7 @@
 ## Release 2.4.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__:  March 13, 2025
+* __Release Date__:  March 20, 2025
 
 ### New Features and Changes
 
@@ -67,23 +67,23 @@
 * __File Summary Page__:
     * BAM metrics have been added. <!--PEAR-2231-->
     * The Workflow Completion Date has been removed. <!--PEAR-2131-->
+* __OncoMatrix__:
+    * By default hide "splice region" consequence mutations.
+    * Support 5-category CNV: in OncoPrint mode, plot a white border around SSM to better distinguish it from CNV when columns are wide enough.
+    * Continuous variable row label menu supports option to edit bar height and color.
+    * Allow users to modify colors from the legend.
+* __Gene Expression Clustering__:
+    * Avoids showing genes with no expression values (due to an issue of ProteinPaint GENCODE v36 data that affects only certain genes; data issue will be fixed at the next release).
+    * Make zscore transformation a checkbox option in Clustering menu.
+* __Cohort MAF__:
+    * Allow users to sort the table of MAF files. 
+    * A bar plot has been added to display the MAF file size.
 * The deprecated Sample Type property has been replaced by new sample properties (Tissue Type, Tumor Descriptor, Specimen Type, and Preservation Method) in the __Sample Sheet__. <!--PEAR-2113-->
 * Deprecated properties (Analyte Type ID, Is FFPE, OCT Embedded, and Tumor Code) have been removed from the biospecimen tree in the __Case Summary Page__. <!--PEAR-2306-->
 * As appropriate, deprecated properties (Premature at Birth, Metastasis at Diagnosis Site, Pregnant at Diagnosis, Treatment Anatomic Site) have been removed or replaced in the __Clinical Data Analysis__ tool. Additionally, a new Other Clinical Attribute category has been created. <!--PEAR-2306-->
 * Case counts are no longer displayed for cases with missing Age At Diagnosis values in __Cohort Comparison__. <!--PEAR-2316/SV-2558-->
 * Updated the Repository and Cart to display Sample Sheet and Metadata downloads as separate buttons for better visibility. <!--PEAR-2232-->
 * Minor text and styling improvements. <!--PEAR-452/2298/2341/2323/2253/2290-->
-
-* __OncoMatrix__:
-    * By default hide "splice region" consequence mutations.
-    * Support 5-category CNV: in OncoPrint mode, plot a white border around SSM to better distinguish it from CNV when columns are wide enough
-    * Continuous variable row label menu supports option to edit bar height and color.
-    * Allow user to modify colors from the legend.
-* __Gene Expression Clustering__:
-    * Avoids showing genes with no expression values (due to an issue of ProteinPaint GENCODE v36 data that affects only certain genes; data issue will be fixed at the next release)
-    * Make zscore transformation a checkbox option in Clustering menu.
-* __Cohort MAF__:
-    * Allowed to sort the table of MAF files and use bar plot to display MAF file size.
 
 ### Bugs Fixed Since Last Release
 
@@ -95,10 +95,9 @@
 * Links to the GDC Data Transfer Tool page have been updated to point to the correct location. <!--PEAR-2276-->
 * Data in arrays are now included in the clinical and biospecimen TSVs. <!--SV-2564/PEAR-2339-->
 * Fixed an intermittent issue where __Quick Search__ navigation would randomly fail, preventing users from reaching the expected page. <!--PEAR-2294-->
-
 * __Cohort MAF__:
     * Long-running downloads are now terminated after 5 minutes.
-    * On successful downloads, number of empty or failed MAF files are indicated to user.
+    * On successful downloads, the number of empty or failed MAF files is indicated to the user.
 * __Gene Expression Clustering__:
     * Show value when it's equal to 0 in mouseover tooltip and click menu.
 * __OncoMatrix__:
@@ -123,7 +122,6 @@
 * __Cohort MAF__:
     * A downloaded file may be corrupted if the server data processing is terminated after 5 minutes in order to conserve server resources.
     There will be a red banner above the MAF controls to indicate the termination.
-
 * In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
 * Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
 * In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
