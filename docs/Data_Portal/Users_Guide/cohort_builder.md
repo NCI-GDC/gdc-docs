@@ -70,7 +70,7 @@ As a search term is entered, the Cohort Builder Search feature will display a li
 
 [![Cohort Builder Search Results](images/CohortBuilderSearchResults.png)](images/CohortBuilderSearchResults.png "Image of Cohort Builder Search Results. Click to see the full image.")
 
-When a result is selected, the card corresponding to the selected result will be displayed.
+When a result is selected, the card corresponding to the selected result will be displayed. If there are values that match the search term, the card's search field will be automatically populated with the search term.
 
 ## Closing the Cohort Builder
 

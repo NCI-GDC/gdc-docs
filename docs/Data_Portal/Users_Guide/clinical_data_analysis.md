@@ -27,6 +27,7 @@ The clinical fields are grouped into these categories:
 * __Diagnosis:__ Data from the investigation, analysis, and recognition of the presence and nature of the disease, condition, or injury from expressed signs and symptoms; also, the scientific determination of any kind; the concise results of such an investigation.
 * __Treatment:__ Records of the administration and intention of therapeutic agents provided to a patient to alter the course of a pathologic process.
 * __Exposure:__ Clinically-relevant patient information not immediately resulting from genetic predispositions.
+* __Other Clinical Attribute:__  Clinical attributes extraneous to other specified clinical categories that were not directly used to diagnose the primary disease.
 
 ## Exploring Clinical Card Visualizations
 

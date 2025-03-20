@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v2.4.0](Data_Portal_Release_Notes.md#release-240) | March 20, 2025 |
 | [v2.3.1](Data_Portal_Release_Notes.md#release-231) | November 21, 2024 |
 | [v2.3.0](Data_Portal_Release_Notes.md#release-230) | October 29, 2024 |
 | [v2.2.0](Data_Portal_Release_Notes.md#release-220) | June 26, 2024 |
@@ -40,6 +41,96 @@
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
 ---
+## Release 2.4.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__:  March 20, 2025
+
+### New Features and Changes
+
+* __New Analysis Tool:  Single-Cell RNAseq__:
+    * Visualize single-cell RNA-Seq data with tSNE/UMAP plots, gene expression overlays and contour maps.
+    * Load differentially expressed genes and GSEA analysis.
+    * Load violin plot to summarize gene expression.
+* __New CNV Categories__:
+    * New CNV categories (Amplification, Gain, Homozygous Deletion, and Heterozygous Deletion) are now available.
+    * The genes table and its associated TSV download in __Mutation Frequency__ have been updated with the new CNV categories. <!--PEAR-2135/2137-->
+    * The Cancer Distribution tool in the __Gene Summary Page__ has been updated to reflect the new CNV categories. <!--PEAR-2136/2291-->
+* __Cohort Builder__:
+    * Search behavior has been enhanced by automatically populating the search bar of selected cards as appropriate. Additionally, search accuracy has been improved by ensuring that additional values matching the search input will be returned in the results. <!--PEAR-2107/2274/2274-->
+    * Child Pugh Classification, Ishak Fibrosis Score, and Weiss Assessment Score have been added as default cards. <!--PEAR-2322-->
+    * The deprecated property, Tumor Code, is no longer a default card. <!--PEAR-2332-->
+* __Clinical TSV and JSON__:
+    * Other Clinical Attribute properties are now available.  <!--PEAR-1984-->
+    * TSV headers have been standardized. <!--PEAR-1984-->
+    * All properties directly associated with a case, such as Primary Site and Disease Type, are now included <!--PEAR-2304-->
+* __File Summary Page__:
+    * BAM metrics have been added. <!--PEAR-2231-->
+    * The Workflow Completion Date has been removed. <!--PEAR-2131-->
+* __OncoMatrix__:
+    * By default hide "splice region" consequence mutations.
+    * Support 5-category CNV: in OncoPrint mode, plot a white border around SSM to better distinguish it from CNV when columns are wide enough.
+    * Continuous variable row label menu supports option to edit bar height and color.
+    * Allow users to modify colors from the legend.
+* __Gene Expression Clustering__:
+    * Avoids showing genes with no expression values (due to an issue of ProteinPaint GENCODE v36 data that affects only certain genes; data issue will be fixed at the next release).
+    * Make zscore transformation a checkbox option in Clustering menu.
+* __Cohort MAF__:
+    * Allow users to sort the table of MAF files. 
+    * A bar plot has been added to display the MAF file size.
+* The deprecated Sample Type property has been replaced by new sample properties (Tissue Type, Tumor Descriptor, Specimen Type, and Preservation Method) in the __Sample Sheet__. <!--PEAR-2113-->
+* Deprecated properties (Analyte Type ID, Is FFPE, OCT Embedded, and Tumor Code) have been removed from the biospecimen tree in the __Case Summary Page__. <!--PEAR-2306-->
+* As appropriate, deprecated properties (Premature at Birth, Metastasis at Diagnosis Site, Pregnant at Diagnosis, Treatment Anatomic Site) have been removed or replaced in the __Clinical Data Analysis__ tool. Additionally, a new Other Clinical Attribute category has been created. <!--PEAR-2306-->
+* Case counts are no longer displayed for cases with missing Age At Diagnosis values in __Cohort Comparison__. <!--PEAR-2316/SV-2558-->
+* Updated the Repository and Cart to display Sample Sheet and Metadata downloads as separate buttons for better visibility. <!--PEAR-2232-->
+* Minor text and styling improvements. <!--PEAR-452/2298/2341/2323/2253/2290-->
+
+### Bugs Fixed Since Last Release
+
+* __Section 508 Accessibility__:
+    * Responsiveness has been improved for the __Clinical Data Analysis__ tool and the Manage Sets page. <!--PEAR-2168/2171-->
+    * Aria-hidden elements in the __Cohort Bar__ are no longer focusable. <!--PEAR-2300-->
+    * A conflict where using the ESC key to close dropdown menus also unintentionally closed modals has been resolved. <!--PEAR-1882-->
+* The "Existing Cohort with Selected Cases" option of the "Save New Cohort" feature in __Clinical Data Analysis__ now creates cohorts with the correct composition. <!--PEAR-2285-->
+* Links to the GDC Data Transfer Tool page have been updated to point to the correct location. <!--PEAR-2276-->
+* Data in arrays are now included in the clinical and biospecimen TSVs. <!--SV-2564/PEAR-2339-->
+* Fixed an intermittent issue where __Quick Search__ navigation would randomly fail, preventing users from reaching the expected page. <!--PEAR-2294-->
+* __Cohort MAF__:
+    * Long-running downloads are now terminated after 5 minutes.
+    * On successful downloads, the number of empty or failed MAF files is indicated to the user.
+* __Gene Expression Clustering__:
+    * Show value when it's equal to 0 in mouseover tooltip and click menu.
+* __OncoMatrix__:
+    * Show value when it's equal to 0 in mouseover tooltip and click menu.
+
+### Known Issues and Workarounds
+
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * Some text can be difficult to read on a small screen at a 200% zoom level.
+        * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
+* __Survival Plot__:
+    * Survival plots are generated from the `diagnoses.days_to_last_follow_up` field. For some TCGA projects, in Data Release 42, data was migrated to the `follow_ups.days_to_follow_up` field. This resulted in an issue with missing cases for some TCGA projects in survival plots. The GDC is actively working on a fix. In the interim, users should create survival plots using the greatest value in the `follow_ups.days_to_follow_up` field. <!-- SV-2584 -->
+    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* __Gene Expression Clustering__:
+    * The tool allows deleting the gene expression group and displays an uninformative error message after submitting the deletion.
+* __Cohort MAF__:
+    * A downloaded file may be corrupted if the server data processing is terminated after 5 minutes in order to conserve server resources.
+    There will be a red banner above the MAF controls to indicate the termination.
+* In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
+* Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
+* In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
+* __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
+* The case count displayed above the table in the __Repository__ can be incorrect when applying filters based on samples (e.g. Tissue Type) or input files. <!--SV-2260-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+* The TSV of the __Most Frequent Somatic Mutations__ table in the __Case Summary Page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
+* Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
+
 ## Release 2.3.1
 
 * __GDC Product__: GDC Data Portal
@@ -78,7 +169,7 @@
 * __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
 * The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
 * __Cohort Comparison__ may incorrectly display negative counts for cases with missing Age at Diagnosis values. Cohorts created from these counts should still have the correct cases. <!--SV-2558-->
-* The TSV of the __Most Frequent Somatic Mutations table in the case summary page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
+* The TSV of the __Most Frequent Somatic Mutations__ table in the __Case Summary Page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
 * Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
 
 ### Properties Removed
@@ -238,7 +329,7 @@ The following properties have been removed and are no longer available. Any data
 * In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
 * __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
 * The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
-* The TSV of the __Most Frequent Somatic Mutations table in the case summary page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
+* The TSV of the __Most Frequent Somatic Mutations__ table in the __Case Summary Page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
 * Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
 
 ## Release 2.2.0
