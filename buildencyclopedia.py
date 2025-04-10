@@ -9,7 +9,7 @@ FILEARRAY = os.listdir(ABSFILEPATH + '/docs/Encyclopedia/pages')
 FILEARRAY = sorted(FILEARRAY, key=str.lower)
 
 with open(ABSFILEPATH + '/mkdocs.yml', 'r') as f:
-    doc = yaml.load(f)
+    doc = yaml.full_load(f)
 
 encycdict = next(d for (index, d) in enumerate(doc['pages']) \
              if d.get('EncyclopediaEntries', False) != False)

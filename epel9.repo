@@ -1,0 +1,7 @@
+[epel9]
+baseurl=https://nexus.osdc.io/repository/rpm-epel/9/Everything/x86_64
+gpgcheck=0
+metadata_expire=1d
+mode=0640
+name=Extra Packages for Enterprise Linux 9
+enabled=0
