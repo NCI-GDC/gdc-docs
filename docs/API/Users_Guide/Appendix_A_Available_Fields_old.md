@@ -76,6 +76,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | demographic.state |
 | demographic.submitter_id |
 | demographic.updated_datetime |
+| demographic.vital_status |
 | demographic.year_of_birth |
 | demographic.year_of_death |
 | diagnoses.age_at_diagnosis |
@@ -99,7 +100,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | diagnoses.tumor_grade |
 | diagnoses.tumor_stage |
 | diagnoses.updated_datetime |
-| diagnoses.vital_status |
 | diagnoses.treatments.created_datetime |
 | diagnoses.treatments.days_to_treatment |
 | diagnoses.treatments.state |
@@ -301,6 +301,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.demographic.state |
 | files.cases.demographic.submitter_id |
 | files.cases.demographic.updated_datetime |
+| files.cases.demographic.vital_status |
 | files.cases.demographic.year_of_birth |
 | files.cases.demographic.year_of_death |
 | files.cases.diagnoses.age_at_diagnosis |
@@ -324,7 +325,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.cases.diagnoses.tumor_grade |
 | files.cases.diagnoses.tumor_stage |
 | files.cases.diagnoses.updated_datetime |
-| files.cases.diagnoses.vital_status |
 | files.cases.diagnoses.treatments.created_datetime |
 | files.cases.diagnoses.treatments.days_to_treatment |
 | files.cases.diagnoses.treatments.state |
@@ -1019,6 +1019,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.demographic.state |
 | cases.demographic.submitter_id | Submitter supplied identifier information
 | cases.demographic.updated_datetime |
+| cases.demographic.vital_status |
 | cases.demographic.year_of_birth |
 | cases.demographic.year_of_death |
 | cases.diagnoses.age_at_diagnosis |
@@ -1042,7 +1043,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.diagnoses.tumor_grade |
 | cases.diagnoses.tumor_stage |
 | cases.diagnoses.updated_datetime |
-| cases.diagnoses.vital_status |
 | cases.diagnoses.treatments.created_datetime |
 | cases.diagnoses.treatments.days_to_treatment |
 | cases.diagnoses.treatments.state |

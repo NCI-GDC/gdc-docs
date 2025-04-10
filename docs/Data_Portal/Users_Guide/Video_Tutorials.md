@@ -4,7 +4,7 @@
 
 The [GDC Data Portal 2.0](https://portal.gdc.cancer.gov) centers around the idea of building cohorts, or groups of cases, before analyzing or downloading data.
 
-In this GDC 2.0 Video Tutorial, learn how to:
+In this GDC 2.0 Video Tutorial, obtain an overview of the GDC Data Portal, learn about the GDC 2.0 workflow, and learn how to do the following:
 
 * Build a cohort
 * Analyze a cohort using GDC analysis tools
@@ -14,6 +14,26 @@ In this GDC 2.0 Video Tutorial, learn how to:
 GDC 2.0 Videos are available in the [NCI GDC YouTube Playlist](https://www.youtube.com/playlist?list=PLaXJeOudgf60aE6tqrZcIhm9B4Ivxar4a). For additional details, please see the [GDC 2.0 User's Guide](getting_started.md).
 
 [![GDC 2.0 Workflow Flowchart](images/v2_workflow.png)](images/v2_workflow.png "Click to see the full image.")
+
+## GDC Data Portal
+
+<table>
+<tr>
+<td>
+The GDC Data Portal serves as a repository and computational platform, providing access to harmonized clinical and genomic data. Cancer Research Centers contribute clinical, biospecimen, and molecular data - like DNA and RNA sequences - using standardized formats set by the GDC Data Dictionary. This data undergoes a rigorous processing pipeline, ensuring that it aligns with a common reference genome before being made available for analysis.
+<br>
+<br>
+To access this vital resource, visit the <a href="https://portal.gdc.cancer.gov">GDC Data Portal</a>.
+<br>
+<br>
+In this video, obtain an overview of the features of the GDC Data Portal, the portal layout, and workflow.
+
+</td>
+
+<td><iframe width="400" height="300" src="https://www.youtube.com/embed/7zJCYd0grbU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
+
+</td></tr>
+</table>
 
 ## Build Cohort
 
@@ -69,6 +89,12 @@ A cohort can be analyzed by selecting an analysis tool in the Analysis Center. T
 <td><b>Cohort Comparison</b></td>
 <td>Display the survival analysis of your cohorts and compare characteristics such as gender, vital status and age at diagnosis</td>
 <td><iframe width="240" height="160" src="https://www.youtube.com/embed/NT7-TB78VjA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+</td>
+</tr>
+<tr>
+<td><b>Cohort Level MAF</b></td>
+<td>Download an aggregated set of variants in MAF format based on the cases in your active cohort.</td>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/4megNwrPsbs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
 <tr>

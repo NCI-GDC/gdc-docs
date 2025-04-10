@@ -36,6 +36,7 @@ The 'Analysis Tools' section contains the tools available for specific analyses 
 * [ProteinPaint](proteinpaint_lollipop.md)
 * [Sequence Reads](proteinpaint_bam.md)
 * [Set Operations](set_operations.md)
+* [Single Cell RNA-seq](scRNA.md)
 
 Each can be launched by clicking the Play buttons in each of the tool cards.
 
@@ -47,6 +48,6 @@ If there is not sufficient data in the active cohort to use a particular tool, t
 
 As each tool is selected, it is loaded in the 'Analysis Center' within a panel.
 
-[![Analysis Center Tools Panel](images/AnalysisCenterToolPanel.png)](images/AnalysisCenterToolPanel.png "Click to see the full image.")
+[![Analysis Center Tools Panel](images/CohortBuilderQuickStart.png)](images/CohortBuilderQuickStart.png "Click to see the full image.")
 
 To close a tool and return to the default view that displays all the tool cards within the Analysis Center, click the "X" to the left of the tool's header.

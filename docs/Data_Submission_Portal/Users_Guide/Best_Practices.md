@@ -68,29 +68,34 @@ Certain fields in the GDC, such as diagnosis.sites_of_involvement, are of type "
 
 The GDC Data Model includes relationships in which more than one entity of one type can be associated with one entity of another type. For example, more than one `read_group` entity can be associated with a `submitted_aligned_reads` entity. JSON-formatted files, in which a list object can be used, are well-suited to represent this type of relationship. Tab-delimited (TSV) files require additional syntax to demonstrate these relationships. For example, associating a `submitted_aligned_reads` entity to three read groups would require three `read_groups.submitter_id` columns, each with the `#` symbol and a number appended to them. See the two files below:
 
-```TSV
-type    submitter_id    data_category   data_format data_type   experimental_strategy   file_name   file_size   md5sum  read_groups.submitter_id#1 read_groups.submitter_id#2  read_groups.submitter_id#3
-submitted_aligned_reads Alignment.bam  Raw Sequencing Data BAM Aligned Reads   WGS test_alignment.bam    123456789  aa6e82d11ccd8452f813a15a6d84faf1    READ_GROUP_1  READ_GROUP_2  READ_GROUP_3  
+=== "TSV"
 
-```
-```JSON
-{
-    "type": "submitted_aligned_reads",
-    "submitter_id": "Alignment.bam",
-    "data_category": "Raw Sequencing Data",
-    "data_format": "BAM",
-    "data_type": "Aligned Reads",
-    "experimental_strategy": "WGS",
-    "file_name": "test_alignment.bam",
-    "file_size": 123456789,
-    "md5sum": "aa6e82d11ccd8452f813a15a6d84faf1",
-    "read_groups": [
-        {"submitter_id": "READ_GROUP_1"},
-        {"submitter_id": "READ_GROUP_2"},
-        {"submitter_id": "READ_GROUP_3"}
-    ]
-}
-```
+    ```TSV
+    type    submitter_id    data_category   data_format data_type   experimental_strategy   file_name   file_size   md5sum  read_groups.submitter_id#1 read_groups.submitter_id#2  read_groups.submitter_id#3
+    submitted_aligned_reads Alignment.bam  Raw Sequencing Data BAM Aligned Reads   WGS test_alignment.bam    123456789  aa6e82d11ccd8452f813a15a6d84faf1    READ_GROUP_1  READ_GROUP_2  READ_GROUP_3  
+
+    ```
+
+=== "JSON"
+
+    ```JSON
+    {
+        "type": "submitted_aligned_reads",
+        "submitter_id": "Alignment.bam",
+        "data_category": "Raw Sequencing Data",
+        "data_format": "BAM",
+        "data_type": "Aligned Reads",
+        "experimental_strategy": "WGS",
+        "file_name": "test_alignment.bam",
+        "file_size": 123456789,
+        "md5sum": "aa6e82d11ccd8452f813a15a6d84faf1",
+        "read_groups": [
+            {"submitter_id": "READ_GROUP_1"},
+            {"submitter_id": "READ_GROUP_2"},
+            {"submitter_id": "READ_GROUP_3"}
+        ]
+    }
+    ```
 
 ### Read groups
 
@@ -169,6 +174,7 @@ For any submitter that is uploading scRNA-Seq data, please follow these guidelin
 
 * If the data is single-nuclei RNA-Seq, please populate the associated aliquot field `analyte_type` with `Nuclei RNA`.
 * Please only submit the molecular files as `submitted_unaligned_reads` in FASTQ format.
+* When submitting molecular files, please submit files with file names that are in the acceptable format for CellRanger input. The acceptable format follows this regular expression: SampleName_S[\d*]\_L00[\d]\_R{1,2}\_001.fastq.gz, for example: `SampleName_S1_L001_R1_001.fastq.gz`
 
 ## Clinical Data Requirements
 

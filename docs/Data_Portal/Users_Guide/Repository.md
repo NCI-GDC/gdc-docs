@@ -34,6 +34,10 @@ As most users are searching for specific types of files, a set of commonly-used 
 * **Workflow Type**: Bioinformatics workflow used to generate or harmonize the data file
 * **Platform**: Technological platform on which experimental data was produced
 * **Access**: Indicator of whether access to the data file is open or controlled
+* **Tissue Type**: Type of tissue collected, such as "Normal" or "Tumor"
+* **Tumor Descriptor**: Description of the disease present in the tumor specimen, such as "Primary" or "Metastatic"
+* **Specimen Type**: Type of material taken. This includes particular types of cellular molecules, cells, tissues, organs, body fluids, embryos, and body excretory substances.
+* **Preservation Method**: Method used to preserve the sample, such as "OCT" or "Snap Frozen" 
 
 Values within each facet can be sorted alphabetically by choosing the "Name" header on the top left of each card. Alternatively, the "Files" header may be selected to sort the values by the number of files available.
 
@@ -121,13 +125,13 @@ To download files in the Cart, select the Download Cart button and choose either
 
 ### Additional Data Download
 
-Additional data can be downloaded from the Cart page using the Download Associated Data button at the top of the page and choosing one of the available options.
+Additional data can be downloaded from the Cart page by using the buttons available at the top of the page.
 
-[![Cart Metadata](images/CartAssociatedData.png)](images/CartAssociatedData.png "Click to see the full image.")
+[![Cart Additional Data](images/CartAdditionalData.png)](images/CartAdditionalData.png "Click to see the full image.")
 
-* __Clinical:__ TSV / Clinical: JSON - This includes all clinical information from the cases that are associated with the files (available as TSV or JSON)
 * __Biospecimen:__ TSV / Biospecimen: JSON - This includes all biospecimen information from the cases that are associated with the files (available as TSV or JSON).
-* __Sample Sheet:__ A TSV with commonly-used elements associated with each file, such as sample barcode and sample type.
+* __Clinical:__ TSV / Clinical: JSON - This includes all clinical information from the cases that are associated with the files (available as TSV or JSON)
+* __Sample Sheet:__ A TSV with commonly-used elements associated with each file, such as tissue type and tumor descriptor.
 * __Metadata:__ This includes all of the metadata associated with each and every file in the cart.  Note that this file is only available in JSON format and may take several minutes to download.
 
 ## File Summary Page ##

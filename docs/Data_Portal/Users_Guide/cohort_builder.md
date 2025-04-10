@@ -70,7 +70,7 @@ As a search term is entered, the Cohort Builder Search feature will display a li
 
 [![Cohort Builder Search Results](images/CohortBuilderSearchResults.png)](images/CohortBuilderSearchResults.png "Image of Cohort Builder Search Results. Click to see the full image.")
 
-When a result is selected, the card corresponding to the selected result will be displayed.
+When a result is selected, the card corresponding to the selected result will be displayed. If there are values that match the search term, the card's search field will be automatically populated with the search term.
 
 ## Closing the Cohort Builder
 
@@ -90,3 +90,40 @@ Users can then perform the following actions:
 
 * Download files associated with the cohort from the [Repository](Repository.md)
 * Analyze data from the cohort in the [Analysis Center](analysis_center.md)
+
+## Cohort Types
+
+Depending on how they are modified or created, cohorts can have different types of filters and thus behave differently after a data release with regard to the cases they contain. The following are the types of filters cohorts can have:
+
+* __Custom Queries__
+* __Specific List of Cases__
+
+### Custom Queries
+
+A very common way to modify a cohort is by using the filters in the Cohort Builder. Using the filters in the Cohort Builder to build a cohort will create a cohort with custom queries (see note below for an exception). Examples of cohorts with custom queries would be:
+
+1. All cases in the `TCGA-BRCA` project.
+1. Cases with a primary site of `brain` and a gender of `male`.
+
+Cohorts based on custom queries will change depending on the data available. For example, if a data release adds cases to the TCGA-BRCA project, the first cohort example will include the new cases automatically and increase in size. 
+
+The query expression section will display these custom queries with information about the properties and values that were applied as filters to the cohort.
+
+[![Query Expressions section with TCGA-BRCA cohort](images/QueryExpressionsTCGABRCA.png)](images/QueryExpressions.png "Click to see the full image.")
+
+[![Query Expressions section with male brain cancer cohort](images/QueryExpressionsBrainMale.png)](images/QueryExpressionsBrainMale.png "Click to see the full image.")
+
+**NOTE:** The Case ID filter in the Cohort Builder will result in a cohort based on a specific list of cases.
+
+### Specific List of Cases
+
+Cohorts can also be based on a list of specific cases. These cases do not necessarily share common properties and can comprise any group of released cases. Data releases that happen after these cohorts are created will not add additional cases to the cohort, but could subtract cases if there were redactions. A common way to create cohorts based on a list of specific cases is to use the Import New Cohort function in the Cohort Bar. Another common way is to create the cohorts from one of the many analysis tools available in the GDC (e.g. Clinical Data Analysis, Mutation Frequency, or Set Operations).
+
+The query expression section will display a case UUID with the Case ID property if the filter has only 1 specific case. Otherwise, it will display the number of cases in the list.
+
+[![Query Expressions section with 1 specific case](images/QueryExpressions1Case.png)](images/QueryExpressions1Case.png "Click to see the full image.")
+
+[![Query Expressions section with many specific cases](images/QueryExpressionsManyCases.png)](images/QueryExpressionsManyCases.png "Click to see the full image.")
+
+> **NOTE:** 
+If an imported cohort was originally created by exporting a cohort with custom queries, it will still result in a cohort with specific cases. The export function saves a list of cases, but does not preserve the custom queries used to filter for those cases.
