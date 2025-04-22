@@ -2,7 +2,7 @@
 
 ## Introduction to ProteinPaint
 
-ProteinPaint is a web-based, dynamic visualization tool that displays a lollipop chart based on the multidimensional skewer version 3 (mds3 track). This tool utilizes variant annotations from GDC datasets. Given a particular gene, it displays variants associated with that gene as well as the occurrence, disease type, and demographic information of the associated case given a case.
+ProteinPaint is a web-based, dynamic visualization tool that displays a lollipop chart. This tool utilizes variant annotations from GDC datasets. Given a particular gene, it displays variants associated with that gene as well as the occurrence, disease type, and demographic information of the associated case given a case.
 
 ## Quick Reference Guide
 
@@ -206,7 +206,7 @@ A pop-up window appears with the entire list of variants, as shown below.
 
 [![List of Variants](images/lollipop13.png)](images/lollipop13.png "Click to see the full image.")
 
-Click on the variant of interest and a new annotation table appears. From the table, view various associated features per sample such as: Disease type, Primary site, Project id, Gender, Race, Ethnicity, and Tumor DNA Mutant Allele Frequency(MAF). In the figure below, 333 occurrences are shown for the G12D variant, which represents a missense mutation at chromosome chr12:25245350 C>T.  
+Click on the variant of interest and a new annotation table appears. From the table, view various associated features per sample such as: Disease type, Primary site, Project id, Gender, Race, Ethnicity, and Tumor DNA Mutant Allele Frequency (MAF). In the figure below, 333 occurrences are shown for the G12D variant, which represents a missense mutation at chromosome chr12:25245350 C>T.  
 [![Annotation Table](images/lollipop14.png)](images/lollipop14.png "Click to see the full image.")
 
 The first sample that is highlighted in yellow is a male with ductal and lobular neoplasms with a tumor DNA MAF of 31/125. This indicates 31 mutant alleles were found out of 125 total alleles.
@@ -302,18 +302,16 @@ Clicking on a node displays a sample table for the disease type or primary site.
 
 An aggregate sample table is available by clicking the 'Info' button in the center of the sunburst. This displays all the samples associated with that variant. In the screen recording below the aggregate sample table appears for KRAS - G12D.
 
-[![Sample Annotation Table 2](images/lollipop35.gif)](images/lollipop35.gif "Click to see the full image.")
+[![Sample Annotation Table 2](images/lollipop35.png)](images/lollipop35.png "Click to see the full image.")
 
-Clicking on the sample name hyperlink opens a new tab to the sample's  GDC Case Summary page.
+Clicking on the sample name hyperlink opens a new tab to the sample's GDC Case Summary page.
 
-Clicking on the variant label in the center removes the sunburst chart.
-
-[![Variant Label](images/lollipop36.gif)](images/lollipop36.gif "Click to see the full image.")
+Clicking on the variant label or anywhere outside of the sunburst removes the sunburst chart.
 
 ### Working With the Protein Track
 There are two zoom methods: highlighting a region and zoom buttons in the toolbar. For viewing a nucleotide of interest, click and drag the mouse in the top, x-axis, Protein length scale. The region appears highlighted in red with the calculated protein length in center.
 
-[![Zoom Method](images/lollipop37.gif)](images/lollipop37.gif "Click to see the full image.")
+[![Zoom Method](images/lollipop37.png)](images/lollipop37.png "Click to see the full image.")
 
 Once the mouse is released, the lollipop re-renders as the selected region.
 
@@ -346,9 +344,7 @@ The lollipop discs are color coded per GDC mutation classes. The legend for the 
 
 [![Color Coding Legend](images/lollipop40.png)](images/lollipop40.png "Click to see the full image.")
 
-The classification for the type of variant is color coded as follows:
-
-[![Color Coding Classification](images/lollipop41.png)](images/lollipop41.png "Click to see the full image.")
+The classification for the type of variant is color coded.
 
 Clicking on a mutation prompts a pop-up menu to appear with the description of the mutation. Options to 'hide' or 'show only' are specific to the mutation. The option 'show all' includes all previously hidden mutations. Selecting 'MISSENSE' shown in the figure below displays the initial menu with the 'hide' and 'show only' buttons.
 
