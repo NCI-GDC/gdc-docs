@@ -8,7 +8,7 @@ ProteinPaint is a web-based, dynamic visualization tool that displays a lollipop
 
 At the Analysis Center, click on the 'ProteinPaint' card to launch the app.
 
-[![Analysis Center](images/lollipop1.png)](images/lollipop1.png "Click to see the full image.")
+[![Analysis Center](images/seq_read_vis.png)](images/seq_read_vis.png "Click to see the full image.")
 
 Users can view publicly available variants as well as login with credentials in order to access controlled data.
 
