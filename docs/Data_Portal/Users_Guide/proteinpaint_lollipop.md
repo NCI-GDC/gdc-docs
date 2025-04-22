@@ -74,16 +74,6 @@ The Protein View, which displays the nucleotides, codons in the exon region, int
 
 [![Protein View](images/lollipop6.png)](images/lollipop6.png "Click to see the full image.")
 
-To zoom into the Protein View, users can highlight a region or use the zoom buttons (`In`, `Out x2`, `x10`, and `x50`) in the toolbar. For viewing a nucleotide of interest, click and drag in the top Protein length scale. The region appears highlighted in red with the calculated protein length in center.
-
-[![Zoom Method](images/lollipop37.gif)](images/lollipop37.gif "Click to see the full image.")
-
-Zooming in to the protein track displays the codons and the nucleotides. Hovering over the nucleotide position displays a tooltip with the exon, amino acids position, RNA position, and protein domain.
-
-[![Codons and Nucleotides](images/lollipop37.png)](images/lollipop37.png "Click to see the full image.")
-
-By clicking on the isoform number in the Lollipop chart, users can switch the display track between genomic, splicing RNA, exon only, protein, and aggregate of all isoforms.
-
 ### Legend Panel
 
 #### Protein Domains
@@ -321,7 +311,7 @@ The zoom buttons in the toolbar is the second option to zoom in and out based on
 
 Zooming in causes the protein track to display the codons and the nucleotides as shown below. Hovering over the nucleotide position displays a tooltip with the exon, amino acids position, RNA position, and protein domain. As shown in the image below, at codon 12, the second exon of the transcript, RNA position 225 bp, the reference allele is a 'G'. There is a substitution at 'G' to A, V and D in the KRAS gene for isoform NM_004985 for which the cases are as shown below.
 
-[![Codons and Nucleotides](images/lollipop37.png)](images/lollipop37.png "Click to see the full image.")
+[![Codons and Nucleotides](images/lollipop37.2.pngpng)](images/lollipop37.2.png "Click to see the full image.")
 
 # Legend Panel
 
