@@ -18,15 +18,15 @@ This example demonstrates downloading a single file from the GDC. Here we pass t
 === "Shell"
 
     ```shell
-    curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/5b2974ad-f932-499b-90a3-93577a9f0573'
+    curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/353efa55-06d3-43a8-adf5-50f3219e9f14'
     ```
 
 === "Output"
 
     ```
-    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                    Dload  Upload   Total   Spent    Left  Speed
-    100 6111k  100 6111k    0     0   414k      0  0:00:14  0:00:14 --:--:--  412k
+      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                     Dload  Upload   Total   Spent    Left  Speed
+    100 51100  100 51100    0     0  47765      0  0:00:01  0:00:01 --:--:-- 47801
     ```
 
 ### Related Files
@@ -60,15 +60,15 @@ This example demonstrates downloading multiple files from the GDC using a GET re
 === "Shell"
 
     ```shell
-    curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/e3228020-1c54-4521-9182-1ea14c5dc0f7,18e1e38e-0f0a-4a0e-918f-08e6201ea140'
+    curl --remote-name --remote-header-name 'https://api.gdc.cancer.gov/data/bfb63cdf-6472-4394-912a-e79bc63e2c17,75a1f101-f408-45e8-b55a-3747b94d1571'
     ```
 
 === "Output"
 
     ```
-    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                   Dload  Upload   Total   Spent    Left  Speed
-    100  287k    0  287k    0     0  30131      0 --:--:--  0:00:09 --:--:-- 42759
+      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                     Dload  Upload   Total   Spent    Left  Speed
+    100 24183    0 24183    0     0  18393      0 --:--:--  0:00:01 --:--:-- 18404
     
     ```
 
@@ -145,9 +145,9 @@ In this example we use `curl` to download a set of files from the GDC Portal; th
     ```json
     {
         "ids":[
-            "0451fc55-33ef-4151-a68c-cac59be716dc",
+            "181d24ea-f194-4611-a954-b3b24d64d3eb",
             "0cc3d450-2c60-4cb0-a073-d92dc979fa5e",
-            "0de9bc40-3ef8-4fe7-b7d6-80a9339b0bf8",
+            "b1f9e75f-9cde-4fff-8c52-e2b0a3a7d9c8",
             "0f8d8202-a1ca-4ea1-98b2-c20a6b08479a"
         ]
     }
@@ -156,7 +156,7 @@ In this example we use `curl` to download a set of files from the GDC Portal; th
 === "Shell"
 
     ```Shell
-    curl --remote-name --remote-header-name --request POST --header 'Content-Type: application/json' --data @request.txt 'https://api.gdc.cancer.gov/data'
+    curl --remote-name --remote-header-name --request POST --header 'Content-Type: application/json' --data @Payload.txt 'https://api.gdc.cancer.gov/data'
     ```
 
 === "Output"
@@ -164,7 +164,7 @@ In this example we use `curl` to download a set of files from the GDC Portal; th
     ```
     % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                     Dload  Upload   Total   Spent    Left  Speed
-    100 5878k    0 5878k  100   205   290k     10  0:00:20  0:00:20 --:--:--  198k
+    100 5362k    0 5362k  100   205   737k     28  0:00:07  0:00:07 --:--:-- 1156k
     ```
 
 ### Downloading Controlled-access Files

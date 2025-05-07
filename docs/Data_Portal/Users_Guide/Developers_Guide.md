@@ -364,7 +364,7 @@ Repository filters).
 
 Information for a single file can be queried using the `useFileSummary` hook. This call is used in
 the `File Summary View`
-page [portal.gdc.cancer.gov/files/0b5a9e7e-8e2e-4b7a-9b7e-ff5d9c5b2b2b](https://portal.gdc.cancer.gov/files/0b5a9e7e-8e2e-4b7a-9b7e-ff5d9c5b2b2b)
+page [portal.gdc.cancer.gov/files/9b8960e1-619a-4477-8dff-54124716bcd9](https://portal.gdc.cancer.gov/files/9b8960e1-619a-4477-8dff-54124716bcd9)
 
 ```typescript
  const {data: {files} = {}, isFetching} = useGetFilesQuery({
