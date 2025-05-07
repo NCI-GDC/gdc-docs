@@ -403,21 +403,28 @@ __Example 1__: Similar to the `/genes` endpoint, a user would like to retrieve i
 === "Filter"
 
     ```json
-     {
-       "op":"in",
-       "content":{
-          "field":"cosmic_id",
-          "value":[
-             "COSM1135366"
-          ]
-       }
+    {
+        "filters": {
+            "op": "and",
+            "content": [
+                {
+                    "op": "in",
+                    "content": {
+                        "field": "cosmic_id",
+                        "value": [
+                            "COSM1135366"
+                        ]
+                    }
+                }
+            ]
+        }
     }
     ```
 
 === "Shell"
 
     ```Shell
-    curl 'https://api.gdc.cancer.gov/ssms?pretty=true&filters=%7B%0A%22op%22%3A%22in%22%2C%0A%22content%22%3A%7B%0A%22field%22%3A%22cosmic_id%22%2C%0A%2value%22%3A%5B%0A%22COSM1135366%22%0A%5D%0A%7D%0A%7D%0A'
+    curl 'https://api.gdc.cancer.gov/ssms?pretty=true&filters=%7B%22op%22%3A+%22and%22%2C%22content%22%3A+%5B%7B%22op%22%3A+%22in%22%2C%22content%22%3A+%7B%22field%22%3A+%22cosmic_id%22%2C%22value%22%3A+%5B%22COSM1135366%22%5D%7D%7D%5D%7D'
     ```
 
 === "Response"
@@ -2343,7 +2350,7 @@ __Example 2:__ The following demonstrates a use of the `/analysis/top_mutated_ge
 === "Shell"
 
     ```Shell
-    curl "https://api.gdc.cancer.gov/analysis/top_mutated_genes_by_project?fields=gene_id,symbol&filters=%7B%20%20%0A%20%20%20%22op%22%3A%22AND%20%20%20%22content%22%3A%5B%20%20%0A%20%20%20%20%20%20%7B%20%20%0A%20%20%20%20%20%20%20%20%20%22op%22%3A%22in%22%2C%0A%20%20%20%20%20%20%20%20%20%22content%22%3A%7B%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%22field%22%3A%22case.project.project_id%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22value%22%3A%5B%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22TCGA-DLBC%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%20%20%0A%20%20%20%20%20%20%20%20%20%22op%22%3A%22in%22%2C%0A%20%20%20%20%20%20%20%20%20%22content%22%3A%7B%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%22field%22%3A%22case.ssm.consequence.transcript.annotation.vep_impact%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22value%22%3A%5B%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22HIGH%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22MODERATE%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%5D%0A%7D%0A&pretty=true"
+    curl "https://api.gdc.cancer.gov/analysis/top_mutated_genes_by_project?fields=gene_id,symbol&filters=%7B%22op%22%3A%22AND%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22case.project.project_id%22%2C%22value%22%3A%5B%22TCGA-DLBC%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22case.ssm.consequence.transcript.annotation.vep_impact%22%2C%22value%22%3A%5B%22HIGH%22%2C%22MODERATE%22%5D%7D%7D%5D%7D&pretty=true"
     ```
 
 === "Response"
