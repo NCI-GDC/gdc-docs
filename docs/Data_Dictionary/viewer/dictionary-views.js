@@ -1345,17 +1345,6 @@
 
   function _getSortFnForCategory(category, categoryData) {
     var sortFunction = _.constant(categoryData);
-
-    switch (category.toLowerCase()) {
-      case "biospecimen":
-        sortFunction = function (categoryData) {
-          return _.orderBy(categoryData, ["title"], ["desc"]);
-        };
-        break;
-      default:
-        break;
-    }
-
     return sortFunction;
   }
 

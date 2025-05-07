@@ -7,6 +7,7 @@ Variant calls from Whole Genome Sequencing (WGS) data are produced using pipelin
 
 * [Strelka](https://github.com/Illumina/strelka): Simple nucleotide variants, including both point mutations and Indels, which are available in VCF format.
 * [GATK4 MuTect2](https://gatk.broadinstitute.org): Simple nucleotide variants, including both point mutations and Indels, which are available in VCF format.
+* [VarScan2](https://dkoboldt.github.io/varscan/): Simple nucleotide variants, including both point mutations and Indels, which are available in VCF format. This is the same tool that is also used in GDC WXS somatic variant calling.
 * [SvABA](https://github.com/walaj/svaba): Indel variants only, which are available in VCF format, and structural variants, which are available in both VCF and BEDPE format.
 * [Manta](https://github.com/Illumina/manta): Structural variants, which are available in both VCF and BEDPE format.
     * Additionally, Manta generates a set of candidate indels, which are subsequently used as input for the [Strelka](https://github.com/Illumina/strelka) SSM calling pipeline to enhance Strelka's coverage across all indel sizes. Note that the Manta candidate indel file is not released on the GDC data portal.
@@ -22,7 +23,7 @@ Output from the new WGS variant calling pipelines mentioned above has been relea
 
 ## Simple Nucleotide Variation
 
-Simple nucleotide variation refers to the point mutations and small indels that are identified by GDC bioinformatic pipelines during somatic variant calling. SNV files derived from WGS are currently available in VCF format for the GATK MuTect2, Strelka, and SvABA Indel pipelines. Note that the processing steps that call indels from the SvABA and Strelka pipelines are located in the Structual Variants section of this document, due to the software producing SNVs and SVs in the same pipeline.
+Simple nucleotide variation refers to the point mutations and small indels that are identified by GDC bioinformatic pipelines during somatic variant calling. SNV files derived from WGS are currently available in VCF format for the GATK MuTect2, Strelka, VarScan2, and SvABA Indel pipelines. Note that the processing steps that call indels from the SvABA and Strelka pipelines are located in the Structural Variants section of this document, due to the software producing SNVs and SVs in the same pipeline.
 
 ### GATK4 MuTect2 CLI
 
@@ -130,6 +131,10 @@ If mean read length is greater than or equal to 70bp:
     -R $(Reference seq)
     -O $(output_prefix).gatk4_mutect2.raw_filtered.vcf.gz
     ```
+
+### VarScan2 CLI
+
+See the [CLI guide](https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/#varscan) to GDC whole exome and targeted sequencing pipelines for details.
 
 ## Structural Variant Pipelines
 

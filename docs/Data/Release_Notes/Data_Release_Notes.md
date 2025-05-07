@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v43.0](Data_Release_Notes.md#data-release-430) | May 7, 2025 |
 | [v42.0](Data_Release_Notes.md#data-release-420) | January 30, 2025 |
 | [v41.0](Data_Release_Notes.md#data-release-410) | August 28, 2024 |
 | [v40.0](Data_Release_Notes.md#data-release-400) | March 29, 2024 |
@@ -49,6 +50,55 @@
 | [v3.0](Data_Release_Notes.md#data-release-30) | September 16, 2016 |
 | [v2.0](Data_Release_Notes.md#data-release-20) | August 9, 2016 |
 | [v1.0](Data_Release_Notes.md#initial-data-release-10) | June 6, 2016 |
+
+## Data Release 43.0
+
+* __GDC Product__: Data
+* __Release Date__: May 7, 2025
+
+### New Updates
+
+* New Data Sets
+    * Release of new WGS variant calling workflows for existing WGS tumor normal pairs. This includes data from the new WGS VarScan2 pipeline.
+        * __Note:__ Variants from pipelines were released from aliquots pairs on a pipeline-basis.  Aliquot pairs may have data from some pipelines but not others.  The completed set will be made available in future releases.
+    * 351 new cases from HCMI have been released along with their associated data files <!--DAT-3833-->
+
+* Data Updates
+    * The AscatNGS files that were produced using the Sanger WGS pipeline now have a Data Type value of `Allele-specific Copy Number Segment`  <!--DAT-3752-->
+    * Alignments that were produced before the BAM QC pipeline was implemented now have their BAM QC values populated <!--DAT-3836-->
+    * Clinical data for the CPTAC-3 HNSCC cases has been updated and these changes are reflected in the Data Portal and API <!--DAT-3836-->
+
+
+A complete list of files included in the GDC Data Portal can be found below:
+
+* [XXXXX](https://api.gdc.cancer.gov/data/XXXXXXX)
+* [DR43 Project Level Manifests](https://api.gdc.cancer.gov/data/XXXXXX)
+* [DR43 New Files Manifest](https://api.gdc.cancer.gov/data/XXXXXXXX)
+
+### Bugs Fixed Since Last Release
+
+* Survival plots are generated from the `diagnoses.days_to_last_follow_up` field. For some TCGA projects, in Data Release 42, data was migrated to the `follow_ups.days_to_follow_up` field. This data has been migrated back to `diagnoses.days_to_last_follow_up` and should now appear in the survival plots. <!-- SV-2584 -->
+* The slide image `TCGA-A8-A06U-01A-01-TS1.63824040-373f-4c6c-a74e-881c127567a6.svs` only contained a partial slide.  Though it is still present in the data portal, the replacement slide `TCGA-A8-A06U-01A-01-TS1.DFD8B445-C7A5-4247-A39F-222591C6D7E2.svs` has been added to the portal.   
+
+### Known Issues and Workarounds
+
+* VCF files that were produced by GATK4 MuTect2 are missing all variants from chromosomes 10 and 20. New VCF files with a complete set of chromosomes will be available in a future data release. This includes any file with the following workflow types:  `GATK4 MuTect2`, `GATK4 MuTect2 Annotation`,`GATK4 MuTect2 Tumor-Only`, and `GATK4 MuTect2 Tumor-Only Annotation`.
+* Some VCF headers from SvABA list the names of the BAM files they originated from instead of "NORMAL" and "TUMOR", in that order.
+* The slide image viewer does not display for any non-TCGA slides. At this time, these slides will need to be downloaded and viewed locally. Additionally, the slide image viewer does not display properly for 14 TCGA slides, which are identified [here](missing_tiling.txt).
+* 397 alignments from the TCGA program were found to have contamination values over 0.04 ([alignment list](Contaminated_Alignments.dr32.tsv)). The ensemble MAFs produced by these alignments were removed from the Data Portal.
+* One methylation aliquot from the TCGA-COAD project, TCGA-D5-6930-01A-11D-1926-05, was not added to the portal and will be added in a future release.
+* Some tumor-only annotated VCFs (not raw VCFs) could have a small proportion of variants that appear twice.  Tumor-only annotated VCFs can be identified by searching for workflow "GATK4 MuTect2 Annotation" <!--SV-1425-->
+* The read alignment end coordinates in the x.isoform.quantification.txt files produced by the miRNA pipeline are exclusive (i.e. offset by 1) for all TCGA miRNA legacy (GRCh37/hg19) and current harmonized (GRCh38/hg38) miRNA data.  This error has no impact on miRNA alignment or quantification - only the coordinates reported in the quantification file.
+* Mutation frequency may be underestimated when using MAF files for genes that overlap other genes.  This is because MAF files only record one gene per variant.
+* Most intronic mutations are removed for MAF generation.  However, validated variants may rescue these in some cases.  Therefore intronic mutations in MAF files are not representative of those called by mutation callers.
+* BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
+* No data from TARGET-MDLS is available.
+* TCGA Projects
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
+    * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
+    * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
+
+
 
 ## Data Release 42.0
 
@@ -114,7 +164,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
 * No data from TARGET-MDLS is available.
 * TCGA Projects
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
 
@@ -191,7 +241,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 * No data from TARGET-MDLS is available.
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
@@ -267,7 +317,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 * No data from TARGET-MDLS is available.
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](tcga-annotations-unavailable-20170315.json).
@@ -374,7 +424,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -461,7 +511,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 * BAM files produced by the GDC RNA-Seq Alignment workflow will currently fail validation using the Picard ValidateSamFiles tool.  This is caused by STAR2 not recording mate mapping information for unmapped reads, which are retained in our BAM files.  Importantly, all affected BAM files are known to behave normally in downstream workflows including expression quantification.
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -550,7 +600,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -654,7 +704,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -741,7 +791,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -831,7 +881,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -909,7 +959,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -996,7 +1046,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -1102,7 +1152,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -1177,7 +1227,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -1259,7 +1309,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -1332,7 +1382,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -1415,7 +1465,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
     * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
     * TCGA Projects
         * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-        * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+        * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
         * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
         * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
         * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -1482,7 +1532,7 @@ A complete list of files for this release are listed for the GDC Data Portal and
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -1559,7 +1609,7 @@ A complete list of files for DR27.0 are listed for the GDC Data Portal and the G
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -1638,7 +1688,7 @@ A complete list of files for DR26.0 are listed for the GDC Data Portal and the G
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -1722,7 +1772,7 @@ A complete list of files for DR26.0 are listed for the GDC Data Portal and the G
     * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
     * TCGA Projects
         * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-        * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+        * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
         * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
         * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
         * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -1800,7 +1850,7 @@ A complete list of files for DR24.0 are listed for the GDC Data Portal and the G
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -1890,7 +1940,7 @@ A complete list of files for DR23.0 are listed for the GDC Data Portal and the G
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -1972,7 +2022,7 @@ A complete list of files for DR22.0 are listed for the GDC Data Portal and the G
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -2049,7 +2099,7 @@ A complete list of files for DR21.0 are listed for the GDC Data Portal and the G
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -2126,7 +2176,7 @@ A complete list of files for DR20.0 are listed for the GDC Data Portal and the G
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -2206,7 +2256,7 @@ A complete list of files for DR19.1 are listed for the GDC Data Portal and the G
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -2286,7 +2336,7 @@ A complete list of files for DR19.0 are listed for the GDC Data Portal and the G
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -2366,7 +2416,7 @@ A complete list of files for DR18.0 are listed for the GDC Data Portal and the G
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -2431,7 +2481,7 @@ A complete list of files for DR17.1 are listed for the GDC Data Portal and the G
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -2505,7 +2555,7 @@ A complete list of files for DR17.0 are listed for the GDC Data Portal and the G
 * Portion "weight" property is incorrectly described in the Data Dictionary as the weight of the patient in kg, should be described as the weight of the portion in mg <!--SV-391-->
 * TCGA Projects
     * Incorrect information about treatment may be included for patients within TCGA-HNSC and TCGA-LGG.  Please refer to the clinical XML for accurate information on treatment <!--DAT-2264, DAT-2265-->
-    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+    * 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
     * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
     * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.<!--TT-602, DAT-1489-->
     * Some TCGA annotations are unavailable in the Legacy Archive or Data Portal<!--DAT-52-->. These annotations can be found [here](https://api.gdc.cancer.gov/data/62461eae-0cc7-4833-bcec-76c73f37858c).
@@ -2576,7 +2626,7 @@ A complete list of files for DR16.0 are listed for the GDC Data Portal and the G
     * TARGET-20-PAMYAS-14A-02D
     * TARGET-10-PAPZST-09A-01D
 * Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release <!--DAT-1589-->
-* 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+* 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
 * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
 * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
 * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.
@@ -2642,7 +2692,7 @@ A complete list of files for DR15.0 are listed for the GDC Data Portal and the G
     * TARGET-20-PAMYAS-14A-02D
     * TARGET-10-PAPZST-09A-01D
 * Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release <!--DAT-1589-->
-* 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+* 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
 * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
 * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
 * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.
@@ -2708,7 +2758,7 @@ A complete list of files for DR14.0 are listed for the GDC Data Portal and the G
     * TARGET-20-PAMYAS-14A-02D
     * TARGET-10-PAPZST-09A-01D
 * Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release <!--DAT-1589-->
-* 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+* 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
 * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
 * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
 * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.
@@ -2779,7 +2829,7 @@ A complete list of files for DR13.0 are listed for the GDC Data Portal and the G
     * TARGET-20-PAMYAS-14A-02D
     * TARGET-10-PAPZST-09A-01D
 * Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release <!--DAT-1589-->
-* 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+* 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
 * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
 * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
 * The raw and annotated VarScan VCF files for aliquot `TCGA-VR-A8ET-01A-11D-A403-09` are not available. These VCFs files will be replaced in a later release.
@@ -2839,7 +2889,7 @@ A complete list of files for DR12.0 are listed for the GDC Data Portal [here](ht
 
 * Some Copy Number Segment and Masked Copy Number Segment were not replaced in DR 12.0.  253 files remain to be swapped in a later release <!--DAT-1404-->
 * Some miRNA files with QC failed reads were not swapped in DR11.0.  361 aliquots remain to be swapped in a later release <!--DAT-1589-->
-* 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. The reflects how these original samples were handled. <!--SV-1111-->
+* 74 Diagnostic TCGA slides are attached to a portion rather than a sample like the rest of the diagnostic slides. This reflects how these original samples were handled. <!--SV-1111-->
 * 36 Diagnostic TCGA slides are not yet available in the active GDC Portal. They are still available in the GDC Legacy Archive.  <!--SV-1109-->
 * 11 BAM files for TARGET-NBL RNA-Seq are not available in the GDC Data portal <!--DAT-1476-->
 * Two tissue slide images are unavailable for download from GDC Data Portal <!--DAT-1439-->
