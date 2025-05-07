@@ -1976,7 +1976,7 @@ The first step is to construct a JSON query object, including `filters`, `fields
             "op":"in",
             "content":{
                 "field":"files.file_id",
-                "value": [
+                "value":[
                     "b4bce3ff-7fdc-4849-880b-56f2b348ceac",
                     "5ca9fa79-53bc-4e91-82cd-5715038ee23e",
                     "b7c3e5ad-4ffc-4fc4-acbf-1dfcbd2e5382",
