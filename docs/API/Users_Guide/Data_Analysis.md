@@ -915,7 +915,7 @@ __Example 2:__ A user is interested in the first cnv occurrence (`3b9f7ecc-2280-
 === "Shell"
 
     ```Shell
-    curl 'https://api.gdc.cancer.gov/cnv_occurrences/3b9f7ecc-2280-5b89-80f9-ec8d6c5e604e?pretty=true&expand=cnv,case,case.exposures,case.demographic'
+    curl 'https://api.gdc.cancer.gov/cnv_occurrences/0003f550-20f2-5bd0-ac63-8ac554a5a9cc?pretty=true&expand=cnv,case,case.exposures,case.demographic'
     ```
 
 === "Json"
@@ -924,52 +924,41 @@ __Example 2:__ A user is interested in the first cnv occurrence (`3b9f7ecc-2280-
     {
       "data": {
         "cnv": {
-          "start_position": 68815994,
-          "gene_level_cn": true,
-          "cnv_change": "Gain",
-          "ncbi_build": "GRCh38",
-          "chromosome": "4",
-          "variant_status": "Tumor Only",
-          "cnv_id": "1a889109-30d5-51e3-848f-9f615c69f407",
-          "end_position": 68832023
-        },
-        "cnv_occurrence_id": "3b9f7ecc-2280-5b89-80f9-ec8d6c5e604e",
+          "start_position": 7661779, 
+          "gene_level_cn": true, 
+          "cnv_change": "Gain", 
+          "ncbi_build": "GRCh38", 
+          "chromosome": "17", 
+          "variant_status": "Tumor Only", 
+          "cnv_id": "40104505-22bf-5a64-b1fb-6ffde5be6d48", 
+          "cnv_change_5_category": "Gain", 
+          "end_position": 7687538
+        }, 
+        "cnv_occurrence_id": "0003f550-20f2-5bd0-ac63-8ac554a5a9cc", 
         "case": {
-          "exposures": [
-            {
-              "cigarettes_per_day": 5.47945205479452,
-              "alcohol_history": "Not Reported",
-              "exposure_id": "f7b08a8e-d22b-5cb0-be9f-b922c9ca87d2",
-              "submitter_id": "TCGA-38-4629_exposure",
-              "state": "released",
-              "pack_years_smoked": 100.0
-            }
-          ],
-          "primary_site": "Bronchus and lung",
-          "disease_type": "Adenomas and Adenocarcinomas",
+          "primary_site": "Hematopoietic and reticuloendothelial systems", 
+          "disease_type": "Acute Lymphoblastic Leukemia", 
           "available_variation_data": [
-            "cnv",
+            "cnv", 
             "ssm"
-          ],
-          "case_id": "127bf818-f7e5-46b5-a9de-39f6d96b8b83",
-          "submitter_id": "TCGA-38-4629",
-          "state": "released",
+          ], 
+          "case_id": "590e60b7-ef2d-4e9f-8680-982f82c8c938", 
+          "submitter_id": "MP2PRT-PARTLU", 
+          "state": "released", 
           "demographic": {
-            "demographic_id": "9ea1f795-9510-5acc-a9a5-bf1379e6635a",
-            "ethnicity": "not hispanic or latino",
-            "gender": "male",
-            "race": "white",
-            "vital_status": "Dead",
-            "age_at_index": 68,
-            "submitter_id": "TCGA-38-4629_demographic",
-            "days_to_death": 864,
-            "days_to_birth": -25104,
-            "state": "released",
-            "year_of_death": 2005,
-            "year_of_birth": 1935
+            "demographic_id": "3dddccc5-212f-477b-bd25-496647a480be", 
+            "ethnicity": "not hispanic or latino", 
+            "gender": "male", 
+            "race": "white", 
+            "vital_status": "Alive", 
+            "age_at_index": 4, 
+            "submitter_id": "MP2PRT-PARTLU_demo", 
+            "days_to_birth": -1532, 
+            "state": "released", 
+            "year_of_birth": 2003
           }
         }
-      },
+      }, 
       "warnings": {}
     }
     ```
