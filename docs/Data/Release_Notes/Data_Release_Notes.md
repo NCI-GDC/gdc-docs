@@ -71,9 +71,9 @@
 
 A complete list of files included in the GDC Data Portal can be found below:
 
-* [XXXXX](https://api.gdc.cancer.gov/data/XXXXXXX)
-* [DR43 Project Level Manifests](https://api.gdc.cancer.gov/data/XXXXXX)
-* [DR43 New Files Manifest](https://api.gdc.cancer.gov/data/XXXXXXXX)
+* [gdc_manifest_20250507_data_release_43.0_active.tsv.gz](https://api.gdc.cancer.gov/data/2b536971-ec88-457b-90c8-903e55a35998)
+* [DR43 Project Level Manifests](https://api.gdc.cancer.gov/data/fe4a1941-1e1e-4974-99d3-e0a265d3e8c0)
+* [DR43 New Files Manifest](https://api.gdc.cancer.gov/data/43ae13c4-1aff-43c4-9532-08b77cd76599)
 
 ### Bugs Fixed Since Last Release
 
