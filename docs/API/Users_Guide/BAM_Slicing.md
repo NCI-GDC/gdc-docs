@@ -199,10 +199,7 @@ For example, when making a request for a protected BAM without supplying a GDC a
 
 === "Response"
     ```
-    HTTP/1.1 403 FORBIDDEN
-    {
-        "error": "Please specify a X-Auth-Token"
-    }
+    {"error":"Your token is invalid or expired. Please get a new token from GDC Data Portal.","message":"Your token is invalid or expired. Please get a new token from GDC Data Portal."}
     ```
 
 ### HTTP error codes
