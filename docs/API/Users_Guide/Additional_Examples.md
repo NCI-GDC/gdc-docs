@@ -13,7 +13,7 @@ This example is a query for Projects contained in GDC. It returns only the first
 === "Query"
 
     ```shell
-    curl 'https://api.gdc.cancer.gov/projects?from=0&size=5&sort=project.name:asc&pretty=true'
+    curl 'https://api.gdc.cancer.gov/projects?from=0&size=5&sort=name:asc&pretty=true'
     ```
 
 === "Response"
@@ -23,51 +23,97 @@ This example is a query for Projects contained in GDC. It returns only the first
       "data": {
         "hits": [
           {
-            "state": "legacy",
-            "project_id": "TARGET-AML",
-            "primary_site": "Blood",
-            "disease_type": "Acute Myeloid Leukemia",
-            "name": "Acute Myeloid Leukemia"
-          },
+            "id": "APOLLO-LUAD", 
+            "primary_site": [
+              "Bronchus and lung"
+            ], 
+            "dbgap_accession_number": "phs003011", 
+            "project_id": "APOLLO-LUAD", 
+            "disease_type": [
+              "Adenomas and Adenocarcinomas"
+            ], 
+            "name": "APOLLO1: Proteogenomic characterization of lung adenocarcinoma", 
+            "releasable": false, 
+            "state": "open", 
+            "released": true
+          }, 
           {
-            "state": "legacy",
-            "project_id": "TCGA-LAML",
-            "primary_site": "Blood",
-            "disease_type": "Acute Myeloid Leukemia",
-            "name": "Acute Myeloid Leukemia"
-          },
+            "id": "TARGET-ALL-P1", 
+            "primary_site": [
+              "Hematopoietic and reticuloendothelial systems"
+            ], 
+            "dbgap_accession_number": "phs000463", 
+            "project_id": "TARGET-ALL-P1", 
+            "disease_type": [
+              "Lymphoid Leukemias"
+            ], 
+            "name": "Acute Lymphoblastic Leukemia - Phase I", 
+            "releasable": true, 
+            "state": "open", 
+            "released": true
+          }, 
           {
-            "state": "legacy",
-            "project_id": "TARGET-AML-IF",
-            "primary_site": "Blood",
-            "disease_type": "Acute Myeloid Leukemia Induction Failure",
-            "name": "Acute Myeloid Leukemia Induction Failure"
-          },
+            "id": "TARGET-ALL-P2", 
+            "primary_site": [
+              "Hematopoietic and reticuloendothelial systems"
+            ], 
+            "dbgap_accession_number": "phs000464", 
+            "project_id": "TARGET-ALL-P2", 
+            "disease_type": [
+              "Lymphoid Leukemias"
+            ], 
+            "name": "Acute Lymphoblastic Leukemia - Phase II", 
+            "releasable": true, 
+            "state": "open", 
+            "released": true
+          }, 
           {
-            "state": "legacy",
-            "project_id": "TARGET-ALL-P2",
-            "primary_site": "Blood",
-            "disease_type": "Acute Lymphoblastic Leukemia",
-            "name": "Acute Lymphoblastic Leukemia - Phase II"
-          },
+            "id": "TARGET-ALL-P3", 
+            "primary_site": [
+              "Unknown", 
+              "Hematopoietic and reticuloendothelial systems"
+            ], 
+            "dbgap_accession_number": null, 
+            "project_id": "TARGET-ALL-P3", 
+            "disease_type": [
+              "Myeloid Leukemias", 
+              "Not Applicable", 
+              "Lymphoid Leukemias", 
+              "Leukemias, NOS"
+            ], 
+            "name": "Acute Lymphoblastic Leukemia - Phase III", 
+            "releasable": true, 
+            "state": "open", 
+            "released": true
+          }, 
           {
-            "state": "legacy",
-            "project_id": "TARGET-ALL-P1",
-            "primary_site": "Blood",
-            "disease_type": "Acute Lymphoblastic Leukemia",
-            "name": "Acute Lymphoblastic Leukemia - Phase I"
+            "id": "TARGET-AML", 
+            "primary_site": [
+              "Hematopoietic and reticuloendothelial systems", 
+              "Unknown"
+            ], 
+            "dbgap_accession_number": "phs000465", 
+            "project_id": "TARGET-AML", 
+            "disease_type": [
+              "Not Applicable", 
+              "Myeloid Leukemias"
+            ], 
+            "name": "Acute Myeloid Leukemia", 
+            "releasable": true, 
+            "state": "open", 
+            "released": true
           }
-        ],
+        ], 
         "pagination": {
-          "count": 5,
-          "sort": "project.name:asc",
-          "from": 0,
-          "pages": 10,
-          "total": 46,
-          "page": 1,
-          "size": 5
+          "count": 5, 
+          "total": 86, 
+          "size": 5, 
+          "from": 0, 
+          "sort": "None", 
+          "page": 1, 
+          "pages": 18
         }
-      },
+      }, 
       "warnings": {}
     }
     ```
@@ -826,7 +872,7 @@ This section contains additional examples for using the `filters` parameter.
 
 #### Example: Basic syntax
 
-The following is an example of `filters` syntax, including the JSON object passed to the `filters` parameter, the corresponding API query, and the JSON object returned by the API. The example finds projects where the primary site is Blood.
+The following is an example of `filters` syntax, including the JSON object passed to the `filters` parameter, the corresponding API query, and the JSON object returned by the API. The example finds projects where the primary site is Brain.
 
 === "Filter"
     
@@ -839,7 +885,7 @@ The following is an example of `filters` syntax, including the JSON object passe
           "content": {
             "field": "primary_site",
             "value": [
-              "Blood"
+              "Brain"
             ]
           }
         }
@@ -850,7 +896,7 @@ The following is an example of `filters` syntax, including the JSON object passe
 === "Query"
 
     ```shell
-    curl 'https://api.gdc.cancer.gov/projects?filters=%7b%0d%0a++%22op%22%3a+%22and%22%2c%0d%0a++%22content%22%3a+%5b%0d%0a++++%7b%0d%0a++++++%22op%22%3a+%22in%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++%22field%22%3a+%22primary_site%22%2c%0d%0a++++++++%22value%22%3a+%5b%0d%0a++++++++++%22Blood%22%0d%0a++++++++%5d%0d%0a++++++%7d%0d%0a++++%7d%0d%0a++%5d%0d%0a%7d&pretty=true'
+    curl 'https://api.gdc.cancer.gov/projects?filters=%7b%0d%0a++%22op%22%3a+%22and%22%2c%0d%0a++%22content%22%3a+%5b%0d%0a++++%7b%0d%0a++++++%22op%22%3a+%22in%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++%22field%22%3a+%22primary_site%22%2c%0d%0a++++++++%22value%22%3a+%5b%0d%0a++++++++++%22Brain%22%0d%0a++++++++%5d%0d%0a++++++%7d%0d%0a++++%7d%0d%0a++%5d%0d%0a%7d&pretty=true'
     ```
 
 === "Response"
@@ -860,30 +906,401 @@ The following is an example of `filters` syntax, including the JSON object passe
       "data": {
         "hits": [
           {
-            "dbgap_accession_number": "phs000465",
-            "disease_type": [
-              "Acute Myeloid Leukemia"
-            ],
-            "released": true,
-            "state": "legacy",
+            "id": "HCMI-CMDC", 
             "primary_site": [
-              "Blood"
-            ],
-            "project_id": "TARGET-AML",
-            "id": "TARGET-AML",
-            "name": "Acute Myeloid Leukemia"
+              "Stomach", 
+              "Uterus, NOS", 
+              "Connective, subcutaneous and other soft tissues", 
+              "Skin", 
+              "Other and ill-defined sites", 
+              "Brain", 
+              "Bones, joints and articular cartilage of other and unspecified sites", 
+              "Ovary", 
+              "Other and unspecified parts of biliary tract", 
+              "Other and unspecified parts of tongue", 
+              "Corpus uteri", 
+              "Rectosigmoid junction", 
+              "Pancreas", 
+              "Small intestine", 
+              "Gallbladder", 
+              "Kidney", 
+              "Nasal cavity and middle ear", 
+              "Esophagus", 
+              "Liver and intrahepatic bile ducts", 
+              "Other and unspecified parts of mouth", 
+              "Rectum", 
+              "Colon", 
+              "Bronchus and lung", 
+              "Breast"
+            ], 
+            "dbgap_accession_number": null, 
+            "project_id": "HCMI-CMDC", 
+            "disease_type": [
+              "Soft Tissue Tumors and Sarcomas, NOS", 
+              "Complex Mixed and Stromal Neoplasms", 
+              "Acinar Cell Neoplasms", 
+              "Squamous Cell Neoplasms", 
+              "Osseous and Chondromatous Neoplasms", 
+              "Cystic, Mucinous and Serous Neoplasms", 
+              "Fibromatous Neoplasms", 
+              "Ductal and Lobular Neoplasms", 
+              "Gliomas", 
+              "Epithelial Neoplasms, NOS", 
+              "Blood Vessel Tumors", 
+              "Myomatous Neoplasms", 
+              "Complex Epithelial Neoplasms", 
+              "Adenomas and Adenocarcinomas", 
+              "Nevi and Melanomas", 
+              "Miscellaneous Bone Tumors"
+            ], 
+            "name": "NCI Cancer Model Development for the Human Cancer Model Initiative", 
+            "releasable": true, 
+            "state": "open", 
+            "released": true
+          }, 
+          {
+            "id": "CPTAC-3", 
+            "primary_site": [
+              "Bronchus and lung", 
+              "Breast", 
+              "Uterus, NOS", 
+              "Other and ill-defined sites", 
+              "Unknown", 
+              "Kidney", 
+              "Colon", 
+              "Other and unspecified urinary organs", 
+              "Brain", 
+              "Pancreas"
+            ], 
+            "dbgap_accession_number": "phs001287", 
+            "project_id": "CPTAC-3", 
+            "disease_type": [
+              "Squamous Cell Neoplasms", 
+              "Gliomas", 
+              "Adenomas and Adenocarcinomas", 
+              "Epithelial Neoplasms, NOS", 
+              "Ductal and Lobular Neoplasms", 
+              "Transitional Cell Papillomas and Carcinomas", 
+              "Complex Epithelial Neoplasms", 
+              "Not Applicable", 
+              "Nevi and Melanomas", 
+              "Lipomatous Neoplasms", 
+              "Complex Mixed and Stromal Neoplasms"
+            ], 
+            "name": "CPTAC-Brain, Head and Neck, Kidney, Lung, Pancreas, Uterus", 
+            "releasable": true, 
+            "state": "open", 
+            "released": true
+          }, 
+          {
+            "id": "MATCH-W", 
+            "primary_site": [
+              "Prostate gland", 
+              "Rectum", 
+              "Anus and anal canal", 
+              "Bladder", 
+              "Gallbladder", 
+              "Pancreas", 
+              "Breast", 
+              "Other and unspecified female genital organs", 
+              "Thyroid gland", 
+              "Bronchus and lung", 
+              "Cervix uteri", 
+              "Other and unspecified urinary organs", 
+              "Corpus uteri", 
+              "Parotid gland", 
+              "Liver and intrahepatic bile ducts", 
+              "Brain", 
+              "Renal pelvis", 
+              "Other and unspecified major salivary glands"
+            ], 
+            "dbgap_accession_number": "phs001948", 
+            "project_id": "MATCH-W", 
+            "disease_type": [
+              "Adenomas and Adenocarcinomas", 
+              "Ductal and Lobular Neoplasms", 
+              "Epithelial Neoplasms, NOS", 
+              "Neoplasms, NOS", 
+              "Cystic, Mucinous and Serous Neoplasms", 
+              "Squamous Cell Neoplasms", 
+              "Gliomas", 
+              "Transitional Cell Papillomas and Carcinomas"
+            ], 
+            "name": "Genomic Characterization CS-MATCH-0007 Arm W", 
+            "releasable": false, 
+            "state": "open", 
+            "released": true
+          }, 
+          {
+            "id": "MATCH-Z1D", 
+            "primary_site": [
+              "Small intestine", 
+              "Prostate gland", 
+              "Thyroid gland", 
+              "Other and unspecified female genital organs", 
+              "Bones, joints and articular cartilage of other and unspecified sites", 
+              "Stomach", 
+              "Uterus, NOS", 
+              "Liver and intrahepatic bile ducts", 
+              "Corpus uteri", 
+              "Esophagus", 
+              "Other endocrine glands and related structures", 
+              "Brain", 
+              "Breast", 
+              "Other and unspecified major salivary glands", 
+              "Other and unspecified parts of biliary tract"
+            ], 
+            "dbgap_accession_number": "phs001859", 
+            "project_id": "MATCH-Z1D", 
+            "disease_type": [
+              "Complex Mixed and Stromal Neoplasms", 
+              "Myomatous Neoplasms", 
+              "Ductal and Lobular Neoplasms", 
+              "Neoplasms, NOS", 
+              "Cystic, Mucinous and Serous Neoplasms", 
+              "Squamous Cell Neoplasms", 
+              "Gliomas", 
+              "Adenomas and Adenocarcinomas"
+            ], 
+            "name": "Genomic Characterization CS-MATCH-0007 Arm Z1D", 
+            "releasable": false, 
+            "state": "open", 
+            "released": true
+          }, 
+          {
+            "id": "MATCH-U", 
+            "primary_site": [
+              "Ovary", 
+              "Bronchus and lung", 
+              "Connective, subcutaneous and other soft tissues", 
+              "Other and unspecified female genital organs", 
+              "Heart, mediastinum, and pleura", 
+              "Meninges", 
+              "Cervix uteri", 
+              "Liver and intrahepatic bile ducts", 
+              "Brain", 
+              "Kidney", 
+              "Other and unspecified parts of biliary tract"
+            ], 
+            "dbgap_accession_number": "phs002179", 
+            "project_id": "MATCH-U", 
+            "disease_type": [
+              "Mesothelial Neoplasms", 
+              "Fibromatous Neoplasms", 
+              "Epithelial Neoplasms, NOS", 
+              "Neoplasms, NOS", 
+              "Nerve Sheath Tumors", 
+              "Squamous Cell Neoplasms", 
+              "Adenomas and Adenocarcinomas"
+            ], 
+            "name": "Genomic Characterization CS-MATCH-0007 Arm U", 
+            "releasable": false, 
+            "state": "open", 
+            "released": true
+          }, 
+          {
+            "id": "MATCH-H", 
+            "primary_site": [
+              "Colon", 
+              "Ovary", 
+              "Anus and anal canal", 
+              "Bronchus and lung", 
+              "Pancreas", 
+              "Other and unspecified female genital organs", 
+              "Unknown", 
+              "Bones, joints and articular cartilage of other and unspecified sites", 
+              "Other and ill-defined digestive organs", 
+              "Liver and intrahepatic bile ducts", 
+              "Brain"
+            ], 
+            "dbgap_accession_number": "phs001888", 
+            "project_id": "MATCH-H", 
+            "disease_type": [
+              "Epithelial Neoplasms, NOS", 
+              "Neoplasms, NOS", 
+              "Gliomas", 
+              "Adenomas and Adenocarcinomas"
+            ], 
+            "name": "Genomic Characterization CS-MATCH-0007 Arm H", 
+            "releasable": false, 
+            "state": "open", 
+            "released": true
+          }, 
+          {
+            "id": "MATCH-N", 
+            "primary_site": [
+              "Small intestine", 
+              "Base of tongue", 
+              "Prostate gland", 
+              "Bronchus and lung", 
+              "Oropharynx", 
+              "Unknown", 
+              "Cervix uteri", 
+              "Corpus uteri", 
+              "Kidney", 
+              "Brain", 
+              "Breast"
+            ], 
+            "dbgap_accession_number": "phs002151", 
+            "project_id": "MATCH-N", 
+            "disease_type": [
+              "Complex Mixed and Stromal Neoplasms", 
+              "Myomatous Neoplasms", 
+              "Ductal and Lobular Neoplasms", 
+              "Epithelial Neoplasms, NOS", 
+              "Neoplasms, NOS", 
+              "Cystic, Mucinous and Serous Neoplasms", 
+              "Squamous Cell Neoplasms", 
+              "Gliomas", 
+              "Adenomas and Adenocarcinomas"
+            ], 
+            "name": "Genomic Characterization CS-MATCH-0007 Arm N", 
+            "releasable": false, 
+            "state": "open", 
+            "released": true
+          }, 
+          {
+            "id": "MATCH-I", 
+            "primary_site": [
+              "Colon", 
+              "Prostate gland", 
+              "Other and unspecified female genital organs", 
+              "Esophagus", 
+              "Cervix uteri", 
+              "Liver and intrahepatic bile ducts", 
+              "Ovary", 
+              "Anus and anal canal", 
+              "Base of tongue", 
+              "Nasopharynx", 
+              "Brain", 
+              "Kidney", 
+              "Skin", 
+              "Other and unspecified major salivary glands", 
+              "Rectum", 
+              "Bronchus and lung", 
+              "Connective, subcutaneous and other soft tissues", 
+              "Oropharynx", 
+              "Unknown", 
+              "Vagina", 
+              "Corpus uteri", 
+              "Retroperitoneum and peritoneum", 
+              "Other and unspecified parts of mouth", 
+              "Rectosigmoid junction", 
+              "Tonsil", 
+              "Accessory sinuses"
+            ], 
+            "dbgap_accession_number": "phs002181", 
+            "project_id": "MATCH-I", 
+            "disease_type": [
+              "Soft Tissue Tumors and Sarcomas, NOS", 
+              "Myomatous Neoplasms", 
+              "Nevi and Melanomas", 
+              "Epithelial Neoplasms, NOS", 
+              "Neoplasms, NOS", 
+              "Squamous Cell Neoplasms", 
+              "Osseous and Chondromatous Neoplasms", 
+              "Gliomas", 
+              "Adenomas and Adenocarcinomas"
+            ], 
+            "name": "Genomic Characterization CS-MATCH-0007 Arm I", 
+            "releasable": false, 
+            "state": "open", 
+            "released": true
+          }, 
+          {
+            "id": "MATCH-S1", 
+            "primary_site": [
+              "Colon", 
+              "Ovary", 
+              "Rectum", 
+              "Small intestine", 
+              "Gallbladder", 
+              "Bronchus and lung", 
+              "Connective, subcutaneous and other soft tissues", 
+              "Other and unspecified female genital organs", 
+              "Parotid gland", 
+              "Unknown", 
+              "Stomach", 
+              "Liver and intrahepatic bile ducts", 
+              "Other and ill-defined sites in lip, oral cavity and pharynx", 
+              "Peripheral nerves and autonomic nervous system", 
+              "Corpus uteri", 
+              "Brain", 
+              "Breast", 
+              "Skin"
+            ], 
+            "dbgap_accession_number": "phs002153", 
+            "project_id": "MATCH-S1", 
+            "disease_type": [
+              "Complex Mixed and Stromal Neoplasms", 
+              "Soft Tissue Tumors and Sarcomas, NOS", 
+              "Myomatous Neoplasms", 
+              "Ductal and Lobular Neoplasms", 
+              "Epithelial Neoplasms, NOS", 
+              "Neoplasms, NOS", 
+              "Nerve Sheath Tumors", 
+              "Squamous Cell Neoplasms", 
+              "Gliomas", 
+              "Adenomas and Adenocarcinomas"
+            ], 
+            "name": "Genomic Characterization CS-MATCH-0007 Arm S1", 
+            "releasable": false, 
+            "state": "open", 
+            "released": true
+          }, 
+          {
+            "id": "EXCEPTIONAL_RESPONDERS-ER", 
+            "primary_site": [
+              "Colon", 
+              "Other and unspecified female genital organs", 
+              "Esophagus", 
+              "Other and ill-defined digestive organs", 
+              "Ovary", 
+              "Anus and anal canal", 
+              "Pancreas", 
+              "Brain", 
+              "Breast", 
+              "Kidney", 
+              "Skin", 
+              "Rectum", 
+              "Bladder", 
+              "Bronchus and lung", 
+              "Connective, subcutaneous and other soft tissues", 
+              "Unknown", 
+              "Uterus, NOS", 
+              "Stomach", 
+              "Other and unspecified parts of biliary tract", 
+              "Other and ill-defined sites"
+            ], 
+            "dbgap_accession_number": null, 
+            "project_id": "EXCEPTIONAL_RESPONDERS-ER", 
+            "disease_type": [
+              "Complex Mixed and Stromal Neoplasms", 
+              "Myomatous Neoplasms", 
+              "Ductal and Lobular Neoplasms", 
+              "Nevi and Melanomas", 
+              "Epithelial Neoplasms, NOS", 
+              "Neoplasms, NOS", 
+              "Squamous Cell Neoplasms", 
+              "Gliomas", 
+              "Adenomas and Adenocarcinomas"
+            ], 
+            "name": "Exceptional Responders", 
+            "releasable": false, 
+            "state": "open", 
+            "released": true
           }
-        ],
+        ], 
         "pagination": {
-          "count": 1,
-          "sort": "",
-          "from": 0,
-          "page": 1,
-          "total": 1,
-          "pages": 1,
-          "size": 10
+          "count": 10, 
+          "total": 14, 
+          "size": 10, 
+          "from": 0, 
+          "sort": "", 
+          "page": 1, 
+          "pages": 2
         }
-      },
+      }, 
       "warnings": {}
     }
     ```
