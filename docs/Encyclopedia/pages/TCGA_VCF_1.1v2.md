@@ -118,7 +118,7 @@ been modified
 | **Customization type** | **Description**                                                                                                                                                              | **Validation step # in TCGA-VCF 1.1 spec** | **Corresponding validation step # in VCF 4.1 spec** |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|------------------------------------------------------|
 | New                    | Validate that file contains ##tcgaversion HEADER line. Its presence indicates that the file is TCGA VCF and the value assigned to the field contains format version number | \---                                        | \---                                                 |
-| New                    | Additional mandatory header lines (Please refer to [Table 2](#TCGAVariantCallFormat(VCF)1.1Specificat))                                                                      | \#1                                         | \#1                                                  |
+| New                    | Additional mandatory header lines (Please refer to Table 2)                                                                      | \#1                                         | \#1                                                  |
 | New                    | Validation of SAMPLE meta-information lines                                                                                                                                  | \#15                                        | \---                                                 |
 | New                    | Validation of PEDIGREE meta-information lines                                                                                                                                | \#16                                        | \---                                                 |
 | Modification           | Acceptable value set for CHROM has been modified                                                                                                                             | \#18a,b                                     | \#16a                                                |
@@ -876,12 +876,12 @@ Line21 3 18901 rs456 T C 15 PASS NS=3/DB GT 0/1 1/1
 \#\#tcgaversion HEADER line (e.g., \#\#tcgaversion=1.1). The current acceptable
 version is 1.1.
 
-1.  Mandatory [header lines](#TCGAVariantCallFormat(VCF)1.1Specificat) should be
+1.  Mandatory header lines should be
     present.
 
 2.  All meta-information header lines should be prefixed with "\#\#".
 
-3.  [Column header](#TCGAVariantCallFormat(VCF)1.1Specificat) line should be
+3.  Column header line should be
     prefixed with "\#". A VCF file can contain only a single column header line
     that must contain all required field names.
 
@@ -892,9 +892,7 @@ version is 1.1.
 
 5.  HEADER lines cannot be present within the BODY of a file and vice-versa.
 
-6.  [INFO](#TCGAVariantCallFormat(VCF)1.1Specificat),
-    [FORMAT](#TCGAVariantCallFormat(VCF)1.1Specificat) and
-    [FILTER](#TCGAVariantCallFormat(VCF)1.1Specificat)declarations should follow
+6.  INFO, FORMAT and FILTER declarations should follow
     the format below where all keys are required but the order of keys is
     irrelevant.
 
@@ -905,9 +903,7 @@ version is 1.1.
 9.  \#\#FILTER=<ID=id,Description="description"\>
 
 10. Values assigned to *ID, Number, Type* and *Description* in INFO, FORMAT or
-    FILTER declarations should follow the rules listed below. A detailed
-    description of the declaration format is provided
-    [here](#TCGAVariantCallFormat(VCF)1.1Specificat).
+    FILTER declarations should follow the rules listed below.
 
     1.  If an INFO or FORMAT sub-field exists in Table 4 or 5 respectively (i.e.
         ID of the sub-field matches value in "Sub-field" column of the table)
@@ -1061,8 +1057,7 @@ version is 1.1.
         declaration in the HEADER. Line18 shows a violation as "q10" does not
         have an associated definition in the HEADER.
 
-18. <TCGA-VCF\> Validation of
-    [SAMPLE](#TCGAVariantCallFormat(VCF)1.1Specificat) meta-information lines:
+18. <TCGA-VCF\> Validation of SAMPLE meta-information lines:
 
     1.  Each sample ID in the column header (immediately after FORMAT column)
         must have an associated HEADER declaration where value assigned to "ID"
@@ -1095,8 +1090,7 @@ version is 1.1.
         barcode](https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/) / [UUID](https://docs.gdc.cancer.gov/Encyclopedia/pages/UUID/)
         in the database (TCGA VCF 1.1).
 
-19. <TCGA-VCF\> Validation of
-    [PEDIGREE](#TCGAVariantCallFormat(VCF)1.1Specificat) meta-information lines:
+19. <TCGA-VCF\> Validation of PEDIGREE meta-information lines:
 
     1.  Declaration line should follow the format:
 
@@ -1149,8 +1143,7 @@ version is 1.1.
     OR if *value* is within angle brackets.
 
 1.  *CHROM*, *POS*, and *REF* are required fields and cannot contain missing
-    value identifiers. Please refer to [Table
-    6](#TCGAVariantCallFormat(VCF)1.1Specificat) for acceptable values.
+    value identifiers. Please refer to Table 6 for acceptable values.
 
     1.  <TCGA-VCF\> *CHROM* is in {[1-22], X, Y, MT,<chr_ID\>} where chr_ID
         cannot contain whitespace or <\>
@@ -1257,8 +1250,7 @@ version is 1.1.
         would lead to a violation as the 2nd value for RGN is "intron" but the
         corresponding TE value is "SIL" instead of "NA".
 
-11. <TCGA-VCF\> Validation of
-    [vcfProcessLog](#TCGAVariantCallFormat(VCF)1.1Specificat) tags:
+11. <TCGA-VCF\> Validation of vcfProcessLog tags:
 
 \#\#vcfProcessLog=<InputVCF=<file1.vcf\>,InputVCFSource=<varCaller1\>,InputVCFVer=<1.0>,InputVCFParam=<a1,c2\>,InputVCFgeneAnno=<anno1.gaf\>\>
 
