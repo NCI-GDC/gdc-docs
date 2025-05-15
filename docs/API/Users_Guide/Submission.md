@@ -2,7 +2,7 @@
 
 ## Overview
 
-The GDC Submission API uses methods and endpoints that are distinct from those that drive the functionality of the GDC Data Portal. In particular, data and metadata that are in the process of being submitted can only be queried using [GraphQL](#querying-submitted-data-and-metadata-using-graphql), and not the methods described in [Search and Retrieval](Search_and_Retrieval.md).
+The GDC Submission API uses methods and endpoints that are distinct from those that drive the functionality of the GDC Data Portal. In particular, data and metadata that are in the process of being submitted can only be queried using [GraphQL](#querying-submitted-data-using-graphql), and not the methods described in [Search and Retrieval](Search_and_Retrieval.md).
 
 This section describes the GDC API's submission functionality, including methods for submitting, deleting, updating, searching, and retrieving data and metadata.
 
@@ -254,7 +254,7 @@ To close a transaction, submit a POST or PUT request to `/submission/Program.nam
 
 ### Asynchronous Transactions
 
-The `submission` endpoint provides an asynchronous mode that provides immediate response and executes submission transactions in the background. This mode is activated by appending `?async=true` to the end of a submission endpoint.  The API will respond with the `transaction_id` which can be used to look up the result of the transaction at a later time via the [GraphQL](#querying-submitted-data-and-metadata-using-graphql) endpoint.  If the server has too many asynchronous jobs scheduled already, your request to schedule a transaction may fail.
+The `submission` endpoint provides an asynchronous mode that provides immediate response and executes submission transactions in the background. This mode is activated by appending `?async=true` to the end of a submission endpoint.  The API will respond with the `transaction_id` which can be used to look up the result of the transaction at a later time via the [GraphQL](#querying-submitted-data-using-graphql) endpoint.  If the server has too many asynchronous jobs scheduled already, your request to schedule a transaction may fail.
 
 #### Example
 
@@ -293,7 +293,7 @@ The following is an example of a PUT request, that creates a case asynchronously
     }
     ```
 
-The following is a [GraphQL](#querying-submitted-data-and-metadata-using-graphql) request that looks up the state of the above transaction:
+The following is a [GraphQL](#querying-submitted-data-using-graphql) request that looks up the state of the above transaction:
 
 === "GraphQL_Request"
 
@@ -325,7 +325,7 @@ The following is a [GraphQL](#querying-submitted-data-and-metadata-using-graphql
 
 #### Transaction Status
 
-The following transaction fields can be queried using [GraphQL](#querying-submitted-data-and-metadata-using-graphql) and are helpful in determining the status of a transaction:
+The following transaction fields can be queried using [GraphQL](#querying-submitted-data-using-graphql) and are helpful in determining the status of a transaction:
 
 |Field|Type|Description|
 |---|---|---|

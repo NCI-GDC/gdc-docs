@@ -81,7 +81,7 @@ The following search and retrieval endpoints are available in the GDC API:
 | [history](/API/Users_Guide/Search_and_Retrieval/#history-endpoint) | Information related to file version history |
 | [projects](/API/Users_Guide/Search_and_Retrieval/#project-endpoint) | Information about projects |
 | [annotations](/API/Users_Guide/Search_and_Retrieval/#annotations-endpoint) | Information about annotations to GDC data |
-| \_mapping | Information about elements that can be used to query other endpoints |
+| [\_mapping](/API/Users_Guide/Search_and_Retrieval/#_mapping-endpoint) | Information about elements that can be used to query other endpoints |
 
 The choice of endpoint determines what is listed in the search results. The `files` endpoint will generate a list of files, whereas the `cases` endpoint will generate a list of cases. Each of the above endpoints, other than `_mapping`, can query and return any of the related fields in the [GDC Data Model](../../Data/Data_Model/GDC_Data_Model.md). So the `cases` endpoint can be queried for file fields (e.g. to look for cases that have certain types of experimental data), and the `files` endpoint can be queried for clinical metadata associated with a case (e.g. to look for files from cases diagnosed with a specific cancer type).
 
@@ -89,7 +89,7 @@ The choice of endpoint determines what is listed in the search results. The `fil
 The `projects` endpoint provides access to project records, the highest level of data organization in the GDC.
 
 #### Example
-This example is a query for projects contained in the GDC. It uses the [from](#from), [size](#size), [sort](#sort), and [pretty](#pretty) parameters, and returns the first two projects sorted by project id.
+This example is a query for projects contained in the GDC. It uses the [from](#size-and-from), [size](#size-and-from), [sort](#sort), and [pretty](#pretty) parameters, and returns the first two projects sorted by project id.
 
 === "Shell"
 
@@ -276,7 +276,7 @@ The GDC Files Endpoint `https://api.gdc.cancer.gov/files` enables search and ret
 
 #### Example
 
-This example is a query for files contained in the GDC. It uses the [from](#from), [size](#size), [sort](#sort), and [pretty](#pretty) parameters, and returns only the first two files, sorted by file size, from smallest to largest.
+This example is a query for files contained in the GDC. It uses the [from](#size-and-from), [size](#size-and-from), [sort](#sort), and [pretty](#pretty) parameters, and returns only the first two files, sorted by file size, from smallest to largest.
 
 === "Shell"
 
@@ -584,7 +584,7 @@ The `cases` endpoint is designed to retrieve the metadata associated with one or
 
 #### Example
 
-This example is a query for files contained in GDC. It returns case where submitter id is `TCGA-BH-A0EA`, using the [pretty](#pretty) and [filters](#filters) parameters and the following [filtering operators](#filtering-operators):
+This example is a query for files contained in GDC. It returns case where submitter id is `TCGA-BH-A0EA`, using the [pretty](#pretty) and [filters](#filters-specifying-the-query) parameters and the following [filtering operators](#query-format):
 
 	{"op":"and","content":[{"op":"in","content":{"field":"submitter_id","value":["TCGA-BH-A0EA"]}}]}
 
@@ -857,7 +857,7 @@ This example is a query for any annotations **directly** associated with the fol
 * the sample with UUID 25ebc29a-7598-4ae4-ba7f-618d448882cc
 * the aliquot with UUID fe660d7c-2746-4b50-ab93-b2ed99960553
 
-The query uses the [filters](#filters) parameter to specify entity UUIDs. Code samples below include the bare and percent-encoded filter JSON.
+The query uses the [filters](#filters-specifying-the-query) parameter to specify entity UUIDs. Code samples below include the bare and percent-encoded filter JSON.
 
 === "Filter-json"
 
@@ -1085,7 +1085,7 @@ The following `filters` query operators are supported by the GDC API:
 | and      | (operation1) and (operation2)                    | multiple           | {primary_site in [Brain, Lung]} and {gender = "female"}      |
 | or       | (operation1) or (operation2)                     | multiple           | {project_id != "TARGET-AML"} or {age at diagnosis < 90y}     |
 
-The `field` operand specifies a field that corresponds to a property defined in the [GDC Data Dictionary](../../Data_Dictionary/viewer.md). A list of supported fields is provided in [Appendix A](Appendix_A_Available_Fields.md); the list can also be accessed programmatically at the [_mapping endpoint](#95mapping-endpoint).
+The `field` operand specifies a field that corresponds to a property defined in the [GDC Data Dictionary](../../Data_Dictionary/viewer.md). A list of supported fields is provided in [Appendix A](Appendix_A_Available_Fields.md); the list can also be accessed programmatically at the [_mapping endpoint](#_mapping-endpoint).
 
 The `value` operand specifies the search terms. Users can get a list of available values for a specific property by making a call to the appropriate API endpoint using the `facets` parameter, e.g. `https://api.gdc.cancer.gov/v0/cases?facets=demographic.gender&size=0&pretty=true`. See [Facets](#facets) for details.
 
@@ -2351,7 +2351,7 @@ The following example requests case submitter ID, file UUID, file name and file 
 
 ### Expand
 
-The `expand` parameter provides a shortcut to request multiple related fields (field groups) in the response. Instead of specifying each field using the `fields` parameter, users can specify a field group name using the `expand` parameter to request all fields in the group. Available field groups are listed in [Appendix A](Appendix_A_Available_Fields.md#field-group-listing-by-endpoint); the list can also be accessed programmatically at the [_mapping endpoint](#95mapping-endpoint). The `fields` and `expand` parameters can be used together to request custom combinations of field groups and individual fields.
+The `expand` parameter provides a shortcut to request multiple related fields (field groups) in the response. Instead of specifying each field using the `fields` parameter, users can specify a field group name using the `expand` parameter to request all fields in the group. Available field groups are listed in [Appendix A](Appendix_A_Available_Fields.md#field-group-listing-by-endpoint); the list can also be accessed programmatically at the [_mapping endpoint](#_mapping-endpoint). The `fields` and `expand` parameters can be used together to request custom combinations of field groups and individual fields.
 
 #### Example
 
@@ -2559,7 +2559,7 @@ The `from` query parameter specifies the first record to return out of the set o
 
 ### Sort
 
-The `sort` query parameter sorts the results by a specific field, and with the sort direction specified using the `:asc` (ascending) or `:desc` (descending) prefix, e.g. `sort=field:desc`. A list of all valid _field_ names is available in [Appendix A](Appendix_A_Available_Fields.md); the list can also be accessed programmatically at the [_mapping endpoint](#95mapping-endpoint).
+The `sort` query parameter sorts the results by a specific field, and with the sort direction specified using the `:asc` (ascending) or `:desc` (descending) prefix, e.g. `sort=field:desc`. A list of all valid _field_ names is available in [Appendix A](Appendix_A_Available_Fields.md); the list can also be accessed programmatically at the [_mapping endpoint](#_mapping-endpoint).
 
 #### Example
 

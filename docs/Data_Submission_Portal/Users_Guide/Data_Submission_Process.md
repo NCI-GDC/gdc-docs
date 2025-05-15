@@ -229,7 +229,7 @@ The hierarchy shows:
 
 [![GDC Submission Cases Details Hierarchy](images/GDC_Submission_Cases_Summary_Hierarchy_2.png)](images/GDC_Submission_Cases_Summary_Hierarchy_2.png "Click to see the full image.")
 
-After uploading data to the workspace on the GDC Data Submission Portal, data will need to be [reviewed by the submitter](#pre-harmonization-checklist) and then [submitted to the GDC](#submit-to-the-gdc) for processing.
+After uploading data to the workspace on the GDC Data Submission Portal, data will need to be [reviewed by the submitter](#pre-harmonization-checklist) and then [submitted to the GDC](#submit-to-the-gdc-for-harmonization) for processing.
 
 ## QC Reports
 
