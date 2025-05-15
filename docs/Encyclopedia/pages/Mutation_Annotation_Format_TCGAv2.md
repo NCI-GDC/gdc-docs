@@ -82,7 +82,7 @@ About MAF specifications
 Mutation annotation files should be transferred to the DCC. Those files should
 be formatted using the mutation annotation format (MAF) that is described below.
 File naming convention is also
-[below](#MutationAnnotationFormat(MAF)Specificat).
+[below](#maf-naming-convention).
 
 Following categories of somatic mutations are reported in MAF files:
 
