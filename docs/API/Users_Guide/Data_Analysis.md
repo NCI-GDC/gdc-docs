@@ -1118,7 +1118,7 @@ __Example 2:__ A user wants all segment-level CNVs that overlap with the genomic
 === "Shell"
 
     ```shell
-    curl -X POST "https://api.gdc.cancer.gov/segment_cnvs/" \
+    curl -X POST "https://api.gdc.cancer.gov/segment_cnvs" \
     -H "Content-Type: application/json" \
     -d '{
       "filters": {
@@ -1153,129 +1153,26 @@ __Example 2:__ A user wants all segment-level CNVs that overlap with the genomic
             }
           }
         ]
-      }
+      },
+      "pretty": "true",
+      "format": "TSV"
     }'
     ```
 
-=== "Response"
+=== "Tsv"
 
-    ```json
-    {
-        "data": {
-            "hits": [
-                {
-                    "id": "85bab98c-f84f-5643-8e4f-d4e2ca02f99b",
-                    "segment_cnv_id": "85bab98c-f84f-5643-8e4f-d4e2ca02f99b",
-                    "start_position": 7449639,
-                    "cnv_change": "Loss",
-                    "chromosome": "2",
-                    "length": 63866,
-                    "cnv_change_5_category": "Homozygous Deletion",
-                    "end_position": 7513504
-                },
-                {
-                    "id": "286ed66d-2e8f-526a-9436-f7151cc1405f",
-                    "segment_cnv_id": "286ed66d-2e8f-526a-9436-f7151cc1405f",
-                    "start_position": 1131235,
-                    "cnv_change": "Gain",
-                    "chromosome": "2",
-                    "length": 19779,
-                    "cnv_change_5_category": "Amplification",
-                    "end_position": 1151013
-                },
-                {
-                    "id": "d8aad535-c306-5343-8353-7d8e39695d07",
-                    "segment_cnv_id": "d8aad535-c306-5343-8353-7d8e39695d07",
-                    "start_position": 6248296,
-                    "cnv_change": "Loss",
-                    "chromosome": "2",
-                    "length": 13733,
-                    "cnv_change_5_category": "Loss",
-                    "end_position": 6262028
-                },
-                {
-                    "id": "1885cd7b-9237-5fac-a6f2-6daa5269a0f8",
-                    "segment_cnv_id": "1885cd7b-9237-5fac-a6f2-6daa5269a0f8",
-                    "start_position": 6907308,
-                    "cnv_change": "Loss",
-                    "chromosome": "2",
-                    "length": 3733,
-                    "cnv_change_5_category": "Loss",
-                    "end_position": 6911040
-                },
-                {
-                    "id": "a0bd525f-ba1a-5873-a11d-480c8d45d0f8",
-                    "segment_cnv_id": "a0bd525f-ba1a-5873-a11d-480c8d45d0f8",
-                    "start_position": 6713255,
-                    "cnv_change": "Gain",
-                    "chromosome": "2",
-                    "length": 1,
-                    "cnv_change_5_category": "Amplification",
-                    "end_position": 6713255
-                },
-                {
-                    "id": "602f9d50-f0ca-5eca-bcd8-213c54115753",
-                    "segment_cnv_id": "602f9d50-f0ca-5eca-bcd8-213c54115753",
-                    "start_position": 12299815,
-                    "cnv_change": "Gain",
-                    "chromosome": "2",
-                    "length": 4392,
-                    "cnv_change_5_category": "Amplification",
-                    "end_position": 12304206
-                },
-                {
-                    "id": "dfe68d75-69f9-5c6e-825b-f4fa395c5a49",
-                    "segment_cnv_id": "dfe68d75-69f9-5c6e-825b-f4fa395c5a49",
-                    "start_position": 9990933,
-                    "cnv_change": "Gain",
-                    "chromosome": "2",
-                    "length": 21471,
-                    "cnv_change_5_category": "Gain",
-                    "end_position": 10012403
-                },
-                {
-                    "id": "33f21f5a-dde8-545e-9f82-64dd90f51346",
-                    "segment_cnv_id": "33f21f5a-dde8-545e-9f82-64dd90f51346",
-                    "start_position": 19292818,
-                    "cnv_change": "Gain",
-                    "chromosome": "2",
-                    "length": 9078,
-                    "cnv_change_5_category": "Amplification",
-                    "end_position": 19301895
-                },
-                {
-                    "id": "e0a98dcf-a538-5da7-a33f-74ed1e3cd76b",
-                    "segment_cnv_id": "e0a98dcf-a538-5da7-a33f-74ed1e3cd76b",
-                    "start_position": 17989264,
-                    "cnv_change": "Gain",
-                    "chromosome": "2",
-                    "length": 25039,
-                    "cnv_change_5_category": "Gain",
-                    "end_position": 18014302
-                },
-                {
-                    "id": "ee5e2d62-f851-5391-a805-689bf9f9ff74",
-                    "segment_cnv_id": "ee5e2d62-f851-5391-a805-689bf9f9ff74",
-                    "start_position": 11324340,
-                    "cnv_change": "Gain",
-                    "chromosome": "2",
-                    "length": 13755,
-                    "cnv_change_5_category": "Gain",
-                    "end_position": 11338094
-                }
-            ],
-            "pagination": {
-                "count": 10,
-                "total": 1896,
-                "size": 10,
-                "from": 0,
-                "sort": "",
-                "page": 1,
-                "pages": 190
-            }
-        },
-        "warnings": {}
-    }
+    ```tsv
+    chromosome	cnv_change	cnv_change_5_category	end_position	id	length	segment_cnv_id	start_position
+    2	Loss	Homozygous Deletion	7513504	85bab98c-f84f-5643-8e4f-d4e2ca02f99b	63866	85bab98c-f84f-5643-8e4f-d4e2ca02f99b	7449639
+    2	Gain	Amplification	1151013	286ed66d-2e8f-526a-9436-f7151cc1405f	19779	286ed66d-2e8f-526a-9436-f7151cc1405f	1131235
+    2	Loss	Loss	6262028	d8aad535-c306-5343-8353-7d8e39695d07	13733	d8aad535-c306-5343-8353-7d8e39695d07	6248296
+    2	Loss	Loss	6911040	1885cd7b-9237-5fac-a6f2-6daa5269a0f8	3733	1885cd7b-9237-5fac-a6f2-6daa5269a0f8	6907308
+    2	Gain	Amplification	6713255	a0bd525f-ba1a-5873-a11d-480c8d45d0f8	1	a0bd525f-ba1a-5873-a11d-480c8d45d0f8	6713255
+    2	Gain	Amplification	12304206	602f9d50-f0ca-5eca-bcd8-213c54115753	4392	602f9d50-f0ca-5eca-bcd8-213c54115753	12299815
+    2	Gain	Gain	10012403	dfe68d75-69f9-5c6e-825b-f4fa395c5a49	21471	dfe68d75-69f9-5c6e-825b-f4fa395c5a49	9990933
+    2	Gain	Amplification	19301895	33f21f5a-dde8-545e-9f82-64dd90f51346	9078	33f21f5a-dde8-545e-9f82-64dd90f51346	19292818
+    2	Gain	Gain	18014302	e0a98dcf-a538-5da7-a33f-74ed1e3cd76b	25039	e0a98dcf-a538-5da7-a33f-74ed1e3cd76b	17989264
+    2	Gain	Gain	11338094	ee5e2d62-f851-5391-a805-689bf9f9ff74	13755	ee5e2d62-f851-5391-a805-689bf9f9ff74	11324340
     ```
 
 ### Segment CNV Occurrences Endpoint
@@ -1333,7 +1230,7 @@ __Example 2:__ A user wants all segment-level CNV occurrences in cases belonging
 === "Shell"
 
     ```shell
-    curl -X POST "https://api.gdc.cancer.gov/segment_cnv_occurrences/" \
+    curl -X POST "https://api.gdc.cancer.gov/segment_cnv_occurrences" \
     -H "Content-Type: application/json" \
     -d '{
       "filters": {
