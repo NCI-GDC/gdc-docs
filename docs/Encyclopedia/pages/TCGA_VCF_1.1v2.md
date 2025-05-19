@@ -1285,9 +1285,7 @@ UUID-compliant files should satisfy the following criteria:
 
 2. If ##INDIVIDUAL is declared in the header, then values assigned to
 SampleUUID in all ##SAMPLE declarations should correspond to the same
-participant ID, and the TCGA barcode for the participant should be assigned to
-
-## INDIVIDUAL.
+participant ID, and the TCGA barcode for the participant should be assigned to INDIVIDUAL.
 
 ### Handling failed checks
 
