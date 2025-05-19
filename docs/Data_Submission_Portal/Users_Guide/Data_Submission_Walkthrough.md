@@ -1,4 +1,4 @@
-# Data Upload Walkthrough
+# Data Submission Walkthrough
 
 This guide details step-by-step procedures for different aspects of the GDC Data Submission process and how they relate to the GDC Data Model and structure. The first sections of this guide break down the submission process and associate each step with the Data Model. Additional sections are detailed below for strategies on expediting data submission, using features of the GDC Data Submission Portal, and best practices used by the GDC.
 
@@ -8,7 +8,7 @@ Pictured below is the submittable subset of the GDC Data Model: a roadmap for GD
 
 [![GDC Data Model 1](images/GDC-Data-Model-None.png)](images/GDC-Data-Model-None.png "Click to see the full image.")
 
-# Case Submission
+## Case Submission
 
 The `case` is the center of the GDC Data Model and usually describes a specific patient. Each `case` is connected to a `project`.  Different types of clinical data, such as `diagnoses` and `exposures`, are connected to the `case` to describe the case's attributes and medical information.   
 
@@ -51,15 +51,15 @@ The `case` entity can be added in JSON or TSV format. A template for any entity 
 >__Note:__ JSON and TSV formats handle links between entities (`case` and `project`) differently.  JSON includes the `code` field nested within `projects` while TSV appends `code` to `projects` with a period.  
 
 
-## Uploading the Case Submission File
+### Uploading the Case Submission File
 
 The file detailed above can be uploaded using the GDC Data Submission Portal and the GDC API as described below:
 
-### Upload Using the GDC Data Submission Portal
+#### Upload Using the GDC Data Submission Portal
 
 An example of a `case` upload is detailed below. The [GDC Data Submission Portal](https://gdc.cancer.gov/submit-data/gdc-data-submission-portal) is equipped with a wizard window to facilitate the upload and validation of entities.
 
-#### 1. Upload Files
+##### 1. Upload Files
 
 Choosing _'UPLOAD'_ from the project dashboard will open the Upload Data Wizard.
 
@@ -67,7 +67,7 @@ Choosing _'UPLOAD'_ from the project dashboard will open the Upload Data Wizard.
 
 Files containing one or more entities can be added either by clicking on `CHOOSE FILE(S)` or using drag and drop. Files can be removed from the Upload Data Wizard by clicking on the garbage can icon that is displayed next to the file after the file is selected for upload.
 
-#### 2. Validate Entities
+##### 2. Validate Entities
 
 The __Validate Entities__ stage acts as a safeguard against submitting incorrectly formatted data to the GDC Data Submission Portal. During the validation stage, the GDC API will validate the content of uploaded entities against the Data Dictionary to detect potential errors. Invalid entities will not be processed and must be corrected by the user and re-uploaded before being accepted. A validation error report provided by the system can be used to isolate and correct errors.
 
@@ -75,7 +75,7 @@ When the first file is added, the wizard will move to the Validate section and t
 
 [![GDC Submission Wizard Validate Files](images/GDC_Submission_Portal_Validate.png)](images/GDC_Submission_Portal_Validate.png "Click to see the full image.")
 
-#### 3. Commit or Discard Files
+##### 3. Commit or Discard Files
 If the upload contains valid entities, a new transaction will appear in the latest transactions panel with the option to `COMMIT` or `DISCARD` the data. Entities contained in these files can be committed (applied) to the project or discarded using these two buttons.
 
 If the upload contains invalid files, a transaction will appear with a FAILED status. Invalid files will need to be either corrected and re-uploaded or removed from the submission. If more than one file is uploaded and at least one is not valid, the validation step will fail for all files.  
@@ -83,7 +83,7 @@ If the upload contains invalid files, a transaction will appear with a FAILED st
 [![Commit_Discard](images/GDC_Submission_CommitDiscard.png)](images/GDC_Submission_CommitDiscard.png "Click to see the full image.")
 
 
-### Upload Using the GDC API
+#### Upload Using the GDC API
 
 The API has a much broader range of functionality than the Data Wizard. Entities can be created, updated, and deleted through the API. See the [API Submission User Guide](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#creating-and-updating-entities) for a more detailed explanation and for the rest of the functionalities of the API. Generally, uploading an entity through the API can be performed using a command similar to the following:
 
@@ -119,17 +119,17 @@ Next, the file can either be committed (applied to the project) through the Data
     curl --header "X-Auth-Token: $token" --request POST https://api.gdc.cancer.gov/v0/submission/GDC/INTERNAL/transactions/467/commit?async=true
     ```
 
-# Clinical Data Submission
+## Clinical Data Submission
 
 Typically, a submission project will include additional information about a `case` such as `demographic`, `diagnosis`, or `exposure` data.
 
-## Clinical Data Requirements
+### Clinical Data Requirements
 
 For the GDC to release a project there is a minimum number of clinical properties that are required.  Minimal GDC requirements for each project includes age, gender, and diagnosis information.  Other [requirements](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-entity-list&anchor=clinical) may be added when the submitter is approved for submission to the GDC.
 
 [![GDC Data Model Clinical](images/GDC-Data-Model-Clinical.png)](images/GDC-Data-Model-Clinical.png "Click to see the full image.")
 
-## Submitting a Demographic Entity to a Case
+### Submitting a Demographic Entity to a Case
 
 The `demographic` entity contains information that characterizes the `case` entity.  
 
@@ -163,7 +163,7 @@ Submitting a [__Demographic__](https://docs.gdc.cancer.gov/Data_Dictionary/viewe
     demographic	PROJECT-INTERNAL-000055	not hispanic or latino	male	asian
     ```
 
-## Submitting a Diagnosis Entity to a Case
+### Submitting a Diagnosis Entity to a Case
 
 Submitting a [__Diagnosis__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=diagnosis) entity requires:
 
@@ -254,11 +254,11 @@ Submitting an [__Exposure__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/
 >__Note:__ Submitting a clinical entity uses the same conventions as submitting a `case` entity (detailed above).
 
 
-# Biospecimen Submission
+## Biospecimen Submission
 
 One of the main features of the GDC is the genomic data harmonization workflow. Genomic data is connected the case through biospecimen entities.  The `sample` entity describes a biological piece of matter that originated from a `case`.  Subsets of the `sample` such as `portions` and `analytes` can optionally be described.  The `aliquot` originates from a `sample` or `analyte` and describes the nucleic acid extract that was sequenced. The `read_group` entity describes the resulting set of reads from one sequencing lane.
 
-## Sample Submission
+### Sample Submission
 
 [![GDC Data Model 3](images/GDC-Data-Model-Sample.png)](images/GDC-Data-Model-Sample.png "Click to see the full image.")
 
@@ -306,7 +306,7 @@ Submitting a [__Sample__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?v
     sample	PROJECT-INTERNAL-000055	Blood-00001SAMPLE_55	Normal	Peripheral Blood NOS	Not Applicable	Frozen
     ```
 
-## Portion, Analyte and Aliquot Submission
+### Portion, Analyte and Aliquot Submission
 
 [![GDC Data Model 4](images/GDC-Data-Model-Aliquot.png)](images/GDC-Data-Model-Aliquot.png "Click to see the full image.")
 
@@ -386,7 +386,7 @@ Submitting an [__Aliquot__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#
 
 >__Note:__ `aliquot` entities can be directly linked to `sample` entities via the `samples.submitter_id`. The `portion` and `analyte` entities are not required for submission.
 
-## Read Group Submission
+### Read Group Submission
 
 [![GDC Data Model 5](images/GDC-Data-Model-RG.png)](images/GDC-Data-Model-RG.png "Click to see the full image.")
 
@@ -439,7 +439,7 @@ Submitting a [__Read Group__](https://docs.gdc.cancer.gov/Data_Dictionary/viewer
 
 >__Note:__ Submitting a biospecimen entity uses the same conventions as submitting a `case` entity (detailed above).
 
-# Experiment Data Submission
+## Experiment Data Submission
 
 Several types of experiment data can be uploaded to the GDC.  The `submitted_aligned_reads` and `submitted_unaligned_reads` files are associated with the `read_group` entity, while the array-based files such as the `submitted_tangent_copy_number` are associated with the `aliquot` entity.  Each of these file types are described in their respective entity submission and are uploaded separately using the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/) or the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool).  
 
@@ -490,7 +490,7 @@ Submitting a [__Submitted Aligned-Reads__](https://docs.gdc.cancer.gov/Data_Dict
 
 >__Note:__ For details on submitting experiment data associated with more than one `read_group` entity, see the [Tips for Complex Submissions](Best_Practices.md#submitting-complex-data-model-relationships) section.    
 
-## Uploading the Submittable Data File to the GDC
+### Uploading the Submittable Data File to the GDC
 
 The submittable data file can be uploaded when it is registered with the GDC. A submittable data file is registered when its corresponding entity (e.g. `submitted_unaligned_reads`) is uploaded and committed. It is important to note that the Harmonization process does not occur on these submitted files until the user clicks the [`Request Submission`](Data_Submission_Process.md#release) button. Uploading the file can be performed with either the [GDC Data Transfer Tool](https://gdc.cancer.gov/access-data/gdc-data-transfer-tool) or the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/). Other types of data files such as clinical supplements, biospecimen supplements, and pathology reports are uploaded to the GDC in the same way. Supported data file formats are listed at the [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-entity-list&anchor=submittable_data_file).
 
@@ -524,19 +524,19 @@ __API Upload:__  A `submittable_data_file` can be uploaded through the API by us
 
 For more details on how to upload a `submittable_data_file` to a project see the [API Users Guide](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/) and the [Data Transfer Tool Users Guide](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/).  
 
-## Annotation Submission
+### Annotation Submission
 
 The GDC Data Portal supports the use of annotations for any submitted entity or file.  An annotation entity may include comments about why particular patients or samples are not present or why they may exhibit critical differences from others.  Annotations include information that cannot be submitted to the GDC through other existing nodes or properties.
 
 If a submitter would like to create an annotation, please contact the GDC Support Team (support@nci-gdc.datacommons.io).
 
-## Deleting Submitted Entities
+### Deleting Submitted Entities
 
 The GDC Data Submission Portal allows users to delete submitted entities from the project when the project is in an "OPEN" state. Files cannot be deleted while in the "SUBMITTED" state.  This section applies to entities that have been committed to the project. Entities that have not been committed can be removed from the project by choosing the `DISCARD` button.  Entities can also be deleted using the API. See the [API Submission Documentation](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#deleting-entities) for specific instructions.
 
 >__NOTE:__  Entities associated with files uploaded to the GDC object store cannot be deleted until the associated file has been deleted. Users must utilize the [GDC Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#deleting-previously-uploaded-data) to delete these files first.
 
-### Simple Deletion
+#### Simple Deletion
 
 If an entity was uploaded and has no related entities, it can be deleted from the [Browse](Data_Submission_Process.md#browse) tab. Once the entity to be deleted is selected, choose the `DELETE` button in the right panel under "ACTIONS".
 
@@ -550,7 +550,7 @@ A message will then appear asking if you are sure about deleting the entity.  Ch
 [![GDC Yes or No](images/GDC-Delete-Sure.png)](images/GDC-Delete-Sure.png "Click to see the full image.")
 
 
-### Deletion with Dependents
+#### Deletion with Dependents
 
 If an entity has related entities, such as a `case` with multiple `samples` and `aliquots`, deletion takes one extra step.  
 
@@ -573,15 +573,15 @@ Choose the failed transaction and the right panel will show the list of entities
 Selecting the `DELETE ALL` button at the bottom of the list will delete all of the related entities, their descendants, and the original entity.
 
 
-### Submitted Data File Deletion
+#### Submitted Data File Deletion
 
 The [`submittable_data_files`](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-entity-list&anchor=submittable_data_file) that were uploaded erroneously are deleted separately from their associated entity using the GDC Data Transfer Tool. See the section on [Deleting Data Files](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/#deleting-previously-uploaded-data) in the Data Transfer Tool users guide for specific instructions.  
 
-## Updating Uploaded Entities
+### Updating Uploaded Entities
 
 Before harmonization occurs, entities can be modified to update, add, or delete information. These methods are outlined below.
 
-### Updating or Adding Fields
+#### Updating or Adding Fields
 
 Updated or additional fields can be applied to entities by re-uploading them through the GDC Data Submission portal or API. See below for an example of a case upload with a `primary_site` field being added and a `disease_type` field being updated.
 
@@ -618,7 +618,7 @@ __Guidelines:__
 * All newly updated entities will be validated by the GDC Dictionary.  All required fields must be present in the newly updated entity.
 * Fields that are not required do not need to be re-uploaded and will remain unchanged in the entity unless they are updated.
 
-### Deleting Optional Fields
+#### Deleting Optional Fields
 
 It may be necessary to delete fields from uploaded entities. This can be performed through the API and can only be applied to optional fields. It also requires the UUID of the entity, which can be retrieved from the submission portal or using a GraphQL query.
 
@@ -656,14 +656,14 @@ In the example below, the `primary_site` and `disease_type` fields are removed f
     }
     ```
 
-### Versioning
+#### Versioning
 Changes to entities will create versions. For more information on this, please go to [Uploading New Versions of Data Files](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#uploading-new-versions-of-data-files).
 
-## Strategies for Submitting in Bulk
+### Strategies for Submitting in Bulk
 
 Each submission in the previous sections was broken down by component to demonstrate the GDC Data Model structure. However, the submission of multiple entities at once is supported and encouraged. Here two strategies for submitting data in an efficient manner are discussed.   
 
-### Registering a BAM File: One Step
+#### Registering a BAM File: One Step
 
 Registering a BAM file (or any other type) can be performed in one step by including all of the entities, from `case` to `submitted_aligned_reads`, in one file.  See the example below:
 
@@ -753,7 +753,7 @@ The entities need not be in any particular order as they are validated together.
 
 >__Note:__ Tab-delimited format is not recommended for 'one-step' submissions due to an inability of the format to accommodate multiple 'types' in one row.  
 
-### Submitting Numerous Cases
+#### Submitting Numerous Cases
 
 The GDC understands that submitters will have projects that comprise more entities than would be reasonable to individually parse into JSON formatted files. Additionally, many investigators store large amounts of data in a tab-delimited format (TSV).  For instances like this, we recommend parsing all entities of the same type into separate TSVs and submitting them on a type-basis.  
 
@@ -768,14 +768,14 @@ See the following example TSV files:
 * [Aliquots.tsv](Aliquots.tsv)
 * [Read-Groups.tsv](Readgroups.tsv)
 
-### Download Previously Uploaded Metadata Files
+#### Download Previously Uploaded Metadata Files
 
 The [transaction](Data_Submission_Process.md#transactions) page lists all previous transactions in the project. The user can download metadata files uploaded to the GDC workspace in the details section of the screen by selecting one transaction and scrolling to the "DOCUMENTS" section.
 
 
 [![Transaction Original Files](images/GDC_Submission_Transactions_Original_Files_2.png)](images/GDC_Submission_Transactions_Original_Files_2.png "Click to see the full image.")
 
-### Download Previously Uploaded Data Files
+#### Download Previously Uploaded Data Files
 
 The only supported method to download data files previously uploaded to the GDC Submission Portal that have not been release yet is to use the API or the [Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Getting_Started/). To retrieve data previous upload to the submission portal you will need to retrieve the data file's UUID.  The UUIDs for submitted data files are located in the submission portal under the file's Summary section as well as the manifest file located on the file's Summary page.
 
