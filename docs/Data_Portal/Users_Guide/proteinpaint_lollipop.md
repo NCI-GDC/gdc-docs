@@ -16,7 +16,7 @@ When launched, ProteinPaint will display a search box where users can enter a ge
 
 [![Lollipop Frame](images/lollipop2.png)](images/lollipop2.png "Click to see the full image.")
 
-In addition to the search box, there are two other main panels in the ProteinPaint tool: [Lollipop chart](#Lollipop-Chart-Panel), and [legend](#Legend-panel).
+In addition to the search box, there are two other main panels in the ProteinPaint tool: Lollipop chart, and legend.
 
 [![3 Main Panels](images/lollipop3.png)](images/lollipop3.png "Click to see the full image.")
 

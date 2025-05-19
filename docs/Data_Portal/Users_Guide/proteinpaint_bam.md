@@ -263,7 +263,7 @@ their respective colors Also see the section on color codes of various reads.
 [![Base-pair Quality Level](./images/base-pair_qual.png)](./images/pair_qual.png "Click to see the full image.")
 
 ### Base-pair Resolution Level
-[At this resolution](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=TP53_del,proteinpaint_demo/hg19/bam/TP53_del.wrongbp.bam&position=chr17:7578371-7578417&bedjfilterbyname=NM_000546), all information including the read sequence of each read is displayed along with reference genome nucleotides at the top. For simplicity (as discussed later under [vertical zoom](#Vertical zoom: examining subset of reads)), only a few reads are shown in the figure below.
+[At this resolution](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=TP53_del,proteinpaint_demo/hg19/bam/TP53_del.wrongbp.bam&position=chr17:7578371-7578417&bedjfilterbyname=NM_000546), all information including the read sequence of each read is displayed along with reference genome nucleotides at the top. For simplicity, only a few reads are shown in the figure.
 
 [![Base-pair Resolution Level](./images/base-pair_res.png)](./images/pair_res.png "Click to see the full image.")
 
@@ -281,7 +281,7 @@ The BAM Track Configuration Panel can be accessed by clicking the "CONFIG" optio
 [![BAM Track Configuration Panel](./images/BAM_track_config.png)](./images/BAM_track_config.png "Click to see the full image.")
 
 ## Single and Paired-end Read
-[The configuration panel](#BAM track configuration panel) (above) provides a toggle to change view between single-end (default) and paired-end view (shown below: see [Link](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=crebbp_del,proteinpaint_demo/hg19/bam/crebbp.bam&position=chr16:3800245-3803429) for example). In single-end display each read is displayed individually without displaying any connections with its respective mate. In case of the paired-end display the two paired reads are joined by a gray dotted-line if the coordinates of the two reads do not overlap. When the coordinates of the two read-pairs overlap, the overlapped region is highlighted by a blue line.
+The configuration panel provides a toggle to change view between single-end (default) and paired-end view (shown below: see [Link](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=crebbp_del,proteinpaint_demo/hg19/bam/crebbp.bam&position=chr16:3800245-3803429) for example). In single-end display each read is displayed individually without displaying any connections with its respective mate. In case of the paired-end display the two paired reads are joined by a gray dotted-line if the coordinates of the two reads do not overlap. When the coordinates of the two read-pairs overlap, the overlapped region is highlighted by a blue line.
 
 The following shows reads in single-end mode.
 
