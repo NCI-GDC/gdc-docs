@@ -6,7 +6,7 @@ CaVEMan (Cancer Variants through Expectation Maximization) is a somatic variant 
 
 ## Overview ##
 
-CaVEMan (__now deprecated at GDC__) is one of the four pipelines used for WGS variant calling at the GDC. Variant calling is performed with CaVEMan using tumor and normal alignments and generates single nucleotide variation (SNV) data.
+CaVEMan (__now deprecated at the GDC__) is one of the four pipelines used for WGS variant calling at the GDC. Variant calling is performed with CaVEMan using tumor and normal alignments and generates single nucleotide variation (SNV) data.
 
 ### Input
 

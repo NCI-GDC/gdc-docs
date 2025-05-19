@@ -6,7 +6,7 @@ ASCATNGS is a copy number variation (CNV) analysis pipeline tailored for next-ge
 
 ## Overview ##
 
-ASCATNGS (__now deprecated at GDC__) is specifically designed to detect CNVs in tumor and normal samples from NGS data. It processes aligned BAM files to generate segmented CNV data, providing high-resolution insights into genomic alterations.
+ASCATNGS (__now deprecated at the GDC__) is specifically designed to detect CNVs in tumor and normal samples from NGS data. It processes aligned BAM files to generate segmented CNV data, providing high-resolution insights into genomic alterations.
 
 ### Input
 

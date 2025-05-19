@@ -595,6 +595,7 @@ Example 1:
 | __Invalid entity type: {}.{}__ | The entity type is not accepted by the GDC | Ensure there are no typos in the "type" field and that the entity matches a node in the [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) | 
 
 Example 1:
+
 === "Request1"
     
     ```json
@@ -715,6 +716,7 @@ Example 1:
     ```
 
 Example 2:
+
 === "Request1"
 
     ```json
@@ -855,15 +857,15 @@ Example 3:
 
     ```json
     [
-    {
-        "type": "family",
-        "submitter_id": "GDC-INTERNAL-000028_family",
-        "relative_deceased": "Yes",
-        "relative_smoker": "No",
-        "cases": {
-        "submitter_id": "GDC-INTERNAL-000028"
+        {
+            "type": "family",
+            "submitter_id": "GDC-INTERNAL-000028_family",
+            "relative_deceased": "Yes",
+            "relative_smoker": "No",
+            "cases": {
+                "submitter_id": "GDC-INTERNAL-000028"
+            }
         }
-    }
     ]
     ```
 
@@ -919,15 +921,15 @@ Example 3:
 
     ```json
     [
-    {
-        "type": "family_history",
-        "submitter_id": "GDC-INTERNAL-000028_family_history",
-        "relative_deceased": "Yes",
-        "relative_smoker": "No",
-        "cases": {
-        "submitter_id": "GDC-INTERNAL-000028"
+        {
+            "type": "family_history",
+            "submitter_id": "GDC-INTERNAL-000028_family_history",
+            "relative_deceased": "Yes",
+            "relative_smoker": "No",
+            "cases": {
+                "submitter_id": "GDC-INTERNAL-000028"
+            }
         }
-    }
     ]
     ```
 
@@ -985,6 +987,7 @@ Example 3:
 | __{value} is not valid under any of the given schemas: {value} is less than the minimum of {minimum value} and {value} is not of type 'null'__ | The amount does not fall within the accepted minimum and maximum values | Ensure the value falls within the accepted range |
 
 Example 1:
+
 === "Request1"
 
     ```json
