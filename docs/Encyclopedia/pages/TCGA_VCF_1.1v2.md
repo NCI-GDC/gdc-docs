@@ -1,5 +1,5 @@
-TCGA Variant Call Format (VCF) 1.1 Specification
-================================================
+# TCGA Variant Call Format (VCF) 1.1 Specification
+
 
 **Document Information**
 This document is retained here for reference purposes and should not be considered the current standard.  
@@ -12,8 +12,7 @@ Version 1.1
 Please note that VCF files are treated as **protected** data and must be
 submitted to the DCC only in **Level 2** archives.
 
-About TCGA VCF specification
-============================
+## About TCGA VCF specification
 
 Variant Call Format (VCF) is a format for storing and reporting genomic sequence
 variations. VCF files are modular where the annotations and genotype information
@@ -27,8 +26,7 @@ modifications to support supplemental information specific to the project.
 Subsequent sections describe the format TCGA VCF files should follow and
 validation steps that would have to be implemented at the DCC.
 
-Summary of current version changes
-==================================
+## Summary of current version changes
 
 Following is a summary of additions/modifications for this version and the corresponding validation rule
 number is included in parentheses.
@@ -95,8 +93,7 @@ UUID-compliance, VCF files should satisfy the following criteria.
     -   Value assigned in <Name_N=Value_N> does not have to be defined as a
         SAMPLE in a genotype column or in the header
 
-TCGA-specific customizations
-============================
+## TCGA-specific customizations
 
 The VCF 4.1 specification has been customized to support TCGA-specific variant
 information. While majority of the steps pertaining to the basic structure of
@@ -118,7 +115,7 @@ been modified
 | **Customization type** | **Description**                                                                                                                                                              | **Validation step # in TCGA-VCF 1.1 spec** | **Corresponding validation step # in VCF 4.1 spec** |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|------------------------------------------------------|
 | New                    | Validate that file contains ##tcgaversion HEADER line. Its presence indicates that the file is TCGA VCF and the value assigned to the field contains format version number | \---                                        | \---                                                 |
-| New                    | Additional mandatory header lines (Please refer to [Table 2](#TCGAVariantCallFormat(VCF)1.1Specificat))                                                                      | \#1                                         | \#1                                                  |
+| New                    | Additional mandatory header lines (Please refer to Table 2)                                                                      | \#1                                         | \#1                                                  |
 | New                    | Validation of SAMPLE meta-information lines                                                                                                                                  | \#15                                        | \---                                                 |
 | New                    | Validation of PEDIGREE meta-information lines                                                                                                                                | \#16                                        | \---                                                 |
 | Modification           | Acceptable value set for CHROM has been modified                                                                                                                             | \#18a,b                                     | \#16a                                                |
@@ -131,8 +128,7 @@ been modified
 | New                    | Mandatory FORMAT fields have been added                                                                                                                                      | \#10c                                       | \---                                                 |
 | New                    | Check for consistent definitions for INFO and FORMAT fields                                                                                                                  | \#7a                                        | \---                                                 |
 
-File format
-===========
+## File format
 
 The following example (based on [VCF version
 4.1)](http://www.1000genomes.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-41)
@@ -153,8 +149,7 @@ otherwise.
 
 
 
-HEADER
-------
+### HEADER
 
 The HEADER contains meta-information lines that provide supplemental information
 about variants contained in BODY of the file. HEADER lines could be formatted in
@@ -182,7 +177,7 @@ Meta-information could be applicable either to all variant records in the file
 (e.g., date of creation of file) or to individual variants (e.g., flag to
 indicate whether a given variant exists in dbSNP).
 
-### Generic meta-information
+#### Generic meta-information
 
 **Format**: *##key=value* OR *##FIELDTYPE=<key1=value1,key2=value2,...\>*
 
@@ -232,7 +227,7 @@ is mandatory and lists the VCF version number of the file.
 |               |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | MergeContact=<johndoe@xyz.edu>>                                                                                                                                                                                                                                                                                                                                                                            |                      |
 | INDIVIDUAL    | No                 | Specifies the individual for which data is presented in the file      | ##INDIVIDUAL=TCGA-24-0980                 | No                             |
 
-### INFO/FORMAT/FILTER meta-information
+#### INFO/FORMAT/FILTER meta-information
 
 **Format**: *##FIELDTYPE=<key1=value1,key2=value2,...\>*
 
@@ -262,7 +257,7 @@ declarations**
 |             |                    |                                                                                                  | *(Integer, Float, Flag, Character, String)*                                                                                                              |                                                                                                                                                                                                              |
 | Description | Yes                | provides a brief description of the field                                                        | String, surrounded by double-quotes, cannot itself contain a double-quote, cannot contain trailing whitespace at the end of string before closing quotes | \---                                                                                                                                                                                                         |
 
-#### INFO lines
+##### INFO lines
 
 **Format**: *##INFO=<key1=value1,key2=value2,..\.>*
 **Required keys**: ID, Type, Number, Description
@@ -284,7 +279,7 @@ following format:
 
     ency">
 
-#### FORMAT lines
+##### FORMAT lines
 
 **Format**: *##FORMAT=<key1=value1,key2=value2,...\>*
 **Required keys**: ID, Type, Number, Description
@@ -325,7 +320,7 @@ default unless there is an exceptional scenario where the information for a
 field cannot be obtained. In such a case, "." can be used to indicate missing
 value.
 
-#### FILTER lines
+##### FILTER lines
 
 **Format**: *##FILTER=<key1=value1,key2=value2,...\>* 
 **Required keys**: ID, Description
@@ -344,7 +339,7 @@ keys.
 
     ##FILTER=<ID=s50,Description="Less than 50% of samples have data">
 
-#### Consistent definitions for reserved INFO and FORMAT fields
+##### Consistent definitions for reserved INFO and FORMAT fields
 
 To ensure that all TCGA VCF files have consistent definitions for standard
 fields and to avoid merging errors due to contradicting definitions, following
@@ -435,9 +430,9 @@ given field is interpreted the same way across all centers and that same
 
 
 
-### TCGA-specific meta-information
+#### TCGA-specific meta-information
 
-#### PEDIGREE lines
+##### PEDIGREE lines
 
 **Format**: *##PEDIGREE=<key1=value1,key2=value2,...\>*
 **Required keys**: Name_0,..,Name_N where N \>= 1;
@@ -456,7 +451,7 @@ example below, PRIMARY-TUMOR-GENOME is derived from GERMLINE-GENOME.
 
     ##PEDIGREE=<Name_0=PRIMARY-TUMOR-GENOME,Name_1=GERMLINE-GENOME>
 
-#### SAMPLE lines
+##### SAMPLE lines
 
 **Format**: *##SAMPLE=<key1=value1,key2=value2,...\>* 
 **Required keys**: ID, SampleName, Individual, File, Platform, Source, Accession
@@ -509,7 +504,7 @@ contamination","Tumor genome"\>>
 -   Values for tags related to genome mixture (Genomes, Mixture,
     Genome_Description) are within angle brackets.
 
-### Column header meta-information
+#### Column header meta-information
 
 **Format**: Tab-delimited line starting with "#" and containing headers for all
 columns in the BODY as shown below.
@@ -521,8 +516,8 @@ encapsulate per-sample/genome genotype data.
 \#CHROM POS ID REF ALT QUAL FILTER INFO FORMAT <SAMPLE1 or GENOME1\> <SAMPLE2
 or GENOME2\> ...
 
-BODY
-### Variant records
+### BODY
+#### Variant records
 
 Data lines are tab-delimited and list information about individual variants and
 associated genotypes across samples. The first 8 fields (Figure 1) are required
@@ -555,8 +550,7 @@ are optional.
 * A "Required" field cannot contain missing value identifier for any record
 listed in data lines 
 
-Extensions for TCGA data
-========================
+## Extensions for TCGA data
 
 TCGA data includes but is not limited to SNP's and small indels. A variant
 representation format for cancer data should be able to support more complex
@@ -564,8 +558,7 @@ variation types such as structural variants, complex rearrangements and RNA-Seq
 variants. The following sub-sections present an overview of the extensions that
 have been added to clearly describe such variations in a VCF file.
 
-Structural variants
--------------------
+### Structural variants
 
 A [structural variant](http://www.ncbi.nlm.nih.gov/dbvar/content/overview/) (SV)
 can be defined as a region of DNA that includes a variation in the structure of
@@ -576,8 +569,7 @@ format in order to clearly describe structural variants in a VCF file. A
 detailed description of the extensions is available
 [here](http://www.1000genomes.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-41).
 
-Complex rearrangements
-----------------------
+### Complex rearrangements
 
 Chromosomal rearrangements are caused by breakage of DNA double helices at two
 different locations. The broken ends in turn rejoin to produce a new chromosomal
@@ -643,8 +635,7 @@ the adjacency; represented as a string of the form "chr:pos"
 []: square brackets indicate direction that the joined sequence continues in,
 starting from p
 
-RNA-Seq variants
-----------------
+### RNA-Seq variants
 
 VCF specifications have been extended to address expressed variants obtained
 from RNA-Seq. Features added for structural variants from genome/exome
@@ -681,8 +672,7 @@ expressed nucleotide variants (Table 8a).
 |                     |                                                                                                                                                                                                                          | effect of the variant in a codon">                                                                                                 |              |
 |                     |                                                                                                                                                                                                                          | *MIS,NA*                                                                                                                            |              |
 
-Including validation status in VCF file
----------------------------------------
+### Including validation status in VCF file
 
 Somatic variations are often validated using follow-up experiments to confirm
 the variant is not due to sequencing errors. Following points need to be
@@ -818,8 +808,7 @@ The format follows these guidelines:
         available information and could differ from the SS value assigned to the
         tumor sample based on primary sequencing.
 
-Validation rules
-================
+## Validation rules
 
 At the minimum, every file needs to go through the checks listed below.
 Following is an example of a VCF file that shows certain violations cited in the
@@ -876,12 +865,12 @@ Line21 3 18901 rs456 T C 15 PASS NS=3/DB GT 0/1 1/1
 \#\#tcgaversion HEADER line (e.g., \#\#tcgaversion=1.1). The current acceptable
 version is 1.1.
 
-1.  Mandatory [header lines](#TCGAVariantCallFormat(VCF)1.1Specificat) should be
+1.  Mandatory header lines should be
     present.
 
 2.  All meta-information header lines should be prefixed with "\#\#".
 
-3.  [Column header](#TCGAVariantCallFormat(VCF)1.1Specificat) line should be
+3.  Column header line should be
     prefixed with "\#". A VCF file can contain only a single column header line
     that must contain all required field names.
 
@@ -892,9 +881,7 @@ version is 1.1.
 
 5.  HEADER lines cannot be present within the BODY of a file and vice-versa.
 
-6.  [INFO](#TCGAVariantCallFormat(VCF)1.1Specificat),
-    [FORMAT](#TCGAVariantCallFormat(VCF)1.1Specificat) and
-    [FILTER](#TCGAVariantCallFormat(VCF)1.1Specificat)declarations should follow
+6.  INFO, FORMAT and FILTER declarations should follow
     the format below where all keys are required but the order of keys is
     irrelevant.
 
@@ -905,9 +892,7 @@ version is 1.1.
 9.  \#\#FILTER=<ID=id,Description="description"\>
 
 10. Values assigned to *ID, Number, Type* and *Description* in INFO, FORMAT or
-    FILTER declarations should follow the rules listed below. A detailed
-    description of the declaration format is provided
-    [here](#TCGAVariantCallFormat(VCF)1.1Specificat).
+    FILTER declarations should follow the rules listed below.
 
     1.  If an INFO or FORMAT sub-field exists in Table 4 or 5 respectively (i.e.
         ID of the sub-field matches value in "Sub-field" column of the table)
@@ -1061,8 +1046,7 @@ version is 1.1.
         declaration in the HEADER. Line18 shows a violation as "q10" does not
         have an associated definition in the HEADER.
 
-18. <TCGA-VCF\> Validation of
-    [SAMPLE](#TCGAVariantCallFormat(VCF)1.1Specificat) meta-information lines:
+18. <TCGA-VCF\> Validation of SAMPLE meta-information lines:
 
     1.  Each sample ID in the column header (immediately after FORMAT column)
         must have an associated HEADER declaration where value assigned to "ID"
@@ -1095,8 +1079,7 @@ version is 1.1.
         barcode](https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/) / [UUID](https://docs.gdc.cancer.gov/Encyclopedia/pages/UUID/)
         in the database (TCGA VCF 1.1).
 
-19. <TCGA-VCF\> Validation of
-    [PEDIGREE](#TCGAVariantCallFormat(VCF)1.1Specificat) meta-information lines:
+19. <TCGA-VCF\> Validation of PEDIGREE meta-information lines:
 
     1.  Declaration line should follow the format:
 
@@ -1149,8 +1132,7 @@ version is 1.1.
     OR if *value* is within angle brackets.
 
 1.  *CHROM*, *POS*, and *REF* are required fields and cannot contain missing
-    value identifiers. Please refer to [Table
-    6](#TCGAVariantCallFormat(VCF)1.1Specificat) for acceptable values.
+    value identifiers. Please refer to Table 6 for acceptable values.
 
     1.  <TCGA-VCF\> *CHROM* is in {[1-22], X, Y, MT,<chr_ID\>} where chr_ID
         cannot contain whitespace or <\>
@@ -1257,8 +1239,7 @@ version is 1.1.
         would lead to a violation as the 2nd value for RGN is "intron" but the
         corresponding TE value is "SIL" instead of "NA".
 
-11. <TCGA-VCF\> Validation of
-    [vcfProcessLog](#TCGAVariantCallFormat(VCF)1.1Specificat) tags:
+11. <TCGA-VCF\> Validation of vcfProcessLog tags:
 
 \#\#vcfProcessLog=<InputVCF=<file1.vcf\>,InputVCFSource=<varCaller1\>,InputVCFVer=<1.0>,InputVCFParam=<a1,c2\>,InputVCFgeneAnno=<anno1.gaf\>\>
 
@@ -1304,13 +1285,10 @@ UUID-compliant files should satisfy the following criteria:
 
 2. If ##INDIVIDUAL is declared in the header, then values assigned to
 SampleUUID in all ##SAMPLE declarations should correspond to the same
-participant ID, and the TCGA barcode for the participant should be assigned to
-##INDIVIDUAL.
+participant ID, and the TCGA barcode for the participant should be assigned to INDIVIDUAL.
 
+### Handling failed checks
 
-
-Handling failed checks
-----------------------
 
 -   A VCF file would be required to pass ALL the checks listed above and any
     violation will lead to a "Failed" validation.
@@ -1325,8 +1303,7 @@ Handling failed checks
 
 -   A summary of all failed checks should be provided as an output.
 
-Test files
-----------
+### Test files
 
 The following table lists sample files that can be used to test various
 validation steps. Parent directory is

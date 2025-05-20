@@ -595,6 +595,7 @@ Example 1:
 | __Invalid entity type: {}.{}__ | The entity type is not accepted by the GDC | Ensure there are no typos in the "type" field and that the entity matches a node in the [GDC Data Dictionary](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/) | 
 
 Example 1:
+
 === "Request1"
     
     ```json
@@ -715,6 +716,7 @@ Example 1:
     ```
 
 Example 2:
+
 === "Request1"
 
     ```json
@@ -850,120 +852,132 @@ Example 2:
     ```
 
 Example 3:
-```Request1
-[
-  {
-    "type": "family",
-    "submitter_id": "GDC-INTERNAL-000028_family",
-    "relative_deceased": "Yes",
-    "relative_smoker": "No",
-    "cases": {
-      "submitter_id": "GDC-INTERNAL-000028"
-    }
-  }
-]
-```
-```Response1
-{
-  "cases_related_to_created_entities_count": 0,
-  "cases_related_to_updated_entities_count": 0,
-  "code": 400,
-  "created_entity_count": 0,
-  "entities":
+
+=== "Request1"
+
+    ```json
     [
         {
-            "action":null,
-            "errors":
-                [
-                    {
-                        "keys":["type"],
-                        "message":"Invalid entity type: family. Did you mean 'family_history'?",
-                        "type":"INVALID_TYPE"
-                    },
-                    {
-                        "keys":["type"],
-                        "message":"specified type: family is not in the current data model",
-                        "type":"ERROR"
-                    }
-                ]
-            "id":
-                [
-                    {
-                        "id":null
-                    }
-                ],
-            "related_cases":[],
-            "type":"family",
-            "unique_keys":[],
-            "valid":false,
-            "warnings":[]
+            "type": "family",
+            "submitter_id": "GDC-INTERNAL-000028_family",
+            "relative_deceased": "Yes",
+            "relative_smoker": "No",
+            "cases": {
+                "submitter_id": "GDC-INTERNAL-000028"
+            }
         }
-    ],
-    "entity_error_count":1,
-    "message":"Transaction aborted due to 1 invalid entity.",
-    "success":false,
-    "transaction_id":6491002,
-    "transactional_error_count":0,
-    "transactional_errors":[],
-    "updated_entity_count":0
-}
-```
-```Request2
-[
-  {
-    "type": "family_history",
-    "submitter_id": "GDC-INTERNAL-000028_family_history",
-    "relative_deceased": "Yes",
-    "relative_smoker": "No",
-    "cases": {
-      "submitter_id": "GDC-INTERNAL-000028"
+    ]
+    ```
+
+=== "Response1"
+
+    ```json
+    {
+    "cases_related_to_created_entities_count": 0,
+    "cases_related_to_updated_entities_count": 0,
+    "code": 400,
+    "created_entity_count": 0,
+    "entities":
+        [
+            {
+                "action":null,
+                "errors":
+                    [
+                        {
+                            "keys":["type"],
+                            "message":"Invalid entity type: family. Did you mean 'family_history'?",
+                            "type":"INVALID_TYPE"
+                        },
+                        {
+                            "keys":["type"],
+                            "message":"specified type: family is not in the current data model",
+                            "type":"ERROR"
+                        }
+                    ]
+                "id":
+                    [
+                        {
+                            "id":null
+                        }
+                    ],
+                "related_cases":[],
+                "type":"family",
+                "unique_keys":[],
+                "valid":false,
+                "warnings":[]
+            }
+        ],
+        "entity_error_count":1,
+        "message":"Transaction aborted due to 1 invalid entity.",
+        "success":false,
+        "transaction_id":6491002,
+        "transactional_error_count":0,
+        "transactional_errors":[],
+        "updated_entity_count":0
     }
-  }
-]
-```
-```Response2
-{
-  "cases_related_to_created_entities_count": 1,
-  "cases_related_to_updated_entities_count": 0,
-  "code": 201,
-  "created_entity_count": 1,
-  "entities":
+    ```
+
+=== "Request2"
+
+    ```json
     [
         {
-            "action":"create",
-            "errors":[],
-            "id":
-                [
-                    {
-                        "id":"ab787b88-a141-462a-a71d-46e15fbffad"
-                    }
-                ],
-            "related_cases":[
-                {
-                    "id":"3cb0dc61-2375-4edc-b8b9-7962e2362a65","submitter_id":"GDC-INTERNAL-000028"
-                }
-            ],
-            "type":"family_history",
-            "unique_keys":
-                [
-                    {
-                        "project_id":"GDC-INTERNAL",
-                        "submitter_id":"GDC-INTERNAL-000028_family_history"
-                    }
-                ],
-            "valid":true,
-            "warnings":[]
+            "type": "family_history",
+            "submitter_id": "GDC-INTERNAL-000028_family_history",
+            "relative_deceased": "Yes",
+            "relative_smoker": "No",
+            "cases": {
+                "submitter_id": "GDC-INTERNAL-000028"
+            }
         }
-    ],
-    "entity_error_count":0,
-    "message":"Transaction successful.",
-    "success":true,
-    "transaction_id":6491003,
-    "transactional_error_count":0,
-    "transactional_errors":[],
-    "updated_entity_count":0
-}
-```
+    ]
+    ```
+
+=== "Response2"
+
+    ```json
+    {
+    "cases_related_to_created_entities_count": 1,
+    "cases_related_to_updated_entities_count": 0,
+    "code": 201,
+    "created_entity_count": 1,
+    "entities":
+        [
+            {
+                "action":"create",
+                "errors":[],
+                "id":
+                    [
+                        {
+                            "id":"ab787b88-a141-462a-a71d-46e15fbffad"
+                        }
+                    ],
+                "related_cases":[
+                    {
+                        "id":"3cb0dc61-2375-4edc-b8b9-7962e2362a65","submitter_id":"GDC-INTERNAL-000028"
+                    }
+                ],
+                "type":"family_history",
+                "unique_keys":
+                    [
+                        {
+                            "project_id":"GDC-INTERNAL",
+                            "submitter_id":"GDC-INTERNAL-000028_family_history"
+                        }
+                    ],
+                "valid":true,
+                "warnings":[]
+            }
+        ],
+        "entity_error_count":0,
+        "message":"Transaction successful.",
+        "success":true,
+        "transaction_id":6491003,
+        "transactional_error_count":0,
+        "transactional_errors":[],
+        "updated_entity_count":0
+    }
+    ```
 
 #### INVALID_VALUE Messages
 
@@ -973,6 +987,7 @@ Example 3:
 | __{value} is not valid under any of the given schemas: {value} is less than the minimum of {minimum value} and {value} is not of type 'null'__ | The amount does not fall within the accepted minimum and maximum values | Ensure the value falls within the accepted range |
 
 Example 1:
+
 === "Request1"
 
     ```json

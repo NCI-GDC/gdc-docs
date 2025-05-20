@@ -2,7 +2,7 @@
 
 ## Description ##
 
-BRASS is a structural variant calling pipeline used in GDC whole genome sequencing (WGS) harmonization.
+BRASS (__now deprecated at the GDC__) is a structural variant calling pipeline used in GDC whole genome sequencing (WGS) harmonization.
 
 ## Overview ##
 
@@ -21,7 +21,7 @@ Structural variant calling is performed with BRASS using tumor and normal alignm
 ## References ##
 
 1. [DNA-Seq Analysis Pipeline](/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/)
-1. [Whole Genome Sequencing Variant Calling](/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/#whole-genome-sequencing-variant-calling)
+1. [Whole Genome Sequencing Variant Calling](/Data/Bioinformatics_Pipelines/DNA_Seq_WGS/)
 
 ## External Links ##
 
