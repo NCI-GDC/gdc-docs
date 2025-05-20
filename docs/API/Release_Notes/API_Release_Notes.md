@@ -3,7 +3,7 @@
 
 | Version | Date |
 |---|---|
-| [v7.9.1](API_Release_Notes.md#v770) | May 20, 2025 |
+| [v7.9.1](API_Release_Notes.md#v791) | May 20, 2025 |
 | [v7.7.0](API_Release_Notes.md#v770) | November 21, 2024 |
 | [v7.5.1](API_Release_Notes.md#v751) | September 30, 2024 |
 | [v7.4.1](API_Release_Notes.md#v741) | July 30, 2024 |
@@ -56,7 +56,6 @@
 * Survival plots generated from the `diagnoses.days_to_last_follow_up` field and data has been migrated from `follow_up.days_to_follow_up` to account for this in TCGA projects. <!-- SV-2584 -->
 
 ### Known Issues and Workarounds
-
 
 * Some fields may be repeated in the API or data portal due to being in a transitional states. As a workaround, select all of the fields of interest, and the results will demonstrate which are currently populated.
 * Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
