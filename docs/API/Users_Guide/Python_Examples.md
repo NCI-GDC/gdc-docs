@@ -160,7 +160,7 @@ import requests
 import json
 import re
 
-file_id = "b658d635-258a-4f6f-8377-767a43771fe4"
+file_id = "a68e75c8-0e01-446b-86b8-09b6903fa409"
 
 data_endpt = "https://api.gdc.cancer.gov/data/{}".format(file_id)
 
@@ -190,7 +190,7 @@ import json
 '''
 token_file = "$TOKEN_FILE_PATH"
 
-file_id = "11443f3c-9b8b-4e47-b5b7-529468fec098"
+file_id = "a5b9acbd-adea-47d0-a3a3-3eb6ebfde56b"
 
 data_endpt = "https://api.gdc.cancer.gov/slicing/view/{}".format(file_id)
 
@@ -225,8 +225,8 @@ import re
 data_endpt = "https://api.gdc.cancer.gov/data"
 
 ids = [
-    "b658d635-258a-4f6f-8377-767a43771fe4",
-    "3968213d-b293-4b3d-8033-5b5a0ca07b6c"
+    "a68e75c8-0e01-446b-86b8-09b6903fa409",
+    "649e1e0e-b4ce-491c-94c3-64273680159b"
     ]
 
 params = {"ids": ids}
@@ -258,37 +258,54 @@ import re
 files_endpt = "https://api.gdc.cancer.gov/files"
 
 filters = {
-    "op": "and",
-    "content":[
-        {
-        "op": "in",
-        "content":{
-            "field": "cases.project.primary_site",
-            "value": ["Lung"]
-            }
-        },
-        {
-        "op": "in",
-        "content":{
-            "field": "cases.demographic.race",
-            "value": ["white"]
-            }
-        },
-        {
-        "op": "in",
-        "content":{
-            "field": "cases.demographic.gender",
-            "value": ["female"]
-            }
-        },
-        {
-        "op": "in",
-        "content":{
-            "field": "files.analysis.workflow_type",
-            "value": ["HTSeq - FPKM"]
-            }
-        }
-    ]
+  "op": "and",
+  "content": [
+    {
+      "op": "in",
+      "content": {
+        "field": "cases.project.primary_site",
+        "value": [
+          "Lung"
+        ]
+      }
+    },
+    {
+      "op": "in",
+      "content": {
+        "field": "cases.demographic.race",
+        "value": [
+          "white"
+        ]
+      }
+    },
+    {
+      "op": "in",
+      "content": {
+        "field": "cases.demographic.gender",
+        "value": [
+          "female"
+        ]
+      }
+    },
+    {
+      "op": "in",
+      "content": {
+        "field": "files.analysis.workflow_type",
+        "value": [
+          "STAR - Counts"
+        ]
+      }
+    },
+    {
+      "op": "in",
+      "content": {
+        "field": "files.access",
+        "value": [
+          "open"
+        ]
+      }
+    }
+  ]
 }
 
 # Here a GET is used, so the filter parameters should be passed as a JSON string.
@@ -297,7 +314,7 @@ params = {
     "filters": json.dumps(filters),
     "fields": "file_id",
     "format": "JSON",
-    "size": "1000"
+    "size": "10"
     }
 
 response = requests.get(files_endpt, params = params)
@@ -337,7 +354,7 @@ import json
 '''
 token_file = "$TOKEN_FILE_PATH"
 
-file_id = "11443f3c-9b8b-4e47-b5b7-529468fec098"
+file_id = "a5b9acbd-adea-47d0-a3a3-3eb6ebfde56b"
 
 data_endpt = "https://api.gdc.cancer.gov/slicing/view/{}".format(file_id)
 
@@ -373,9 +390,9 @@ import json
 token_file = "$TOKEN_FILE_PATH"
 
 file_ids = [
-    "11443f3c-9b8b-4e47-b5b7-529468fec098",
-    "1f103620-bb34-46f1-b565-94f0027e396d",
-    "ca549554-a244-4209-9086-92add7bb7109"
+    "a5b9acbd-adea-47d0-a3a3-3eb6ebfde56b",
+    "8b06714b-a39c-4a24-897d-170af8837b57",
+    "4400e648-8c19-4707-9665-dbeb907b166c"
     ]
 
 for file_id in file_ids:

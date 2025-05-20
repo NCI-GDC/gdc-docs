@@ -1,12 +1,7 @@
-Mutation Annotation Format (MAF) - Legacy TCGA Specification
-==============================================
-
+# Mutation Annotation Format (MAF) - Legacy TCGA Specification
 
 *This definition was taken from the previously public wiki hosted by TCGA and reflects the MAF format
-that was available during the active period of the TCGA project.*  
-
-
-
+that was available during the active period of the TCGA project.*
 
 **Document Information**
 
@@ -42,8 +37,7 @@ June 20, 2014
 -   6 Previous specification
     versions
 
-Current version changes
-=======================
+## Current version changes
 
 This current revision is **version 2.4.1** of the Mutation Annotation Format
 (MAF) specification.
@@ -76,13 +70,12 @@ from version 2.4:
 -   Extra validation rules: If Validation_Status == Valid or Invalid, then
     Validation_Method != none (case insensitive).
 
-About MAF specifications
-========================
+## About MAF specifications
 
 Mutation annotation files should be transferred to the DCC. Those files should
 be formatted using the mutation annotation format (MAF) that is described below.
 File naming convention is also
-[below](#MutationAnnotationFormat(MAF)Specificat).
+[below](#maf-naming-convention).
 
 Following categories of somatic mutations are reported in MAF files:
 
@@ -141,8 +134,7 @@ protected MAF files and provides a comparison.
 |   | dbSNP sites that are not annotated as somatic in dbSNP, COSMIC or OMIM must be removed from somatic MAFs.                                                                         |                                                                                                                                                |
 | **Access level**       | These files are deployed as open access data.    | These files are deployed as protected data.                                                                                                    |
 
-MAF file fields
-===============
+## MAF file fields
 
 The format of a MAF file is tab-delimited columns. Those columns are described
 in Table 1 and are required in every MAF file. The order of the columns will be
@@ -155,8 +147,7 @@ optional. Optional columns are not validated by the DCC and can be in any order.
 
 
 
-Table 1 - File column headers
------------------------------
+### Table 1 - File column headers
 
 
 
@@ -228,8 +219,7 @@ Table 1 - File column headers
     a specified set of known values (*e.g.*HUGO gene symbols).
 
 
-MAF file checks
-===============
+## MAF file checks
 
 The DCC Archive Validator checks the integrity of a MAF file. Validation will
 fail if any of the below are not true for a MAF file:
@@ -339,8 +329,7 @@ fail if any of the below are not true for a MAF file:
 13. If Validation_Status == "Valid" or "Invalid", then Validation_Method !=
     "none" (case insensitive)
 
-MAF naming convention
-=====================
+## MAF naming convention
 
 In archives uploaded to the DCC, the MAF file name should relate to the
 containing archive name in the following way:

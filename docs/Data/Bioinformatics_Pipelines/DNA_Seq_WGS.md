@@ -327,7 +327,7 @@ As of Data Release 42, copy number segment data from the GATK4 pipeline is avail
 * __Segment_Mean__: This is equal to log2(copy-number/ 2) for the segment
 * __Num_Probes__: Legacy field from when segment files were derived from SNP 6.0 arrays. This has no significance for NGS-derived CNV data
 
-AscatNGS (__now deprecated at GDC__), originally developed by [Raine *et al* (2016)]( https://doi.org/10.1002/cpbi.17) ([GitHub page](https://github.com/cancerit)), indicates the DNA copy number changes affecting a tumor genome when comparing to a matched normal sample. See below for a description of the copy number segment and copy number estimation files produced by AscatNGS:
+AscatNGS (__now deprecated at the GDC__), originally developed by [Raine *et al* (2016)]( https://doi.org/10.1002/cpbi.17) ([GitHub page](https://github.com/cancerit)), indicates the DNA copy number changes affecting a tumor genome when comparing to a matched normal sample. See below for a description of the copy number segment and copy number estimation files produced by AscatNGS:
 
 * GDC Aliquot:  The GDC ID for the aliquot collected from the sample (copy number segment files only).
 * Gene ID:  The gene ENSEMBL ID (copy number variant only).

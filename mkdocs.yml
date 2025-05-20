@@ -77,7 +77,7 @@ nav:
       - Before Submitting Data to the GDC Portal: Data_Submission_Portal/Users_Guide/Checklist.md
       - Data Submission Overview: Data_Submission_Portal/Users_Guide/Data_Submission_Overview.md
       - Data Submission Portal: Data_Submission_Portal/Users_Guide/Data_Submission_Process.md
-      - Data Upload Walkthrough: Data_Submission_Portal/Users_Guide/Data_Submission_Walkthrough.md
+      - Data Submission Walkthrough: Data_Submission_Portal/Users_Guide/Data_Submission_Walkthrough.md
       - Submission Best Practices: Data_Submission_Portal/Users_Guide/Best_Practices.md
       - Troubleshooting Guide: Data_Submission_Portal/Users_Guide/Troubleshooting.md
       - Release Notes: Data_Submission_Portal/Release_Notes/Data_Submission_Portal_Release_Notes.md
@@ -87,8 +87,6 @@ nav:
       - Preparing for Data Download and Upload: Data_Transfer_Tool/Users_Guide/Preparing_for_Data_Download_and_Upload.md
       - Data Transfer Tool Command Line Documentation: Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload.md
       - Release Notes - Command Line: Data_Transfer_Tool/Release_Notes/DTT_Release_Notes.md
-      - Data Transfer Tool UI Documentation: Data_Transfer_Tool/Users_Guide/Data_Download_DTT_UI.md
-      - Release Notes - UI: Data_Transfer_Tool/Release_Notes/DTT_UI_Release_Notes.md
       - Troubleshooting Guide: Data_Transfer_Tool/Users_Guide/Appendix_B_TroubleShooting.md
       - Download PDF: Data_Transfer_Tool/PDF/Data_Transfer_Tool_UG.pdf
   - Data Dictionary:

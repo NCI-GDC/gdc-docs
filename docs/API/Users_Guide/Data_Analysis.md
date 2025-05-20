@@ -22,6 +22,8 @@ The following data analysis endpoints are available from the GDC API:
 ||__/cnv_occurrences__|A `cnv` entity as applied to a single case.|
 ||__/cnv_occurrences/`<cnv_occurrence_id>`__|Get information about a specific copy number variation occurrence using a `<cnv_occurrence_id>`, often supplemented with the `expand` option to show fields of interest. |
 ||__/cnv_occurrences/ids__|This endpoint will retrieve nodes that contain the queried cnv_occurrence_id. This is accomplished by adding the query parameter: /cnv_occurrences/ids?query=`<cnv_occurrences_id>`|
+|__Copy Number Segment__|__/segment_cnvs__|Allows users to search and retrieve data for segment-level copy number variations (CNVs). This endpoint accepts filters (e.g., chromosome, position, length) and provides information such as chromosome, start position, end position, CNV length, and CNV change categories.|
+||__/segment_cnv_occurrences__|Supports retrieval of occurrences of segment-level copy number variations (CNVs) in specific cases. This endpoint provides case-centric data, including case details, occurrence-level properties, and relevant linkage to CNV segment data.|
 |__scRNA-Seq Gene Expression__|__/scrna_seq/gene_expression__|Returns scRNA-Seq gene expression data for specific cases or files, with details about gene expression across different cell IDs.|
 |__Analysis__|__/analysis/top_cases_counts_by_genes__| Returns the number of cases with a mutation in each gene listed in the gene_ids parameter for each project. Note that this endpoint cannot be used with the `format` or `fields` parameters.|
 ||__/analysis/top_mutated_genes_by_project__| Returns a list of genes that have the most mutations within a given project. |
@@ -403,21 +405,21 @@ __Example 1__: Similar to the `/genes` endpoint, a user would like to retrieve i
 === "Filter"
 
     ```json
-     {
-       "op":"in",
-       "content":{
-          "field":"cosmic_id",
-          "value":[
-             "COSM1135366"
-          ]
-       }
+    {
+      "op": "in",
+      "content": {
+        "field": "cosmic_id",
+        "value": [
+          "COSM1135366"
+        ]
+      }
     }
     ```
 
 === "Shell"
 
     ```Shell
-    curl 'https://api.gdc.cancer.gov/ssms?pretty=true&filters=%7B%0A%22op%22%3A%22in%22%2C%0A%22content%22%3A%7B%0A%22field%22%3A%22cosmic_id%22%2C%0A%2value%22%3A%5B%0A%22COSM1135366%22%0A%5D%0A%7D%0A%7D%0A'
+    curl 'https://api.gdc.cancer.gov/ssms?pretty=true&filters=%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cosmic_id%22%2C%22value%22%3A%5B%22COSM1135366%22%5D%7D%7D'
     ```
 
 === "Response"
@@ -915,7 +917,7 @@ __Example 2:__ A user is interested in the first cnv occurrence (`3b9f7ecc-2280-
 === "Shell"
 
     ```Shell
-    curl 'https://api.gdc.cancer.gov/cnv_occurrences/3b9f7ecc-2280-5b89-80f9-ec8d6c5e604e?pretty=true&expand=cnv,case,case.exposures,case.demographic'
+    curl 'https://api.gdc.cancer.gov/cnv_occurrences/0003f550-20f2-5bd0-ac63-8ac554a5a9cc?pretty=true&expand=cnv,case,case.exposures,case.demographic'
     ```
 
 === "Json"
@@ -924,52 +926,41 @@ __Example 2:__ A user is interested in the first cnv occurrence (`3b9f7ecc-2280-
     {
       "data": {
         "cnv": {
-          "start_position": 68815994,
-          "gene_level_cn": true,
-          "cnv_change": "Gain",
-          "ncbi_build": "GRCh38",
-          "chromosome": "4",
-          "variant_status": "Tumor Only",
-          "cnv_id": "1a889109-30d5-51e3-848f-9f615c69f407",
-          "end_position": 68832023
-        },
-        "cnv_occurrence_id": "3b9f7ecc-2280-5b89-80f9-ec8d6c5e604e",
+          "start_position": 7661779, 
+          "gene_level_cn": true, 
+          "cnv_change": "Gain", 
+          "ncbi_build": "GRCh38", 
+          "chromosome": "17", 
+          "variant_status": "Tumor Only", 
+          "cnv_id": "40104505-22bf-5a64-b1fb-6ffde5be6d48", 
+          "cnv_change_5_category": "Gain", 
+          "end_position": 7687538
+        }, 
+        "cnv_occurrence_id": "0003f550-20f2-5bd0-ac63-8ac554a5a9cc", 
         "case": {
-          "exposures": [
-            {
-              "cigarettes_per_day": 5.47945205479452,
-              "alcohol_history": "Not Reported",
-              "exposure_id": "f7b08a8e-d22b-5cb0-be9f-b922c9ca87d2",
-              "submitter_id": "TCGA-38-4629_exposure",
-              "state": "released",
-              "pack_years_smoked": 100.0
-            }
-          ],
-          "primary_site": "Bronchus and lung",
-          "disease_type": "Adenomas and Adenocarcinomas",
+          "primary_site": "Hematopoietic and reticuloendothelial systems", 
+          "disease_type": "Acute Lymphoblastic Leukemia", 
           "available_variation_data": [
-            "cnv",
+            "cnv", 
             "ssm"
-          ],
-          "case_id": "127bf818-f7e5-46b5-a9de-39f6d96b8b83",
-          "submitter_id": "TCGA-38-4629",
-          "state": "released",
+          ], 
+          "case_id": "590e60b7-ef2d-4e9f-8680-982f82c8c938", 
+          "submitter_id": "MP2PRT-PARTLU", 
+          "state": "released", 
           "demographic": {
-            "demographic_id": "9ea1f795-9510-5acc-a9a5-bf1379e6635a",
-            "ethnicity": "not hispanic or latino",
-            "gender": "male",
-            "race": "white",
-            "vital_status": "Dead",
-            "age_at_index": 68,
-            "submitter_id": "TCGA-38-4629_demographic",
-            "days_to_death": 864,
-            "days_to_birth": -25104,
-            "state": "released",
-            "year_of_death": 2005,
-            "year_of_birth": 1935
+            "demographic_id": "3dddccc5-212f-477b-bd25-496647a480be", 
+            "ethnicity": "not hispanic or latino", 
+            "gender": "male", 
+            "race": "white", 
+            "vital_status": "Alive", 
+            "age_at_index": 4, 
+            "submitter_id": "MP2PRT-PARTLU_demo", 
+            "days_to_birth": -1532, 
+            "state": "released", 
+            "year_of_birth": 2003
           }
         }
-      },
+      }, 
       "warnings": {}
     }
     ```
@@ -1051,6 +1042,363 @@ __Example 3:__ A user is interested in finding cases that have cnv data for male
     cnv	ssm	6c5154d2-af36-492f-b520-d925528824e4	dcf8e315-e868-5dc2-8ca0-5f76d4f7e5ee
     cnv	ssm	fbb0dc0d-6314-40ea-bc43-0cbf3b710dbe	504fd9f6-dc90-55c4-abf0-68ab38e17f61
     cnv	ssm	7cada85b-00b1-41e5-9924-e09eb077ad56	1e6f552a-78ed-5ce7-bef9-a55670c979db
+    ```
+
+## Copy Number Segment Examples
+
+### Segment CNVs Endpoint Examples
+
+__Example 1:__ A user wants detailed information for a specific segment-level CNV, identified by its unique `segment_cnv_id`.
+
+=== "Shell"
+
+    ```shell
+    curl https://api.gdc.cancer.gov/segment_cnvs/eb5c03ab-2637-5f25-967e-05f72531cae4
+    ```
+
+=== "Response"
+
+    ```json
+    {
+        "data": {
+            "segment_cnv_id": "eb5c03ab-2637-5f25-967e-05f72531cae4",
+            "start_position": 59345907,
+            "cnv_change": "Gain",
+            "chromosome": "4",
+            "length": 54022,
+            "cnv_change_5_category": "Gain",
+            "end_position": 59399928
+        },
+        "warnings": {}
+    }
+    ```
+
+__Example 2:__ A user wants all segment-level CNVs that overlap with the genomic region `chr2:20000-20000000` and are shorter than `100,000`.
+
+=== "Filters"
+
+    ```json
+    {
+      "filters": {
+        "op": "and",
+        "content": [
+          {
+            "op": "=",
+            "content": {
+              "field": "chromosome",
+              "value": "2"
+            }
+          },
+          {
+            "op": ">=",
+            "content": {
+              "field": "start_position",
+              "value": 20000
+            }
+          },
+          {
+            "op": "<=",
+            "content": {
+              "field": "end_position",
+              "value": 20000000
+            }
+          },
+          {
+            "op": "<=",
+            "content": {
+              "field": "length",
+              "value": 100000
+            }
+          }
+        ]
+      }
+    }
+    ```
+
+=== "Shell"
+
+    ```shell
+    curl -X POST "https://api.gdc.cancer.gov/segment_cnvs" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "filters": {
+        "op": "and",
+        "content": [
+          {
+            "op": "=",
+            "content": {
+              "field": "chromosome",
+              "value": "2"
+            }
+          },
+          {
+            "op": ">=",
+            "content": {
+              "field": "start_position",
+              "value": 20000
+            }
+          },
+          {
+            "op": "<=",
+            "content": {
+              "field": "end_position",
+              "value": 20000000
+            }
+          },
+          {
+            "op": "<=",
+            "content": {
+              "field": "length",
+              "value": 100000
+            }
+          }
+        ]
+      },
+      "pretty": "true",
+      "format": "TSV"
+    }'
+    ```
+
+=== "Tsv"
+
+    ```tsv
+    chromosome	cnv_change	cnv_change_5_category	end_position	id	length	segment_cnv_id	start_position
+    2	Loss	Homozygous Deletion	7513504	85bab98c-f84f-5643-8e4f-d4e2ca02f99b	63866	85bab98c-f84f-5643-8e4f-d4e2ca02f99b	7449639
+    2	Gain	Amplification	1151013	286ed66d-2e8f-526a-9436-f7151cc1405f	19779	286ed66d-2e8f-526a-9436-f7151cc1405f	1131235
+    2	Loss	Loss	6262028	d8aad535-c306-5343-8353-7d8e39695d07	13733	d8aad535-c306-5343-8353-7d8e39695d07	6248296
+    2	Loss	Loss	6911040	1885cd7b-9237-5fac-a6f2-6daa5269a0f8	3733	1885cd7b-9237-5fac-a6f2-6daa5269a0f8	6907308
+    2	Gain	Amplification	6713255	a0bd525f-ba1a-5873-a11d-480c8d45d0f8	1	a0bd525f-ba1a-5873-a11d-480c8d45d0f8	6713255
+    2	Gain	Amplification	12304206	602f9d50-f0ca-5eca-bcd8-213c54115753	4392	602f9d50-f0ca-5eca-bcd8-213c54115753	12299815
+    2	Gain	Gain	10012403	dfe68d75-69f9-5c6e-825b-f4fa395c5a49	21471	dfe68d75-69f9-5c6e-825b-f4fa395c5a49	9990933
+    2	Gain	Amplification	19301895	33f21f5a-dde8-545e-9f82-64dd90f51346	9078	33f21f5a-dde8-545e-9f82-64dd90f51346	19292818
+    2	Gain	Gain	18014302	e0a98dcf-a538-5da7-a33f-74ed1e3cd76b	25039	e0a98dcf-a538-5da7-a33f-74ed1e3cd76b	17989264
+    2	Gain	Gain	11338094	ee5e2d62-f851-5391-a805-689bf9f9ff74	13755	ee5e2d62-f851-5391-a805-689bf9f9ff74	11324340
+    ```
+
+### Segment CNV Occurrences Endpoint
+
+__Example 1:__ A user wants to retrieve detailed occurrence-level information for a specific `segment_cnv_occurrence_id`.
+
+=== "Shell"
+
+    ```shell
+    curl "https://api.gdc.cancer.gov/segment_cnv_occurrences/a708da54-9b84-5892-a19c-e7469ace9e79?fields=segment_cnv_occurrence_id%2Csegment_cnv.chromosome%2Csegment_cnv.cnv_change%2Csegment_cnv.cnv_change_5_category%2Csegment_cnv.segment_cnv_id%2Csegment_cnv.end_position%2Csegment_cnv.start_position%2Csegment_cnv.length%2Csegment_cnv_occurrence_autocomplete%2Csegment_cnv_occurrence_id&pretty=true"
+    ```
+
+=== "Response"
+
+    ```json
+    {
+      "data": {
+        "segment_cnv_occurrence_id": "a708da54-9b84-5892-a19c-e7469ace9e79", 
+        "segment_cnv": {
+          "segment_cnv_id": "8477f9cf-e9bb-53a9-b2aa-2cf0266d26a6", 
+          "start_position": 102605947, 
+          "cnv_change": "Gain", 
+          "chromosome": "7", 
+          "length": 25474, 
+          "cnv_change_5_category": "Gain", 
+          "end_position": 102631420
+        }
+      }, 
+      "warnings": {}
+    }
+    ```
+
+__Example 2:__ A user wants all segment-level CNV occurrences in cases belonging to a specific project (`TCGA-BRCA`).
+
+=== "Filter"
+
+    ```json
+    {
+      "filters": {
+        "op": "and",
+        "content": [
+          {
+            "op": "=",
+            "content": {
+              "field": "case.project.project_id",
+              "value": "TCGA-BRCA"
+            }
+          }
+        ]
+      },
+      "fields": "segment_cnv_occurrence_id,segment_cnv.chromosome,segment_cnv.cnv_change,segment_cnv.cnv_change_5_category,segment_cnv.segment_cnv_id,segment_cnv.end_position,segment_cnv.start_position,segment_cnv.length,segment_cnv_occurrence_autocomplete,segment_cnv_occurrence_id"
+    }
+    ```
+
+=== "Shell"
+
+    ```shell
+    curl -X POST "https://api.gdc.cancer.gov/segment_cnv_occurrences" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "filters": {
+        "op": "and",
+        "content": [
+          {
+            "op": "=",
+            "content": {
+              "field": "case.project.project_id",
+              "value": "TCGA-BRCA"
+            }
+          }
+        ]
+      },
+      "fields": "segment_cnv_occurrence_id,segment_cnv.chromosome,segment_cnv.cnv_change,segment_cnv.cnv_change_5_category,segment_cnv.segment_cnv_id,segment_cnv.end_position,segment_cnv.start_position,segment_cnv.length,segment_cnv_occurrence_autocomplete,segment_cnv_occurrence_id",
+      "pretty": "true"
+    }'
+    ```
+
+=== "Response"
+
+    ```json
+    {
+      "data": {
+        "hits": [
+          {
+            "id": "4e21a943-d1f0-5a75-9a78-2276680120b8", 
+            "segment_cnv_occurrence_id": "4e21a943-d1f0-5a75-9a78-2276680120b8", 
+            "segment_cnv": {
+              "segment_cnv_id": "ac5d98c1-e5cb-5997-a458-bf0a4724304a", 
+              "start_position": 77313150, 
+              "cnv_change": "Loss", 
+              "chromosome": "15", 
+              "length": 1964120, 
+              "cnv_change_5_category": "Loss", 
+              "end_position": 79277269
+            }
+          }, 
+          {
+            "id": "91f3e1fa-caeb-5c78-b58f-42eb719b247a", 
+            "segment_cnv_occurrence_id": "91f3e1fa-caeb-5c78-b58f-42eb719b247a", 
+            "segment_cnv": {
+              "segment_cnv_id": "b00deca0-1ebf-5e40-907c-e5f45001dc0a", 
+              "start_position": 161163696, 
+              "cnv_change": "Gain", 
+              "chromosome": "4", 
+              "length": 395602, 
+              "cnv_change_5_category": "Amplification", 
+              "end_position": 161559297
+            }
+          }, 
+          {
+            "id": "6c72f43a-8c08-53fd-b2a9-7531f4ba8cff", 
+            "segment_cnv_occurrence_id": "6c72f43a-8c08-53fd-b2a9-7531f4ba8cff", 
+            "segment_cnv": {
+              "segment_cnv_id": "17ebbe4a-3181-57cd-a7ed-60b200d83077", 
+              "start_position": 57248573, 
+              "cnv_change": "Gain", 
+              "chromosome": "20", 
+              "length": 7076228, 
+              "cnv_change_5_category": "Gain", 
+              "end_position": 64324800
+            }
+          }, 
+          {
+            "id": "545f1460-160d-5a53-bb4e-f6ea2b0d6f4c", 
+            "segment_cnv_occurrence_id": "545f1460-160d-5a53-bb4e-f6ea2b0d6f4c", 
+            "segment_cnv": {
+              "segment_cnv_id": "4c5952be-d98b-5f78-b5d8-51fdf77eee26", 
+              "start_position": 77797062, 
+              "cnv_change": "Gain", 
+              "chromosome": "8", 
+              "length": 180567, 
+              "cnv_change_5_category": "Amplification", 
+              "end_position": 77977628
+            }
+          }, 
+          {
+            "id": "cef35027-53cd-5604-8b28-ae512b4202b5", 
+            "segment_cnv_occurrence_id": "cef35027-53cd-5604-8b28-ae512b4202b5", 
+            "segment_cnv": {
+              "segment_cnv_id": "7171f33a-b8d9-5613-a236-9c61020244e3", 
+              "start_position": 81254, 
+              "cnv_change": "Gain", 
+              "chromosome": "8", 
+              "length": 144991516, 
+              "cnv_change_5_category": "Gain", 
+              "end_position": 145072769
+            }
+          }, 
+          {
+            "id": "79419ef6-0711-5898-bf4b-7c608ba53669", 
+            "segment_cnv_occurrence_id": "79419ef6-0711-5898-bf4b-7c608ba53669", 
+            "segment_cnv": {
+              "segment_cnv_id": "7ffb547b-e3aa-5357-89f1-81c79555267b", 
+              "start_position": 52722941, 
+              "cnv_change": "Gain", 
+              "chromosome": "7", 
+              "length": 371962, 
+              "cnv_change_5_category": "Amplification", 
+              "end_position": 53094902
+            }
+          }, 
+          {
+            "id": "6ca5d86e-41a3-5ef3-bc3c-90796fd600f8", 
+            "segment_cnv_occurrence_id": "6ca5d86e-41a3-5ef3-bc3c-90796fd600f8", 
+            "segment_cnv": {
+              "segment_cnv_id": "ff125c9e-cd8b-55d4-a664-d9b016728332", 
+              "start_position": 37116450, 
+              "cnv_change": "Loss", 
+              "chromosome": "15", 
+              "length": 90433, 
+              "cnv_change_5_category": "Loss", 
+              "end_position": 37206882
+            }
+          }, 
+          {
+            "id": "ca9a05aa-e64a-54e9-96f1-3b809bb616d8", 
+            "segment_cnv_occurrence_id": "ca9a05aa-e64a-54e9-96f1-3b809bb616d8", 
+            "segment_cnv": {
+              "segment_cnv_id": "14732351-642a-59b9-b8f2-0bfca7d08005", 
+              "start_position": 47872131, 
+              "cnv_change": "Loss", 
+              "chromosome": "4", 
+              "length": 1183765, 
+              "cnv_change_5_category": "Loss", 
+              "end_position": 49055895
+            }
+          }, 
+          {
+            "id": "9a48b959-f9bb-5899-a416-18a6054ab0e1", 
+            "segment_cnv_occurrence_id": "9a48b959-f9bb-5899-a416-18a6054ab0e1", 
+            "segment_cnv": {
+              "segment_cnv_id": "a0ac9d1f-a225-5e5d-aa71-b80da6a24f31", 
+              "start_position": 5528584, 
+              "cnv_change": "Loss", 
+              "chromosome": "4", 
+              "length": 196010, 
+              "cnv_change_5_category": "Homozygous Deletion", 
+              "end_position": 5724593
+            }
+          }, 
+          {
+            "id": "02cb0ba3-22a8-5843-89f5-2d92c8ba30a3", 
+            "segment_cnv_occurrence_id": "02cb0ba3-22a8-5843-89f5-2d92c8ba30a3", 
+            "segment_cnv": {
+              "segment_cnv_id": "c0262321-49e5-5cea-9761-f2fd53ab27f9", 
+              "start_position": 149661, 
+              "cnv_change": "Gain", 
+              "chromosome": "6", 
+              "length": 74702700, 
+              "cnv_change_5_category": "Amplification", 
+              "end_position": 74852360
+            }
+          }
+        ], 
+        "pagination": {
+          "count": 10, 
+          "total": 94808, 
+          "size": 10, 
+          "from": 0, 
+          "sort": "", 
+          "page": 1, 
+          "pages": 9481
+        }
+      }, 
+      "warnings": {}
+    }
     ```
 
 ## scRNA-Seq Gene Expression Endpoints
@@ -2343,7 +2691,7 @@ __Example 2:__ The following demonstrates a use of the `/analysis/top_mutated_ge
 === "Shell"
 
     ```Shell
-    curl "https://api.gdc.cancer.gov/analysis/top_mutated_genes_by_project?fields=gene_id,symbol&filters=%7B%20%20%0A%20%20%20%22op%22%3A%22AND%20%20%20%22content%22%3A%5B%20%20%0A%20%20%20%20%20%20%7B%20%20%0A%20%20%20%20%20%20%20%20%20%22op%22%3A%22in%22%2C%0A%20%20%20%20%20%20%20%20%20%22content%22%3A%7B%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%22field%22%3A%22case.project.project_id%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22value%22%3A%5B%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22TCGA-DLBC%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%20%20%0A%20%20%20%20%20%20%20%20%20%22op%22%3A%22in%22%2C%0A%20%20%20%20%20%20%20%20%20%22content%22%3A%7B%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%22field%22%3A%22case.ssm.consequence.transcript.annotation.vep_impact%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22value%22%3A%5B%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22HIGH%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22MODERATE%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%5D%0A%7D%0A&pretty=true"
+    curl "https://api.gdc.cancer.gov/analysis/top_mutated_genes_by_project?fields=gene_id,symbol&filters=%7B%22op%22%3A%22AND%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22case.project.project_id%22%2C%22value%22%3A%5B%22TCGA-DLBC%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22case.ssm.consequence.transcript.annotation.vep_impact%22%2C%22value%22%3A%5B%22HIGH%22%2C%22MODERATE%22%5D%7D%7D%5D%7D&pretty=true"
     ```
 
 === "Response"

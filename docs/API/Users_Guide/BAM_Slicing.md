@@ -194,15 +194,12 @@ For example, when making a request for a protected BAM without supplying a GDC a
 === "Shell"
 
     ```Shell
-    curl https://api.gdc.cancer.gov/v0/slicing/view/15b0bf8e-ff20-41ab-8366-a495c11b30be
+    curl https://api.gdc.cancer.gov/v0/slicing/view/b71f4425-828a-4a1b-b1f2-152e3d4c464a
     ```
 
 === "Response"
     ```
-    HTTP/1.1 403 FORBIDDEN
-    {
-        "error": "Please specify a X-Auth-Token"
-    }
+    {"error":"Your token is invalid or expired. Please get a new token from GDC Data Portal.","message":"Your token is invalid or expired. Please get a new token from GDC Data Portal."}
     ```
 
 ### HTTP error codes
