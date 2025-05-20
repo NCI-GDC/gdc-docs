@@ -656,7 +656,7 @@ In the example below, the `primary_site` and `disease_type` fields are removed f
     }
     ```
 
-#### Versioning
+### Versioning
 Changes to entities will create versions. For more information on this, please go to [Uploading New Versions of Data Files](https://docs.gdc.cancer.gov/API/Users_Guide/Submission/#uploading-new-versions-of-data-files).
 
 ## Strategies for Submitting in Bulk
