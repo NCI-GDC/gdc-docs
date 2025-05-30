@@ -168,6 +168,6 @@ A set of frequently-used properties are available to filter genes and mutations 
 * __Consequence Type:__  Consequence type of this variation; [sequence ontology](http://www.sequenceontology.org/) terms
 * __Type:__ A general classification of the mutation
 
-### Saving a Gene or Mutation Set
+## Saving a Gene or Mutation Set
 
 After filtration, a set of genes or mutations can be saved by choosing the "Save/Edit Gene Set" or "Save/Edit Mutation Set" button at the top left of the table.  

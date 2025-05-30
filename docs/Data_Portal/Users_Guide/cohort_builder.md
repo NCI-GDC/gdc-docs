@@ -14,7 +14,7 @@ The Cohort Builder can be accessed in one of the following ways:
 
 [![Cohort Builder Play Buttons](images/CohortBuilderInAnalysisCenter.png)](images/CohortBuilderInAnalysisCenter.png "Click to see the full image.")
 
-## Cohort Builder Panel ##
+## Cohort Builder Panel
 
 [![Cohort Builder Panel](images/CohortBuilderPanel.png)](images/CohortBuilderPanel.png "Image of Cohort Builder Panel. Click to see the full image.")
 
