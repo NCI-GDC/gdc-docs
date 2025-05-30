@@ -14,4 +14,4 @@ The Cohort Comparison tool displays graphs and tables that demonstrate the simil
 
 [![Cohort Comparison](images/cohort_comparison_page.png)](images/cohort_comparison_page.png "Click to see the full image.")
 
-Note that clicking the "Open Venn diagram" link will launch the [Set Operations](set_operations.md) tool with the same cohorts used in the Cohort Comparison tool.
+Note that clicking the "Open Venn diagram in Set Operations" link will launch the [Set Operations](set_operations.md) tool with the same cohorts used in the Cohort Comparison tool.
