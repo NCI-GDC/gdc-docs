@@ -292,8 +292,6 @@ Clicking on a node displays a sample table for the disease type or primary site.
 
 An aggregate sample table is available by clicking the 'Info' button in the center of the sunburst. This displays all the samples associated with that variant. In the screen recording below the aggregate sample table appears for KRAS - G12D.
 
-[![Sample Annotation Table 2](images/lollipop35.png)](images/lollipop35.png "Click to see the full image.")
-
 Clicking on the sample name hyperlink opens a new tab to the sample's GDC Case Summary page.
 
 Clicking on the variant label or anywhere outside of the sunburst removes the sunburst chart.
@@ -311,7 +309,7 @@ The zoom buttons in the toolbar is the second option to zoom in and out based on
 
 Zooming in causes the protein track to display the codons and the nucleotides as shown below. Hovering over the nucleotide position displays a tooltip with the exon, amino acids position, RNA position, and protein domain. As shown in the image below, at codon 12, the second exon of the transcript, RNA position 225 bp, the reference allele is a 'G'. There is a substitution at 'G' to A, V and D in the KRAS gene for isoform NM_004985 for which the cases are as shown below.
 
-[![Codons and Nucleotides](images/lollipop37.2.pngpng)](images/lollipop37.2.png "Click to see the full image.")
+[![Codons and Nucleotides](images/lollipop37.2.png)](images/lollipop37.2.png "Click to see the full image.")
 
 # Legend Panel
 
