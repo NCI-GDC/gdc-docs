@@ -54,8 +54,8 @@
     * Tooltips displayed upon mouseover of the body plot's major primary sites now contain accurate case counts. File counts will no longer be displayed. <!--PEAR-2348-->
 * __Cohort Builder__:
     * INRG Stage and Medulloblastoma Molecular Classification have been added as default cards to the Disease Specific Classifications category. <!--PEAR-2433-->
-    * A new “Other Clinical Attributes” category has been added with default cards for BMI, Weight, Height, Risk Factors, Menopause Status, Comorbidities, Pregnancy Outcome, and Number of Pregnancies. <!--PEAR-2411-->
-    * The “Molecular Filters” category has been renamed to “Genomic Filters”. <!--PEAR-2386-->
+    * A new "Other Clinical Attributes" category has been added with default cards for BMI, Weight, Height, Risk Factors, Menopause Status, Comorbidities, Pregnancy Outcome, and Number of Pregnancies. <!--PEAR-2411-->
+    * The "Molecular Filters" category has been renamed to "Genomic Filters". <!--PEAR-2386-->
 * __Clinical Data Analysis__:
     * Additional Other Clinical Attributes properties (BMI, Weight, Height, Risk Factors, Menopause Status, Comorbidities, Pregnancy Outcome, and Number of Pregnancies) are now available. <!--PEAR-2410-->
     * User-defined custom bin names are now limited to 100 characters. <!--PEAR-611-->
@@ -81,8 +81,8 @@
 * Cohorts created via the Age At Diagnosis table in __Cohort Comparison__ will now have the correct composition. <!--PEAR-2436-->
 * The "Remove from existing mutation set" option in the mutations tables now behaves correctly when attempting to remove all mutations in the table from the set. <!--PEAR-2337-->
 * Replacing cohorts from within a tool now behaves as expected. <!--PEAR-2303/PEAR-2262-->
-* The “View Images” button in the __Repository__ will only be enabled when slide images are present in the files table. <!--PEAR-2268-->
-* The “File Count by Project” table in the __Cart__ is now correctly sorted. <!--PEAR-2266-->
+* The "View Images" button in the __Repository__ will only be enabled when slide images are present in the files table. <!--PEAR-2268-->
+* The "File Count by Project" table in the __Cart__ is now correctly sorted. <!--PEAR-2266-->
 * Ensured the __Annotations__ table resets to the first page when filters are changed. <!--PEAR-2267-->
 * Analysis tools are now always sorted in alphabetical order in the __Analysis Center__. <!--PEAR-2354-->
 * Fixed the left-hand filters panels across the portal to render consistently at the correct full height on initial load. <!--PEAR-2376-->
