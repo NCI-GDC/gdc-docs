@@ -22,8 +22,8 @@ The following data analysis endpoints are available from the GDC API:
 ||__/cnv_occurrences__|A `cnv` entity as applied to a single case.|
 ||__/cnv_occurrences/`<cnv_occurrence_id>`__|Get information about a specific copy number variation occurrence using a `<cnv_occurrence_id>`, often supplemented with the `expand` option to show fields of interest. |
 ||__/cnv_occurrences/ids__|This endpoint will retrieve nodes that contain the queried cnv_occurrence_id. This is accomplished by adding the query parameter: /cnv_occurrences/ids?query=`<cnv_occurrences_id>`|
-|__Copy Number Segment__|__/segment_cnvs__|Allows users to search and retrieve data for segment-level copy number variations (CNVs). This endpoint accepts filters (e.g., chromosome, position, length) and provides information such as chromosome, start position, end position, CNV length, and CNV change categories.|
-||__/segment_cnv_occurrences__|Supports retrieval of occurrences of segment-level copy number variations (CNVs) in specific cases. This endpoint provides case-centric data, including case details, occurrence-level properties, and relevant linkage to CNV segment data.|
+|__Copy Number Segment__|__/segment_cnvs__|Allows users to search and retrieve data for segment-level copy number variations (CNVs). |
+||__/segment_cnv_occurrences__|Supports retrieval of occurrences of segment-level copy number variations (CNVs) in specific cases. |
 |__scRNA-Seq Gene Expression__|__/scrna_seq/gene_expression__|Returns scRNA-Seq gene expression data for specific cases or files, with details about gene expression across different cell IDs.|
 |__Analysis__|__/analysis/top_cases_counts_by_genes__| Returns the number of cases with a mutation in each gene listed in the gene_ids parameter for each project. Note that this endpoint cannot be used with the `format` or `fields` parameters.|
 ||__/analysis/top_mutated_genes_by_project__| Returns a list of genes that have the most mutations within a given project. |
@@ -1048,6 +1048,8 @@ __Example 3:__ A user is interested in finding cases that have cnv data for male
 
 ### Segment CNVs Endpoint Examples
 
+The purpose of this endpoint is to retrieve data for segment-level copy number variations (CNVs). Copy number segment data is derived from allele specific copy number segment files, which can be filtered in the repository with `Data Type:  Allele-specific Copy Number Segment`. This endpoint accepts filters (e.g., chromosome, position, length) and provides information such as chromosome, start position, end position, CNV length, and CNV change categories.
+
 __Example 1:__ A user wants detailed information for a specific segment-level CNV, identified by its unique `segment_cnv_id`.
 
 === "Shell"
@@ -1176,6 +1178,8 @@ __Example 2:__ A user wants all segment-level CNVs that overlap with the genomic
     ```
 
 ### Segment CNV Occurrences Endpoint
+
+The purpose of this endpoint is to retrieve occurrences of segment-level copy number variations (CNVs) in specific cases. This endpoint provides case-centric data, including case details, occurrence-level properties, and relevant linkage to CNV segment data.
 
 __Example 1:__ A user wants to retrieve detailed occurrence-level information for a specific `segment_cnv_occurrence_id`.
 
