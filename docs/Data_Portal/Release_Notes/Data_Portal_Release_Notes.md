@@ -49,6 +49,8 @@
 
 ### New Features and Changes
 
+* __New Analysis Tool: Copy Number Segment__:
+    * Visualize copy number data over a gene or region, either as segment view (<1000 segments), or as density plot (>1000 segments)
 * __Home Page__:
     * Cohorts created via the body plot will no longer include tissue or organ of origin among their filters. These cohorts will be based solely on relevant primary site filters. <!--PEAR-2348/PEAR-2363-->
     * Tooltips displayed upon mouseover of the body plot's major primary sites now contain accurate case counts. File counts will no longer be displayed. <!--PEAR-2348-->
@@ -59,6 +61,8 @@
 * __Clinical Data Analysis__:
     * Additional Other Clinical Attributes properties (BMI, Weight, Height, Risk Factors, Menopause Status, Comorbidities, Pregnancy Outcome, and Number of Pregnancies) are now available. <!--PEAR-2410-->
     * User-defined custom bin names are now limited to 100 characters. <!--PEAR-611-->
+* __Gene Expression Clustering__:
+    * Supported option to cluster and uncluster genes. When genes are not clustered, show options to sort the genes by input genes order or by genes name.
 * A maximum of 50,000 identifiers will now be accepted when entering or uploading identifiers for filtering or creating cohorts/sets <!--PEAR-2046-->
 * Responsiveness improvements have been made to __Cohort Comparison__ and __Set Operations__. <!--PEAR-2101/2170-->
 * When saving sets via the gene and mutation tables, the "Save top" option will no longer be available if genes/mutations have been selected in the tables. This ensures that only user-selected items are saved to the set. <!--PEAR-2239-->
@@ -70,6 +74,7 @@
 * Reduced redundant font resource requests during image downloads to improve download performance. <!--PEAR-2355-->
 * Minor UX/UI and text improvements. <!--PEAR-2301/2100/2257/2321/2327/122-->
 
+
 ### Bugs Fixed Since Last Release
 
 * __Section 508 Accessibility__:
@@ -78,6 +83,23 @@
 * __Clinical Data Analysis__:
     * Improved the survival plot downloads by adding missing property names and fixing label cutoff issues. <!--PEAR-2177-->
     * Fixed an issue where axis labels may not be fully displayed in the Box and the QQ plots. <!--PEAR-2413-->
+* __Disco Plot__:
+    * Detect and skip SV/fusion events with breakpoints in unassembled scaffolds.
+    * Re-enabled genotyping array-based CNV display in disco for some TARGET cases.
+* __Gene Expression Clustering__:
+    * Added geneset edit UI in Clustering button menu. This is separate from the geneset edit UI in "Genes" menu, which is only applicable to non-clustering row groups.
+    * Removed option to delete group of genes used for clustering.
+    * Allowed server-side recaching attempts to correctly recover or exit on errors.
+* __OncoMatrix__:
+    * Fixed the numeric CNV legend alignment.
+    * Allowed server-side recaching attempts to correctly recover or exit on errors.
+* __ProteinPaint__:
+    * Hover over mutations to show tooltip showing consequence to be 508 compliant.
+    * Avoid showing blank sunburst chart on clicking mutations.
+    * Lollipop will not break when cohort filter contains gene mutations.
+    * Variant List menu will not show CNV tab when there is no CNV data.
+* __Single-Cell RNAseq__:
+    * Persisted the same cohort in demo mode, regardless of user selection.
 * Cohorts created via the Age At Diagnosis table in __Cohort Comparison__ will now have the correct composition. <!--PEAR-2436-->
 * The "Remove from existing mutation set" option in the mutations tables now behaves correctly when attempting to remove all mutations in the table from the set. <!--PEAR-2337-->
 * Replacing cohorts from within a tool now behaves as expected. <!--PEAR-2303/PEAR-2262-->
@@ -87,6 +109,7 @@
 * Analysis tools are now always sorted in alphabetical order in the __Analysis Center__. <!--PEAR-2354-->
 * Fixed the left-hand filters panels across the portal to render consistently at the correct full height on initial load. <!--PEAR-2376-->
 * Fixed an issue where filter cards for numbers did not accept decimal values between 0 and 1. <!--PEAR-2383-->
+
 
 ### Known Issues and Workarounds
 
@@ -101,12 +124,9 @@
 * __Survival Plot__:
     * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
     * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
-* __Gene Expression Clustering__:
-    * The tool allows deleting the gene expression group and displays an uninformative error message after submitting the deletion.
 * __Cohort MAF__:
     * A downloaded file may be corrupted if the server data processing is terminated after 5 minutes in order to conserve server resources.
     There will be a red banner above the MAF controls to indicate the termination.
-* In __ProteinPaint__, the "Gene Expression" option is non-functional when filtering samples in a sub-track.
 * Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
 * In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
 * __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
