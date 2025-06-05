@@ -50,7 +50,7 @@
 ### New Features and Changes
 
 * __New Analysis Tool: Copy Number Segment__:
-    * Visualize copy number data over a gene or region, either as segment view (<1000 segments), or as density plot (>1000 segments)
+    * Visualize copy number data over a gene or region, either as segment view (<1000 segments), or as density plot (>1000 segments).
 * __Home Page__:
     * Cohorts created via the body plot will no longer include tissue or organ of origin among their filters. These cohorts will be based solely on relevant primary site filters. <!--PEAR-2348/PEAR-2363-->
     * Tooltips displayed upon mouseover of the body plot's major primary sites now contain accurate case counts. File counts will no longer be displayed. <!--PEAR-2348-->
