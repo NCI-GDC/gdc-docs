@@ -1,6 +1,6 @@
-# ProteinPaint Sequence Reads Tool
+# Sequence Reads Tool
 
-## Introduction to ProteinPaint Sequence Reads
+## Introduction to Sequence Reads Visualization
 
 Sequence Reads is a web-based tool that uses the ProteinPaint BAM track and NCI Genomic Data Commons (GDC) BAM Slicing API to allow users to visualize read alignments from a BAM file. Given a variant (i.e. Chromosome number, Position, Reference Allele and Alternative Allele), the Sequence Reads tool can classify reads supporting the reference and alternative allele into separate groups.
 
@@ -14,7 +14,7 @@ This feature requires access to controlled data, which is maintained by the Data
 
 ### Selecting BAM Files and Variants
 
-Once logged in, the Sequence Reads tool will display a search bar, as well as a link to browse the first 1,000 available BAM files for the active cohort. Users can choose to select a BAM from the available list, or search for a specific BAM file by entering four types of inputs: file name, file UUID, case ID, or case UUID.
+Once logged in, the Sequence Reads tool will display a search bar, as well as a link below the search bar to browse the first 1,000 available BAM files for the active cohort. Users can choose to select a BAM from the available list, or search for a specific BAM file by entering four types of inputs: file name, file UUID, case ID, or case UUID.
 
 The tool will verify the query string and return all matching GDC BAM files in a table, from which the user can select one or multiple to use with the tool.
 
@@ -191,7 +191,7 @@ This Genome Models row displays the gene model structure from the view range. Wh
 [![Pileup plot](./images/pileup_plot.png)](./images/pileup_plot.png "Click to see the full image.")
 
 The Pileup Plot shows the total read depth at each nucleotide position of the region being displayed.
-Color codes of bars representing various possibilities:
+Color codes of bars represent various possibilities:
 
 Gray - Reference allele nucleotides
 Blue - Soft clipped nucleotides
@@ -263,7 +263,7 @@ their respective colors Also see the section on color codes of various reads.
 [![Base-pair Quality Level](./images/base-pair_qual.png)](./images/pair_qual.png "Click to see the full image.")
 
 ### Base-pair Resolution Level
-[At this resolution](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=TP53_del,proteinpaint_demo/hg19/bam/TP53_del.wrongbp.bam&position=chr17:7578371-7578417&bedjfilterbyname=NM_000546), all information including the read sequence of each read is displayed along with reference genome nucleotides at the top. For simplicity (as discussed later under [vertical zoom](#Vertical zoom: examining subset of reads)), only a few reads are shown in the figure below.
+[At this resolution](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=TP53_del,proteinpaint_demo/hg19/bam/TP53_del.wrongbp.bam&position=chr17:7578371-7578417&bedjfilterbyname=NM_000546), all information including the read sequence of each read is displayed along with reference genome nucleotides at the top. For simplicity, only a few reads are shown in the figure.
 
 [![Base-pair Resolution Level](./images/base-pair_res.png)](./images/pair_res.png "Click to see the full image.")
 
@@ -281,7 +281,7 @@ The BAM Track Configuration Panel can be accessed by clicking the "CONFIG" optio
 [![BAM Track Configuration Panel](./images/BAM_track_config.png)](./images/BAM_track_config.png "Click to see the full image.")
 
 ## Single and Paired-end Read
-[The configuration panel](#BAM track configuration panel) (above) provides a toggle to change view between single-end (default) and paired-end view (shown below: see [Link](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=crebbp_del,proteinpaint_demo/hg19/bam/crebbp.bam&position=chr16:3800245-3803429) for example). In single-end display each read is displayed individually without displaying any connections with its respective mate. In case of the paired-end display the two paired reads are joined by a gray dotted-line if the coordinates of the two reads do not overlap. When the coordinates of the two read-pairs overlap, the overlapped region is highlighted by a blue line.
+The configuration panel provides a toggle to change view between single-end (default) and paired-end view (shown below: see [Link](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=crebbp_del,proteinpaint_demo/hg19/bam/crebbp.bam&position=chr16:3800245-3803429) for example). In single-end display each read is displayed individually without displaying any connections with its respective mate. In case of the paired-end display the two paired reads are joined by a gray dotted-line if the coordinates of the two reads do not overlap. When the coordinates of the two read-pairs overlap, the overlapped region is highlighted by a blue line.
 
 The following shows reads in single-end mode.
 
@@ -307,7 +307,7 @@ is in nucleotide view (see section on vertical zoom in case of high-depth sequen
 The checkbox in the configuration panel can be toggled to switch on/off the display of PCR and optical duplicates. [In the above figure](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=long_del,proteinpaint_demo/hg19/bam/PCRopticalduplicates.bam&position=chrX:129150008-129150048&variant=chrX.129150027.GGAAAGCGTAGGGGTCTTTGCTTGCAAGAACAA.GT&Bedjfilterbyname=NM_001184772), a total of 29 reads are shown when PCR/optical duplicates are displayed (Figure a) whereas a total of 19 reads are displayed supporting the alternative allele when PCR/optical duplicates are not displayed (default, Figure b).
 
 ## Strictness
-Strictness of the on-the-fly genotyping analysis. This option is available when the BAM track is performing on-the-fly genotyping against a variant. The user can toggle between Lenient and Strict (default) mode as shown in the ppBAM configuration panel.
+This option is available when the BAM track is performing on-the-fly genotyping against a variant. The user can toggle between Lenient and Strict (default) mode as shown in the ppBAM configuration panel.
 
 # Read Information Panel
 
@@ -351,15 +351,15 @@ The fourth row contains details about the read present in the BAM file
 
 ## Color Coding of Reads
 
+Reads near the vicinity of the deletion have various colors (gray, green, brown and blue) based on their features as explained below. In the paired-end view (a) an overview of the deletion is shown. In Base-pair resolution mode (b) showing nucleotides of each of the reads there are softclipped reads starting near position chr16: 3,801,439.
+
 (a)    Paired-end view
 
 [![Paired-end View](./images/paired_end.png)](./images/paired_end.png "Click to see the full image.")
 
 (b)    Base-pair resolution mode showing nucleotides of each of the reads
 
-[![Base-pair Resolution Mode](./images/base-pair_res2.png)](./images/pair_res2.png "Click to see the full image.")
-
-In the figure above, [structural](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=crebbp_del,proteinpaint_demo/hg19/bam/crebbp.bam&position=chr16:3800245-3803429) variant deletion in the CREBBP gene is shown. Reads near the vicinity of the deletion have various colors (gray, green, brown and blue) based on their features as explained below. In the paired-end view (a) an overview of the deletion is shown. In Base-pair resolution mode (b) showing nucleotides of each of the reads there are softclipped reads starting near position chr16: 3,801,439.
+[![Base-pair Resolution Mode](./images/base-pair_res2.png)](./images/pair_res2.png "Click to see the full image.") 
 
 Color codes in the background (as shown above) of the read describe the quality of the alignment of the read and its mate (in case of paired-end sequencing). These colors are assigned both on the basis of the CIGAR sequence (if it contains a softclip) and the flag value of both the read and its mate.
 
@@ -374,7 +374,7 @@ Presence of blue-background nucleotides in a read indicates that part of the rea
 [![Blue Background Nucleotides](./images/blue_bg.png)](./images/blue_bg.png "Click to see the full image.")
 
 ### Brown
-A brown colored background (in the main read alignment plot) indicates that the mate of the read is unmapped. Such reads have a flag value that contains the 0x8 bit. On clicking a read with unmapped mate in the read information panel, the current read sequence is displayed along with a button "Show unmapped mate".
+A brown colored background (in the main read alignment plot) indicates that the mate of the read is unmapped. On clicking a read with unmapped mate in the read information panel, the current read sequence is displayed along with a button "Show unmapped mate".
 
 [![Brown Background Nucleotides](./images/brown_bg.png)](./images/brown_bg.png "Click to see the full image.")
 
@@ -407,7 +407,7 @@ Variant Mode provides an intuitive view of a variant specified by the user insid
 ## Alternative, Reference, None and Ambiguous Read Classification Groups
 
 For a given variant (SNV or indel), reads mapping to the variant
-region are [classified](https://proteinpaint.stjude.org/?genome=hg19&block=1&position=chr17:7578341-7578441&bamfile=Test,proteinpaint_demo/hg19/bam/TP53_del.wrongbp_amb.bam&variant=chr17.7578383.AGCAGCGCTCATGGTGGGG.A) into Reference, Alternative (possibly multiple
+region are classified into Reference, Alternative (possibly multiple
 alternative alleles when multi-allele variants are queried), None
 (neither reference nor alternative allele) and Ambiguous (unclassified
 reads) groups by using the Smith-Waterman alignment (as shown in
@@ -419,33 +419,7 @@ Reads are classified into supporting Alternative/Reference allele on the basis o
 
 [![Read Classification](./images/read_class.png)](./images/read_class.png "Click to see the full image.")
 
-Above figure describes the methodology for classification of reads
-into Reference, Alternative (possibly multiple alternative alleles),
-None (neither reference nor alternative allele) and Ambiguous
-groups. Classification of seven reads are described for a multi-allele
-variant (G/GTCA) and (CG/ATGTCA). (a) Sequence alignment of various
-reads to alternative and reference alleles (red colored nucleotides
-represent alternative and reference allele nucleotides): Read1 and
-Read2 completely support the alternative allele-1 and reference allele
-respectively. Read3 has the highest sequence similarity to the
-alternative allele-1 but has a mismatch and is therefore classified
-into the none group when strictness = 'Strict' and classified into
-alternative allele-1 when strictness = 'Lenient'. Read4 has equal
-similarity to both reference and alternative allele-1 and is
-classified into the ambiguous group. Read5 has the highest allele
-similarity and a complete match to alternative allele-2. Read6 has the
-highest sequence similarity to the alternative allele-2 but has a
-mismatch and is therefore classified into the none group when strictness = 'Strict'
-and classified into alternative allele-2 when strictness =
-'Lenient'. Read7 has equal allele similarity to alternative allele-1
-and alternative allele-2 and is classified into the ambiguous group
-(b) A generalized flow chart for classifying reads into (possibly)
-multiple alternative/reference alleles using "Allele similarity"
-values and the "Strictness" setting. The "None" group contains reads
-which do not support neither reference nor alternative allele(s) will
-be created only when the "Strictness" setting is set to "Strict"
-(default). Ambiguous group consists of reads that have equal allele
-similarity to two (or more) alleles.
+Above figure describes the methodology for classification of reads into Reference, Alternative (possibly multiple alternative alleles), None (neither reference nor alternative allele) and Ambiguous groups. Classification of seven reads are described for a multi-allele variant (G/GTCA) and (CG/ATGTCA). (a) Sequence alignment of various reads to alternative and reference alleles (red colored nucleotides represent alternative and reference allele nucleotides): Read1 and Read2 completely support the alternative allele-1 and reference allele respectively. Read3 has the highest sequence similarity to the alternative allele-1 but has a mismatch and is therefore classified into the none group when strictness = 'Strict' and classified into alternative allele-1 when strictness = 'Lenient'. Read4 has equal similarity to both reference and alternative allele-1 and is classified into the ambiguous group. Read5 has the highest allele similarity and a complete match to alternative allele-2. Read6 has the highest sequence similarity to the alternative allele-2 but has a mismatch and is therefore classified into the none group when strictness = 'Strict' and classified into alternative allele-2 when strictness = 'Lenient'. Read7 has equal allele similarity to alternative allele-1 and alternative allele-2 and is classified into the ambiguous group (b) A generalized flow chart for classifying reads into (possibly) multiple alternative/reference alleles using "Allele similarity" values and the "Strictness" setting. The "None" group contains reads which do not support neither reference nor alternative allele(s) will be created only when the "Strictness" setting is set to "Strict" (default). Ambiguous group consists of reads that have equal allele similarity to two (or more) alleles.
 
 ## Ambiguous Reads
 
@@ -484,11 +458,11 @@ classified into the none group.
 
 Similarly, reads NB501822:113:HGCGYBGX5:3:23612:16815:9517 (wrong base-pair call at 7578401) and NB501822:113:HGCGYBGX5:2:22101:3565:18789 (wrong base-pair call at 7578391) are classified in the reference allele group when strictness level = 'Lenient' but are classified into the none group when strictness level is set to 'Strict'.  
 
-The 'Lenient' strictness level is generally only helpful in cases where only one alternative allele is present as it assumes only the given reference and alternative allele are the only possible cases. For multi-allelic variants or when a region has a large number of reads with low Phred base-pair quality nucleotides, the 'Strict' (default) level should be used.
+The ‘Lenient’ strictness level is generally only helpful in cases where only one alternative allele is present as it assumes that the given reference and alternative allele are the only possible cases. For multi-allelic variants or when a region has a large number of reads with low Phred base-pair quality nucleotides, the 'Strict' (default) level should be used.
 
 ## Display of Read Alignment with Respect to Reference and Alternative Allele
 
-In case of reads that are classified into the none group (when strictness level = 'Strict') it can be difficult to understand the classification into that group. For example, in case of insertions with the wrong nucleotide (with respect to the predicted alternative allele) the sequence of the inserted nucleotides is not shown in the main BAM track and can only be viewed through the read information panel. As an example, a [3bp insertion in CEBPA exon](https://proteinpaint.stjude.org/?genome=hg19&block=1&position=chr19:33792266-33792515&bamfile=CEBPA,proteinpaint_demo/hg19/bam/CEBPA.bam&variant=chr19.33792391.C.CTGC) is discussed below. In Figure (a) (shown below) most reads with 3bp insertion have been classified into the alternative allele. However, there are some reads (as highlighted in Figure a) with 3bp insertions that are classified into the none group. The diff score plot suggests that these reads have higher sequence similarity to the alternative allele (and are classified into the alternative group when strictness = 'Lenient') and they seem to support the alternative allele. However, when we click on this read (Fig. b) and click on the "Read Alignment" button (which is available only when the variant field is specified in the URL) the Smith-Waterman alignment of the read with the reference and alternative allele is displayed (Figure b). The indel nucleotides are highlighted in red. In case of the read in the none group (75085182), a mismatch is observed in the indel region between the read and the alternative allele (highlighted by '*' in the alignment row) which explains the classification into the none group. In contrast, the read shown from the alternative allele group (75085106) has a complete match with the alternative allele and is therefore classified into the alternative allele group.
+In case of reads that are classified into the none group (when strictness level = 'Strict') it can be difficult to understand the classification into that group. For example, in case of insertions with the wrong nucleotide (with respect to the predicted alternative allele) the sequence of the inserted nucleotides is not shown in the main BAM track and can only be viewed through the read information panel.
 
 Display of read alignment of the read with respect to both the reference and alternative allele helps provide an intuitive view for describing classification of a read into its respective group.
 
