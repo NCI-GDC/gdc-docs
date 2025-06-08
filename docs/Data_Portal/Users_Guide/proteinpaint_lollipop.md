@@ -290,7 +290,7 @@ Clicking on a node displays a sample table for the disease type or primary site.
 
 [![Sample Annotation Table 1](images/lollipop34.png)](images/lollipop34.png "Click to see the full image.")
 
-An aggregate sample table is available by clicking the 'Info' button in the center of the sunburst. This displays all the samples associated with that variant. In the screen recording below the aggregate sample table appears for KRAS - G12D.
+An aggregate sample table is available by clicking the 'Info' button in the center of the sunburst. This displays all the samples associated with that variant.
 
 Clicking on the sample name hyperlink opens a new tab to the sample's GDC Case Summary page.
 
