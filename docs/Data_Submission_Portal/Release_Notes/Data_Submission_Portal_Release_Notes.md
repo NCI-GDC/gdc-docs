@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v3.11.0](Data_Submission_Portal_Release_Notes.md#regular-maintenance-records-3110) | June 23, 2025 |
+| [v3.2.0](Data_Submission_Portal_Release_Notes.md#regular-maintenance-records-320) | June 23, 2025 |
 | [v2.6.0](Data_Submission_Portal_Release_Notes.md#release-260) | July 8, 2022 |
 | [v2.5.1](Data_Submission_Portal_Release_Notes.md#release-251) | August 14, 2020 |
 | [v2.5.0](Data_Submission_Portal_Release_Notes.md#release-250) | July 2, 2020 |
@@ -25,7 +25,7 @@
 | [v0.2.18.3](Data_Submission_Portal_Release_Notes.md#release-02183) | November 30, 2015 |
 
 ---
-## Regular Maintenance Records 3.11.0
+## Regular Maintenance Records 3.2.0
 
 * __GDC Product__: GDC Data Submission Portal
 * __Date__: June 23, 2022
