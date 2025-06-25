@@ -112,6 +112,10 @@ The clustering control button provides several options to modify the default clu
 
 [<img src="./images/geneexpclust/4-clustering-control.png" width="600"/>](./images/geneexpclust/4-clustering-control.png 'Click to see the full image.')
 
+#### Cluster genes
+
+check/uncheck to show/hide the gene row dendrogram
+
 #### Clustering method
 
 Click on the 'Complete' option as highlighted to change the method of clustering. The heatmap will render again to show the complete clustering method.
@@ -150,6 +154,7 @@ Adjust the zoom level by using arrows on the input box or entering a number to b
 
 [![Adjusting the Zoom](./images/geneexpclust/11-adj-zoom.png)](./images/geneexpclust/11-adj-zoom.png 'Click to see the full image.')
 
+<<<<<<< Updated upstream
 The 'Cases' control has the option 'Case Label Character Limit' to adjust the visible characters of these sample labels. The default is '32'. Change that to '10' to see the new limit applied to the sample labels as shown. Note that reducing the character limit truncates the labels.
 
 [![Adjusting the Zoom](./images/geneexpclust/case-label-char.png)](./images/geneexpclust/case-label-char.png 'Click to see the full image.')
@@ -159,10 +164,36 @@ The 'Cases' control has the option 'Case Label Character Limit' to adjust the vi
 User can modify the existing default gene set by clicking the 'Genes' button in the controls as shown. This displays the option to edit genes as well as variables from the dropdown as shown.
 
 [![Geneset edit](./images/geneexpclust/12-geneset-edit.png)](./images/geneexpclust/12-geneset-edit.png 'Click to see the full image.')
+=======
+### Unclustered Genes Options
+
+This section provides controls for how gene data is displayed when not subject to clustering.
+User can modify the existing default gene set by clicking the 'Unclustered Genes' button.
+
+Display Case Counts for Gene:
+    Absolute: Show the raw number of cases for each gene.
+    Percent: Show the percentage of cases for each gene.
+    None: Do not display case counts.
+
+Genomic Alterations Rendering:
+    Stacked: Render variants for the same case and gene as stacked rectangles within the cell.
+    OncoPrint: Render variants for the same case and gene as overlapping rectangles within the cell, typical for OncoPrint visualizations.
+
+Sort Genes:
+    By Input Data Order: Sort genes based on their original order in the input data.
+    By Case Count: Sort genes by the number of cases they appear in.
+
+Gene Set:
+    Edit Current Group: Modify the genes in the currently selected group.
+    Create New Group: Define a new group of genes.
+    Group Name: Text input field to name or search for a gene group.
+>>>>>>> Stashed changes
 
 #### Modifying Genes
 
 Click the 'Edit Group' button as shown in the 'Gene set' to display a panel of current selected genes.
+
+[![Geneset edit](./images/geneexpclust/12-geneset-edit.png)](./images/geneexpclust/12-geneset-edit.png 'Click to see the full image.')
 
 [![Editing geneset](./images/geneexpclust/13-geneset-editing.png)](./images/geneexpclust/13-geneset-editing.png 'Click to see the full image.')
 
