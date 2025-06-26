@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v2.5.0](Data_Portal_Release_Notes.md#release-250) | June 23, 2025 |
+| [v2.5.0](Data_Portal_Release_Notes.md#release-250) | June 26, 2025 |
 | [v2.4.0](Data_Portal_Release_Notes.md#release-240) | March 20, 2025 |
 | [v2.3.1](Data_Portal_Release_Notes.md#release-231) | November 21, 2024 |
 | [v2.3.0](Data_Portal_Release_Notes.md#release-230) | October 29, 2024 |
@@ -45,7 +45,7 @@
 ## Release 2.5.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__:  June 23, 2025
+* __Release Date__:  June 26, 2025
 
 ### New Features and Changes
 
