@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v3.2.0](Data_Submission_Portal_Release_Notes.md#regular-maintenance-records-320) | June 26, 2025 |
 | [v2.6.0](Data_Submission_Portal_Release_Notes.md#release-260) | July 8, 2022 |
 | [v2.5.1](Data_Submission_Portal_Release_Notes.md#release-251) | August 14, 2020 |
 | [v2.5.0](Data_Submission_Portal_Release_Notes.md#release-250) | July 2, 2020 |
@@ -24,6 +25,28 @@
 | [v0.2.18.3](Data_Submission_Portal_Release_Notes.md#release-02183) | November 30, 2015 |
 
 ---
+## Regular Maintenance Records 3.2.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Date__: June 26, 2022
+
+### New Features and Changes
+
+*  Removed legacy archive from "GDC Apps" cube
+*  Added UTM codes to the "GDC Apps" cube
+*  Expanded banner functionality
+*  Operating system updates and maintenance
+
+### Bugs Fixed Since Last Release
+
+* None
+
+### Known Issues and Workarounds
+
+*  If a project ID has a character that is not alphanumeric, a dash, or an underscore, submission portal users may experience errors.
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
+
 ## Release 2.6.0
 
 * __GDC Product__: GDC Data Submission Portal
