@@ -110,7 +110,7 @@ The control panel as shown has various functionalities with which users can chan
 
 The clustering control button provides several options to modify the default clustering of the heatmap. Click on the button labeled 'Clustering' to display a menu with options as shown.
 
-[<img src="./images/geneexpclust/4-clustering-control.png" width="600"/>](./images/geneexpclust/4-clustering-control.png 'Click to see the full image.')
+[![clustering control](./images/geneexpclust/4-clustering-control.png")](./images/geneexpclust/4-clustering-control.png 'Click to see the full image.')
 
 #### Cluster genes
 
