@@ -180,7 +180,7 @@ In the search box, type in any gene name for example 'Wee1' as shown and click s
 
 The heatmap loads again after performing a clustering that includes 'WEE1' as shown.
 
-[![clustering control](./images/geneexpclust/15-wee1-heatmap.png")](./images/geneexpclust/15-wee1-heatmap.png 'Click to see the full image.')
+[![clustering control](./images/geneexpclust/15-wee1-heatmap.png)](./images/geneexpclust/15-wee1-heatmap.png 'Click to see the full image.')
 
 Click on the 'Edit' functionality again within the 'Gene set' menu option. To delete a gene, hover over the gene as shown. A red cross mark will appear as shown.
 
