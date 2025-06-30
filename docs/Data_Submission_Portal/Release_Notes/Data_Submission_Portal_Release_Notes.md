@@ -28,7 +28,7 @@
 ## Regular Maintenance Records 3.2.0
 
 * __GDC Product__: GDC Data Submission Portal
-* __Date__: June 30, 2022
+* __Date__: June 30, 2025
 
 ### New Features and Changes
 
