@@ -12,7 +12,7 @@ At the Analysis Center, click the 'Gene Expression Clustering' card to launch th
 
 Users can view publicly available genes as well as login with credentials to access controlled data.
 
-There are four main panels in the Gene Expression Clustering tool: [controls], [heatmap], [variables], and [legend].
+There are four main panels in the Gene Expression Clustering tool: controls, heatmap, variables, and legend.
 
 [![Gene Expression Clustering Tool Features](images/GEC_tool_features.png)](images/GEC_tool_features.png "Click to see the full image.")
 
@@ -110,7 +110,7 @@ The control panel as shown has various functionalities with which users can chan
 
 The clustering control button provides several options to modify the default clustering of the heatmap. Click on the button labeled 'Clustering' to display a menu with options as shown.
 
-[![clustering control](./images/geneexpclust/4-clustering-control.png")](./images/geneexpclust/4-clustering-control.png 'Click to see the full image.')
+[![clustering control](./images/geneexpclust/4-clustering-control.png)](./images/geneexpclust/4-clustering-control.png 'Click to see the full image.')
 
 #### Cluster genes
 
