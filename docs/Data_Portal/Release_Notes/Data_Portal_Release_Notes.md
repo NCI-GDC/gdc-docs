@@ -128,7 +128,7 @@
     * A downloaded file may be corrupted if the server data processing is terminated after 5 minutes in order to conserve server resources.
     There will be a red banner above the MAF controls to indicate the termination.
 * __ProteinPaint__:
-    * The ProteinPaint uses 1 year = 365 days, instead of 365.25 days, causing different age values to be displayed in ProteinPaint and Case Summary page.
+    * The ProteinPaint tool uses 1 year = 365 days, instead of 365.25 days, causing different age values to be displayed in ProteinPaint and other areas of the portal.
 * __ProteinPaint, OncoMatrix, Gene Expression__:
     * These rendered views do not get updated when a user logs in or out - a manual browser refresh is required.
 * Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
