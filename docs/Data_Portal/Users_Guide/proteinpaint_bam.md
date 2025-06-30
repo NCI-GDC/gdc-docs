@@ -458,7 +458,7 @@ classified into the none group.
 
 Similarly, reads NB501822:113:HGCGYBGX5:3:23612:16815:9517 (wrong base-pair call at 7578401) and NB501822:113:HGCGYBGX5:2:22101:3565:18789 (wrong base-pair call at 7578391) are classified in the reference allele group when strictness level = 'Lenient' but are classified into the none group when strictness level is set to 'Strict'.  
 
-The ‘Lenient’ strictness level is generally only helpful in cases where only one alternative allele is present as it assumes that the given reference and alternative allele are the only possible cases. For multi-allelic variants or when a region has a large number of reads with low Phred base-pair quality nucleotides, the 'Strict' (default) level should be used.
+The 'Lenient' strictness level is generally only helpful in cases where only one alternative allele is present as it assumes that the given reference and alternative allele are the only possible cases. For multi-allelic variants or when a region has a large number of reads with low Phred base-pair quality nucleotides, the 'Strict' (default) level should be used.
 
 ## Display of Read Alignment with Respect to Reference and Alternative Allele
 
