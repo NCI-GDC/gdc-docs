@@ -1,5 +1,5 @@
-# syntax=docker/dockerfile:1.0
-ARG BASE_VERSION=3.2.1
+# syntax=docker/dockerfile:1
+ARG BASE_VERSION=3.2.4
 ARG REGISTRY=docker.osdc.io/ncigdc
 ARG SERVICE_NAME=gene-expression
 ARG PYTHON_VERSION=python3.9
@@ -12,25 +12,23 @@ ENV PIP_INDEX_URL=$PIP_INDEX_URL
 WORKDIR /build
 # Install dependencies first so Docker can reuse the cached layer as
 # long as we don't update any pins.
-COPY epel9.repo /etc/yum.repos.d/
-RUN dnf install -y pandoc --enablerepo=epel9 && \
-    dnf install -y sed texlive texlive-xetex
-
+COPY epel.repo /etc/yum.repos.d/
+RUN dnf install -y pandoc --enablerepo=epel && \
+    dnf install -y sed texlive texlive-xetex pango-devel
 
 COPY requirements.txt .
 RUN pip install -r requirements.txt
-RUN pip install git+https://github.com/jgrassler/mkdocs-pandoc
 
-COPY pandoc_converter.patch .
-COPY tables.patch .
-RUN patch -u /venv/lib/python3.9/site-packages/mkdocs_pandoc/pandoc_converter.py -i pandoc_converter.patch && \
-    patch -u /venv/lib/python3.9/site-packages/mkdocs_pandoc/filters/tables.py -i tables.patch
+#RUN pip install git+https://github.com/jgrassler/mkdocs-pandoc
+#COPY pandoc_converter.patch .
+#COPY tables.patch .
+#RUN patch -u /venv/lib/python3.9/site-packages/mkdocs_pandoc/pandoc_converter.py -i pandoc_converter.patch && \
+#    patch -u /venv/lib/python3.9/site-packages/mkdocs_pandoc/filters/tables.py -i tables.patch
 COPY . /apps
 
 WORKDIR /apps
-RUN bash build.sh
-#RUN mkdocs build --clean
-
+RUN rm -rf docs/Data/Release_Notes/*.gz &&  \
+    bash build.sh
 
 FROM ${REGISTRY}/nginx:${BASE_VERSION}
 ARG NAME
