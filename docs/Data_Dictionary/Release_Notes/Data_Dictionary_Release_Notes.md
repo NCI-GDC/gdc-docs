@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v.3.4.0](v3.4) | July 23, 2025|
+| [v.3.4.0](Data_Dictionary_Release_Notes.md#v340) | July 23, 2025|
 | [v.3.3.0](Data_Dictionary_Release_Notes.md#v330) | September 30, 2024 |
 | [v.3.1.0](Data_Dictionary_Release_Notes.md#v310) | May 30, 2024 |
 | [v.3.0.0](Data_Dictionary_Release_Notes.md#v300) | October 30, 2023 |
@@ -41,15 +41,14 @@
 	* New permissable value: `sex_at_birth`
 	* Removed permissable value: `gender`
 	* Changes made to `deprecated`
-	* New permissable value: `gender`
-	* Removed permissable value: `premature_at_birth`
-	* Removed permissable value: `weeks_gestation_at_birth`
+	* New permiss=ible value: `gender`
+	* Removed permissible value: `weeks_gestation_at_birth`
 	* Changes made to `properties`
 		* New property: `sex_at_birth`
 		* Removed property: `premature_at_birth`
 		* Removed property: `weeks_gestation_at_birth`
 		* Changes made to `population_group`
-			* New permissable value: `Unknown`
+			* New permissable value: `Unknown` and `Not Reported`
 			* New permissable value: `Not Reported`
 * Altered `family_history` Entity
 	* New property: `deprecated`
@@ -64,42 +63,41 @@
 		* Removed property: `pregnancy_count`
 		* Removed property: `viral_hepatitis_serologies`
 		* Changes made to `aids_risk_factors`
-			* New permissable value: `Unknown`
+			* New permissable value: `Unknown` and `Not Reported`
 			* New permissable value: `Not Reported`
-		* Changes made to `comorbidities`
-			* Changes made to `items`
-				* New permissable value: `Abdominal Hernia`
-				* New permissable value: `Aortic Valve Insufficiency`
-				* New permissable value: `Beta Thalassemia`
-				* New permissable value: `Bipolar Disorder`
-				* New permissable value: `Cardiomyopathy`
-				* New permissable value: `Encephalitis`
-				* New permissable value: `Erectile Dysfunction`
-				* New permissable value: `Erythroderma`
-				* New permissable value: `Evan's Syndrome`
-				* New permissable value: `Graft vs Host Disease`
-				* New permissable value: `Hearing Loss`
-				* New permissable value: `Hemophagocytic Lymphohistiocytosis (HLH)`
-				* New permissable value: `Hypotension`
-				* New permissable value: `Lyme Disease`
-				* New permissable value: `Migraine`
-				* New permissable value: `Neuroma`
-				* New permissable value: `Neuropathy`
-				* New permissable value: `Opioid Addiction`
-				* New permissable value: `Pleural Effusion`
-				* New permissable value: `Polycythemia`
-				* New permissable value: `Primary Ciliary Dyskinesia`
-				* New permissable value: `Primordial Dwarfism`
-				* New permissable value: `Pulmonary Embolism`
-				* New permissable value: `Reactive Airway Disease`
-				* New permissable value: `Sepsis`
-				* New permissable value: `Turner's Syndrome`
-				* New permissable value: `Ventricular Tachycardia`
+		* Changes made to `items`
+			* New permissable value: `Abdominal Hernia`
+			* New permissable value: `Aortic Valve Insufficiency`
+			* New permissable value: `Beta Thalassemia`
+			* New permissable value: `Bipolar Disorder`
+			* New permissable value: `Cardiomyopathy`
+			* New permissable value: `Encephalitis`
+			* New permissable value: `Erectile Dysfunction`
+			* New permissable value: `Erythroderma`
+			* New permissable value: `Evan's Syndrome`
+			* New permissable value: `Graft vs Host Disease`
+			* New permissable value: `Hearing Loss`
+			* New permissable value: `Hemophagocytic Lymphohistiocytosis (HLH)`
+			* New permissable value: `Hypotension`
+			* New permissable value: `Lyme Disease`
+			* New permissable value: `Migraine`
+			* New permissable value: `Neuroma`
+			* New permissable value: `Neuropathy`
+			* New permissable value: `Opioid Addiction`
+			* New permissable value: `Pleural Effusion`
+			* New permissable value: `Polycythemia`
+			* New permissable value: `Primary Ciliary Dyskinesia`
+			* New permissable value: `Primordial Dwarfism`
+			* New permissable value: `Pulmonary Embolism`
+			* New permissable value: `Reactive Airway Disease`
+			* New permissable value: `Sepsis`
+			* New permissable value: `Turner's Syndrome`
+			* New permissable value: `Ventricular Tachycardia`
 		* Changes made to `exercise_frequency_weekly`
-			* New permissable value: `Unknown`
+			* New permissable value: `Unknown` and `Not Reported`
 			* New permissable value: `Not Reported`
 		* Changes made to `myasthenia_gravis_classification`
-			* New permissable value: `Unknown`
+			* New permissable value: `Unknown` and `Not Reported`
 			* New permissable value: `Not Reported`
 		* Changes made to `risk_factors`
 			* Changes made to `items`
@@ -132,7 +130,6 @@
 				* New permissable value: `Ventricular Tachycardia`
 		* Changes made to `timepoint_category`
 			* New permissable value: `After Study Registration`
-			* New property: `deprecated_enum`
 * Altered `simple_somatic_mutation` Entity
 	* Changes made to `properties`
 		* Changes made to `data_format`
@@ -190,7 +187,6 @@
 		* Changes made to `days_to_first_event`
 		* Changes made to `timepoint_category`
 			* New permissable value: `After Study Registration`
-			* New property: `deprecated_enum`
 * Altered `read_group` Entity
 	* Changes made to `deprecated`
 	* Removed permissable value: `RIN`
@@ -204,11 +200,6 @@
 * Altered `sample` Entity
 	* Changes made to `deprecated`
 	* New permissable value: `tumor_code_id`
-	* Removed permissable value: `composition`
-	* Removed permissable value: `is_ffpe`
-	* Removed permissable value: `oct_embedded`
-	* Removed permissable value: `sample_type_id`
-	* Removed permissable value: `tumor_code`
 	* Changes made to `properties`
 		* Removed property: `composition`
 		* Removed property: `is_ffpe`
@@ -247,11 +238,8 @@
 		* New property: `breslow_thickness_category`
 		* Changes made to `margin_status`
 			* New permissable value: `Indeterminate`
-			* New property: `deprecated_enum`
 		* Changes made to `timepoint_category`
 			* New permissable value: `After Study Registration`
-			* New property: `deprecated_enum`
-* Altered `diagnosis` Entity
 	* Removed property: `deprecated`
 	* Changes made to `properties`
 		* Removed property: `metastasis_at_diagnosis_site`
@@ -284,7 +272,6 @@
 			* New permissable value: `Vagina`
 		* Changes made to `timepoint_category`
 			* New permissable value: `After Study Registration`
-			* New property: `deprecated_enum`
 * Altered `somatic_mutation_calling_workflow` Entity
 	* Changes made to `properties`
 		* Changes made to `workflow_type`
@@ -294,7 +281,6 @@
 	* Changes made to `properties`
 		* Changes made to `timepoint_category`
 			* New permissable value: `After Study Registration`
-			* New property: `deprecated_enum`
 * Altered `aggregated_somatic_mutation` Entity
 	* Changes made to `properties`
 		* New property: `tmb`
@@ -380,7 +366,7 @@
 	* Changes made to `test_value_range`
 		* New permissible value: `1-4%`
 		* New permissible value: `5-9%`
-	* Changes made to `timepoint_category`
+	*`comorbidities`
 		* New permissible value: `Adjuvant Therapy`
 		* New permissible value: `Adolescence`
 		* New permissible value: `Adulthood`
