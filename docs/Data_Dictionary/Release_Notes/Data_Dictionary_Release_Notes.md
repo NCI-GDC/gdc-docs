@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v.3.4.0](Data_Dictionary_Release_Notes.md#v340) | July 23, 2025|
+| [v.3.4.0](Data_Dictionary_Release_Notes.md#v340) | July 24, 2025|
 | [v.3.3.0](Data_Dictionary_Release_Notes.md#v330) | September 30, 2024 |
 | [v.3.1.0](Data_Dictionary_Release_Notes.md#v310) | May 30, 2024 |
 | [v.3.0.0](Data_Dictionary_Release_Notes.md#v300) | October 30, 2023 |
@@ -32,14 +32,14 @@
 ## v3.4.0
 
 * __GDC Product__: GDC Data Dictionary
-* __Release Date__: July 23, 2025
+* __Release Date__: July 24, 2025
 
 ### New Features and Changes
 
 * Altered `demographic` Entity
 	* Changes made to `required`
-	* New permissable value: `sex_at_birth`
-	* Removed permissable value: `gender`
+	* New permissible value: `sex_at_birth`
+	* Removed permissible value: `gender`
 	* Changes made to `deprecated`
 	* New permiss=ible value: `gender`
 	* Removed permissible value: `weeks_gestation_at_birth`
@@ -48,94 +48,94 @@
 		* Removed property: `premature_at_birth`
 		* Removed property: `weeks_gestation_at_birth`
 		* Changes made to `population_group`
-			* New permissable value: `Unknown` and `Not Reported`
-			* New permissable value: `Not Reported`
+			* New permissible value: `Unknown` and `Not Reported`
+			* New permissible value: `Not Reported`
 * Altered `family_history` Entity
 	* New property: `deprecated`
 	* Changes made to `properties`
 		* New property: `relationship_sex_at_birth`
 * Altered `other_clinical_attribute` Entity
 	* Changes made to `deprecated`
-	* Removed permissable value: `pregnancy_count`
-	* Removed permissable value: `viral_hepatitis_serologies`
+	* Removed permissible value: `pregnancy_count`
+	* Removed permissible value: `viral_hepatitis_serologies`
 	* Changes made to `properties`
 		* New property: `fertility_history`
 		* Removed property: `pregnancy_count`
 		* Removed property: `viral_hepatitis_serologies`
 		* Changes made to `aids_risk_factors`
-			* New permissable value: `Unknown` and `Not Reported`
-			* New permissable value: `Not Reported`
+			* New permissible value: `Unknown` and `Not Reported`
+			* New permissible value: `Not Reported`
 		* Changes made to `items`
-			* New permissable value: `Abdominal Hernia`
-			* New permissable value: `Aortic Valve Insufficiency`
-			* New permissable value: `Beta Thalassemia`
-			* New permissable value: `Bipolar Disorder`
-			* New permissable value: `Cardiomyopathy`
-			* New permissable value: `Encephalitis`
-			* New permissable value: `Erectile Dysfunction`
-			* New permissable value: `Erythroderma`
-			* New permissable value: `Evan's Syndrome`
-			* New permissable value: `Graft vs Host Disease`
-			* New permissable value: `Hearing Loss`
-			* New permissable value: `Hemophagocytic Lymphohistiocytosis (HLH)`
-			* New permissable value: `Hypotension`
-			* New permissable value: `Lyme Disease`
-			* New permissable value: `Migraine`
-			* New permissable value: `Neuroma`
-			* New permissable value: `Neuropathy`
-			* New permissable value: `Opioid Addiction`
-			* New permissable value: `Pleural Effusion`
-			* New permissable value: `Polycythemia`
-			* New permissable value: `Primary Ciliary Dyskinesia`
-			* New permissable value: `Primordial Dwarfism`
-			* New permissable value: `Pulmonary Embolism`
-			* New permissable value: `Reactive Airway Disease`
-			* New permissable value: `Sepsis`
-			* New permissable value: `Turner's Syndrome`
-			* New permissable value: `Ventricular Tachycardia`
+			* New permissible value: `Abdominal Hernia`
+			* New permissible value: `Aortic Valve Insufficiency`
+			* New permissible value: `Beta Thalassemia`
+			* New permissible value: `Bipolar Disorder`
+			* New permissible value: `Cardiomyopathy`
+			* New permissible value: `Encephalitis`
+			* New permissible value: `Erectile Dysfunction`
+			* New permissible value: `Erythroderma`
+			* New permissible value: `Evan's Syndrome`
+			* New permissible value: `Graft vs Host Disease`
+			* New permissible value: `Hearing Loss`
+			* New permissible value: `Hemophagocytic Lymphohistiocytosis (HLH)`
+			* New permissible value: `Hypotension`
+			* New permissible value: `Lyme Disease`
+			* New permissible value: `Migraine`
+			* New permissible value: `Neuroma`
+			* New permissible value: `Neuropathy`
+			* New permissible value: `Opioid Addiction`
+			* New permissible value: `Pleural Effusion`
+			* New permissible value: `Polycythemia`
+			* New permissible value: `Primary Ciliary Dyskinesia`
+			* New permissible value: `Primordial Dwarfism`
+			* New permissible value: `Pulmonary Embolism`
+			* New permissible value: `Reactive Airway Disease`
+			* New permissible value: `Sepsis`
+			* New permissible value: `Turner's Syndrome`
+			* New permissible value: `Ventricular Tachycardia`
 		* Changes made to `exercise_frequency_weekly`
-			* New permissable value: `Unknown` and `Not Reported`
-			* New permissable value: `Not Reported`
+			* New permissible value: `Unknown` and `Not Reported`
+			* New permissible value: `Not Reported`
 		* Changes made to `myasthenia_gravis_classification`
-			* New permissable value: `Unknown` and `Not Reported`
-			* New permissable value: `Not Reported`
+			* New permissible value: `Unknown` and `Not Reported`
+			* New permissible value: `Not Reported`
 		* Changes made to `risk_factors`
 			* Changes made to `items`
-				* New permissable value: `Abdominal Hernia`
-				* New permissable value: `Aortic Valve Insufficiency`
-				* New permissable value: `Beta Thalassemia`
-				* New permissable value: `Bipolar Disorder`
-				* New permissable value: `Cardiomyopathy`
-				* New permissable value: `Encephalitis`
-				* New permissable value: `Erectile Dysfunction`
-				* New permissable value: `Erythroderma`
-				* New permissable value: `Evan's Syndrome`
-				* New permissable value: `Graft vs Host Disease`
-				* New permissable value: `Hearing Loss`
-				* New permissable value: `Hemophagocytic Lymphohistiocytosis (HLH)`
-				* New permissable value: `Hypotension`
-				* New permissable value: `Lyme Disease`
-				* New permissable value: `Migraine`
-				* New permissable value: `Neuroma`
-				* New permissable value: `Neuropathy`
-				* New permissable value: `Opioid Addiction`
-				* New permissable value: `Pleural Effusion`
-				* New permissable value: `Polycythemia`
-				* New permissable value: `Primary Ciliary Dyskinesia`
-				* New permissable value: `Primordial Dwarfism`
-				* New permissable value: `Pulmonary Embolism`
-				* New permissable value: `Reactive Airway Disease`
-				* New permissable value: `Sepsis`
-				* New permissable value: `Turner's Syndrome`
-				* New permissable value: `Ventricular Tachycardia`
+				* New permissible value: `Abdominal Hernia`
+				* New permissible value: `Aortic Valve Insufficiency`
+				* New permissible value: `Beta Thalassemia`
+				* New permissible value: `Bipolar Disorder`
+				* New permissible value: `Cardiomyopathy`
+				* New permissible value: `Encephalitis`
+				* New permissible value: `Erectile Dysfunction`
+				* New permissible value: `Erythroderma`
+				* New permissible value: `Evan's Syndrome`
+				* New permissible value: `Graft vs Host Disease`
+				* New permissible value: `Hearing Loss`
+				* New permissible value: `Hemophagocytic Lymphohistiocytosis (HLH)`
+				* New permissible value: `Hypotension`
+				* New permissible value: `Lyme Disease`
+				* New permissible value: `Migraine`
+				* New permissible value: `Neuroma`
+				* New permissible value: `Neuropathy`
+				* New permissible value: `Opioid Addiction`
+				* New permissible value: `Pleural Effusion`
+				* New permissible value: `Polycythemia`
+				* New permissible value: `Primary Ciliary Dyskinesia`
+				* New permissible value: `Primordial Dwarfism`
+				* New permissible value: `Pulmonary Embolism`
+				* New permissible value: `Reactive Airway Disease`
+				* New permissible value: `Sepsis`
+				* New permissible value: `Turner's Syndrome`
+				* New permissible value: `Ventricular Tachycardia`
 		* Changes made to `timepoint_category`
-			* New permissable value: `After Study Registration`
+			* New permissible value: `After Study Registration`
 * Altered `simple_somatic_mutation` Entity
 	* Changes made to `properties`
 		* Changes made to `data_format`
-			* New permissable value: `TSV`
+			* New permissible value: `TSV`
 		* Changes made to `data_type`
-			* New permissable value: `Mutational Signature`
+			* New permissible value: `Mutational Signature`
 * Altered `follow_up` Entity
 	* Removed property: `deprecated`
 	* Changes made to `properties`
@@ -186,20 +186,20 @@
 		* Removed property: `weight`
 		* Changes made to `days_to_first_event`
 		* Changes made to `timepoint_category`
-			* New permissable value: `After Study Registration`
+			* New permissible value: `After Study Registration`
 * Altered `read_group` Entity
 	* Changes made to `deprecated`
-	* Removed permissable value: `RIN`
+	* Removed permissible value: `RIN`
 	* Changes made to `properties`
 		* Changes made to `single_cell_library`
-			* New permissable value: `Chromium 3' Gene Expression v1 Library`
-			* New permissable value: `Chromium 3' Gene Expression v4 Library`
-			* New permissable value: `Chromium Next GEM Single Cell Multiome ATAC + Gene Expression Library`
+			* New permissible value: `Chromium 3' Gene Expression v1 Library`
+			* New permissible value: `Chromium 3' Gene Expression v4 Library`
+			* New permissible value: `Chromium Next GEM Single Cell Multiome ATAC + Gene Expression Library`
 		* Changes made to `target_capture_kit`
-			* New permissable value: `xGen Exome Research Panel v2.0`
+			* New permissible value: `xGen Exome Research Panel v2.0`
 * Altered `sample` Entity
 	* Changes made to `deprecated`
-	* New permissable value: `tumor_code_id`
+	* New permissible value: `tumor_code_id`
 	* Changes made to `properties`
 		* Removed property: `composition`
 		* Removed property: `is_ffpe`
@@ -207,18 +207,18 @@
 		* Removed property: `sample_type_id`
 		* Removed property: `tumor_code`
 		* Changes made to `biospecimen_anatomic_site`
-			* Removed permissable value: `Brain Stem`
-			* Removed permissable value: `Common Duct`
+			* Removed permissible value: `Brain Stem`
+			* Removed permissible value: `Common Duct`
 			* Changes made to `deprecated_enum`
-			* Removed permissable value: `Brain Stem`
-			* Removed permissable value: `Common Duct`
+			* Removed permissible value: `Brain Stem`
+			* Removed permissible value: `Common Duct`
 		* Changes made to `method_of_sample_procurement`
-			* Removed permissable value: `Indeterminant`
+			* Removed permissible value: `Indeterminant`
 			* Removed property: `deprecated_enum`
 * Altered `analyte` Entity
 	* Changes made to `deprecated`
-	* New permissable value: `ribosomal_rna_28s_16s_ratio`
-	* Removed permissable value: `analyte_type_id`
+	* New permissible value: `ribosomal_rna_28s_16s_ratio`
+	* Removed permissible value: `analyte_type_id`
 	* Changes made to `properties`
 		* New property: `dna_integrity_number`
 		* New property: `ribosomal_rna_28s_18s_ratio`
@@ -232,14 +232,14 @@
 		* Removed property: `respirable_crystalline_silica_exposure`
 		* Removed property: `years_smoked`
 		* Changes made to `alcohol_intensity`
-			* New permissable value: `Not Heavy Drinker`
+			* New permissible value: `Not Heavy Drinker`
 * Altered `pathology_detail` Entity
 	* Changes made to `properties`
 		* New property: `breslow_thickness_category`
 		* Changes made to `margin_status`
-			* New permissable value: `Indeterminate`
+			* New permissible value: `Indeterminate`
 		* Changes made to `timepoint_category`
-			* New permissable value: `After Study Registration`
+			* New permissible value: `After Study Registration`
 	* Removed property: `deprecated`
 	* Changes made to `properties`
 		* Removed property: `metastasis_at_diagnosis_site`
@@ -249,38 +249,38 @@
 		* Removed property: `pregnant_at_diagnosis`
 		* Removed property: `primary_disease`
 		* Changes made to `morphology`
-			* New permissable value: `8453/6`
-			* New permissable value: `9380/1`
-			* New permissable value: `9421/3`
-			* New permissable value: `9490/6`
+			* New permissible value: `8453/6`
+			* New permissible value: `9380/1`
+			* New permissible value: `9421/3`
+			* New permissible value: `9490/6`
 * Altered `treatment` Entity
 	* Changes made to `deprecated`
-	* Removed permissable value: `days_to_treatment`
-	* Removed permissable value: `treatment_anatomic_site`
-	* Removed permissable value: `treatment_arm`
+	* Removed permissible value: `days_to_treatment`
+	* Removed permissible value: `treatment_anatomic_site`
+	* Removed permissible value: `treatment_arm`
 	* Changes made to `properties`
 		* Removed property: `treatment_anatomic_site`
 		* Removed property: `treatment_arm`
 		* Changes made to `initial_disease_status`
-			* New permissable value: `Biochemical Recurrence`
+			* New permissible value: `Biochemical Recurrence`
 		* Changes made to `margins_involved_site`
-			* New permissable value: `Bladder`
-			* New permissable value: `Macroscopic Parametrium`
-			* New permissable value: `Microscopic Parametrium`
-			* New permissable value: `Soft Tissue`
-			* New permissable value: `Uterus`
-			* New permissable value: `Vagina`
+			* New permissible value: `Bladder`
+			* New permissible value: `Macroscopic Parametrium`
+			* New permissible value: `Microscopic Parametrium`
+			* New permissible value: `Soft Tissue`
+			* New permissible value: `Uterus`
+			* New permissible value: `Vagina`
 		* Changes made to `timepoint_category`
-			* New permissable value: `After Study Registration`
+			* New permissible value: `After Study Registration`
 * Altered `somatic_mutation_calling_workflow` Entity
 	* Changes made to `properties`
 		* Changes made to `workflow_type`
-			* New permissable value: `MuSiCal`
-			* New permissable value: `MuSiCal GATK4 MuTect2`
+			* New permissible value: `MuSiCal`
+			* New permissible value: `MuSiCal GATK4 MuTect2`
 * Altered `molecular_test` Entity
 	* Changes made to `properties`
 		* Changes made to `timepoint_category`
-			* New permissable value: `After Study Registration`
+			* New permissible value: `After Study Registration`
 * Altered `aggregated_somatic_mutation` Entity
 	* Changes made to `properties`
 		* New property: `tmb`
@@ -1344,15 +1344,15 @@
 	* New property: `occupation_duration_years`
 	* New property: `occupation_type`
 	* Changes made to `exposure_type`
-		* New permissable value: `Coal Dust`
+		* New permissible value: `Coal Dust`
 	* Changes made to `tobacco_smoking_status`
-		* New permissable value: `Current Reformed Smoker, Duration Not Specified`
-		* New permissable value: `Current Reformed Smoker for < or = 15 yrs`
-		* New permissable value: `Current Reformed Smoker for > 15 yrs`
-		* New permissable value: `Current Smoker`
-		* New permissable value: `Lifelong Non-Smoker`
-		* New permissable value: `Smoker at Diagnosis`
-		* New permissable value: `Smoking history not documented`
+		* New permissible value: `Current Reformed Smoker, Duration Not Specified`
+		* New permissible value: `Current Reformed Smoker for < or = 15 yrs`
+		* New permissible value: `Current Reformed Smoker for > 15 yrs`
+		* New permissible value: `Current Smoker`
+		* New permissible value: `Lifelong Non-Smoker`
+		* New permissible value: `Smoker at Diagnosis`
+		* New permissible value: `Smoking history not documented`
 		* New deprecated value: `1`
 		* New deprecated value: `2`
 		* New deprecated value: `3`
@@ -1370,28 +1370,28 @@
 	* New property: `uicc_staging_system_edition`
 	* New property: `weiss_assessment_findings`
 	* Changes made to `inpc_grade`
-		* New permissable value: `Undifferentiated or Poorly Differentiated`
+		* New permissible value: `Undifferentiated or Poorly Differentiated`
 	* Changes made to `sites_of_involvement`
 		* Changes made to `items`
-			* New permissable value: `Brain, Brain stem`
-			* New permissable value: `Brain, Cerebellum, NOS`
-			* New permissable value: `Brain, Cerebrum`
-			* New permissable value: `Brain, Frontal lobe`
-			* New permissable value: `Brain, Occipital lobe`
-			* New permissable value: `Brain, Parietal`
-			* New permissable value: `Brain, Temporal lobe`
-			* New permissable value: `Brain, Ventricle, NOS`
-			* New permissable value: `Central Lung`
-			* New permissable value: `Gastrosplenic Ligament`
-			* New permissable value: `Parametrium, Left`
-			* New permissable value: `Parametrium, Right`
-			* New permissable value: `Pelvic Lymph Node(s)`
-			* New permissable value: `Peri-aortic Lymph Node(s)`
-			* New permissable value: `Peripheral Lung`
-			* New permissable value: `Thorax, NOS`
+			* New permissible value: `Brain, Brain stem`
+			* New permissible value: `Brain, Cerebellum, NOS`
+			* New permissible value: `Brain, Cerebrum`
+			* New permissible value: `Brain, Frontal lobe`
+			* New permissible value: `Brain, Occipital lobe`
+			* New permissible value: `Brain, Parietal`
+			* New permissible value: `Brain, Temporal lobe`
+			* New permissible value: `Brain, Ventricle, NOS`
+			* New permissible value: `Central Lung`
+			* New permissible value: `Gastrosplenic Ligament`
+			* New permissible value: `Parametrium, Left`
+			* New permissible value: `Parametrium, Right`
+			* New permissible value: `Pelvic Lymph Node(s)`
+			* New permissible value: `Peri-aortic Lymph Node(s)`
+			* New permissible value: `Peripheral Lung`
+			* New permissible value: `Thorax, NOS`
 * Altered `family_history` Entity
 	* Changes made to `relationship_type`
-		* New permissable value: `First Degree Relative, NOS`
+		* New permissible value: `First Degree Relative, NOS`
 * Altered `follow_up` Entity
 	* New deprecated property: `comorbidity`
 	* New deprecated property: `risk_factor`
@@ -1411,17 +1411,17 @@
 	* New property: `timepoint_category`
 	* New property: `year_of_follow_up`
 	* Changes made to `evidence_of_recurrence_type`
-		* New permissable value: `Histologic Confirmation`
+		* New permissible value: `Histologic Confirmation`
 	* Changes made to `history_of_tumor_type`
-		* New permissable value: `Colorectal Cancer`
-		* New permissable value: `Lower Grade Glioma`
+		* New permissible value: `Colorectal Cancer`
+		* New permissible value: `Lower Grade Glioma`
 	* Changes made to `pregnancy_outcome`
-		* New permissable value: `Spontaneous Abortion`
+		* New permissible value: `Spontaneous Abortion`
 	* Changes made to `progression_or_recurrence_type`
-		* New permissable value: `Locoregional`
+		* New permissible value: `Locoregional`
 * Altered `gene_expression` Entity
 	* Changes made to `experimental_strategy`
-		* New permissable value: `m6A MeRIP-Seq`
+		* New permissible value: `m6A MeRIP-Seq`
 * Altered `molecular_test` Entity
 	* New property: `aneuploidy`
 	* New property: `chromosomal_translocation`
@@ -1430,22 +1430,22 @@
 	* New property: `test_value_range`
 	* New property: `timepoint_category`
 	* Changes made to `antigen`
-		* New permissable value: `Immunoglobulin, Cytoplasmic`
-		* New permissable value: `Immunoglobulin, Surface`
+		* New permissible value: `Immunoglobulin, Cytoplasmic`
+		* New permissible value: `Immunoglobulin, Surface`
 	* Changes made to `laboratory_test`
-		* New permissable value: `Blast Count`
-		* New permissable value: `Metaphase Nucleus Count`
-		* New permissable value: `Minimal Residual Disease`
-		* New permissable value: `Monocytes`
+		* New permissible value: `Blast Count`
+		* New permissible value: `Metaphase Nucleus Count`
+		* New permissible value: `Minimal Residual Disease`
+		* New permissible value: `Monocytes`
 	* Changes made to `test_result`
-		* New permissable value: `Amplified`
-		* New permissable value: `Elevated`
-		* New permissable value: `Not Amplified`
+		* New permissible value: `Amplified`
+		* New permissible value: `Elevated`
+		* New permissible value: `Not Amplified`
 	* Changes made to `variant_type`
-		* New permissable value: `Fusion`
-		* New permissable value: `Genetic Polymorphism`
-		* New permissable value: `Internal Tandem Duplication`
-		* New permissable value: `Mutation, NOS`
+		* New permissible value: `Fusion`
+		* New permissible value: `Genetic Polymorphism`
+		* New permissible value: `Internal Tandem Duplication`
+		* New permissible value: `Mutation, NOS`
 * Altered `pathology_detail` Entity
 	* New property: `extracapsular_extension`
 	* New property: `extranodal_extension`
@@ -1456,13 +1456,13 @@
 	* New property: `percent_tumor_nuclei`
 	* New property: `residual_tumor_measurement`
 	* Changes made to `additional_pathology_findings`
-		* New permissable value: `Bone marrow concordant histology`
-		* New permissable value: `Bone marrow discordant histology`
+		* New permissible value: `Bone marrow concordant histology`
+		* New permissible value: `Bone marrow discordant histology`
 	* Changes made to `dysplasia_type`
-		* New permissable value: `Esophageal Mucosa Columnar Dysplasia`
+		* New permissible value: `Esophageal Mucosa Columnar Dysplasia`
 	* Changes made to `lymph_node_involved_site`
-		* New permissable value: `Aortic`
-		* New permissable value: `Pelvis, NOS`
+		* New permissible value: `Aortic`
+		* New permissible value: `Pelvis, NOS`
 * Altered `read_group` Entity
 	* Changes made to `target_capture_kit`
 		* New property: `Custom SureSelect CGCI-BLGSP Panel - 7.8 Mb`
@@ -1475,18 +1475,18 @@
 	* New deprecated property: `sample_type_id`
 	* New property: `specimen_type`
 	* Changes made to `tumor_descriptor`
-		* New permissable value: `New Primary`
+		* New permissible value: `New Primary`
 * Altered `simple_germline_variation` Entity
 	* Changes made to `experimental_strategy`
-		* New permissable value: `Genotyping Array`
+		* New permissible value: `Genotyping Array`
 * Altered `somatic_copy_number_workflow` Entity
 	* Changes made to `workflow_type`
-		* New permissable value: `ABSOLUTE LiftOver`
-		* New permissable value: `ASCAT3`
-		* New permissable value: `GATK4 CNV`
+		* New permissible value: `ABSOLUTE LiftOver`
+		* New permissible value: `ASCAT3`
+		* New permissible value: `GATK4 CNV`
 * Altered `structural_variant_calling_workflow` Entity
 	* Changes made to `workflow_type`
-		* New permissable value: `SvABA`
+		* New permissible value: `SvABA`
 * Altered `submitted_genotyping_array` Entity
 	* Changed `aliquot` link from `one-to-one` to `many-to-one`
 * Altered `treatment` Entity
@@ -1497,151 +1497,151 @@
 	* New property: `therapeutic_level_achieved`
 	* New property: `therapeutic_target_level`
 	* Changes made to `initial_disease_status`
-		* New permissable value: `Persistent Disease`
-		* New permissable value: `Refractory Disease`
+		* New permissible value: `Persistent Disease`
+		* New permissible value: `Refractory Disease`
 	* Changes made to `protocol_identifier`
-		* New permissable value: `901`
-		* New permissable value: `911`
-		* New permissable value: `914`
-		* New permissable value: `925`
-		* New permissable value: `935`
-		* New permissable value: `937`
-		* New permissable value: `3881`
-		* New permissable value: `3891`
-		* New permissable value: `4941`
-		* New permissable value: `8605`
-		* New permissable value: `9047`
-		* New permissable value: `9082`
-		* New permissable value: `9340`
-		* New permissable value: `9341`
-		* New permissable value: `9342`
-		* New permissable value: `9343`
-		* New permissable value: `9464`
-		* New permissable value: `9640`
-		* New permissable value: `9906`
-		* New permissable value: `321P2`
-		* New permissable value: `321P3`
-		* New permissable value: `323P`
-		* New permissable value: `A3961`
-		* New permissable value: `A3973`
-		* New permissable value: `AADM01P1`
-		* New permissable value: `AALL0031`
-		* New permissable value: `AALL0232`
-		* New permissable value: `AALL0331`
-		* New permissable value: `AALL03B1`
-		* New permissable value: `AALL0434`
-		* New permissable value: `AALL07P4`
-		* New permissable value: `AALL08P1`
-		* New permissable value: `AALL1131`
-		* New permissable value: `AAML00P2`
-		* New permissable value: `AAML03P1`
-		* New permissable value: `AAML0531`
-		* New permissable value: `AAML0631`
-		* New permissable value: `AAML1031`
-		* New permissable value: `AB9804`
-		* New permissable value: `ACCL0331`
-		* New permissable value: `ACCL0431`
-		* New permissable value: `ACCL05C1`
-		* New permissable value: `ACCL0934`
-		* New permissable value: `ACCL1031`
-		* New permissable value: `ADVL0018`
-		* New permissable value: `ADVL0212`
-		* New permissable value: `ADVL0214`
-		* New permissable value: `ADVL0215`
-		* New permissable value: `ADVL0421`
-		* New permissable value: `ADVL0524`
-		* New permissable value: `ADVL0525`
-		* New permissable value: `ADVL06B1`
-		* New permissable value: `ADVL0714`
-		* New permissable value: `ADVL0812`
-		* New permissable value: `ADVL0813`
-		* New permissable value: `ADVL0821`
-		* New permissable value: `ADVL0911`
-		* New permissable value: `ADVL0912`
-		* New permissable value: `ADVL0918`
-		* New permissable value: `ADVL0921`
-		* New permissable value: `ADVL1011`
-		* New permissable value: `ADVL1111`
-		* New permissable value: `ADVL1112`
-		* New permissable value: `ADVL1115`
-		* New permissable value: `ADVL1213`
-		* New permissable value: `ADVL1412`
-		* New permissable value: `AEPI07N1`
-		* New permissable value: `ALTE03N1`
-		* New permissable value: `ALTE05N1`
-		* New permissable value: `ANBL0032`
-		* New permissable value: `ANBL00B1`
-		* New permissable value: `ANBL00P1`
-		* New permissable value: `ANBL00P3`
-		* New permissable value: `ANBL02P1`
-		* New permissable value: `ANBL0321`
-		* New permissable value: `ANBL0322`
-		* New permissable value: `ANBL0421`
-		* New permissable value: `ANBL0531`
-		* New permissable value: `ANBL0532`
-		* New permissable value: `ANBL0621`
-		* New permissable value: `ANBL0931`
-		* New permissable value: `ANBL09P1`
-		* New permissable value: `ANBL1021`
-		* New permissable value: `ANBL1221`
-		* New permissable value: `ANUR1131`
-		* New permissable value: `AOST0121`
-		* New permissable value: `AOST0331`
-		* New permissable value: `AOST06B1`
-		* New permissable value: `AOST06P1`
-		* New permissable value: `AREN03B2`
-		* New permissable value: `B003`
-		* New permissable value: `B903`
-		* New permissable value: `B947`
-		* New permissable value: `B954`
-		* New permissable value: `B973`
-		* New permissable value: `BCM`
-		* New permissable value: `CCG2961`
-		* New permissable value: `D9902`
-		* New permissable value: `E04`
-		* New permissable value: `E18`
-		* New permissable value: `GBCTTO/99`
-		* New permissable value: `GLATO 2006`
-		* New permissable value: `I03`
-		* New permissable value: `IHRT`
-		* New permissable value: `INT-0133`
-		* New permissable value: `N891`
-		* New permissable value: `NWTS-4`
-		* New permissable value: `NWTS-5`
-		* New permissable value: `OSTEO 2006`
-		* New permissable value: `Not Reported`
-		* New permissable value: `P9462`
-		* New permissable value: `P9641`
-		* New permissable value: `P9754`
-		* New permissable value: `P9851`
-		* New permissable value: `P9906`
-		* New permissable value: `P9963`
-		* New permissable value: `R9702`
-		* New permissable value: `S31`
-		* New permissable value: `S921`
-		* New permissable value: `STB`
+		* New permissible value: `901`
+		* New permissible value: `911`
+		* New permissible value: `914`
+		* New permissible value: `925`
+		* New permissible value: `935`
+		* New permissible value: `937`
+		* New permissible value: `3881`
+		* New permissible value: `3891`
+		* New permissible value: `4941`
+		* New permissible value: `8605`
+		* New permissible value: `9047`
+		* New permissible value: `9082`
+		* New permissible value: `9340`
+		* New permissible value: `9341`
+		* New permissible value: `9342`
+		* New permissible value: `9343`
+		* New permissible value: `9464`
+		* New permissible value: `9640`
+		* New permissible value: `9906`
+		* New permissible value: `321P2`
+		* New permissible value: `321P3`
+		* New permissible value: `323P`
+		* New permissible value: `A3961`
+		* New permissible value: `A3973`
+		* New permissible value: `AADM01P1`
+		* New permissible value: `AALL0031`
+		* New permissible value: `AALL0232`
+		* New permissible value: `AALL0331`
+		* New permissible value: `AALL03B1`
+		* New permissible value: `AALL0434`
+		* New permissible value: `AALL07P4`
+		* New permissible value: `AALL08P1`
+		* New permissible value: `AALL1131`
+		* New permissible value: `AAML00P2`
+		* New permissible value: `AAML03P1`
+		* New permissible value: `AAML0531`
+		* New permissible value: `AAML0631`
+		* New permissible value: `AAML1031`
+		* New permissible value: `AB9804`
+		* New permissible value: `ACCL0331`
+		* New permissible value: `ACCL0431`
+		* New permissible value: `ACCL05C1`
+		* New permissible value: `ACCL0934`
+		* New permissible value: `ACCL1031`
+		* New permissible value: `ADVL0018`
+		* New permissible value: `ADVL0212`
+		* New permissible value: `ADVL0214`
+		* New permissible value: `ADVL0215`
+		* New permissible value: `ADVL0421`
+		* New permissible value: `ADVL0524`
+		* New permissible value: `ADVL0525`
+		* New permissible value: `ADVL06B1`
+		* New permissible value: `ADVL0714`
+		* New permissible value: `ADVL0812`
+		* New permissible value: `ADVL0813`
+		* New permissible value: `ADVL0821`
+		* New permissible value: `ADVL0911`
+		* New permissible value: `ADVL0912`
+		* New permissible value: `ADVL0918`
+		* New permissible value: `ADVL0921`
+		* New permissible value: `ADVL1011`
+		* New permissible value: `ADVL1111`
+		* New permissible value: `ADVL1112`
+		* New permissible value: `ADVL1115`
+		* New permissible value: `ADVL1213`
+		* New permissible value: `ADVL1412`
+		* New permissible value: `AEPI07N1`
+		* New permissible value: `ALTE03N1`
+		* New permissible value: `ALTE05N1`
+		* New permissible value: `ANBL0032`
+		* New permissible value: `ANBL00B1`
+		* New permissible value: `ANBL00P1`
+		* New permissible value: `ANBL00P3`
+		* New permissible value: `ANBL02P1`
+		* New permissible value: `ANBL0321`
+		* New permissible value: `ANBL0322`
+		* New permissible value: `ANBL0421`
+		* New permissible value: `ANBL0531`
+		* New permissible value: `ANBL0532`
+		* New permissible value: `ANBL0621`
+		* New permissible value: `ANBL0931`
+		* New permissible value: `ANBL09P1`
+		* New permissible value: `ANBL1021`
+		* New permissible value: `ANBL1221`
+		* New permissible value: `ANUR1131`
+		* New permissible value: `AOST0121`
+		* New permissible value: `AOST0331`
+		* New permissible value: `AOST06B1`
+		* New permissible value: `AOST06P1`
+		* New permissible value: `AREN03B2`
+		* New permissible value: `B003`
+		* New permissible value: `B903`
+		* New permissible value: `B947`
+		* New permissible value: `B954`
+		* New permissible value: `B973`
+		* New permissible value: `BCM`
+		* New permissible value: `CCG2961`
+		* New permissible value: `D9902`
+		* New permissible value: `E04`
+		* New permissible value: `E18`
+		* New permissible value: `GBCTTO/99`
+		* New permissible value: `GLATO 2006`
+		* New permissible value: `I03`
+		* New permissible value: `IHRT`
+		* New permissible value: `INT-0133`
+		* New permissible value: `N891`
+		* New permissible value: `NWTS-4`
+		* New permissible value: `NWTS-5`
+		* New permissible value: `OSTEO 2006`
+		* New permissible value: `Not Reported`
+		* New permissible value: `P9462`
+		* New permissible value: `P9641`
+		* New permissible value: `P9754`
+		* New permissible value: `P9851`
+		* New permissible value: `P9906`
+		* New permissible value: `P9963`
+		* New permissible value: `R9702`
+		* New permissible value: `S31`
+		* New permissible value: `S921`
+		* New permissible value: `STB`
 	* Changes made to `treatment_anatomic_site`
-		* New permissable value: `Locoregional Site`
+		* New permissible value: `Locoregional Site`
 	* Changes made to `treatment_intent_type`
-		* New permissable value: `Consolidation Therapy`
-		* New permissable value: `First-Line Therapy`
-		* New permissable value: `Induction`
-		* New permissable value: `Radiation Boost`
+		* New permissible value: `Consolidation Therapy`
+		* New permissible value: `First-Line Therapy`
+		* New permissible value: `Induction`
+		* New permissible value: `Radiation Boost`
 	* Changes made to `treatment_outcome`
-		* New permissable value: `Normalization of Tumor Markers`
+		* New permissible value: `Normalization of Tumor Markers`
 	* Changes made to `treatment_type`
-		* New permissable value: `Biopsy, Excisional`
-		* New permissable value: `Biopsy, Incisional`
-		* New permissable value: `Distal Pancreatectomy`
-		* New permissable value: `Surgery, NOS`
-		* New permissable value: `Surgery, Minimally Invasive`
-		* New permissable value: `Surgery, Open`
-		* New permissable value: `Total Pancreatectomy`
-		* New permissable value: `Whipple`
+		* New permissible value: `Biopsy, Excisional`
+		* New permissible value: `Biopsy, Incisional`
+		* New permissible value: `Distal Pancreatectomy`
+		* New permissible value: `Surgery, NOS`
+		* New permissible value: `Surgery, Minimally Invasive`
+		* New permissible value: `Surgery, Open`
+		* New permissible value: `Total Pancreatectomy`
+		* New permissible value: `Whipple`
 		* New deprecated value: `Cryoablation`
 		* New deprecated value: `Surgery`
 	* Changes made to `therapeutic_agents`
-		* New permissable value: `TLR9 Agonist SD-101`
+		* New permissible value: `TLR9 Agonist SD-101`
 * New Entity: `copy_number_auxiliary_file`
 
 ### Known Issues and Workarounds
