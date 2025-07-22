@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v.3.4.4](Data_Dictionary_Release_Notes.md#v340) | July 24, 2025|
+| [v.3.4.4](Data_Dictionary_Release_Notes.md#v344) | July 24, 2025|
 | [v.3.3.0](Data_Dictionary_Release_Notes.md#v330) | September 30, 2024 |
 | [v.3.1.0](Data_Dictionary_Release_Notes.md#v310) | May 30, 2024 |
 | [v.3.0.0](Data_Dictionary_Release_Notes.md#v300) | October 30, 2023 |
@@ -41,13 +41,13 @@
 		* New permissible value: `sex_at_birth`
 		* Removed permissible value: `gender`
 	* Changes made to `deprecated`
-		* New permiss=ible value: `gender`
+		* New permissible value: `gender`
 	* Removed permissible value: `weeks_gestation_at_birth`
 	* New property: `sex_at_birth`
 	* Removed property: `premature_at_birth`
 	* Removed property: `weeks_gestation_at_birth`
 	* Changes made to `population_group`
-		* New permissible value: `Unknown` and `Not Reported`
+		* New permissible value: `Unknown`
 		* New permissible value: `Not Reported`
 * Altered `family_history` Entity
 	* New property: `deprecated`
@@ -58,9 +58,9 @@
 	* Removed property: `pregnancy_count`
 	* Removed property: `viral_hepatitis_serologies`
 	* Changes made to `aids_risk_factors`
-		* New permissible value: `Unknown` and `Not Reported`
+		* New permissible value: `Unknown`
 		* New permissible value: `Not Reported`
-	* Changes made to `items`
+	* Changes made to `comorbidities`
 		* New permissible value: `Abdominal Hernia`
 		* New permissible value: `Aortic Valve Insufficiency`
 		* New permissible value: `Beta Thalassemia`
@@ -89,40 +89,39 @@
 		* New permissible value: `Turner's Syndrome`
 		* New permissible value: `Ventricular Tachycardia`
 	* Changes made to `exercise_frequency_weekly`
-		* New permissible value: `Unknown` and `Not Reported`
+		* New permissible value: `Unknown`
 		* New permissible value: `Not Reported`
 	* Changes made to `myasthenia_gravis_classification`
-		* New permissible value: `Unknown` and `Not Reported`
+		* New permissible value: `Unknown`
 		* New permissible value: `Not Reported`
 	* Changes made to `risk_factors`
-		* Changes made to `items`
-			* New permissible value: `Abdominal Hernia`
-			* New permissible value: `Aortic Valve Insufficiency`
-			* New permissible value: `Beta Thalassemia`
-			* New permissible value: `Bipolar Disorder`
-			* New permissible value: `Cardiomyopathy`
-			* New permissible value: `Encephalitis`
-			* New permissible value: `Erectile Dysfunction`
-			* New permissible value: `Erythroderma`
-			* New permissible value: `Evan's Syndrome`
-			* New permissible value: `Graft vs Host Disease`
-			* New permissible value: `Hearing Loss`
-			* New permissible value: `Hemophagocytic Lymphohistiocytosis (HLH)`
-			* New permissible value: `Hypotension`
-			* New permissible value: `Lyme Disease`
-			* New permissible value: `Migraine`
-			* New permissible value: `Neuroma`
-			* New permissible value: `Neuropathy`
-			* New permissible value: `Opioid Addiction`
-			* New permissible value: `Pleural Effusion`
-			* New permissible value: `Polycythemia`
-			* New permissible value: `Primary Ciliary Dyskinesia`
-			* New permissible value: `Primordial Dwarfism`
-			* New permissible value: `Pulmonary Embolism`
-			* New permissible value: `Reactive Airway Disease`
-			* New permissible value: `Sepsis`
-			* New permissible value: `Turner's Syndrome`
-			* New permissible value: `Ventricular Tachycardia`
+		* New permissible value: `Abdominal Hernia`
+		* New permissible value: `Aortic Valve Insufficiency`
+		* New permissible value: `Beta Thalassemia`
+		* New permissible value: `Bipolar Disorder`
+		* New permissible value: `Cardiomyopathy`
+		* New permissible value: `Encephalitis`
+		* New permissible value: `Erectile Dysfunction
+		* New permissible value: `Erythroderma`
+		* New permissible value: `Evan's Syndrome`
+		* New permissible value: `Graft vs Host Disease`
+		* New permissible value: `Hearing Loss`
+		* New permissible value: `Hemophagocytic Lymphohistiocytosis (HLH)`
+		* New permissible value: `Hypotension`
+		* New permissible value: `Lyme Disease`
+		* New permissible value: `Migraine`
+		* New permissible value: `Neuroma`
+		* New permissible value: `Neuropathy`
+		* New permissible value: `Opioid Addiction`
+		* New permissible value: `Pleural Effusion`
+		* New permissible value: `Polycythemia`
+		* New permissible value: `Primary Ciliary Dyskinesia`
+		* New permissible value: `Primordial Dwarfism`
+		* New permissible value: `Pulmonary Embolism`
+		* New permissible value: `Reactive Airway Disease`
+		* New permissible value: `Sepsis`
+		* New permissible value: `Turner's Syndrome`
+		* New permissible value: `Ventricular Tachycardia`
 	* Changes made to `timepoint_category`
 		* New permissible value: `After Study Registration`
 * Altered `simple_somatic_mutation` Entity
