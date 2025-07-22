@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v.3.4.0](Data_Dictionary_Release_Notes.md#v340) | July 24, 2025|
+| [v.3.4.4](Data_Dictionary_Release_Notes.md#v340) | July 24, 2025|
 | [v.3.3.0](Data_Dictionary_Release_Notes.md#v330) | September 30, 2024 |
 | [v.3.1.0](Data_Dictionary_Release_Notes.md#v310) | May 30, 2024 |
 | [v.3.0.0](Data_Dictionary_Release_Notes.md#v300) | October 30, 2023 |
@@ -29,7 +29,7 @@
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
 
-## v3.4.0
+## v3.4.4
 
 * __GDC Product__: GDC Data Dictionary
 * __Release Date__: July 24, 2025
@@ -38,33 +38,63 @@
 
 * Altered `demographic` Entity
 	* Changes made to `required`
-	* New permissible value: `sex_at_birth`
-	* Removed permissible value: `gender`
+		* New permissible value: `sex_at_birth`
+		* Removed permissible value: `gender`
 	* Changes made to `deprecated`
-	* New permiss=ible value: `gender`
+		* New permiss=ible value: `gender`
 	* Removed permissible value: `weeks_gestation_at_birth`
-	* Changes made to `properties`
-		* New property: `sex_at_birth`
-		* Removed property: `premature_at_birth`
-		* Removed property: `weeks_gestation_at_birth`
-		* Changes made to `population_group`
-			* New permissible value: `Unknown` and `Not Reported`
-			* New permissible value: `Not Reported`
+	* New property: `sex_at_birth`
+	* Removed property: `premature_at_birth`
+	* Removed property: `weeks_gestation_at_birth`
+	* Changes made to `population_group`
+		* New permissible value: `Unknown` and `Not Reported`
+		* New permissible value: `Not Reported`
 * Altered `family_history` Entity
 	* New property: `deprecated`
 	* Changes made to `properties`
 		* New property: `relationship_sex_at_birth`
 * Altered `other_clinical_attribute` Entity
-	* Changes made to `deprecated`
-	* Removed permissible value: `pregnancy_count`
-	* Removed permissible value: `viral_hepatitis_serologies`
-	* Changes made to `properties`
-		* New property: `fertility_history`
-		* Removed property: `pregnancy_count`
-		* Removed property: `viral_hepatitis_serologies`
-		* Changes made to `aids_risk_factors`
-			* New permissible value: `Unknown` and `Not Reported`
-			* New permissible value: `Not Reported`
+	* New property: `fertility_history`
+	* Removed property: `pregnancy_count`
+	* Removed property: `viral_hepatitis_serologies`
+	* Changes made to `aids_risk_factors`
+		* New permissible value: `Unknown` and `Not Reported`
+		* New permissible value: `Not Reported`
+	* Changes made to `items`
+		* New permissible value: `Abdominal Hernia`
+		* New permissible value: `Aortic Valve Insufficiency`
+		* New permissible value: `Beta Thalassemia`
+		* New permissible value: `Bipolar Disorder`
+		* New permissible value: `Cardiomyopathy`
+		* New permissible value: `Encephalitis`
+		* New permissible value: `Erectile Dysfunction`
+		* New permissible value: `Erythroderma`
+		* New permissible value: `Evan's Syndrome`
+		* New permissible value: `Graft vs Host Disease`
+		* New permissible value: `Hearing Loss`
+		* New permissible value: `Hemophagocytic Lymphohistiocytosis (HLH)`
+		* New permissible value: `Hypotension`
+		* New permissible value: `Lyme Disease`
+		* New permissible value: `Migraine`
+		* New permissible value: `Neuroma`
+		* New permissible value: `Neuropathy`
+		* New permissible value: `Opioid Addiction`
+		* New permissible value: `Pleural Effusion`
+		* New permissible value: `Polycythemia`
+		* New permissible value: `Primary Ciliary Dyskinesia`
+		* New permissible value: `Primordial Dwarfism`
+		* New permissible value: `Pulmonary Embolism`
+		* New permissible value: `Reactive Airway Disease`
+		* New permissible value: `Sepsis`
+		* New permissible value: `Turner's Syndrome`
+		* New permissible value: `Ventricular Tachycardia`
+	* Changes made to `exercise_frequency_weekly`
+		* New permissible value: `Unknown` and `Not Reported`
+		* New permissible value: `Not Reported`
+	* Changes made to `myasthenia_gravis_classification`
+		* New permissible value: `Unknown` and `Not Reported`
+		* New permissible value: `Not Reported`
+	* Changes made to `risk_factors`
 		* Changes made to `items`
 			* New permissible value: `Abdominal Hernia`
 			* New permissible value: `Aortic Valve Insufficiency`
@@ -93,43 +123,8 @@
 			* New permissible value: `Sepsis`
 			* New permissible value: `Turner's Syndrome`
 			* New permissible value: `Ventricular Tachycardia`
-		* Changes made to `exercise_frequency_weekly`
-			* New permissible value: `Unknown` and `Not Reported`
-			* New permissible value: `Not Reported`
-		* Changes made to `myasthenia_gravis_classification`
-			* New permissible value: `Unknown` and `Not Reported`
-			* New permissible value: `Not Reported`
-		* Changes made to `risk_factors`
-			* Changes made to `items`
-				* New permissible value: `Abdominal Hernia`
-				* New permissible value: `Aortic Valve Insufficiency`
-				* New permissible value: `Beta Thalassemia`
-				* New permissible value: `Bipolar Disorder`
-				* New permissible value: `Cardiomyopathy`
-				* New permissible value: `Encephalitis`
-				* New permissible value: `Erectile Dysfunction`
-				* New permissible value: `Erythroderma`
-				* New permissible value: `Evan's Syndrome`
-				* New permissible value: `Graft vs Host Disease`
-				* New permissible value: `Hearing Loss`
-				* New permissible value: `Hemophagocytic Lymphohistiocytosis (HLH)`
-				* New permissible value: `Hypotension`
-				* New permissible value: `Lyme Disease`
-				* New permissible value: `Migraine`
-				* New permissible value: `Neuroma`
-				* New permissible value: `Neuropathy`
-				* New permissible value: `Opioid Addiction`
-				* New permissible value: `Pleural Effusion`
-				* New permissible value: `Polycythemia`
-				* New permissible value: `Primary Ciliary Dyskinesia`
-				* New permissible value: `Primordial Dwarfism`
-				* New permissible value: `Pulmonary Embolism`
-				* New permissible value: `Reactive Airway Disease`
-				* New permissible value: `Sepsis`
-				* New permissible value: `Turner's Syndrome`
-				* New permissible value: `Ventricular Tachycardia`
-		* Changes made to `timepoint_category`
-			* New permissible value: `After Study Registration`
+	* Changes made to `timepoint_category`
+		* New permissible value: `After Study Registration`
 * Altered `simple_somatic_mutation` Entity
 	* Changes made to `properties`
 		* Changes made to `data_format`
@@ -189,7 +184,7 @@
 			* New permissible value: `After Study Registration`
 * Altered `read_group` Entity
 	* Changes made to `deprecated`
-	* Removed permissible value: `RIN`
+		* Removed permissible value: `RIN`
 	* Changes made to `properties`
 		* Changes made to `single_cell_library`
 			* New permissible value: `Chromium 3' Gene Expression v1 Library`
@@ -199,7 +194,7 @@
 			* New permissible value: `xGen Exome Research Panel v2.0`
 * Altered `sample` Entity
 	* Changes made to `deprecated`
-	* New permissible value: `tumor_code_id`
+		* New permissible value: `tumor_code_id`
 	* Changes made to `properties`
 		* Removed property: `composition`
 		* Removed property: `is_ffpe`
@@ -210,14 +205,14 @@
 			* Removed permissible value: `Brain Stem`
 			* Removed permissible value: `Common Duct`
 			* Changes made to `deprecated_enum`
-			* Removed permissible value: `Brain Stem`
-			* Removed permissible value: `Common Duct`
+				* Removed permissible value: `Brain Stem`
+				* Removed permissible value: `Common Duct`
 		* Changes made to `method_of_sample_procurement`
 			* Removed permissible value: `Indeterminant`
 			* Removed property: `deprecated_enum`
 * Altered `analyte` Entity
 	* Changes made to `deprecated`
-	* New permissible value: `ribosomal_rna_28s_16s_ratio`
+		* New permissible value: `ribosomal_rna_28s_16s_ratio`
 	* Removed permissible value: `analyte_type_id`
 	* Changes made to `properties`
 		* New property: `dna_integrity_number`
@@ -254,10 +249,6 @@
 			* New permissible value: `9421/3`
 			* New permissible value: `9490/6`
 * Altered `treatment` Entity
-	* Changes made to `deprecated`
-	* Removed permissible value: `days_to_treatment`
-	* Removed permissible value: `treatment_anatomic_site`
-	* Removed permissible value: `treatment_arm`
 	* Changes made to `properties`
 		* Removed property: `treatment_anatomic_site`
 		* Removed property: `treatment_arm`
