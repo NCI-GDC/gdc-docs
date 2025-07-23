@@ -50,8 +50,8 @@
 		* New permissible value: `Unknown`
 		* New permissible value: `Not Reported`
 * Altered `family_history` Entity
-	* New property: `deprecated`
-	* New property: `relationship_sex_at_birth`
+  	* Changes made to `deprecated`
+  	  	* New permissible value: `relationship_sex_at_birth`
 * Altered `other_clinical_attribute` Entity
 	* New property: `fertility_history`
 	* Removed property: `pregnancy_count`
