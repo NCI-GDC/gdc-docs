@@ -1,4 +1,4 @@
-<img width="513" height="98" alt="image" src="https://github.com/user-attachments/assets/457c4de5-8a18-46a3-b063-a3204f2585ca" /># Data Dictionary Release Notes
+# Data Dictionary Release Notes
 
 | Version | Date |
 |---|---|
@@ -38,11 +38,12 @@
 
 * Altered `demographic` Entity
 	* Changes made to `required`
-		* New permissible value: `sex_at_birth`
-		* Removed permissible value: `gender`
+		* New required property: `sex_at_birth`
+		* Removed required property: `gender`
 	* Changes made to `deprecated`
 		* Deprecated property: `gender`
 	* New property: `sex_at_birth`
+        * The `gender` field in the GDC has historically been a mixture of biological sex and self-reported gender. This modification reflects a change in terminology.
 	* Removed property: `premature_at_birth`
 	* Removed property: `weeks_gestation_at_birth`
 	* Changes made to `population_group`
@@ -99,7 +100,7 @@
 		* New permissible value: `Bipolar Disorder`
 		* New permissible value: `Cardiomyopathy`
 		* New permissible value: `Encephalitis`
-		* New permissible value: `Erectile Dysfunction
+		* New permissible value: `Erectile Dysfunction`
 		* New permissible value: `Erythroderma`
 		* New permissible value: `Evan's Syndrome`
 		* New permissible value: `Graft vs Host Disease`
@@ -1107,7 +1108,7 @@
 	* Changes made to `instrument_model`
 		* New permissible value: `Illumina NovaSeq X`
 * Altered `sample` Entity
-	* 
+	*
 		* New permissible value: `Head, Face or Neck, NOS`
 		* New deprecated value: `Head - Face Or Neck, Nos`
 * Altered `submitted_aligned_reads` Entity
