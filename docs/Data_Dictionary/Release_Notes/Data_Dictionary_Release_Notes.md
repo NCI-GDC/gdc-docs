@@ -42,7 +42,7 @@
 		* Removed permissible value: `gender`
 	* Changes made to `deprecated`
 		* New permissible value: `gender`
-	* Removed permissible value: `weeks_gestation_at_birth`
+		* Removed permissible value: `weeks_gestation_at_birth`
 	* New property: `sex_at_birth`
 	* Removed property: `premature_at_birth`
 	* Removed property: `weeks_gestation_at_birth`
@@ -51,8 +51,7 @@
 		* New permissible value: `Not Reported`
 * Altered `family_history` Entity
 	* New property: `deprecated`
-	* Changes made to `properties`
-		* New property: `relationship_sex_at_birth`
+	* New property: `relationship_sex_at_birth`
 * Altered `other_clinical_attribute` Entity
 	* New property: `fertility_history`
 	* Removed property: `pregnancy_count`
@@ -125,158 +124,140 @@
 	* Changes made to `timepoint_category`
 		* New permissible value: `After Study Registration`
 * Altered `simple_somatic_mutation` Entity
-	* Changes made to `properties`
-		* Changes made to `data_format`
-			* New permissible value: `TSV`
-		* Changes made to `data_type`
-			* New permissible value: `Mutational Signature`
+	* Changes made to `data_format`
+		* New permissible value: `TSV`
+	* Changes made to `data_type`
+		* New permissible value: `Mutational Signature`
 * Altered `follow_up` Entity
 	* Removed property: `deprecated`
-	* Changes made to `properties`
-		* Removed property: `aids_risk_factors`
-		* Removed property: `bmi`
-		* Removed property: `body_surface_area`
-		* Removed property: `cd4_count`
-		* Removed property: `cdc_hiv_risk_factors`
-		* Removed property: `comorbidities`
-		* Removed property: `comorbidity`
-		* Removed property: `comorbidity_method_of_diagnosis`
-		* Removed property: `days_to_comorbidity`
-		* Removed property: `days_to_risk_factor`
-		* Removed property: `diabetes_treatment_type`
-		* Removed property: `dlco_ref_predictive_percent`
-		* Removed property: `eye_color`
-		* Removed property: `fev1_fvc_post_bronch_percent`
-		* Removed property: `fev1_fvc_pre_bronch_percent`
-		* Removed property: `fev1_ref_post_bronch_percent`
-		* Removed property: `fev1_ref_pre_bronch_percent`
-		* Removed property: `haart_treatment_indicator`
-		* Removed property: `height`
-		* Removed property: `hepatitis_sustained_virological_response`
-		* Removed property: `hiv_viral_load`
-		* Removed property: `hormonal_contraceptive_type`
-		* Removed property: `hormonal_contraceptive_use`
-		* Removed property: `hpv_positive_type`
-		* Removed property: `hysterectomy_margins_involved`
-		* Removed property: `hysterectomy_type`
-		* Removed property: `immunosuppressive_treatment_type`
-		* Removed property: `menopause_status`
-		* Removed property: `nadir_cd4_count`
-		* Removed property: `pancreatitis_onset_year`
-		* Removed property: `pregnancy_count`
-		* Removed property: `pregnancy_outcome`
-		* Removed property: `reflux_treatment_type`
-		* Removed property: `risk_factor`
-		* Removed property: `risk_factor_method_of_diagnosis`
-		* Removed property: `risk_factor_treatment`
-		* Removed property: `risk_factors`
-		* Removed property: `undescended_testis_corrected`
-		* Removed property: `undescended_testis_corrected_age`
-		* Removed property: `undescended_testis_corrected_laterality`
-		* Removed property: `undescended_testis_corrected_method`
-		* Removed property: `undescended_testis_history`
-		* Removed property: `undescended_testis_history_laterality`
-		* Removed property: `viral_hepatitis_serologies`
-		* Removed property: `weight`
-		* Changes made to `days_to_first_event`
-		* Changes made to `timepoint_category`
-			* New permissible value: `After Study Registration`
+	* Removed property: `aids_risk_factors`
+	* Removed property: `bmi`
+	* Removed property: `body_surface_area`
+	* Removed property: `cd4_count`
+	* Removed property: `cdc_hiv_risk_factors`
+	* Removed property: `comorbidities`
+	* Removed property: `comorbidity`
+	* Removed property: `comorbidity_method_of_diagnosis`
+	* Removed property: `days_to_comorbidity`
+	* Removed property: `days_to_risk_factor`
+	* Removed property: `diabetes_treatment_type`
+	* Removed property: `dlco_ref_predictive_percent`
+	* Removed property: `eye_color`
+	* Removed property: `fev1_fvc_post_bronch_percent`
+	* Removed property: `fev1_fvc_pre_bronch_percent`
+	* Removed property: `fev1_ref_post_bronch_percent`
+	* Removed property: `fev1_ref_pre_bronch_percent`
+	* Removed property: `haart_treatment_indicator`
+	* Removed property: `height`
+	* Removed property: `hepatitis_sustained_virological_response`
+	* Removed property: `hiv_viral_load`
+	* Removed property: `hormonal_contraceptive_type`
+	* Removed property: `hormonal_contraceptive_use`
+	* Removed property: `hpv_positive_type`
+	* Removed property: `hysterectomy_margins_involved`
+	* Removed property: `hysterectomy_type`
+	* Removed property: `immunosuppressive_treatment_type`
+	* Removed property: `menopause_status`
+	* Removed property: `nadir_cd4_count`
+	* Removed property: `pancreatitis_onset_year`
+	* Removed property: `pregnancy_count`
+	* Removed property: `pregnancy_outcome`
+	* Removed property: `reflux_treatment_type`
+	* Removed property: `risk_factor`
+	* Removed property: `risk_factor_method_of_diagnosis`
+	* Removed property: `risk_factor_treatment`
+	* Removed property: `risk_factors`
+	* Removed property: `undescended_testis_corrected`
+	* Removed property: `undescended_testis_corrected_age`
+	* Removed property: `undescended_testis_corrected_laterality`
+	* Removed property: `undescended_testis_corrected_method`
+	* Removed property: `undescended_testis_history`
+	* Removed property: `undescended_testis_history_laterality`
+	* Removed property: `viral_hepatitis_serologies`
+	* Removed property: `weight`
+	* Changes made to `days_to_first_event`
+	* Changes made to `timepoint_category`
+		* New permissible value: `After Study Registration`
 * Altered `read_group` Entity
 	* Changes made to `deprecated`
 		* Removed permissible value: `RIN`
-	* Changes made to `properties`
-		* Changes made to `single_cell_library`
-			* New permissible value: `Chromium 3' Gene Expression v1 Library`
-			* New permissible value: `Chromium 3' Gene Expression v4 Library`
-			* New permissible value: `Chromium Next GEM Single Cell Multiome ATAC + Gene Expression Library`
-		* Changes made to `target_capture_kit`
-			* New permissible value: `xGen Exome Research Panel v2.0`
+	* Changes made to `single_cell_library`
+		* New permissible value: `Chromium 3' Gene Expression v1 Library`
+		* New permissible value: `Chromium 3' Gene Expression v4 Library`
+		* New permissible value: `Chromium Next GEM Single Cell Multiome ATAC + Gene Expression Library`
+	* Changes made to `target_capture_kit`
+		* New permissible value: `xGen Exome Research Panel v2.0`
 * Altered `sample` Entity
 	* Changes made to `deprecated`
 		* New permissible value: `tumor_code_id`
-	* Changes made to `properties`
-		* Removed property: `composition`
-		* Removed property: `is_ffpe`
-		* Removed property: `oct_embedded`
-		* Removed property: `sample_type_id`
-		* Removed property: `tumor_code`
-		* Changes made to `biospecimen_anatomic_site`
-			* Removed permissible value: `Brain Stem`
-			* Removed permissible value: `Common Duct`
-			* Changes made to `deprecated_enum`
-				* Removed permissible value: `Brain Stem`
-				* Removed permissible value: `Common Duct`
-		* Changes made to `method_of_sample_procurement`
-			* Removed permissible value: `Indeterminant`
-			* Removed property: `deprecated_enum`
+	* Removed property: `composition`
+	* Removed property: `is_ffpe`
+	* Removed property: `oct_embedded`
+	* Removed property: `sample_type_id`
+	* Removed property: `tumor_code`
+	* Changes made to `biospecimen_anatomic_site`
+		* Removed permissible value: `Brain Stem`
+		* Removed permissible value: `Common Duct`
+	* Changes made to `method_of_sample_procurement`
+		* Removed permissible value: `Indeterminant`
 * Altered `analyte` Entity
 	* Changes made to `deprecated`
 		* New permissible value: `ribosomal_rna_28s_16s_ratio`
 	* Removed permissible value: `analyte_type_id`
-	* Changes made to `properties`
-		* New property: `dna_integrity_number`
-		* New property: `ribosomal_rna_28s_18s_ratio`
-		* Removed property: `analyte_type_id`
+	* New property: `dna_integrity_number`
+	* New property: `ribosomal_rna_28s_18s_ratio`
+	* Removed property: `analyte_type_id`
 * Altered `exposure` Entity
-	* Removed property: `deprecated`
-	* Changes made to `properties`
-		* Removed property: `asbestos_exposure`
-		* Removed property: `coal_dust_exposure`
-		* Removed property: `radon_exposure`
-		* Removed property: `respirable_crystalline_silica_exposure`
-		* Removed property: `years_smoked`
-		* Changes made to `alcohol_intensity`
-			* New permissible value: `Not Heavy Drinker`
+	* Removed property: `asbestos_exposure`
+	* Removed property: `coal_dust_exposure`
+	* Removed property: `radon_exposure`
+	* Removed property: `respirable_crystalline_silica_exposure`
+	* Removed property: `years_smoked`
+	* Changes made to `alcohol_intensity`
+		* New permissible value: `Not Heavy Drinker`
 * Altered `pathology_detail` Entity
-	* Changes made to `properties`
-		* New property: `breslow_thickness_category`
-		* Changes made to `margin_status`
-			* New permissible value: `Indeterminate`
-		* Changes made to `timepoint_category`
-			* New permissible value: `After Study Registration`
-	* Removed property: `deprecated`
-	* Changes made to `properties`
-		* Removed property: `metastasis_at_diagnosis_site`
-		* Removed property: `micropapillary_features`
-		* Removed property: `mitotic_count`
-		* Removed property: `papillary_renal_cell_type`
-		* Removed property: `pregnant_at_diagnosis`
-		* Removed property: `primary_disease`
-		* Changes made to `morphology`
-			* New permissible value: `8453/6`
-			* New permissible value: `9380/1`
-			* New permissible value: `9421/3`
-			* New permissible value: `9490/6`
+	* New property: `breslow_thickness_category`
+	* Changes made to `margin_status`
+		* New permissible value: `Indeterminate`
+	* Changes made to `timepoint_category`
+		* New permissible value: `After Study Registration`
+	* Removed property: `metastasis_at_diagnosis_site`
+	* Removed property: `micropapillary_features`
+	* Removed property: `mitotic_count`
+	* Removed property: `papillary_renal_cell_type`
+	* Removed property: `pregnant_at_diagnosis`
+	* Removed property: `primary_disease`
+	* Changes made to `morphology`
+		* New permissible value: `8453/6`
+		* New permissible value: `9380/1`
+		* New permissible value: `9421/3`
+		* New permissible value: `9490/6`
 * Altered `treatment` Entity
-	* Changes made to `properties`
-		* Removed property: `treatment_anatomic_site`
-		* Removed property: `treatment_arm`
-		* Changes made to `initial_disease_status`
-			* New permissible value: `Biochemical Recurrence`
-		* Changes made to `margins_involved_site`
-			* New permissible value: `Bladder`
-			* New permissible value: `Macroscopic Parametrium`
-			* New permissible value: `Microscopic Parametrium`
-			* New permissible value: `Soft Tissue`
-			* New permissible value: `Uterus`
-			* New permissible value: `Vagina`
-		* Changes made to `timepoint_category`
-			* New permissible value: `After Study Registration`
+	* Removed property: `treatment_anatomic_site`
+	* Removed property: `treatment_arm`
+	* Changes made to `initial_disease_status`
+		* New permissible value: `Biochemical Recurrence`
+	* Changes made to `margins_involved_site`
+		* New permissible value: `Bladder`
+		* New permissible value: `Macroscopic Parametrium`
+		* New permissible value: `Microscopic Parametrium`
+		* New permissible value: `Soft Tissue`
+		* New permissible value: `Uterus`
+		* New permissible value: `Vagina`
+	* Changes made to `timepoint_category`
+		* New permissible value: `After Study Registration`
 * Altered `somatic_mutation_calling_workflow` Entity
-	* Changes made to `properties`
-		* Changes made to `workflow_type`
-			* New permissible value: `MuSiCal`
-			* New permissible value: `MuSiCal GATK4 MuTect2`
+	* Changes made to `workflow_type`
+		* New permissible value: `MuSiCal`
+		* New permissible value: `MuSiCal GATK4 MuTect2`
 * Altered `molecular_test` Entity
-	* Changes made to `properties`
-		* Changes made to `timepoint_category`
-			* New permissible value: `After Study Registration`
+	* Changes made to `timepoint_category`
+		* New permissible value: `After Study Registration`
 * Altered `aggregated_somatic_mutation` Entity
-	* Changes made to `properties`
-		* New property: `tmb`
-		* New property: `tmb_exonic`
-		* New property: `tmb_nonsynonymous`
-		* New property: `tmb_nonsynonymous_exonic`
+	* New property: `tmb`
+	* New property: `tmb_exonic`
+	* New property: `tmb_nonsynonymous`
+	* New property: `tmb_nonsynonymous_exonic`
 
 ## v3.3.0
 
@@ -693,9 +674,8 @@
 	* Changes made to `links`
 		* `germline_mutation_indexes` added to subgroup
 		* `submitted_expression_arrays` added to subgroup
-	* Changes made to `properties`
-		* New property: `germline_mutation_indexes`
-		* New property: `submitted_expression_arrays`
+	* New property: `germline_mutation_indexes`
+	* New property: `submitted_expression_arrays`
 * Altered `copy_number_auxiliary_file` Entity <!-- excluded new internal prop `curated_model_index` -->
 	* Changes made to `data_format`
 		* New permissible value: `PDF`
@@ -1130,7 +1110,7 @@
 	* Changes made to `instrument_model`
 		* New permissible value: `Illumina NovaSeq X`
 * Altered `sample` Entity
-	* Changes made to `biospecimen_anatomic_site`
+	* 
 		* New permissible value: `Head, Face or Neck, NOS`
 		* New deprecated value: `Head - Face Or Neck, Nos`
 * Altered `submitted_aligned_reads` Entity
