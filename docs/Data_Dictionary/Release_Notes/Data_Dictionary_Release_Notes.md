@@ -1,4 +1,4 @@
-# Data Dictionary Release Notes
+<img width="513" height="98" alt="image" src="https://github.com/user-attachments/assets/457c4de5-8a18-46a3-b063-a3204f2585ca" /># Data Dictionary Release Notes
 
 | Version | Date |
 |---|---|
@@ -41,8 +41,7 @@
 		* New permissible value: `sex_at_birth`
 		* Removed permissible value: `gender`
 	* Changes made to `deprecated`
-		* New permissible value: `gender`
-		* Removed permissible value: `weeks_gestation_at_birth`
+		* Deprecated property: `gender`
 	* New property: `sex_at_birth`
 	* Removed property: `premature_at_birth`
 	* Removed property: `weeks_gestation_at_birth`
@@ -51,7 +50,7 @@
 		* New permissible value: `Not Reported`
 * Altered `family_history` Entity
   	* Changes made to `deprecated`
-  	  	* New permissible value: `relationship_sex_at_birth`
+  	  	* Deprecated property: `relationship_sex_at_birth`
 * Altered `other_clinical_attribute` Entity
 	* New property: `fertility_history`
 	* Removed property: `pregnancy_count`
@@ -179,8 +178,6 @@
 	* Changes made to `timepoint_category`
 		* New permissible value: `After Study Registration`
 * Altered `read_group` Entity
-	* Changes made to `deprecated`
-		* Removed permissible value: `RIN`
 	* Changes made to `single_cell_library`
 		* New permissible value: `Chromium 3' Gene Expression v1 Library`
 		* New permissible value: `Chromium 3' Gene Expression v4 Library`
@@ -189,7 +186,7 @@
 		* New permissible value: `xGen Exome Research Panel v2.0`
 * Altered `sample` Entity
 	* Changes made to `deprecated`
-		* New permissible value: `tumor_code_id`
+		* Deprecated property: `tumor_code_id`
 	* Removed property: `composition`
 	* Removed property: `is_ffpe`
 	* Removed property: `oct_embedded`
@@ -202,7 +199,7 @@
 		* Removed permissible value: `Indeterminant`
 * Altered `analyte` Entity
 	* Changes made to `deprecated`
-		* New permissible value: `ribosomal_rna_28s_16s_ratio`
+		* Deprecated property: `ribosomal_rna_28s_16s_ratio`
 	* Removed permissible value: `analyte_type_id`
 	* New property: `dna_integrity_number`
 	* New property: `ribosomal_rna_28s_18s_ratio`
