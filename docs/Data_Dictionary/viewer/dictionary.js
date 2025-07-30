@@ -340,17 +340,17 @@
       breadcrumbStack =
         _dictionary._d3Containers.breadcrumbs.breadcrumbStackSelection,
       breadcrumbName = currentView.getBreadcrumbName() || "Unknown",
-      styleOpts = { display: "none" };
+      styleOpts = "none";
 
     if (
       currentViewName !== _DICTIONARY_CONSTANTS.VIEWS.TABLE.ENTITY_LIST &&
       breadcrumbName
     ) {
-      styleOpts.display = "block";
+      styleOpts = "block";
     }
 
     if (breadcrumbSelection) {
-      breadcrumbSelection.style(styleOpts);
+      breadcrumbSelection.style("display", styleOpts);
     }
 
     breadcrumbStack.html("");
