@@ -844,7 +844,8 @@
       ) {
         tableContainerSelection
           .append("h3")
-          .style({ "margin-left": "1rem", color: "#777" })
+          .style("margin-left", "1rem")
+          .style("color", "#777" )
           .html('<i class="fa fa-unlink"></i> &nbsp;No Links for this entity.');
         return;
       }
