@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v.3.4.4](Data_Dictionary_Release_Notes.md#v344) | July 24, 2025|
+| [v.3.4.4](Data_Dictionary_Release_Notes.md#v344) | July 31, 2025|
 | [v.3.3.0](Data_Dictionary_Release_Notes.md#v330) | September 30, 2024 |
 | [v.3.1.0](Data_Dictionary_Release_Notes.md#v310) | May 30, 2024 |
 | [v.3.0.0](Data_Dictionary_Release_Notes.md#v300) | October 30, 2023 |
@@ -32,7 +32,7 @@
 ## v3.4.4
 
 * __GDC Product__: GDC Data Dictionary
-* __Release Date__: July 24, 2025
+* __Release Date__: July 31, 2025
 
 ### New Features and Changes
 
