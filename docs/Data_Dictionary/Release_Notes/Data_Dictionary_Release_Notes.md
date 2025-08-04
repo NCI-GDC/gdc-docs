@@ -58,7 +58,9 @@
   	 	* New permissible value: `9478/3`
 		* New permissible value: `9490/6`
   	* Removed property: `metastasis_at_diagnosis_site`
+	* Removed property: `micropapillary_features`
   	* Removed property: `mitotic_count`
+	* Removed property: `papillary_renal_cell_type`
   	* Removed property: `pregnant_at_diagnosis`
   	* Removed property: `primary_disease`
 * Altered `family_history` Entity
@@ -236,8 +238,6 @@
 		* New permissible value: `After Study Registration`
     		* Deprecated value: `After Study Enrollment`
    		* Deprecated value: `Prior to Study Enrollment`
-	* Removed property: `micropapillary_features`
-	* Removed property: `papillary_renal_cell_type`
 * Altered `treatment` Entity
 	* Removed property: `treatment_anatomic_site`
 	* Removed property: `treatment_arm`
