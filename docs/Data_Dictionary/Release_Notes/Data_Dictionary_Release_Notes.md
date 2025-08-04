@@ -57,6 +57,10 @@
 		* New permissible value: `9421/3`
   	 	* New permissible value: `9478/3`
 		* New permissible value: `9490/6`
+  	* Removed property: `metastasis_at_diagnosis_site`
+  	* Removed property: `mitotic_count`
+  	* Removed property: `pregnant_at_diagnosis`
+  	* Removed property: `primary_disease`
 * Altered `family_history` Entity
   	* Changes made to `deprecated`
   	  	* Deprecated property: `relationship_gender`
