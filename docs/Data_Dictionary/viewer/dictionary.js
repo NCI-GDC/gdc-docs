@@ -938,7 +938,19 @@
                                         ).includes(en)
                                     ),
                                   }
-                                : {}
+                                : unfilteredDict.properties[key]?.items?.enum ? {
+                                  items: {
+                                    enum: unfilteredDict.properties[
+                                      key
+                                    ].items.enum.filter(
+                                      (en) =>
+                                        !(
+                                          unfilteredDict.properties[key]
+                                            .deprecated_enum || []
+                                        ).includes(en)
+                                    ),
+                                  },
+                                } : {}
                             ),
                           }
                     ),
