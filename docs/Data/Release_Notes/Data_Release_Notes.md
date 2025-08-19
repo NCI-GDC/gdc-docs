@@ -82,7 +82,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 
 ### Known Issues and Workarounds
 
-* A subset of the GATK4 MuTect2 annotated VCF files that were missing variants from chromosomes 10 and 20 appear on the portal but are not available for download.  Replacements for these files will be made available in a future release. See the attached [list](MuTect2_GATK4_Unavailable.csv).
+* A subset of the GATK4 MuTect2 annotated VCF files that were missing variants from chromosomes 10 and 20 appear on the portal but are not available for download.  Replacements for these files will be made available in a future release. See the attached [list](MuTect2_Unavailable_GDC_August2025.zip).
     * Note that if you add one of these files to your cart, along with available files you do have access to, the download will not work and will display an error:  "You don't have access to this resource: Requested file <UUID> does not allow read access". Removing the unavailable files will resolve this issue.
 * VCF files that were produced by GATK4 MuTect2 are missing all variants from chromosomes 10 and 20. New VCF files with a complete set of chromosomes will be available in a future data release. This includes any file with the following workflow types:  `GATK4 MuTect2`, `GATK4 MuTect2 Annotation`,`GATK4 MuTect2 Tumor-Only`, and `GATK4 MuTect2 Tumor-Only Annotation`.
 * Some VCF headers from SvABA list the names of the BAM files they originated from instead of "NORMAL" and "TUMOR", in that order.
