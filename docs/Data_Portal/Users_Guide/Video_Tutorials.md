@@ -74,6 +74,8 @@ In this video, learn how to analyze a cohort in the <b>Analysis Center</b>. Inst
 
 ### Analysis Tools
 
+https://www.youtube.com/watch?v=YFuACn7Jgkk
+
 A cohort can be analyzed by selecting an analysis tool in the Analysis Center. The GDC provides analysis tools for performing both gene-level variant analysis and clinical data analysis. The table below identifies and describes each tool, and provides video instruction.
 
 <table>
@@ -137,6 +139,12 @@ A cohort can be analyzed by selecting an analysis tool in the Analysis Center. T
 <td><b>BAM Slicing</b></td>
 <td>Slice a specific region, gene, or chromosome from a GDC-harmonized BAM file.</td>
 <td><iframe width="240" height="160" src="https://www.youtube.com/embed/Nd9Ex9s_prk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+</td>
+</tr>
+<tr>
+<td><b>Single Cell RNA-Seq Tool</b></td>
+<td>Visualize single-cell RNA-Seq data with cluster plots and gene expression overlays.</td>
+<td><iframe width="240" height="160" src="https://www.youtube.com/watch?v=YFuACn7Jgkk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
 </table>
