@@ -74,8 +74,6 @@ In this video, learn how to analyze a cohort in the <b>Analysis Center</b>. Inst
 
 ### Analysis Tools
 
-https://www.youtube.com/watch?v=YFuACn7Jgkk
-
 A cohort can be analyzed by selecting an analysis tool in the Analysis Center. The GDC provides analysis tools for performing both gene-level variant analysis and clinical data analysis. The table below identifies and describes each tool, and provides video instruction.
 
 <table>
