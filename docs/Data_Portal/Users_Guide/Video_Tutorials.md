@@ -142,7 +142,7 @@ A cohort can be analyzed by selecting an analysis tool in the Analysis Center. T
 <tr>
 <td><b>Single Cell RNA-Seq Tool</b></td>
 <td>Visualize single-cell RNA-Seq data with cluster plots and gene expression overlays.</td>
-<td><iframe width="240" height="160" src="https://www.youtube.com/watch?v=YFuACn7Jgkk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
+<td><iframe width="240" height="160" src="https://www.youtube.com/embed/YFuACn7Jgkk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
 </table>
