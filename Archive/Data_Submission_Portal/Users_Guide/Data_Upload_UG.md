@@ -433,6 +433,8 @@ Submitting a [__Submitted Aligned-Reads__](https://docs.gdc.cancer.gov/Data_Dict
 * __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint
 
 
+<!-- NOTE/TODO: "pragma: allowlist secret" was added below for detect secrets' false positives -->
+
 ```JSON
 {
     "type": "submitted_aligned_reads",
@@ -443,7 +445,7 @@ Submitting a [__Submitted Aligned-Reads__](https://docs.gdc.cancer.gov/Data_Dict
     "experimental_strategy": "WGS",
     "file_name": "test.bam",
     "file_size": 38,
-    "md5sum": "aa6e82d11ccd8452f813a15a6d84faf1",
+    "md5sum": "aa6e82d11ccd8452f813a15a6d84faf1", // pragma: allowlist secret
     "read_groups": [
         {
             "submitter_id": "Primary_Tumor_RG_86-1"
@@ -479,7 +481,7 @@ Submitting a [__Submitted Unaligned-Reads__](https://gdc-docs.nci.nih.gov/Data_D
     "experimental_strategy": "WGS",
     "file_name": "test.fastq",
     "file_size": 38,
-    "md5sum": "901d48b862ea5c2bcdf376da82f2d22f",
+    "md5sum": "901d48b862ea5c2bcdf376da82f2d22f", // pragma: allowlist secret
     "read_groups": [
         {
             "submitter_id": "Primary_Tumor_RG_86-1"
@@ -489,11 +491,12 @@ Submitting a [__Submitted Unaligned-Reads__](https://gdc-docs.nci.nih.gov/Data_D
 ```
 ```TSV
 type	submitter_id	data_category	data_format	data_type	experimental_strategy	file_name	file_size	md5sum	read_groups.submitter_id
-submitted_unaligned_reads	Blood-00001-aliquot_lane2_barcodeACGTAC_55.fastq	Raw Sequencing Data	FASTQ	Unaligned Reads	WGS	test.fastq	38	901d48b862ea5c2bcdf376da82f2d22f
-Primary_Tumor_RG_86-1
+submitted_unaligned_reads	Blood-00001-aliquot_lane2_barcodeACGTAC_55.fastq	Raw Sequencing Data	FASTQ	Unaligned Reads	WGS	test.fastq	38	901d48b862ea5c2bcdf376da82f2d22f 
+Primary_Tumor_RG_86-1 // pragma: allowlist secret
 ```
 
-__Note:__ For details on submitting experiment data associated with more than one `read_group` entity, see the [GDC Submission Best Practices](Best_Practices.md) Guide.    
+
+__Note:__ For details on submitting experiment data associated with more than one `read_group` entity, see the [GDC Submission Best Practices](Best_Practices.md) Guide.   
 
 ### Uploading the Submittable Data File to the GDC
 
@@ -538,6 +541,9 @@ Submitting an [__Experiment Metadata__](https://docs.gdc.cancer.gov/Data_Diction
 * __`file_size`:__ The size of the data file (object) in bytes
 * __`md5sum`:__ The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital fingerprint
 
+<!-- NOTE/TODO: "pragma: allowlist secret" was added below for detect secrets' false positives -->
+
+
 ```JSON
 {
     "type": "experiment_metadata",
@@ -550,13 +556,13 @@ Submitting an [__Experiment Metadata__](https://docs.gdc.cancer.gov/Data_Diction
     "data_type": "Experiment Metadata",
     "file_name": "Experimental-data.xml",
     "file_size": 65498,
-    "md5sum": "d79997e4de03b5a0311f0f2fe608c11d"
+    "md5sum": "d79997e4de03b5a0311f0f2fe608c11d" // pragma: allowlist secret
 }
 ```
 
 ```TSV
 type	submitter_id	cases.submitter_id	data_category	data_format	data_type	file_name	file_size	md5sum
-experiment_metadata	Blood-00001-aliquot_lane1_barcodeACGTAC_55-EXPERIMENT-1	Primary_Tumor_RG_86-1	Sequencing Data	SRA XML	Experiment Metadata	Experimental-data.xml	65498	d79997e4de03b5a0311f0f2fe608c11d
+experiment_metadata	Blood-00001-aliquot_lane1_barcodeACGTAC_55-EXPERIMENT-1	Primary_Tumor_RG_86-1	Sequencing Data	SRA XML	Experiment Metadata	Experimental-data.xml	65498	d79997e4de03b5a0311f0f2fe608c11d // pragma: allowlist secret
 ```
 ## Annotation Submission
 
@@ -699,6 +705,8 @@ Each submission in the previous sections was broken down by component to demonst
 
 Registering a BAM file (or any other type) can be performed in one step by including all of the entities, from `case` to `submitted_aligned_reads`, in one file.  See the example below:
 
+<!-- NOTE/TODO: "pragma: allowlist secret" was added below for detect secrets' false positives -->
+
 ```JSON
 [{
     "type": "case",
@@ -762,7 +770,7 @@ Registering a BAM file (or any other type) can be performed in one step by inclu
     "experimental_strategy": "WGS",
     "file_name": "test.bam",
     "file_size": 38,
-    "md5sum": "aa6e82d11ccd8452f813a15a6d84faf1",
+    "md5sum": "aa6e82d11ccd8452f813a15a6d84faf1", // pragma: allowlist secret
     "read_groups": [
         {
             "submitter_id": "Blood-00001-aliquot_lane1_barcodeACGTAC_55"
