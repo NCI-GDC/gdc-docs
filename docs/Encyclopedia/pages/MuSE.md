@@ -16,7 +16,7 @@ MuSE is one of the four pipelines used for WXS and targeted sequencing somatic v
 
 * VCF (Data Type: Raw Simple Somatic Mutation)
 
-[![MuSE Pipeline Diagram](https://gdc.cancer.gov/files/public/image/muse-somatic-variant-calling-pipeline.png)](https://gdc.cancer.gov/files/public/image/muse-somatic-variant-calling-pipeline.png "Click to see the full image.")
+[![MuSE Pipeline Diagram](https://gdc.cancer.gov/system/files/public/image/muse-somatic-variant-calling-pipeline.png)](https://gdc.cancer.gov/system/files/public/image/muse-somatic-variant-calling-pipeline.png "Click to see the full image.")
 
 ## References ##
 

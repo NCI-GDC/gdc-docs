@@ -35,12 +35,12 @@ The GDC protein expression quantification data set is available in TSV format an
 
 ## References
 
-[1]. https://bioinformatics.mdanderson.org/public-software/tcpa/
+[1]. [https://bioinformatics.mdanderson.org/public-software/tcpa/](https://bioinformatics.mdanderson.org/public-software/tcpa/)
 
-[2]. https://www.mdanderson.org/research/research-resources/core-facilities/functional-proteomics-rppa-core/rppa-process.html
+[2]. [https://www.mdanderson.org/research/research-resources/core-facilities/functional-proteomics-rppa-core.html](https://www.mdanderson.org/research/research-resources/core-facilities/functional-proteomics-rppa-core.html)
 
-[3]. https://www.mdanderson.org/content/dam/mdanderson/documents/core-facilities/Functional%20Proteomics%20RPPA%20Core%20Facility/RPPA_Expanded_Ab_List_Updated.xlsx
+[3]. [https://www.mdanderson.org/content/dam/mdanderson/documents/core-facilities/Functional%20Proteomics%20RPPA%20Core%20Facility/RPPA_Expanded_Ab_List_Updated.xlsx](https://www.mdanderson.org/content/dam/mdanderson/documents/core-facilities/Functional%20Proteomics%20RPPA%20Core%20Facility/RPPA_Expanded_Ab_List_Updated.xlsx)
 
-[4]. https://www.mdanderson.org/content/dam/mdanderson/documents/core-facilities/Functional%20Proteomics%20RPPA%20Core%20Facility/RPPA_Standard_Ab_List_Updated.xlsx
+[4]. [https://www.mdanderson.org/content/dam/mdanderson/documents/core-facilities/Functional%20Proteomics%20RPPA%20Core%20Facility/RPPA_Standard_Ab_List_Updated.xlsx](https://www.mdanderson.org/content/dam/mdanderson/documents/core-facilities/Functional%20Proteomics%20RPPA%20Core%20Facility/RPPA_Standard_Ab_List_Updated.xlsx)
 
-[5]. https://gdc.cancer.gov/about-data/gdc-data-processing/gdc-reference-files
+[5]. [https://gdc.cancer.gov/about-data/gdc-data-processing/gdc-reference-files](https://gdc.cancer.gov/about-data/gdc-data-processing/gdc-reference-files)

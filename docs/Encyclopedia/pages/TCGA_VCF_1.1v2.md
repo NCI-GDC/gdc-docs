@@ -131,7 +131,7 @@ been modified
 ## File format
 
 The following example (based on [VCF version
-4.1)](http://www.1000genomes.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-41)
+4.1)](https://samtools.github.io/hts-specs/VCFv4.1.pdf)
 shows different components of a TCGA VCF file. Any VCF file contains two main
 sections. The HEADER section contains meta-information for variant records that
 are reported as individual rows in the BODY of the VCF file. Both sections are
@@ -567,7 +567,7 @@ translocations or genomic imbalances (insertions and deletions), also referred
 to as copy number variants (CNVs). Certain features have been added to the
 format in order to clearly describe structural variants in a VCF file. A
 detailed description of the extensions is available
-[here](http://www.1000genomes.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-41).
+[here](https://samtools.github.io/hts-specs/VCFv4.1.pdf).
 
 ### Complex rearrangements
 
@@ -578,7 +578,7 @@ frequently observed in cancer genomes. Certain modifications need to be made to
 the VCF standard to adequately represent such variations in a VCF file. A
 detailed specification of the proposed extensions to describe rearrangements in
 a VCF file is available
-[here](http://www.1000genomes.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-41).
+[here](https://samtools.github.io/hts-specs/VCFv4.1.pdf).
 Figure 2 illustrates some of the concepts relevant to VCF records for complex
 rearrangements.
 
