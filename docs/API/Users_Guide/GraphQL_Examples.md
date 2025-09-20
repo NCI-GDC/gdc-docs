@@ -19,7 +19,7 @@ The GDC GraphQL has only two endpoints:
 This page covers the search and retrieval endpoint, see the [GDC Submission API](Submission.md) for additional details on the submission endpoint.
 
 ## GDC GraphQL Schema
-All GDC GraphQL queries are validated and executed against the [GDC GraphQL schema]( https://github.com/NCI-GDC/portal-ui/blob/92f0dfa17838746093c3c011141d08391016da91/data/schema.graphql). Because the GraphQL parameters are discoverable, the GDC GraphQL schema can be queried for details about itself.
+All GDC GraphQL queries are validated and executed against the GDC GraphQL schema. Because the GraphQL parameters are discoverable, the GDC GraphQL schema can be queried for details about itself.
 
 The `__schema` keyword can be queried to list all types defined in the schema and retrieve details about each:
 
@@ -95,7 +95,7 @@ GraphQL queries return only the data that is specified. Queries are built by spe
 
 ## GDC GraphQL Examples
 ### Nodes And Edges Example
-A very powerful feature of GDC GraphQL API is that the graph structures defined in the [GDC GraphQL schema]( https://github.com/NCI-GDC/portal-ui/blob/92f0dfa17838746093c3c011141d08391016da91/data/schema.graphql ) can be queried and traversed. In these queries, nodes define objects and edges define relationships between objects.
+A very powerful feature of GDC GraphQL API is that the graph structures defined in the GDC GraphQL schema can be queried and traversed. In these queries, nodes define objects and edges define relationships between objects.
 
 === "GraphQL"
 
