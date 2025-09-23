@@ -65,7 +65,7 @@ __Step 4:__ When you are done filtering, add the files to your cart.  Then go to
 
 ---
 
-__Step 5:__ The files in the cart can be downloaded directly from the browser or a manifest can be downloaded and passed to the [GDC Data Transfer Tool](Data_Transfer_Tool/Users_Guide/Getting_Started.md).
+__Step 5:__ The files in the cart can be downloaded directly from the browser or a manifest can be downloaded and passed to the [GDC Data Transfer Tool](/Data_Transfer_Tool/Users_Guide/Getting_Started/).
 
 ??? note "Click to Expand/Collapse Animation"
 
