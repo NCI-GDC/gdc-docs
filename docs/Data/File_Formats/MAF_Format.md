@@ -151,7 +151,7 @@ The table below describes the columns in a protected MAF and their definitions. 
 | 98 - HGVS_OFFSET | Indicates by how many bases the HGVS notations for this variant have been shifted |
 | 99 - PHENO|Indicates if existing variant is associated with a phenotype, disease or trait (0, 1, or null) |
 | 100 - MINIMISED | Alleles in this variant have been converted to minimal representation before consequence calculation (1 or null) |
-| 101 - ExAC_AF | Global Allele Frequency from [ExAC](http://exac.broadinstitute.org/) |
+| 101 - ExAC_AF | Global Allele Frequency from [ExAC](https://gnomad.broadinstitute.org/downloads#exac-variants) |
 | 102 - ExAC_AF_Adj | Adjusted Global Allele Frequency from ExAC |
 | 103 - ExAC_AF_AFR | African/African American Allele Frequency from ExAC |
 | 104 - ExAC_AF_AMR | American Allele Frequency from ExAC |

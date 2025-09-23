@@ -1307,7 +1307,7 @@ participant ID, and the TCGA barcode for the participant should be assigned to I
 
 The following table lists sample files that can be used to test various
 validation steps. Parent directory is
-<https://tcga-data.nci.nih.gov/tcgafiles/tcgajamboree/Benchmark_VCF>.
+https://tcga-data.nci.nih.gov/tcgafiles/tcgajamboree/Benchmark_VCF (link no longer accessible).
 
 **Table 9: Test files known to pass/fail validation steps**
 
