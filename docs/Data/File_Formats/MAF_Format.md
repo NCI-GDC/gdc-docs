@@ -64,7 +64,7 @@ The table below describes the columns in a protected MAF and their definitions. 
 | 11 - Reference_Allele | The plus strand reference allele at this position. Includes the deleted sequence for a deletion or "-" for an insertion |
 | 12 - Tumor_Seq_Allele1 | Primary data genotype for tumor sequencing (discovery) allele 1. A "-" symbol for a deletion represents a variant. A "-" symbol for an insertion represents wild-type allele. Novel inserted sequence for insertion does not include flanking reference bases  |
 | 13 - Tumor_Seq_Allele2 | Tumor sequencing (discovery) allele 2  |
-| 14 - dbSNP_RS| The rs-IDs from the [dbSNP](https://www.ncbi.nlm.nih.gov/projects/SNP/) database, "novel" if not found in any database used, or null if there is no dbSNP record, but it is found in other databases|
+| 14 - dbSNP_RS| The rs-IDs from the [dbSNP](https://www.ncbi.nlm.nih.gov/snp/) database, "novel" if not found in any database used, or null if there is no dbSNP record, but it is found in other databases|
 | 15 - dbSNP_Val_Status | The dbSNP validation status is reported as a semicolon-separated list of statuses. The union of all rs-IDs is taken when there are multiple |
 | 16 - Tumor_Sample_Barcode| Aliquot barcode for the tumor sample |
 | 17 - Matched_Norm_Sample_Barcode| Aliquot barcode for the matched normal sample |
@@ -151,7 +151,7 @@ The table below describes the columns in a protected MAF and their definitions. 
 | 98 - HGVS_OFFSET | Indicates by how many bases the HGVS notations for this variant have been shifted |
 | 99 - PHENO|Indicates if existing variant is associated with a phenotype, disease or trait (0, 1, or null) |
 | 100 - MINIMISED | Alleles in this variant have been converted to minimal representation before consequence calculation (1 or null) |
-| 101 - ExAC_AF | Global Allele Frequency from [ExAC](http://exac.broadinstitute.org/) |
+| 101 - ExAC_AF | Global Allele Frequency from [ExAC](https://gnomad.broadinstitute.org/downloads#exac-variants) |
 | 102 - ExAC_AF_Adj | Adjusted Global Allele Frequency from ExAC |
 | 103 - ExAC_AF_AFR | African/African American Allele Frequency from ExAC |
 | 104 - ExAC_AF_AMR | American Allele Frequency from ExAC |
