@@ -1,3 +1,4 @@
+file_id	file_name	project_id
 d13cb75d-b96b-49c2-a49c-9a5b1e76c5e2	TCGA-LIHC.61f95bda-0979-4c1e-99f7-b7ec84421c53.wgs.tumor_normal.gatk4_mutect2.raw_somatic_mutation.vcf.gz	TCGA-LIHC
 352e5106-b2df-4c0d-a986-3450ec93f9ad	CGCI-HTMCP-CC.754e92fb-0755-4d0c-80f5-75b62d4549be.wgs.tumor_normal.gatk4_mutect2.raw_somatic_mutation.vcf.gz	CGCI-HTMCP-CC
 b470efc0-cdfc-4249-9759-110562114bc6	CGCI-HTMCP-CC.15beed94-9ea4-4685-b007-08e37f3caf85.wgs.tumor_normal.gatk4_mutect2.raw_somatic_mutation.vcf.gz	CGCI-HTMCP-CC
