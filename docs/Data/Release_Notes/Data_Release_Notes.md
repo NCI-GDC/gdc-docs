@@ -76,9 +76,8 @@
         * TCGA-OV (5 aliquots)
 
 * Data Updates
-    * The AscatNGS files that were produced using the Sanger WGS pipeline now have a Data Type value of `Allele-specific Copy Number Segment`  <!--DAT-3752-->
-    * Alignments that were produced before the BAM QC pipeline was implemented now have their BAM QC values populated <!--DAT-3836-->
-    * Clinical data for the CPTAC-3 HNSCC cases has been updated and these changes are reflected in the Data Portal and API <!--DAT-3836-->
+    * Two partial slide images (from TCGA-BRCA and TCGA-KIRP) were restored as full images
+    * TCGA-TGCT slide images have been replaced with versions that were deidentified
 
 
 A complete list of files included in the GDC Data Portal can be found below:
