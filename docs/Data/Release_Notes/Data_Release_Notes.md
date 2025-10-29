@@ -64,7 +64,7 @@
     * APOLLO-OV: APOLLO2: Proteogenomic Characterization of Ovarian Serous Cystadenocarcinoma (dbGaP phs003488)
         * Includes RNA-Seq and WGS data
     * CCDI-MCI: Childhood Cancer Data Initiative (CCDI) Molecular Characterization Initiative (MCI) (dbGaP phs002790)
-        * Includes Methylation and WGS alignments
+        * Includes Methylation and WXS alignments
 
 * New Data Sets
     * New WGS variants from GATK4 MuTect2 and VarScan2 are available
