@@ -77,7 +77,7 @@
 
 * Data Updates
     * Two partial slide images (from TCGA-BRCA and TCGA-KIRP) were restored as full images
-    * TCGA-TGCT slide images have been replaced with versions that were deidentified
+    * 250 slide images from TCGA-TGCT have been added
 
 
 A complete list of files included in the GDC Data Portal can be found below:
@@ -90,6 +90,7 @@ A complete list of files included in the GDC Data Portal can be found below:
 
 * Most GATK4 MuTect2 raw VCF files have been replaced by new versions that do contain variants from chromosomes 10 and 20. A subset were not replaced and can be found in [this manifest](GATK4_MuTect_DR44-NotVersioned.txt). They will be versioned in a future release.
 * The GATK4 MuTect2 annotated VCF files that appeared on the portal but were not available for download no longer appear on the portal.
+* 410 TCGA-TGCT slide images have been added to restore the ones that were erroneously deleted.
 
 ### Known Issues and Workarounds
 
