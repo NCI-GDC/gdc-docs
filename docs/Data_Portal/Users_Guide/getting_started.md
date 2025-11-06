@@ -203,7 +203,7 @@ There are a few buttons in the list of sets that allows a user to get further in
 
 ## Browse Annotations ##
 
-Click the `Browse Annotations` button in GDC Data Portal header to launch the Annotations Browser, which provides an overview of the available annotations. Annotations are notes added to individual cases, samples or files.
+Click the `Browse Annotations` button in GDC Data Portal header to launch the Annotations Browser, which provides an overview of the available annotations. [Annotations](../../Encyclopedia/pages/Annotations.md) are notes added to individual cases, samples or files.
 
 [![Annotations Browser](images/AnnotationsBrowser.png)](images/AnnotationsBrowser.png "Click to see the full image.")
 
