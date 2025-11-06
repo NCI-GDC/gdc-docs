@@ -200,3 +200,25 @@ There are a few buttons in the list of sets that allows a user to get further in
 * __# Items__: Clicking the button under the # Items column launches a table with Gene ID and Symbol for gene sets or Mutation ID and Consequence for mutation sets
 
 * __Delete/Download__: To the right of the # Items column are buttons that will delete the set or download the list as a TSV file
+
+## Browse Annotations ##
+
+Click the `Browse Annotations` button in GDC Data Portal header to launch the Annotations Browser, which provides an overview of the available annotations. Annotations are notes added to individual cases, samples or files.
+
+[![Annotations Browser](images/AnnotationsBrowser.png)](images/AnnotationsBrowser.png "Click to see the full image.")
+
+The Annotations Browser allows users to browse and filter the annotations based on a number of annotation properties, such as the type of entity the annotation is attached to or the annotation category. If filters are applied, the table on the right will display only the matching annotations. If no filters are applied, the table on the right will display information about all available data.
+
+Clicking on an annotation UUID in the table will take the user to the Annotation Summary Page where more details about a specific annotation may be found.
+
+[![Annotation Summary Page](images/AnnotationSummaryPage.png)](images/AnnotationSummaryPage.png "Click to see the full image.")
+
+### Filters Panel
+
+The following filters are available in the Annotations Browser:
+
+* __Project__: A cancer research project, typically part of a larger cancer research program
+* __Entity Type__: The type of entity the annotation is associated with, e.g. Case, Sample, Portion, Slide, Analyte, Aliquot
+* __Category__: Annotation category
+* __Classification__: Annotation classification
+* __Created Datetime__: Date of creation
