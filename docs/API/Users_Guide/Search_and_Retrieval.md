@@ -1082,6 +1082,7 @@ The following `filters` query operators are supported by the GDC API:
 | not      | not (missing)                                    | one                | race not missing                                             |
 | in       | matches a string or number in (a list)           | multiple           | primary_site in [Brain, Lung]                                |
 | exclude  | does not match any strings or values in (a list) | multiple           | experimental_strategy exclude [WXS, WGS, "Genotyping array"] |
+|excludeifany| excludes any strings or values if any value matches those in (a list) | multiple           | experimental_strategy excludeifany [WXS, WGS, "Genotyping array"] |
 | and      | (operation1) and (operation2)                    | multiple           | {primary_site in [Brain, Lung]} and {gender = "female"}      |
 | or       | (operation1) or (operation2)                     | multiple           | {project_id != "TARGET-AML"} or {age at diagnosis < 90y}     |
 
