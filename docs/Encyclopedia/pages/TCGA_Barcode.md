@@ -39,7 +39,7 @@ Barcodes can also be visualized hierarchically, with TSS barcodes at the top of 
 
 Using the aliquot barcode example from the figure in Reading Barcodes, the following table displays a possible set of related barcodes at each level of the hierarchy:
 
-| Level | Bacode  | Comment |
+| Level | Barcode  | Comment |
 |---|---|---|
 | Aliquot | TCGA-02-0001-01C-01D-0182-01 | -- |
 | Analyte | TCGA-02-0001-01C-01D | Analytes of W and X both refer to analytes derived from whole genome amplification |
