@@ -23,7 +23,7 @@ The control panel can modify the displayed data or the appearance of the matrix.
 [![Gene Expression Clustering Tool Controls](images/GEC_tool_controls.png)](images/GEC_tool_controls.png "Click to see the full image.")
 
 
-* __Clustering:__ Modify the default clustering of the heatmap (Average or Complete), alter the column and row dendrogram dimensions, and change the z-score cap
+* __Gene Expression Clustering:__ Modify the default clustering of the heatmap (Average or Complete), alter the column and row dendrogram dimensions, and change the z-score cap
 * __Cases:__ Adjust the visible characters of the case labels
 * __Genes:__ Modify how cases are represented for each gene (Absolute, Percent, or None), row group and label lengths, rendering style, and the existing gene set
     * __Edit Group:__ Displays a panel of currently selected genes, which can be modified by clicking on a gene to remove it from the gene set, searching for a particular gene to add, loading top variably expressed genes, or loading a pre-defined gene set provided by the MSigDB database
@@ -106,9 +106,9 @@ The control panel as shown has various functionalities with which users can chan
 
 [![Controls](./images/geneexpclust/3-controls.png)](./images/geneexpclust/3-controls.png 'Click to see the full image.')
 
-### Clustering
+### Gene Expression Clustering
 
-The clustering control button provides several options to modify the default clustering of the heatmap. Click on the button labeled 'Clustering' to display a menu with options as shown.
+The Gene Expression Clustering control button provides several options to modify the default clustering of the heatmap. Click on the button labeled 'Gene Expression Clustering' to display a menu with options as shown.
 
 [![clustering control](./images/geneexpclust/4-clustering-control.png)](./images/geneexpclust/4-clustering-control.png 'Click to see the full image.')
 
@@ -160,13 +160,13 @@ The 'Cases' control has the option 'Case Label Character Limit' to adjust the vi
 
 ### Genes
 
-User can modify the existing default gene set by clicking the 'Genes' button in the controls as shown. This displays the option to edit genes as well as variables from the dropdown as shown.
+To modify the default hierarchical clustering gene set, click the 'Genes' button in the control panel as shown. This will open a menu where you can edit the genes in the current hierarchical clustering gene set or create a genomic alteration gene set. 
 
 [![Geneset edit](./images/geneexpclust/12-geneset-edit.png)](./images/geneexpclust/12-geneset-edit.png 'Click to see the full image.')
 
-#### Modifying Genes
+#### Modifying hierarchical clustering gene set
 
-Click the 'Edit Group' button as shown in the 'Gene set' to display a panel of current selected genes.
+Click the 'Edit Gene Set' button as shown to display a panel of current selected genes.
 
 [![Geneset edit](./images/geneexpclust/12-geneset-edit.png)](./images/geneexpclust/12-geneset-edit.png 'Click to see the full image.')
 
@@ -182,7 +182,7 @@ The heatmap loads again after performing a clustering that includes 'WEE1' as sh
 
 [![clustering control](./images/geneexpclust/15-wee1-heatmap.png)](./images/geneexpclust/15-wee1-heatmap.png 'Click to see the full image.')
 
-Click on the 'Edit' functionality again within the 'Gene set' menu option. To delete a gene, hover over the gene as shown. A red cross mark will appear as shown.
+Click on the 'Edit Gene Set' button again. To delete a gene, hover over the gene as shown. A red cross mark will appear as shown.
 
 [![Deleting genes one by one](./images/geneexpclust/16-delete-genes.png)](./images/geneexpclust/16-delete-genes.png 'Click to see the full image.')
 
@@ -190,7 +190,7 @@ Click on the gene 'Wee1' to delete the gene from the gene set. Click submit to r
 
 #### Load top variably expressed genes
 
-User has the option to load the top genes that are variably expressed. To do so, click on the 'Edit Group' button under the 'Genes' controls. Click on the button that reads 'Load top variably expressed genes'. The genes will change to the top most variable genes as shown in this selected cohort.
+User has the option to load the top genes that are variably expressed. To do so, click on the 'Edit Gene Set' button under the 'Genes' controls. Click on the button that reads 'Load top variably expressed genes'. The genes will change to the top most variable genes as shown in this selected cohort.
 
 Click submit to reload the heatmap.
 
@@ -220,21 +220,17 @@ Click 'Submit' to reload the heatmap with the new gene set from MSigDB.
 
 User also has the option to add gene variant terms as variable to line up mutation consequences with clustered gene expression data.
 
-To do so, click the button 'Genes' and click 'Edit Group'.
+To do so, click the button 'Genes' and click 'Create New Group' to add a genomic alteration gene set. 
 
 [![Genes as variables](./images/geneexpclust/21-gene-as-var.png)](./images/geneexpclust/21-gene-as-var.png 'Click to see the full image.')
 
-From the dropdown, select 'Variables' as shown.
+Search and select genes of interest. 
 
-[![Choosing variables from dropdown](./images/geneexpclust/22-dropdown-var.png)](./images/geneexpclust/22-dropdown-var.png 'Click to see the full image.')
+[![Searching a gene as variable](./images/geneexpclust/23-tp53-var.png)](./images/geneexpclust/23-tp53-var.png 'Click to see the full image.')
 
-Search and select 'KRAS'.
+Click 'Submit' to reload the heatmap with the newly added genomic alteration gene set. The updated heatmap will display the genomic alterations for the genes included in this set. 
 
-[![Searching a gene as variable](./images/geneexpclust/23-kras-var.png)](./images/geneexpclust/23-kras-var.png 'Click to see the full image.')
-
-Click 'Submit' to reload the heatmap with the newly added KRAS gene as a variable. This displays the consequence type for the clustered samples for which KRAS has both the mutation calls and the gene expression data as shown.
-
-[![KRAS as a variable](./images/geneexpclust/24-kras-var-row.png)](./images//geneexpclust/24-kras-var-row.png 'Click to see the full image.')
+[![genomic alteration gene set](./images/geneexpclust/24-genomicAlterationGeneSet-row.png)](./images//geneexpclust/24-genomicAlterationGeneSet-row.png 'Click to see the full image.')
 
 ### Variables
 
