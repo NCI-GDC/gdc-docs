@@ -1131,7 +1131,7 @@ A more complex query with multiple operators looks like this:
 
 #### Example: `exclude` and `excludeifany` Operators
 
-This example demonstrates the behavior of the `exclude` and `excludeifany` operators when filtering array properties via the `cases` endpoint. The filter target is the `classification_of_tumor` field within the diagnoses array, showcasing how each operator behaves when cases contain multiple values for this field.
+This example demonstrates the behavior of the `exclude` and `excludeifany` operators, showcasing how each operator behaves when cases contain multiple values for the `diagnoses.classification_of_tumor` field.
 
 Note: When a field contains only a single value for a given result (such as `file_name` for a file), the `exclude` and `excludeifany` operators produce identical results.
 
