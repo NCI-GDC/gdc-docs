@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v45.0](Data_Release_Notes.md#data-release-450) | December 3, 2025 |
+| [v45.0](Data_Release_Notes.md#data-release-450) | December 4, 2025 |
 | [v44.0](Data_Release_Notes.md#data-release-440) | October 29, 2025 |
 | [v43.0](Data_Release_Notes.md#data-release-430) | May 7, 2025 |
 | [v42.0](Data_Release_Notes.md#data-release-420) | January 30, 2025 |
@@ -63,10 +63,6 @@
 * New Projects
     * ALCHEMIST-ALCH: Adjuvant Lung Cancer Enrichment Marker Identification and Sequencing Trial (dbGaP phs001140)
         * Includes data from WXS, WGS, RNA-Seq, miRNA-Seq, and slide images
-        * Cases are from three treatment arms. Each treatment arm below is linked to a description and a list of their respective cases. These can be used to create a cohort on the GDC Data Portal cohort builder:
-            * [A081105](https://clinicaltrials.gov/study/NCT02193282) - [Case List](A081105.txt)
-            * [E4512](https://www.cancer.gov/research/participate/clinical-trials-search/v?id=NCT02201992&r=1) - [Case List](E4512.txt)
-            * [EA5142](https://clinicaltrials.gov/study/NCT02595944) - [Case List](EA5142.txt)
     * CCG-CUPP: Center for Cancer Genomics Cancers of Unknown Primary Project (dbGaP phs001801)
         * Includes data from WXS, WGS, RNA-Seq, miRNA-Seq, and methylation array
     * RC-PTCL: Refractory Cancers - Peripheral T-Cell Lymphoma (dbGaP phs002097)
