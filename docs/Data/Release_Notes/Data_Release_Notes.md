@@ -70,9 +70,10 @@
 
 * New Data Sets
     * All of the CGCI-BLGSP slide images that were in JPEG2000 format are now available in SVS format
+    * One case from HCMI-CMDC, HCM-BROD-1181-C73, was released along with its associated files
 
 * Data Updates
-    * The remainder of the tumor purity and tumor ploidy values have been migrated to the correct copy number segment file.
+    * The remainder of the tumor purity and tumor ploidy values have been migrated to the correct copy number segment file from the AscatNGS pipeline.
 
 A complete list of files included in the GDC Data Portal can be found below:
 
