@@ -56,7 +56,7 @@
 ## Data Release 45.0
 
 * __GDC Product__: Data
-* __Release Date__: December 3, 2025
+* __Release Date__: December 4, 2025
 
 ### New Updates
 
@@ -76,9 +76,9 @@
 
 A complete list of files included in the GDC Data Portal can be found below:
 
-* [gdc_manifest_20251203_data_release_45.0_active.tsv](https://api.gdc.cancer.gov/data/XXXXXX)
-* [DR45 Project Level Manifests](https://api.gdc.cancer.gov/data/XXXXXX)
-* [DR45 New Files Manifest](https://api.gdc.cancer.gov/data/XXXXXX)
+* [gdc_manifest_20251204_data_release_45.0_active.tsv.gz](https://api.gdc.cancer.gov/data/ce727e4b-c4f5-45ca-90b0-d6d0e1d1b6fb)
+* [DR45 Project Level Manifests](https://api.gdc.cancer.gov/data/f3cce137-01c1-4e22-98bc-ca308a1f0ed4)
+* [DR45 New Files Manifest](https://api.gdc.cancer.gov/data/534ebb46-0e48-4cc1-8fb6-847d7034d01f)
 
 ### Bugs Fixed Since Last Release
 
