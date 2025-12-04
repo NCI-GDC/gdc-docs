@@ -1081,7 +1081,8 @@ The following `filters` query operators are supported by the GDC API:
 | is       | is (missing)                                     | one                | gender is missing                                            |
 | not      | not (missing)                                    | one                | race not missing                                             |
 | in       | matches a string or number in (a list)           | multiple           | primary_site in [Brain, Lung]                                |
-| exclude  | does not match any strings or values in (a list) | multiple           | experimental_strategy exclude [WXS, WGS, "Genotyping array"] |
+| exclude  | removes results that only match the query value in the specified field | multiple           | experimental_strategy exclude [WXS, WGS, "Genotyping array"] |
+|excludeifany| removes results that match at least one instance of the query value in the specified field | multiple           | experimental_strategy excludeifany [WXS, WGS, "Genotyping array"] |
 | and      | (operation1) and (operation2)                    | multiple           | {primary_site in [Brain, Lung]} and {gender = "female"}      |
 | or       | (operation1) or (operation2)                     | multiple           | {project_id != "TARGET-AML"} or {age at diagnosis < 90y}     |
 
@@ -1127,6 +1128,283 @@ A more complex query with multiple operators looks like this:
 	        }
 	    ]
 	}
+
+#### Example: `exclude` and `excludeifany` Operators
+
+This example demonstrates the behavior of the `exclude` and `excludeifany` operators, showcasing how each operator behaves when cases contain multiple values for the `diagnoses.classification_of_tumor` field.
+
+Note: When a field contains only a single value for a given result (such as `file_name` for a file), the `exclude` and `excludeifany` operators produce identical results.
+
+##### No `exclude` or `excludeifany` Filters Example
+
+Querying a single `case_id` where at least one diagnosis contains `classification_of_tumor` equal to `metastasis` may return multiple diagnoses within the case. In this example, the returned case includes two diagnoses: one with `classification_of_tumor` set to `metastasis` and another set to `primary`.
+
+=== "Shell"
+
+    ```shell
+    curl --location 'https://api.gdc.cancer.gov/cases' \
+    --header 'Content-Type: application/json' \
+    --data '{
+        "size": 10,
+        "filters": {
+            "op": "and",
+            "content": [
+                {
+                    "op": "=",
+                    "content": {
+                        "field": "case_id",
+                        "value": [
+                            "33165ed4-5f38-4566-8d0d-82e2a6d2743f"
+                        ]
+                    }
+                },            
+                {
+                    "op": "=",
+                    "content": {
+                        "field": "diagnoses.classification_of_tumor",
+                        "value": [
+                            "metastasis"
+                        ]
+                    }
+                }
+            ]
+        },
+        "expand": "diagnoses",
+        "fields": "diagnoses.classification_of_tumor"
+    } '
+    ```
+
+=== "Output"
+
+    ```json 
+    {
+        "data": {
+            "hits": [
+                {
+                    "id": "33165ed4-5f38-4566-8d0d-82e2a6d2743f",
+                    "diagnoses": [
+                        {
+                            "morphology": "Not Reported",
+                            "submitter_id": "HCM-BROD-0871-C49_diagnosis2",
+                            "days_to_diagnosis": 3041,
+                            "created_datetime": "2021-12-21T13:56:21.205280-06:00",
+                            "tissue_or_organ_of_origin": "Uterus, NOS",
+                            "age_at_diagnosis": 25208,
+                            "primary_diagnosis": "Not Reported",
+                            "classification_of_tumor": "metastasis",
+                            "updated_datetime": "2025-04-07T17:13:09.336794-05:00",
+                            "diagnosis_id": "d245f226-ed78-44d4-a452-9f219612c88c",
+                            "icd_10_code": "C79.8",
+                            "site_of_resection_or_biopsy": "Pelvis, NOS",
+                            "state": "released",
+                            "diagnosis_is_primary_disease": false
+                        },
+                        {
+                            "ajcc_pathologic_t": "T0",
+                            "morphology": "8890/3",
+                            "ajcc_pathologic_stage": "Stage III",
+                            "ajcc_pathologic_n": "N0",
+                            "ajcc_pathologic_m": "M0",
+                            "submitter_id": "HCM-BROD-0871-C49_diagnosis",
+                            "created_datetime": "2021-12-21T13:56:21.205280-06:00",
+                            "tissue_or_organ_of_origin": "Uterus, NOS",
+                            "days_to_last_follow_up": 3065.0,
+                            "age_at_diagnosis": 22167,
+                            "primary_diagnosis": "Leiomyosarcoma, NOS",
+                            "ajcc_clinical_stage": "Stage III",
+                            "classification_of_tumor": "primary",
+                            "updated_datetime": "2025-04-07T17:13:09.336794-05:00",
+                            "metastasis_at_diagnosis": "No Metastasis",
+                            "diagnosis_id": "f297b2b5-29a7-4f2d-a094-e2666fb04bf5",
+                            "prior_malignancy": "yes",
+                            "icd_10_code": "C49.9",
+                            "site_of_resection_or_biopsy": "Not Reported",
+                            "state": "released",
+                            "prior_treatment": "No",
+                            "diagnosis_is_primary_disease": true,
+                            "ajcc_staging_system_edition": "8th"
+                        }
+                    ]
+                }
+            ],
+            "pagination": {
+                "count": 1,
+                "total": 1,
+                "size": 10,
+                "from": 0,
+                "sort": "",
+                "page": 1,
+                "pages": 1
+            }
+        },
+        "warnings": {}
+    }
+    ```
+
+##### Exclude Example
+
+In this example, the query uses the `exclude` operator, which excludes cases only if *all* diagnoses within a case have a `classification_of_tumor` value matching the specified exclusion. The returned result includes the same case, as it contains both a diagnosis with `primary` and one with `metastasis`. This demonstrates that `exclude` will not remove the case unless every diagnosis matches the exclusion criteria.
+
+=== "Shell"
+
+    ```shell
+    curl --location 'https://api.gdc.cancer.gov/cases' \
+    --header 'Content-Type: application/json' \
+    --data '{
+        "size": 10,
+        "filters": {
+            "op": "and",
+            "content": [
+                {
+                    "op": "=",
+                    "content": {
+                        "field": "case_id",
+                        "value": [
+                            "33165ed4-5f38-4566-8d0d-82e2a6d2743f"
+                        ]
+                    }
+                },            
+                {
+                    "op": "exclude",
+                    "content": {
+                        "field": "diagnoses.classification_of_tumor",
+                        "value": [
+                            "metastasis"
+                        ]
+                    }
+                }
+            ]
+        },
+        "expand": "diagnoses",
+        "fields": "diagnoses.classification_of_tumor"
+    } '
+    ```
+
+=== "Output"
+
+    ```json 
+    {
+        "data": {
+            "hits": [
+                {
+                    "id": "33165ed4-5f38-4566-8d0d-82e2a6d2743f",
+                    "diagnoses": [
+                        {
+                            "morphology": "Not Reported",
+                            "submitter_id": "HCM-BROD-0871-C49_diagnosis2",
+                            "days_to_diagnosis": 3041,
+                            "created_datetime": "2021-12-21T13:56:21.205280-06:00",
+                            "tissue_or_organ_of_origin": "Uterus, NOS",
+                            "age_at_diagnosis": 25208,
+                            "primary_diagnosis": "Not Reported",
+                            "classification_of_tumor": "metastasis",
+                            "updated_datetime": "2025-04-07T17:13:09.336794-05:00",
+                            "diagnosis_id": "d245f226-ed78-44d4-a452-9f219612c88c",
+                            "icd_10_code": "C79.8",
+                            "site_of_resection_or_biopsy": "Pelvis, NOS",
+                            "state": "released",
+                            "diagnosis_is_primary_disease": false
+                        },
+                        {
+                            "ajcc_pathologic_t": "T0",
+                            "morphology": "8890/3",
+                            "ajcc_pathologic_stage": "Stage III",
+                            "ajcc_pathologic_n": "N0",
+                            "ajcc_pathologic_m": "M0",
+                            "submitter_id": "HCM-BROD-0871-C49_diagnosis",
+                            "created_datetime": "2021-12-21T13:56:21.205280-06:00",
+                            "tissue_or_organ_of_origin": "Uterus, NOS",
+                            "days_to_last_follow_up": 3065.0,
+                            "age_at_diagnosis": 22167,
+                            "primary_diagnosis": "Leiomyosarcoma, NOS",
+                            "ajcc_clinical_stage": "Stage III",
+                            "classification_of_tumor": "primary",
+                            "updated_datetime": "2025-04-07T17:13:09.336794-05:00",
+                            "metastasis_at_diagnosis": "No Metastasis",
+                            "diagnosis_id": "f297b2b5-29a7-4f2d-a094-e2666fb04bf5",
+                            "prior_malignancy": "yes",
+                            "icd_10_code": "C49.9",
+                            "site_of_resection_or_biopsy": "Not Reported",
+                            "state": "released",
+                            "prior_treatment": "No",
+                            "diagnosis_is_primary_disease": true,
+                            "ajcc_staging_system_edition": "8th"
+                        }
+                    ]
+                }
+            ],
+            "pagination": {
+                "count": 1,
+                "total": 1,
+                "size": 10,
+                "from": 0,
+                "sort": "",
+                "page": 1,
+                "pages": 1
+            }
+        },
+        "warnings": {}
+    }
+    ```
+
+##### Excludeifany Example
+
+When the query is updated to use the `excludeifany` operator, no results are returned because at least one diagnosis within the case has a `classification_of_tumor` value of `metastasis`. The `excludeifany` operator excludes any case where any element in the array matches the exclusion value.
+
+=== "Shell"
+
+    ```shell
+    curl --location 'https://api.gdc.cancer.gov/cases' \
+    --header 'Content-Type: application/json' \
+    --data '{
+        "size": 10,
+        "filters": {
+            "op": "and",
+            "content": [
+                {
+                    "op": "=",
+                    "content": {
+                        "field": "case_id",
+                        "value": [
+                            "33165ed4-5f38-4566-8d0d-82e2a6d2743f"
+                        ]
+                    }
+                },            
+                {
+                    "op": "excludeifany",
+                    "content": {
+                        "field": "diagnoses.classification_of_tumor",
+                        "value": [
+                            "metastasis"
+                        ]
+                    }
+                }
+            ]
+        },
+        "expand": "diagnoses",
+        "fields": "diagnoses.classification_of_tumor"
+    } ' 
+    ```
+
+=== "Output"
+
+    ```json 
+    {
+        "data": {
+            "hits": [],
+            "pagination": {
+                "count": 0,
+                "total": 0,
+                "size": 10,
+                "from": 0,
+                "sort": "",
+                "page": 0,
+                "pages": 0
+            }
+        },
+        "warnings": {}
+    }
+    ```
 
 
 #### Example: HTTP GET Request

@@ -101,7 +101,7 @@ The table below describes the columns in a protected MAF and their definitions. 
 |48 - Gene|Stable Ensembl ID of affected gene |
 |49 - Feature|Stable Ensembl ID of feature (transcript, regulatory, motif) |
 |50 - Feature_type| Type of feature. Currently one of Transcript, RegulatoryFeature, MotifFeature (or blank) |
-|51 - One_Consequence | The single consequence of the canonical transcript in [sequence ontology](http://www.sequenceontology.org/) terms |
+|51 - One_Consequence | The single most severe consequence, based on [sequence ontology](http://www.sequenceontology.org/) terms, among all consequence annotations for a variant across transcripts |
 |52 - Consequence | Consequence type of this variant; [sequence ontology](http://www.sequenceontology.org/) terms |
 |53 - cDNA_position | Relative position of base pair in the cDNA sequence as a fraction. A "-" symbol is displayed as the numerator if the variant does not appear in cDNA |
 |54 - CDS_position | Relative position of base pair in coding sequence. A "-" symbol is displayed as the numerator if the variant does not appear in coding sequence |
