@@ -68,7 +68,7 @@ This visual contains the main read alignment plot of the reads from the BAM file
 
 When completely zoomed out, base-pair quality of each nucleotide in each read is not displayed. Users can zoom into the plot via the toolbar or by dragging on the genomic ruler (a) to zoom into the selected region (b).
 
-[![Zoom](./images/zoom.png)](./images/zoom.png "Click to see the full image.")
+[![Zoom](./images/bamGbZoomIn.png)](./images/bamGbZoomIn.png "Click to see the full image.")
 
 Clicking on a read in the plot launches a window that displays the alignment between the read and reference sequence, as well as the chromosome, coordinates, read length, template length, CIGAR score, flag, and name. If the read is paired, the position of the other segment will be displayed below. This pop-up also contains two buttons, `Copy read sequence` and `Show gene model`, which copy the nucleotide sequence of the read to the computer clipboard and display the gene model, respectively.
 
@@ -248,24 +248,24 @@ The rendering of the reads depends upon the zoom level (horizontal zoom) chosen 
 The BAM track has three levels of horizontal zoom:
 
 ### Overview Level
-This is the completely zoomed out mode (shown below). [At this resolution,](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=TP53_del,proteinpaint_demo/hg19/bam/TP53_del.bam&position=chr17:7575308-7580395&bedjfilterbyname=NM_000546)
+This is the completely zoomed out mode (shown below). At this resolution,
 base-pair quality of each nucleotide in each read is not displayed as
 each read occupies a very small area on the screen. Also the reference
 sequence at the top is not displayed. Only reads which contain big
 insertions/deletions/softclips or are discordant are represented by
 their respective colors Also see the section on color codes of various reads.
 
-[![Overview Level](./images/overview.png)](./images/overview.png "Click to see the full image.")
+[![Overview Level](./images/bam1.png)](./images/bam1.png "Click to see the full image.")
 
 ### Base-pair Quality Level
-[At this level of zoom](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=TP53_del,proteinpaint_demo/hg19/bam/TP53_del.bam&position=chr17:7577215-7578486&bedjfilterbyname=NM_000546) (shown below), in addition to color codes of reads, the phred base pair quality score of each read is also displayed. Poor base-pair quality of nucleotides is represented by lighter shades of the respective color and darker shades represent high base-pair quality. For example, dark gray color represents a higher quality nucleotide in a properly mapped read than light gray which represents poor base-pair quality.
+On zooming in to sufficient level, in addition to color codes of reads, the phred base pair quality score of each read is also displayed. Poor base-pair quality of nucleotides is represented by lighter shades of the respective color and darker shades represent high base-pair quality. For example, dark gray color represents a higher quality nucleotide in a properly mapped read than light gray which represents poor base-pair quality.
 
-[![Base-pair Quality Level](./images/base-pair_qual.png)](./images/pair_qual.png "Click to see the full image.")
+[![Base-pair Quality Level](./images/bam2.png)](./images/bam2.png "Click to see the full image.")
 
 ### Base-pair Resolution Level
-[At this resolution](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=TP53_del,proteinpaint_demo/hg19/bam/TP53_del.wrongbp.bam&position=chr17:7578371-7578417&bedjfilterbyname=NM_000546), all information including the read sequence of each read is displayed along with reference genome nucleotides at the top. For simplicity, only a few reads are shown in the figure.
+At this resolution, all information including the read sequence of each read is displayed along with reference genome nucleotides at the top.
 
-[![Base-pair Resolution Level](./images/base-pair_res.png)](./images/pair_res.png "Click to see the full image.")
+[![Base-pair Resolution Level](./images/bam3.png)](./images/bam3.png "Click to see the full image.")
 
 ### Vertical Zoom: Examining Subset of Reads
 ppBAM can display up to 7000 reads, and will downsample if the number of reads in a region is over 7000. This is especially helpful for displaying high-depth sequencing data. However, displaying nucleotides from each read for such a large number of reads is not feasible. Therefore, the pixel width of each read is reduced to accommodate all reads in the region (Panoramic view, figure below). When the user clicks on a read, that part of the alignment stack is enlarged to show the nucleotides within each read (Nucleotide view, figure below) stacked near the cursor click. Reads at the top and bottom of the stack can be viewed by scrolling up/down with the scroll-bar. The top/bottom of the green scroll-bar can be adjusted to display more reads on the screen by reducing the individual width of each read. On clicking the gray area of the scroll bar region, the panoramic view is displayed again.
@@ -281,7 +281,8 @@ The BAM Track Configuration Panel can be accessed by clicking the "CONFIG" optio
 [![BAM Track Configuration Panel](./images/BAM_track_config.png)](./images/BAM_track_config.png "Click to see the full image.")
 
 ## Single and Paired-end Read
-The configuration panel provides a toggle to change view between single-end (default) and paired-end view (shown below: see [Link](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=crebbp_del,proteinpaint_demo/hg19/bam/crebbp.bam&position=chr16:3800245-3803429) for example). In single-end display each read is displayed individually without displaying any connections with its respective mate. In case of the paired-end display the two paired reads are joined by a gray dotted-line if the coordinates of the two reads do not overlap. When the coordinates of the two read-pairs overlap, the overlapped region is highlighted by a blue line.
+The configuration panel provides a toggle to change view between single-end (default) and paired-end view.
+In single-end display each read is displayed individually without displaying any connections with its respective mate. In case of the paired-end display the two paired reads are joined by a gray dotted-line if the coordinates of the two reads do not overlap. When the coordinates of the two read-pairs overlap, the overlapped region is highlighted by a blue line.
 
 The following shows reads in single-end mode.
 
@@ -304,7 +305,7 @@ is in nucleotide view (see section on vertical zoom in case of high-depth sequen
 
 [![PCR and Optical Duplicated Reads](./images/PCR.png)](./images/PCR.png "Click to see the full image.")
 
-The checkbox in the configuration panel can be toggled to switch on/off the display of PCR and optical duplicates. [In the above figure](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=long_del,proteinpaint_demo/hg19/bam/PCRopticalduplicates.bam&position=chrX:129150008-129150048&variant=chrX.129150027.GGAAAGCGTAGGGGTCTTTGCTTGCAAGAACAA.GT&Bedjfilterbyname=NM_001184772), a total of 29 reads are shown when PCR/optical duplicates are displayed (Figure a) whereas a total of 19 reads are displayed supporting the alternative allele when PCR/optical duplicates are not displayed (default, Figure b).
+The checkbox in the configuration panel can be toggled to switch on/off the display of PCR and optical duplicates. In the above figure, a total of 29 reads are shown when PCR/optical duplicates are displayed (Figure a) whereas a total of 19 reads are displayed supporting the alternative allele when PCR/optical duplicates are not displayed (default, Figure b).
 
 ## Strictness
 This option is available when the BAM track is performing on-the-fly genotyping against a variant. The user can toggle between Lenient and Strict (default) mode as shown in the ppBAM configuration panel.
@@ -351,7 +352,8 @@ The fourth row contains details about the read present in the BAM file
 
 ## Color Coding of Reads
 
-Reads near the vicinity of the deletion have various colors (gray, green, brown and blue) based on their features as explained below. In the paired-end view (a) an overview of the deletion is shown. In Base-pair resolution mode (b) showing nucleotides of each of the reads there are softclipped reads starting near position chr16: 3,801,439.
+Reads near the vicinity of the deletion have various colors (gray, green, brown and blue) based on their features as explained below. In the paired-end view (a) an overview of the deletion is shown. In Base-pair resolution mode
+(b) nucleotides of each of the reads which are softclipped reads starting near position chr16: 3,801,439 are shown.
 
 (a)    Paired-end view
 
@@ -388,7 +390,7 @@ A green background (shown below) indicates that the template has the wrong inser
 [![Green Background Nucleotides](./images/green_bg.png)](./images/green_bg.png "Click to see the full image.")
 
 ### Pink
-A pink color background indicates that the orientation of the read and its mate is not correct (See Link to wrong orientation [example](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=test,proteinpaint_demo/hg19/bam/CBFB-MYH11.bam&position=chr16:67115893-67117379)). Several orientations are taken into consideration. The figure below displays an example of an inversion caused due to CBFB-MYH11 gene fusion found in [Acute Myeloid Leukemia (AML) patients](https://pubmed.ncbi.nlm.nih.gov/32015759/). Here the read and its mate are oriented in the reverse direction (R1R2).
+A pink color background indicates that the orientation of the read and its mate is not correct. Several orientations are taken into consideration. The figure below displays an example of an inversion caused due to CBFB-MYH11 gene fusion found in Acute Myeloid Leukemia patients. Here the read and its mate are oriented in the reverse direction (R1R2).
 * F1F2 - When both read and its mate are pointing in the forward direction (-> ->).
 * R1R2 - When both read and its mate are pointing in the reverse direction (<- <-).
 * F1R2 - When both read and its mate are pointing in forward and reverse direction but are pointing in opposite directions (<-  ->).
@@ -396,7 +398,7 @@ A pink color background indicates that the orientation of the read and its mate 
 [![Pink Background Nucleotides](./images/pink_bg.png)](./images/pink_bg.png "Click to see the full image.")
 
 ### Orange
-Orange background color indicates the read and its mate are mapped in different chromosomes ([as shown below](https://proteinpaint.stjude.org/?genome=hg38&block=1&bamfile=SJACT019118_G1%20WGS,proteinpaint_demo/hg19/bam/discordant_reads.bam&position=chr7:16464-16464&hlregion=chr7:16463-16463)). The displayed read is mapped in chr7:16363-16512 whereas its mate is mapped in chr16.
+Orange background color indicates the read and its mate are mapped in different chromosomes. The displayed read is mapped in chr7:16363-16512 whereas its mate is mapped in chr16.
 
 [![Orange Background Nucleotides](./images/orange_bg.png)](./images/orange_bg.png "Click to see the full image.")
 
@@ -423,16 +425,16 @@ Above figure describes the methodology for classification of reads into Referenc
 
 ## Ambiguous Reads
 
-In certain indels such as in the [TP53 example](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=TP53_del,proteinpaint_demo/hg19/bam/TP53_del.bam&position=chr17:7578191-7578591&variant=chr17.7578383.AGCAGCGCTCATGGTGGGG.A&bedjfilterbyname=NM_000546), certain reads in the variant region can have equal similarity towards both the reference and alternative allele. A large number of ambiguous reads are on the left-side of the indel (Figure a below) because the deletion starts with the sequence GCAGCGC which is also found in the right flanking sequence resulting in equal similarity to both reference and alternative alleles for any read ending within this part of the indel region (as shown in figure below). On viewing the read alignment for the ambiguous read (Figure b below) through the read information panel, it is observed that the read has equal similarity to both reference and alternative alleles. Nucleotides highlighted in red indicate those which are part of reference/alternative allele.
+In certain indels such as example below, certain reads in the variant region can have equal similarity towards both the reference and alternative allele. A large number of ambiguous reads are on the left-side of the indel (Figure a below) because the deletion starts with the sequence GCAGCGC which is also found in the right flanking sequence resulting in equal similarity to both reference and alternative alleles for any read ending within this part of the indel region (as shown in figure below). On viewing the read alignment for the ambiguous read (Figure b below) through the read information panel, it is observed that the read has equal similarity to both reference and alternative alleles. Nucleotides highlighted in red indicate those which are part of reference/alternative allele.
 
 [![Ambiguous Reads](./images/ambig_reads.png)](./images/ambig_reads.png "Click to see the full image.")
 
 ## Fisher-strand Analysis to Check for Strand Bias in Variants
-Fisher-strand (FS) analysis on ratio of forward/reverse strand reads in the alternative and reference groups can help in detecting possible [strand bias](https://gatk.broadinstitute.org/hc/en-us/articles/5358832960539-FisherStrand) that may be present in the variant of interest. The FS score is the Phred-scaled p-value from the Fisher test of the contingency table consisting of forward/reverse strand reads from both the alternative and reference alleles (as shown in figure below). To increase performance for high-depth sequencing examples, when the sequencing depth is greater than 300 the chi-square test is used (if equal or lower than this number, the Fisher's exact test is used). If FS score is [greater than 60](https://gatk.broadinstitute.org/hc/en-us/articles/360035890471), the FS score is highlighted in red (as shown below) indicating that there may be a possible strand bias in the variant.
+Fisher-strand (FS) analysis on ratio of forward/reverse strand reads in the alternative and reference groups can help in detecting possible strand bias that may be present in the variant of interest. The FS score is the Phred-scaled p-value from the Fisher test of the contingency table consisting of forward/reverse strand reads from both the alternative and reference alleles (as shown in figure below). To increase performance for high-depth sequencing examples, when the sequencing depth is greater than 300 the chi-square test is used (if equal or lower than this number, the Fisher's exact test is used). If FS score is greater than 60, the FS score is highlighted in red (as shown below) indicating that there may be a possible strand bias in the variant.
 
 [![Fisher-strand Analysis](./images/fisher_strand.png)](./images/fisher_strand.png "Click to see the full image.")
 
-In the figure above, an example of a [complex indel](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=strand_bias,proteinpaint_demo/hg19/bam/strand_bias.bam&position=chr10:8100668-8100707&variant=chr10.8100686.CAC.CCCTGCCTGTTGTGAGCTGCTCTACGTGCCCTACGTGCT) is shown containing Fisher strand bias. The FS score is highlighted in red indicating this particular variant may contain strand bias.
+In the figure above, a complex indel is shown containing Fisher strand bias. The FS score is highlighted in red indicating this particular variant may contain strand bias.
 
 ## Strictness in On-the-fly Genotyping
 A user can also optionally change the strictness of the algorithm to Lenient/Strict (default) from the ppBAM configuration panel. For strictness level = 'Lenient', reads are classified based on higher sequence similarity to reference/alternative allele. In case of strictness level = 'Strict', the exact sequence of the reference/alternative allele in the read is compared against the allele sequence given by the user. Reads that do not match either allele are classified into the none group (when strictness level = 'Strict'), the allele similarity plot shows the color of the allele to which the read has maximum sequence similarity.
@@ -442,9 +444,7 @@ A user can also optionally change the strictness of the algorithm to Lenient/Str
 The lenient strictness level can be helpful, when the user wants a lenient estimate of the number of reads supporting the particular indel of interest or when the user is confident that only one alternative allele exists. This can also be helpful when there are reads with low base-pair quality calls near the variant region. In contrast when the strictness level is set to 'Strict', a more conservative estimate of the read support is provided for each allele and may indicate the presence of a wrong variant call (if present) or may indicate presence of multiple alternative alleles.
 
 In case of the TP53 deletion example, select reads with wrong base
-pair calls are
-[shown](https://proteinpaint.stjude.org/?genome=hg19&block=1&bamfile=TP53_del,proteinpaint_demo/hg19/bam/TP53_del.wrongbp.bam&position=chr17:7578371-7578417&variant=chr17.7578383.AGCAGCGCTCATGGTGGGG.A&bedjfilterbyname=NM_000546). For
-strictness level = 'Lenient', there are two reads that support the
+pair calls are shown. For strictness level = 'Lenient', there are two reads that support the
 alternative allele. However, read
 NB501822:110:HLWKJBGX5:4:22410:10829:14705 has a wrong base pair call
 at position 7578401.
@@ -458,7 +458,8 @@ classified into the none group.
 
 Similarly, reads NB501822:113:HGCGYBGX5:3:23612:16815:9517 (wrong base-pair call at 7578401) and NB501822:113:HGCGYBGX5:2:22101:3565:18789 (wrong base-pair call at 7578391) are classified in the reference allele group when strictness level = 'Lenient' but are classified into the none group when strictness level is set to 'Strict'.  
 
-The 'Lenient' strictness level is generally only helpful in cases where only one alternative allele is present as it assumes that the given reference and alternative allele are the only possible cases. For multi-allelic variants or when a region has a large number of reads with low Phred base-pair quality nucleotides, the 'Strict' (default) level should be used.
+The 'Lenient' strictness level is generally only helpful in cases where only one alternative allele is present as it assumes that the given reference and alternative allele are the only possible cases.
+For multi-allelic variants or when a region has a large number of reads with low Phred base-pair quality nucleotides, the 'Strict' (default) level should be used.
 
 ## Display of Read Alignment with Respect to Reference and Alternative Allele
 
