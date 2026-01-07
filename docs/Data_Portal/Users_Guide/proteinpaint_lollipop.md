@@ -175,7 +175,7 @@ Under **Switch Isoform**, the available RefSeq and Ensembl isoform builds are li
 
 The pop-up window disappears and the lollipop track rerenders with the newly selected isoform.
 
-# Lollipop Charts
+### Lollipop Charts
 
 The lollipop chart for the GDC variants appears above the Protein View. The circular disc for each variant is proportional to the number of occurrences. Variants in the same position are arranged in descending order of magnitude. There are eight types of variants found in the lollipop chart (see legend).
 
@@ -306,7 +306,7 @@ Zooming in causes the protein track to display the codons and the nucleotides as
 
 [![Codons and Nucleotides](images/lollipop37.2.png)](images/lollipop37.2.png "Click to see the full image.")
 
-# Legend Panel
+### Legend Panel
 
 The protein track color codes regions by the protein domain present on the full-length protein region in the exon display. For KRAS, the protein domains are shown in the red box in the image below.
 
@@ -341,7 +341,7 @@ The color selector in the pop-up menu allows users to customize consequence colo
 
 [![Mutation color selector](images/lollipop43-1.png)](images/lollipop43-1.png "Click to see the full image.")
 
-# More Options
+### More Options
 
 ProteinPaint offers methods to download figures and data. Click the 'More' button in the toolbar to display various options as shown below.
 
