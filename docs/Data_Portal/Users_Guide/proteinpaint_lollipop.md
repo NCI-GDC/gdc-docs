@@ -2,7 +2,9 @@
 
 ## Introduction to ProteinPaint
 
-ProteinPaint is a web-based, dynamic visualization tool that displays a lollipop chart. This tool utilizes variant annotations from GDC datasets. Given a particular gene, it displays variants associated with that gene as well as the occurrence, disease type, and demographic information of the associated case given a case.
+ProteinPaint visualizes cancer coding somatic mutations in an interactive lollipop plot.
+For a given gene, it displays GDC cancer mutations associated with that gene as well as genomic position, consequence, and occurrence for each mutation.
+Information including disease type and demographic of the mutated cases are also accessible.
 
 ## Quick Reference Guide
 
@@ -90,7 +92,7 @@ Custom protein domains are added by clicking on the `+ add protein domain` butto
 2. Range, two integers joined by space: Codon position - start and stop
 3. Color (e.g., red, #FF0000, rgb (255,0,0)): Color to assign to the protein domain
 
-The protein domains also include links to databases of protein families such as the [Conserved Domains Database (CDD)](https://www.ncbi.nlm.nih.gov/cdd/), [Simple Modular Architecture Research Tool (SMART)](https://smart.embl.de), and [Pfam](https://www.ebi.ac.uk/interpro/).
+The protein domains also include links to databases of protein families such as the Conserved Domains Database (CDD), Simple Modular Architecture Research Tool (SMART), and Pfam.
 
 #### GDC Mutation Class
 
@@ -119,7 +121,7 @@ In the toolbar, the `More` button offers methods to download figures and data:
 * __Highlight:__ Highlight a region in the Lollipop by selecting it in the chart or entering it in a text box
 
 ## ProteinPaint Features
-When selected, ProteinPaint will display the search-box as illustrated below. Once a user enters a gene symbol, alias, or GENCODE accession, a lollipop frame is displayed with the name of the chart in the header. The example below is of the gene AKT1. All gene symbols are based on the [HGNC](https://www.genenames.org/about/guidelines/) guidelines.
+When selected, ProteinPaint will display the search-box as illustrated below. Once a user enters a gene symbol, alias, or GENCODE accession, a lollipop frame is displayed with the name of the chart in the header. The example below is of the gene AKT1. All gene symbols are based on the HGNC guidelines.
 
 [![Lollipop Frame](images/lollipop2.png)](images/lollipop2.png "Click to see the full image.")
 
@@ -181,7 +183,7 @@ The lollipop chart for the GDC variants appears above the Protein View. The circ
 
 Exon variants report the amino acid change at the referenced codon. For example, G12D is a G > D substitution at the 12th codon of the protein.
 
-Clickable links for the number of cases (e.g. 1315 samples) and number of variants (e.g. 99 out of 110 variants) appear to the left of the lollipop. Clicking on these links reveals detailed annotations about the samples and variants, described in [Viewing Variants and Case Samples](#Viewing Variants and Case Samples).
+Clickable links for the number of cases (e.g. 1315 samples) and number of variants (e.g. 99 out of 110 variants) appear to the left of the lollipop. Clicking on these links reveals detailed annotations about the samples and variants, described in the next section "Viewing Variants and Case Samples".
 
 [![Sample and Variant Annotations](images/lollipop11.png)](images/lollipop11.png "Click to see the full image.")
 
@@ -195,6 +197,9 @@ Click on the number of variants linked to the left of the lollipop for viewing a
 A pop-up window appears with the entire list of variants, as shown below.
 
 [![List of Variants](images/lollipop13.png)](images/lollipop13.png "Click to see the full image.")
+
+Lollipop plot limits up to 2000 variants. When this limit is exceeded, the numer of variants label is in red; click the label to see an alert message.
+[![Exceeds limit](images/lollipop13.5.png)](images/lollipop13.5.png "Click to see the full image.")
 
 Click on the variant of interest and a new annotation table appears. From the table, view various associated features per sample such as: Disease type, Primary site, Project id, Gender, Race, Ethnicity, and Tumor DNA Mutant Allele Frequency (MAF). In the figure below, 333 occurrences are shown for the G12D variant, which represents a missense mutation at chromosome chr12:25245350 C>T.  
 [![Annotation Table](images/lollipop14.png)](images/lollipop14.png "Click to see the full image.")
@@ -249,17 +254,7 @@ Each subtrack offers advanced filtering, shown below, for users to narrow down p
 
 [![Advanced Filtering](images/lollipop25.png)](images/lollipop25.png "Click to see the full image.")
 
-Clicking on 'Filter' displays a pop-up window with the feature the user selected previously from the sample annotation menu (e.g. Disease type: Adenomas and Adenocarcinomas). Clicking on either +AND or +OR displays a new pop-up with a search bar. Search for the desired term and click on the term's button. In the image below a user selected 'gender' by clicking the '+AND'.
-
-[![Filter Pop-Up Window](images/lollipop26.png)](images/lollipop26.png "Click to see the full image.")
-
-By clicking on 'Gender', all available values appear with checkboxes (i.e. male and female) as shown below. In this example, male with 293 data points is selected.
-
-[![Gender Filter Example 1](images/lollipop27.png)](images/lollipop27.png "Click to see the full image.")
-
-Click 'Apply' and the subtrack re-renders to reflect the updated filter. In the example below, the subtrack reduces from 675 samples to the 293 male samples with adenomas and adenocarcinomas. The figure shows the difference in mutations in the two tracks. Out of the original 333 samples, 72 of 293 males report the G12D mutation.
-
-[![Gender Filter Example 2](images/lollipop28.png)](images/lollipop28.png "Click to see the full image.")
+Clicking on 'Filter' displays a pop-up window with the feature the user selected previously from the sample annotation menu (e.g. Disease type: Adenomas and Adenocarcinomas). Clicking on either +AND or +OR will allow further refining the case filtering in the subtrack.
 
 Click on the 'Close' option to remove the subtrack from the page.
 
