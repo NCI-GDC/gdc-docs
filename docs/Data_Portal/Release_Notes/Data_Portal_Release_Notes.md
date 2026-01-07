@@ -46,7 +46,7 @@
 ## Release 2.6.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__:  January 28, 2026
+* __Release Date__: January 28, 2026
 
 ### New Features and Changes
 
@@ -55,7 +55,6 @@
 ### Bugs Fixed Since Last Release
 
 * TBD
-
 
 ### Known Issues and Workarounds
 
