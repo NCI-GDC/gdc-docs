@@ -52,11 +52,11 @@ Note that the histogram plot applies to, and can be displayed for, both categori
 The survival analysis is used to analyze the occurrence of event data over time.  In the GDC, survival analysis is performed on the mortality of the cases. Thus, the values are retrieved from [GDC Data Dictionary](../../../Data_Dictionary) properties and a survival analysis requires the following fields:
 
 *  Data on the time to a particular event (days to death or last follow up).
-    * Fields:  __demographic.days_to_death__ or __demographic.days_to_last_follow_up__
+    * Fields:  __demographic.days_to_death__ or __diagnoses.days_to_last_follow_up__
 *  Information on whether the event has occurred (alive/deceased).
     * Fields:  __demographic.vital_status__
-*  Data split into different categories or groups (i.e. gender, etc.).
-    * Fields:  __demographic.gender__
+*  Data split into different categories or groups (i.e. primary diagnosis, etc.).
+    * Fields:  __diagnoses.primary_diagnosis__
 
 The survival analysis in the GDC uses a Kaplan-Meier estimator:
 
