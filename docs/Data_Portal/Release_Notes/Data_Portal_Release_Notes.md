@@ -2,7 +2,6 @@
 
 | Version | Date |
 |---|---|
-| [v2.6.0](Data_Portal_Release_Notes.md#release-250) | January 28, 2026 |
 | [v2.5.0](Data_Portal_Release_Notes.md#release-250) | June 30, 2025 |
 | [v2.4.0](Data_Portal_Release_Notes.md#release-240) | March 20, 2025 |
 | [v2.3.1](Data_Portal_Release_Notes.md#release-231) | November 21, 2024 |
@@ -43,47 +42,6 @@
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
 ---
-## Release 2.6.0
-
-* __GDC Product__: GDC Data Portal
-* __Release Date__: January 28, 2026
-
-### New Features and Changes
-
-* TBD
-
-### Bugs Fixed Since Last Release
-
-* TBD
-
-### Known Issues and Workarounds
-
-* __Section 508 Accessibility__:
-    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
-        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing, Sequence Reads, Gene Expression Clustering, OncoMatrix, and ProteinPaint.
-        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives.
-        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
-        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
-        * Some text can be difficult to read on a small screen at a 200% zoom level.
-        * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
-* __Survival Plot__:
-    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
-    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
-* __Cohort MAF__:
-    * A downloaded file may be corrupted if the server data processing is terminated after 5 minutes in order to conserve server resources.
-    There will be a red banner above the MAF controls to indicate the termination.
-* __ProteinPaint__:
-    * The ProteinPaint tool uses 1 year = 365 days, instead of 365.25 days, causing different age values to be displayed in ProteinPaint and other areas of the portal.
-* __ProteinPaint, OncoMatrix, Gene Expression__:
-    * These rendered views do not get updated when a user logs in or out - a manual browser refresh is required.
-* Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
-* In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
-* __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
-* The case count displayed above the table in the __Repository__ can be incorrect when applying filters based on samples (e.g. Tissue Type) or input files. <!--SV-2260-->
-* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
-* The TSV of the __Most Frequent Somatic Mutations__ table in the __Case Summary Page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
-* Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
-
 ## Release 2.5.0
 
 * __GDC Product__: GDC Data Portal
