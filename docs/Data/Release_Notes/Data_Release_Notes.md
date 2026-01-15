@@ -83,12 +83,13 @@ A complete list of files included in the GDC Data Portal can be found below:
 
 ### Bugs Fixed Since Last Release
 
-* The subset of the GATK4 MuTect2 VCF files that were not replaced in DR44 have been replaced in this release.  
+* The subset of the GATK4 MuTect2 raw VCF files that were not replaced in DR44 have been replaced in this release.  
 * All RNA-Seq files from TCGA-OV are now marked according to their correct access level.
 * Two WGS alignments from APOLLO-OV that were previously unavailable are now available on the data portal.
 
 ### Known Issues and Workarounds
 
+* All annotated WGS VCFs from GATK4 MuTect2 do not have variants from chromosomes 10 and 20.  However, their corresponding raw VCFs do have variants from the missing two chromosomes.  This will be addressed in a future data release.  
 * 146 cases from the CCDI-MCI project do not have diagnosis information associated with them. This data will be added in a future release.   
 * Some VCF headers from SvABA list the names of the BAM files they originated from instead of "NORMAL" and "TUMOR", in that order.
 * The slide image viewer does not display for any non-TCGA slides. At this time, these slides will need to be downloaded and viewed locally. Additionally, the slide image viewer does not display properly for 14 TCGA slides, which are identified [here](missing_tiling.txt).
