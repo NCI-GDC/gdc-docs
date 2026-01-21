@@ -3,6 +3,7 @@
 
 | Version | Date |
 |---|---|
+| [v8.2.0](API_Release_Notes.md#v820) | February 10, 2026 <!-- need to update -->|
 | [v7.9.1](API_Release_Notes.md#v791) | May 20, 2025 |
 | [v7.7.0](API_Release_Notes.md#v770) | November 21, 2024 |
 | [v7.5.1](API_Release_Notes.md#v751) | September 30, 2024 |
@@ -41,6 +42,27 @@
 | [v1.1.0](API_Release_Notes.md#v110) | May 25, 2016 |
 | [v1.0.1](API_Release_Notes.md#v101) | May 16, 2016 |
 
+## v8.2.0 <!--REQ-498--> <!-- need to update version -->
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__:  February 10, 2026 <!-- need to update -->
+
+### New Features and Changes
+
+* Legacy clinical and sample properties that were removed from the GDC Dictionary in the prior release are now also removed from the API and no longer accessible or visible in the portal. <!-- DEV-3629 -->
+* Improved logging for gdcapi download events. <!-- DEV-3601 -->
+* Integrated gdcdictionary 3.4.4 across dependent services to align the platform with the latest dictionary release. <!-- DEV-3600 -->
+
+### Bugs Fixed Since Last Release
+
+* Context ID is now sent from gdcapi to cohortapi using the Gdc-Context-Id request header instead of context_id, fixing context ID errors without changing any public gdcapi cohort endpoints. <!-- DEV-3822 -->
+* The GraphQL API now returns available_variation_data as a proper list of strings instead of a literal string, resolving type errors introduced by the graphene upgrade. <!-- DEV-3756 -->
+
+### Known Issues and Workarounds
+
+* Some fields may be repeated in the API or data portal due to being in a transitional states. As a workaround, select all of the fields of interest, and the results will demonstrate which are currently populated.
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
 
 ## v7.9.1
 
