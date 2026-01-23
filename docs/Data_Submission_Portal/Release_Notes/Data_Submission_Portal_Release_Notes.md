@@ -38,7 +38,7 @@
 ### Bugs Fixed Since Last Release
 
 *  Fixed an issue where the Validate button could not be clicked after uploading data. <!--PEAR-2584-->
-*  Ensured manifest downloads can occur successfully for situations involving large numbers of files. <!--PEAR-2472-->
+*  Ensured manifest downloads can occur successfully for large numbers of files. <!--PEAR-2472-->
 *  Addressed button styling issues. <!--PEAR-2584-->
 *  Updated the broken "GDC Supported data types and file formats" link. <!--PEAR-2466-->
 
