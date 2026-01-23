@@ -55,7 +55,6 @@
 
 ### Bugs Fixed Since Last Release
 
-* Context ID is now sent from gdcapi to cohortapi using the Gdc-Context-Id request header instead of context_id, fixing context ID errors without changing any public gdcapi cohort endpoints. <!-- DEV-3822 -->
 * The GraphQL API now returns available_variation_data as a proper list of strings instead of a literal string, resolving type errors introduced by the graphene upgrade. <!-- DEV-3756 -->
 
 ### Known Issues and Workarounds
