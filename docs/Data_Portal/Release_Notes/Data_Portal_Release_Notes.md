@@ -50,11 +50,39 @@
 
 ### New Features and Changes
 
-* TBD
+* __Clinical Data Analysis__:
+    * Denominators used for percentage calculations are now based on the total number of cases in the current cohort. <!--PEAR-2453-->
+    * An option has been added to hide properties that have no data. <!--PEAR-2462-->
+* __Cancer Distribution__:
+    * Downloaded CNV histogram images now include a legend for reference. <!--PEAR-2527-->
+    * Property names in the JSON download have been updated for clarity. <!--PEAR-2296-->
+* The Gender property has been replaced with the Sex at Birth property throughout the Data Portal. <!--PEAR-2346-->
+* Filter panels on the left in __Projects__, __Repository__, __Mutation Frequency__, and the __Annotations Browser__ can now be collapsed. <!--PEAR-2344-->
+* Deleting a cohort being compared in the __Cohort Comparison__ tool will now return the user to the selection screen. <!--PEAR-2287-->
+* A link to GeneCards has been added to the External References section in the Gene Summary page. <!--PEAR-2541-->
+* A link on obtaining access to controlled data has been added to the header of the portal. <!--PEAR-2459-->
+* Notifications displayed upon deleting cohorts will now include information about the new current cohort. <!--PEAR-3410-->
+* Users will now be notified when their active cohort's filters include properties that no longer exist in the GDC. <!--PEAR-2544-->
 
 ### Bugs Fixed Since Last Release
 
-* TBD
+* __Clinical Data Analysis__:
+    * Histogram image downloads are now in a higher resolution. <!--PEAR-2546-->
+    * Custom bins in will now correctly apply and display the default bins after they are restored by the user. <!--PEAR-2358/PEAR-2499-->
+    * The Custom Bins modal will no longer display changes that have been discarded and will instead display only the changes that have been saved. <!--PEAR-2499-->
+* __Cohort Builder__:
+    * The `exposures.occupation_duration_years`, `exposures.exposure_duration_years`, and `exposures.age_at_last_exposure` cards now have the correct max value of 89 years. <!--PEAR-2530-->
+    The `exposures.age_at_last_exposure` and `exposures.age_at_onset` cards have been updated to reflect that these properties' units are in years instead of days. <!--PEAR-2535-->
+* An unexpected error will no longer occur when the last existing cohort is deleted while in the selection screen of the __Cohort Comparison__ app. <!--PEAR-2514-->
+* The portal now correctly displays the Save Cohort Error modal when cohorts unexpectedly fail to be saved. <!--PEAR-2511-->
+the /cohorts API call fails instead of incorrectly showing a "Cohort has been saved" notification. <!--PEAR-2511-->
+* Sets created by saving the "top N" mutations from the mutations table in the Gene Summary page will now contain the expected mutations as ordered in the table. <!--PEAR-2403-->
+* The Data Transfer Tool link in the header's Apps menu now directs to the GDC Data Transfer Tool page, consistent with the rest of the Data Portal. <!--PEAR-2519-->
+* Project IDs are now fully visible in the downloaded CNV histogram images. <!--PEAR-2528-->
+* Other than the Data Portal link, links in the header's Apps menu now open in a new tab. <!--PEAR-2522-->
+* The home page now displays the number of cases available in the GDC's high-quality datasets. <!--PEAR-2475-->
+* Minor UX/UI fixes and improvements. <!--PEAR-1530/PEAR-2209/PEAR-2470/PEAR-2417/PEAR-2418/PEAR-2091/PEAR-2092/PEAR-2288/PEAR-2292/PEAR-2330/PEAR-2476/PEAR-2485/PEAR-2499/PEAR-2406-->
+* Minor text changes. <!--PEAR-2412/PEAR-874/PEAR-2333-->
 
 ### Known Issues and Workarounds
 
@@ -64,7 +92,6 @@
         * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives.
         * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
         * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
-        * Some text can be difficult to read on a small screen at a 200% zoom level.
         * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
 * __Survival Plot__:
     * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
