@@ -110,6 +110,7 @@ the /cohorts API call fails instead of incorrectly showing a "Cohort has been sa
 * The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
 * The TSV of the __Most Frequent Somatic Mutations__ table in the __Case Summary Page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
 * Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
+* The __Quick Search__ feature located in the header may not return expected results if the query is not a full match for the results and exceeds 20 characters. A workaround is to enter a full match or limit the query to 20 characters or fewer. <!--SV-2705-->
 
 ### Properties Removed
 
