@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v2.6.0](Data_Portal_Release_Notes.md#release-250) | January 28, 2026 |
+| [v2.6.0](Data_Portal_Release_Notes.md#release-260) | January 28, 2026 |
 | [v2.5.0](Data_Portal_Release_Notes.md#release-250) | June 30, 2025 |
 | [v2.4.0](Data_Portal_Release_Notes.md#release-240) | March 20, 2025 |
 | [v2.3.1](Data_Portal_Release_Notes.md#release-231) | November 21, 2024 |
