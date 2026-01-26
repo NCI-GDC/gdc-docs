@@ -72,7 +72,7 @@
     * The Custom Bins modal will no longer display changes that have been discarded and will instead display only the changes that have been saved. <!--PEAR-2499-->
 * __Cohort Builder__:
     * The `exposures.occupation_duration_years`, `exposures.exposure_duration_years`, and `exposures.age_at_last_exposure` cards now have the correct max value of 89 years. <!--PEAR-2530-->
-    The `exposures.age_at_last_exposure` and `exposures.age_at_onset` cards have been updated to reflect that these properties' units are in years instead of days. <!--PEAR-2535-->
+    * The `exposures.age_at_last_exposure` and `exposures.age_at_onset` cards have been updated to reflect that these properties' units are in years instead of days. <!--PEAR-2535-->
 * An unexpected error will no longer occur when the last existing cohort is deleted while in the selection screen of the __Cohort Comparison__ app. <!--PEAR-2514-->
 * The portal now correctly displays the Save Cohort Error modal when cohorts unexpectedly fail to be saved. <!--PEAR-2511-->
 * Sets created by saving the "top N" mutations from the mutations table in the __Gene Summary Page__ will now contain the expected mutations as ordered in the table. <!--PEAR-2403-->
