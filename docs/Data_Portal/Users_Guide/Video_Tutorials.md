@@ -87,7 +87,7 @@ A cohort can be analyzed by selecting an analysis tool in the Analysis Center. T
 </tr>
 <tr>
 <td><b>Cohort Comparison</b></td>
-<td>Display the survival analysis of your cohorts and compare characteristics such as gender, vital status and age at diagnosis</td>
+<td>Display the survival analysis of your cohorts and compare characteristics such as sex at birth, vital status and age at diagnosis</td>
 <td><iframe width="240" height="160" src="https://www.youtube.com/embed/NT7-TB78VjA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen > </iframe>
 </td>
 </tr>
