@@ -85,7 +85,7 @@ Downloads can also be performed using the Cart by first adding a set of files to
 * Clicking the cart icon on the left of each file. This will toggle between adding to and removing the file from the cart.
 * Selecting the Add All Files to Cart button. This will add all the files in the current cohort to the Cart, subject to any filtering that has been applied in the Repository.
 
-[![Add Files To Cart](images/AddFilestoCart.png)](images/AddFilesToCart.png "Click to see the full image.")
+[![Add Files To Cart](images/AddFilesToCart.png)](images/AddFilesToCart.png "Click to see the full image.")
 
 ### Cart
 
