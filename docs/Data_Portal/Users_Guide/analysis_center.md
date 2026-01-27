@@ -18,7 +18,7 @@ Available tools are displayed under the Query Expression section of the Analysis
 
 The 'Core Tools' section contains the GDC tools that constitute the main functionality of the Data Portal.
 
-* [Projects](Projects.md) tool
+* [Projects](Projects.md)
 * [Cohort Builder](cohort_builder.md)
 * [Repository](Repository.md)
 
