@@ -81,6 +81,7 @@ Select the Manifest button above the table to generate a manifest file required 
 ### Adding/Removing Files to the Cart for Download ###
 
 Downloads can also be performed using the Cart by first adding a set of files to the Cart. This can be done using the following methods:
+
 * Clicking the cart icon on the left of each file. This will toggle between adding to and removing the file from the cart.
 * Selecting the Add All Files to Cart button. This will add all the files in the current cohort to the Cart, subject to any filtering that has been applied in the Repository.
 
@@ -91,6 +92,7 @@ Downloads can also be performed using the Cart by first adding a set of files to
 The Cart page can then be reached by clicking the Cart icon at the top right of the portal.
 
 At the upper-right of the page is a summary of all files currently in the cart:
+
 * Number of files
 * Number of cases associated with the files
 * Total file size
