@@ -1261,7 +1261,7 @@ The PATCH method cannot be used to create new entities, and the provided submitt
         "submitter_id": "GDC-INTERNAL-000073"
       },
       "ethnicity": "not reported",
-      "gender": "male",
+      "sex_at_birth": "male",
       "race": "white",
       "vital_status": "Dead"
     }

@@ -1072,30 +1072,30 @@ The following `filters` query operators are supported by the GDC API:
 
 | Operator | Description                                      | Number of Operands | Logic example                                                |
 |----------|--------------------------------------------------|--------------------|--------------------------------------------------------------|
-| =        | equals (string or number)                        | one                | gender = "female"                                            |
+| =        | equals (string or number)                        | one                | sex_at_birth = "female"                                            |
 | !=       | does not equal (string or number)                | one                | project_id != "TARGET-AML"                                   |
 | <        | less than (number)                               | one                | age at diagnosis < 90y                                       |
 | <=       | less than or equal (number)                      | one                | age at diagnosis <= 17                                       |
 | >        | greater than (number)                            | one                | age at diagnosis > 50                                        |
 | >=       | greater than or equal (number)                   | one                | age at diagnosis >= 18                                       |
-| is       | is (missing)                                     | one                | gender is missing                                            |
+| is       | is (missing)                                     | one                | sex_at_birth is missing                                            |
 | not      | not (missing)                                    | one                | race not missing                                             |
 | in       | matches a string or number in (a list)           | multiple           | primary_site in [Brain, Lung]                                |
 | exclude  | removes results that only match the query value in the specified field | multiple           | experimental_strategy exclude [WXS, WGS, "Genotyping array"] |
 |excludeifany| removes results that match at least one instance of the query value in the specified field | multiple           | experimental_strategy excludeifany [WXS, WGS, "Genotyping array"] |
-| and      | (operation1) and (operation2)                    | multiple           | {primary_site in [Brain, Lung]} and {gender = "female"}      |
+| and      | (operation1) and (operation2)                    | multiple           | {primary_site in [Brain, Lung]} and {sex_at_birth = "female"}      |
 | or       | (operation1) or (operation2)                     | multiple           | {project_id != "TARGET-AML"} or {age at diagnosis < 90y}     |
 
 The `field` operand specifies a field that corresponds to a property defined in the [GDC Data Dictionary](../../Data_Dictionary/viewer.md). A list of supported fields is provided in [Appendix A](Appendix_A_Available_Fields.md); the list can also be accessed programmatically at the [_mapping endpoint](#_mapping-endpoint).
 
-The `value` operand specifies the search terms. Users can get a list of available values for a specific property by making a call to the appropriate API endpoint using the `facets` parameter, e.g. `https://api.gdc.cancer.gov/v0/cases?facets=demographic.gender&size=0&pretty=true`. See [Facets](#facets) for details.
+The `value` operand specifies the search terms. Users can get a list of available values for a specific property by making a call to the appropriate API endpoint using the `facets` parameter, e.g. `https://api.gdc.cancer.gov/v0/cases?facets=demographic.sex_at_birth&size=0&pretty=true`. See [Facets](#facets) for details.
 
 A simple query with a single operator looks like this:
 
 	{
 	    "op":"=",
 	    "content":{
-	        "field":"cases.demographic.gender",
+	        "field":"cases.demographic.sex_at_birth",
 	        "value":[
 	            "male"
 	        ]
@@ -1416,7 +1416,7 @@ The JSON object to be passed to the GDC API looks like:
     {
         "op": "=",
         "content": {
-            "field": "cases.demographic.gender",
+            "field": "cases.demographic.sex_at_birth",
             "value": [
                 "male"
            ]
@@ -1425,14 +1425,14 @@ The JSON object to be passed to the GDC API looks like:
 
 URL-encoding the above JSON object using [Percent-(URL)-encoding tool](https://www.freeformatter.com/url-encoder.html) results in the following string:
 
-    %7B%0D%0A++++%22op%22%3A+%22%3D%22%2C%0D%0A++++%22content%22%3A+%7B%0D%0A++++++++%22field%22%3A+%22cases.demographic.gender%22%2C%0D%0A++++++++%22value%22%3A+%5B%0D%0A++++++++++++%22male%22%0D%0A++++++++%5D%0D%0A++++%7D%0D%0A%7D
+    %7B%0D%0A++++%22op%22%3A+%22%3D%22%2C%0D%0A++++%22content%22%3A+%7B%0D%0A++++++++%22field%22%3A+%22cases.demographic.sex_at_birth%22%2C%0D%0A++++++++%22value%22%3A+%5B%0D%0A++++++++++++%22male%22%0D%0A+++++++%5D%0D%0A++++%7D%0D%0A%7D
 
 The above string can now be passed to the GDC API using the `filters` parameter:
 
 === "Shell"
 
     ```shell
-     curl  'https://api.gdc.cancer.gov/cases?filters=%7b%22op%22%3a+%22%3d%22%2c%0d%0a++++++%22content%22%3a+%7b%0d%0a++++++++++%22field%22%3a+%22cases.demographic.gender%22%2c%0d%0a++++++++++%22value%22%3a+%5b%22male%22%5d%0d%0a++++++%7d%0d%0a%7d&pretty=true'
+    curl 'https://api.gdc.cancer.gov/cases?filters=%7B%0D%0A++++%22op%22%3A+%22%3D%22%2C%0D%0A++++%22content%22%3A+%7B%0D%0A++++++++%22field%22%3A+%22cases.demographic.sex_at_birth%22%2C%0D%0A++++++++%22value%22%3A+%5B%0D%0A++++++++++++%22male%22%0D%0A+++++++%5D%0D%0A++++%7D%0D%0A%7D&pretty=true'
     ```
 
 === "Python"
@@ -1443,11 +1443,11 @@ The above string can now be passed to the GDC API using the `filters` parameter:
     cases_endpt = 'https://api.gdc.cancer.gov/cases'
     filt = {"op":"=",
             "content":{
-                "field": "cases.demographic.gender",
+                "field": "cases.demographic.sex_at_birth",
                 "value": ["male"]
             }
     }
-    params = {'filters':json.dumps(filt), 'sort':'demographic.gender:asc'}
+    params = {'filters':json.dumps(filt), 'sort':'demographic.sex_at_birth:asc'}
     # requests URL-encodes automatically
     response = requests.get(cases_endpt, params = params)
     print(json.dumps(response.json(), indent=2))
@@ -1460,778 +1460,632 @@ The above string can now be passed to the GDC API using the `filters` parameter:
       "data": {
         "hits": [
           {
-            "id": "03974dc9-0162-4de8-9897-09f88693681a",
-            "lost_to_followup": null,
-            "days_to_lost_to_followup": null,
-            "disease_type": "Nevi and Melanomas",
-            "analyte_ids": [
-              "9747b614-624b-410a-8b94-854a16cd143a",
-              "c8974764-4836-4a34-aeb8-52b491f78d0e",
-              "bcea1ed5-b9cb-4a92-ad80-598d8a223fb3"
-            ],
-            "submitter_id": "HCM-BROD-0334-C43",
-            "submitter_analyte_ids": [
-              "HCM-BROD-0334-C43-10A-01D",
-              "HCM-BROD-0334-C43-85M-01D",
-              "HCM-BROD-0334-C43-85M-01R"
-            ],
-            "days_to_consent": null,
-            "aliquot_ids": [
-              "dcd74e48-12f3-4a86-a829-c7e055c215b7",
-              "ea182abf-041d-474a-bc53-f6fdd05cd999",
-              "33f3ba0a-c902-4288-9fa7-5696d959e51d"
-            ],
-            "submitter_aliquot_ids": [
-              "HCM-BROD-0334-C43-85M-01R-A79O-41",
-              "HCM-BROD-0334-C43-10A-01D-A79L-36",
-              "HCM-BROD-0334-C43-85M-01D-A79L-36"
-            ],
-            "created_datetime": "2020-05-21T08:55:40.814734-05:00",
-            "diagnosis_ids": [
-              "3d666f1b-58c2-451f-8ebf-87b5caa02aaf",
-              "fedc3533-85f7-4fc6-b996-a1f596e021df"
-            ],
-            "sample_ids": [
-              "cd88baf4-b6eb-4df5-9b42-d55f3aad739c",
-              "eb79f8b4-1cc3-4a32-ad51-cfea8cf150f0"
-            ],
-            "consent_type": null,
-            "submitter_sample_ids": [
-              "HCM-BROD-0334-C43-10A",
-              "HCM-BROD-0334-C43-85M"
-            ],
-            "primary_site": "Skin",
-            "submitter_diagnosis_ids": [
-              "HCM-BROD-0334-C43_diagnosis2",
-              "HCM-BROD-0334-C43_diagnosis"
-            ],
-            "updated_datetime": "2021-03-03T15:15:08.075155-06:00",
-            "case_id": "03974dc9-0162-4de8-9897-09f88693681a",
-            "index_date": "Diagnosis",
-            "state": "released",
-            "portion_ids": [
-              "bd0bc175-5b54-47c1-96fc-c6d8afc0c115"
-            ],
-            "submitter_portion_ids": [
-              "HCM-BROD-0334-C43-10A-01"
-            ]
-          },
-          {
-            "id": "03bfeb7c-cecf-4691-8263-33cdfe391ea9",
-            "lost_to_followup": null,
-            "days_to_lost_to_followup": null,
-            "disease_type": "Adenomas and Adenocarcinomas",
-            "analyte_ids": [
-              "db8132c3-47a8-49ec-9b78-bc7d18debf67",
-              "f74bf217-dae2-4554-92e4-8707068ea7a7",
-              "01764f17-2a97-442e-a08b-8a21303b4770",
-              "c9884c81-3c8f-4ad9-a962-42c7459a2276",
-              "d4f1a9f8-f748-4f45-aa06-da4d760c4fab"
-            ],
-            "submitter_id": "HCM-BROD-0124-C25",
-            "submitter_analyte_ids": [
-              "HCM-BROD-0124-C25-85A-01D",
-              "HCM-BROD-0124-C25-01A-01D",
-              "HCM-BROD-0124-C25-10A-01D",
-              "HCM-BROD-0124-C25-85A-01R",
-              "HCM-BROD-0124-C25-01A-01R"
-            ],
-            "aliquot_ids": [
-              "fe8e2565-749a-470a-b843-7afbe95ded81",
-              "092656af-b279-46b8-9ccf-b1eabfbd1d6f",
-              "677edb2c-fac3-4878-a28d-cf4e0d7873d7",
-              "8bb9fff4-24f8-426e-9f2a-4cb30a4ac5c2",
-              "f1c6f71d-b125-47bb-91ad-90d7cbff0012"
-            ],
-            "submitter_aliquot_ids": [
-              "HCM-BROD-0124-C25-01A-01D-A78W-36",
-              "HCM-BROD-0124-C25-85A-01D-A786-36",
-              "HCM-BROD-0124-C25-01A-01R-A78X-41",
-              "HCM-BROD-0124-C25-10A-01D-A78W-36",
-              "HCM-BROD-0124-C25-85A-01R-A787-41"
-            ],
-            "created_datetime": "2019-04-16T11:21:56.471158-05:00",
-            "diagnosis_ids": [
-              "00184ed8-780a-4acf-b5f1-b1fcd6b08dcf"
-            ],
-            "sample_ids": [
-              "e6bc6b9d-553f-4c78-bc11-ebcf7b0d4f27",
-              "539593d1-bd9b-4379-8c86-16cdf607cd4e",
-              "b0c0b5b0-cf6d-4281-8f4d-43dc77e88bc6"
-            ],
-            "submitter_sample_ids": [
-              "HCM-BROD-0124-C25-85A",
-              "HCM-BROD-0124-C25-01A",
-              "HCM-BROD-0124-C25-10A"
-            ],
-            "primary_site": "Pancreas",
-            "submitter_diagnosis_ids": [
-              "HCM-BROD-0124-C25_diagnosis"
-            ],
-            "updated_datetime": "2021-07-12T12:25:55.528644-05:00",
-            "case_id": "03bfeb7c-cecf-4691-8263-33cdfe391ea9",
-            "index_date": "Diagnosis",
-            "state": "released",
-            "portion_ids": [
-              "303512c0-382b-4442-a5a7-2699ca8b1384",
-              "f07a4dae-2878-452e-9836-6f39c594d38d"
-            ],
-            "submitter_portion_ids": [
-              "HCM-BROD-0124-C25-10A-01",
-              "HCM-BROD-0124-C25-01A-01"
-            ]
-          },
-          {
-            "id": "05f41641-ee22-4d41-bb87-2bfa47cd983f",
-            "lost_to_followup": null,
+            "id": "0e9262d1-5aa8-4528-9aee-2815afcd23cd",
             "slide_ids": [
-              "775be57f-6df8-40c3-9c4e-c06dd900a237",
-              "7bd1dea3-7819-43e5-a9e4-5fe0a189cc87"
+              "3e754cbb-ce5e-41d2-aef6-51a96b39b8ea",
+              "5f4b2950-9427-4bf4-96db-239da84e5224"
             ],
             "submitter_slide_ids": [
-              "HCM-BROD-0095-C15-06A-01-S2-HE",
-              "HCM-BROD-0095-C15-06A-01-S1-HE"
+              "HCM-WCMC-0950-C67-01A-01-S2-HE",
+              "HCM-WCMC-0950-C67-01A-01-S1-HE"
             ],
+            "disease_type": "Transitional Cell Papillomas and Carcinomas",
+            "analyte_ids": [
+              "f4c8bb09-0593-47e1-b134-69992529e9bb",
+              "f153b565-462c-4649-9f77-42aea65b35a6",
+              "c777e68c-9a38-4d6b-ac88-d357c06a8796",
+              "e83734f5-607b-43e9-b5f7-c0003891d547",
+              "e664a9f4-1e80-48cf-af47-6b4a9b612f25"
+            ],
+            "submitter_id": "HCM-WCMC-0950-C67",
+            "submitter_analyte_ids": [
+              "HCM-WCMC-0950-C67-85A-01R",
+              "HCM-WCMC-0950-C67-10A-01D",
+              "HCM-WCMC-0950-C67-85A-01D",
+              "HCM-WCMC-0950-C67-01A-01R",
+              "HCM-WCMC-0950-C67-01A-01D"
+            ],
+            "aliquot_ids": [
+              "91911835-c196-4df8-84e4-41151e72f571",
+              "318d0505-345e-40cd-b6cf-fcf2413bd828",
+              "7d9ee243-b34f-4b77-81af-a75ee45a8558",
+              "fa2bc724-43cd-4a01-ab7d-77f2d16783e7",
+              "a31597ac-b537-46e4-8d7d-5cfee78eadd6"
+            ],
+            "submitter_aliquot_ids": [
+              "HCM-WCMC-0950-C67-01A-01R-A88K-41",
+              "HCM-WCMC-0950-C67-85A-01D-A88H-36",
+              "HCM-WCMC-0950-C67-10A-01D-A88H-36",
+              "HCM-WCMC-0950-C67-85A-01R-A88J-41",
+              "HCM-WCMC-0950-C67-01A-01D-A88H-36"
+            ],
+            "created_datetime": "2021-12-09T14:30:39.067286-06:00",
+            "diagnosis_ids": [
+              "82806bbe-6770-4697-93aa-c8b87aa73044"
+            ],
+            "sample_ids": [
+              "00380420-c546-4d7b-ae1a-4cd90b4f729e",
+              "40b7f970-85c1-41fc-ba25-f247806646f7",
+              "a80e45ae-b144-40dc-9ffc-e8b24052c277"
+            ],
+            "submitter_sample_ids": [
+              "HCM-WCMC-0950-C67-10A",
+              "HCM-WCMC-0950-C67-85A",
+              "HCM-WCMC-0950-C67-01A"
+            ],
+            "primary_site": "Bladder",
+            "submitter_diagnosis_ids": [
+              "HCM-WCMC-0950-C67_diagnosis"
+            ],
+            "updated_datetime": "2025-04-07T17:13:09.336794-05:00",
+            "case_id": "0e9262d1-5aa8-4528-9aee-2815afcd23cd",
+            "index_date": "Diagnosis",
+            "state": "released",
+            "portion_ids": [
+              "a82ae730-818d-4e24-a3b5-04506073043e",
+              "f3d0cd1f-a7c3-49ce-81e2-931bda3f63c3"
+            ],
+            "submitter_portion_ids": [
+              "HCM-WCMC-0950-C67-01A-01",
+              "HCM-WCMC-0950-C67-10A-01"
+            ]
+          },
+          {
+            "id": "0ee53efd-b992-4aeb-a091-8dd1bd32da6e",
+            "disease_type": "Adenomas and Adenocarcinomas",
+            "analyte_ids": [
+              "c2a69b6f-6e97-4765-8f05-2ef5b37be4df",
+              "440b278b-03c2-4a16-bdc3-c78677046166",
+              "960b4dc1-061d-4459-b59d-be0d06f4674c"
+            ],
+            "submitter_id": "HCM-BROD-0682-C64",
+            "submitter_analyte_ids": [
+              "HCM-BROD-0682-C64-85A-01D",
+              "HCM-BROD-0682-C64-85A-01R",
+              "HCM-BROD-0682-C64-10A-01D"
+            ],
+            "aliquot_ids": [
+              "7ff361d1-a60e-477d-b6cb-cf1a5c61894d",
+              "ae0ab148-5d9a-4e61-a043-e2a84bce1d7d",
+              "6e93d944-bf0c-46ce-b558-151c96da4e42"
+            ],
+            "submitter_aliquot_ids": [
+              "HCM-BROD-0682-C64-85A-01D-A85C-36",
+              "HCM-BROD-0682-C64-10A-01D-A85C-36",
+              "HCM-BROD-0682-C64-85A-01R-A85D-41"
+            ],
+            "created_datetime": "2021-06-03T11:50:05.387795-05:00",
+            "diagnosis_ids": [
+              "3c95e3a3-c388-452c-88e8-13704668f55a"
+            ],
+            "sample_ids": [
+              "76590128-9b0f-4aa2-b7b9-62acb3aa9cb0",
+              "333bca08-ddef-4d31-8eaf-0999514c88d1"
+            ],
+            "submitter_sample_ids": [
+              "HCM-BROD-0682-C64-10A",
+              "HCM-BROD-0682-C64-85A"
+            ],
+            "primary_site": "Kidney",
+            "submitter_diagnosis_ids": [
+              "HCM-BROD-0682-C64_diagnosis"
+            ],
+            "updated_datetime": "2025-04-07T17:13:09.336794-05:00",
+            "case_id": "0ee53efd-b992-4aeb-a091-8dd1bd32da6e",
+            "index_date": "Diagnosis",
+            "state": "released",
+            "portion_ids": [
+              "a3f89e93-a6ed-4dcb-a380-4b422ffcc6d7"
+            ],
+            "submitter_portion_ids": [
+              "HCM-BROD-0682-C64-10A-01"
+            ]
+          },
+          {
+            "id": "5868f125-ca3b-4b98-85ea-64f0ea5b45da",
+            "slide_ids": [
+              "a2f8961c-02ae-40d4-8701-e31692fcc096",
+              "87173226-109b-4f62-9689-2c987bec00dc"
+            ],
+            "submitter_slide_ids": [
+              "HCM-CSHL-0582-C18-06A-01-S1-HE",
+              "HCM-CSHL-0582-C18-06A-01-S2-HE"
+            ],
+            "disease_type": "Adenomas and Adenocarcinomas",
+            "analyte_ids": [
+              "cac05fae-8042-4d82-a516-aa8cabbdc735",
+              "cf74ccd3-dae0-4b01-b29f-fc3c0a364ca5",
+              "dc4396e0-f380-4c99-bae7-4cefed5eeea6",
+              "465cb1b3-fd6c-4f7e-86b1-e0dd0843c321",
+              "8e0c3202-15af-4fbd-ad93-e0801df03000"
+            ],
+            "submitter_id": "HCM-CSHL-0582-C18",
+            "submitter_analyte_ids": [
+              "HCM-CSHL-0582-C18-06A-11R",
+              "HCM-CSHL-0582-C18-85M-01D",
+              "HCM-CSHL-0582-C18-06A-11D",
+              "HCM-CSHL-0582-C18-10A-01D",
+              "HCM-CSHL-0582-C18-85M-01R"
+            ],
+            "aliquot_ids": [
+              "12053654-c327-4a01-9e6c-46409abd5f20",
+              "9b662aa0-89a5-413a-9601-3c6cba2406d5",
+              "bc113dd7-84e8-4b7b-912e-564e0ad959a9",
+              "61c389ec-9771-489c-9bf0-401dca5da2cd",
+              "f253ed43-a6e0-430b-a2fa-a108f5a06749"
+            ],
+            "submitter_aliquot_ids": [
+              "HCM-CSHL-0582-C18-06A-11D-A82H-36",
+              "HCM-CSHL-0582-C18-06A-11R-A82J-41",
+              "HCM-CSHL-0582-C18-10A-01D-A82H-36",
+              "HCM-CSHL-0582-C18-85M-01R-A82J-41",
+              "HCM-CSHL-0582-C18-85M-01D-A82H-36"
+            ],
+            "created_datetime": "2020-10-30T18:29:27.459298-05:00",
+            "diagnosis_ids": [
+              "a3a2c172-34bc-4879-98ce-b520afe288d9",
+              "21126e95-4518-417c-bd7c-e7c00c88a0e7"
+            ],
+            "sample_ids": [
+              "adfc9442-eefc-4639-9b03-452ed10b3ef4",
+              "ce06a937-9e13-4b43-a793-915bb64274e3",
+              "ff88a67e-f0da-4848-9c25-fd5f42c6ea1e"
+            ],
+            "submitter_sample_ids": [
+              "HCM-CSHL-0582-C18-85M",
+              "HCM-CSHL-0582-C18-06A",
+              "HCM-CSHL-0582-C18-10A"
+            ],
+            "primary_site": "Colon",
+            "submitter_diagnosis_ids": [
+              "HCM-CSHL-0582-C18_diagnosis2",
+              "HCM-CSHL-0582-C18_diagnosis"
+            ],
+            "updated_datetime": "2025-03-31T16:34:59.906497-05:00",
+            "case_id": "5868f125-ca3b-4b98-85ea-64f0ea5b45da",
+            "index_date": "Diagnosis",
+            "state": "released",
+            "portion_ids": [
+              "cbb65334-6871-4b04-a7b3-0e952d44a299",
+              "a15dddff-e4e6-49e2-a5b7-2234fa0ffab4"
+            ],
+            "submitter_portion_ids": [
+              "HCM-CSHL-0582-C18-06A-11",
+              "HCM-CSHL-0582-C18-10A-01"
+            ]
+          },
+          {
+            "id": "dd7c58fc-0765-4d02-9a60-515a721cd369",
+            "lost_to_followup": null,
             "days_to_lost_to_followup": null,
             "disease_type": "Adenomas and Adenocarcinomas",
             "analyte_ids": [
-              "3cd4c8b4-8c23-4c20-bffb-97e0f5e5ac0a",
-              "76ed5a0c-8129-4a73-bbd2-08d9b36bee62",
-              "d2acb3a5-7b51-4d86-8c2f-18b3f886a001",
-              "e6f06e9e-bf13-44fb-990c-d64b1096cd7c",
-              "331fc610-2b43-4b0a-a9b2-3a8a665cb000"
+              "9a62892d-21a9-415c-b790-4c28805afeb1",
+              "0908a123-760d-4de7-bbfc-5623fd593aa4",
+              "51943fc2-631a-452d-a95d-80e204824578"
             ],
-            "submitter_id": "HCM-BROD-0095-C15",
+            "submitter_id": "HCM-BROD-0328-C15",
             "submitter_analyte_ids": [
-              "HCM-BROD-0095-C15-06A-11R",
-              "HCM-BROD-0095-C15-85A-01R",
-              "HCM-BROD-0095-C15-85A-01D",
-              "HCM-BROD-0095-C15-10B-01D",
-              "HCM-BROD-0095-C15-06A-11D"
+              "HCM-BROD-0328-C15-85A-01D",
+              "HCM-BROD-0328-C15-85A-01R",
+              "HCM-BROD-0328-C15-10B-01D"
             ],
-            "days_to_consent": null,
             "aliquot_ids": [
-              "24b11e4f-5e04-4d28-875e-a242515f6d07",
-              "4af130bc-16ef-42c0-9f01-04dc601f4165",
-              "9bd07008-27df-4e7e-be83-2d0fbeb2db94",
-              "11efd698-fb14-4a52-aaec-0084afc5bbe0",
-              "3f7b05f1-a8cd-48f2-89f1-4a1e4eab92c5"
+              "5e7a0ec0-5d47-4080-83b8-ece859036acb",
+              "67285f61-6429-47ae-a385-2848c75fbe18",
+              "286c9b98-534c-4f5c-839d-1a3e2c74f5a6"
             ],
             "submitter_aliquot_ids": [
-              "HCM-BROD-0095-C15-06A-11R-A79D-41",
-              "HCM-BROD-0095-C15-85A-01R-A79D-41",
-              "HCM-BROD-0095-C15-10B-01D-A79C-36",
-              "HCM-BROD-0095-C15-06A-11D-A79C-36",
-              "HCM-BROD-0095-C15-85A-01D-A79C-36"
+              "HCM-BROD-0328-C15-85A-01D-A79L-36",
+              "HCM-BROD-0328-C15-10B-01D-A79L-36",
+              "HCM-BROD-0328-C15-85A-01R-A79O-41"
             ],
-            "created_datetime": "2019-04-04T14:07:27.780827-05:00",
+            "created_datetime": "2019-04-04T15:56:24.085531-05:00",
             "diagnosis_ids": [
-              "cd0da3ad-189b-4be0-a8c6-55e0294e7c73"
+              "adb35634-5e40-4885-a3ac-9b33f83e2e90"
             ],
             "sample_ids": [
-              "5fcb1b3c-6711-4caa-9c6c-31ed2c0fc238",
-              "71568fd7-b545-4979-a907-ef8bf41e76db",
-              "d9db85d9-5ea2-41cd-96d2-d50462b5d4b6"
+              "e9957167-8692-48fe-9c24-43fc57f5bc55",
+              "fc8cc23b-a948-45e6-a518-6109c78ce276"
             ],
-            "consent_type": null,
             "submitter_sample_ids": [
-              "HCM-BROD-0095-C15-85A",
-              "HCM-BROD-0095-C15-06A",
-              "HCM-BROD-0095-C15-10B"
+              "HCM-BROD-0328-C15-10B",
+              "HCM-BROD-0328-C15-85A"
             ],
             "primary_site": "Esophagus",
             "submitter_diagnosis_ids": [
-              "HCM-BROD-0095-C15_diagnosis"
+              "HCM-BROD-0328-C15_diagnosis"
             ],
-            "updated_datetime": "2021-01-06T22:55:10.531130-06:00",
-            "case_id": "05f41641-ee22-4d41-bb87-2bfa47cd983f",
+            "updated_datetime": "2025-03-31T16:34:59.906497-05:00",
+            "case_id": "dd7c58fc-0765-4d02-9a60-515a721cd369",
             "index_date": "Diagnosis",
             "state": "released",
             "portion_ids": [
-              "0ef29dec-13e5-4faf-997c-a9c9502a353b",
-              "c7660224-cef0-4d7d-b532-a4e9d4a7fb7c"
+              "2d2a22c9-2438-4614-85f3-74898a697f69"
             ],
             "submitter_portion_ids": [
-              "HCM-BROD-0095-C15-06A-11",
-              "HCM-BROD-0095-C15-10B-01"
+              "HCM-BROD-0328-C15-10B-01"
             ]
           },
           {
-            "id": "07a067d0-7dfc-4817-b4c5-9200da20a59f",
-            "lost_to_followup": null,
-            "days_to_lost_to_followup": null,
+            "id": "12603388-e5f0-45ac-ab7b-3a839de7a9e8",
             "disease_type": "Adenomas and Adenocarcinomas",
-            "analyte_ids": [
-              "3a6a1f63-f9d3-44f0-8659-3b3cd19a42a0",
-              "6671382a-20f0-41d7-a35d-c09c7275d08a",
-              "d5034c0e-2790-4fb5-82b0-e36c0626b57c"
-            ],
-            "submitter_id": "HCM-SANG-0268-C18",
-            "submitter_analyte_ids": [
-              "HCM-SANG-0268-C18-85A-01D",
-              "HCM-SANG-0268-C18-85A-01R",
-              "HCM-SANG-0268-C18-10A-01D"
-            ],
-            "days_to_consent": null,
+            "submitter_id": "HCM-SANG-1335-C18",
             "aliquot_ids": [
-              "e60dec0b-a2db-4b66-9e77-e8f0b8856a53",
-              "2a558468-cca8-4fe9-a745-8c76436ce6cb",
-              "ae8d0e5c-340b-488e-ba9e-d0912869ee8d",
-              "745432c8-ea7f-48e0-bd53-28ead61a7ec0",
-              "e2d32e2a-3161-40ab-88ef-0a4dfd3a72b4",
-              "c2328729-0a45-4740-a9cb-3b8ff31807b3",
-              "6b3085c9-63b8-4b82-8413-f775dbc6d993"
+              "28d6f03e-eb51-4146-b846-b25f7a113c53",
+              "50066afd-9d47-427b-a36c-569b1fd56000",
+              "5496d096-d085-426c-af20-02f22bacfc8b"
             ],
             "submitter_aliquot_ids": [
-              "HCM-SANG-0268-C18-85A-01D-A80T-32-aliquot",
-              "HCM-SANG-0268-C18-85A-01R-A80W-32-aliquot",
-              "HCM-SANG-0268-C18-10A-01D-A79M-36",
-              "HCM-SANG-0268-C18-10A-01D-A80T-32-aliquot",
-              "HCM-SANG-0268-C18-85A-01R-A79O-41",
-              "HCM-SANG-0268-C18-01A-01D-A80T-32-aliquot",
-              "HCM-SANG-0268-C18-85A-01D-A79M-36"
+              "HCM-SANG-1335-C18-85A-01D-A80T-32-aliquot",
+              "HCM-SANG-1335-C18-85A-01R-A80W-32-aliquot",
+              "HCM-SANG-1335-C18-10A-01D-A80T-32-aliquot"
             ],
-            "created_datetime": "2020-05-29T12:07:57.849637-05:00",
+            "created_datetime": "2022-11-07T08:35:49.832199-06:00",
             "diagnosis_ids": [
-              "78f3dc9e-9b51-42b2-b809-405e438f7f68"
+              "05c6c397-b06f-4fc3-806d-584e01bb976b"
             ],
             "sample_ids": [
-              "20b5f03e-26b9-4902-9bdd-667168727e6d",
-              "17766175-a251-454b-9263-76af20b77290",
-              "6a530ae1-79fa-4536-bbf5-86b14a80563e",
-              "9eb44d2a-80c0-43d2-822a-0598a7d8e68c",
-              "a3817d45-dbaa-4295-8d17-712c0c2438e4",
-              "475ac2f5-327f-4d94-bebf-e03058911b59"
+              "92af994f-026c-4928-a1ab-95bb6a97b6f7",
+              "a0c5e36b-b7ff-4cdb-89f6-1e84e752dc1a",
+              "bfc0d425-2539-4fb1-970a-d5b7ca32aafb"
             ],
-            "consent_type": null,
             "submitter_sample_ids": [
-              "HCM-SANG-0268-C18-10A-01D-A80T-32",
-              "HCM-SANG-0268-C18-85A-01D-A80T-32",
-              "HCM-SANG-0268-C18-01A-01D-A80T-32",
-              "HCM-SANG-0268-C18-10A",
-              "HCM-SANG-0268-C18-85A-01R-A80W-32",
-              "HCM-SANG-0268-C18-85A"
+              "HCM-SANG-1335-C18-85A-01R-A80W-32",
+              "HCM-SANG-1335-C18-85A-01D-A80T-32",
+              "HCM-SANG-1335-C18-10A-01D-A80T-32"
             ],
             "primary_site": "Colon",
             "submitter_diagnosis_ids": [
-              "HCM-SANG-0268-C18_diagnosis"
+              "HCM-SANG-1335-C18_diagnosis"
             ],
-            "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
-            "case_id": "07a067d0-7dfc-4817-b4c5-9200da20a59f",
+            "updated_datetime": "2025-04-07T17:13:09.336794-05:00",
+            "case_id": "12603388-e5f0-45ac-ab7b-3a839de7a9e8",
             "index_date": "Sample Procurement",
-            "state": "released",
-            "portion_ids": [
-              "4d2aeabd-3a5a-42fc-8bcd-301829a32883"
-            ],
-            "submitter_portion_ids": [
-              "HCM-SANG-0268-C18-10A-01"
-            ]
+            "state": "released"
           },
           {
-            "id": "0a6a14db-ca5c-4bf9-9125-611d672bc67b",
-            "lost_to_followup": null,
-            "days_to_lost_to_followup": null,
+            "id": "1312ba61-8d33-4b61-89cf-0c6e5c6d06a7",
             "disease_type": "Adenomas and Adenocarcinomas",
-            "analyte_ids": [
-              "4c154bcd-3cd5-4e3a-bb90-948cf4c92965",
-              "e8c8e41f-0a24-4d16-bcdd-3d7422150c4d",
-              "7ce86045-0051-465e-8744-f6299a007bce",
-              "f32ed211-100b-47ca-b0b0-774a15d58e60",
-              "a70c036b-ea29-46d5-ba7f-8152947146f8",
-              "117f4f00-2978-4a67-8a18-3acbd77fe930"
-            ],
-            "submitter_id": "HCM-SANG-0271-D12",
-            "submitter_analyte_ids": [
-              "HCM-SANG-0271-D12-86A-01R",
-              "HCM-SANG-0271-D12-86A-01D",
-              "HCM-SANG-0271-D12-85A-01R",
-              "HCM-SANG-0271-D12-31B-01D",
-              "HCM-SANG-0271-D12-10A-01D",
-              "HCM-SANG-0271-D12-85B-01D"
-            ],
-            "days_to_consent": null,
+            "submitter_id": "HCM-SANG-1322-C15",
             "aliquot_ids": [
-              "d59f00c0-696c-4444-8e7f-c0140dbcd8e3",
-              "d1848dd2-dccb-43c6-bd29-bb7f331089ef",
-              "f7125c62-3864-412e-9afa-dc4970e43d05",
-              "3bfc0b7c-58c7-47c9-9664-5c2d087f4485",
-              "3109b83d-36ed-4850-9847-9710f3921413",
-              "8dda870c-374e-49ae-8f0b-44b50ef567cd",
-              "80d9347a-3684-4348-b1de-14bdca1471fd",
-              "0bc14c0a-9fb9-480d-bfb5-3b7d89c83efd",
-              "fe6747dd-12a0-4bb4-b2f3-9dd6f047df02",
-              "98284402-4f76-4aa8-893c-95c72b5fb395"
+              "5bf6d83f-c7dd-4d4a-8e08-dd002340b190",
+              "653d94fa-07fa-4a1b-9a00-6469027dec40",
+              "9582d868-547e-4c37-863d-21cff2ad3afa",
+              "077cd901-d3d4-4c35-8b28-a4c0c425500b"
             ],
             "submitter_aliquot_ids": [
-              "HCM-SANG-0271-D12-85A-01R-A80W-32-aliquot",
-              "HCM-SANG-0271-D12-31B-01D-A80U-36",
-              "HCM-SANG-0271-D12-86A-01D-A85C-36",
-              "HCM-SANG-0271-D12-85A-01D-A80T-32-aliquot",
-              "HCM-SANG-0271-D12-01A-01D-A80T-32-aliquot",
-              "HCM-SANG-0271-D12-85B-01D-A80U-36",
-              "HCM-SANG-0271-D12-10A-01D-A80U-36",
-              "HCM-SANG-0271-D12-10A-01D-A80T-32-aliquot",
-              "HCM-SANG-0271-D12-85A-01R-A80V-41",
-              "HCM-SANG-0271-D12-86A-01R-A85D-41"
+              "HCM-SANG-1322-C15-85A-01D-A80T-32-aliquot",
+              "HCM-SANG-1322-C15-85A-01R-A80W-32-aliquot",
+              "HCM-SANG-1322-C15-10A-01D-A80T-32-aliquot",
+              "HCM-SANG-1322-C15-08A-01D-A80T-32-aliquot"
             ],
-            "created_datetime": "2020-07-08T11:54:16.081928-05:00",
+            "created_datetime": "2022-11-07T08:35:49.832199-06:00",
             "diagnosis_ids": [
-              "17a41ef7-aafc-4b70-8d8f-484dc5cd27bd"
+              "1b0aa02b-19d9-4e30-98d7-86d641180351"
             ],
             "sample_ids": [
-              "ae2b48ea-7255-4d3d-ba00-1def687c3606",
-              "b16a3a6b-b0b1-4749-afbc-aea8f4eb3a5d",
-              "dc021e65-03cd-4210-a9b7-cdc971c22223",
-              "bc55eaf9-56fb-4f98-9fd8-2e80796b2873",
-              "5d4ac7e0-5a91-4e32-bf47-1febc9cc37d7",
-              "371a0350-a942-4a63-ac59-873da0cd1e86",
-              "4d8a7679-067e-4af7-9b11-d7722adc35ba",
-              "2ccc3dc4-042a-477a-8b3f-b8b7ff838762",
-              "fa202911-ce39-476e-9631-e81ffb46a402"
+              "85e0c249-4bd8-4311-8695-86fc7ab45212",
+              "475c6bcb-3287-44ff-9128-7deda95902de",
+              "b282ba81-bcfb-4e48-b847-1c5c897f3b39",
+              "3d4e94f9-211e-4f08-9ba9-b0330ca96b7b"
             ],
-            "consent_type": null,
             "submitter_sample_ids": [
-              "HCM-SANG-0271-D12-85A-01R-A80W-32",
-              "HCM-SANG-0271-D12-85B",
-              "HCM-SANG-0271-D12-01A-01D-A80T-32",
-              "HCM-SANG-0271-D12-85A",
-              "HCM-SANG-0271-D12-10A-01D-A80T-32",
-              "HCM-SANG-0271-D12-10A",
-              "HCM-SANG-0271-D12-31B",
-              "HCM-SANG-0271-D12-86A",
-              "HCM-SANG-0271-D12-85A-01D-A80T-32"
+              "HCM-SANG-1322-C15-08A-01D-A80T-32",
+              "HCM-SANG-1322-C15-85A-01D-A80T-32",
+              "HCM-SANG-1322-C15-85A-01R-A80W-32",
+              "HCM-SANG-1322-C15-10A-01D-A80T-32"
             ],
-            "primary_site": "Colon",
+            "primary_site": "Esophagus",
             "submitter_diagnosis_ids": [
-              "HCM-SANG-0271-D12_diagnosis"
+              "HCM-SANG-1322-C15_diagnosis"
             ],
-            "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
-            "case_id": "0a6a14db-ca5c-4bf9-9125-611d672bc67b",
+            "updated_datetime": "2025-04-07T17:13:09.336794-05:00",
+            "case_id": "1312ba61-8d33-4b61-89cf-0c6e5c6d06a7",
             "index_date": "Sample Procurement",
-            "state": "released",
-            "portion_ids": [
-              "bcb558ac-e5bf-4b6c-af72-9b78b7b76722",
-              "a9aec562-c531-458d-95f1-768e2610aae7"
-            ],
-            "submitter_portion_ids": [
-              "HCM-SANG-0271-D12-10A-01",
-              "HCM-SANG-0271-D12-31B-01"
-            ]
+            "state": "released"
           },
           {
-            "id": "0cf7d1fe-e9c7-4e84-9497-df13ca2ed2c9",
+            "id": "35a8dada-9a8b-4dd7-8565-e5e2c1e69958",
             "lost_to_followup": null,
-            "days_to_lost_to_followup": null,
-            "disease_type": "Adenomas and Adenocarcinomas",
-            "analyte_ids": [
-              "6ef5c20b-50c3-4fda-bd1e-de4876ccab7b",
-              "4a18990e-a0dc-4466-aaed-0053ffa0656a",
-              "0a62151e-6c10-4e23-80ff-93970fa20f7a",
-              "9b91bd41-f1f6-4712-84c9-54afa62d089b",
-              "038fc540-f8e2-44b7-944c-ac6f25cac665"
-            ],
-            "submitter_id": "HCM-SANG-0287-C20",
-            "submitter_analyte_ids": [
-              "HCM-SANG-0287-C20-85A-01D",
-              "HCM-SANG-0287-C20-01A-01D",
-              "HCM-SANG-0287-C20-85A-01R",
-              "HCM-SANG-0287-C20-10A-01D",
-              "HCM-SANG-0287-C20-01A-01R"
-            ],
-            "aliquot_ids": [
-              "43bb9903-2b44-494f-9275-62dd88803739",
-              "c0b86e70-1df5-4acb-9667-cfada31b7c5e",
-              "feb5f601-cd08-46bf-a8b3-4553d6ce24ba",
-              "1e9d473d-c7b7-4eca-82c5-4d8b40e482a8",
-              "22bc24d9-719b-4f3c-8587-e394cf409117",
-              "77b7d070-0fd0-4d33-9204-b6f8cd95c415",
-              "89ab0d1b-b692-4248-abc6-7dc698b54e67",
-              "1870408c-6d85-4e00-9c64-178350135992",
-              "48f6c991-9d58-4d1f-96e4-c62dcf0c6bf8"
-            ],
-            "submitter_aliquot_ids": [
-              "HCM-SANG-0287-C20-01A-01D-A78U-36",
-              "HCM-SANG-0287-C20-85A-01R-A80W-32-aliquot",
-              "HCM-SANG-0287-C20-85A-01R-A78V-41",
-              "HCM-SANG-0287-C20-10A-01D-A80T-32-aliquot",
-              "HCM-SANG-0287-C20-85A-01D-A80T-32-aliquot",
-              "HCM-SANG-0287-C20-01A-01D-A80T-32-aliquot",
-              "HCM-SANG-0287-C20-01A-01R-A78V-41",
-              "HCM-SANG-0287-C20-10A-01D-A78U-36",
-              "HCM-SANG-0287-C20-85A-01D-A78U-36"
-            ],
-            "created_datetime": "2019-10-14T10:45:59.013881-05:00",
-            "diagnosis_ids": [
-              "c91c84dc-0e49-412f-9c97-8c69b195cf02"
-            ],
-            "sample_ids": [
-              "a716e59b-6876-4c5e-85c9-a53869482d95",
-              "06c2d962-ede5-4f2f-81dd-dc9253a9ddf5",
-              "459eaa9f-e97f-4008-8cf6-f6671985fd30",
-              "31866d02-8351-497c-8c73-1fc5fef584aa",
-              "38243f28-93e3-4a8a-bf92-8019a07b3bec",
-              "62ec2e41-acac-4449-b9fe-fd2c938cc811",
-              "fa630ad7-f709-43ca-bf5c-d3e83dd51779"
-            ],
-            "submitter_sample_ids": [
-              "HCM-SANG-0287-C20-01A",
-              "HCM-SANG-0287-C20-85A-01D-A80T-32",
-              "HCM-SANG-0287-C20-85A-01R-A80W-32",
-              "HCM-SANG-0287-C20-10A",
-              "HCM-SANG-0287-C20-01A-01D-A80T-32",
-              "HCM-SANG-0287-C20-85A",
-              "HCM-SANG-0287-C20-10A-01D-A80T-32"
-            ],
-            "primary_site": "Rectum",
-            "submitter_diagnosis_ids": [
-              "HCM-SANG-0287-C20_diagnosis"
-            ],
-            "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
-            "case_id": "0cf7d1fe-e9c7-4e84-9497-df13ca2ed2c9",
-            "index_date": "Sample Procurement",
-            "state": "released",
-            "portion_ids": [
-              "003cfb21-0ffb-44e2-9961-ebdd5c39f361",
-              "a7236e0c-decf-48c3-a977-d069436420b7"
-            ],
-            "submitter_portion_ids": [
-              "HCM-SANG-0287-C20-01A-01",
-              "HCM-SANG-0287-C20-10A-01"
-            ]
-          },
-          {
-            "id": "0e9a9e97-f0bf-4f4a-84cc-73eccfc627b1",
-            "lost_to_followup": null,
-            "days_to_lost_to_followup": null,
-            "disease_type": "Adenomas and Adenocarcinomas",
-            "analyte_ids": [
-              "78c3017c-6de1-4ccb-bf4d-27922b0b1f38",
-              "f877946f-8a20-40dd-b5e0-5d4a350c2528",
-              "c70fdba0-7324-4ea1-b15c-8de62a459a50",
-              "9c7ccff1-5150-46a4-94dd-a928df9db3e7",
-              "9bc12019-74f2-4784-9322-0398a2c1b3d1"
-            ],
-            "submitter_id": "HCM-CSHL-0376-D37",
-            "submitter_analyte_ids": [
-              "HCM-CSHL-0376-D37-31A-11D",
-              "HCM-CSHL-0376-D37-10A-01D",
-              "HCM-CSHL-0376-D37-31A-11R",
-              "HCM-CSHL-0376-D37-85P-01D",
-              "HCM-CSHL-0376-D37-85P-01R"
-            ],
-            "aliquot_ids": [
-              "790b5310-35ac-4382-b062-db3078e8b20a",
-              "33019b27-f718-4436-95fd-ff4d8a28c923",
-              "6c69fc6a-6606-4f79-8ad8-4bf6bfaab56d",
-              "aa16d6e6-6a3d-487f-82b1-9ffa258b851e",
-              "5facfb50-5793-43a6-be50-5c1afe446dcc"
-            ],
-            "submitter_aliquot_ids": [
-              "HCM-CSHL-0376-D37-31A-11R-A78V-41",
-              "HCM-CSHL-0376-D37-85P-01D-A78T-36",
-              "HCM-CSHL-0376-D37-31A-11D-A78T-36",
-              "HCM-CSHL-0376-D37-85P-01R-A78V-41",
-              "HCM-CSHL-0376-D37-10A-01D-A78T-36"
-            ],
-            "created_datetime": "2019-10-14T13:24:10.078043-05:00",
-            "diagnosis_ids": [
-              "9ce37f22-bbde-4447-bbf0-28e85f4f2837"
-            ],
-            "sample_ids": [
-              "ac11b2da-38a9-444e-a922-3b78f15be942",
-              "cbfc2432-c011-41ee-81fd-5efd8c0dac79",
-              "76b129b9-954b-4471-949b-e118dc778e2d"
-            ],
-            "submitter_sample_ids": [
-              "HCM-CSHL-0376-D37-10A",
-              "HCM-CSHL-0376-D37-85P",
-              "HCM-CSHL-0376-D37-31A"
-            ],
-            "primary_site": "Colon",
-            "submitter_diagnosis_ids": [
-              "HCM-CSHL-0376-D37_diagnosis"
-            ],
-            "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
-            "case_id": "0e9a9e97-f0bf-4f4a-84cc-73eccfc627b1",
-            "index_date": "Diagnosis",
-            "state": "released",
-            "portion_ids": [
-              "d0c90c2f-d6d9-4601-b2f8-6ca30b48f405",
-              "f2b394b2-35f1-492b-969e-df863a2714cc"
-            ],
-            "submitter_portion_ids": [
-              "HCM-CSHL-0376-D37-10A-01",
-              "HCM-CSHL-0376-D37-31A-11"
-            ]
-          },
-          {
-            "id": "149a8565-e0c5-4474-a693-d44f1b445c0c",
-            "lost_to_followup": "Yes",
             "slide_ids": [
-              "846c933d-4bca-4995-ac45-1caf38ee481b",
-              "4be18133-d1ff-400f-b57b-dded404249c0",
-              "8f24d92e-cfee-4cce-8eec-e4f302766255",
-              "08650e03-96e9-4213-8892-b3da6928171f"
+              "8bbddca9-7db2-4514-94c8-40c98aecff02",
+              "b4825a86-47ae-443e-9293-7892c982f4d1"
             ],
             "submitter_slide_ids": [
-              "HCM-BROD-0199-C71-01A-01-S2-HE",
-              "HCM-BROD-0199-C71-02A-01-S2-HE",
-              "HCM-BROD-0199-C71-01A-01-S1-HE",
-              "HCM-BROD-0199-C71-02A-01-S1-HE"
+              "HCM-BROD-0046-C71-02A-01-S2-HE",
+              "HCM-BROD-0046-C71-02A-01-S1-HE"
             ],
             "days_to_lost_to_followup": null,
             "disease_type": "Gliomas",
             "analyte_ids": [
-              "3b8a2f07-a6d0-4998-8fe8-c2138372e191",
-              "ae4eb402-7c13-46f0-bdf8-361c7fdc9430",
-              "b720a33e-c858-47f4-9e51-e58748004e96",
-              "fdf06863-7d14-4f79-ad2c-b46d443d235c",
-              "a4f88ff3-7c9e-4edc-808f-aa01378ec68d",
-              "cca66f05-89e0-48a7-8948-53e556fee5be",
-              "e658c087-c37d-47ac-9472-3b6b6eed7188",
-              "6be6aff1-9694-4c7f-8f43-f0f902b95849",
-              "39f9ce44-944c-49b8-b215-05b117d5e62d"
+              "5e713f2d-b3b6-40f9-80f1-fb53f87f7421",
+              "7625dfef-8aba-453b-b830-237e6110ec26",
+              "b964ed74-a27c-433c-9ad8-252ddee02b1b",
+              "0ec84cd1-1957-45b1-a4ae-fdae0615de26"
             ],
-            "submitter_id": "HCM-BROD-0199-C71",
+            "submitter_id": "HCM-BROD-0046-C71",
             "submitter_analyte_ids": [
-              "HCM-BROD-0199-C71-85A-01D",
-              "HCM-BROD-0199-C71-01A-11D",
-              "HCM-BROD-0199-C71-85S-01R",
-              "HCM-BROD-0199-C71-85A-01R",
-              "HCM-BROD-0199-C71-02A-11R",
-              "HCM-BROD-0199-C71-02A-11D",
-              "HCM-BROD-0199-C71-01A-11R",
-              "HCM-BROD-0199-C71-10A-01D",
-              "HCM-BROD-0199-C71-85R-01D"
+              "HCM-BROD-0046-C71-02A-11R",
+              "HCM-BROD-0046-C71-85A-01R",
+              "HCM-BROD-0046-C71-02A-11D",
+              "HCM-BROD-0046-C71-85B-01D"
             ],
+            "days_to_consent": null,
             "aliquot_ids": [
-              "9f18daaa-cd67-436e-85a1-1e9b3e1e2135",
-              "eff144c4-4e2a-497d-998a-5ae6bccf2576",
-              "7ec23cac-61f4-4f8f-afa7-ed8a3ca1493f",
-              "6ea15978-902f-45ba-b148-cc4247341882",
-              "529f3cbf-f65d-4a60-a562-b3fcfbd7d4c9",
-              "22542d68-476b-47fd-91da-03db887756d6",
-              "7f4e7f6b-33b0-49da-95bd-88643d5e14ff",
-              "fc0121b9-5de8-4af6-90db-b36dd8207ebf",
-              "c9dd10db-bf23-4bb2-a6db-fec1b45549c8"
+              "bf831b26-3782-410a-8634-f8401279d122",
+              "6349f05b-3c22-4246-9cac-91e7ce73e203",
+              "f95a9257-51af-4a94-a892-6a29a91d8528",
+              "5c0f2139-0285-4ee4-9fb6-f7d696e9c372"
             ],
             "submitter_aliquot_ids": [
-              "HCM-BROD-0199-C71-85R-01D-A80U-36",
-              "HCM-BROD-0199-C71-02A-11R-A80V-41",
-              "HCM-BROD-0199-C71-02A-11D-A80U-36",
-              "HCM-BROD-0199-C71-01A-11D-A786-36",
-              "HCM-BROD-0199-C71-10A-01D-A786-36",
-              "HCM-BROD-0199-C71-01A-11R-A787-41",
-              "HCM-BROD-0199-C71-85A-01D-A786-36",
-              "HCM-BROD-0199-C71-85S-01R-A80V-41",
-              "HCM-BROD-0199-C71-85A-01R-A787-41"
+              "HCM-BROD-0046-C71-02A-11D-A78T-36",
+              "HCM-BROD-0046-C71-02A-11R-A78V-41",
+              "HCM-BROD-0046-C71-85A-01R-A78V-41",
+              "HCM-BROD-0046-C71-85B-01D-A78T-36"
             ],
-            "created_datetime": "2019-04-04T15:00:32.807421-05:00",
+            "created_datetime": "2019-04-04T14:43:01.620260-05:00",
             "diagnosis_ids": [
-              "df0230e6-d07c-4814-9aee-5be560d1ce58",
-              "2d72ecab-4038-4ef7-b921-79b88ad62722"
+              "bbe94910-fbe5-49bf-b984-2d2021bc1b30"
             ],
             "sample_ids": [
-              "b5919dd1-039e-4ab4-b6d5-37b9d483893f",
-              "769c5e1b-89e3-431c-9420-31de5efe5a22",
-              "5e0faf77-f1b3-4b1a-8b6a-8066270eddb4",
-              "ee0e94ad-b5b0-4ad6-912c-c4010f1a1d26",
-              "600a5b42-f871-47a2-8124-68184edf10bd",
-              "a1dbbc0c-173c-4455-a780-8682dd2e258a"
+              "7cd03d20-6709-4f9e-9e02-1b68b8259050",
+              "05f85ea2-6b34-40e6-8350-b344c4ac1369",
+              "02312ea6-0a03-429b-a4bb-29c636e89397"
             ],
+            "consent_type": null,
             "submitter_sample_ids": [
-              "HCM-BROD-0199-C71-85R",
-              "HCM-BROD-0199-C71-02A",
-              "HCM-BROD-0199-C71-85S",
-              "HCM-BROD-0199-C71-85A",
-              "HCM-BROD-0199-C71-10A",
-              "HCM-BROD-0199-C71-01A"
+              "HCM-BROD-0046-C71-85A",
+              "HCM-BROD-0046-C71-02A",
+              "HCM-BROD-0046-C71-85B"
             ],
             "primary_site": "Brain",
             "submitter_diagnosis_ids": [
-              "HCM-BROD-0199-C71_diagnosis",
-              "HCM-BROD-0199-C71_diagnosis2"
+              "HCM-BROD-0046-C71_diagnosis"
             ],
-            "updated_datetime": "2021-01-06T22:55:10.531130-06:00",
-            "case_id": "149a8565-e0c5-4474-a693-d44f1b445c0c",
+            "updated_datetime": "2025-03-31T16:34:59.906497-05:00",
+            "case_id": "35a8dada-9a8b-4dd7-8565-e5e2c1e69958",
             "index_date": "Diagnosis",
             "state": "released",
             "portion_ids": [
-              "9dccf7ac-58a0-4c9e-9fb6-4ead8c37d48b",
-              "5afaa056-b09e-4328-ae5b-feb70faa3595",
-              "77827fa6-18a9-4e1a-b49f-800cec351fa8"
+              "a9c741e5-6b80-4cdc-8da4-5d7f89aec18a"
             ],
             "submitter_portion_ids": [
-              "HCM-BROD-0199-C71-10A-01",
-              "HCM-BROD-0199-C71-02A-11",
-              "HCM-BROD-0199-C71-01A-11"
+              "HCM-BROD-0046-C71-02A-11"
             ]
           },
           {
-            "id": "19b1e69a-355a-4dd7-9c56-d701f6c2c5a0",
-            "lost_to_followup": null,
-            "days_to_lost_to_followup": null,
+            "id": "14d24b35-141b-4743-b4a9-321e2393bb54",
+            "slide_ids": [
+              "df3d99b3-27fd-44b3-a4dd-c0a7a3125b66",
+              "7a634416-9cf2-45a9-8910-6a3db8d0a11a"
+            ],
+            "submitter_slide_ids": [
+              "HCM-CSHL-0625-C18-06A-01-S2-HE",
+              "HCM-CSHL-0625-C18-06A-01-S1-HE"
+            ],
             "disease_type": "Adenomas and Adenocarcinomas",
             "analyte_ids": [
-              "181d5e6e-026d-4983-97e8-f4d9e28a0cfe",
-              "293683aa-f2ef-4d14-8ec7-681c870d3b71",
-              "c1f6530c-004c-4b10-bae5-a571542aabd2",
-              "2140e379-dd8b-4440-a626-bb0e01f8fc00",
-              "4d337e44-6468-43b8-bf2f-4301750dab99"
+              "36d574ad-b36c-4691-8550-ffd332daf891",
+              "5634ce55-23f6-4956-afe4-ff8b7def6f29",
+              "dbc44a11-fcb6-481b-8d37-7c514c9738b8",
+              "9467a0c7-96f7-4ebd-a617-94d06502d0a5",
+              "7b547352-46f8-45b9-833c-df7144a99dbc"
             ],
-            "submitter_id": "HCM-SANG-0299-C15",
+            "submitter_id": "HCM-CSHL-0625-C18",
             "submitter_analyte_ids": [
-              "HCM-SANG-0299-C15-10B-01D",
-              "HCM-SANG-0299-C15-85X-01R",
-              "HCM-SANG-0299-C15-85A-01R",
-              "HCM-SANG-0299-C15-85X-01D",
-              "HCM-SANG-0299-C15-85A-01D"
+              "HCM-CSHL-0625-C18-06A-11R",
+              "HCM-CSHL-0625-C18-10A-01D",
+              "HCM-CSHL-0625-C18-85M-01R",
+              "HCM-CSHL-0625-C18-85M-01D",
+              "HCM-CSHL-0625-C18-06A-11D"
             ],
             "aliquot_ids": [
-              "37fee31c-8669-4057-ae95-424586fa2a05",
-              "d17fd7af-fd14-4cb7-a6c1-c23339589288",
-              "65b7ffa3-0f1f-4918-a75f-2343720fe40c",
-              "a331201c-3aef-4eec-83d5-d38f4211c1b1",
-              "3ef40a4d-21cd-4be4-8c57-cba30c8e0778",
-              "b8af2a87-5b55-4c73-88f1-90ce5e1d05f5",
-              "a1988273-c9f8-4cd1-b1a6-5daa2c7a3e51",
-              "b535f87b-0a61-49bd-828b-bb5e3c11f2f7",
-              "3bb67aa8-5155-425e-9afc-9aca5120b0f0",
-              "fa20b306-a835-46d8-ab03-f8ea0b585381",
-              "65ec4e30-e782-4b6f-b985-33e9c7e72a0a"
+              "7600c987-7246-4777-bc96-4eeb308b0c60",
+              "325f86ae-e738-4d93-92b1-53b00a428e5b",
+              "ee960355-6dc7-4807-aabd-7a130000262d",
+              "c26e7443-e3a5-4018-863a-994e4ebeb132",
+              "8a222af8-5fc8-4eb8-a50e-dd3aa42b9b40"
             ],
             "submitter_aliquot_ids": [
-              "HCM-SANG-0299-C15-85B-01D-A80T-32-aliquot",
-              "HCM-SANG-0299-C15-10A-01D-A80T-32-aliquot",
-              "HCM-SANG-0299-C15-85A-01R-A78V-41",
-              "HCM-SANG-0299-C15-85A-01D-A78U-36",
-              "HCM-SANG-0299-C15-85A-01R-A80W-32-aliquot",
-              "HCM-SANG-0299-C15-85X-01D-A78U-36",
-              "HCM-SANG-0299-C15-85X-01R-A78V-41",
-              "HCM-SANG-0299-C15-85A-01D-A80T-32-aliquot",
-              "HCM-SANG-0299-C15-01A-01D-A80T-32-aliquot",
-              "HCM-SANG-0299-C15-85B-01R-A80W-32-aliquot",
-              "HCM-SANG-0299-C15-10B-01D-A78U-36"
+              "HCM-CSHL-0625-C18-85M-01D-A85K-36",
+              "HCM-CSHL-0625-C18-10A-01D-A85K-36",
+              "HCM-CSHL-0625-C18-06A-11R-A85M-41",
+              "HCM-CSHL-0625-C18-06A-11D-A85K-36",
+              "HCM-CSHL-0625-C18-85M-01R-A85M-41"
             ],
-            "created_datetime": "2019-10-14T10:46:36.257369-05:00",
+            "created_datetime": "2021-07-06T12:40:12.582209-05:00",
             "diagnosis_ids": [
-              "7c6aa4ce-6661-4491-a827-c0a8045743a6",
-              "c1a6f70f-b871-4b4e-a292-aef67c2d4776"
+              "dceb4b03-d5e1-4097-a188-e1fa3199f844",
+              "ddc2cd05-9276-45b7-a629-974b02869272"
             ],
             "sample_ids": [
-              "c56f3f94-deda-4d21-8f8e-658108995dfa",
-              "ce46b9f4-5244-432d-aa87-026e0a27d71a",
-              "cf134dfb-5126-4bee-bcab-39d584335a21",
-              "34e0d6ee-97f5-420f-9b34-4784098125f7",
-              "ac8476c1-53bf-43b5-8695-db441ed1a720",
-              "9000b366-a14b-44bc-a782-484e09765b2d",
-              "8541bc01-57e6-4bf7-a42e-da1c8e790633",
-              "277d7ed9-4e6a-429b-8f4e-438ff0d2ba7a",
-              "d12d9184-5317-4730-af2e-a8428456a2a7"
+              "e2e51bb0-fa8c-4c50-b235-318c528436a3",
+              "66df9961-1439-4f0c-ba39-b49652dcdeae",
+              "1cc415d6-250f-4edf-952c-aa9fbfa5a52f"
             ],
             "submitter_sample_ids": [
-              "HCM-SANG-0299-C15-85X",
-              "HCM-SANG-0299-C15-85B-01D-A80T-32",
-              "HCM-SANG-0299-C15-85A-01R-A80W-32",
-              "HCM-SANG-0299-C15-10B",
-              "HCM-SANG-0299-C15-01A-01D-A80T-32",
-              "HCM-SANG-0299-C15-85A",
-              "HCM-SANG-0299-C15-85A-01D-A80T-32",
-              "HCM-SANG-0299-C15-85B-01R-A80W-32",
-              "HCM-SANG-0299-C15-10A-01D-A80T-32"
+              "HCM-CSHL-0625-C18-10A",
+              "HCM-CSHL-0625-C18-06A",
+              "HCM-CSHL-0625-C18-85M"
             ],
-            "primary_site": "Esophagus",
+            "primary_site": "Colon",
             "submitter_diagnosis_ids": [
-              "HCM-SANG-0299-C15_diagnosis2",
-              "HCM-SANG-0299-C15_diagnosis"
+              "HCM-CSHL-0625-C18_diagnosis",
+              "HCM-CSHL-0625-C18_diagnosis2"
             ],
-            "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
-            "case_id": "19b1e69a-355a-4dd7-9c56-d701f6c2c5a0",
-            "index_date": "Sample Procurement",
+            "updated_datetime": "2025-04-07T17:13:09.336794-05:00",
+            "case_id": "14d24b35-141b-4743-b4a9-321e2393bb54",
+            "index_date": "Diagnosis",
             "state": "released",
             "portion_ids": [
-              "b8192c57-9cda-4dca-a590-1e13beadf2a0"
+              "9b52cede-7745-4540-ab0e-998c1d2976fd",
+              "34fe335e-0038-4141-962f-4eb00e69f875"
             ],
             "submitter_portion_ids": [
-              "HCM-SANG-0299-C15-10B-01"
+              "HCM-CSHL-0625-C18-10A-01",
+              "HCM-CSHL-0625-C18-06A-11"
             ]
           },
           {
-            "id": "19f1d344-4c14-4733-abbd-c2db6737e210",
-            "lost_to_followup": null,
-            "days_to_lost_to_followup": null,
-            "disease_type": "Ductal and Lobular Neoplasms",
-            "analyte_ids": [
-              "a21d5f05-af57-41bf-ab60-32d2c869611b",
-              "696f4b03-5f0d-4eaa-975d-a9feb64dae07",
-              "c8d4fb23-c55d-4bb6-bd3d-fc1f159d7a33",
-              "5db09eb8-fecc-433f-aa34-a12a7c9333dd",
-              "51598aba-be8e-42a0-bf6c-aca34776fc1f"
+            "id": "157d4813-8461-4593-8232-863c7ace4b35",
+            "slide_ids": [
+              "76e8580c-a519-426c-a98d-84639a318cc9",
+              "a68a9731-d510-4b80-963c-0e53a287218e",
+              "d505d837-1e05-4b2e-85f1-232047339330",
+              "262bd51e-189b-4250-9838-de97f462f762"
             ],
-            "submitter_id": "HCM-CSHL-0081-C25",
+            "submitter_slide_ids": [
+              "HCM-CSHL-0860-C18-06A-01-S2-HE",
+              "HCM-CSHL-0860-C18-11A-S1-HE",
+              "HCM-CSHL-0860-C18-11A-S2-HE",
+              "HCM-CSHL-0860-C18-06A-01-S1-HE"
+            ],
+            "disease_type": "Adenomas and Adenocarcinomas",
+            "analyte_ids": [
+              "486be753-7b36-4b12-ab09-859006718773",
+              "4f49f92d-aaaa-48d0-b609-83c9a294784d",
+              "84834dac-99ee-4803-8709-fcfb79a49be4",
+              "e08c3742-2db9-4278-bbbf-ef78cb979047",
+              "70d65521-7e4e-4001-8806-a7f0415a656e"
+            ],
+            "submitter_id": "HCM-CSHL-0860-C18",
             "submitter_analyte_ids": [
-              "HCM-CSHL-0081-C25-11A-11D",
-              "HCM-CSHL-0081-C25-85A-01R",
-              "HCM-CSHL-0081-C25-85B-01D",
-              "HCM-CSHL-0081-C25-01A-11R",
-              "HCM-CSHL-0081-C25-01A-11D"
+              "HCM-CSHL-0860-C18-85M-01D",
+              "HCM-CSHL-0860-C18-06A-11R",
+              "HCM-CSHL-0860-C18-06A-11D",
+              "HCM-CSHL-0860-C18-85M-01R",
+              "HCM-CSHL-0860-C18-11A-01D"
             ],
             "aliquot_ids": [
-              "0a65e1bd-6af3-44ba-924c-193eb8e099d6",
-              "61112c39-c838-4f84-89c7-a33bfe5dea88",
-              "25cd08c3-09a9-406d-8ec3-ab4946224cf1",
-              "973d4fa3-4fa7-4ff9-8176-cc51c53b7079",
-              "9aa21acf-1e24-4b7a-a3c1-73354bdd81b6"
+              "eb040f56-135a-430b-bdbd-c45372f4d7fc",
+              "20ac2691-66ad-4978-b56a-0ffb7484a4de",
+              "f2ec41de-5a0b-40d0-a5e9-ce624102976b",
+              "2027c333-dc19-4a63-bf94-8e7b9078ec60",
+              "c4a846b4-2194-4280-9364-d33e8c6fb38e"
             ],
             "submitter_aliquot_ids": [
-              "HCM-CSHL-0081-C25-11A-11D-A78M-36",
-              "HCM-CSHL-0081-C25-01A-11R-A78N-41",
-              "HCM-CSHL-0081-C25-85B-01D-A78M-36",
-              "HCM-CSHL-0081-C25-01A-11D-A78M-36",
-              "HCM-CSHL-0081-C25-85A-01R-A78N-41"
+              "HCM-CSHL-0860-C18-06A-11R-A885-41",
+              "HCM-CSHL-0860-C18-85M-01R-A885-41",
+              "HCM-CSHL-0860-C18-11A-01D-A881-36",
+              "HCM-CSHL-0860-C18-06A-11D-A881-36",
+              "HCM-CSHL-0860-C18-85M-01D-A881-36"
             ],
-            "created_datetime": "2019-09-19T08:58:31.776805-05:00",
+            "created_datetime": "2021-11-10T16:06:04.214162-06:00",
             "diagnosis_ids": [
-              "c1cca3a7-e0ac-40a1-9db7-6902b48d3c62"
+              "43034527-795f-4d93-8ce0-777dd3947050",
+              "de5b2d58-3b24-4e7a-bc6f-8558fc7ec068"
             ],
             "sample_ids": [
-              "d9f23187-9a29-426a-9ead-4bb3a2ce6cf9",
-              "3709004e-b04d-4473-aa29-8dd84176d17d",
-              "adcc54e3-074b-4ca6-b179-0a5df8efeb36",
-              "05478d15-885a-4c44-a46a-81bbe6c9ee11"
+              "205029b5-42b6-4adf-b4f0-857b7fc22fe0",
+              "3f3e66ab-449d-445b-9b0d-3efe4407f2a7",
+              "e68fe9c2-e70b-4c34-89e9-fd11bf608ac7"
             ],
             "submitter_sample_ids": [
-              "HCM-CSHL-0081-C25-85B",
-              "HCM-CSHL-0081-C25-01A",
-              "HCM-CSHL-0081-C25-85A",
-              "HCM-CSHL-0081-C25-11A"
+              "HCM-CSHL-0860-C18-06A",
+              "HCM-CSHL-0860-C18-11A",
+              "HCM-CSHL-0860-C18-85M"
+            ],
+            "primary_site": "Colon",
+            "submitter_diagnosis_ids": [
+              "HCM-CSHL-0860-C18_diagnosis2",
+              "HCM-CSHL-0860-C18_diagnosis"
+            ],
+            "updated_datetime": "2025-04-07T17:13:09.336794-05:00",
+            "case_id": "157d4813-8461-4593-8232-863c7ace4b35",
+            "index_date": "Diagnosis",
+            "state": "released",
+            "portion_ids": [
+              "a2757cc9-313c-43b4-94b6-2d5b1f253672",
+              "91801435-f54e-43d5-8c35-1f0560bfc49e"
+            ],
+            "submitter_portion_ids": [
+              "HCM-CSHL-0860-C18-11A-01",
+              "HCM-CSHL-0860-C18-06A-11"
+            ]
+          },
+          {
+            "id": "745d26a1-1072-4ac0-b168-03f4287c32b0",
+            "slide_ids": [
+              "939f1bd4-fc3b-4963-9306-5edbe819c855",
+              "f435a03e-0517-40df-b540-17af191a7622"
+            ],
+            "submitter_slide_ids": [
+              "HCM-BROD-0644-C25-06B-01-S1-HE",
+              "HCM-BROD-0644-C25-06B-01-S2-HE"
+            ],
+            "disease_type": "Epithelial Neoplasms, NOS",
+            "analyte_ids": [
+              "5f8f96b4-14bf-44b1-8899-6623bdef942f",
+              "3cf3e3eb-0577-46aa-a82d-890522427021",
+              "469bec52-e0c3-4333-948f-9a2d6a784599",
+              "ec0d7a33-f4ef-4b31-8485-264bcf4677af",
+              "007e99c8-d719-4b0e-84e0-2d8482a31159"
+            ],
+            "submitter_id": "HCM-BROD-0644-C25",
+            "submitter_analyte_ids": [
+              "HCM-BROD-0644-C25-85M-01R",
+              "HCM-BROD-0644-C25-06B-01D",
+              "HCM-BROD-0644-C25-06B-01R",
+              "HCM-BROD-0644-C25-10A-01D",
+              "HCM-BROD-0644-C25-85M-01D"
+            ],
+            "aliquot_ids": [
+              "e232849a-087b-4e98-883b-c8346527d430",
+              "b922a932-004e-4c64-bb45-17c5a4f82784",
+              "f356b6fb-9902-4420-a64a-1aa6a8eda705",
+              "1ec464bb-2abd-4931-92fb-e33716f9d128",
+              "3f0a435a-7475-44e5-8779-6777a44eae60"
+            ],
+            "submitter_aliquot_ids": [
+              "HCM-BROD-0644-C25-85M-01D-A83U-36",
+              "HCM-BROD-0644-C25-06B-01R-A83V-41",
+              "HCM-BROD-0644-C25-85M-01R-A83V-41",
+              "HCM-BROD-0644-C25-10A-01D-A83U-36",
+              "HCM-BROD-0644-C25-06B-01D-A83U-36"
+            ],
+            "created_datetime": "2020-10-08T14:49:03.103433-05:00",
+            "diagnosis_ids": [
+              "87084624-73bb-47ea-9ae3-380158c67ac0",
+              "c4383dd9-ba1a-480d-8fd1-6cda99501eb1"
+            ],
+            "sample_ids": [
+              "23af2ae5-4b4c-4641-a182-e737c7a70ab9",
+              "db97e33c-8e35-4905-ab27-b209383fbfc2",
+              "517daee3-c532-483a-bd8a-e6c1099fe71c"
+            ],
+            "submitter_sample_ids": [
+              "HCM-BROD-0644-C25-10A",
+              "HCM-BROD-0644-C25-06B",
+              "HCM-BROD-0644-C25-85M"
             ],
             "primary_site": "Pancreas",
             "submitter_diagnosis_ids": [
-              "HCM-CSHL-0081-C25_diagnosis"
+              "HCM-BROD-0644-C25_diagnosis",
+              "HCM-BROD-0644-C25_diagnosis2"
             ],
-            "updated_datetime": "2023-02-22T07:39:25.979291-06:00",
-            "case_id": "19f1d344-4c14-4733-abbd-c2db6737e210",
+            "updated_datetime": "2025-03-31T16:34:59.906497-05:00",
+            "case_id": "745d26a1-1072-4ac0-b168-03f4287c32b0",
             "index_date": "Diagnosis",
             "state": "released",
             "portion_ids": [
-              "d9588542-d7ef-413e-900c-3f816b583525",
-              "b77573f1-e6a3-43c1-a56d-a207c39e18c4"
+              "0d8a3c18-7455-4a89-94af-f136c4b0e581",
+              "2863a9c7-06fc-4333-9057-c559bc6ceb8b"
             ],
             "submitter_portion_ids": [
-              "HCM-CSHL-0081-C25-01A-11",
-              "HCM-CSHL-0081-C25-11A-11"
+              "HCM-BROD-0644-C25-06B-01",
+              "HCM-BROD-0644-C25-10A-01"
             ]
           }
         ],
         "pagination": {
           "count": 10,
-          "total": 40232,
+          "total": 23793,
           "size": 10,
           "from": 0,
-          "sort": "",
+          "sort": "None",
           "page": 1,
-          "pages": 4024
+          "pages": 2380
         }
       },
       "warnings": {}

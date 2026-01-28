@@ -281,7 +281,7 @@ filters = {
     {
       "op": "in",
       "content": {
-        "field": "cases.demographic.gender",
+        "field": "cases.demographic.sex_at_birth",
         "value": [
           "female"
         ]
