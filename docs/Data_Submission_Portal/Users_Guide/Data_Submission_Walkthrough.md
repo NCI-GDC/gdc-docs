@@ -125,7 +125,7 @@ Typically, a submission project will include additional information about a `cas
 
 ### Clinical Data Requirements
 
-For the GDC to release a project there is a minimum number of clinical properties that are required.  Minimal GDC requirements for each project includes age, gender, and diagnosis information.  Other [requirements](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-entity-list&anchor=clinical) may be added when the submitter is approved for submission to the GDC.
+For the GDC to release a project there is a minimum number of clinical properties that are required.  Minimal GDC requirements for each project includes age, sex, and diagnosis information.  Other [requirements](https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-entity-list&anchor=clinical) may be added when the submitter is approved for submission to the GDC.
 
 [![GDC Data Model Clinical](images/GDC-Data-Model-Clinical.png)](images/GDC-Data-Model-Clinical.png "Click to see the full image.")
 
@@ -138,7 +138,7 @@ Submitting a [__Demographic__](https://docs.gdc.cancer.gov/Data_Dictionary/viewe
 * __`submitter_id`:__ A unique key to identify the `demographic` entity.
 * __`cases.submitter_id`:__ The unique key that was used for the `case` that links the `demographic` entity to the `case`.
 * __`ethnicity`:__ An individual's self-described social and cultural grouping, specifically whether an individual describes themselves as Hispanic or Latino. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.
-* __`gender`:__ Text designations that identify gender. Gender is described as the assemblage of properties that distinguish people on the basis of their societal roles.
+* __`sex_at_birth`:__ A textual description of a person's sex at birth.
 * __`race`:__ An arbitrary classification of a taxonomic group that is a division of a species. It usually arises as a consequence of geographical isolation within a species and is characterized by shared heredity, physical attributes and behavior, and in the case of humans, by common history, nationality, or geographic distribution. The provided values are based on the categories defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.
 
 === "JSON"
@@ -151,7 +151,7 @@ Submitting a [__Demographic__](https://docs.gdc.cancer.gov/Data_Dictionary/viewe
             "submitter_id": "PROJECT-INTERNAL-000055"
         },
         "ethnicity": "not hispanic or latino",
-        "gender": "male",
+        "sex_at_birth": "male",
         "race": "asian",
     }
     ```
@@ -159,7 +159,7 @@ Submitting a [__Demographic__](https://docs.gdc.cancer.gov/Data_Dictionary/viewe
 === "TSV"
 
     ```TSV
-    type	cases.submitter_id	ethnicity	gender	race
+    type	cases.submitter_id	ethnicity	sex_at_birth	race
     demographic	PROJECT-INTERNAL-000055	not hispanic or latino	male	asian
     ```
 

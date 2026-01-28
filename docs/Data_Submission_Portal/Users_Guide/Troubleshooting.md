@@ -178,7 +178,7 @@ Example 2:
     { 
       "submitter_id": "demographic_test",
       "ethnicity": "not reported",
-      "gender": "female", 
+      "sex_at_birth": "female", 
       "race": "black or african american", 
       "type": "demographic", 
       "cases": {
@@ -243,7 +243,7 @@ Example 2:
     { 
       "submitter_id": "demographic_test",
       "ethnicity": "not reported",
-      "gender": "female", 
+      "sex_at_birth": "female", 
       "race": "black or african american", 
       "type": "demographic", 
       "cases": {
