@@ -253,7 +253,7 @@ base-pair quality of each nucleotide in each read is not displayed as
 each read occupies a very small area on the screen. Also the reference
 sequence at the top is not displayed. Only reads which contain big
 insertions/deletions/softclips or are discordant are represented by
-their respective colors Also see the section on color codes of various reads.
+their respective colors. Also see the section on color codes of various reads.
 
 [![Overview Level](./images/bam1.png)](./images/bam1.png "Click to see the full image.")
 

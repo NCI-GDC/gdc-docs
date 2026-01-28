@@ -198,7 +198,8 @@ A pop-up window appears with the entire list of variants, as shown below.
 
 [![List of Variants](images/lollipop13.png)](images/lollipop13.png "Click to see the full image.")
 
-Lollipop plot limits up to 2000 variants. When this limit is exceeded, the numer of variants label is in red; click the label to see an alert message.
+Lollipop plot limits up to 2000 variants. When this limit is exceeded, the number of variants label is in red; click the label to see an alert message.
+
 [![Exceeds limit](images/lollipop13.5.png)](images/lollipop13.5.png "Click to see the full image.")
 
 Click on the variant of interest and a new annotation table appears. From the table, view various associated features per sample such as: Disease type, Primary site, Project id, Gender, Race, Ethnicity, and Tumor DNA Mutant Allele Frequency (MAF). In the figure below, 333 occurrences are shown for the G12D variant, which represents a missense mutation at chromosome chr12:25245350 C>T.  
