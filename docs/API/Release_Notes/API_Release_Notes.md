@@ -50,7 +50,6 @@
 ### New Features and Changes
 
 * Legacy clinical and sample properties that were removed from the GDC Dictionary in the prior release are now also removed from the API and no longer accessible or visible in the portal. <!-- DEV-3629 -->
-* Improved logging for gdcapi download events. <!-- DEV-3601 -->
 * Integrated gdcdictionary 3.4.4 across dependent services to align the platform with the latest dictionary release. <!-- DEV-3600 -->
 
 ### Bugs Fixed Since Last Release
