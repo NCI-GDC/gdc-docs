@@ -253,7 +253,7 @@ base-pair quality of each nucleotide in each read is not displayed as
 each read occupies a very small area on the screen. Also the reference
 sequence at the top is not displayed. Only reads which contain big
 insertions/deletions/softclips or are discordant are represented by
-their respective colors. Also see the section on color codes of various reads.
+their respective colors. Also see the section on [color codes of reads](#color-coding-of-reads).
 
 [![Overview Level](./images/bam1.png)](./images/bam1.png "Click to see the full image.")
 
@@ -425,7 +425,7 @@ Above figure describes the methodology for classification of reads into Referenc
 
 ### Ambiguous Reads
 
-In certain indels such as example below, certain reads in the variant region can have equal similarity towards both the reference and alternative allele. A large number of ambiguous reads are on the left-side of the indel (Figure a below) because the deletion starts with the sequence GCAGCGC which is also found in the right flanking sequence resulting in equal similarity to both reference and alternative alleles for any read ending within this part of the indel region (as shown in figure below). On viewing the read alignment for the ambiguous read (Figure b below) through the read information panel, it is observed that the read has equal similarity to both reference and alternative alleles. Nucleotides highlighted in red indicate those which are part of reference/alternative allele.
+In certain indels such as example below, certain reads in the variant region can have equal similarity towards both the reference and alternative allele. A large number of ambiguous reads are on the left-side of the indel (Figure a below) because the deletion starts with the sequence GCAGCGC which is also found in the right flanking sequence resulting in equal similarity to both reference and alternative alleles for any read ending within this part of the indel region. On viewing the read alignment for the ambiguous read (Figure b below) through the read information panel, it is observed that the read has equal similarity to both reference and alternative alleles. Nucleotides highlighted in red indicate those which are part of reference/alternative allele.
 
 [![Ambiguous Reads](./images/ambig_reads.png)](./images/ambig_reads.png "Click to see the full image.")
 
