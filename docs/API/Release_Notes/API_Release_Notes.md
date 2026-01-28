@@ -54,7 +54,7 @@
 
 ### Bugs Fixed Since Last Release
 
-* The GraphQL API now returns available_variation_data as a proper list of strings instead of a literal string, resolving type errors introduced by the graphene upgrade. <!-- DEV-3756 -->
+* The GraphQL API now returns `available_variation_data` as a proper list of strings (instead of a literal string) for fields nested within an `occurrence` node, resolving type errors introduced by the graphene upgrade. The root-level `explore.cases.hits.edges.node.available_variation_data` field remains unchanged as a standard list of strings. <!-- DEV-3756 -->
 
 ### Known Issues and Workarounds
 
