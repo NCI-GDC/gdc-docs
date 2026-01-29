@@ -908,7 +908,7 @@ __Example 2:__ A user is interested in the first cnv occurrence (`f8467f0a-300b-
 === "Shell"
 
     ```Shell
-    curl 'https://api.gdc.cancer.gov/cnv_occurrences/f8467f0a-300b-5744-b994-16b33e7bb44b?pretty=true&expand=cnv,case,case.diagnoses'
+    curl 'https://api.gdc.cancer.gov/cnv_occurrences/f8467f0a-300b-5744-b994-16b33e7bb44b?pretty=true&expand=cnv,case,case.exposures,case.diagnoses'
     ```
 
 === "Json"
@@ -929,6 +929,17 @@ __Example 2:__ A user is interested in the first cnv occurrence (`f8467f0a-300b-
         }, 
         "cnv_occurrence_id": "f8467f0a-300b-5744-b994-16b33e7bb44b", 
         "case": {
+          "exposures": [
+            {
+              "tobacco_smoking_quit_year": 1997, 
+              "tobacco_smoking_status": "Current Reformed Smoker for < or = 15 yrs", 
+              "exposure_id": "0629d822-de45-5e4d-bec6-5bad816f91db", 
+              "tobacco_smoking_onset_year": 1946, 
+              "submitter_id": "TCGA-39-5031_exposure", 
+              "state": "released", 
+              "pack_years_smoked": 60.0
+            }
+          ], 
           "lost_to_followup": "No", 
           "primary_site": "Bronchus and lung", 
           "disease_type": "Squamous Cell Neoplasms", 

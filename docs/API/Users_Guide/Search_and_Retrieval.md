@@ -1072,19 +1072,19 @@ The following `filters` query operators are supported by the GDC API:
 
 | Operator | Description                                      | Number of Operands | Logic example                                                |
 |----------|--------------------------------------------------|--------------------|--------------------------------------------------------------|
-| =        | equals (string or number)                        | one                | sex_at_birth = "female"                                            |
+| =        | equals (string or number)                        | one                | sex_at_birth = "female"                                      |
 | !=       | does not equal (string or number)                | one                | project_id != "TARGET-AML"                                   |
 | <        | less than (number)                               | one                | age at diagnosis < 90y                                       |
 | <=       | less than or equal (number)                      | one                | age at diagnosis <= 17                                       |
 | >        | greater than (number)                            | one                | age at diagnosis > 50                                        |
 | >=       | greater than or equal (number)                   | one                | age at diagnosis >= 18                                       |
-| is       | is (missing)                                     | one                | sex_at_birth is missing                                            |
+| is       | is (missing)                                     | one                | sex_at_birth is missing                                      |
 | not      | not (missing)                                    | one                | race not missing                                             |
 | in       | matches a string or number in (a list)           | multiple           | primary_site in [Brain, Lung]                                |
 | exclude  | removes results that only match the query value in the specified field | multiple           | experimental_strategy exclude [WXS, WGS, "Genotyping array"] |
 |excludeifany| removes results that match at least one instance of the query value in the specified field | multiple           | experimental_strategy excludeifany [WXS, WGS, "Genotyping array"] |
-| and      | (operation1) and (operation2)                    | multiple           | {primary_site in [Brain, Lung]} and {sex_at_birth = "female"}      |
-| or       | (operation1) or (operation2)                     | multiple           | {project_id != "TARGET-AML"} or {age at diagnosis < 90y}     |
+| and      | (operation1) and (operation2)                    | multiple           | (primary_site in [Brain, Lung]) and (sex_at_birth = "female") |
+| or       | (operation1) or (operation2)                     | multiple           | (project_id != "TARGET-AML") or (age at diagnosis < 90y)     |
 
 The `field` operand specifies a field that corresponds to a property defined in the [GDC Data Dictionary](../../Data_Dictionary/viewer.md). A list of supported fields is provided in [Appendix A](Appendix_A_Available_Fields.md); the list can also be accessed programmatically at the [_mapping endpoint](#_mapping-endpoint).
 
