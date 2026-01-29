@@ -178,7 +178,7 @@ For any submitter that is uploading scRNA-Seq data, please follow these guidelin
 
 ## Clinical Data Requirements
 
-For the GDC to release a project there is a minimum number of clinical properties that are required.  Minimal cross-project GDC requirements include age, gender, and diagnosis information.  Other requirements may be added when the submitter is approved for submission to the GDC.
+For the GDC to release a project there is a minimum number of clinical properties that are required.  Minimal cross-project GDC requirements include age, sex, and diagnosis information.  Other requirements may be added when the submitter is approved for submission to the GDC.
 
 ## miRNA Submission
 
