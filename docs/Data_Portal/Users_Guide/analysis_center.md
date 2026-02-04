@@ -31,6 +31,7 @@ The 'Analysis Tools' section contains the tools available for specific analyses 
 * [Cohort Comparison](cohort_comparison.md)
 * [Cohort Level MAF](cohortMAF.md)
 * [Copy Number Segment](CNVtool.md)
+* [Correlation Plot](correlation.md)
 * [Gene Expression Clustering](gene_expression_clustering.md)
 * [Mutation Frequency](mutation_frequency.md)
 * [OncoMatrix](oncomatrix.md)
