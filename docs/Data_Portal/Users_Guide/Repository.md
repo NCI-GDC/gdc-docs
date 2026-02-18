@@ -134,6 +134,11 @@ Additional data can be downloaded from the Cart page by using the buttons availa
 * __Biospecimen:__ TSV / Biospecimen: JSON - This includes all biospecimen information from the cases that are associated with the files (available as TSV or JSON).
 * __Clinical:__ TSV / Clinical: JSON - This includes all clinical information from the cases that are associated with the files (available as TSV or JSON)
 * __Sample Sheet:__ A TSV with commonly-used elements associated with each file, such as tissue type and tumor descriptor.
+  - Sample ID: A unique identifier assigned to a sample, often containing information about the sample's origin and type
+  - Tissue Type: Indicates whether or not the tissue sample was normal or tumorous.
+  - Tumor Descriptor: A descriptor indicating the clinical status of the tumor sample (e.g., primary, metastatic) or specifying when this field is not applicable, such as for normal samples.
+  - Specimen Type: Describes the kind of biological material that was collected and processed for the sample.
+  - Preservation Method: The method used to preserve the sample after collection. (edited)
 * __Metadata:__ This includes all of the metadata associated with each and every file in the cart.  Note that this file is only available in JSON format and may take several minutes to download.
 
 ## File Summary Page ##
