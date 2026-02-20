@@ -3,7 +3,7 @@
 
 | Version | Date |
 |---|---|
-| [v8.2.0](API_Release_Notes.md#v820) | February 10, 2026 <!-- need to update -->|
+| [v8.3.0](API_Release_Notes.md#v830) | March 6, 2026 <!-- need to update -->|
 | [v7.9.1](API_Release_Notes.md#v791) | May 20, 2025 |
 | [v7.7.0](API_Release_Notes.md#v770) | November 21, 2024 |
 | [v7.5.1](API_Release_Notes.md#v751) | September 30, 2024 |
@@ -42,19 +42,19 @@
 | [v1.1.0](API_Release_Notes.md#v110) | May 25, 2016 |
 | [v1.0.1](API_Release_Notes.md#v101) | May 16, 2016 |
 
-## v8.2.0 <!--REQ-498--> <!-- need to update version -->
+## v8.3.0 <!--REQ-498--> <!-- need to update version -->
 
 * __GDC Product__: Application Programming Interface (API)
-* __Release Date__:  February 10, 2026 <!-- need to update -->
+* __Release Date__:  March 6, 2026 <!-- need to update -->
 
 ### New Features and Changes
 
-* Legacy clinical and sample properties that were removed from the GDC Dictionary in the prior release are now also removed from the API and no longer accessible or visible in the portal. <!-- DEV-3629 -->
+* Legacy clinical and sample properties that were removed from the GDC Dictionary in the prior release are now also removed from the API and no longer accessible or visible in the portal. The complete list of removed properties can be found [here](/Data_Portal/Release_Notes/Data_Portal_Release_Notes#release-260). <!-- DEV-3629 -->
 * Integrated gdcdictionary 3.4.4 across dependent services to align the platform with the latest dictionary release. <!-- DEV-3600 -->
 
 ### Bugs Fixed Since Last Release
 
-* The GraphQL API now returns `available_variation_data` as a proper list of strings (instead of a literal string) for fields nested within an `occurrence` node, resolving type errors introduced by the graphene upgrade. The root-level `explore.cases.hits.edges.node.available_variation_data` field remains unchanged as a standard list of strings. <!-- DEV-3756 -->
+* The GraphQL API now returns `available_variation_data` as a proper list of strings (instead of a literal string) for fields nested within an `occurrence` node, resolving type errors. The root-level `explore.cases.hits.edges.node.available_variation_data` field remains unchanged as a standard list of strings. <!-- DEV-3756 -->
 
 ### Known Issues and Workarounds
 
