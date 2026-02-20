@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v4.0.0](Data_Submission_Portal_Release_Notes.md#release-400) | January 29, 2026 |
 | [v3.2.0](Data_Submission_Portal_Release_Notes.md#regular-maintenance-records-320) | June 30, 2025 |
 | [v2.6.0](Data_Submission_Portal_Release_Notes.md#release-260) | July 8, 2022 |
 | [v2.5.1](Data_Submission_Portal_Release_Notes.md#release-251) | August 14, 2020 |
@@ -25,6 +26,28 @@
 | [v0.2.18.3](Data_Submission_Portal_Release_Notes.md#release-02183) | November 30, 2015 |
 
 ---
+## Release 4.0.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: January 29, 2026
+
+### New Features and Changes
+
+*  Operating system updates and maintenance.
+
+### Bugs Fixed Since Last Release
+
+*  Fixed an issue where the Validate button could not be clicked after uploading data. <!--PEAR-2584-->
+*  Ensured manifest downloads can occur successfully for large numbers of files. <!--PEAR-2472-->
+*  Addressed button styling issues. <!--PEAR-2584-->
+*  Updated the broken "GDC Supported data types and file formats" link. <!--PEAR-2466-->
+
+### Known Issues and Workarounds
+
+*  If a project ID has a character that is not alphanumeric, a dash, or an underscore, submission portal users may experience errors.
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
+<!--API-219-->
+
 ## Regular Maintenance Records 3.2.0
 
 * __GDC Product__: GDC Data Submission Portal
