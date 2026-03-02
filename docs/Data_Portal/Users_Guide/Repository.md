@@ -141,6 +141,25 @@ Additional data can be downloaded from the Cart page by using the buttons availa
   - Preservation Method: The method used to preserve the sample after collection.
 * __Metadata:__ This includes all of the metadata associated with each and every file in the cart.  Note that this file is only available in JSON format and may take several minutes to download.
 
+In general cases where individual samples are associated with files, each column will have one value present. However, in cases where multiple samples are associated with one file, columns may contain multiple comma-separate values, with the first value corresponding to the first sample, second value to second sample, and so forth. 
+
+The following sample sheet is an example of multiple values present within each column. 
+
+| Case ID  | Sample ID | Tissue Type | Tumor Descriptor | Specimen Type | Preservation Method |
+| -------- | --------- | ----------- | ---------------- | ------------- | ------------------- |
+| HCM-BROD-0009-C25, HCM-BROD-0009-C25  | HCM-BROD-0009-C25-10A, HCM-BROD-0009-C25-85A | Normal, Tumor | Not Applicable, Metastatic | Peripheral Blood NOS, 3D Organoid | Unknown, Frozen |
+| HCM-BROD-0009-C25, HCM-BROD-0009-C25  | HCM-BROD-0009-C25-06A, HCM-BROD-0009-C25-10A | Tumor, Normal | Metastatic, Not Applicable | Unknown, Peripheral Blood NOS | Frozen, Unknown |
+
+The example should be interpreted as the following:
+
+| Sample ID | Tissue Type | Tumor Descriptor | Specimen Type | Preservation Method |
+| --------- | ----------- | ---------------- | ------------- | ------------------- |
+| HCM-BROD-0009-C25-10A | Normal | Not Applicable | Peripheral Blood NOS | Unknown |
+| HCM-BROD-0009-C25-85A | Tumor | Metastatic | 3D Organoid | Frozen |
+| HCM-BROD-0009-C25-06A| Tumor | Metastatic | Unknown | Frozen |
+| HCM-BROD-0009-C25-10A | Normal | Not Applicable | Peripheral Blood NOS | Unknown |
+
+
 ## File Summary Page ##
 
 Clicking on a file name, in the tables that appear on both the Repository and Cart pages, launches the File Summary Page. Each File Summary Page provides information about a data file, such as size, MD5 checksum, and data format; information on the type of data included; links to the associated cases and biospecimen; and information about how the data file was generated or processed.
