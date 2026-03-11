@@ -102,10 +102,13 @@
     * When all data has been hidden by the user, there are no legend labels to reenable showing the hidden data.<!--SV-2745-->
     * Selecting some gene sets causes parent menus to disappear, making the `Apply` button inaccessible. <!--SV-2735-->
     * Using plot-level filters that combine "AND"/"OR" condition may lead to an error, "Cannot read properties of undefined (reading 'term')". <!--SV-2763-->
+    * When using `diagnoses` variables, the primary diagnosis or binned age of diagnosis value may be randomly assigned for a case that has multiple values, resulting in case groupings that are not repeatable for bar charts, violins, and boxplot. <!--SV-2770-->
+    * In a violin plot with a binned numeric correlation variable, the List Samples option in a clicked label or range selection menu shows empty or incorrect tabulated results. <!--SV-2780, SV-2781-->
     * The survival plot does not allow changing rendered colors. <!--SV-2764-->
     * In the scatter plot when mousing over a data point, the tooltip is displayed far away from the data point and outside of the viewport. <!--SV-2765-->
-    * Scatter plot lasso opens sample view with an error, "tdb.q.getSingleSampleData is not a function". <!--SV-2767-->
-    * Scatter plot's "Add to a group" button in the list samples table doesn't work. <!--SV-2768-->
+    * Scatter plot's lasso opens sample view with an error, "tdb.q.getSingleSampleData is not a function". <!--SV-2767-->
+    * Scatter plot's `Add to a group` button in the list samples table doesn't work. <!--SV-2768-->
+    * In a scatter plot after clicking on a data point and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot launches a ProteinPaint Lollipop track with the error "unknown data source for custom track".<!--SV-2779-->
 * __Copy Number Segment__:
 	* Inconsistent handling of coordinates <!--SV-2422-->
 * __Survival Plot__:
@@ -114,6 +117,8 @@
 * __Cohort MAF__:
     * A downloaded file may be corrupted if the server data processing is terminated after 5 minutes in order to conserve server resources.
     There will be a red banner above the MAF controls to indicate the termination.
+* __OncoMatrix__:
+    * After clicking on a matrix cell and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot launches a ProteinPaint Lollipop track with the error "unknown data source for custom track".<!--SV-2778-->
 * Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
 * In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
 * __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
