@@ -51,7 +51,7 @@
 ### New Features and Changes
 
 * __Correlation Plot__:
-    * A new analysis tool has been added to visualize correlations between clinical and genomic variables.
+  * A new analysis tool has been added to visualize correlations between clinical and genomic variables.
 * __Clinical Data Analysis__:
     * Denominators used for percentage calculations are now based on the total number of cases in the current cohort. <!--PEAR-2453-->
     * An option has been added to hide properties that have no data. <!--PEAR-2462-->
@@ -76,7 +76,7 @@
     * The `exposures.occupation_duration_years`, `exposures.exposure_duration_years`, and `exposures.age_at_last_exposure` cards now have the correct max value of 89 years. <!--PEAR-2530-->
     * The `exposures.age_at_last_exposure` and `exposures.age_at_onset` cards have been updated to reflect that these properties' units are in years instead of days. <!--PEAR-2535-->
 * __ProteinPaint__:
-    * The ProteinPaint tool uses 1 year = 365 days, instead of 365.25 days, causing different age values to be displayed in ProteinPaint and other areas of the portal.
+    * The ProteinPaint tool now uses 1 year = 365.25 days, instead of 365 days, which is consistent with other parts of the GDC. 
 * An unexpected error will no longer occur when the last existing cohort is deleted while in the selection screen of the __Cohort Comparison__ app. <!--PEAR-2514-->
 * The portal now correctly displays the Save Cohort Error modal when cohorts unexpectedly fail to be saved. <!--PEAR-2511-->
 * Sets created by saving the "top N" mutations from the mutations table in the __Gene Summary Page__ will now contain the expected mutations as ordered in the table. <!--PEAR-2403-->
@@ -97,17 +97,17 @@
         * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
         * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
 * __Correlation Plot__:
-		* The menus and labels uses inconsistent and potentially misleading terminology for cases. <!--SV-2754-->
+	* The menus and labels use "samples" or "individuals" where "cases" should be used . <!--SV-2754-->
     * When correlating Overall Survival vs Year of Birth, a divide-by variable may lead to an error of `Custom first bin.stop value should be numeric`.<!--SV-2752-->
     * When all data has been hidden by the user, there are no legend labels to reenable showing the hidden data.<!--SV-2745-->
     * Selecting some gene sets causes parent menus to disappear, making the `Apply` button inaccessible. <!--SV-2735-->
-    * The tooltip is displayed outside of viewport. <!--SV-2765-->
+    * Using plot-level filters that combine "AND"/"OR" condition may lead to an error, "Cannot read properties of undefined (reading 'term')". <!--SV-2763-->
     * The survival plot does not allow changing rendered colors. <!--SV-2764-->
-    * Nested filter leads to error "Cannot read properties of undefined (reading 'term')". <!--SV-2763-->
+    * In the scatter plot when mousing over a data point, the tooltip is displayed far away from the data point and outside of the viewport. <!--SV-2765-->
     * Scatter plot lasso opens sample view with an error, "tdb.q.getSingleSampleData is not a function". <!--SV-2767-->
-    * Satter plot's "Add to a group" button in the list samples table doesn't work. <!--SV-2768-->
+    * Scatter plot's "Add to a group" button in the list samples table doesn't work. <!--SV-2768-->
 * __Copy Number Segment__:
-		* Inconsistent handling of coordinates <!--SV-2422-->
+	* Inconsistent handling of coordinates <!--SV-2422-->
 * __Survival Plot__:
     * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
     * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
