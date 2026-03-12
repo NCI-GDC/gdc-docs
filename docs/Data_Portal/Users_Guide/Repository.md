@@ -134,7 +134,30 @@ Additional data can be downloaded from the Cart page by using the buttons availa
 * __Biospecimen:__ TSV / Biospecimen: JSON - This includes all biospecimen information from the cases that are associated with the files (available as TSV or JSON).
 * __Clinical:__ TSV / Clinical: JSON - This includes all clinical information from the cases that are associated with the files (available as TSV or JSON)
 * __Sample Sheet:__ A TSV with commonly-used elements associated with each file, such as tissue type and tumor descriptor.
+  - Sample ID: A unique identifier assigned to a sample, often containing information about the sample's origin and type
+  - Tissue Type: Indicates whether or not the tissue sample was normal or tumorous.
+  - Tumor Descriptor: A descriptor indicating the clinical status of the tumor sample (e.g., primary, metastatic) or specifying when this field is not applicable, such as for normal samples.
+  - Specimen Type: Describes the kind of biological material that was collected and processed for the sample.
+  - Preservation Method: The method used to preserve the sample after collection.
 * __Metadata:__ This includes all of the metadata associated with each and every file in the cart.  Note that this file is only available in JSON format and may take several minutes to download.
+
+In situations where only one sample is associated with a file, each column will have one value present. However, when multiple samples are associated with one file, columns may contain multiple comma-separate values, with the first value corresponding to the first sample, second value to second sample, and so forth. 
+
+The following sample sheet is an example of multiple values present within each column. 
+
+| Case ID  | Sample ID | Tissue Type | Tumor Descriptor | Specimen Type | Preservation Method |
+| -------- | --------- | ----------- | ---------------- | ------------- | ------------------- |
+| HCM-BROD-0009-C25, HCM-BROD-0009-C25  | HCM-BROD-0009-C25-10A, HCM-BROD-0009-C25-85A | Normal, Tumor | Not Applicable, Metastatic | Peripheral Blood NOS, 3D Organoid | Unknown, Frozen |
+| HCM-BROD-0009-C25, HCM-BROD-0009-C25  | HCM-BROD-0009-C25-06A, HCM-BROD-0009-C25-10A | Tumor, Normal | Metastatic, Not Applicable | Unknown, Peripheral Blood NOS | Frozen, Unknown |
+
+The example should be interpreted as the following:
+
+| Case ID | Sample ID | Tissue Type | Tumor Descriptor | Specimen Type | Preservation Method |
+| ------- | --------- | ----------- | ---------------- | ------------- | ------------------- |
+| HCM-BROD-0009-C25-10A | HCM-BROD-0009-C25-10A | Normal | Not Applicable | Peripheral Blood NOS | Unknown |
+| HCM-BROD-0009-C25-85A | HCM-BROD-0009-C25-85A | Tumor | Metastatic | 3D Organoid | Frozen |
+| HCM-BROD-0009-C25-06A | HCM-BROD-0009-C25-06A| Tumor | Metastatic | Unknown | Frozen |
+| HCM-BROD-0009-C25-10A | HCM-BROD-0009-C25-10A | Normal | Not Applicable | Peripheral Blood NOS | Unknown |
 
 ## File Summary Page ##
 
