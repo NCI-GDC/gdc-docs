@@ -51,7 +51,7 @@
 ### New Features and Changes
 
 * __Correlation Plot__:
-  * A new analysis tool has been added to visualize correlations between clinical and genomic variables.
+    * A new analysis tool has been added to visualize correlations between clinical and genomic variables.
 * __Clinical Data Analysis__:
     * Denominators used for percentage calculations are now based on the total number of cases in the current cohort. <!--PEAR-2453-->
     * An option has been added to hide properties that have no data. <!--PEAR-2462-->
