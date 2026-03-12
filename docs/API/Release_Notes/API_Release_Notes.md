@@ -3,7 +3,7 @@
 
 | Version | Date |
 |---|---|
-| [v8.3.0](API_Release_Notes.md#v830) | March 2, 2026 |
+| [v8.3.0](API_Release_Notes.md#v830) | March 16, 2026 |
 | [v7.9.1](API_Release_Notes.md#v791) | May 20, 2025 |
 | [v7.7.0](API_Release_Notes.md#v770) | November 21, 2024 |
 | [v7.5.1](API_Release_Notes.md#v751) | September 30, 2024 |
@@ -45,7 +45,7 @@
 ## v8.3.0
 
 * __GDC Product__: Application Programming Interface (API)
-* __Release Date__:  March 2, 2026
+* __Release Date__:  March 16, 2026
 
 ### New Features and Changes
 

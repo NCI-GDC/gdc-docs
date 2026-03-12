@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v4.0.0](Data_Submission_Portal_Release_Notes.md#release-400) | March 2, 2026 |
+| [v4.0.0](Data_Submission_Portal_Release_Notes.md#release-400) | March 16, 2026 |
 | [v3.2.0](Data_Submission_Portal_Release_Notes.md#regular-maintenance-records-320) | June 30, 2025 |
 | [v2.6.0](Data_Submission_Portal_Release_Notes.md#release-260) | July 8, 2022 |
 | [v2.5.1](Data_Submission_Portal_Release_Notes.md#release-251) | August 14, 2020 |
@@ -29,7 +29,7 @@
 ## Release 4.0.0
 
 * __GDC Product__: GDC Data Submission Portal
-* __Release Date__: March 2, 2026
+* __Release Date__: March 16, 2026
 
 ### New Features and Changes
 
