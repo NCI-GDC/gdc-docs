@@ -8,7 +8,7 @@ At Analysis Center, select the "Correlation Plot" card.
 
 [![ATF](images/correlation/1.png)](images/correlation/1.png "Click to see the full image.")
 
-This displays an interface for generating correlation plot.
+This displays an interface for generating correlation plots.
 
 [![Intro](images/correlation/2.png)](images/correlation/2.png "Click to see the full image.")
 
