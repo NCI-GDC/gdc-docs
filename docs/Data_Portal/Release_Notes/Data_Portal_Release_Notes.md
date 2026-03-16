@@ -110,7 +110,7 @@
     * Scatter plot's `Add to a group` button in the list samples table doesn't work. <!--SV-2768-->
     * In a scatter plot after clicking on a data point and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot launches a ProteinPaint Lollipop track with the error "unknown data source for custom track".<!--SV-2779-->
 * __Copy Number Segment__:
-	* Inconsistent handling of coordinates <!--SV-2422-->
+	* Inconsistent handling of coordinates. <!--SV-2422-->
 * __Survival Plot__:
     * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
     * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
