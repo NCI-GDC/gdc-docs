@@ -64,6 +64,7 @@ nav:
       - Cohort Comparison: Data_Portal/Users_Guide/cohort_comparison.md
       - Cohort Level MAF: Data_Portal/Users_Guide/cohortMAF.md
       - Copy Number Segment: Data_Portal/Users_Guide/CNVtool.md
+      - Correlation Plot: Data_Portal/Users_Guide/correlation.md
       - Gene Expression Clustering: Data_Portal/Users_Guide/gene_expression_clustering.md
       - Mutation Frequency: Data_Portal/Users_Guide/mutation_frequency.md
       - OncoMatrix: Data_Portal/Users_Guide/oncomatrix.md
