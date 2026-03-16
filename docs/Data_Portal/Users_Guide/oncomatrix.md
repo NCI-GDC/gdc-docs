@@ -453,7 +453,7 @@ To view specific mutations click on the 'Mutations' tab in the control panel to 
 
 [![Show selected mutations](./images/oncomatrix/select-mutations.png)](./images/oncomatrix/select-mutations.png 'Click to see the full image.')
 
-# Edit mutation data on gene row
+### Edit mutation data on gene row
 
 To create distinct grouping on variants within a gene row, click 'edit' on the gene row to view the following options.
 
