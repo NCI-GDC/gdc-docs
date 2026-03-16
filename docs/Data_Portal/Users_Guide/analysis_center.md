@@ -18,7 +18,7 @@ Available tools are displayed under the Query Expression section of the Analysis
 
 The 'Core Tools' section contains the GDC tools that constitute the main functionality of the Data Portal.
 
-* [Projects](Projects.md) tool
+* [Projects](Projects.md)
 * [Cohort Builder](cohort_builder.md)
 * [Repository](Repository.md)
 
@@ -31,6 +31,7 @@ The 'Analysis Tools' section contains the tools available for specific analyses 
 * [Cohort Comparison](cohort_comparison.md)
 * [Cohort Level MAF](cohortMAF.md)
 * [Copy Number Segment](CNVtool.md)
+* [Correlation Plot](correlation.md)
 * [Gene Expression Clustering](gene_expression_clustering.md)
 * [Mutation Frequency](mutation_frequency.md)
 * [OncoMatrix](oncomatrix.md)

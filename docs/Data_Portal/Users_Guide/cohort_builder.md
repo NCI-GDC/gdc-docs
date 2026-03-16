@@ -103,15 +103,15 @@ Depending on how they are modified or created, cohorts can have different types 
 A very common way to modify a cohort is by using the filters in the Cohort Builder. Using the filters in the Cohort Builder to build a cohort will create a cohort with custom queries (see note below for an exception). Examples of cohorts with custom queries would be:
 
 1. All cases in the `TCGA-BRCA` project.
-1. Cases with a primary site of `brain` and a gender of `male`.
+1. Cases with a primary site of `bronchus and lung` and at least `30` pack years smoked.
 
 Cohorts based on custom queries will change depending on the data available. For example, if a data release adds cases to the TCGA-BRCA project, the first cohort example will include the new cases automatically and increase in size. 
 
 The query expression section will display these custom queries with information about the properties and values that were applied as filters to the cohort.
 
-[![Query Expressions section with TCGA-BRCA cohort](images/QueryExpressionsTCGABRCA.png)](images/QueryExpressions.png "Click to see the full image.")
+[![Query Expressions section with TCGA-BRCA cohort](images/QueryExpressionsTCGABRCA.png)](images/QueryExpressionsTCGABRCA.png "Click to see the full image.")
 
-[![Query Expressions section with male brain cancer cohort](images/QueryExpressionsBrainMale.png)](images/QueryExpressionsBrainMale.png "Click to see the full image.")
+[![Query Expressions section with lung cancer cohort with at least 30 pack years smoked](images/QueryExpressionsLungPackYears.png)](images/QueryExpressionsLungPackYears.png "Click to see the full image.")
 
 **NOTE:** The Case ID filter in the Cohort Builder will result in a cohort based on a specific list of cases.
 

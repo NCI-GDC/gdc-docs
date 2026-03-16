@@ -17,7 +17,7 @@ The Clinical Data Analysis tool allows for a set of customizable charts to be ge
 
 * In the Analysis Center, select the *Clinical Data Analysis* tool card.
 
-* In the Clinical Data Analysis tool, use the control panel on the left side of the analysis to display which clinical variables you want.  To enable or disable specific variables for display, click the on/off toggle controls:
+* In the Clinical Data Analysis tool, use the control panel on the left side of the analysis to display which clinical variables you want. Select the "Only show properties with data" option to limit the list to only the variables that are populated with values for the current cohort. To enable or disable specific variables for display, click the on/off toggle controls:
 
 [![Enable Clinical Cards](images/CDACards.png)](images/CDACards.png "Click to see the full image.")
 

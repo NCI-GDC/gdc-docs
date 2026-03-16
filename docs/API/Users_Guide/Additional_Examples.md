@@ -1315,7 +1315,7 @@ This is an example of a value-based filter:
     {
        "op" : "=" ,
        "content" : {
-           "field" : "cases.demographic.gender" ,
+           "field" : "cases.demographic.sex_at_birth" ,
            "value" : [ "male" ]
        }
     }
@@ -1324,7 +1324,7 @@ This is an example of a value-based filter:
 === "Query"
 
     ```shell
-    curl 'https://api.gdc.cancer.gov/cases?filters=%7b%0d%0a+++%22op%22+%3a+%22%3d%22+%2c%0d%0a+++%22content%22+%3a+%7b%0d%0a+++++++%22field%22+%3a+%22cases.demographic.gender%22+%2c%0d%0a+++++++%22value%22+%3a+%5b+%22male%22+%5d%0d%0a+++%7d%0d%0a%7d%0d%0a&fields=demographic.gender,case_id&pretty=true'
+    curl 'https://api.gdc.cancer.gov/cases?filters=%7b%0d%0a+++%22op%22+%3a+%22%3d%22+%2c%0d%0a+++%22content%22+%3a+%7b%0d%0a+++++++%22field%22+%3a+%22cases.demographic.sex_at_birth%22+%2c%0d%0a+++++++%22value%22+%3a+%5b+%22male%22+%5d%0d%0a+++%7d%0d%0a%7d%0d%0a&fields=demographic.sex_at_birth,case_id&pretty=true'
     ```
 
 #### Example: Filter using a range

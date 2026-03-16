@@ -824,7 +824,7 @@ __Example 3:__ A user wants to determine the location and identity of the gene a
 
 ## Copy Number Variation Occurrence Endpoint Examples
 
-__Example 1:__ A user is interested in finding cases that have both cnv and ssm data for females diagnosed with Squamous Cell Neoplasms and have a cnv gain change on chromosome 9. It is important to note that for a case like this, where multiple arguments are need for one filtered field, it is easier for the API to have multiple filters for the same field, `case.available_variation_data` in this example, than having one filter with multiple arguments.
+__Example 1:__ A user is interested in finding cases that have both cnv and ssm data for patients diagnosed with Squamous Cell Neoplasms and have a cnv gain change on chromosome 9. It is important to note that for a case like this, where multiple arguments are need for one filtered field, it is easier for the API to have multiple filters for the same field, `case.available_variation_data` in this example, than having one filter with multiple arguments.
 
 === "Filter"
 
@@ -838,15 +838,6 @@ __Example 1:__ A user is interested in finding cases that have both cnv and ssm 
                     "field": "cnv.cnv_change",
                     "value": [
                         "Gain"
-                    ]
-                }
-            },
-            {
-                "op": "in",
-                "content": {
-                    "field": "case.demographic.gender",
-                    "value": [
-                        "female"
                     ]
                 }
             },
@@ -893,31 +884,31 @@ __Example 1:__ A user is interested in finding cases that have both cnv and ssm 
 === "Shell"
 
     ```shell
-    curl 'https://api.gdc.cancer.gov/cnv_occurrences?filters=%7B%0D%0A++++%22op%22%3A+%22and%22%2C%0D%0A++++%22content%22%3A+%5B%0D%0A++++++++%7B%0D%0A++++++++++++%22op%22%3A+%22in%22%2C%0D%0A++++++++++++%22content%22%3A+%7B%0D%0A++++++++++++++++%22field%22%3A+%22cnv.cnv_change%22%2C%0D%0A++++++++++++++++%22value%22%3A+%5B%0D%0A++++++++++++++++++++%22Gain%22%0D%0A++++++++++++++++%5D%0D%0A++++++++++++%7D%0D%0A++++++++%7D%2C%0D%0A++++++++%7B%0D%0A++++++++++++%22op%22%3A+%22in%22%2C%0D%0A++++++++++++%22content%22%3A+%7B%0D%0A++++++++++++++++%22field%22%3A+%22case.demographic.gender%22%2C%0D%0A++++++++++++++++%22value%22%3A+%5B%0D%0A++++++++++++++++++++%22female%22%0D%0A++++++++++++++++%5D%0D%0A++++++++++++%7D%0D%0A++++++++%7D%2C%0D%0A++++++++%7B%0D%0A++++++++++++%22op%22%3A+%22in%22%2C%0D%0A++++++++++++%22content%22%3A+%7B%0D%0A++++++++++++++++%22field%22%3A+%22case.available_variation_data%22%2C%0D%0A++++++++++++++++%22value%22%3A+%5B%0D%0A++++++++++++++++++++%22cnv%22%0D%0A++++++++++++++++%5D%0D%0A++++++++++++%7D%0D%0A++++++++%7D%2C%0D%0A++++++++%7B%0D%0A++++++++++++%22op%22%3A+%22in%22%2C%0D%0A++++++++++++%22content%22%3A+%7B%0D%0A++++++++++++++++%22field%22%3A+%22case.available_variation_data%22%2C%0D%0A++++++++++++++++%22value%22%3A+%5B%0D%0A++++++++++++++++++++%22ssm%22%0D%0A++++++++++++++++%5D%0D%0A++++++++++++%7D%0D%0A++++++++%7D%2C%0D%0A++++++++%7B%0D%0A++++++++++++%22op%22%3A+%22in%22%2C%0D%0A++++++++++++%22content%22%3A+%7B%0D%0A++++++++++++++++%22field%22%3A+%22cnv.chromosome%22%2C%0D%0A++++++++++++++++%22value%22%3A+%5B%0D%0A++++++++++++++++++++%229%22%0D%0A++++++++++++++++%5D%0D%0A++++++++++++%7D%0D%0A++++++++%7D%2C%0D%0A++++++++%7B%0D%0A++++++++++++%22op%22%3A+%22in%22%2C%0D%0A++++++++++++%22content%22%3A+%7B%0D%0A++++++++++++++++%22field%22%3A+%22case.disease_type%22%2C%0D%0A++++++++++++++++%22value%22%3A+%5B%0D%0A++++++++++++++++++++%22Squamous+Cell+Neoplasms%22%0D%0A++++++++++++++++%5D%0D%0A++++++++++++%7D%0D%0A++++++++%7D%0D%0A++++%5D%0D%0A%7D&fields=case.available_variation_data,case.case_id&format=tsv'
+    curl 'https://api.gdc.cancer.gov/cnv_occurrences?filters=%7B%0A++++%22op%22%3A+%22and%22%2C%0A++++%22content%22%3A+%5B%0A++++++++%7B%0A++++++++++++%22op%22%3A+%22in%22%2C%0A++++++++++++%22content%22%3A+%7B%0A++++++++++++++++%22field%22%3A+%22cnv.cnv_change%22%2C%0A++++++++++++++++%22value%22%3A+%5B%0A++++++++++++++++++++%22Gain%22%0A++++++++++++++++%5D%0A++++++++++++%7D%0A++++++++%7D%2C%0A++++++++%7B%0A++++++++++++%22op%22%3A+%22in%22%2C%0A++++++++++++%22content%22%3A+%7B%0A++++++++++++++++%22field%22%3A+%22case.available_variation_data%22%2C%0A++++++++++++++++%22value%22%3A+%5B%0A++++++++++++++++++++%22cnv%22%0A++++++++++++++++%5D%0A++++++++++++%7D%0A++++++++%7D%2C%0A++++++++%7B%0A++++++++++++%22op%22%3A+%22in%22%2C%0A++++++++++++%22content%22%3A+%7B%0A++++++++++++++++%22field%22%3A+%22case.available_variation_data%22%2C%0A++++++++++++++++%22value%22%3A+%5B%0A++++++++++++++++++++%22ssm%22%0A++++++++++++++++%5D%0A++++++++++++%7D%0A++++++++%7D%2C%0A++++++++%7B%0A++++++++++++%22op%22%3A+%22in%22%2C%0A++++++++++++%22content%22%3A+%7B%0A++++++++++++++++%22field%22%3A+%22cnv.chromosome%22%2C%0A++++++++++++++++%22value%22%3A+%5B%0A++++++++++++++++++++%229%22%0A++++++++++++++++%5D%0A++++++++++++%7D%0A++++++++%7D%2C%0A++++++++%7B%0A++++++++++++%22op%22%3A+%22in%22%2C%0A++++++++++++%22content%22%3A+%7B%0A++++++++++++++++%22field%22%3A+%22case.disease_type%22%2C%0A++++++++++++++++%22value%22%3A+%5B%0A++++++++++++++++++++%22Squamous+Cell+Neoplasms%22%0A++++++++++++++++%5D%0A++++++++++++%7D%0A++++++++%7D%0A++++%5D%0A%7D&fields=case.available_variation_data,case.case_id&format=tsv'
     ```
 
 === "Tsv"
 
     ```tsv
-    case.available_variation_data.0	case.available_variation_data.1	case.case_id	id
-    cnv	ssm	da30a845-c4d3-4c78-b8b0-210239224f8f	3caf6e3b-024f-57b6-bdd9-3b67e423cc11
-    cnv	ssm	0809ba8b-4ab6-4f43-934c-c1ccbc014a7e	e6afe58e-c99c-5c8d-920e-8ba4daad4d89
-    cnv	ssm	8e0e456e-85ee-4de5-8f0b-72393d6acde0	9d983d9c-8320-53f1-9054-e46926c5b834
-    cnv	ssm	64a195f6-2212-4e81-bccc-e39c77a10908	8caeaecc-ad68-539d-8b3c-8320b3684763
-    cnv	ssm	2f6a0e87-1e6c-41f3-93e0-3e505fa654b0	4862c166-0f37-5e3c-ae4e-a2964de01cea
-    cnv	ssm	f0daf315-8909-4cda-886d-a2770b08db94	099ff6cd-bd28-56f4-a181-6b02f3ba7503
-    cnv	ssm	ff3808e4-eece-4046-819b-fe1019317f8e	0c936aa2-393e-5463-a431-3613b4510021
-    cnv	ssm	9205dc07-93f5-4b5e-924e-8e097616160f	133d27a7-fdc6-5082-a1f3-022b89f4e851
-    cnv	ssm	79ae5209-f476-4d65-a6c0-ebc18d7c8942	7a5e6bb1-8af3-5964-a3cc-c53602c8b099
-    cnv	ssm	ff7099e1-8ff9-48e4-842d-46e98076e7e6	fb27fa8f-aa31-5e20-84da-8f45bb675405
+    case.available_variation_data.0	case.available_variation_data.1	case.available_variation_data.2	case.case_id	id
+    segment_cnv	cnv	ssm	9f20b4bc-ee09-42ef-9392-68054a7a2cfe	f8467f0a-300b-5744-b994-16b33e7bb44b
+    segment_cnv	cnv	ssm	2659bb79-95f9-4476-a516-f3800536422d	d4c40851-8958-5bc8-9c3d-4ea67e958bc8
+    segment_cnv	cnv	ssm	6a0490ea-d9c6-41cf-bec3-3257e98cc6ed	a4cf882b-b8df-5945-8d3d-0e98d9dd5305
+    segment_cnv	cnv	ssm	cf958f8c-f1c7-4adb-ad0f-fab5133042ed	67e3cd22-a7b1-562e-9a48-c62a792bb52c
+    segment_cnv	cnv	ssm	8b63be59-9ce6-45a0-80d9-4d20f4918cb9	6fa084fb-30c8-55f0-afd7-870043dca8db
+    segment_cnv	cnv	ssm	b89eaf49-b80b-4730-b928-3fbc4385b64c	25a4702b-bf78-5fe5-a6be-6dd1d812a53f
+    segment_cnv	cnv	ssm	650310ff-b75e-40d2-bb8d-80e4efa36b2a	9d018a64-d124-54ec-b71f-8cca0dcb3ccb
+    segment_cnv	cnv	ssm	59398d50-45cf-4812-a24e-0c00c0199971	3dce1bdc-9c64-53b1-8652-52af4a8dd9e4
+    segment_cnv	cnv	ssm	41b6c417-1ec1-4db9-91a8-11aa4dbad05d	698d5bd3-d7d3-5793-96e8-f67b3c22827b
+    segment_cnv	cnv	ssm	ba7b9b84-c227-4ad0-9e71-88ee3309162c	5afe2029-6f90-5d41-a1f3-5b2aff0b508d
     ```
 
-__Example 2:__ A user is interested in the first cnv occurrence (`3b9f7ecc-2280-5b89-80f9-ec8d6c5e604e`) from the previous example, and would like to know more about the case exposures and demographics.
+__Example 2:__ A user is interested in the first cnv occurrence (`f8467f0a-300b-5744-b994-16b33e7bb44b`) from the previous example, and would like to know more about the case exposures and diagnoses.
 
 === "Shell"
 
     ```Shell
-    curl 'https://api.gdc.cancer.gov/cnv_occurrences/0003f550-20f2-5bd0-ac63-8ac554a5a9cc?pretty=true&expand=cnv,case,case.exposures,case.demographic'
+    curl 'https://api.gdc.cancer.gov/cnv_occurrences/f8467f0a-300b-5744-b994-16b33e7bb44b?pretty=true&expand=cnv,case,case.exposures,case.diagnoses'
     ```
 
 === "Json"
@@ -926,46 +917,77 @@ __Example 2:__ A user is interested in the first cnv occurrence (`3b9f7ecc-2280-
     {
       "data": {
         "cnv": {
-          "start_position": 7661779, 
+          "start_position": 70384597, 
           "gene_level_cn": true, 
           "cnv_change": "Gain", 
           "ncbi_build": "GRCh38", 
-          "chromosome": "17", 
+          "chromosome": "9", 
           "variant_status": "Tumor Only", 
-          "cnv_id": "40104505-22bf-5a64-b1fb-6ffde5be6d48", 
+          "cnv_id": "7d030f78-8f8e-5743-9372-14bd92a0dea2", 
           "cnv_change_5_category": "Gain", 
-          "end_position": 7687538
+          "end_position": 70414624
         }, 
-        "cnv_occurrence_id": "0003f550-20f2-5bd0-ac63-8ac554a5a9cc", 
+        "cnv_occurrence_id": "f8467f0a-300b-5744-b994-16b33e7bb44b", 
         "case": {
-          "primary_site": "Hematopoietic and reticuloendothelial systems", 
-          "disease_type": "Acute Lymphoblastic Leukemia", 
+          "exposures": [
+            {
+              "tobacco_smoking_quit_year": 1997, 
+              "tobacco_smoking_status": "Current Reformed Smoker for < or = 15 yrs", 
+              "exposure_id": "0629d822-de45-5e4d-bec6-5bad816f91db", 
+              "tobacco_smoking_onset_year": 1946, 
+              "submitter_id": "TCGA-39-5031_exposure", 
+              "state": "released", 
+              "pack_years_smoked": 60.0
+            }
+          ], 
+          "lost_to_followup": "No", 
+          "primary_site": "Bronchus and lung", 
+          "disease_type": "Squamous Cell Neoplasms", 
           "available_variation_data": [
+            "segment_cnv", 
             "cnv", 
             "ssm"
           ], 
-          "case_id": "590e60b7-ef2d-4e9f-8680-982f82c8c938", 
-          "submitter_id": "MP2PRT-PARTLU", 
+          "case_id": "9f20b4bc-ee09-42ef-9392-68054a7a2cfe", 
+          "submitter_id": "TCGA-39-5031", 
+          "index_date": "Diagnosis", 
           "state": "released", 
-          "demographic": {
-            "demographic_id": "3dddccc5-212f-477b-bd25-496647a480be", 
-            "ethnicity": "not hispanic or latino", 
-            "gender": "male", 
-            "race": "white", 
-            "vital_status": "Alive", 
-            "age_at_index": 4, 
-            "submitter_id": "MP2PRT-PARTLU_demo", 
-            "days_to_birth": -1532, 
-            "state": "released", 
-            "year_of_birth": 2003
-          }
+          "days_to_consent": 30, 
+          "diagnoses": [
+            {
+              "ajcc_pathologic_t": "T1a", 
+              "synchronous_malignancy": "No", 
+              "morphology": "8070/3", 
+              "ajcc_pathologic_stage": "Stage IA", 
+              "ajcc_pathologic_n": "N0", 
+              "ajcc_pathologic_m": "M0", 
+              "submitter_id": "TCGA-39-5031_diagnosis", 
+              "days_to_diagnosis": 0, 
+              "laterality": "Left", 
+              "tissue_or_organ_of_origin": "Upper lobe, lung", 
+              "days_to_last_follow_up": 1841.0, 
+              "age_at_diagnosis": 28106, 
+              "primary_diagnosis": "Squamous cell carcinoma, NOS", 
+              "classification_of_tumor": "primary", 
+              "residual_disease": "R0", 
+              "prior_malignancy": "no", 
+              "year_of_diagnosis": 2007, 
+              "diagnosis_id": "f8d53f8f-460d-5039-b858-2733d4552438", 
+              "icd_10_code": "C34.1", 
+              "site_of_resection_or_biopsy": "Lung, NOS", 
+              "prior_treatment": "No", 
+              "state": "released", 
+              "ajcc_staging_system_edition": "6th"
+            }
+          ], 
+          "consent_type": "Informed Consent"
         }
       }, 
       "warnings": {}
     }
     ```
 
-__Example 3:__ A user is interested in finding cases that have cnv data for males diagnosed with gliomas and have a cnv amplification on chromosome 7.
+__Example 3:__ A user is interested in finding cases diagnosed with gliomas that have cnv data and a cnv amplification on chromosome 7.
 
 === "Filter"
 
@@ -979,15 +1001,6 @@ __Example 3:__ A user is interested in finding cases that have cnv data for male
                     "field": "cnv.cnv_change_5_category",
                     "value": [
                         "Amplification"
-                    ]
-                }
-            },
-            {
-                "op": "in",
-                "content": {
-                    "field": "case.demographic.gender",
-                    "value": [
-                        "male"
                     ]
                 }
             },
@@ -1025,23 +1038,23 @@ __Example 3:__ A user is interested in finding cases that have cnv data for male
 === "Shell"
 
     ```shell
-    curl 'https://api.gdc.cancer.gov/cnv_occurrences?filters=%7B%0A%20%20%20%20%20%20%20%20%22op%22%3A%20%22and%22%2C%0A%20%20%20%20%20%20%20%20%22content%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22op%22%3A%20%22in%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22content%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22field%22%3A%20%22cnv.cnv_change_5_category%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22value%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22Amplification%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22op%22%3A%20%22in%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22content%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22field%22%3A%20%22case.demographic.gender%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22value%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22male%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22op%22%3A%20%22in%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22content%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22field%22%3A%20%22case.available_variation_data%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22value%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22cnv%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22op%22%3A%20%22in%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22content%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22field%22%3A%20%22cnv.chromosome%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22value%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%227%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22op%22%3A%20%22in%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22content%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22field%22%3A%20%22case.disease_type%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22value%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22Gliomas%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%7D&fields=case.available_variation_data,case.case_id&format=tsv'
+    curl 'https://api.gdc.cancer.gov/cnv_occurrences?filters=%7B%0A%09%22op%22%3A%20%22and%22%2C%0A%09%22content%22%3A%20%5B%0A%09%09%7B%0A%09%09%09%22op%22%3A%20%22in%22%2C%0A%09%09%09%22content%22%3A%20%7B%0A%09%09%09%09%22field%22%3A%20%22cnv.cnv_change_5_category%22%2C%0A%09%09%09%09%22value%22%3A%20%5B%0A%09%09%09%09%09%22Amplification%22%0A%09%09%09%09%5D%0A%09%09%09%7D%0A%09%09%7D%2C%0A%09%09%7B%0A%09%09%09%22op%22%3A%20%22in%22%2C%0A%09%09%09%22content%22%3A%20%7B%0A%09%09%09%09%22field%22%3A%20%22case.available_variation_data%22%2C%0A%09%09%09%09%22value%22%3A%20%5B%0A%09%09%09%09%09%22cnv%22%0A%09%09%09%09%5D%0A%09%09%09%7D%0A%09%09%7D%2C%0A%09%09%7B%0A%09%09%09%22op%22%3A%20%22in%22%2C%0A%09%09%09%22content%22%3A%20%7B%0A%09%09%09%09%22field%22%3A%20%22cnv.chromosome%22%2C%0A%09%09%09%09%22value%22%3A%20%5B%0A%09%09%09%09%09%227%22%0A%09%09%09%09%5D%0A%09%09%09%7D%0A%09%09%7D%2C%0A%09%09%7B%0A%09%09%09%22op%22%3A%20%22in%22%2C%0A%09%09%09%22content%22%3A%20%7B%0A%09%09%09%09%22field%22%3A%20%22case.disease_type%22%2C%0A%09%09%09%09%22value%22%3A%20%5B%0A%09%09%09%09%09%22Gliomas%22%0A%09%09%09%09%5D%0A%09%09%09%7D%0A%09%09%7D%0A%09%5D%0A%7D&fields=case.available_variation_data,case.case_id&format=tsv'
     ```
 
 === "Tsv"
 
     ```tsv
-    case.available_variation_data.0	case.available_variation_data.1	case.case_id	id
-    cnv	ssm	a1da2f64-5a24-4e6b-abc1-e70aae23082c	15bbf08b-6d6a-5c1d-bd94-1e86710ce29a
-    cnv	ssm	2e3b9f32-304e-454b-ac2c-fc72d2ccaa19	c9ff4332-959e-5e68-a305-29ae7f898a67
-    cnv		0133e584-111e-450a-b451-77a2799ef529	7d6ca206-7c41-5f3e-89d5-69106d3262cb
-    cnv	ssm	50603cc6-42e6-412f-ab07-4805f728e6b6	eccbd36c-93a3-5644-aa30-6b06d66ac35b
-    cnv		372a4cc6-8fc9-4157-9cdc-fe020b176249	ea64dfc0-d297-5686-bcfc-3336201e7c01
-    cnv	ssm	92f323c8-dae4-4fdc-a108-148ddc238d1a	4b07a619-ad6f-5169-af7f-3360cc2a8845
-    cnv	ssm	e349d8aa-bb82-4ce8-b14c-61216289f25b	4ae6c613-92be-5424-a5d6-305deb5b3cac
-    cnv	ssm	6c5154d2-af36-492f-b520-d925528824e4	dcf8e315-e868-5dc2-8ca0-5f76d4f7e5ee
-    cnv	ssm	fbb0dc0d-6314-40ea-bc43-0cbf3b710dbe	504fd9f6-dc90-55c4-abf0-68ab38e17f61
-    cnv	ssm	7cada85b-00b1-41e5-9924-e09eb077ad56	1e6f552a-78ed-5ce7-bef9-a55670c979db
+    case.available_variation_data.0	case.available_variation_data.1	case.available_variation_data.2	case.case_id	id
+    segment_cnv	cnv	ssm	7a4c0a14-ac97-4c2b-a9cc-68cb561b2494	a60a56a2-c9dc-591e-b33c-023521f31b92
+    segment_cnv	cnv	ssm	b478c37b-6856-4aad-a417-63acb0748cb2	0ff88393-0d7f-5cc0-82b5-786526963df7
+    segment_cnv	cnv		e4aafd82-fd32-4a52-96fe-21a21297849f	b618e1c2-1592-5844-ad29-8ff7bf210957
+    segment_cnv	cnv	ssm	04e6e843-7f31-43da-b111-280ce2bd1949	b7c33066-cee9-5b4e-ad50-4337d4aed25d
+    segment_cnv	cnv	ssm	a6cda2a0-21d9-4b72-a4c5-de1142d7ddb8	45a9235d-8235-5c43-b2d6-04d8b6b36ae7
+    segment_cnv	cnv		151ca826-a4d7-42eb-8684-f9fe7b93543f	057a62b3-704b-58d9-96b3-89d2f7d8544f
+    segment_cnv	cnv	ssm	535efef2-f2db-4888-9a8d-13caa8e1e6ef	9f97fe27-4799-5ff7-96d1-8453577d9fe2
+    segment_cnv	cnv	ssm	04e6e843-7f31-43da-b111-280ce2bd1949	2f66c31e-ef89-59fd-8d74-3f9aabd957b9
+    segment_cnv	cnv	ssm	bc316a17-9d73-4ef3-97e9-c4ac5516b75a	620f2b2f-bd8e-52f3-94c0-907e522a6afb
+    segment_cnv	cnv	ssm	7eb5d055-e1c8-4b93-9205-a49a6e79dfd4	e2406b7f-d7fb-5685-9eca-c54d28bcc405
     ```
 
 ## Copy Number Segment Examples
@@ -2774,7 +2787,7 @@ __Example 3:__ The `/analysis/top_mutated_cases_by_gene` endpoint will generate 
 === "Shell"
 
     ```Shell
-    curl "https://api.gdc.cancer.gov/analysis/top_mutated_cases_by_gene?fields=diagnoses.age_at_diagnosis,diagnoses.primary_diagnosis,demographic.gender,demographic.race,demographic.ethnicity,case_id,summary.data_categories.file_count,summary.data_categories.data_category&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%22TCGA-DLBC%22%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22genes.gene_id%22%2C%22value%22%3A%5B%22ENSG00000166710%22%2C%22ENSG00000005339%22%2C%22ENSG00000083857%22%2C%22ENSG00000168769%22%2C%22ENSG00000100906%22%2C%22ENSG00000184677%22%2C%22ENSG00000101680%22%2C%22ENSG00000101266%22%2C%22ENSG00000028277%22%2C%22ENSG00000140968%22%2C%22ENSG00000181827%22%2C%22ENSG00000116815%22%2C%22ENSG00000275221%22%2C%22ENSG00000139083%22%2C%22ENSG00000112851%22%2C%22ENSG00000112697%22%2C%22ENSG00000164134%22%2C%22ENSG00000009413%22%2C%22ENSG00000071626%22%2C%22ENSG00000135407%22%2C%22ENSG00000101825%22%2C%22ENSG00000104814%22%2C%22ENSG00000166415%22%2C%22ENSG00000142867%22%2C%22ENSG00000254585%22%2C%22ENSG00000139718%22%2C%22ENSG00000077721%22%2C%22ENSG00000130294%22%2C%22ENSG00000117245%22%2C%22ENSG00000117318%22%2C%22ENSG00000270550%22%2C%22ENSG00000163637%22%2C%22ENSG00000166575%22%2C%22ENSG00000065526%22%2C%22ENSG00000156453%22%2C%22ENSG00000128191%22%2C%22ENSG00000055609%22%2C%22ENSG00000204469%22%2C%22ENSG00000187605%22%2C%22ENSG00000185875%22%2C%22ENSG00000110888%22%2C%22ENSG00000007341%22%2C%22ENSG00000173198%22%2C%22ENSG00000115568%22%2C%22ENSG00000163714%22%2C%22ENSG00000125772%22%2C%22ENSG00000080815%22%2C%22ENSG00000189079%22%2C%22ENSG00000120837%22%2C%22ENSG00000143951%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22ssms.consequence.transcript.annotation.vep_impact%22%2C%22value%22%3A%5B%22HIGH%22%5D%7D%7D%5D%7D&pretty=true&size=2"
+    curl "https://api.gdc.cancer.gov/analysis/top_mutated_cases_by_gene?fields=diagnoses.age_at_diagnosis,diagnoses.primary_diagnosis,demographic.sex_at_birth,demographic.race,demographic.ethnicity,case_id,summary.data_categories.file_count,summary.data_categories.data_category&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22%3D%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.project_id%22%2C%22value%22%3A%22TCGA-DLBC%22%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22genes.gene_id%22%2C%22value%22%3A%5B%22ENSG00000166710%22%2C%22ENSG00000005339%22%2C%22ENSG00000083857%22%2C%22ENSG00000168769%22%2C%22ENSG00000100906%22%2C%22ENSG00000184677%22%2C%22ENSG00000101680%22%2C%22ENSG00000101266%22%2C%22ENSG00000028277%22%2C%22ENSG00000140968%22%2C%22ENSG00000181827%22%2C%22ENSG00000116815%22%2C%22ENSG00000275221%22%2C%22ENSG00000139083%22%2C%22ENSG00000112851%22%2C%22ENSG00000112697%22%2C%22ENSG00000164134%22%2C%22ENSG00000009413%22%2C%22ENSG00000071626%22%2C%22ENSG00000135407%22%2C%22ENSG00000101825%22%2C%22ENSG00000104814%22%2C%22ENSG00000166415%22%2C%22ENSG00000142867%22%2C%22ENSG00000254585%22%2C%22ENSG00000139718%22%2C%22ENSG00000077721%22%2C%22ENSG00000130294%22%2C%22ENSG00000117245%22%2C%22ENSG00000117318%22%2C%22ENSG00000270550%22%2C%22ENSG00000163637%22%2C%22ENSG00000166575%22%2C%22ENSG00000065526%22%2C%22ENSG00000156453%22%2C%22ENSG00000128191%22%2C%22ENSG00000055609%22%2C%22ENSG00000204469%22%2C%22ENSG00000187605%22%2C%22ENSG00000185875%22%2C%22ENSG00000110888%22%2C%22ENSG00000007341%22%2C%22ENSG00000173198%22%2C%22ENSG00000115568%22%2C%22ENSG00000163714%22%2C%22ENSG00000125772%22%2C%22ENSG00000080815%22%2C%22ENSG00000189079%22%2C%22ENSG00000120837%22%2C%22ENSG00000143951%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22ssms.consequence.transcript.annotation.vep_impact%22%2C%22value%22%3A%5B%22HIGH%22%5D%7D%7D%5D%7D&pretty=true&size=2"
     ```
 
 === "Response"
@@ -2787,119 +2800,127 @@ __Example 3:__ The `/analysis/top_mutated_cases_by_gene` endpoint will generate 
             "summary": {
               "data_categories": [
                 {
-                  "file_count": 6,
-                  "data_category": "Sequencing Reads"
-                },
-                {
-                  "file_count": 14,
-                  "data_category": "Biospecimen"
-                },
-                {
-                  "file_count": 8,
-                  "data_category": "Copy Number Variation"
-                },
-                {
-                  "file_count": 16,
+                  "file_count": 22, 
                   "data_category": "Simple Nucleotide Variation"
-                },
+                }, 
                 {
-                  "file_count": 4,
-                  "data_category": "Transcriptome Profiling"
-                },
+                  "file_count": 8, 
+                  "data_category": "Sequencing Reads"
+                }, 
                 {
-                  "file_count": 3,
-                  "data_category": "DNA Methylation"
-                },
+                  "file_count": 14, 
+                  "data_category": "Biospecimen"
+                }, 
                 {
-                  "file_count": 8,
+                  "file_count": 8, 
                   "data_category": "Clinical"
-                },
+                }, 
                 {
-                  "file_count": 4,
-                  "data_category": "Structural Variation"
-                },
+                  "file_count": 15, 
+                  "data_category": "Copy Number Variation"
+                }, 
                 {
-                  "file_count": 1,
+                  "file_count": 4, 
+                  "data_category": "Transcriptome Profiling"
+                }, 
+                {
+                  "file_count": 3, 
+                  "data_category": "DNA Methylation"
+                }, 
+                {
+                  "file_count": 1, 
                   "data_category": "Proteome Profiling"
+                }, 
+                {
+                  "file_count": 4, 
+                  "data_category": "Somatic Structural Variation"
+                }, 
+                {
+                  "file_count": 4, 
+                  "data_category": "Structural Variation"
                 }
               ]
-            },
-            "case_id": "eda9496e-be80-4a13-bf06-89f0cc9e937f",
+            }, 
+            "case_id": "eda9496e-be80-4a13-bf06-89f0cc9e937f", 
             "diagnoses": [
               {
-                "age_at_diagnosis": 18691,
-                "primary_diagnosis": "Malignant lymphoma, large B-cell, diffuse, NOS"
+                "age_at_diagnosis": 18691, 
+                "primary_diagnosis": "Mediastinal (thymic) large B-cell lymphoma"
               }
-            ],
+            ], 
             "demographic": {
-              "ethnicity": "hispanic or latino",
-              "gender": "male",
-              "race": "white"
-            },
+              "ethnicity": "hispanic or latino", 
+              "race": "white", 
+              "sex_at_birth": "male"
+            }, 
             "_score": 7.0
-          },
+          }, 
           {
             "summary": {
               "data_categories": [
                 {
-                  "file_count": 4,
-                  "data_category": "Sequencing Reads"
-                },
-                {
-                  "file_count": 13,
-                  "data_category": "Biospecimen"
-                },
-                {
-                  "file_count": 8,
-                  "data_category": "Copy Number Variation"
-                },
-                {
-                  "file_count": 16,
+                  "file_count": 20, 
                   "data_category": "Simple Nucleotide Variation"
-                },
+                }, 
                 {
-                  "file_count": 2,
-                  "data_category": "Transcriptome Profiling"
-                },
+                  "file_count": 6, 
+                  "data_category": "Sequencing Reads"
+                }, 
                 {
-                  "file_count": 3,
-                  "data_category": "DNA Methylation"
-                },
+                  "file_count": 13, 
+                  "data_category": "Biospecimen"
+                }, 
                 {
-                  "file_count": 8,
+                  "file_count": 8, 
                   "data_category": "Clinical"
-                },
+                }, 
                 {
-                  "file_count": 4,
+                  "file_count": 13, 
+                  "data_category": "Copy Number Variation"
+                }, 
+                {
+                  "file_count": 2, 
+                  "data_category": "Transcriptome Profiling"
+                }, 
+                {
+                  "file_count": 3, 
+                  "data_category": "DNA Methylation"
+                }, 
+                {
+                  "file_count": 3, 
+                  "data_category": "Somatic Structural Variation"
+                }, 
+                {
+                  "file_count": 5, 
                   "data_category": "Structural Variation"
                 }
               ]
-            },
-            "case_id": "7a589441-11ef-4158-87e7-3951d86bc2aa",
+            }, 
+            "case_id": "7a589441-11ef-4158-87e7-3951d86bc2aa", 
             "diagnoses": [
               {
-                "age_at_diagnosis": 20812,
-                "primary_diagnosis": "Malignant lymphoma, large B-cell, diffuse, NOS"
+                "age_at_diagnosis": 20812, 
+                "primary_diagnosis": "Diffuse large B-cell lymphoma, NOS"
               }
-            ],
+            ], 
             "demographic": {
-              "ethnicity": "not hispanic or latino",
-              "gender": "female",
-              "race": "white"
-            },
+              "ethnicity": "not hispanic or latino", 
+              "race": "white", 
+              "sex_at_birth": "female"
+            }, 
             "_score": 4.0
           }
-        ],
+        ], 
         "pagination": {
-          "count": 2,
-          "total": 32,
-          "size": 2,
-          "from": 0,
-          "sort": "None",
-          "page": 1,
+          "count": 2, 
+          "total": 32, 
+          "size": 2, 
+          "from": 0, 
+          "sort": "None", 
+          "page": 1, 
           "pages": 16
         }
-      },
+      }, 
       "warnings": {}
     }
     ```

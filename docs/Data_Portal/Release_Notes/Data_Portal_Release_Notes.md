@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v2.6.0](Data_Portal_Release_Notes.md#release-260) | March 16, 2026 |
 | [v2.5.0](Data_Portal_Release_Notes.md#release-250) | June 30, 2025 |
 | [v2.4.0](Data_Portal_Release_Notes.md#release-240) | March 20, 2025 |
 | [v2.3.1](Data_Portal_Release_Notes.md#release-231) | November 21, 2024 |
@@ -42,6 +43,98 @@
 | [v1.0.1](Data_Portal_Release_Notes.md#release-101) | May 18, 2016 |
 
 ---
+## Release 2.6.0
+
+* __GDC Product__: GDC Data Portal
+* __Release Date__: March 16, 2026
+
+### New Features and Changes
+
+* __Correlation Plot__:
+    * A new analysis tool has been added to visualize correlations between clinical and genomic variables.
+* __Clinical Data Analysis__:
+    * Denominators used for percentage calculations are now based on the total number of cases in the current cohort. <!--PEAR-2453-->
+    * An option has been added to hide properties that have no data. <!--PEAR-2462-->
+* __Cancer Distribution__:
+    * Downloaded CNV histogram images now include a legend for reference. <!--PEAR-2527-->
+    * Property names in the JSON download have been updated for clarity. <!--PEAR-2296-->
+* The Gender property has been replaced with the Sex at Birth property throughout the Data Portal. <!--PEAR-2346-->
+* Filter panels on the left in __Projects__, __Repository__, __Mutation Frequency__, and the __Annotations Browser__ can now be collapsed. <!--PEAR-2344-->
+* Deleting a cohort being compared in the __Cohort Comparison__ tool will now return the user to the selection screen. <!--PEAR-2287-->
+* A link to GeneCards has been added to the External References section in the __Gene Summary Page__. <!--PEAR-2541-->
+* A link on obtaining access to controlled data has been added to the header of the portal. <!--PEAR-2459-->
+* Users will now be notified when their active cohort's filters include properties that no longer exist. <!--PEAR-2544-->
+* Notifications displayed upon deleting cohorts will now include information about the new current cohort. <!--PEAR-3410-->
+
+### Bugs Fixed Since Last Release
+
+* __Clinical Data Analysis__:
+    * Histogram image downloads are now in a higher resolution. <!--PEAR-2546-->
+    * Custom bins will now correctly apply and display the default bins after they are restored by the user. <!--PEAR-2358/PEAR-2499-->
+    * The Custom Bins modal will no longer display changes that have been discarded and will instead display only the changes that have been saved. <!--PEAR-2499-->
+* __Cohort Builder__:
+    * The `exposures.occupation_duration_years`, `exposures.exposure_duration_years`, and `exposures.age_at_last_exposure` cards now have the correct max value of 89 years. <!--PEAR-2530-->
+    * The `exposures.age_at_last_exposure` and `exposures.age_at_onset` cards have been updated to reflect that these properties' units are in years instead of days. <!--PEAR-2535-->
+* __ProteinPaint__:
+    * The ProteinPaint tool now uses 1 year = 365.25 days, instead of 365 days, which is consistent with other parts of the GDC. 
+* An unexpected error will no longer occur when the last existing cohort is deleted while in the selection screen of the __Cohort Comparison__ app. <!--PEAR-2514-->
+* The portal now correctly displays the Save Cohort Error modal when cohorts unexpectedly fail to be saved. <!--PEAR-2511-->
+* Sets created by saving the "top N" mutations from the mutations table in the __Gene Summary Page__ will now contain the expected mutations as ordered in the table. <!--PEAR-2403-->
+* The Data Transfer Tool link in the header's Apps menu now directs to the GDC Data Transfer Tool page, consistent with the rest of the Data Portal. <!--PEAR-2519-->
+* Other than the Data Portal link, links in the header's Apps menu now open in a new tab. <!--PEAR-2522-->
+* Project IDs are now fully visible in the downloaded CNV histogram images. <!--PEAR-2528-->
+* The home page now displays the number of cases available in the GDC's high-quality datasets. <!--PEAR-2475-->
+* Minor UX/UI fixes and improvements. <!--PEAR-1530/PEAR-2209/PEAR-2470/PEAR-2417/PEAR-2418/PEAR-2091/PEAR-2092/PEAR-2288/PEAR-2292/PEAR-2330/PEAR-2476/PEAR-2485/PEAR-2499/PEAR-2406-->
+* Minor text changes. <!--PEAR-2412/PEAR-874/PEAR-2333-->
+
+### Known Issues and Workarounds
+
+* __Section 508 Accessibility__:
+    * There are known Section 508 accessibility issues that the GDC plans to address in subsequent releases. If a user encounters a Section 508 barrier, please contact GDC Support (support@nci-gdc.datacommons.io) for assistance. Known Section 508 issues are identified below.
+        * There are keyboard focus and navigation issues in analysis tools that use popup windows/overlays for custom user selections. Impacted analysis tools include BAM Slicing and Sequence Reads.
+        * Heatmaps within the Sequence Reads tool do not contain concise alternative text or equivalent alternatives.
+        * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
+        * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
+        * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
+* __Correlation Plot__:
+	* The menus and labels use "samples" or "individuals" where "cases" should be used . <!--SV-2754-->
+    * When correlating Overall Survival vs Year of Birth, a divide-by variable may lead to an error of `Custom first bin.stop value should be numeric`.<!--SV-2752-->
+    * When all data has been hidden by the user, there are no legend labels to reenable showing the hidden data.<!--SV-2745-->
+    * Selecting some gene sets causes parent menus to disappear, making the `Apply` button inaccessible. <!--SV-2735-->
+    * Using plot-level filters that combine "AND"/"OR" condition may lead to an error, "Cannot read properties of undefined (reading 'term')". <!--SV-2763-->
+    * When using `diagnoses` variables, the primary diagnosis or binned age of diagnosis value may be randomly assigned for a case that has multiple values, resulting in case groupings that are not repeatable for bar charts, violins, and boxplot. <!--SV-2770-->
+    * In a violin plot with a binned numeric correlation variable, the List Samples option in a clicked label or range selection menu shows empty or incorrect tabulated results. <!--SV-2780, SV-2781-->
+    * The survival plot does not allow changing rendered colors. <!--SV-2764-->
+    * In the scatter plot when mousing over a data point, the tooltip is displayed far away from the data point and outside of the viewport. <!--SV-2765-->
+    * Scatter plot's lasso opens sample view with an error, "tdb.q.getSingleSampleData is not a function". <!--SV-2767-->
+    * Scatter plot's `Add to a group` button in the list samples table doesn't work. <!--SV-2768-->
+    * In a scatter plot after clicking on a data point and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot launches a ProteinPaint Lollipop track with the error "unknown data source for custom track".<!--SV-2779-->
+* __Copy Number Segment__:
+	* Inconsistent handling of coordinates. <!--SV-2422-->
+* __Survival Plot__:
+    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
+* __Cohort MAF__:
+    * A downloaded file may be corrupted if the server data processing is terminated after 5 minutes in order to conserve server resources.
+    There will be a red banner above the MAF controls to indicate the termination.
+* __OncoMatrix__:
+    * After clicking on a matrix cell and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot launches a ProteinPaint Lollipop track with the error "unknown data source for custom track".<!--SV-2778-->
+* Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
+* In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
+* __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
+* The case count displayed above the table in the __Repository__ can be incorrect when applying filters based on samples (e.g. Tissue Type) or input files. <!--SV-2260-->
+* The __Slide Image Viewer__ will display a black image temporarily if a user zooms in on a slide then switches to another slide. <!--SV-2370-->
+* The TSV of the __Most Frequent Somatic Mutations__ table in the __Case Summary Page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
+* Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
+* The __Quick Search__ feature located in the header may not return expected results if the query is not a full match for the results and exceeds 20 characters. A workaround is to enter a full match or limit the query to 20 or fewer characters. <!--SV-2705-->
+
+### Properties Removed
+
+The following properties have been removed and are no longer available. Any data values that were previously found in these properties have been verified to have been moved to other available properties.
+
+* cases.demographic.premature_at_birth, cases.demographic.weeks_gestation_at_birth, cases.diagnoses.metastasis_at_diagnosis_site, cases.diagnoses.micropapillary_features, cases.diagnoses.mitotic_count, cases.diagnoses.papillary_renal_cell_type, cases.diagnoses.pregnant_at_diagnosis, cases.diagnoses.primary_disease, cases.diagnoses.treatments.treatment_anatomic_site, cases.diagnoses.treatments.treatment_arm, cases.exposures.asbestos_exposure, cases.exposures.coal_dust_exposure, cases.exposures.radon_exposure, cases.exposures.respirable_crystalline_silica_exposure, cases.exposures.years_smoked, cases.follow_ups.aids_risk_factors, cases.follow_ups.bmi, cases.follow_ups.body_surface_area, cases.follow_ups.cd4_count, cases.follow_ups.cdc_hiv_risk_factors, cases.follow_ups.comorbidities, cases.follow_ups.comorbidity, cases.follow_ups.comorbidity_method_of_diagnosis, cases.follow_ups.days_to_comorbidity, cases.follow_ups.days_to_risk_factor, cases.follow_ups.diabetes_treatment_type, cases.follow_ups.dlco_ref_predictive_percent, cases.follow_ups.eye_color, cases.follow_ups.fev1_fvc_post_bronch_percent, cases.follow_ups.fev1_fvc_pre_bronch_percent, cases.follow_ups.fev1_ref_post_bronch_percent, cases.follow_ups.fev1_ref_pre_bronch_percent, cases.follow_ups.haart_treatment_indicator, cases.follow_ups.height, cases.follow_ups.hepatitis_sustained_virological_response, cases.follow_ups.hiv_viral_load, cases.follow_ups.hormonal_contraceptive_type, cases.follow_ups.hormonal_contraceptive_use, cases.follow_ups.hormone_replacement_therapy_type, cases.follow_ups.hpv_positive_type, cases.follow_ups.hysterectomy_margins_involved, cases.follow_ups.hysterectomy_type, cases.follow_ups.immunosuppressive_treatment_type, cases.follow_ups.menopause_status, cases.follow_ups.nadir_cd4_count, cases.follow_ups.pancreatitis_onset_year, cases.follow_ups.pregnancy_count, cases.follow_ups.pregnancy_outcome, cases.follow_ups.reflux_treatment_type, cases.follow_ups.risk_factor, cases.follow_ups.risk_factor_method_of_diagnosis, cases.follow_ups.risk_factor_treatment, cases.follow_ups.risk_factors, cases.follow_ups.undescended_testis_corrected, cases.follow_ups.undescended_testis_corrected_age, cases.follow_ups.undescended_testis_corrected_laterality, cases.follow_ups.undescended_testis_corrected_method, cases.follow_ups.undescended_testis_history, cases.follow_ups.undescended_testis_history_laterality, cases.follow_ups.weight, cases.follow_ups.viral_hepatitis_serologies, cases.follow_ups.other_clinical_attributes.pregnancy_count, cases.follow_ups.other_clinical_attributes.viral_hepatitis_serologies, cases.samples.composition, cases.samples.is_ffpe, cases.samples.oct_embedded, cases.samples.portions.analytes.aliquots.analyte_type_id, cases.samples.portions.analytes.analyte_type_id, cases.samples.sample_type_id, cases.samples.tumor_code
+
+
 ## Release 2.5.0
 
 * __GDC Product__: GDC Data Portal
