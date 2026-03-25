@@ -76,7 +76,7 @@
     * The `exposures.occupation_duration_years`, `exposures.exposure_duration_years`, and `exposures.age_at_last_exposure` cards now have the correct max value of 89 years. <!--PEAR-2530-->
     * The `exposures.age_at_last_exposure` and `exposures.age_at_onset` cards have been updated to reflect that these properties' units are in years instead of days. <!--PEAR-2535-->
 * __ProteinPaint__:
-    * The ProteinPaint tool now uses 1 year = 365.25 days, instead of 365 days, which is consistent with other parts of the GDC. 
+    * The ProteinPaint tool now uses 1 year = 365.25 days, instead of 365 days, which is consistent with other parts of the GDC.
 * An unexpected error will no longer occur when the last existing cohort is deleted while in the selection screen of the __Cohort Comparison__ app. <!--PEAR-2514-->
 * The portal now correctly displays the Save Cohort Error modal when cohorts unexpectedly fail to be saved. <!--PEAR-2511-->
 * Sets created by saving the "top N" mutations from the mutations table in the __Gene Summary Page__ will now contain the expected mutations as ordered in the table. <!--PEAR-2403-->
@@ -127,6 +127,7 @@
 * The TSV of the __Most Frequent Somatic Mutations__ table in the __Case Summary Page__ does not reflect the displayed information in the table if a search filter has been applied. <!--PEAR-2143-->
 * Repeated and consecutive uses of the browser's back and/or forward buttons to return to a previously viewed page may result in a different page being displayed than the one indicated in the browser address bar. <!--SV-2552-->
 * The __Quick Search__ feature located in the header may not return expected results if the query is not a full match for the results and exceeds 20 characters. A workaround is to enter a full match or limit the query to 20 or fewer characters. <!--SV-2705-->
+* The __Survival Plot__ feature may contain an error in which decreases in survival estimate that should occur at a particular time point occur at the subsequent time point.
 
 ### Properties Removed
 
@@ -267,7 +268,7 @@ The following properties have been removed and are no longer available. Any data
     * Avoids showing genes with no expression values (due to an issue of ProteinPaint GENCODE v36 data that affects only certain genes; data issue will be fixed at the next release).
     * Make zscore transformation a checkbox option in Clustering menu.
 * __Cohort MAF__:
-    * Allow users to sort the table of MAF files. 
+    * Allow users to sort the table of MAF files.
     * A bar plot has been added to display the MAF file size.
 * The deprecated Sample Type property has been replaced by new sample properties (Tissue Type, Tumor Descriptor, Specimen Type, and Preservation Method) in the __Sample Sheet__. <!--PEAR-2113-->
 * Deprecated properties (Analyte Type ID, Is FFPE, OCT Embedded, and Tumor Code) have been removed from the biospecimen tree in the __Case Summary Page__. <!--PEAR-2306-->
