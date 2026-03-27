@@ -61,6 +61,7 @@
 * Some fields may be repeated in the API or data portal due to being in a transitional states. As a workaround, select all of the fields of interest, and the results will demonstrate which are currently populated.
 * Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
 * Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
+* The survival endpoint may contain an error in which survival estimates are overestimated. For example, for a set of non-censored cases, decreases in survival estimate that should occur at a particular time point occur at the subsequent time point. This will be addressed in a future release.
 
 ## v7.9.1
 
