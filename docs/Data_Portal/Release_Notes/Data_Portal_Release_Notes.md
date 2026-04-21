@@ -85,7 +85,7 @@
 * __Copy Number Segment__:
 	* Inconsistent handling of coordinates. <!--SV-2422-->
 * Gene Expression Clustering:
-    * The tool may incorrectly report "No matching cohort sample data for the current gene list", if the cohort includes a large number of cases without gene expression data.<!--SV-2686-followup-issue-->
+    * The tool may incorrectly report "No matching cohort sample data for the current gene list", if the cohort includes a large number of cases without gene expression data.<!--SV-2800-->
 * __Survival Plot__:
     * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
     * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
