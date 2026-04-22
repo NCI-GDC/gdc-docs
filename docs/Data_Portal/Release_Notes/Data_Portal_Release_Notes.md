@@ -78,10 +78,14 @@
         * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
         * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
         * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
+* __IDC Image Viewer__:
+	  * When searching Case ID in the Search Bar, cases don't populate if the user is searching using lowercase rather than uppercase letters in the Case ID. Also the search does not allow partial searches such as 04OV01.<!--SV-2797-->
+	  * The IDC Image Viewer Table does not reflect the number of cases with images in IDC, except for projects with no images.<!--SV-2798-->
 * __Correlation Plot__:
     * The menus and labels use "samples" or "individuals" where "cases" should be used . <!--SV-2754-->
     * When all data has been hidden by the user, there are no legend labels to reenable showing the hidden data.<!--SV-2745-->
     * In a scatter plot after clicking on a data point and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot launches a ProteinPaint Lollipop track that is not constrained by the active cohort.<!--SV-2799-->
+    * GeneExp vs Survival input in Correlation Plot should display error when the cohort size >5k.<!--SV-2796-->
 * __Copy Number Segment__:
 	* Inconsistent handling of coordinates. <!--SV-2422-->
 * Gene Expression Clustering:
