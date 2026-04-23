@@ -37,4 +37,10 @@ You can search for GDC cases in this table, but you must enter the full GDC Case
 
 [![IDC Image Viewer search](images/idc-viewer/IDCViewer_search.png)](images/idc-viewer/IDCViewer_search.png "IDC Image Viewer search. Click to see the full image.")
 
+Each GDC case includes a list of associated IDC studies. To view them, click the **IDC Studies** link to expand the row in the table.
 
+For case **TCGA-3C-AAAU**, the IDC Study Instance UID is:
+
+`2.25.227261840503961430496812955999336758586`
+
+To view the corresponding histopathology images in IDC, click [**Open Study**](https://viewer.imaging.datacommons.cancer.gov/slim/studies/2.25.227261840503961430496812955999336758586/)
