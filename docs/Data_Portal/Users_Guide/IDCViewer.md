@@ -1,26 +1,26 @@
-# IDC Image Viewer Tutorial
+# Imaging Data Commons (IDC) Image Viewer Tutorial
 
-The IDC Image Viewer is an analysis tool within the GDC Data Portal that allows users to explore histopathology and radiology images from the Imaging Data Commons (IDC) for a selected cohort.
+The Imaging Data Commons (IDC) Image Viewer is an analysis tool within the GDC Data Portal. Researchers can use the tool to explore histopathology and radiology images for a selected cohort.
 
 [![IDC Image Viewer card](images/idc-viewer/IDCViewer_card.png)](images/idc-viewer/IDCViewer_card.png "IDC Image Viewer card. Click to see the full image.")
 
-Before using the IDC Image Viewer, you can either create a cohort or use the default cohort, which includes all GDC cases.
+Before using the IDC Image Viewer, a user can either create a cohort or use the default cohort, which includes all GDC cases.
 
 To create a cohort in the GDC Data Portal, see [Cohort Builder](cohort_builder.md):
 
-- Open Cohort Builder from the Data Portal header, or from the Analysis Center Cohort Builder card
-- Use filter cards to narrow the current cohort to your cases of interest
+- Open Cohort Builder from the GDC Data Portal header, or from the Analysis Center Cohort Builder card
+- Use filter cards to narrow the current cohort to the cases of interest
 - For this tutorial, select: Project -> TCGA-BRCA
-- Check the active cohort in the main toolbar before continuing to IDC Image Viewer
+- Check the active cohort in the main toolbar before continuing to the IDC Image Viewer
 
 This creates a cohort of breast cancer cases. If no filters are applied, the default cohort (all GDC cases) is used.
 
 ## Open the IDC Image Viewer
 
-After defining your cohort:
+After defining a cohort:
 
-- Click on Analysis Center
-- Click on IDC Image Viewer
+- Select Analysis Center
+- Select IDC Image Viewer
 
 This will open a [table](images/idc-viewer/IDCViewer_brca_program_cohort.png).
 
@@ -33,14 +33,14 @@ The table includes:
 - Project (e.g., TCGA-BRCA)
 - IDC Studies (Click to expand)
 
-You can search for GDC cases in this table, but you must enter the full GDC Case ID, and the search is currently case-sensitive.
+A user can search for GDC cases in this table, but the full GDC Case ID must be entered, and the search is currently case-sensitive.
 
 [![IDC Image Viewer search](images/idc-viewer/IDCViewer_search.png)](images/idc-viewer/IDCViewer_search.png "IDC Image Viewer search. Click to see the full image.")
 
-Each GDC case includes a list of associated IDC studies. To view them, click the **IDC Studies** link to expand the row in the table.
+Each GDC case includes a list of associated IDC studies. To view them, select the **IDC Studies** link to expand the row in the table.
 
-For case **TCGA-3C-AAAU**, the IDC Study Instance UID is:
+For case **TCGA-3C-AAAU**, the IDC Study Instance Unique Identifier (UID) is:
 
 `2.25.227261840503961430496812955999336758586`
 
-To view the corresponding histopathology images in IDC, click [**Open Study**](https://viewer.imaging.datacommons.cancer.gov/slim/studies/2.25.227261840503961430496812955999336758586/)
+To view the corresponding histopathology images in IDC, select [**Open Study**](https://viewer.imaging.datacommons.cancer.gov/slim/studies/2.25.227261840503961430496812955999336758586/).
