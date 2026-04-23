@@ -44,3 +44,14 @@ For case **TCGA-3C-AAAU**, the IDC Study Instance Unique Identifier (UID) is:
 `2.25.227261840503961430496812955999336758586`
 
 To view the corresponding histopathology images in IDC, select [**Open Study**](https://viewer.imaging.datacommons.cancer.gov/slim/studies/2.25.227261840503961430496812955999336758586/).
+
+Some GDC cases may have multiple associated studies. For example, case **TCGA-AO-A0J8** can be found using search and has 2 associated studies: 1 histopathology study and 1 radiology study.
+
+[![IDC case with multiple associated studies](images/idc-viewer/IDC_viewer_multiple_studies.png)](images/idc-viewer/IDC_viewer_multiple_studies.png "IDC case with multiple associated studies. Click to see the full image.")
+
+In this example, use **Open study** in the **IDC Histopathology Viewer** column to open pathology slide images, and use **Open study** in the **IDC Radiology Viewer** column to open radiology image series.
+
+For instructions on using each viewer, see the IDC User's Guide:
+
+- [Histopathology Viewer functionality](https://learn.canceridc.dev/portal/visualization#idc-pathology-viewer-functionality)
+- [Radiology Viewer functionality](https://learn.canceridc.dev/portal/visualization#idc-radiology-viewer-functionality)
