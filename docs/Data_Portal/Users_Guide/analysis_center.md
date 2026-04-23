@@ -33,6 +33,7 @@ The 'Analysis Tools' section contains the tools available for specific analyses 
 * [Copy Number Segment](CNVtool.md)
 * [Correlation Plot](correlation.md)
 * [Gene Expression Clustering](gene_expression_clustering.md)
+* [IDC Image Viewer](IDCViewer.md)
 * [Mutation Frequency](mutation_frequency.md)
 * [OncoMatrix](oncomatrix.md)
 * [ProteinPaint](proteinpaint_lollipop.md)
