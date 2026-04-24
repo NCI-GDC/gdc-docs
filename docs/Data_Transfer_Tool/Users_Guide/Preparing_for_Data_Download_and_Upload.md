@@ -29,7 +29,7 @@ A manifest file is not required to download files from GDC. The GDC Data Transfe
 
 The GDC Data Transfer Tool requires an authentication token to download from GDC data portal to download Controlled-Access Data. Tokens can be generated and downloaded directly from the GDC Data Portal.
 
-To generate a token, first log in to the GDC Data Portal by clicking the *Login* button in the top right corner of the page. This will redirect to the eRA Commons login page. After successful authentication, the GDC Data Portal will display the username in place of the *Login* button. Here, the user Ian Miller is logged in to the GDC Data Portal, indicated by the username IANMILLER.
+To generate a token, first log in to the GDC Data Portal by clicking the *Login* button in the top right corner of the page. This will redirect to the eRA Commons login page. After successful authentication, the GDC Data Portal will display the username in place of the *Login* button. Here, a test user is logged in to the GDC Data Portal, indicated by the username TESTUSER.
 
 Clicking the username will open a drop-down menu. Select *Download Token* from the menu to generate an authentication token.
 
