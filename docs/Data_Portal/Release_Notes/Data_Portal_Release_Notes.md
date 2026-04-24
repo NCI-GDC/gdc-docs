@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v2.7.0](Data_Portal_Release_Notes.md#release-270) | April 27, 2026 |
 | [v2.6.0](Data_Portal_Release_Notes.md#release-260) | March 16, 2026 |
 | [v2.5.0](Data_Portal_Release_Notes.md#release-250) | June 30, 2025 |
 | [v2.4.0](Data_Portal_Release_Notes.md#release-240) | March 20, 2025 |
@@ -50,11 +51,15 @@
 
 ### New Features and Changes
 
-*
+* The deprecated tumor_code_id property has been removed from the biospecimen tree in the __Case Summary Page__. <!--PEAR-2604-->
+* Minor accessibility improvements. <!--PEAR-2629-->
 
 ### Bugs Fixed Since Last Release
 
-*
+* The portal will now properly load for logged-in users who have no permissions to any controlled-access data. <!--PEAR-2635-->
+* A fix has been implemented for the issue where entity summary pages sometimes do not load as expected. <!--PEAR-2594-->
+* __Manage Sets__ has been made consistent with the rest of the portal and displays the protein change and consequence from the canonical transcript of a mutation. <!--PEAR-2498-->
+* The y-axis ticks and labels for histograms in the __Clinical Data Analysis__ tool are now capped at 100% unless the data contains values exceeding this threshold. <!--PEAR-2552-->
 
 ### Known Issues and Workarounds
 
