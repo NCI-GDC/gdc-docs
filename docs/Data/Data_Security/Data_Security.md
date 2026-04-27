@@ -70,7 +70,7 @@ The GDC Data Portal provides authentication tokens for use with the GDC Data Tra
 2. Click the username in the top right corner of the screen.
 3. Select the "Download token" option.
 
-![Token Download Button](images/Token_Download_v2_small.jpg)
+![Token Download Button](images/Token_Download_v2_small.png)
 
 A new token is generated each time the `Download Token` button is clicked.
 
@@ -82,7 +82,7 @@ For more information about authentication tokens, see [Data Security](../../Data
 
 To log out of the GDC, click the username in the top right corner of the screen, and select the Logout option.
 
-![Logout link](images/gdc-user-portal-logout-v2_3.jpg)
+![Logout link](images/gdc-user-portal-logout-v2_3.png)
 
 
 
