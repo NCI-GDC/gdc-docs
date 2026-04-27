@@ -51,11 +51,25 @@
 
 ### New Features and Changes
 
-* The deprecated tumor_code_id property has been removed from the biospecimen tree in the __Case Summary Page__. <!--PEAR-2604-->
-* Minor accessibility improvements. <!--PEAR-2629-->
+* __IDC Image Viewer__:
+    * A new analysis tool has been added to view histopathology and radiology images using the Imaging Data Commons (IDC) Image Viewer for the current cohort.
 
 ### Bugs Fixed Since Last Release
 
+* __Correlation Plot__:
+    * When using `diagnoses` variables, the primary diagnosis or binned age of diagnosis value is now assigned deterministically for a case that has multiple values, resulting in case groupings that are repeatable for bar charts, violins, and boxplot. <!--SV-2770-->
+    * Selecting some gene sets will will now always persist the parent menus, making the `Apply` button always accessible. <!--SV-2735-->
+    * Using plot-level filters that combine "AND"/"OR" condition has been fixed and does not lead to the error "Cannot read properties of undefined (reading 'term')". <!--SV-2763-->
+    * In a violin plot with a binned numeric correlation variable, the List Samples option in a clicked label or range selection menu now shows the correct tabulated results. <!--SV-2780, SV-2781-->
+    * The survival plot now allows changing rendered colors. <!--SV-2764-->
+    * In the scatter plot when mousing over a data point, the tooltip is now displayed close to the data point. <!--SV-2765-->
+    * Scatter plot's lasso now opens sample view without the error "tdb.q.getSingleSampleData is not a function". <!--SV-2767-->
+    * Scatter plot's `Add to a group` button in the list samples table is now hidden. <!--SV-2768-->
+    * In a scatter plot after clicking on a data point and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot now launches a ProteinPaint Lollipop track without the error "unknown data source for custom track".<!--SV-2779-->
+* __OncoMatrix__:
+    * After clicking on a matrix cell and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot now launches a ProteinPaint Lollipop track without the error "unknown data source for custom track".<!--SV-2778-->
+* The deprecated tumor_code_id property has been removed from the biospecimen tree in the __Case Summary Page__. <!--PEAR-2604-->
+* Minor accessibility improvements. <!--PEAR-2629-->
 * The portal will now properly load for logged-in users who have no permissions to any controlled-access data. <!--PEAR-2635-->
 * A fix has been implemented for the issue where entity summary pages sometimes do not load as expected. <!--PEAR-2594-->
 * __Manage Sets__ has been made consistent with the rest of the portal and displays the protein change and consequence from the canonical transcript of a mutation. <!--PEAR-2498-->
@@ -70,30 +84,24 @@
         * In the Gene Expression Clustering tool and OncoMatrix, there are no headers for genes, clusters, and/or cases in the heatmap.
         * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
         * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
+* __IDC Image Viewer__:
+	  * When searching Case ID in the Search Bar, cases don't populate if the user is searching using lowercase rather than uppercase letters in the Case ID. The search also does not list a partial match of the search string, such as "01BR00" which should have at least 3 matching results (01BR001, 01BR008, and 01BR009).<!--SV-2797-->
+	  * The IDC Image Viewer Table does not reflect the number of cases with images in IDC for a cohort that has at least 1 available image.<!--SV-2798-->
 * __Correlation Plot__:
-	* The menus and labels use "samples" or "individuals" where "cases" should be used . <!--SV-2754-->
-    * When correlating Overall Survival vs Year of Birth, a divide-by variable may lead to an error of `Custom first bin.stop value should be numeric`.<!--SV-2752-->
+    * The menus and labels use "samples" or "individuals" where "cases" should be used. <!--SV-2754-->
     * When all data has been hidden by the user, there are no legend labels to reenable showing the hidden data.<!--SV-2745-->
-    * Selecting some gene sets causes parent menus to disappear, making the `Apply` button inaccessible. <!--SV-2735-->
-    * Using plot-level filters that combine "AND"/"OR" condition may lead to an error, "Cannot read properties of undefined (reading 'term')". <!--SV-2763-->
-    * When using `diagnoses` variables, the primary diagnosis or binned age of diagnosis value may be randomly assigned for a case that has multiple values, resulting in case groupings that are not repeatable for bar charts, violins, and boxplot. <!--SV-2770-->
-    * In a violin plot with a binned numeric correlation variable, the List Samples option in a clicked label or range selection menu shows empty or incorrect tabulated results. <!--SV-2780, SV-2781-->
-    * The survival plot does not allow changing rendered colors. <!--SV-2764-->
-    * In the scatter plot when mousing over a data point, the tooltip is displayed far away from the data point and outside of the viewport. <!--SV-2765-->
-    * Scatter plot's lasso opens sample view with an error, "tdb.q.getSingleSampleData is not a function". <!--SV-2767-->
-    * Scatter plot's `Add to a group` button in the list samples table doesn't work. <!--SV-2768-->
-    * In a scatter plot after clicking on a data point and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot launches a ProteinPaint Lollipop track with the error "unknown data source for custom track".<!--SV-2779-->
+    * In a scatter plot after clicking on a data point and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot launches a ProteinPaint Lollipop track that does not reflect the current cohort.<!--SV-2799-->
+    * GeneExp vs Survival input in Correlation Plot should display error when the cohort size >5k.<!--SV-2796-->
 * __Copy Number Segment__:
 	* Inconsistent handling of coordinates. <!--SV-2422-->
+* Gene Expression Clustering:
+    * The tool may incorrectly report "No matching cohort sample data for the current gene list", if the cohort includes a large number of cases without gene expression data.<!--SV-2800-->
 * __Survival Plot__:
     * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
     * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
     * The __Survival Plot__ feature may contain an error in which survival estimates are overestimated. For example, for a set of non-censored cases, decreases in survival estimate that should occur at a particular time point occur at the subsequent time point. This will be addressed in a future release.
 * __Cohort MAF__:
-    * A downloaded file may be corrupted if the server data processing is terminated after 5 minutes in order to conserve server resources.
-    There will be a red banner above the MAF controls to indicate the termination.
-* __OncoMatrix__:
-    * After clicking on a matrix cell and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot launches a ProteinPaint Lollipop track with the error "unknown data source for custom track".<!--SV-2778-->
+    * A downloaded file may be corrupted if the server data processing is terminated after 5 minutes in order to conserve server resources. There will be a red banner above the MAF controls to indicate the termination.
 * Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
 * In the __files, cases, and annotations tables__, the case ID search field is case-sensitive. If the search does not return the expected results, try changing the input to uppercase as case IDs are most commonly uppercased.
 * __Cohorts__ filtered by mutated genes and SSMs not in those genes will result in 0 cases since the mutations have to belong to those particular genes in order to match cases for the results. As a workaround, first filter the cohort by the mutated genes and export the cohort using the Export Cohort feature in the Cohort Bar. Then, reimport the cohort using the Import New Cohort feature before applying the SSM filters. <!--SV-2331/PEAR-1616-->
