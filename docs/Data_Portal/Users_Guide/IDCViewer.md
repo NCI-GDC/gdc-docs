@@ -22,7 +22,7 @@ After defining a cohort:
 - Select Analysis Center
 - Select IDC Image Viewer
 
-This will open a [table](images/idc-viewer/IDCViewer_brca_program_cohort.png).
+This opens the table shown below.
 
 [![IDC Image Viewer cohort table](images/idc-viewer/IDCViewer_brca_program_cohort.png)](images/idc-viewer/IDCViewer_brca_program_cohort.png "IDC Image Viewer cohort table. Click to see the full image.")
 
@@ -43,7 +43,7 @@ For case **TCGA-3C-AAAU**, the IDC Study Instance Unique Identifier (UID) is:
 
 `2.25.227261840503961430496812955999336758586`
 
-To view the corresponding histopathology images in IDC, select [**Open Study**](https://viewer.imaging.datacommons.cancer.gov/slim/studies/2.25.227261840503961430496812955999336758586/).
+To view the corresponding histopathology images in IDC, select **Open study** in the **IDC Histopathology Viewer** column for this case.
 
 Some GDC cases may have multiple associated studies. For example, case **TCGA-AO-A0J8** can be found using search and has 2 associated studies: 1 histopathology study and 1 radiology study.
 
