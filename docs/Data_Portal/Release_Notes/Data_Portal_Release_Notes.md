@@ -59,7 +59,7 @@
 * __Correlation Plot__:
     * When using `diagnoses` variables, the primary diagnosis or binned age of diagnosis value is now assigned deterministically for a case that has multiple values, resulting in case groupings that are repeatable for bar charts, violins, and boxplot. <!--SV-2770-->
     * Selecting some gene sets will will now always persist the parent menus, making the `Apply` button always accessible. <!--SV-2735-->
-    * Using plot-level filters that combine "AND"/"OR" condition has beeb fixed and does not lead to the error "Cannot read properties of undefined (reading 'term')". <!--SV-2763-->
+    * Using plot-level filters that combine "AND"/"OR" condition has been fixed and does not lead to the error "Cannot read properties of undefined (reading 'term')". <!--SV-2763-->
     * In a violin plot with a binned numeric correlation variable, the List Samples option in a clicked label or range selection menu now shows the correct tabulated results. <!--SV-2780, SV-2781-->
     * The survival plot now allows changing rendered colors. <!--SV-2764-->
     * In the scatter plot when mousing over a data point, the tooltip is now displayed close to the data point. <!--SV-2765-->
@@ -86,7 +86,7 @@
         * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
 * __IDC Image Viewer__:
 	  * When searching Case ID in the Search Bar, cases don't populate if the user is searching using lowercase rather than uppercase letters in the Case ID. The search also does not list a partial match of the search string, such as "01BR00" which should have at least 3 matching results (01BR001, 01BR008, and 01BR009).<!--SV-2797-->
-	  * The IDC Image Viewer Table does not reflect the number of cases with images in IDC for a cohort that have at least 1 available image.<!--SV-2798-->
+	  * The IDC Image Viewer Table does not reflect the number of cases with images in IDC for a cohort that has at least 1 available image.<!--SV-2798-->
 * __Correlation Plot__:
     * The menus and labels use "samples" or "individuals" where "cases" should be used. <!--SV-2754-->
     * When all data has been hidden by the user, there are no legend labels to reenable showing the hidden data.<!--SV-2745-->
