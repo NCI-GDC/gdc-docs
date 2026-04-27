@@ -120,7 +120,7 @@ The following example will query the endpoint to produce a UUID along with submi
 ### Obtaining an Authentication Token for Data Uploads
 While biospecimen and clinical metadata may be uploaded via the GDC Data Submission Portal, file upload must be done using the Data Transfer Tool or API.  An authentication token is required for data upload and can be generated on the GDC Data Submission Portal.
 
-To generate a token, first log in to the GDC Data Submission Portal by clicking the *Login* button in the top right corner of the page.  This will create a popup window that will redirect to the eRA Commons login page. After successful authentication, the GDC Submission Portal will display the username in place of the *Login* button. Here, the user Ian Miller is logged in to the GDC Submission Portal, indicated by the username IANMILLER.
+To generate a token, first log in to the GDC Data Submission Portal by clicking the *Login* button in the top right corner of the page.  This will create a popup window that will redirect to the eRA Commons login page. After successful authentication, the GDC Submission Portal will display the username in place of the *Login* button. Here, a test user is logged in to the GDC Submission Portal, indicated by the username TESTUSER.
 
 Clicking the username will open a drop-down menu. Select *Download Token* from the menu to generate an authentication token.
 
