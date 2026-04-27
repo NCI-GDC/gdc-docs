@@ -66,6 +66,7 @@ nav:
       - Copy Number Segment: Data_Portal/Users_Guide/CNVtool.md
       - Correlation Plot: Data_Portal/Users_Guide/correlation.md
       - Gene Expression Clustering: Data_Portal/Users_Guide/gene_expression_clustering.md
+      - IDC Image Viewer: Data_Portal/Users_Guide/IDCViewer.md
       - Mutation Frequency: Data_Portal/Users_Guide/mutation_frequency.md
       - OncoMatrix: Data_Portal/Users_Guide/oncomatrix.md
       - ProteinPaint: Data_Portal/Users_Guide/proteinpaint_lollipop.md
