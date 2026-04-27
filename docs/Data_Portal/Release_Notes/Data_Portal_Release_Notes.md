@@ -56,17 +56,17 @@
 ### Bugs Fixed Since Last Release
 
 * __Correlation Plot__:
-    * When using `diagnoses` variables, the primary diagnosis or binned age of diagnosis value may be randomly assigned for a case that has multiple values, resulting in case groupings that are not repeatable for bar charts, violins, and boxplot. <!--SV-2770-->
-    * Selecting some gene sets causes parent menus to disappear, making the `Apply` button inaccessible. <!--SV-2735-->
-    * Using plot-level filters that combine "AND"/"OR" condition may lead to an error, "Cannot read properties of undefined (reading 'term')". <!--SV-2763-->
-    * In a violin plot with a binned numeric correlation variable, the List Samples option in a clicked label or range selection menu shows empty or incorrect tabulated results. <!--SV-2780, SV-2781-->
-    * The survival plot does not allow changing rendered colors. <!--SV-2764-->
-    * In the scatter plot when mousing over a data point, the tooltip is displayed far away from the data point and outside of the viewport. <!--SV-2765-->
-    * Scatter plot's lasso opens sample view with an error, "tdb.q.getSingleSampleData is not a function". <!--SV-2767-->
-    * Scatter plot's `Add to a group` button in the list samples table doesn't work. <!--SV-2768-->
-    * In a scatter plot after clicking on a data point and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot launches a ProteinPaint Lollipop track with the error "unknown data source for custom track".<!--SV-2779-->
+    * When using `diagnoses` variables, the primary diagnosis or binned age of diagnosis value is now assigned deterministically for a case that has multiple values, resulting in case groupings that are repeatable for bar charts, violins, and boxplot. <!--SV-2770-->
+    * Selecting some gene sets will will now always persist the parent menus, making the `Apply` button always accessible. <!--SV-2735-->
+    * Using plot-level filters that combine "AND"/"OR" condition has beeb fixed and does not lead to the error "Cannot read properties of undefined (reading 'term')". <!--SV-2763-->
+    * In a violin plot with a binned numeric correlation variable, the List Samples option in a clicked label or range selection menu now shows the correct tabulated results. <!--SV-2780, SV-2781-->
+    * The survival plot now allows changing rendered colors. <!--SV-2764-->
+    * In the scatter plot when mousing over a data point, the tooltip is now displayed close to the data point. <!--SV-2765-->
+    * Scatter plot's lasso now opens sample view without the error "tdb.q.getSingleSampleData is not a function". <!--SV-2767-->
+    * Scatter plot's `Add to a group` button in the list samples table is now hidden. <!--SV-2768-->
+    * In a scatter plot after clicking on a data point and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot now launches a ProteinPaint Lollipop track without the error "unknown data source for custom track".<!--SV-2779-->
 * __OncoMatrix__:
-    * After clicking on a matrix cell and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot launches a ProteinPaint Lollipop track with the error "unknown data source for custom track".<!--SV-2778-->
+    * After clicking on a matrix cell and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot now launches a ProteinPaint Lollipop track without the error "unknown data source for custom track".<!--SV-2778-->
 
 
 ### Known Issues and Workarounds
@@ -79,12 +79,12 @@
         * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
         * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
 * __IDC Image Viewer__:
-	  * When searching Case ID in the Search Bar, cases don't populate if the user is searching using lowercase rather than uppercase letters in the Case ID. Also the search does not allow partial searches such as 04OV01.<!--SV-2797-->
-	  * The IDC Image Viewer Table does not reflect the number of cases with images in IDC, except for projects with no images.<!--SV-2798-->
+	  * When searching Case ID in the Search Bar, cases don't populate if the user is searching using lowercase rather than uppercase letters in the Case ID. The search also does not list a partial match of the search string, such as "01BR00" which should have at least 3 matching results (01BR001, 01BR008, and 01BR009).<!--SV-2797-->
+	  * The IDC Image Viewer Table does not reflect the number of cases with images in IDC for a cohort that have at least 1 available image.<!--SV-2798-->
 * __Correlation Plot__:
-    * The menus and labels use "samples" or "individuals" where "cases" should be used . <!--SV-2754-->
+    * The menus and labels use "samples" or "individuals" where "cases" should be used. <!--SV-2754-->
     * When all data has been hidden by the user, there are no legend labels to reenable showing the hidden data.<!--SV-2745-->
-    * In a scatter plot after clicking on a data point and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot launches a ProteinPaint Lollipop track that is not constrained by the active cohort.<!--SV-2799-->
+    * In a scatter plot after clicking on a data point and launching Disco Plot from the menu, clicking on a gene label in the Disco Plot launches a ProteinPaint Lollipop track that does not reflect the current cohort.<!--SV-2799-->
     * GeneExp vs Survival input in Correlation Plot should display error when the cohort size >5k.<!--SV-2796-->
 * __Copy Number Segment__:
 	* Inconsistent handling of coordinates. <!--SV-2422-->
