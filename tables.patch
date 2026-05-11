@@ -1,0 +1,20 @@
+--- /venv/lib/python3.9/site-packages/mkdocs_pandoc/filters/tables.py	2025-04-10 09:11:33
++++ /venv/lib/python3.9/site-packages/mkdocs_pandoc/filters/tables.py	2025-04-10 11:18:15
+@@ -88,7 +88,7 @@
+
+         # Initialize width arrays
+
+-        for i in range(0, len(self._split_row(lines_orig[0], has_border))):
++        for i in range(0, len(self._split_row(lines_orig[0]))):
+             widest_cell.append(0)
+             widest_word.append(0)
+             widths.append(0)
+@@ -96,7 +96,7 @@
+         # Parse lines into array of cells and record width of widest cell/word
+
+         for line in lines_orig:
+-            row = self._split_row(line, has_border)
++            row = self._split_row(line)
+             # pad widest_cell to account for under length first row
+             for i in range(0, len(row) - len(widest_cell)):
+                 widest_cell.append(0)
