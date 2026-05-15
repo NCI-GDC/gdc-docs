@@ -264,7 +264,6 @@
                 if (_.has(propertyVal[j], "enum") && _.isArray(_getPropertyValueRecursive(propertyVal[j]))) {
                   var enumValues = `Enumeration: <ul> <li> ${_getPropertyValueRecursive(propertyVal[j]).join("<li>")} </ul>`
                   value.propertyValue.push(enumValues)
-
                 } else {
                   value.propertyValue.push(
                   _getPropertyValueRecursive(propertyVal[j]))
