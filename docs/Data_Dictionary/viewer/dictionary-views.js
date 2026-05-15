@@ -60,7 +60,7 @@
         );
       }
 
-      console.log("TableDefinitionsView Rendering!");
+      // console.log("TableDefinitionsView Rendering!");
     };
 
     TableDefinitionsView.prototype.renderDefinitionView = function (
@@ -68,7 +68,7 @@
     ) {
       var _tableDefinitionView = this;
 
-      console.log(currentDictionary);
+      // console.log(currentDictionary);
 
       _tableDefinitionView.renderHeader();
       _tableDefinitionView.renderSummaryTable();
@@ -263,9 +263,15 @@
               };
 
               for (var j = 0; j < propertyVal.length; j++) {
-                value.propertyValue.push(
-                  _getPropertyValueRecursive(propertyVal[j])
-                );
+                if (_.has(propertyVal[j], "enum")) {
+
+                  var enumValues = `Enumeration: <ul> <li> ${_getPropertyValueRecursive(propertyVal[j]).join("<li>")} </ul>`
+                  value.propertyValue.push(enumValues)
+
+                } else {
+                  value.propertyValue.push(
+                  _getPropertyValueRecursive(propertyVal[j]))
+                }
               }
               break;
           }
@@ -362,7 +368,7 @@
       // Make the excluded properties unique
       excludeProperties = _.uniq(excludeProperties);
 
-      console.log("Excluded Properties: ", excludeProperties);
+      // console.log("Excluded Properties: ", excludeProperties);
 
       var propertyIDs;
 
@@ -404,7 +410,7 @@
 
         // Ignore system properties for now...
         if (excludeProperties.indexOf(propertyName) >= 0) {
-          console.log("Skipping excluded property: " + propertyName);
+          // console.log("Skipping excluded property: " + propertyName);
           continue;
         }
 
@@ -1072,7 +1078,7 @@
         }
       }
 
-      console.log("TableEntityListView Rendering!");
+      // console.log("TableEntityListView Rendering!");
 
       _tableEntityListView._state = _DICTIONARY_CONSTANTS.VIEW_STATE.RENDERED;
       _tableEntityListView._callbackFn.call(
@@ -1395,7 +1401,7 @@
     // Public View API
     /////////////////////////////////////////////////////////
     _view.render = function () {
-      console.log("Rendering View!");
+      // console.log("Rendering View!");
 
       _view._d3ContainerSelection.html("");
 
@@ -1414,7 +1420,7 @@
     };
 
     _view.show = function () {
-      console.log("Showing!");
+      // console.log("Showing!");
 
       _view._isHidden = false;
       _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.ENTER;
@@ -1431,7 +1437,7 @@
     };
 
     _view.hide = function () {
-      console.log("Hiding!");
+      // console.log("Hiding!");
 
       _view._isHidden = true;
       _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.EXIT;
