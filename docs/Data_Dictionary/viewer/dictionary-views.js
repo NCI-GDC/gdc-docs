@@ -266,8 +266,7 @@
                   var enumValuesAsHTMLList = propertyValueRecursive.map(enumValue => `<li>${enumValue}</li>`);
                   value.propertyValue.push(`Enumeration: <ul> ${enumValuesAsHTMLList.join("")} </ul>`);
                 } else {
-                  value.propertyValue.push(
-                  _getPropertyValueRecursive(propertyVal[j]));
+                  value.propertyValue.push(propertyValueRecursive);
                 }
               }
               break;
