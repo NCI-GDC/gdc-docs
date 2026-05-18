@@ -263,7 +263,7 @@
                 // This code is potentially fragile. If we need to support more types of complex values nested under oneOf/anyOf, consider putting in a more robust fix.
                 var propertyValueRecursive = _getPropertyValueRecursive(propertyVal[j]);
                 if (_.has(propertyVal[j], "enum") && _.isArray(propertyValueRecursive)) {
-                  var enumValuesAsHTMLList = _getPropertyValueRecursive(propertyVal[j]).map(enumValue => `<li>${enumValue}</li>`);
+                  var enumValuesAsHTMLList = propertyValueRecursive.map(enumValue => `<li>${enumValue}</li>`);
                   value.propertyValue.push(`Enumeration: <ul> ${enumValuesAsHTMLList.join("")} </ul>`);
                 } else {
                   value.propertyValue.push(
