@@ -163,7 +163,6 @@
 		* Removed permissible value: `Pancreas`
 * Altered `treatment` Entity
 	* Changes made to `required`
-	* New permissible value: `treatment_type_administered`
 	* New property: `treatment_type_administered`
 	* Removed property: `therapeutic_level_achieved`
 	* Changes made to `therapeutic_agents`
