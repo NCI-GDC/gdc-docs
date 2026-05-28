@@ -60,15 +60,12 @@
         );
       }
 
-      console.log("TableDefinitionsView Rendering!");
     };
 
     TableDefinitionsView.prototype.renderDefinitionView = function (
       currentDictionary
     ) {
       var _tableDefinitionView = this;
-
-      console.log(currentDictionary);
 
       _tableDefinitionView.renderHeader();
       _tableDefinitionView.renderSummaryTable();
@@ -263,9 +260,14 @@
               };
 
               for (var j = 0; j < propertyVal.length; j++) {
-                value.propertyValue.push(
-                  _getPropertyValueRecursive(propertyVal[j])
-                );
+                // This code is potentially fragile. If we need to support more types of complex values nested under oneOf/anyOf, consider putting in a more robust fix.
+                var propertyValueRecursive = _getPropertyValueRecursive(propertyVal[j]);
+                if (_.has(propertyVal[j], "enum") && _.isArray(propertyValueRecursive)) {
+                  var enumValuesAsHTMLList = propertyValueRecursive.map(enumValue => `<li>${enumValue}</li>`);
+                  value.propertyValue.push(`Enumeration: <ul> ${enumValuesAsHTMLList.join("")} </ul>`);
+                } else {
+                  value.propertyValue.push(propertyValueRecursive);
+                }
               }
               break;
           }
@@ -362,8 +364,6 @@
       // Make the excluded properties unique
       excludeProperties = _.uniq(excludeProperties);
 
-      console.log("Excluded Properties: ", excludeProperties);
-
       var propertyIDs;
 
       var requiredPartition = _.partition(
@@ -404,7 +404,6 @@
 
         // Ignore system properties for now...
         if (excludeProperties.indexOf(propertyName) >= 0) {
-          console.log("Skipping excluded property: " + propertyName);
           continue;
         }
 
@@ -1072,8 +1071,6 @@
         }
       }
 
-      console.log("TableEntityListView Rendering!");
-
       _tableEntityListView._state = _DICTIONARY_CONSTANTS.VIEW_STATE.RENDERED;
       _tableEntityListView._callbackFn.call(
         null,
@@ -1395,8 +1392,6 @@
     // Public View API
     /////////////////////////////////////////////////////////
     _view.render = function () {
-      console.log("Rendering View!");
-
       _view._d3ContainerSelection.html("");
 
       // Show the controls before rendering
@@ -1414,8 +1409,6 @@
     };
 
     _view.show = function () {
-      console.log("Showing!");
-
       _view._isHidden = false;
       _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.ENTER;
       _view._d3ContainerSelection
@@ -1431,8 +1424,6 @@
     };
 
     _view.hide = function () {
-      console.log("Hiding!");
-
       _view._isHidden = true;
       _view._state = _DICTIONARY_CONSTANTS.VIEW_STATE.EXIT;
       _view._d3ContainerSelection
