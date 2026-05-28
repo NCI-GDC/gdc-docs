@@ -35,7 +35,9 @@
 * __GDC Product__: GDC Data Dictionary
 * __Release Date__: May 28, 2026
 
-### New Features and Changes* Altered `demographic` Entity
+### New Features and Changes
+
+* Altered `demographic` Entity
 	* New property: `year_of_birth_range`
 	* Removed property: `gender`
 	* Changes made to `ethnicity`
