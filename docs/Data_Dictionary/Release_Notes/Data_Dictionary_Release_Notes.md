@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v.4.0.3](Data_Dictionary_Release_Notes.md#v403) | May 28, 2026|
 | [v.3.4.4](Data_Dictionary_Release_Notes.md#v344) | July 31, 2025|
 | [v.3.3.0](Data_Dictionary_Release_Notes.md#v330) | September 30, 2024 |
 | [v.3.1.0](Data_Dictionary_Release_Notes.md#v310) | May 30, 2024 |
@@ -28,6 +29,167 @@
 | [v1.10.0](Data_Dictionary_Release_Notes.md#release-with-api-v1100) | August 22, 2017 |
 | [v1.7.1](Data_Dictionary_Release_Notes.md#release-with-api-v171) | March 16, 2017 |
 | [v1.3.1](Data_Dictionary_Release_Notes.md#release-with-api-v131) | September 7, 2016 |
+
+## v4.0.3
+
+* __GDC Product__: GDC Data Dictionary
+* __Release Date__: May 28, 2026
+
+### New Features and Changes
+
+* Altered `demographic` Entity
+	* New property: `year_of_birth_range`
+	* Removed property: `gender`
+	* Changes made to `ethnicity`
+		* Removed permissible value: `unknown`
+	* Changes made to `race`
+		* Removed permissible value: `unknown`
+* Altered `other_clinical_attribute` Entity
+	* Removed property: `undescended_testis_corrected_age`
+	* Changes made to `comorbidities`
+		* Removed permissible value: `Alpha-1 Antitrypsin`
+		* Removed permissible value: `Diabetes`
+		* Removed permissible value: `Gastroesophageal Reflux Disease`
+		* Removed permissible value: `Hepatitis`
+		* Removed permissible value: `Kidney Disease`
+		* Removed permissible value: `Smoking`
+	* Changes made to `risk_factors`
+		* Removed permissible value: `Chronic Hepatitis`
+		* Removed permissible value: `Cirrhosis`
+		* Removed permissible value: `HIV`
+		* Removed permissible value: `Reflux Disease`
+	* Changes made to `timepoint_category`
+		* Removed permissible value: `After Study Enrollment`
+		* Removed permissible value: `Prior to Study Enrollment`
+* Altered `follow_up` Entity
+	* Changes made to `timepoint_category`
+		* Removed permissible value: `After Study Enrollment`
+		* Removed permissible value: `Prior to Study Enrollment`
+* Altered `read_group` Entity
+	* Changes made to `target_capture_kit`
+		* New permissible value: `Custom Ashion GEM ExTra v2 - 125.9 Mb`
+* Altered `sample` Entity
+	* Removed property: `tumor_code_id`
+	* Changes made to `biospecimen_anatomic_site`
+		* New permissible value: `Left Hemisphere`
+		* New permissible value: `Occipital Lobe`
+		* New permissible value: `Parietal Lobe`
+		* New permissible value: `Right Hemisphere`
+		* New permissible value: `Temporal Lobe`
+		* Removed permissible value: `Head - Face Or Neck, Nos`
+	* Changes made to `diagnosis_pathologically_confirmed`
+		* Removed permissible value: `Not Allowed To Collect`
+	* Changes made to `preservation_method`
+		* Removed permissible value: `Not Allowed To Collect`
+	* Changes made to `tissue_type`
+		* Removed permissible value: `Not Allowed To Collect`
+	* Changes made to `tumor_descriptor`
+		* Removed permissible value: `Not Allowed To Collect`
+* Altered `exposure` Entity
+	* Changes made to `alcohol_history`
+		* Removed permissible value: `yes`
+		* Removed permissible value: `no`
+	* Changes made to `tobacco_smoking_status`
+		* New permissible value: `Ever Smoker`
+		* Removed permissible value: `1`
+		* Removed permissible value: `2`
+		* Removed permissible value: `3`
+		* Removed permissible value: `4`
+		* Removed permissible value: `5`
+		* Removed permissible value: `6`
+		* Removed permissible value: `7`
+		* Removed permissible value: `Not Allowed To Collect`
+* Altered `pathology_detail` Entity
+	* Removed property: `epithelioid_cell_percent`
+	* Removed property: `extrascleral_extension`
+	* Removed property: `size_extraocular_nodule`
+	* Removed property: `spindle_cell_percent`
+	* Changes made to `lymph_node_involved_site`
+		* Removed permissible value: `Cervical`
+	* Changes made to `lymph_node_involvement`
+		* New permissible value: `Indeterminate`
+		* Removed permissible value: `Indeterminant`
+	* Changes made to `margin_status`
+		* Removed permissible value: `Indeterminant`
+	* Changes made to `timepoint_category`
+		* Removed permissible value: `After Study Enrollment`
+		* Removed permissible value: `Prior to Study Enrollment`
+* Altered `diagnosis` Entity
+	* New property: `ann_arbor_b_symptoms_described_array`
+	* Changes made to `ajcc_clinical_m`
+		* Removed permissible value: `Not Allowed To Collect`
+	* Changes made to `ajcc_clinical_n`
+		* Removed permissible value: `Not Allowed To Collect`
+	* Changes made to `ajcc_clinical_stage`
+		* Removed permissible value: `Stage IB Cervix`
+		* Removed permissible value: `Stage II Cervix`
+		* Removed permissible value: `Stage IIA Cervix`
+		* Removed permissible value: `Not Allowed To Collect`
+	* Changes made to `ajcc_clinical_t`
+		* Removed permissible value: `Not Allowed To Collect`
+	* Changes made to `ajcc_pathologic_m`
+		* Removed permissible value: `Not Allowed To Collect`
+	* Changes made to `ajcc_pathologic_n`
+		* Removed permissible value: `Not Allowed To Collect`
+	* Changes made to `ajcc_pathologic_t`
+		* Removed permissible value: `Not Allowed To Collect`
+	* Changes made to `ann_arbor_b_symptoms`
+		* Removed permissible value: `Not Allowed To Collect`
+	* Changes made to `ann_arbor_extranodal_involvement`
+		* Removed permissible value: `Not Allowed To Collect`
+	* Changes made to `burkitt_lymphoma_clinical_variant`
+		* Removed permissible value: `Not Allowed To Collect`
+	* Changes made to `figo_stage`
+		* Removed permissible value: `Not Allowed To Collect`
+	* Changes made to `method_of_diagnosis`
+		* Removed permissible value: `Not Allowed To Collect`
+	* Changes made to `morphology`
+		* New permissible value: `8832/1`
+		* New permissible value: `9413/1`
+		* New permissible value: `9475/6`
+	* Changes made to `primary_diagnosis`
+		* New permissible value: `Dedifferentiated carcinoma`
+		* New permissible value: `Diffuse midline glioma, H3 K27-mutant`
+		* New permissible value: `Medulloblastoma, WNT-activated, NOS`
+		* Removed permissible value: `Adenocarcinoma in tubolovillous adenoma`
+	* Changes made to `site_of_resection_or_biopsy`
+		* New permissible value: `Left hemisphere`
+		* New permissible value: `Right hemisphere`
+	* Changes made to `sites_of_involvement`
+		* New permissible value: `Cervical stroma`
+		* New permissible value: `Serosa`
+		* New permissible value: `Ureter`
+		* Removed permissible value: `Esophagus`
+		* Removed permissible value: `Pancreas`
+* Altered `treatment` Entity
+	* Changes made to `required`
+	* New permissible value: `treatment_type_administered`
+	* New property: `treatment_type_administered`
+	* Removed property: `therapeutic_level_achieved`
+	* Changes made to `therapeutic_agents`
+		* New permissible value: `EBV CTLs`
+		* New permissible value: `Pegasparagase`
+		* New permissible value: `Tofacitinib`
+		* New permissible value: `Zidovudine`
+		* Removed permissible value: `Pegaspargase`
+	* Changes made to `timepoint_category`
+		* Removed permissible value: `After Study Enrollment`
+		* Removed permissible value: `Prior to Study Enrollment`
+	* Changes made to `treatment_anatomic_sites`
+		* Removed permissible value: `Head - Face Or Neck, Nos`
+	* Changes made to `treatment_type`
+		* Removed permissible value: `Cryoablation`
+		* Removed permissible value: `Surgery`
+		* Removed permissible value: `Not Allowed To Collect`
+* Altered `molecular_test` Entity
+	* Changes made to `test_value_range`
+		* Removed permissible value: `0-25`
+		* Removed permissible value: `26-50`
+		* Removed permissible value: `51-75`
+		* Removed permissible value: `76-100`
+	* Changes made to `timepoint_category`
+		* Removed permissible value: `After Study Enrollment`
+		* Removed permissible value: `Prior to Study Enrollment`
 
 ## v3.4.4
 
