@@ -39,6 +39,31 @@
 
 * Altered `demographic` Entity
 	* New property: `year_of_birth_range`
+		* New permissible value: `1921-1925`
+		* New permissible value: `1926-1930`
+		* New permissible value: `1931-1935`
+		* New permissible value: `1936-1940`
+		* New permissible value: `1941-1945`
+		* New permissible value: `1946-1950`
+		* New permissible value: `1951-1955`
+		* New permissible value: `1956-1960`
+		* New permissible value: `1961-1965`
+		* New permissible value: `1966-1970`
+		* New permissible value: `1971-1975`
+		* New permissible value: `1976-1980`
+		* New permissible value: `1981-1985`
+		* New permissible value: `1986-1990`
+		* New permissible value: `1991-1995`
+		* New permissible value: `1996-2000`
+		* New permissible value: `2001-2005`
+		* New permissible value: `2006-2010`
+		* New permissible value: `2011-2015`
+		* New permissible value: `2016-2020`
+		* New permissible value: `2021-2025`
+		* New permissible value: `2026-2030`
+		* New permissible value: `2031-2035`
+		* New permissible value: `Unknown`
+		* New permissible value: `Not Reported`
 	* Removed property: `gender`
 	* Changes made to `ethnicity`
 		* Removed permissible value: `unknown`
@@ -163,7 +188,6 @@
 		* Removed permissible value: `Pancreas`
 * Altered `treatment` Entity
 	* Changes made to `required`
-	* New permissible value: `treatment_type_administered`
 	* New property: `treatment_type_administered`
 	* Removed property: `therapeutic_level_achieved`
 	* Changes made to `therapeutic_agents`
