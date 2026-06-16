@@ -68,8 +68,8 @@
         * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
         * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
 * __IDC Image Viewer__:
-	  * When searching Case ID in the Search Bar, cases don't populate if the user is searching using lowercase rather than uppercase letters in the Case ID. The search also does not list a partial match of the search string, such as "01BR00" which should have at least 3 matching results (01BR001, 01BR008, and 01BR009).<!--SV-2797-->
-	  * The IDC Image Viewer Table does not reflect the number of cases with images in IDC for a cohort that has at least 1 available image.<!--SV-2798-->
+	* When searching Case ID in the Search Bar, cases don't populate if the user is searching using lowercase rather than uppercase letters in the Case ID. The search also does not list a partial match of the search string, such as "01BR00" which should have at least 3 matching results (01BR001, 01BR008, and 01BR009).<!--SV-2797-->
+	* The IDC Image Viewer Table does not reflect the number of cases with images in IDC for a cohort that has at least 1 available image.<!--SV-2798-->
 * __Correlation Plot__:
     * The menus and labels use "samples" or "individuals" where "cases" should be used. <!--SV-2754-->
     * When all data has been hidden by the user, there are no legend labels to reenable showing the hidden data.<!--SV-2745-->
@@ -141,8 +141,8 @@ The following properties have been removed and are no longer available. Any data
         * In the Gene Expression Clustering tool, color is used to convey gene expression values but there are no patterns to convey the same information as color. Color is also used in ProteinPaint and the Sequence Reads tool to convey consequence type but there are no distinguishing patterns.
         * No notification is provided to warn logged-in users of an upcoming timeout due to inactivity. <!--PEAR-2263-->
 * __IDC Image Viewer__:
-	  * When searching Case ID in the Search Bar, cases don't populate if the user is searching using lowercase rather than uppercase letters in the Case ID. The search also does not list a partial match of the search string, such as "01BR00" which should have at least 3 matching results (01BR001, 01BR008, and 01BR009).<!--SV-2797-->
-	  * The IDC Image Viewer Table does not reflect the number of cases with images in IDC for a cohort that has at least 1 available image.<!--SV-2798-->
+	* When searching Case ID in the Search Bar, cases don't populate if the user is searching using lowercase rather than uppercase letters in the Case ID. The search also does not list a partial match of the search string, such as "01BR00" which should have at least 3 matching results (01BR001, 01BR008, and 01BR009).<!--SV-2797-->
+	* The IDC Image Viewer Table does not reflect the number of cases with images in IDC for a cohort that has at least 1 available image.<!--SV-2798-->
 * __Correlation Plot__:
     * The menus and labels use "samples" or "individuals" where "cases" should be used. <!--SV-2754-->
     * When all data has been hidden by the user, there are no legend labels to reenable showing the hidden data.<!--SV-2745-->
