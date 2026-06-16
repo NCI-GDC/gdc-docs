@@ -48,7 +48,7 @@
 ## Release 2.8.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__: April 27, 2026
+* __Release Date__: June 25, 2026
 
 ### New Features and Changes
 
