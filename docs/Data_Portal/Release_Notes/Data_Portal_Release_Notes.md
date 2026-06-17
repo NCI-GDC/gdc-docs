@@ -56,7 +56,7 @@
     * The issue where survival estimates may be overestimated has been addressed.
     * Survival analysis now incorporates `follow_ups.days_to_follow_up`, in addition to `demographic.days_to_death` and `diagnoses.days_to_last_follow_up`, for observation times. This expands on the previous approach which used only `days_to_death` and `days_to_last_follow_up` data.
     * Only cases with a `vital_status` of "alive" or "dead" are included in survival analysis. Previously, cases with a `vital_status` of "not reported" or "unknown' were also included in the analysis. 
-    * The survival curve now now correctly begins at a a survival rate of 1.0 at time 0. <!--PEAR-2639-->
+    * The survival curve now correctly begins at a a survival rate of 1.0 at time 0. <!--PEAR-2639-->
     * The survival curve now accurately represents the survival estimates for all observation times. <!--PEAR-2639-->    
 * The CIViC link on the __Gene Summary Page__ has been updated. <!--PEAR-2687-->
 * Text has been added to the title of the Most Frequently Mutated Genes bar graph in __Mutation Frequency__ to clarify that only SSMs are included. <!--PEAR-2696-->
