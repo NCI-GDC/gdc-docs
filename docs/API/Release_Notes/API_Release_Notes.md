@@ -52,7 +52,7 @@
 
 * __Survival Analysis Endpoint__:
     * The issue where survival estimates may be overestimated has been addressed.
-    * Survival analysis now incorporates `follow_ups.days_to_follow_up`, in addition to `demographic.days_to_death` and `diagnoses.days_to_last_follow_up`, for observation times. This expands on the previous approach which used only `days_to_death` and `days_to_last_follow_up` data.
+    * Survival analysis now incorporates `follow_ups.days_to_follow_up`, in addition to `demographic.days_to_death` and `diagnoses.days_to_last_follow_up`, for times to event or censoring. This expands on the previous approach which used only `days_to_death` and `days_to_last_follow_up` data.
     * Only cases with a `vital_status` of "alive" or "dead" are included in survival analysis. Previously, cases with a `vital_status` of "not reported" or "unknown' were also included in the analysis. 
 * Properties that were removed from the GDC Dictionary in the prior release are now also removed from the API and no longer accessible or visible in the portal. The complete list of removed properties can be found [here](/Data_Portal/Release_Notes/Data_Portal_Release_Notes#release-280). 
 
