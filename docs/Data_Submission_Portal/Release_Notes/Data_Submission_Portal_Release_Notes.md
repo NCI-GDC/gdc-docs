@@ -47,8 +47,7 @@
 ### Known Issues and Workarounds
 
 *  If a project ID has a character that is not alphanumeric, a dash, or an underscore, submission portal users may experience errors.
-*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully.
-<!--API-219-->
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully. <!--API-219-->
 
 ## Release 4.0.0
 
