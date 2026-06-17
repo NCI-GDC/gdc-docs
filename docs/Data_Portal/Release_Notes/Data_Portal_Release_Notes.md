@@ -52,11 +52,19 @@
 
 ### New Features and Changes
 
-* TBD
+* __Survival Analysis__:
+    * The issue where survival estimates may be overestimated has been addressed.
+    * Survival analysis now incorporates `follow_ups.days_to_follow_up`, in addition to `demographic.days_to_death` and `diagnoses.days_to_last_follow_up`, for observation times. This expands on the previous approach which used only `days_to_death` and `days_to_last_follow_up` data.
+    * Only cases with a `vital_status` of "alive" or "dead" are included in survival analysis. Previously, cases with a `vital_status` of "not reported" or "unknown' were also included in the analysis. 
+    * The survival curve now now correctly begins at a a survival rate of 1.0 at time 0. <!--PEAR-2639-->
+    * The survival curve now accurately represents the survival estimates for all observation times. <!--PEAR-2639-->    
+* The CIViC link on the __Gene Summary Page__ has been updated. <!--PEAR-2687-->
+* Text has been added to the title of the Most Frequently Mutated Genes bar graph in __Mutation Frequency__ to clarify that only SSMs are included. <!--PEAR-2696-->
 
 ### Bugs Fixed Since Last Release
 
-* TBD
+* The Primary Site and Disease Type cards in the __Cohort Builder__ now have tooltips displaying a description of these properties. <!--PEAR-2516-->
+* Minor UI fixes. <!--PEAR-2698-->
 
 ### Known Issues and Workarounds
 
@@ -82,7 +90,6 @@
 * __Survival Plot__:
     * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
     * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
-    * The __Survival Plot__ feature may contain an error in which survival estimates are overestimated. For example, for a set of non-censored cases, decreases in survival estimate that should occur at a particular time point occur at the subsequent time point. This will be addressed in a future release.
 * __Cohort MAF__:
     * A downloaded file may be corrupted if the server data processing is terminated after 5 minutes in order to conserve server resources. There will be a red banner above the MAF controls to indicate the termination.
 * Using multiple browser tabs with the portal when adding or removing files from the __Cart__ may result in the Cart not being updated as expected. <!--SV-2412-->
@@ -98,7 +105,7 @@
 
 The following properties have been removed and are no longer available. Any data values that were previously found in these properties have been verified to have been moved to other available properties.
 
-* TBD
+* cases.demographic.gender, cases.diagnoses.pathology_details.epithelioid_cell_percent, cases.diagnoses.pathology_details.extrascleral_extension, cases.diagnoses.pathology_details.size_extraocular_nodule, cases.diagnoses.pathology_details.spindle_cell_percent, cases.diagnoses.treatments.therapeutic_level_achieved, cases.family_histories.relationship_gender, cases.follow_ups.other_clinical_attributes.undescended_testis_corrected_age, cases.samples.portions.analytes.ribosomal_rna_28s_16s_ratio, cases.samples.tumor_code_id
 
 ## Release 2.7.0
 
@@ -153,7 +160,7 @@ The following properties have been removed and are no longer available. Any data
 * Gene Expression Clustering:
     * The tool may incorrectly report "No matching cohort sample data for the current gene list", if the cohort includes a large number of cases without gene expression data.<!--SV-2800-->
 * __Survival Plot__:
-    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * In __Mutation Frequency__, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
     * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
     * The __Survival Plot__ feature may contain an error in which survival estimates are overestimated. For example, for a set of non-censored cases, decreases in survival estimate that should occur at a particular time point occur at the subsequent time point. This will be addressed in a future release.
 * __Cohort MAF__:
