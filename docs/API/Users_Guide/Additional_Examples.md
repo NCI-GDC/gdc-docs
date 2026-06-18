@@ -1372,13 +1372,14 @@ This is an example of filtering for age at diagnosis. The request is for cases w
 
 When working with range filters (for example, `>`, `>=`, `<`, `<=`), the way you combine them matters.
 
-- Use `and` to combine the bounds of a single range (for example, "between 40 and 70 years").
+- Use `and` to combine the bounds of a single range (for example, "between 40 and 70 years" in the `age_at_diagnosis` example above).
 - If you want to combine multiple range filters with `or`, put each range inside its own `and` group, and then combine those groups with a top-level `or`.
 - Avoid placing range operators directly under a top-level `or`, as this structure does not reliably apply the intended filters.
 
 Example: `or` between range filters
 
 The following example demonstrates correct filtering using the `and` and `or` operators with the `/cases` endpoint. Suppose you want cases that meet at least one of these conditions:
+
 - `demographic.days_to_death > 0`, or
 - `diagnoses.days_to_last_follow_up > 0`, or
 - `follow_ups.days_to_follow_up > 0`.
