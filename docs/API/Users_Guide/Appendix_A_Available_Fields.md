@@ -34,6 +34,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | --- |
 | aliquot_ids |
 | analyte_ids |
+| case_autocomplete |
 | case_id |
 | consent_type |
 | created_datetime |
@@ -95,6 +96,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | demographic.updated_datetime |
 | demographic.vital_status |
 | demographic.year_of_birth |
+| demographic.year_of_birth_range |
 | demographic.year_of_death |
 | diagnoses.adrenal_hormone |
 | diagnoses.age_at_diagnosis |
@@ -110,6 +112,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | diagnoses.ajcc_staging_system_edition |
 | diagnoses.ann_arbor_b_symptoms |
 | diagnoses.ann_arbor_b_symptoms_described |
+| diagnoses.ann_arbor_b_symptoms_described_array |
 | diagnoses.ann_arbor_clinical_stage |
 | diagnoses.ann_arbor_extranodal_involvement |
 | diagnoses.ann_arbor_pathologic_stage |
@@ -255,13 +258,11 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | diagnoses.pathology_details.days_to_pathology_detail |
 | diagnoses.pathology_details.dysplasia_degree |
 | diagnoses.pathology_details.dysplasia_type |
-| diagnoses.pathology_details.epithelioid_cell_percent |
 | diagnoses.pathology_details.epithelioid_cell_percent_range |
 | diagnoses.pathology_details.extracapsular_extension |
 | diagnoses.pathology_details.extracapsular_extension_present |
 | diagnoses.pathology_details.extranodal_extension |
 | diagnoses.pathology_details.extraocular_nodule_size |
-| diagnoses.pathology_details.extrascleral_extension |
 | diagnoses.pathology_details.extrascleral_extension_present |
 | diagnoses.pathology_details.extrathyroid_extension |
 | diagnoses.pathology_details.greatest_tumor_dimension |
@@ -304,8 +305,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | diagnoses.pathology_details.rhabdoid_present |
 | diagnoses.pathology_details.sarcomatoid_percent |
 | diagnoses.pathology_details.sarcomatoid_present |
-| diagnoses.pathology_details.size_extraocular_nodule |
-| diagnoses.pathology_details.spindle_cell_percent |
 | diagnoses.pathology_details.spindle_cell_percent_range |
 | diagnoses.pathology_details.state |
 | diagnoses.pathology_details.submitter_id |
@@ -355,7 +354,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | diagnoses.treatments.state |
 | diagnoses.treatments.submitter_id |
 | diagnoses.treatments.therapeutic_agents |
-| diagnoses.treatments.therapeutic_level_achieved |
 | diagnoses.treatments.therapeutic_levels_achieved |
 | diagnoses.treatments.therapeutic_target_level |
 | diagnoses.treatments.timepoint_category |
@@ -373,6 +371,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | diagnoses.treatments.treatment_outcome |
 | diagnoses.treatments.treatment_outcome_duration |
 | diagnoses.treatments.treatment_type |
+| diagnoses.treatments.treatment_type_administered |
 | diagnoses.treatments.updated_datetime |
 | exposures.age_at_last_exposure |
 | exposures.age_at_onset |
@@ -453,6 +452,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.plate_name |
 | files.plate_well |
 | files.platform |
+| files.proc_internal |
 | files.proportion_base_mismatch |
 | files.proportion_coverage_10x |
 | files.proportion_coverage_30x |
@@ -518,6 +518,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.analysis.input_files.plate_name |
 | files.analysis.input_files.plate_well |
 | files.analysis.input_files.platform |
+| files.analysis.input_files.proc_internal |
 | files.analysis.input_files.proportion_base_mismatch |
 | files.analysis.input_files.proportion_coverage_10x |
 | files.analysis.input_files.proportion_coverage_30x |
@@ -677,6 +678,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.downstream_analyses.output_files.plate_name |
 | files.downstream_analyses.output_files.plate_well |
 | files.downstream_analyses.output_files.platform |
+| files.downstream_analyses.output_files.proc_internal |
 | files.downstream_analyses.output_files.proportion_base_mismatch |
 | files.downstream_analyses.output_files.proportion_coverage_10x |
 | files.downstream_analyses.output_files.proportion_coverage_30x |
@@ -729,6 +731,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.index_files.plate_name |
 | files.index_files.plate_well |
 | files.index_files.platform |
+| files.index_files.proc_internal |
 | files.index_files.proportion_base_mismatch |
 | files.index_files.proportion_coverage_10x |
 | files.index_files.proportion_coverage_30x |
@@ -914,7 +917,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | follow_ups.other_clinical_attributes.timepoint_category |
 | follow_ups.other_clinical_attributes.treatment_frequency |
 | follow_ups.other_clinical_attributes.undescended_testis_corrected |
-| follow_ups.other_clinical_attributes.undescended_testis_corrected_age |
 | follow_ups.other_clinical_attributes.undescended_testis_corrected_age_range |
 | follow_ups.other_clinical_attributes.undescended_testis_corrected_laterality |
 | follow_ups.other_clinical_attributes.undescended_testis_corrected_method |
@@ -926,8 +928,11 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | follow_ups.other_clinical_attributes.weight |
 | project.dbgap_accession_number |
 | project.disease_type |
+| project.intended_release_date |
 | project.name |
 | project.primary_site |
+| project.project_id |
+| project.releasable |
 | project.released |
 | project.state |
 | project.program.dbgap_accession_number |
@@ -963,7 +968,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | samples.time_between_excision_and_freezing |
 | samples.tissue_collection_type |
 | samples.tissue_type |
-| samples.tumor_code_id |
 | samples.tumor_descriptor |
 | samples.updated_datetime |
 | samples.annotations.annotation_id |
@@ -1003,7 +1007,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | samples.portions.analytes.dna_integrity_number |
 | samples.portions.analytes.experimental_protocol_type |
 | samples.portions.analytes.normal_tumor_genotype_snp_match |
-| samples.portions.analytes.ribosomal_rna_28s_16s_ratio |
 | samples.portions.analytes.ribosomal_rna_28s_18s_ratio |
 | samples.portions.analytes.rna_integrity_number |
 | samples.portions.analytes.spectrophotometer_method |
@@ -1169,6 +1172,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | data_type |
 | error_type |
 | experimental_strategy |
+| file_autocomplete |
 | file_id |
 | file_name |
 | file_size |
@@ -1183,6 +1187,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | plate_name |
 | plate_well |
 | platform |
+| proc_internal |
 | proportion_base_mismatch |
 | proportion_coverage_10x |
 | proportion_coverage_30x |
@@ -1248,6 +1253,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | analysis.input_files.plate_name |
 | analysis.input_files.plate_well |
 | analysis.input_files.platform |
+| analysis.input_files.proc_internal |
 | analysis.input_files.proportion_base_mismatch |
 | analysis.input_files.proportion_coverage_10x |
 | analysis.input_files.proportion_coverage_30x |
@@ -1444,6 +1450,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.demographic.updated_datetime |
 | cases.demographic.vital_status |
 | cases.demographic.year_of_birth |
+| cases.demographic.year_of_birth_range |
 | cases.demographic.year_of_death |
 | cases.diagnoses.adrenal_hormone |
 | cases.diagnoses.age_at_diagnosis |
@@ -1459,6 +1466,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.diagnoses.ajcc_staging_system_edition |
 | cases.diagnoses.ann_arbor_b_symptoms |
 | cases.diagnoses.ann_arbor_b_symptoms_described |
+| cases.diagnoses.ann_arbor_b_symptoms_described_array |
 | cases.diagnoses.ann_arbor_clinical_stage |
 | cases.diagnoses.ann_arbor_extranodal_involvement |
 | cases.diagnoses.ann_arbor_pathologic_stage |
@@ -1604,13 +1612,11 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.diagnoses.pathology_details.days_to_pathology_detail |
 | cases.diagnoses.pathology_details.dysplasia_degree |
 | cases.diagnoses.pathology_details.dysplasia_type |
-| cases.diagnoses.pathology_details.epithelioid_cell_percent |
 | cases.diagnoses.pathology_details.epithelioid_cell_percent_range |
 | cases.diagnoses.pathology_details.extracapsular_extension |
 | cases.diagnoses.pathology_details.extracapsular_extension_present |
 | cases.diagnoses.pathology_details.extranodal_extension |
 | cases.diagnoses.pathology_details.extraocular_nodule_size |
-| cases.diagnoses.pathology_details.extrascleral_extension |
 | cases.diagnoses.pathology_details.extrascleral_extension_present |
 | cases.diagnoses.pathology_details.extrathyroid_extension |
 | cases.diagnoses.pathology_details.greatest_tumor_dimension |
@@ -1653,8 +1659,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.diagnoses.pathology_details.rhabdoid_present |
 | cases.diagnoses.pathology_details.sarcomatoid_percent |
 | cases.diagnoses.pathology_details.sarcomatoid_present |
-| cases.diagnoses.pathology_details.size_extraocular_nodule |
-| cases.diagnoses.pathology_details.spindle_cell_percent |
 | cases.diagnoses.pathology_details.spindle_cell_percent_range |
 | cases.diagnoses.pathology_details.state |
 | cases.diagnoses.pathology_details.submitter_id |
@@ -1704,7 +1708,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.diagnoses.treatments.state |
 | cases.diagnoses.treatments.submitter_id |
 | cases.diagnoses.treatments.therapeutic_agents |
-| cases.diagnoses.treatments.therapeutic_level_achieved |
 | cases.diagnoses.treatments.therapeutic_levels_achieved |
 | cases.diagnoses.treatments.therapeutic_target_level |
 | cases.diagnoses.treatments.timepoint_category |
@@ -1722,6 +1725,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.diagnoses.treatments.treatment_outcome |
 | cases.diagnoses.treatments.treatment_outcome_duration |
 | cases.diagnoses.treatments.treatment_type |
+| cases.diagnoses.treatments.treatment_type_administered |
 | cases.diagnoses.treatments.updated_datetime |
 | cases.exposures.age_at_last_exposure |
 | cases.exposures.age_at_onset |
@@ -1919,7 +1923,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.follow_ups.other_clinical_attributes.timepoint_category |
 | cases.follow_ups.other_clinical_attributes.treatment_frequency |
 | cases.follow_ups.other_clinical_attributes.undescended_testis_corrected |
-| cases.follow_ups.other_clinical_attributes.undescended_testis_corrected_age |
 | cases.follow_ups.other_clinical_attributes.undescended_testis_corrected_age_range |
 | cases.follow_ups.other_clinical_attributes.undescended_testis_corrected_laterality |
 | cases.follow_ups.other_clinical_attributes.undescended_testis_corrected_method |
@@ -1931,9 +1934,11 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.follow_ups.other_clinical_attributes.weight |
 | cases.project.dbgap_accession_number |
 | cases.project.disease_type |
+| cases.project.intended_release_date |
 | cases.project.name |
 | cases.project.primary_site |
 | cases.project.project_id |
+| cases.project.releasable |
 | cases.project.released |
 | cases.project.state |
 | cases.project.program.dbgap_accession_number |
@@ -1969,7 +1974,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.samples.time_between_excision_and_freezing |
 | cases.samples.tissue_collection_type |
 | cases.samples.tissue_type |
-| cases.samples.tumor_code_id |
 | cases.samples.tumor_descriptor |
 | cases.samples.updated_datetime |
 | cases.samples.annotations.annotation_id |
@@ -2009,7 +2013,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.samples.portions.analytes.dna_integrity_number |
 | cases.samples.portions.analytes.experimental_protocol_type |
 | cases.samples.portions.analytes.normal_tumor_genotype_snp_match |
-| cases.samples.portions.analytes.ribosomal_rna_28s_16s_ratio |
 | cases.samples.portions.analytes.ribosomal_rna_28s_18s_ratio |
 | cases.samples.portions.analytes.rna_integrity_number |
 | cases.samples.portions.analytes.spectrophotometer_method |
@@ -2200,6 +2203,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | downstream_analyses.output_files.plate_name |
 | downstream_analyses.output_files.plate_well |
 | downstream_analyses.output_files.platform |
+| downstream_analyses.output_files.proc_internal |
 | downstream_analyses.output_files.proportion_base_mismatch |
 | downstream_analyses.output_files.proportion_coverage_10x |
 | downstream_analyses.output_files.proportion_coverage_30x |
@@ -2252,6 +2256,7 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | index_files.plate_name |
 | index_files.plate_well |
 | index_files.platform |
+| index_files.proc_internal |
 | index_files.proportion_base_mismatch |
 | index_files.proportion_coverage_10x |
 | index_files.proportion_coverage_30x |
