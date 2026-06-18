@@ -40,7 +40,7 @@
 
 *  Fixed an issue where uploading multiple files for validation on the Dashboard was not behaving as expected. <!--PEAR-2678-->
 *  The annotations details panel in the Browse tab will now load and display all available information even when there is no `submitter_id`. <!--PEAR-2539-->
-*  Corrected inaccurate counts in the Related Entities section when viewing case details. <!--PEAR-2599-->
+*  Corrected inaccurate counts in the Related Entities section when viewing case details in the Browse tab. <!--PEAR-2599-->
 *  Resolved an issue where the login link after logout did not direct users to the portal landing page.<!--PEAR-2615-->
 *  Minor accessibility fixes. <!--PEAR-2681-->
 
