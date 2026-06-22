@@ -34,7 +34,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | --- |
 | aliquot_ids |
 | analyte_ids |
-| case_autocomplete |
 | case_id |
 | consent_type |
 | created_datetime |
@@ -452,7 +451,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.plate_name |
 | files.plate_well |
 | files.platform |
-| files.proc_internal |
 | files.proportion_base_mismatch |
 | files.proportion_coverage_10x |
 | files.proportion_coverage_30x |
@@ -518,7 +516,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.analysis.input_files.plate_name |
 | files.analysis.input_files.plate_well |
 | files.analysis.input_files.platform |
-| files.analysis.input_files.proc_internal |
 | files.analysis.input_files.proportion_base_mismatch |
 | files.analysis.input_files.proportion_coverage_10x |
 | files.analysis.input_files.proportion_coverage_30x |
@@ -678,7 +675,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.downstream_analyses.output_files.plate_name |
 | files.downstream_analyses.output_files.plate_well |
 | files.downstream_analyses.output_files.platform |
-| files.downstream_analyses.output_files.proc_internal |
 | files.downstream_analyses.output_files.proportion_base_mismatch |
 | files.downstream_analyses.output_files.proportion_coverage_10x |
 | files.downstream_analyses.output_files.proportion_coverage_30x |
@@ -731,7 +727,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | files.index_files.plate_name |
 | files.index_files.plate_well |
 | files.index_files.platform |
-| files.index_files.proc_internal |
 | files.index_files.proportion_base_mismatch |
 | files.index_files.proportion_coverage_10x |
 | files.index_files.proportion_coverage_30x |
@@ -928,11 +923,9 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | follow_ups.other_clinical_attributes.weight |
 | project.dbgap_accession_number |
 | project.disease_type |
-| project.intended_release_date |
 | project.name |
 | project.primary_site |
 | project.project_id |
-| project.releasable |
 | project.released |
 | project.state |
 | project.program.dbgap_accession_number |
@@ -1172,7 +1165,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | data_type |
 | error_type |
 | experimental_strategy |
-| file_autocomplete |
 | file_id |
 | file_name |
 | file_size |
@@ -1187,7 +1179,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | plate_name |
 | plate_well |
 | platform |
-| proc_internal |
 | proportion_base_mismatch |
 | proportion_coverage_10x |
 | proportion_coverage_30x |
@@ -1253,7 +1244,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | analysis.input_files.plate_name |
 | analysis.input_files.plate_well |
 | analysis.input_files.platform |
-| analysis.input_files.proc_internal |
 | analysis.input_files.proportion_base_mismatch |
 | analysis.input_files.proportion_coverage_10x |
 | analysis.input_files.proportion_coverage_30x |
@@ -1934,11 +1924,9 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | cases.follow_ups.other_clinical_attributes.weight |
 | cases.project.dbgap_accession_number |
 | cases.project.disease_type |
-| cases.project.intended_release_date |
 | cases.project.name |
 | cases.project.primary_site |
 | cases.project.project_id |
-| cases.project.releasable |
 | cases.project.released |
 | cases.project.state |
 | cases.project.program.dbgap_accession_number |
@@ -2203,7 +2191,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | downstream_analyses.output_files.plate_name |
 | downstream_analyses.output_files.plate_well |
 | downstream_analyses.output_files.platform |
-| downstream_analyses.output_files.proc_internal |
 | downstream_analyses.output_files.proportion_base_mismatch |
 | downstream_analyses.output_files.proportion_coverage_10x |
 | downstream_analyses.output_files.proportion_coverage_30x |
@@ -2256,7 +2243,6 @@ The GDC API's [search and retrieval endpoints](Search_and_Retrieval.md) provide 
 | index_files.plate_name |
 | index_files.plate_well |
 | index_files.platform |
-| index_files.proc_internal |
 | index_files.proportion_base_mismatch |
 | index_files.proportion_coverage_10x |
 | index_files.proportion_coverage_30x |
