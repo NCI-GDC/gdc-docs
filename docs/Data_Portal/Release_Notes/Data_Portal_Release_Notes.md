@@ -66,12 +66,12 @@
 * The Primary Site and Disease Type cards in the __Cohort Builder__ now have tooltips displaying a description of these properties. <!--PEAR-2516-->
 * Minor UI fixes. <!--PEAR-2698-->
 * __Correlation Plot__:
-  * When all data has been hidden by the user, there are now legend labels to reenable showing the hidden data.<!--SV-2745-->
+    * When all data has been hidden by the user, there are now legend labels to reenable showing the hidden data.<!--SV-2745-->
 * __IDC Image Viewer__:
-	* When searching Case ID in the Search Bar, cases are now populated if the user is searching using lowercase rather than uppercase letters in the Case ID. The search also now lists a partial match of the search string, such as "01BR00" which should have at least 3 matching results (01BR001, 01BR008, and 01BR009).<!--SV-2797-->
-	* The IDC Image Viewer Table now reflects the number of cases with images in IDC for a cohort that has at least 1 available image.<!--SV-2798-->
+    * When searching Case ID in the Search Bar, cases are now populated if the user is searching using lowercase rather than uppercase letters in the Case ID. The search also now lists a partial match of the search string, such as "01BR00" which should have at least 3 matching results (01BR001, 01BR008, and 01BR009).<!--SV-2797-->
+    * The IDC Image Viewer Table now reflects the number of cases with images in IDC for a cohort that has at least 1 available image.<!--SV-2798-->
 * __Cohort Level MAF__:
-	* Requests for multiple files now completes successfully, without server request failure errors.<!--SV-2808-->
+    * Requests for multiple files now completes successfully, without server request failure errors.<!--SV-2808-->
 
 
 ### Known Issues and Workarounds
