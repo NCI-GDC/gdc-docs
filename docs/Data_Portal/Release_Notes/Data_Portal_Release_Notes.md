@@ -2,7 +2,7 @@
 
 | Version | Date |
 |---|---|
-| [v2.8.0](Data_Portal_Release_Notes.md#release-280) | June 25, 2026 |
+| [v2.8.0](Data_Portal_Release_Notes.md#release-280) | June 29, 2026 |
 | [v2.7.0](Data_Portal_Release_Notes.md#release-270) | April 27, 2026 |
 | [v2.6.0](Data_Portal_Release_Notes.md#release-260) | March 16, 2026 |
 | [v2.5.0](Data_Portal_Release_Notes.md#release-250) | June 30, 2025 |
@@ -48,7 +48,7 @@
 ## Release 2.8.0
 
 * __GDC Product__: GDC Data Portal
-* __Release Date__: June 25, 2026
+* __Release Date__: June 29, 2026
 
 ### New Features and Changes
 
@@ -64,14 +64,14 @@
 ### Bugs Fixed Since Last Release
 
 * The Primary Site and Disease Type cards in the __Cohort Builder__ now have tooltips displaying a description of these properties. <!--PEAR-2516-->
-* Minor UI fixes. <!--PEAR-2698-->
-* __Correlation Plot__:
-    * When all data has been hidden by the user, there are now legend labels to reenable showing the hidden data.<!--SV-2745-->
 * __IDC Image Viewer__:
     * When searching Case ID in the Search Bar, cases are now populated if the user is searching using lowercase rather than uppercase letters in the Case ID. The search also now lists a partial match of the search string, such as "01BR00" which should have at least 3 matching results (01BR001, 01BR008, and 01BR009).<!--SV-2797-->
     * The IDC Image Viewer Table now reflects the number of cases with images in IDC for a cohort that has at least 1 available image.<!--SV-2798-->
+* __Correlation Plot__:
+    * When all data has been hidden by the user, there are now legend labels to reenable showing the hidden data.<!--SV-2745-->
 * __Cohort Level MAF__:
-    * Requests for multiple files now completes successfully, without server request failure errors.<!--SV-2808-->
+    * Requests for multiple files now complete successfully, without server request failure errors.<!--SV-2808-->
+* Minor UI fixes. <!--PEAR-2698-->
 
 
 ### Known Issues and Workarounds
@@ -92,7 +92,7 @@
 * __Gene Expression Clustering__:
     * The tool may incorrectly report "No matching cohort sample data for the current gene list", if the cohort includes a large number of cases without gene expression data.<!--SV-2800-->
 * __Survival Plot__:
-    * In Mutation Frequency, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
+    * In __Mutation Frequency__, the downloaded image may display a survival curve when none is plotted within the portal. <!--SV-2356-->
     * When the survival plot is zoomed in and an image is downloaded, the curves within the image may extend beyond the y-axis. <!--SV-2348-->
 * __Cohort MAF__:
     * A downloaded file may be corrupted if the server data processing is terminated after 5 minutes in order to conserve server resources. There will be a red banner above the MAF controls to indicate the termination.
