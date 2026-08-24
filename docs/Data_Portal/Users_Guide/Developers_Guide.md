@@ -77,8 +77,7 @@ interface Cohort {
 }
 ```
 
-Deleting a cohort sets `removed: true` rather than removing it, so applications holding its id can still resolve it.
-Saving a cohort creates a new entity under the server-issued id; `unsavedCohortId` points back at the local id it replaced.
+The most important part of a cohort is the `filters` field: a `FilterSet` object holding the cohort's active filters. When calling the GDC REST or GraphQL API, the `FilterSet` is converted to that API's expected format.
 
 ### FilterSet
 
@@ -90,7 +89,6 @@ interface FilterSet {
 ```
 
 `root` is keyed by field name, so a cohort holds at most one operation per field. An empty `root` means all of the GDC.
-
 
 ```typescript
 const allOfGDC: FilterSet = { mode: "and", root: {} };
@@ -1311,7 +1309,7 @@ export const useProjectsFilters = (): FilterSet => {
 
 ## Creating a New Cohort
 
-The Projects applicatio lets users create a cohort from the projects they have selected. `ProjectsCohortButton` renders the button and passes the
+The Projects application lets users create a cohort from the projects they have selected. `ProjectsCohortButton` renders the button and passes the
 selected project ids to `SaveCohortModal` as the new cohort's filters.
 
 See [Creating a Cohort](#creating-a-cohort) for the component's props and a full example.
