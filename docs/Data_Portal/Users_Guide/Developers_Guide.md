@@ -503,7 +503,7 @@ API). A saved cohort with local edits is marked `modified: true` until those edi
 persisted or discarded.
 
 A user may have **only one unsaved cohort at a time**. `addNewUnsavedCohort` and
-`addNewDefaultUnsavedCohort` throw if one already exists. You need to pass `replace: true` to discard it:
+`addNewDefaultUnsavedCohort` throw an exception if one already exists. You need to pass `replace: true` to discard it:
 
 ```typescript
 import {useCoreDispatch, addNewUnsavedCohort} from '@gff/core';
