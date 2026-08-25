@@ -716,7 +716,7 @@ succeeds, so that a failed request does not remove the cohort from the interface
 
 Cohorts are stored by the GDC API against a context id held in the `gdc_context_id` cookie. No
 user account is required. Losing both the cookie and its `localStorage` backup makes previously
-saved cohorts unreachable.
+saved cohorts irretrievable.
 
 Cohort state is also persisted to `sessionStorage`, which determines what survives each event:
 
