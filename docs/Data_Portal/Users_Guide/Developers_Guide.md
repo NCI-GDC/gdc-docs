@@ -139,7 +139,7 @@ import { joinFilters } from "@gff/core";
 const combined = joinFilters(cohortFilters, localFilters);
 ```
 
-`joinFilters` is a shallow merge of `root` and the second argument wins.
+`joinFilters` is a shallow merge of `root` and the second argument takes precedence.
 
 
 ### Obtaining Cohort Information
