@@ -88,7 +88,7 @@ interface FilterSet {
 }
 ```
 
-`root` is keyed by field name, so a cohort holds at most one operation per field. An empty `root` means all of the GDC.
+`root` is keyed by field name, so a cohort contains at most one operation per field. An empty `root` means all of the GDC.
 
 ```typescript
 const allOfGDC: FilterSet = { mode: "and", root: {} };
