@@ -498,7 +498,7 @@ Finally, the following hooks are available for querying set size:
 
 ## Cohort Lifecycle
 
-A cohort is either **unsaved** (held only in the browser) or **saved** (persisted to the GDC
+A cohort is either **unsaved** (stored only in the browser) or **saved** (persisted to the GDC
 API). A saved cohort with local edits is marked `modified: true` until those edits are
 persisted or discarded.
 
