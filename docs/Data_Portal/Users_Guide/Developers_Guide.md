@@ -605,7 +605,7 @@ refetch of its counts.
 * `clearCohortFilters`
 
 They always apply to the current cohort, the one displayed in the Cohort Management Bar,
-which can be read with `selectCurrentCohort` and its filters with `selectCurrentCohortFilters`.
+which can be read with `selectCurrentCohort`, and its filters can be read with `selectCurrentCohortFilters`.
 
 ### Updating, Removing, and Clearing filters
 
