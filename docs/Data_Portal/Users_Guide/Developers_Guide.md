@@ -692,7 +692,7 @@ current cohort. Use `selectAvailableCohorts` to get valid ids.
 ## Deleting a Cohort
 
 `deleteCohortUserAction` marks a cohort as deleted. It does **not** remove it from the store:
-the entity is kept, with `removed: true`, so applications still holding its id can continue to
+the entity is kept, with `removed: true`, so applications still referencing its id can continue to
 resolve it until the page is reloaded.
 
 ```typescript
