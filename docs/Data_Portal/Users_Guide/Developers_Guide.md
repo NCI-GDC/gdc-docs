@@ -77,7 +77,7 @@ interface Cohort {
 }
 ```
 
-The most important part of a cohort is the `filters` field: a `FilterSet` object holding the cohort's active filters. When calling the GDC REST or GraphQL API, the `FilterSet` is converted to that API's expected format.
+The most important part of a cohort is the `filters` field: a `FilterSet` object containing the cohort's active filters. When calling the GDC REST or GraphQL API, the `FilterSet` is converted to that API's expected format.
 
 ### FilterSet
 
