@@ -518,7 +518,7 @@ coreDispatch(addNewUnsavedCohort({
 ```
 
 Saving a cohort creates a **new entity** under the id issued by the API, and the unsaved one
-is removed. An application holding the previous id should resolve it with
+is removed. An application referencing the previous id should resolve it with
 `selectCohortByIdOrName`, which falls back to `unsavedCohortId` and then to the cohort name.
 
 `discardCohortChanges` reverts a modified cohort to its last saved filters.
