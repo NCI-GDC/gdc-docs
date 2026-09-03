@@ -4,3 +4,5 @@ site/
 venv*/
 .vscode/
 docs/*/PDF/*.pdf
+.python-version
+.idea/
