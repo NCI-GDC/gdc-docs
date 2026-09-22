@@ -133,7 +133,7 @@ After selecting the filter variable and values and clicking Apply, a variable gr
 
 ### B. Nested Filters
 
-#### 1. You may group the current top level filter group by clicking on a righmost join operator button to the right.
+#### 1. You may group the current top level filter group by clicking on a rightmost join operator button to the right.
 
 The group will be enclosed in parenthesis to indicate that it will become nested once a new top variable is joined with an operator that doesn't match the nested group's operator.
 
