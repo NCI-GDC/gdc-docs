@@ -74,3 +74,71 @@ This compares gene expression level with survival. At the input panel, search fo
 A default FPKM-UQ cutoff (6.82) is applied to discretize EGFR expression. To customize the cutoff, click the burger menu button at the top left to access options to customize survival plot. Find the "EGFR uqFPKM" tag. Click and select Edit option to open the EGFR expression binning edit menu. At the text box, change the existing cutoff 6.82 to a new value and press ENTER. As example, two values 10 and 30 are entered, allowing samples to be divided into 3 bins based on their EGFR expression value: <=10, 10 to 30, \>30.
 [![14](images/correlation/14.png)](images/correlation/14.png "Click to see the full image.")
 
+## Plot-Specific Case Filters
+
+You may create a plot-specific filter, applied on top of the app-wide cohort filter, to narrow down the cases that are included in the rendered visualization and/or computed analysis.
+
+### Selecting Filter Variables and Values
+
+#### 1. Initial variable and values selection
+Click on the `+Add new filter` button in the plot's title bar. The familiar variable selection interface will show up, but after clicking on a variable, there will be an additional menu
+to narrow down the categories or numeric values to include in the filter. After selecting values and clicking on the `Apply` button, the variable will be rendered in the plot title bar.
+
+[![15](images/correlation/filter_variable_value_selection.png)](images/correlation/filter_variable_value_selection.png "Click to see the full image.")
+
+#### 2. Edit a selected variable and values
+
+You can click on a filter variable "pill" to open a menu to edit, negate, or remove the variable from the current filter.
+
+[![16](images/correlation/filter_edit_menu.png)](images/correlation/filter_edit_menu.png "Click to see the full image.")
+
+
+### Interactive Elements and Menus 
+
+When mousing over near a rendered filter, the clickable elements other than the variable "pill" are highlighted. Navigation by tabbing will sequentially highlight these clickable
+elements separately.
+
+[![17](images/correlation/filter_clickable_highlight.png)](images/correlation/filter_clickable_highlight.png "Click to see the full image.")
+
+Note that filter join-operators and group parenthesis are also clickable, to enable group-level edits. Mousing over a clickable element explains the expected behavior.
+
+[![18](images/correlation/filter_clickable_highlight_2.png)](images/correlation/filter_clickable_highlight_2.png "Click to see the full image.")
+
+Click on a parenthesis to see a menu of actions that could be applied to a filter group as a whole.
+
+[![19](images/correlation/filter_group_paren_menu.png)](images/correlation/filter_group_paren_menu.png "Click to see the full image.")
+
+Click on a join operator to see a menu of actions to edit a filter group, such as extending with new variables or transforming with nested levels.
+
+[![20](images/correlation/filter_group_join_menu.png)](images/correlation/filter_group_join_menu.png "Click to see the full image.")
+
+
+### A. Simple Filters
+
+#### 1. Extend the top level filter with a new variable.
+
+Click the *_rightmost_* `+AND` or `+OR` button.
+
+[![21](images/correlation/filter_top_join.png)](images/correlation/filter_top_join.png "Click to see the full image.")
+
+After selecting the filter variable and values and click on apply, a variable group will be created with two variables joined by the selected operator (`AND` or `OR`).
+
+[![22](images/correlation/filter_top_join_2_var_group.png)](images/correlation/filter_top_join_2_var_group.png "Click to see the full image.")
+
+#### 2. Extend a filter group by clicking on the operator label between the two variables - the same operator will be used.
+<!-- AI: vertically align images to top  -->
+[![23](images/correlation/filter_group_extend_menu.png)](images/correlation/filter_group_extend_menu.png "Click to see the full image.")
+[![24](images/correlation/filter_group_extend_selection.png)](images/correlation/filter_group_selection.png "Click to see the full image.")
+
+
+### B. Nested Filters
+
+#### 1. You may group the current top level filter group by clicking on a righmost join operator button to the right.
+
+The group will be enclosed in parenthesis to indicate that it will become nested once a new top variable is joined with an operator that doesn't match the nested group's operator.
+
+[![23](images/correlation/filter_nested_selection.png)](images/correlation/filter_nested_selecteion.png "Click to see the full image.")
+
+After selecting a new top level variable and values, the top level filter will be shown with a nested filter to the left.
+
+[![24](images/correlation/filter_nested_top_level.png)](images/correlation/filter_nested_top_level.png "Click to see the full image.")
