@@ -128,7 +128,7 @@ After selecting the filter variable and values and clicking Apply, a variable gr
 #### 2. Extend a filter group by clicking on the operator label between the two variables - the same operator will be used.
 <!-- AI: vertically align images to top  -->
 [![23](images/correlation/filter_group_extend_menu.png)](images/correlation/filter_group_extend_menu.png "Click to see the full image.")
-[![24](images/correlation/filter_group_extend_selection.png)](images/correlation/filter_group_selection.png "Click to see the full image.")
+[![24](images/correlation/filter_group_extend_selection.png)](images/correlation/filter_group_extend_selection.png "Click to see the full image.")
 
 
 ### B. Nested Filters
