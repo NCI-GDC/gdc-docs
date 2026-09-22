@@ -121,7 +121,7 @@ Click the *_rightmost_* `+AND` or `+OR` button.
 
 [![21](images/correlation/filter_top_join.png)](images/correlation/filter_top_join.png "Click to see the full image.")
 
-After selecting the filter variable and values and click on apply, a variable group will be created with two variables joined by the selected operator (`AND` or `OR`).
+After selecting the filter variable and values and clicking Apply, a variable group will be created with two variables joined by the selected operator (`AND` or `OR`).
 
 [![22](images/correlation/filter_top_join_2_var_group.png)](images/correlation/filter_top_join_2_var_group.png "Click to see the full image.")
 
