@@ -27,7 +27,7 @@ visualization and can also be used to refine and build cohorts. Applications are
 query the GDC API for additional information.
 
 Local and Global filters are available to applications. Local filters are filters that are specific to the application
-and are used to refine the data that is displayed in the application.For example in the Mutation Frequency application, the local filters are the gene and mutation type filters. In the figure below the local filters are highlighted in yellow. These filters are used to
+and are used to refine the data that is displayed in the application. For example, in the Mutation Frequency application, the local filters are the gene and mutation type filters. In the figure below the local filters are highlighted in yellow. These filters are used to
 refine the input cohort allowing users to drill down to specific genes and mutation types of interest in the cohort.
 
 ![Mutation Frequency](./images/developers_guide/mutation_frequency_parts_highlighted.png)
@@ -992,7 +992,7 @@ interface CNVPlotProps {
 }
 ```
 
-These charts and others are documented in the GDC Analysis Tool SDK SDK documentation.
+These charts and others are documented in the GDC Analysis Tool SDK documentation.
 
 ### Facets
 
