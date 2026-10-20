@@ -40,7 +40,8 @@
 
 ### Bugs Fixed Since Last Release
 
-*  TBD
+*  Users are no longer unexpectedly returned to the login page while still logged in. <!--PEAR-2688-->
+*  The Clinical download button in the Case details panel is now always enabled. <!--PEAR-2690-->
 
 ### Known Issues and Workarounds
 
