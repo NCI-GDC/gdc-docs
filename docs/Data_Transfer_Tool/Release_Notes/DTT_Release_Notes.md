@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v2.4.0](DTT_Release_Notes.md#v240) | October 29, 2026 |
 | [v2.3.0](DTT_Release_Notes.md#v230) | September 30, 2024 |
 | [v2.0.0](DTT_Release_Notes.md#v200) | July 30, 2024 |
 | [v1.6.1](DTT_Release_Notes.md#v161) | May 17, 2021 |
@@ -15,12 +16,12 @@
 | [v1.0.0](DTT_Release_Notes.md#v100) | May 26, 2016 |
 
 
-## V2.3.0
+## V2.4.0
 * __GDC Product__: Data Transfer Tool
-* __Release Date__: September 30, 2024
+* __Release Date__: October 29, 2026
 
 ### New Features and Changes
-* A new version of the Data Transfer tool was released specifically for the Apple Silicon processor on Mac.  Another version is downloadable for the Intel processor.
+* Stability and connectivity improvements. <!--DEV-3618/DEV-4232-->
 
 ### Bugs Fixed Since Last Release
 

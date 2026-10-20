@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v4.2.0](Data_Submission_Portal_Release_Notes.md#release-420) | October 29, 2026 |
 | [v4.1.0](Data_Submission_Portal_Release_Notes.md#release-410) | June 29, 2026 |
 | [v4.0.0](Data_Submission_Portal_Release_Notes.md#release-400) | March 16, 2026 |
 | [v3.2.0](Data_Submission_Portal_Release_Notes.md#regular-maintenance-records-320) | June 30, 2025 |
@@ -27,6 +28,26 @@
 | [v0.2.18.3](Data_Submission_Portal_Release_Notes.md#release-02183) | November 30, 2015 |
 
 ---
+
+## Release 4.2.0
+
+* __GDC Product__: GDC Data Submission Portal
+* __Release Date__: October 29, 2026
+
+### New Features and Changes
+
+*  None.
+
+### Bugs Fixed Since Last Release
+
+*  Users are no longer unexpectedly returned to the login page while still logged in. <!--PEAR-2688-->
+*  The Clinical download button in the Case details panel is now always enabled. <!--PEAR-2690-->
+
+### Known Issues and Workarounds
+
+*  If a project ID has a character that is not alphanumeric, a dash, or an underscore, submission portal users may experience errors.
+*  When creating entities in the Submission Portal, occasionally an extra transaction will appear with status error. This does not seem to impact that actual transaction, which is recorded as occurring successfully. <!--API-219-->
+
 ## Release 4.1.0
 
 * __GDC Product__: GDC Data Submission Portal
