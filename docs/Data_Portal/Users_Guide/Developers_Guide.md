@@ -184,7 +184,7 @@ const cohorts = useCoreSelector((state) => selectAvailableCohorts(state));
 ## Using the GDC Data Portal Application API
 
 The GDC Data Portal provides a number of hooks for querying the GDC API. These hooks are located in the `@gff/core` package.
-The hooks are designed to work in a manner similar to the React Testing Library (RTL) Query hooks. The hooks take arguments and return an
+The hooks are designed to work in a manner similar to the Redux Toolkit (RTK) Query hooks. The hooks take arguments and return an
 object.
 The object contains the data and the status of the query. The status of the query is stored in the `isSuccess` variable.
 The @gff/core package also provides a set of selectors that return values stored in the core redux store: `CoreStore`.
@@ -1459,7 +1459,7 @@ const {data: geneSymbolDict, isSuccess} = useGeneSymbol(
 );
 ```
 
-GDC Data Portal hooks are designed to work similarly to the RTL Query hooks. The hooks take arguments and return an object,
+GDC Data Portal hooks are designed to work similarly to the RTK Query hooks. The hooks take arguments and return an object,
 which contains the data and the status of the query. The status of the query is stored in the `isSuccess` variable.
 The data returned from the query is stored in the `data` variable. The object returned from a GDC hook is of the form:
 
