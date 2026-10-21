@@ -1393,17 +1393,17 @@ import ProjectsIcon from "public/user-flow/icons/crowd-of-users.svg";
 
 The above code registers the Project Center application with the GDC Data Portal. The members of the object are:
 
-* `name` The name of the application
-* `icon` The icon as an SVG file, its size and position can be adjusted using the `width`, `height`, and `viewBox`
+* `name` - The name of the application
+* `icon` - The icon as an SVG file, its size and position can be adjusted using the `width`, `height`, and `viewBox`
 properties
-* `tags` The tags for the application used for searching (which is not currently active)
-* `hasDemo` A boolean indicating if the application has a demo. If so, the demo button will be shown.
-* `id` The id of the application, which needs to match the id of the application registered in
+* `tags` - The tags for the application used for searching (which is not currently active)
+* `hasDemo` - A boolean indicating if the application has a demo. If so, the demo button will be shown.
+* `id` - The id of the application, which needs to match the id of the application registered in
 the `createGdcAppWithOwnStore` function
-* `countsField` The field to use for the counts in the application. This is used to determine if the application can
+* `countsField` - The field to use for the counts in the application. This is used to determine if the application can
 be used.
-* `description` The description of the application
-* `noDataTooltip` The tooltip to show if the application has no data
+* `description` - The description of the application
+* `noDataTooltip` - The tooltip to show if the application has no data
 
 When the application is registered, it will be available in the GDC Data Portal. The application can be accessed by clicking on the
 application card.
