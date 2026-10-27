@@ -4,3 +4,11 @@ pyyaml>=6.0.1
 mkdocs-with-pdf>=0.9.3
 # an init method changed it's signature. version 44 works. newer versions may too. untested.
 weasyprint==44
+# mkdocs~=0.17.5
+#  mkdocs-bootstrap~=0.1.1
+#  mkdocs-bootswatch~=0.4
+#  BSCodeTabs
+#  Markdown~=2.6.11
+#  MarkupSafe~=1.0
+#  mkdocs-pandoc
+#  mkdocs-pandoc-plugin

@@ -1,0 +1,7 @@
+logs/
+.git
+*.md
+.cache
+*Dockerfile*
+.dockerignore
+.dive-ci
