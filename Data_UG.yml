@@ -14,6 +14,7 @@ nav:
       - Data Security: Data/Data_Security/Data_Security.md
       - 'File Format: MAF': Data/File_Formats/MAF_Format.md
       - 'File Format: VCF': Data/File_Formats/VCF_Format.md
+      - 'DNA-Seq Alignment Workflow': Data/Bioinformatics_Pipelines/Alignment_Workflow.md
       - 'Bioinformatics Pipeline: DNA-Seq Analysis': Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline.md
       - 'Bioinformatics Pipeline: mRNA Analysis': Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline.md
       - 'Bioinformatics Pipeline: miRNA Analysis': Data/Bioinformatics_Pipelines/miRNA_Pipeline.md
