@@ -1680,24 +1680,7 @@ The bare query above can be used as is in the GraphQL IDE. In order to pass this
 
 Before a bare GraphQL query is passed to the GDC API, it must be processed as follows:
 
-1. Escape your GraphQL query using the script below
-
-```
-import json
-
-name = input("GraphQL query file: ")
-out = name[:-5] + "_escaped.json"
-
-with open(name, newline="") as f:
-    query = f.read()
-
-with open(out, "w", newline="") as f:
-    f.write(json.dumps(query)[1:-1])
-
-print(f"Saved to {out}")
-```
-[Download Script](scripts/JSON_Escape.py)
-
+1. [Escape](https://www.devtoolsdaily.com/json/escape/) the query using JSON string rules
 2. Wrap the query in a ["query" JSON object](#constructing-a-query).
 3. Pass the query to the `graphql` endpoint in an HTTP POST request.
 
