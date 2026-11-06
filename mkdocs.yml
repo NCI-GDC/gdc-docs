@@ -208,8 +208,10 @@ theme:
     - navigation.tabs.sticky
   logo: images/nih-header-logo-color.png
   name: material
+  variant: classic
   palette:
     primary: white
     scheme: gdc-accessible
-  plugins:
-    - search
+plugins:
+  - search:
+      enabled: true
