@@ -6,6 +6,8 @@
 #
 --index-url https://nexus.osdc.io/repository/pypi-all/simple
 
+beautifulsoup4==4.15.0
+    # via mkdocs-with-pdf
 cairocffi==1.7.1
     # via
     #   cairosvg
@@ -17,7 +19,9 @@ cffi==1.16.0
     #   cairocffi
     #   weasyprint
 click==8.5.0
-    # via zensical
+    # via
+    #   mkdocs
+    #   zensical
 cssselect2==0.7.0
     # via
     #   cairosvg
@@ -26,20 +30,47 @@ deepmerge==4.0.0
     # via zensical
 defusedxml==0.7.1
     # via cairosvg
+ghp-import==2.1.0
+    # via mkdocs
 html5lib==1.1
     # via weasyprint
 jinja2==3.1.4
-    # via zensical
+    # via
+    #   mkdocs
+    #   zensical
+libsass==0.23.0
+    # via mkdocs-with-pdf
 markdown==3.11.2
     # via
+    #   mkdocs
     #   pymdown-extensions
     #   zensical
 markupsafe==2.1.5
-    # via jinja2
+    # via
+    #   jinja2
+    #   mkdocs
+mergedeep==1.3.4
+    # via
+    #   mkdocs
+    #   mkdocs-get-deps
+mkdocs==1.6.1
+    # via
+    #   -r requirements.in
+    #   mkdocs-with-pdf
+mkdocs-get-deps==0.2.2
+    # via mkdocs
+mkdocs-with-pdf==0.9.3
+    # via -r requirements.in
+packaging==26.3
+    # via mkdocs
 pathspec==1.1.1
-    # via zensical
+    # via
+    #   mkdocs
+    #   zensical
 pillow==10.4.0
     # via cairosvg
+platformdirs==4.14.5
+    # via mkdocs-get-deps
 pycparser==2.22
     # via cffi
 pygments==2.21.0
@@ -48,12 +79,22 @@ pymdown-extensions==12.3
     # via zensical
 pyphen==0.16.0
     # via weasyprint
+python-dateutil==4.0.0
+    # via ghp-import
 pyyaml==6.0.3
     # via
+    #   -r requirements.in
+    #   mkdocs
+    #   mkdocs-get-deps
     #   pymdown-extensions
+    #   pyyaml-env-tag
     #   zensical
+pyyaml-env-tag==1.1
+    # via mkdocs
 six==1.16.0
     # via html5lib
+soupsieve==4.0.1
+    # via beautifulsoup4
 tinycss2==1.3.0
     # via
     #   cairosvg
@@ -61,8 +102,16 @@ tinycss2==1.3.0
     #   weasyprint
 tomli==2.5.0
     # via zensical
+typing-extensions==4.16.0
+    # via beautifulsoup4
+tzdata==2026.6
+    # via python-dateutil
+watchdog==7.1.0
+    # via mkdocs
 weasyprint==44
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   mkdocs-with-pdf
 webencodings==0.5.1
     # via
     #   cssselect2
