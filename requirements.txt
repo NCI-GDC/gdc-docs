@@ -4,8 +4,6 @@
 #
 #    pip-compile requirements.in
 #
---index-url https://nexus.osdc.io/repository/pypi-all/simple
-
 beautifulsoup4==4.15.0
     # via mkdocs-with-pdf
 cairocffi==1.7.1
@@ -26,8 +24,6 @@ cssselect2==0.7.0
     # via
     #   cairosvg
     #   weasyprint
-deepmerge==4.0.0
-    # via zensical
 defusedxml==0.7.1
     # via cairosvg
 ghp-import==2.1.0
@@ -117,7 +113,7 @@ webencodings==0.5.1
     #   cssselect2
     #   html5lib
     #   tinycss2
-zensical==0.0.74
+zensical==0.1.1
     # via -r requirements.in
-zensical-ui==0.0.41
+zensical-ui==0.0.42
     # via zensical
