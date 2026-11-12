@@ -2,7 +2,6 @@
 
 # GDC Open Source code
 
-=======
 GDC is Open Source, Github Repositories containing source code of GDC Applications can be found on [GDC GitHub Organization page](https://github.com/NCI-GDC/).
 
 - GDC Data Portal: https://github.com/NCI-GDC/portal-ui
@@ -17,31 +16,6 @@ GDC is Open Source, Github Repositories containing source code of GDC Applicatio
 Please direct technical questions to [GDC Support](https://gdc.cancer.gov/support).
 
 # GDC Documentation Site
-
-### Technology
-
- - Python 2.6, 2.7, 3.3, 3.4 and 3.5.
- - [mkdocs](http://www.mkdocs.org/)
- - [BSCodeTabs for mkdocs](https://github.com/mikecules/MarkdownBSCodeTabs#for-use-in-mkdocs)
-
-### Install & Run
-
-(Optional) Set up virtualenv:
-
-- [Install virtualenv](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
-- `python -m virtualenv venv`
-- `source venv/bin/activate`
-- Run the installation commands below
-- To leave the virtual environment: `deactivate`
-
-Install GDC-docs:
-
- - `pip install -r requirements.txt`
- - `mkdocs serve` (optionally set port `--dev-addr=0.0.0.0:<PORT>`)
-
-### Build
-
- - `mkdocs build --clean`
 
 ### Repository Conventions
 
@@ -72,17 +46,14 @@ example:
 
 A detailed list of all conventions is available on [GDC Website](https://gdc.cancer.gov/conventions-page)
 
-## Material Port
-
-Note for a port to the Material theme for mkdocs.
-
 ### Resource
+Zensical is the static site generator used to build the markdown files into a site.
 
-[Material for MkDocs documentation](https://squidfunk.github.io/mkdocs-material/getting-started/)
+[Zensical documentation](https://zensical.org/docs/get-started/)
 
 ### Python Version
 
-Use Python 3.8 or greater. For development, this branch is using Python 3.12.
+Use Python 3.11
 
 ### Installation
 
@@ -115,7 +86,7 @@ pip-sync requirements.txt
 For development, start a mkdocs server locally with
 
 ```bash
-mkdocs serve
+zensical serve
 ```
 
 In a browser, open `http://127.0.0.1:8000/`
@@ -125,7 +96,7 @@ In a browser, open `http://127.0.0.1:8000/`
 To build the site, run
 
 ```bash
-mkdocs build
+zensical build
 ```
 
 ### Building User Guide PDFs
@@ -149,16 +120,9 @@ ENABLE_PDF_EXPORT=1 mkdocs build -f Data_UG.yml
 Build the site again to move the generated PDFs in the correct directory.
 
 ```bash
-mkdocs build
+zensical build
 ```
 
-### Known Issues
-
-- Dict search app does not work
-- Dict viewer app does not work
-- Code blocks not displaying for multiple languages
-- PDF generation needs to be added
-  
 ### Build Logs
 
 The build logs give us many warnings that could be investigated and fixed. Categories of messages:

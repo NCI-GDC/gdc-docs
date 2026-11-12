@@ -34,7 +34,7 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
   logo: images/nih-header-logo-color.png
-  name: material
+  name: mkdocs
   palette:
     primary: white
     scheme: gdc-accessible
