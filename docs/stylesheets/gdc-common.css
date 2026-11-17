@@ -1210,3 +1210,15 @@ span.icon-sized {
 .md-header__button.md-logo img, .md-header__button.md-logo svg {
     height: 1.8rem;
 }
+
+.md-search__button {
+  background-color: hsla(var(--md-hue), 0%, 0%, .07);
+}
+
+.md-search__button:hover {
+  background-color: hsla(var(--md-hue), 0%, 0%, .30);
+}
+
+.md-search__button::after {
+  content: none !important;
+}
