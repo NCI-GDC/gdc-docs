@@ -6,13 +6,13 @@ hide:
 
 # Data Dictionary Viewer
 
-<link rel="stylesheet" href="dictionary.css">
+<link rel="stylesheet" href="/stylesheets/dictionary.css">
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" integrity="sha512-vc58qvvBdrDR4etbxMdlTt4GBQk1qjvyORR2nrsPsFPyrs+/u5c3+1Ct6upOgdZoIl7eq6k3a1UPDSNAQi/32A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script src="dictionary-init.js"></script>
-<script src="dictionary.js"></script>
-<script src="dictionary-views.js"></script>
+<script src="/javascript/dictionary-init.js"></script>
+<script src="/javascript/dictionary.js"></script>
+<script src="/javascript/dictionary-views.js"></script>
 <p id="dictionary-preamble" style="margin: 1rem auto 2rem auto; width: 95%;">
 The GDC data dictionary viewer is a user-friendly interface for accessing the <a href="../">GDC Data Dictionary</a>.
 </p>

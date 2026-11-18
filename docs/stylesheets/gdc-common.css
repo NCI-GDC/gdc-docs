@@ -1215,6 +1215,10 @@ span.icon-sized {
   background-color: hsla(var(--md-hue), 0%, 0%, .07);
 }
 
+.md-search__button:focus {
+  background-color: hsla(var(--md-hue), 0%, 0%, .07);
+}
+
 .md-search__button:hover {
   background-color: hsla(var(--md-hue), 0%, 0%, .30);
 }
