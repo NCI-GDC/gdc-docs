@@ -7,13 +7,8 @@ The GDC Data Portal is a repository and computational platform for cancer resear
 clinical progression, and response to therapy. The GDC Data Portal supports the development of applications that allow
 for analysis, visualization, and refinement of cohorts.
 
-The GDC Data Portal is built on top of the [GDC API](https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/),
-which provides access to the GDC data. The GDC Data Portal provides an Analysis Tool Framework (ATF) for developing
-applications that can be used to analyze, visualize, and download data from the GDC.
-
-The GDC Data Portal is built with the [React](https://reactjs.org/) framework and
-the [Redux](https://redux.js.org/) library for state management. The GDC Data Portal uses [NextJS](https://nextjs.org/) as its application framework which
-provides server-side rendering of React components. [Mantine.dev](https://mantine.dev/) is the component library, and
+The GDC Data Portal provides an Analysis Tool SDK for developing applications that can be used to analyze, visualize, and download data from the GDC. The GDC Data Portal is built with the [React](https://reactjs.org/) framework and
+the [Redux](https://redux.js.org/) library for state management. The GDC Data Portal uses [NextJS](https://nextjs.org/) as its application framework which provides server-side rendering of React components. [Mantine.dev](https://mantine.dev/) is the component library, and
 styling is through [TailwindCSS](https://tailwindcss.com/). The GDC Data Portal is built on top of the GDC API, which provides access to
 the GDC data.
 
@@ -32,23 +27,22 @@ visualization and can also be used to refine and build cohorts. Applications are
 query the GDC API for additional information.
 
 Local and Global filters are available to applications. Local filters are filters that are specific to the application
-and are used to refine the data that is displayed in the application.For example in the Mutation Frequency application, the local filters are the gene
-and mutation type filters. In the figure below the local filters are highlighted in yellow. These filters are used to
+and are used to refine the data that is displayed in the application. For example, in the Mutation Frequency application, the local filters are the gene and mutation type filters. In the figure below the local filters are highlighted in yellow. These filters are used to
 refine the input cohort allowing users to drill down to specific genes and mutation types of interest in the cohort.
 
 ![Mutation Frequency](./images/developers_guide/mutation_frequency_parts_highlighted.png)
 
-### Local vs Global Filters
+### Local vs Global (Cohort) Filters
 
 The GDC Data Portal application's input can be the current cohort or multiple user defined cohorts. The application then
-allow users to add filters refining the cohort, create new additional cohorts, or display the data in a visualization.
+allows users to add filters to refine the cohort, create new additional cohorts, or display the data in a visualization.
 Applications typically have:
 
-* **Local filters**  Refine the data displayed in the application
-* **Global filters**  Defines the cohort
-* **UI Components** Display the data in the application
-* **State** Stores the data displayed in the application
-* **Actions** Update the state of the application
+* **Local filters** - Refine the data displayed in the application
+* **Global (Cohort) filters** - Define the cohort
+* **UI Components** - Display the data in the application
+* **State** - Stores the data displayed in the application
+* **Actions** - Update the state of the application
 
 Applications can also create new cohorts. These cohorts can be used by other GDC Data Portal applications. The figure
 below illustrates the application components and cohort filters.
@@ -190,7 +184,7 @@ const cohorts = useCoreSelector((state) => selectAvailableCohorts(state));
 ## Using the GDC Data Portal Application API
 
 The GDC Data Portal provides a number of hooks for querying the GDC API. These hooks are located in the `@gff/core` package.
-The hooks are designed to work in a manner similar to the RTL Query hooks. The hooks take arguments and return an
+The hooks are designed to work in a manner similar to the Redux Toolkit (RTK) Query hooks. The hooks take arguments and return an
 object.
 The object contains the data and the status of the query. The status of the query is stored in the `isSuccess` variable.
 The @gff/core package also provides a set of selectors that return values stored in the core redux store: `CoreStore`.
@@ -607,7 +601,7 @@ refetch of its counts.
 They always apply to the current cohort, the one displayed in the Cohort Management Bar,
 which can be read with `selectCurrentCohort`, and its filters can be read with `selectCurrentCohortFilters`.
 
-### Updating, Removing, and Clearing filters
+### Updating, Removing, and Clearing Filters
 
 `updateCohortFilter` adds or replaces the filter for a single field:
 
@@ -898,7 +892,7 @@ The `DownloadButton` component takes a number of arguments:
 />
 ```
 
-The parameters for the DownloadButton are defined in the GDC Data Portal 2.0 SDK API documentation. The `DownloadButton`
+The parameters for the DownloadButton are defined in the GDC Analysis Tool SDK documentation. The `DownloadButton`
 component will take care of
 calling the GDC API and downloading the data. The `DownloadButton` component will also provide status that can be used
 with
@@ -998,7 +992,7 @@ interface CNVPlotProps {
 }
 ```
 
-These charts and others are documented in the GDC Data Portal 2.0 SDK API documentation.
+These charts and others are documented in the GDC Analysis Tool SDK documentation.
 
 ### Facets
 
@@ -1045,7 +1039,7 @@ components:
 
 *Toggle Facet*
 
-The facet components are documented in the GDC Data Portal 2.0 SDK API documentation. As these components are passed data fetcher
+The facet components are documented in the GDC Analysis Tool SDK documentation. As these components are passed data fetcher
 and filter management hooks, they can be used for both cohort and local filters in an application.
 
 ### VerticalTable
@@ -1058,7 +1052,7 @@ The table has support for searching, sorting, and pagination. It can be configur
 columns, including text, numeric, and date. The table can also be configured
 to use React components for rendering columns.
 The Vertical Table is used for most of the table views in the GDC Data Portal. There are a number of examples of its use and
-is documented in the GDC Data Portal 2.0 SDK API documentation.
+is documented in the GDC Analysis Tool SDK documentation.
 
 ![vertical_table.png](images/developers_guide/components/vertical_table.png)
 *Vertical Table*
@@ -1099,7 +1093,7 @@ updated). The Project application's source code is in the `@gff/portal-proto` pa
 directory.
 The user can create a new saved cohort by selecting projects and clicking the "Save New Cohort" button. This will open
 a modal that will allow the user to name the cohort and save it. The Project application is a good example of how to use
-the GDC Data Portal 2.0 SDK to create an application.
+the GDC Analysis Tool SDK to create an application.
 
 ![projects_app_parts_outlined.png](images/developers_guide/projects_app_parts_outlined.png)
 *Major Sections of an Application*
@@ -1399,17 +1393,17 @@ import ProjectsIcon from "public/user-flow/icons/crowd-of-users.svg";
 
 The above code registers the Project Center application with the GDC Data Portal. The members of the object are:
 
-* `name` The name of the application
-* `icon` The icon as an SVG file, its size and position can be adjusted using the `width`, `height`, and `viewBox`
+* `name` - The name of the application
+* `icon` - The icon as an SVG file, its size and position can be adjusted using the `width`, `height`, and `viewBox`
 properties
-* `tags` The tags for the application used for searching (which is not currently active)
-* `hasDemo` A boolean indicating if the application has a demo. If so, the demo button will be shown.
-* `id` The id of the application, which needs to match the id of the application registered in
+* `tags` - The tags for the application used for searching (which is not currently active)
+* `hasDemo` - A boolean indicating if the application has a demo. If so, the demo button will be shown.
+* `id` - The id of the application, which needs to match the id of the application registered in
 the `createGdcAppWithOwnStore` function
-* `countsField` The field to use for the counts in the application. This is used to determine if the application can
+* `countsField` - The field to use for the counts in the application. This is used to determine if the application can
 be used.
-* `description` The description of the application
-* `noDataTooltip` The tooltip to show if the application has no data
+* `description` - The description of the application
+* `noDataTooltip` - The tooltip to show if the application has no data
 
 When the application is registered, it will be available in the GDC Data Portal. The application can be accessed by clicking on the
 application card.
@@ -1465,7 +1459,7 @@ const {data: geneSymbolDict, isSuccess} = useGeneSymbol(
 );
 ```
 
-GDC Data Portal hooks are designed to work similarly to the RTL Query hooks. The hooks take arguments and return an object,
+GDC Data Portal hooks are designed to work similarly to the RTK Query hooks. The hooks take arguments and return an object,
 which contains the data and the status of the query. The status of the query is stored in the `isSuccess` variable.
 The data returned from the query is stored in the `data` variable. The object returned from a GDC hook is of the form:
 
