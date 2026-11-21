@@ -35,6 +35,25 @@
 	* *Workaround:* Edit the manifest to specify only the the files that are present in the upload directory for submission or copy the missing files into the upload directory.
 
 
+## V2.3.0
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: September 30, 2024
+
+### New Features and Changes
+* A new version of the Data Transfer tool was released specifically for the Apple Silicon processor on Mac.  Another version is downloadable for the Intel processor.
+
+### Bugs Fixed Since Last Release
+
+* None
+
+### Known Issues and Workarounds
+* Use of non-ASCII characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
+* On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
+* When any files mentioned in the upload manifest are not present in the upload directory the submission will hang at the missing file.
+	* *Workaround:* Edit the manifest to specify only the the files that are present in the upload directory for submission or copy the missing files into the upload directory.
+
+
 ## V2.0.0
 * __GDC Product__: Data Transfer Tool
 * __Release Date__: July 30, 2024
