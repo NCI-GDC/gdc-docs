@@ -2,6 +2,7 @@
 
 | Version | Date |
 |---|---|
+| [v2.4.0](DTT_Release_Notes.md#v240) | October 29, 2026 |
 | [v2.3.0](DTT_Release_Notes.md#v230) | September 30, 2024 |
 | [v2.0.0](DTT_Release_Notes.md#v200) | July 30, 2024 |
 | [v1.6.1](DTT_Release_Notes.md#v161) | May 17, 2021 |
@@ -13,6 +14,25 @@
 | [v1.1.0](DTT_Release_Notes.md#v110) | September 7, 2016 |
 | [v1.0.1](DTT_Release_Notes.md#v101) | June 2, 2016 |
 | [v1.0.0](DTT_Release_Notes.md#v100) | May 26, 2016 |
+
+
+## V2.4.0
+* __GDC Product__: Data Transfer Tool
+* __Release Date__: October 29, 2026
+
+### New Features and Changes
+* Stability and connectivity improvements. <!--DEV-3618/DEV-4232-->
+
+### Bugs Fixed Since Last Release
+
+* None
+
+### Known Issues and Workarounds
+* Use of non-ASCII characters in token passed to Data Transfer Tool will produce incorrect error message "Internal server error: Auth service temporarily unavailable".
+* On some terminals, dragging and dropping a file into the interactive client will add single quotes (' ') around the file path. This causes the interactive client to misinterpret the file path and generate an error when attempting to load a manifest file or token.
+	* *Workaround:* Manually type out the file name or remove the single quotes from around the file path.
+* When any files mentioned in the upload manifest are not present in the upload directory the submission will hang at the missing file.
+	* *Workaround:* Edit the manifest to specify only the the files that are present in the upload directory for submission or copy the missing files into the upload directory.
 
 
 ## V2.3.0

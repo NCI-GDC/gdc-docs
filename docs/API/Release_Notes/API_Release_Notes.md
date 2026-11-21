@@ -3,6 +3,7 @@
 
 | Version | Date |
 |---|---|
+| [v8.6.0](API_Release_Notes.md#v860) | October 29, 2026 |
 | [v8.5.0](API_Release_Notes.md#v850) | June 29, 2026 |
 | [v8.3.0](API_Release_Notes.md#v830) | March 16, 2026 |
 | [v7.9.1](API_Release_Notes.md#v791) | May 20, 2025 |
@@ -43,6 +44,26 @@
 | [v1.1.0](API_Release_Notes.md#v110) | May 25, 2016 |
 | [v1.0.1](API_Release_Notes.md#v101) | May 16, 2016 |
 
+## v8.6.0
+
+* __GDC Product__: Application Programming Interface (API)
+* __Release Date__:  October 29, 2026
+
+### New Features and Changes
+
+* The survival analysis endpoint now excludes cases with obfuscated ages and uses only `days_to_death` for timepoints when `vital_status` is "dead". 
+* Information on the minimum and maximum possible values for numerical properties have been added to `_mapping` endpoints.
+
+### Bugs Fixed Since Last Release
+
+* None
+
+### Known Issues and Workarounds
+
+* Some fields may be repeated in the API or data portal due to being in a transitional state. As a workaround, select all of the fields of interest, and the results will demonstrate which are currently populated.
+* Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
+* Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
+
 ## v8.5.0
 
 * __GDC Product__: Application Programming Interface (API)
@@ -62,7 +83,7 @@
 
 ### Known Issues and Workarounds
 
-* Some fields may be repeated in the API or data portal due to being in a transitional states. As a workaround, select all of the fields of interest, and the results will demonstrate which are currently populated.
+* Some fields may be repeated in the API or data portal due to being in a transitional state. As a workaround, select all of the fields of interest, and the results will demonstrate which are currently populated.
 * Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
 * Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
 
@@ -82,7 +103,7 @@
 
 ### Known Issues and Workarounds
 
-* Some fields may be repeated in the API or data portal due to being in a transitional states. As a workaround, select all of the fields of interest, and the results will demonstrate which are currently populated.
+* Some fields may be repeated in the API or data portal due to being in a transitional state. As a workaround, select all of the fields of interest, and the results will demonstrate which are currently populated.
 * Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
 * Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
 * The survival endpoint may contain an error in which survival estimates are overestimated. For example, for a set of non-censored cases, decreases in survival estimate that should occur at a particular time point occur at the subsequent time point. This will be addressed in a future release.
@@ -102,7 +123,7 @@
 
 ### Known Issues and Workarounds
 
-* Some fields may be repeated in the API or data portal due to being in a transitional states. As a workaround, select all of the fields of interest, and the results will demonstrate which are currently populated.
+* Some fields may be repeated in the API or data portal due to being in a transitional state. As a workaround, select all of the fields of interest, and the results will demonstrate which are currently populated.
 * Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
 * Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
 
@@ -124,7 +145,7 @@
 ### Known Issues and Workarounds
 
 * Survival plots are generated from the `diagnoses.days_to_last_follow_up` field. For some TCGA projects, in Data Release 42, data was migrated to the `follow_ups.days_to_follow_up` field. This resulted in an issue with missing cases for some TCGA projects in survival plots. The GDC is actively working on a fix. In the interim, users should create survival plots using the greatest value in the `follow_ups.days_to_follow_up` field. <!-- SV-2584 -->
-* Some fields may be repeated in the API or data portal due to being in a transitional states. As a workaround, select all of the fields of interest, and the results will demonstrate which are currently populated.
+* Some fields may be repeated in the API or data portal due to being in a transitional state. As a workaround, select all of the fields of interest, and the results will demonstrate which are currently populated.
 * Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
 * Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
 
@@ -145,7 +166,7 @@
 
 ### Known Issues and Workarounds
 
-* Some fields may be repeated in the API or data portal due to being in a transitional states. As a workaround, select all of the fields of interest, and the results will demonstrate which are currently populated.
+* Some fields may be repeated in the API or data portal due to being in a transitional state. As a workaround, select all of the fields of interest, and the results will demonstrate which are currently populated.
 * Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
 * Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
 
@@ -164,7 +185,7 @@
 
 ### Known Issues and Workarounds
 
-* Some fields may be repeated in the API or data portal due to being in a transitional states. As a workaround, select all of the fields of interest, and the results will demonstrate which are currently populated.
+* Some fields may be repeated in the API or data portal due to being in a transitional state. As a workaround, select all of the fields of interest, and the results will demonstrate which are currently populated.
 * Fields are not counted as missing if parent field is also missing.  This may occur with queries of nested fields in the Data Portal Advanced Search or an API query using a filter.  This behavior could impact results reported using search parameters of "IS MISSING" or "NOT MISSING". <!-- PGDC-2530 // https://github.com/NCI-GDC/gdcapi/pull/524  -->
 * Certain very large API requests will time out.  It is recommended to break up very large requests into a series of smaller requests. <!-- PGDC-2411 -->
 
