@@ -1,0 +1,11 @@
+--- /venv/lib/python3.9/site-packages/mkdocs_pandoc/pandoc_converter.py	2025-04-10 13:54:36.348159540 +0000
++++ /venv/lib/python3.9/site-packages/mkdocs_pandoc/pandoc_converter.py	2025-04-10 13:55:01.268162893 +0000
+@@ -34,7 +34,7 @@
+             raise FatalError("Couldn't open %s for reading: %s" % (self.config_file,
+                 e.strerror), 1)
+
+-        self.config = yaml.load(cfg)
++        self.config = yaml.full_load(cfg)
+
+         if not 'docs_dir' in self.config:
+             self.config['docs_dir'] = 'docs'
